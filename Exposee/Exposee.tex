@@ -1,0 +1,267 @@
+%        File: Expose.tex
+%     Created: Di Mrz 04 02:00  2014 Mitteleuropäische Z
+% Last Change: Di Mrz 04 02:00  2014 Mitteleuropäische Z
+%
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt, titlepage=true]{scrartcl} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[ngerman]{babel} 
+\usepackage[babel,german=quotes]{csquotes}
+\usepackage[T1]{fontenc} % for enabling non-standard characters in
+                         % hyphenation-list and smallcaps-boldfont
+
+\usepackage[bibstyle=authortitle, citestyle=authoryear]{biblatex}
+\bibliography{expose}
+
+% \DeclareUnicodeCharacter{00A0}{~} % for avoiding problems with no-break spaces
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+\graphicspath{{./Bilder/}}
+
+\usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+%\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{ragged2e} %für links und rechtsbündige Umgebungen in Tabellen
+\usepackage{todonotes}
+
+%%% Eigene Befehle %%%
+\newcommand{\was}[1]{\small\textit{#1}}
+
+%%% Allgemeine Daten %%%
+\newcommand{\autorOne}{Alexander Müller}
+\newcommand{\matrikelnrOne}{940597}
+\newcommand{\adresseOne}{Gartlager Weg 37, \\49086 Osnabrück}
+\newcommand{\telOne}{01578 1901578}
+\newcommand{\emailOne}{alemuell@uos.de}
+
+\newcommand{\autorTwo}{János Sebestyén}
+\newcommand{\matrikelnrTwo}{939525}
+\newcommand{\adresseTwo}{Gartlager Weg 37, \\49086 Osnabrück}
+\newcommand{\telTwo}{}
+\newcommand{\emailTwo}{jsebesty@uos.de}
+
+%%% Titlepage Expose %%%
+\newcommand{\titel}{Ökologische Nachhaltigkeit durch \enquote{Nutzen statt Besitzen}?}
+\newcommand{\stitle}{}
+\newcommand{\art}{Exposé}
+\newcommand{\fachgebiet}{Angewandte Systemwissenschaft}
+\newcommand{\betreuung}{Katrin Bienge und Prof. Dr. Claudia Pahl-Wostl}
+\newcommand{\institut}{Wuppertal Institut für Klima, Umwelt, Energie und Institut für Umweltsystemforschung}
+\newcommand{\ort}{Osnabrück}
+
+%%% END Article customizations
+
+\begin{document}
+\begin{titlepage}
+  \begin{center}
+    \includegraphics[scale=0.5]{Logo-Uni-Osnabrueck.jpg}\\[3ex]
+
+    \vfill
+    \LARGE{\textbf{\art}}\\[1.5ex]
+    \huge{\textbf{\textsc{\titel}}}\\[1.0ex]
+    \LARGE{\textbf{\stitle}}\\[6ex]
+    \vfill
+
+    \normalsize
+    vorgelegt von:\\[12pt]
+
+      \begin{minipage}[]{0.30\textwidth}
+        \textbf{\autorOne}\\
+        Matrikelnummer: \matrikelnrOne\\
+        \emailOne\\
+        \adresseOne\\
+      \end{minipage}
+      \hspace{0.15\textwidth}
+      \begin{minipage}[]{0.3\textwidth}
+        \textbf{\autorTwo}\\
+        Matrikelnummer: \matrikelnrTwo\\
+        \emailTwo\\
+        \adresseTwo\\
+      \end{minipage}
+
+      \vfill
+\todo{schön machen}
+      \begin{minipage}[t]{0.45\textwidth}
+        \begin{flushright}
+          Datum:              \\[1.2ex]
+          Ort:                \\[1.2ex]
+          Betreuende Person:  \\[1.2ex]
+          Institut:           \\[3ex]
+        \end{flushright}
+      \end{minipage}
+      \hspace{0.01\textwidth}
+      \begin{minipage}[t]{0.45\textwidth}
+        \begin{flushleft}
+          \today\\[1.2ex]
+          \ort\\[1.2ex]
+          \betreuung\\[1.2ex]
+          \institut \\[3ex]
+        \end{flushleft}
+      \end{minipage}
+  \end{center}
+\end{titlepage}
+\tableofcontents
+\section{Thema der Arbeit}
+\was{Kurze allgemeine Einführung in unser Thema. Was wird behandelt?}
+- Problembeschreibung: Konsumkultur, nicht nachhaltiger Ressourcenverbrauch. Ein Teilproblem: Produkte werden nicht voll ausgenutzt (Lebensdauer/Nutzungsvorrat, Auslastung).
+- Betrachtung von alternativen Konsumformen, welche diese Probleme durch gemeinschaftliche Nutzung von Produkten des alltäglichen Bedarfs möglicherweise verringern
+- heutzutage: Nutzen statt Besitzen, häufig internetbasiert, collaborative consumption, Sharing Economy
+- aber auch traditionell: second hand
+- positive Umweltwirkungen: ...
+- aber auch negative Umweltauswirkugen: ...
+- insbesondere Nachfrageeeffekte relevant, da mit diesen Nutzungsformen häufig finanzielle Einspareffekte einhergehen (gleichzeitig Anreiz, aber eben auch Rebound)
+- Vielzahl von verschiedenen Produkten und Nutzungssystemen, mit je spezifischen Charakteristika, bspw. aktive und passive Produkte, von denen die jeweiligen zu erwartenden Umweltauswirkungen abhängen
+
+\section{Abriss des aktuellen Forschungsstandes}
+\was{An welchen derzeitigen Forschungsstand knüpfen wir mit unserem Thema an? Hier führen wir relevante Forschung und aktuelle Studien an.}
+- einiges an empirischer Forschung zu speziellen Produkten (Werkzeuge, textiles Waschen, ...) und Nutzungssystemen (Gebrauchtwarenhandel übers Internet, Car-Sharing)
+- Umweltwirkungen stellen immer einen Teilaspekt dar, häufig noch Betrachtung von Handlungsempfehlungen, Strategien zur Förderung, Hemmnisse, Marktanalysen, Anschlussfähigkeit, Typisierung von Konsument*innen, Motivation für solche Nutzungsformen,...
+- konzeptionelle Arbeiten/theoretischer Rahmen: Nutzungsdauerverlängerung, -intensivierung, Klassifizierung von Nutzungssystemen
+- 
+
+
+Fragen für die Literaturarbeit:
+\begin{itemize}
+	\item Welche Zielgrößen gibt es, z.B. MIPS, CO2-Bilanz, ...? Insbesondere auch für Nachfrageeffekte.
+	\item Welche Bezugsrahmen gibt es und wie lassen sie sich miteinander vergleichen?
+	\item Was sind die konzeptionellen Grundlagen des MAIA/MIPS-Ansatzes?
+	
+	\item Was wurde zum Bereich Ökobilanz-Modellierung der Nutzungsphase bereits publiziert?
+	\item Spezieller: Was gibt es schon zum Bereich Ökobilanz-Modellierung von \enquote{Nutzen statt Besitzen}?
+	
+	\item Gibt es bereits Klassifizierungen für Güter/Nutzungssysteme?
+	\item Welche Beispiele für Güter/Nutzungssysteme gibt es?
+	
+	\item Welche Prozesse (positive und negative Auswirkungen) von \enquote{Nutzen statt Besitzen} gibt es?
+	\item Welche Prozesse werden als relevant erachtet?
+\end{itemize}
+
+ \section{(Identifizierung einer Forschungslücke)}
+ \was{Gibt es eine Forschungslücke im derzeitigen Forschungsstand? Wie werden wir
+ diese mit unserer Arbeit schließen?
+ Gegebenenfalls mit vorigem Abschnitt zusammenfassen zu \enquote{Forschungsstand und Forschungslücke}.}
+ - immer nur detaillierte Betrachtung einzelner Produkte
+ - kein einheitliches methodisches Vorgehen: Bezugsgröße variiert
+ - Einzelfallberechnungen, keine Analyse der Parameter, Potentiale
+ - nicht allgemein
+ - keine konsequente Betrachtung der Ressourceninputs
+ 
+ 
+\section{Forschungsziel}
+\was{Was wollen wir mit unserer Arbeit erreichen?}
+
+- systematische/allgemeine Betrachtung der Umweltwirkungen bei gemeinschaftlicher Nutzung
+- einheitlicher Methodenrahmen für verschiedene Produkte und Nutzungssysteme
+- Entwicklung von Kriterien für die Nachhaltigkeit kollektiver Nutzungssysteme. Ableitung einer Klassifikation für Güter und Nutzungssysteme.
+
+\section{Zentrale Fragestellungen}
+\was{Was ist/sind die zentrale(n) Fragestellung(en)? Wenn wir mit Hypothesen
+arbeiten, geben wir diese hier an.
+Gegebenenfalls mit vorigem Abschnitt zusammenfassen zu "`Forschungsziel
+und Fragestellung"'.}
+- Wovon hängt es ab, wie ressourceneffizient eine bestimmte Form der gemeinsamen Nutzung eines bestimmten Gutes ist?
+	- Was sind die Mechanismen, die dazu führen, dass durch gemeinsame Nutzung Ressourcen eingespart werden können?
+	- Von welchen Eigenschaften (bzw. herkömmlichen Nutzungsformen) der Güter hängt das Ressourceneinsparpotential durch gemeinsame Nutzung ab?
+	- Wie müssen gemeinsame Nutzungsformen beschaffen sein, um dieses Potential auszuschöpfen? (in Abhängigkeit vom betrachteten Gut)
+
+\section{Methodische Vorgehensweise}
+\was{Welche Methoden werden wir verwenden? Wie gehen wir methodisch vor?}
+
+\was{Auswahlkriterien sowie Umfang, Erschließung und Aufbereitung unseres
+Untersuchungsmaterials.}
+
+Operationalisierung von ökologischer Nachhaltigkeit: Inputs, Emissionen. Genaue betrachtete Größen (z.B. MIPS-Konzept, CO2-Emissionen) Betrachtungsrahmen (z.B. Produktsicht, individuelle Sicht, gesellschaftliche Sicht) je betrachtetem Effekt. 
+
+Input-Variablen: Güter, Nutzungssysteme. Genauere Spezifikationen der Charakteristischen Variablen folgen im Projektverlauf.
+
+Liste an Prozessen, die prinzipiell berücksichtigt werden sollen
+
+Liste an Gütern und Nutzungssystemen, die als Beispiele dienen und für die Modellentwicklung und Analyse richtungsweisend sind. Sie können später gegebenenfalls auch als Repräsentanten der identifizierten Klassen dienen.
+
+Vorgehen:
+\begin{itemize}
+	\item Wirkungsgraphen für die einzelnen Prozesse
+	\item mathematische Modelle für die einzelnen Prozesse
+	\item Sensitivitätsanalysen der einzelnen Prozesse zur Abschätzung der Wirkungen (Größenordnungen und Heterogenität bzgl. der Input-Variablen)
+	\item Auswahl der entscheidenden Prozesse anhand der vorangegangenen Analyse
+	\item Modellkopplung mehrerer wechselwirkender Prozesse
+	\item Ausführliche Modellanalyse zur Ableitung von Kriterien zur Nachhaltigkeit
+	\item Erarbeitung einer Klassifizierung anhand der abgeleiteten Kriterien. Interpretation der Ergebnisse.
+	\item Anwendung des Gesamtmodells auf Repräsentanten der identifizierten Klassen.
+	\item Vergleich der Ergebnisse mit ausgewählten Suffizienz- und Effizienzstrategien bei individueller Nutzung (z.B. Angabe der Äquivalente)
+\end{itemize}
+
+
+\section{Zu erwartende Ergebnisse}
+\was{Welchen Beitrag zum Wissensstand der Forschungsgemeinschaft leisten wir mit
+unserer Arbeit?
+Oder: Welche Ergebnisse sind zu erwarten?}
+
+
+\section{Aufbau der Arbeit}
+\was{Ein erstes Inhaltsverzeichnis}
+Einleitung
+
+Modell:
+Einzelmodelle
+Gekoppelte Modelle
+
+Modellanalyse:
+Einzelmodelle
+Gekoppelte Modelle
+
+Anwendungen
+
+Ausblick
+Literaturverzeichnis
+Anhang
+
+\section{Zeitplan und einzelne Arbeitsschritte}
+\was{Ein erster grober Zeitplan, der die wichtigsten Arbeitsschritte enthält.}
+
+\section{Offene Fragen}
+
+\section{Auswahlbibliographie}
+\was{Relevante Literatur (erste Auswahl/Standardwerke, aktuelle Fachartikel)}
+
+% \printbibliography
+\end{document}
+
+
