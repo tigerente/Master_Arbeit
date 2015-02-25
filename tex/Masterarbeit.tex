@@ -29,8 +29,9 @@ dashed=false]{biblatex}
 %   read geometry.pdf for detailed page layout information
 
 \usepackage{graphicx} % support the \includegraphics command and options
+\usepackage{tikz} % for graphics produced by R
 
-\graphicspath{{../Abbildungen/}}
+\graphicspath{{../Abbildungen/}{./Abbildungen/}}
 
 \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
 
@@ -41,6 +42,7 @@ dashed=false]{biblatex}
 \usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
 \usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
 % These packages are all incorporated in the memoir class to one degree or another...
+\usepackage{amsmath}
 
 %%% HEADERS & FOOTERS
 \usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
@@ -68,6 +70,7 @@ dashed=false]{biblatex}
 
 %%% Eigene Befehle %%%
 \newcommand{\was}[1]{\small\textit{#1}}
+\newcommand{\MIPS}[1][]{\text{MIPS}_{#1}}
 
 %%% Allgemeine Daten %%%
 \newcommand{\autorOne}{Alexander Müller}
@@ -149,212 +152,243 @@ dashed=false]{biblatex}
 
 
 \section{Einleitung}
-		\subsection{Thema}
-		Die heutigen industrialisierten Kulturen sind durch einen umfangreichen
-		individuellen Bedarf an Produkten und Dienstleistungen gekennzeichnet. Jeder
-		Haushalt, jede Person verfügt über zahlreiche, in der Summe höchst
-		ressourcenintensive Güter, was gesamtgesellschaftlich zu einer hohen, nicht mehr
-		tragfähigen Umweltbelastung führt.
-		
-		Ein Problem heutiger Konsumkulturen, an dem Nachhaltigkeitsstrategien ansetzen
-		können, ist die ineffiziente Nutzung der produzierten Gütermenge: So wurde eine
-		durchschnittliche Bohrmaschine bei ihrer Entsorgung lediglich 45 Stunden
-		genutzt, obwohl sie 300
-		Stunden hätte genutzt werden können \parencite[S. 31]{behrendt_oko-rent_2000}. Autos
-		sind im Durchschnitt mit nur 1,6 Personen besetzt, obwohl sie in der Regel
-		Platz für vier Menschen bieten \parencites[zitiert nach: ]{baum_untersuchungen_1994}[S. 43]{behrendt_car-sharing_2000}. Diese Beispiele
-		verdeutlichen, dass bei der individuellen Nutzung die maximale Nutzungsdauer und
-		Auslastung von Produkten häufig nicht erreicht werden. Formen gemeinschaftlicher
-		Nutzung, um die es in unserer Arbeit geht, können durch
-		Nutzungsdauerverlängerung und Nutzungsintensivierung die daraus resultierenden
-		Effizienzpotentiale heben und dadurch zu einer Reduktion der Umweltbelastung
-		führen.
-		
-		Zahlreiche dieser Nutzungsformen, die sich über alle Produktgruppen erstrecken,
-		sind bereits seit geraumer Zeit etabliert. Zum einen finden sich hier alle Formen des Gebrauchtwarenmarkts von Second-Hand-Läden für Kleidung über Geschäfte des An- und Verkaufs bis hin zu Flohmärkten. Zum anderen existiert eine breite Palette an Miet- und Verleihsystemen, wie zum
-		Beispiel Bibliotheken, Videotheken oder Autovermietungen. Neben diesen kommerziellen Angeboten gibt es auch vielfältige Formen der privaten gemeinschaftlichen Nutzung, wie
-		beispielsweise die gemeinsame Nutzung von Waschmaschinen, Rasenmähern oder Kühlschränken in
-		Wohnanlagen und Wohngemeinschaften, oder die Bildung von Fahrgemeinschaften.
-		
-		Mit dem Aufkommen der heutigen Informations- und Kommunikationstechnologien
-		erhalten viele dieser Formen eine neue, ungeahnte Dimension: Das Internet
-		vergrößert die räumlichen Entfernungen und die Anzahl beteiligter
-		Teilnehmer*innen der herkömmlichen Gebraucht-, Miet- und Verleihmärkte um ein
-		Vielfaches. Durch das große Angebot und die einfache Möglichkeit der gezielten
-		Suche verringert sich der Aufwand zum Zustandekommen des Warenaustauschs.
-		Ermöglicht durch den einfachen, ortsungebundenen Zugang zum Internet und die
-		Vernetzung von Menschen mit ähnlichen Bedürfnissen entstanden ganz neue Formen
-		der gemeinschaftlichen Nutzung: So ermöglichen es entsprechende
-		Internetplattformen beispielsweise, anstatt in einem Hotel zu übernachten, auf
-		einer Reise ganz bequem bei Privatpersonen unterzukommen oder mit Hilfe eines
-		Smartphones ganz einfach das nächste Free Floating Car zu finden.
-		
-		Hinter diesen neuen Formen werden unter Verwendung der Begriffe
-		\enquote{collaborative consumption} oder \enquote{Kokonsum} soziale Innovationen
-		gesehen, die zu mehr Nachhaltigkeit bei gleichbleibendem oder sogar gesteigertem
-		Wohlstand führen können. Und aus Unternehmensperspektive stellen sich diese
-		neuen Nutzungsformen als wichtiger neuer ökonomischer Wachstumsmarkt -- die
-		\enquote{Sharing Economy} -- dar. In der Forschung wird das Thema mit jeweils
-		leicht unterschiedlichen Perspektiven unter den Begriffen \enquote{Nutzen statt
-		Besitzen}, \enquote{eigentumsersetzender Konsum}, \enquote{eco services} und
-		\enquote{product-service systems} diskutiert. 
-		
-		Im Vergleich zur Euphorie, die von der Sharing Economy ausgeht, zeigt sich aus wissenschaftlicher Perspektive hinsichtlich der Umweltwirkungen gemeinschaftlicher Nutzungssysteme ein differenzierteres Bild: Zum einen werden die positiven Primäreffekte der
-		Nutzungsdauerverlängerung und -intensivierung um weitere sekundäre
-		Ressourceneinsparmöglichkeiten ergänzt. So kann es beispielsweise bei der
-		gemeinschaftlichen Nutzung einer Waschmaschine sinnvoll sein, eine
-		halbgewerbliche Maschine mit entsprechend längerer Lebensdauer und höherer
-		Effizienz zu verwenden. Zum anderen werden die durch gemeinschaftliche Nutzung
-		ermöglichten Ressourceneinsparungen jedoch auch durch negative Umweltwirkungen
-		begleitet: Beispielsweise müssen für die Koordination der gemeinschaftlichen
-		Nutzung und den Transport der genutzten Produkte zwischen den Nutzer*innen zusätzliche
-		Ressourcen aufgewendet werden. Und auch positive sekundäre Effekte können mit negativen Nebenwirkungen einhergehen, wie beispielsweise für die Produktion einer halbgewerblichen Waschmaschine im Vergleich zu einer handelsüblichen
-		mehr Ressourcen benötigt werden.
-		
-		Nicht zuletzt wirken sich die aus der Perspektive der Sharing Economy positiven
-		finanziellen Einsparungen bei der gemeinschaftlichen Nutzung auf die Nachfrageseite der
-		Konsumenten aus: Das eingesparte Geld kann in weiteren Konsum und damit
-		zusätzlichen Ressourcenverbrauch investiert werden (Rebound-Effekt). Außerdem
-		bleiben in einer solchermaßen veränderten Ökonomie, welche den Zugang und nicht
-		den Besitz in den Vordergrund stellt, die Bedürfnisstrukturen nicht unberührt:
-		Die Möglichkeit, auf viele (Luxus-)Güter zuzugreifen, könnte mit einem
-		verstärkten Wunsch einhergehen, dies auch tatsächlich zu tun.
-		
-		Welche Netto-Umweltwirkungen schließlich durch die gemeinschaftliche Nutzung zu
-		erwarten sind, hängt in hohem Maße von dem betrachteten Produkt und dem konkreten
-		Nutzungssystem ab. Entscheidende Produktmerkmale sind zum Beispiel, ob während der Nutzung des Produkts Ressourcen verbraucht werden (wie bei Elektrogeräten), oder wie groß das Verhältnis zwischen typischer individueller und maximal möglicher Nutzungsdauer ist (im oben genannten Beispiel der Bohrmaschine 1:6). Zu den wichtigen Eigenschaften des Nutzungssystems zählen eventuell anfallende zusätzliche Transporte (wie beim Second-Hand-Handel) und die Auslastung während der Nutzung (zum Beispiel 3 Personen pro Auto). Die Zusammenhänge zwischen Merkmalen der Produkte und Nutzungssysteme und den resultierenden Umweltwirkungen zu analysieren ist der Gegenstand unserer Arbeit.
-		
-		\subsection{Forschungsstand}\label{sec:forschung}
-		Unter die neuere Literatur, die sich mit Umwelteffekten gemeinschaftlicher Produktnutzung beschäftigt, fällt zunächst eine Reihe von Publikationen im Zusammenhang mit zwei größeren Forschungsprojekten um die Jahrtausendwende. Gegen Ende der Nuller Jahre folgen einige weitere Publikationen aus verschiedenen Forschungszusammenhängen. Schließlich wird das Thema auch in der ökonomischen Fachliteratur behandelt. Die einzelnen Bereiche werden im Folgenden grob umrissen.
-		
-		In den Jahren 1997-2000 bearbeitete das Institut für ökologische
-		Wirtschaftsforschung (IÖW) das vom Bundesministerium für Bildung und Forschung geförderte
-		Forschungsvorhaben \enquote{Ökologische Entlastungspotentiale,
-		Umsetzungsprobleme und Entwicklungsperspektiven von Strategien zur
-		Nutzungsdauerverlängerung (NV) und Nutzungsintensivierung (NI)}.
-		\textcite{scholl_produkte_1998} steckt zunächst den
-		begrifflichen und theoretischen Rahmen für die Beschreibung gemeinschaftlicher
-		Nutzungsformen und deren ökologischen Bewertung ab. Hieran
-		schließen sich eine Fallstudie zur privaten Textilwäsche
-		\parencite{hirschl_produkte_2000} und eine zum Wintersport
-		\parencite{konrad_produkte_2000} an, wobei hier insbesondere der
-		Frage nachgegangen wird, wie das ökologische Entlastungspotenzial
-		von Nutzungskonzepten im Vergleich zur herkömmlichen individuellen
-		Nutzung einzuschätzen ist. Eine zusammenfassende Darstellung der
-		Projektergebnisse gibt schließlich
-		\textcite{hirschl_nachhaltige_2001}. Aus einem Vergleich der beiden
-		Fallstudien werden dort allgemeinere Erkenntnisse für die
-		Nachhaltigkeitsstrategien Nutzungsdauerverlängerung und
-		-Intensivierung abgeleitet.
-		
-		In einem ähnlichen Zeitraum wie die Studie des IÖW wurde
-		von verschiedenen anderen
-		Forschungseinrichtung ein EU finanziertes Forschungsprojekt
-		unter dem Titel \enquote{Eco-Services for Sustainable Development in
-		the European Union} durchgeführt. Diese Studie hat einen sehr ähnlichen Aufbau, betrachtet
-		allerdings zum Teil andere Fallbeispiele und lenkt durch
-		den internationalen Kontext den Blick auch auf länderspezifische
-		Unterschiede. Die vertiefenden Fallstudien, welche ökologische Betrachtungen
-		einschließen, wurden in den  Bereichen Heimwerken, Baueigenleistung
-		und Gartenpflege \parencite{behrendt_oko-rent_2000}, nachhaltiges
-		Waschen \parencite{behrendt_nachhaltig_2000} und
-		Car-Sharing \parencite{behrendt_car-sharing_2000} durchgeführt. Eine
-		Systematisierung der betrachteten Produktdienstleistung und eine
-		vergleichende Darstellung der Fallstudien, Zusammenfassung des
-		Projekts liefert schließlich \textcite{behrendt_eco-service_2003}.
-		
-		In der jüngeren Literatur finden sich weitere Publikationen,
-		die sich zum einen Teil theoretisch dem Thema gemeinschaftlicher
-		Nutzungsformen zuwenden
-		\parencites{scholl_marketing_2009}{scholl_nutzen_2012} und zum
-		anderen Teil empirisch-analytisch die Umwelteffekte ausgewählter
-		Produkt-Nutzungs-Systeme untersuchen
-		\parencites{rabelt_nachhaltiger_2007}{erdmann_quantifizierung_2011}.
-		Erwähnenswert ist, dass \textcite{scholl_marketing_2009} eine
-		umfassende Liste der bei gemeinschaftlichen Nutzungsformen 
-		auftretenden positiven und negativen Umwelteffekte aufstellt. Er
-		gliedert diese in solche, die direkt durch die
-		Nutzungsform auftreten und solche, die indirekt aus veränderten
-		Nachfragemustern resultieren.
-		Während die meisten der bisher zitierten Studien die letztgenannte Gruppe der Nachfrage-Effekte
-		nicht näher quantifizieren, unternimmt
-		\textcite{erdmann_quantifizierung_2011}  genau das anhand des
-		online-basierten Gebrauchtwarenhandels.
-		
-		Auch in der ökonomischen Literatur lassen sich Autor*innen finden, die sich mit gemeinschaftlichen Nutzungsformen -- unter Verwendung einer deutlich formalisierteren Methodik --
-		auseinandersetzen. \textcite{yokoo_economic_2010} entwickelt ein
-		mikroökonomisches Modell der Wiederverwendung um Effekte von Second-Hand-Märkten auf die Wohlfahrt der Konsument*innen und die Abfallmenge einer Wirtschaft zu untersuchen.
-		\textcite{thomas_environmental_2011} stellt ein ähnliches
-		Modell vor, lenkt jedoch den Blick stärker auf die ökologischen Effekte auf Second-Hand-Märkten, in dem sie das Marktmodell mit einem einfachen Modell für die Lebenszyklusbilanz verknüpft. Als Anwendungsbeispiel wird hier der Gebrauchtwarenhandel mit Büchern betrachtet.
-		
-		Während diese Zusammenstellung der Literatur sich auf die für unsere Arbeit relevanten Inhalte konzentriert, sind die angegebenen Publikationen in der Regel wesentlich umfassender angelegt. So werden neben den Umweltwirkungen je nach Studie zahlreiche weitere Aspekte behandelt -- wie beispielsweise Handlungsempfehlungen, Strategien zur Förderung, mögliche Hemmnisse, Marktanalysen, Anschlussfähigkeit, Typisierung von Konsument*innen und die
-		Motivation für gemeinschaftliche Nutzungsformen.
-		
-		Generell stellen wir fest, dass zu dem Thema \enquote{gemeinschaftliche Nutzungsformen}
-		sowohl auf empirischer als auch auf theoretisch-konzeptioneller Ebene bereits einige Forschung
-		betrieben wurde, auf die wir mit unserer Arbeit aufbauen können. In Hinblick auf einige Aspekte sehen wir jedoch weiteren Forschungsbedarf. Zum einen beschränkt sich die Quantifizierung der Umwelteffekte in den meisten angegebenen Quellen auf spezielle Produkte und Nutzungssysteme. Eine Ausnahme bilden die formalen Modelle der ökonomischen Fachliteratur, die allerdings wiederum nur spezielle Umwelteffekte abbilden. Der Versuch einer allgemeinen Betrachtung wurde unseres Wissens nach noch nicht unternommen. Damit einhergehend weisen die Einzeluntersuchungen kein einheitliches methodisches Vorgehen auf, sondern variieren in den verwendeten Zielgrößen, Betrachtungsrahmen und Berechnungsmethoden. Es werden in der Regel Einzelfallberechnungen durchgeführt, ohne den Einfluss der (implizit) verwendeten Parameter zu untersuchen. Was die Zielgrößen angeht, so konzentriert sich ein Großteil der Literatur auf Emissionen, während die Ressourcen-Seite eher vernachlässigt wird. Diese Forschungslücke möchten wir mit unserer Arbeit schließen.
-		
-		\subsection{Forschungsziel und Fragestellung}
-		Das Hauptziel unserer Arbeit ist die Entwicklung von Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung. Darunter fällt eine systematische und möglichst allgemeine Betrachtung der verschiedenen Umweltwirkungen von gemeinschaftlichen Nutzungsformen. Ein methodologisches Ziel der Arbeit ist es, einen einheitlichen Methodenrahmen für die Untersuchung verschiedener Produkte und Nutzungssysteme zu entwickeln.
-		
-		Eine mit diesem Forschungsziel korrespondierende Fragestellung lautet:
-		\begin{itemize}
-			\item Unter welchen Umständen kann der Umweltverbrauch eines Produktes durch gemeinschaftliche Nutzung gegenüber der individuellen Nutzung gesenkt werden?
-		\end{itemize}
-		Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden zwei Teilfragen unterteilen:
-		\begin{itemize}
-			\item Was sind die Mechanismen, die den Umweltverbrauch bei gemeinschaftlicher Nutzung bestimmen und wie wirken diese? \todo{"wie wirken diese?": spezifizieren / besser beschreiben, was wir meinen}
-			\item Welche Eigenschaften des Produkts und der Nutzungsform beeinflussen die Wirkung dieser Mechanismen und wie fließen sie ein?
-		\end{itemize}
+\subsection{Thema}
+Die heutigen industrialisierten Kulturen sind durch einen umfangreichen
+individuellen Bedarf an Produkten und Dienstleistungen gekennzeichnet. Jeder
+Haushalt, jede Person verfügt über zahlreiche, in der Summe höchst
+ressourcenintensive Güter, was gesamtgesellschaftlich zu einer hohen, nicht mehr
+tragfähigen Umweltbelastung führt.
+
+Ein Problem heutiger Konsumkulturen, an dem Nachhaltigkeitsstrategien ansetzen
+können, ist die ineffiziente Nutzung der produzierten Gütermenge: So wurde eine
+durchschnittliche Bohrmaschine bei ihrer Entsorgung lediglich 45 Stunden
+genutzt, obwohl sie 300
+Stunden hätte genutzt werden können \parencite[S. 31]{behrendt_oko-rent_2000}. Autos
+sind im Durchschnitt mit nur 1,6 Personen besetzt, obwohl sie in der Regel
+Platz für vier Menschen bieten \parencites[zitiert nach: ]{baum_untersuchungen_1994}[S. 43]{behrendt_car-sharing_2000}. Diese Beispiele
+verdeutlichen, dass bei der individuellen Nutzung die maximale Nutzungsdauer und
+Auslastung von Produkten häufig nicht erreicht werden. Formen gemeinschaftlicher
+Nutzung, um die es in unserer Arbeit geht, können durch
+Nutzungsdauerverlängerung und Nutzungsintensivierung die daraus resultierenden
+Effizienzpotentiale heben und dadurch zu einer Reduktion der Umweltbelastung
+führen.
+
+Zahlreiche dieser Nutzungsformen, die sich über alle Produktgruppen erstrecken,
+sind bereits seit geraumer Zeit etabliert. Zum einen finden sich hier alle Formen des Gebrauchtwarenmarkts von Second-Hand-Läden für Kleidung über Geschäfte des An- und Verkaufs bis hin zu Flohmärkten. Zum anderen existiert eine breite Palette an Miet- und Verleihsystemen, wie zum
+Beispiel Bibliotheken, Videotheken oder Autovermietungen. Neben diesen kommerziellen Angeboten gibt es auch vielfältige Formen der privaten gemeinschaftlichen Nutzung, wie
+beispielsweise die gemeinsame Nutzung von Waschmaschinen, Rasenmähern oder Kühlschränken in
+Wohnanlagen und Wohngemeinschaften, oder die Bildung von Fahrgemeinschaften.
+
+Mit dem Aufkommen der heutigen Informations- und Kommunikationstechnologien
+erhalten viele dieser Formen eine neue, ungeahnte Dimension: Das Internet
+vergrößert die räumlichen Entfernungen und die Anzahl beteiligter
+Teilnehmer*innen der herkömmlichen Gebraucht-, Miet- und Verleihmärkte um ein
+Vielfaches. Durch das große Angebot und die einfache Möglichkeit der gezielten
+Suche verringert sich der Aufwand zum Zustandekommen des Warenaustauschs.
+Ermöglicht durch den einfachen, ortsungebundenen Zugang zum Internet und die
+Vernetzung von Menschen mit ähnlichen Bedürfnissen entstanden ganz neue Formen
+der gemeinschaftlichen Nutzung: So ermöglichen es entsprechende
+Internetplattformen beispielsweise, anstatt in einem Hotel zu übernachten, auf
+einer Reise ganz bequem bei Privatpersonen unterzukommen oder mit Hilfe eines
+Smartphones ganz einfach das nächste Free Floating Car zu finden.
+
+Hinter diesen neuen Formen werden unter Verwendung der Begriffe
+\enquote{collaborative consumption} oder \enquote{Kokonsum} soziale Innovationen
+gesehen, die zu mehr Nachhaltigkeit bei gleichbleibendem oder sogar gesteigertem
+Wohlstand führen können. Und aus Unternehmensperspektive stellen sich diese
+neuen Nutzungsformen als wichtiger neuer ökonomischer Wachstumsmarkt -- die
+\enquote{Sharing Economy} -- dar. In der Forschung wird das Thema mit jeweils
+leicht unterschiedlichen Perspektiven unter den Begriffen \enquote{Nutzen statt
+Besitzen}, \enquote{eigentumsersetzender Konsum}, \enquote{eco services} und
+\enquote{product-service systems} diskutiert. 
+
+Im Vergleich zur Euphorie, die von der Sharing Economy ausgeht, zeigt sich aus wissenschaftlicher Perspektive hinsichtlich der Umweltwirkungen gemeinschaftlicher Nutzungssysteme ein differenzierteres Bild: Zum einen werden die positiven Primäreffekte der
+Nutzungsdauerverlängerung und -intensivierung um weitere sekundäre
+Ressourceneinsparmöglichkeiten ergänzt. So kann es beispielsweise bei der
+gemeinschaftlichen Nutzung einer Waschmaschine sinnvoll sein, eine
+halbgewerbliche Maschine mit entsprechend längerer Lebensdauer und höherer
+Effizienz zu verwenden. Zum anderen werden die durch gemeinschaftliche Nutzung
+ermöglichten Ressourceneinsparungen jedoch auch durch negative Umweltwirkungen
+begleitet: Beispielsweise müssen für die Koordination der gemeinschaftlichen
+Nutzung und den Transport der genutzten Produkte zwischen den Nutzer*innen zusätzliche
+Ressourcen aufgewendet werden. Und auch positive sekundäre Effekte können mit negativen Nebenwirkungen einhergehen, wie beispielsweise für die Produktion einer halbgewerblichen Waschmaschine im Vergleich zu einer handelsüblichen
+mehr Ressourcen benötigt werden.
+
+Nicht zuletzt wirken sich die aus der Perspektive der Sharing Economy positiven
+finanziellen Einsparungen bei der gemeinschaftlichen Nutzung auf die Nachfrageseite der
+Konsumenten aus: Das eingesparte Geld kann in weiteren Konsum und damit
+zusätzlichen Ressourcenverbrauch investiert werden (Rebound-Effekt). Außerdem
+bleiben in einer solchermaßen veränderten Ökonomie, welche den Zugang und nicht
+den Besitz in den Vordergrund stellt, die Bedürfnisstrukturen nicht unberührt:
+Die Möglichkeit, auf viele (Luxus-)Güter zuzugreifen, könnte mit einem
+verstärkten Wunsch einhergehen, dies auch tatsächlich zu tun.
+
+Welche Netto-Umweltwirkungen schließlich durch die gemeinschaftliche Nutzung zu
+erwarten sind, hängt in hohem Maße von dem betrachteten Produkt und dem konkreten
+Nutzungssystem ab. Entscheidende Produktmerkmale sind zum Beispiel, ob während der Nutzung des Produkts Ressourcen verbraucht werden (wie bei Elektrogeräten), oder wie groß das Verhältnis zwischen typischer individueller und maximal möglicher Nutzungsdauer ist (im oben genannten Beispiel der Bohrmaschine 1:6). Zu den wichtigen Eigenschaften des Nutzungssystems zählen eventuell anfallende zusätzliche Transporte (wie beim Second-Hand-Handel) und die Auslastung während der Nutzung (zum Beispiel 3 Personen pro Auto). Die Zusammenhänge zwischen Merkmalen der Produkte und Nutzungssysteme und den resultierenden Umweltwirkungen zu analysieren ist der Gegenstand unserer Arbeit.
+
+\subsection{Forschungsstand}\label{sec:forschung}
+Unter die neuere Literatur, die sich mit Umwelteffekten gemeinschaftlicher Produktnutzung beschäftigt, fällt zunächst eine Reihe von Publikationen im Zusammenhang mit zwei größeren Forschungsprojekten um die Jahrtausendwende. Gegen Ende der Nuller Jahre folgen einige weitere Publikationen aus verschiedenen Forschungszusammenhängen. Schließlich wird das Thema auch in der ökonomischen Fachliteratur behandelt. Die einzelnen Bereiche werden im Folgenden grob umrissen.
+
+In den Jahren 1997-2000 bearbeitete das Institut für ökologische
+Wirtschaftsforschung (IÖW) das vom Bundesministerium für Bildung und Forschung geförderte
+Forschungsvorhaben \enquote{Ökologische Entlastungspotentiale,
+  Umsetzungsprobleme und Entwicklungsperspektiven von Strategien zur
+Nutzungsdauerverlängerung (NV) und Nutzungsintensivierung (NI)}.
+\textcite{scholl_produkte_1998} steckt zunächst den
+begrifflichen und theoretischen Rahmen für die Beschreibung gemeinschaftlicher
+Nutzungsformen und deren ökologischen Bewertung ab. Hieran
+schließen sich eine Fallstudie zur privaten Textilwäsche
+\parencite{hirschl_produkte_2000} und eine zum Wintersport
+\parencite{konrad_produkte_2000} an, wobei hier insbesondere der
+Frage nachgegangen wird, wie das ökologische Entlastungspotenzial
+von Nutzungskonzepten im Vergleich zur herkömmlichen individuellen
+Nutzung einzuschätzen ist. Eine zusammenfassende Darstellung der
+Projektergebnisse gibt schließlich
+\textcite{hirschl_nachhaltige_2001}. Aus einem Vergleich der beiden
+Fallstudien werden dort allgemeinere Erkenntnisse für die
+Nachhaltigkeitsstrategien Nutzungsdauerverlängerung und
+-Intensivierung abgeleitet.
+
+In einem ähnlichen Zeitraum wie die Studie des IÖW wurde
+von verschiedenen anderen
+Forschungseinrichtung ein EU finanziertes Forschungsprojekt
+unter dem Titel \enquote{Eco-Services for Sustainable Development in
+the European Union} durchgeführt. Diese Studie hat einen sehr ähnlichen Aufbau, betrachtet
+allerdings zum Teil andere Fallbeispiele und lenkt durch
+den internationalen Kontext den Blick auch auf länderspezifische
+Unterschiede. Die vertiefenden Fallstudien, welche ökologische Betrachtungen
+einschließen, wurden in den  Bereichen Heimwerken, Baueigenleistung
+und Gartenpflege \parencite{behrendt_oko-rent_2000}, nachhaltiges
+Waschen \parencite{behrendt_nachhaltig_2000} und
+Car-Sharing \parencite{behrendt_car-sharing_2000} durchgeführt. Eine
+Systematisierung der betrachteten Produktdienstleistung und eine
+vergleichende Darstellung der Fallstudien, Zusammenfassung des
+Projekts liefert schließlich \textcite{behrendt_eco-service_2003}.
+
+In der jüngeren Literatur finden sich weitere Publikationen,
+die sich zum einen Teil theoretisch dem Thema gemeinschaftlicher
+Nutzungsformen zuwenden
+\parencites{scholl_marketing_2009}{scholl_nutzen_2012} und zum
+anderen Teil empirisch-analytisch die Umwelteffekte ausgewählter
+Produkt-Nutzungs-Systeme untersuchen
+\parencites{rabelt_nachhaltiger_2007}{erdmann_quantifizierung_2011}.
+Erwähnenswert ist, dass \textcite{scholl_marketing_2009} eine
+umfassende Liste der bei gemeinschaftlichen Nutzungsformen 
+auftretenden positiven und negativen Umwelteffekte aufstellt. Er
+gliedert diese in solche, die direkt durch die
+Nutzungsform auftreten und solche, die indirekt aus veränderten
+Nachfragemustern resultieren.
+Während die meisten der bisher zitierten Studien die letztgenannte Gruppe der Nachfrage-Effekte
+nicht näher quantifizieren, unternimmt
+\textcite{erdmann_quantifizierung_2011}  genau das anhand des
+online-basierten Gebrauchtwarenhandels.
+
+Auch in der ökonomischen Literatur lassen sich Autor*innen finden, die sich mit gemeinschaftlichen Nutzungsformen -- unter Verwendung einer deutlich formalisierteren Methodik --
+auseinandersetzen. \textcite{yokoo_economic_2010} entwickelt ein
+mikroökonomisches Modell der Wiederverwendung um Effekte von Second-Hand-Märkten auf die Wohlfahrt der Konsument*innen und die Abfallmenge einer Wirtschaft zu untersuchen.
+\textcite{thomas_environmental_2011} stellt ein ähnliches
+Modell vor, lenkt jedoch den Blick stärker auf die ökologischen Effekte auf Second-Hand-Märkten, in dem sie das Marktmodell mit einem einfachen Modell für die Lebenszyklusbilanz verknüpft. Als Anwendungsbeispiel wird hier der Gebrauchtwarenhandel mit Büchern betrachtet.
+
+Während diese Zusammenstellung der Literatur sich auf die für unsere Arbeit relevanten Inhalte konzentriert, sind die angegebenen Publikationen in der Regel wesentlich umfassender angelegt. So werden neben den Umweltwirkungen je nach Studie zahlreiche weitere Aspekte behandelt -- wie beispielsweise Handlungsempfehlungen, Strategien zur Förderung, mögliche Hemmnisse, Marktanalysen, Anschlussfähigkeit, Typisierung von Konsument*innen und die
+Motivation für gemeinschaftliche Nutzungsformen.
+
+Generell stellen wir fest, dass zu dem Thema \enquote{gemeinschaftliche Nutzungsformen}
+sowohl auf empirischer als auch auf theoretisch-konzeptioneller Ebene bereits einige Forschung
+betrieben wurde, auf die wir mit unserer Arbeit aufbauen können. In Hinblick auf einige Aspekte sehen wir jedoch weiteren Forschungsbedarf. Zum einen beschränkt sich die Quantifizierung der Umwelteffekte in den meisten angegebenen Quellen auf spezielle Produkte und Nutzungssysteme. Eine Ausnahme bilden die formalen Modelle der ökonomischen Fachliteratur, die allerdings wiederum nur spezielle Umwelteffekte abbilden. Der Versuch einer allgemeinen Betrachtung wurde unseres Wissens nach noch nicht unternommen. Damit einhergehend weisen die Einzeluntersuchungen kein einheitliches methodisches Vorgehen auf, sondern variieren in den verwendeten Zielgrößen, Betrachtungsrahmen und Berechnungsmethoden. Es werden in der Regel Einzelfallberechnungen durchgeführt, ohne den Einfluss der (implizit) verwendeten Parameter zu untersuchen. Was die Zielgrößen angeht, so konzentriert sich ein Großteil der Literatur auf Emissionen, während die Ressourcen-Seite eher vernachlässigt wird. Diese Forschungslücke möchten wir mit unserer Arbeit schließen.
+
+\subsection{Forschungsziel und Fragestellung}
+Das Hauptziel unserer Arbeit ist die Entwicklung von Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung. Darunter fällt eine systematische und möglichst allgemeine Betrachtung der verschiedenen Umweltwirkungen von gemeinschaftlichen Nutzungsformen. Ein methodologisches Ziel der Arbeit ist es, einen einheitlichen Methodenrahmen für die Untersuchung verschiedener Produkte und Nutzungssysteme zu entwickeln.
+
+Eine mit diesem Forschungsziel korrespondierende Fragestellung lautet:
+\begin{itemize}
+  \item Unter welchen Umständen kann der Umweltverbrauch eines Produktes durch gemeinschaftliche Nutzung gegenüber der individuellen Nutzung gesenkt werden?
+\end{itemize}
+Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden zwei Teilfragen unterteilen:
+\begin{itemize}
+  \item Was sind die Mechanismen, die den Umweltverbrauch bei gemeinschaftlicher Nutzung bestimmen und wie wirken diese? \todo{"wie wirken diese?": spezifizieren / besser beschreiben, was wir meinen}
+  \item Welche Eigenschaften des Produkts und der Nutzungsform beeinflussen die Wirkung dieser Mechanismen und wie fließen sie ein?
+\end{itemize}
 \section{Methodisches Vorgehen}
-		\subsection{Modellansatz}
-		Eine Grundannahme, unter der wir an die Bearbeitung der Fragestellung herangehen, ist, dass der Umweltverbrauch eines Produktnutzungssystems durch Merkmale des Produktes (einschließlich seines Produktions- und Entsorgungssystems) und Merkmale des Nutzungssystems bestimmt wird. Ziel der Untersuchung ist es also, den Zusammenhang zwischen diesen Merkmalen und dem Umweltverbrauch zu bestimmen.
-		
-		Die Zielgröße \enquote{Umweltverbrauch} operationalisieren wir in unserer Untersuchung durch die Menge der eingesetzten Ressourcen und der ausgestoßenen Emissionen. Für die Ressourcenseite werden wir auf das MIPS-Konzept (\cite{schmidt-bleek_maia:_1998}) zurückgreifen. Bei der Betrachtung der Emissionen beschränken wir uns auf Treibhausgase (CO$_{2}$-Äquivalente). Je nach Wirkungsmechanismus wird es erforderlich sein, unterschiedliche Betrachtungsrahmen für die Bilanzierung heranzuziehen. So können die Umwelteffekte beispielsweise auf eine einzelne Produktnutzung, auf den gesamten Konsum einer Person oder gar auf den Konsum einer ganzen Volkswirtschaft bezogen werden. Wir streben eine möglichst einheitliche Betrachtung an, die allerdings an ihre Grenzen stoßen wird, da beispielsweise Effekte einer gemeinschaftlichen Produktnutzung auf andere Konsumbereiche mit einer Produkt-zentrierten Betrachtung nicht erfasst werden können.
-		
-		Um die mögliche Senkung des Umweltverbrauchs durch gemeinschaftliche Nutzung zu berechnen, wird als Referenzszenario jeweils die individuelle Nutzung herangezogen. Ergänzend dazu kann das Resultat auch mit den Effekten durch andere Maßnahmen zur Senkung des Umweltverbrauchs ins Verhältnis gesetzt werden, sofern dies sinnvoll erscheint. Beispielsweise könnten technische Effizienzsteigerungen oder Konsumreduzierungen betrachtet werden.
-		
-		Die in Tabelle \ref{tab:Mechanismen} aufgeführten Wirkungsmechanismen möchten wir prinzipiell in unsere Betrachtung miteinbeziehen. Die Liste basiert auf \cite{scholl_marketing_2009}, wobei wir einige der dort aufgeführten Mechanismen aus Plausibilitätsüberlegungen nicht aufgenommen und andere selbst hinzugefügt haben. \todo{Unterschiede genau benennen und begründen}
-		
-		\begin{table}[h]
-			\begin{tabular}{p{7cm}p{7cm}}
-				 \toprule
-				 \multicolumn{2}{l}{\textbf{Umweltauswirkungen durch die Nutzung}} \vspace{0.2 cm} \\
-				 \textbf{positiv} & \textbf{negativ} \\
-				 \midrule
-				 Nutzungsdauer\-verlängerung \vspace{0.2cm} &  Zusätzliche Transaktionen \vspace{0.2cm} \\
-				 Einsatz langlebiger Produkte \vspace{0.2cm} &  zusätzlicher Ressourcenverbrauch für Langlebigkeit \vspace{0.2cm} \\
-				 Verwendung verbrauchsarmer bzw. leistungsstarker Geräte \vspace{0.2cm} &  Beschleunigte Ausmusterung \vspace{0.2cm} \\
-				 Maximierung der Geräteauslastung \vspace{0.2cm} & Tauschbedingter Verschleiß \vspace{0.2cm} \\
-				 Berücksichtigung des technischen Fortschritts \vspace{0.2cm} & \vspace{0.2cm} \\
-				 Wartung / Reparaturen \vspace{0.5cm}& \\
-				 \midrule
-				 \multicolumn{2}{l}{\textbf{Umweltauswirkungen durch Nachfrageänderung}} \vspace{0.2 cm} \\
-				 \textbf{positiv} & \textbf{negativ} \\
-				 \midrule
-				 Nachfrageverringerung durch höhere Kostentransparenz \vspace{0.2cm} & Erleichterter Produktzugang \vspace{0.2cm} \\
-				 Vermeidung von Fehlkäufen \vspace{0.2cm} & Wunsch nach Eigentum \vspace{0.5cm} \\
-				  & Rebound-Effekt \vspace{0.2cm} \\
-				 \bottomrule
-			\end{tabular}
-			\caption{Betrachtete Mechanismen für die Umweltauswirkungen durch gemeinschaftliche Nutzung. Quelle: verändert nach \cite{scholl_marketing_2009}.}
-			\label{tab:Mechanismen}
-		\end{table}
-		
-		Nicht alle Mechanismen sind für alle Produkte und Nutzungssysteme relevant. Welche Mechanismen für eine bestimmte Produkt-Nutzungssystem-Kombination zum Tragen kommen, hängt von spezifischen Annahmen über die Produkte und Nutzungssysteme ab, die im Laufe der Arbeit getroffen werden. Auch sei erwähnt, dass nicht alle Mechanismen ausschließlich bei gemeinschaftlichen Nutzungsformen wirken, sondern auch bei individueller Nutzung auftreten können.
-		
-		Um die Mechanismen und deren Auswirkungen quantifizierbar und vergleichbar zu machen, werden wir ein Modell entwickeln. Der Modellzweck ist, die Zusammenhänge zwischen den Merkmalen der Produkte und Nutzungssysteme und dem Umweltverbrauch abzubilden. Während das Modell letztlich möglichst allgemein anwendbar sein soll, lassen wir uns bei der Modellentwicklung durch zwei Fallbeispiele leiten. Sie dienen der Veranschaulichung der abstrakten Zusammenhänge und gewährleisten die praktische Anwendbarkeit des Modells. Zudem kann die Fokussierung auf konkrete Fallstudien die Modellanalyse vereinfachen, da der potentiell sehr große Parameterraum etwas eingeschränkt werden kann. Auswahlkriterien für die Fallstudien waren die Verfügbarkeit von Literatur und die Abdeckung möglichst unterschiedlicher Produkteigenschaften, damit alle potentiellen Mechanismen zur Anwendung kommen. Die Entscheidung fiel auf die zwei Produkte Waschmaschinen und Bücher.
-		
-		\subsection{Fallstudien}
+\subsection{Modellansatz}
+Eine Grundannahme, unter der wir an die Bearbeitung der Fragestellung herangehen, ist, dass der Umweltverbrauch eines Produktnutzungssystems durch Merkmale des Produktes (einschließlich seines Produktions- und Entsorgungssystems) und Merkmale des Nutzungssystems bestimmt wird. Ziel der Untersuchung ist es also, den Zusammenhang zwischen diesen Merkmalen und dem Umweltverbrauch zu bestimmen.
+
+Die Zielgröße \enquote{Umweltverbrauch} operationalisieren wir in unserer Untersuchung durch die Menge der eingesetzten Ressourcen und der ausgestoßenen Emissionen. Für die Ressourcenseite werden wir auf das MIPS-Konzept (\cite{schmidt-bleek_maia:_1998}) zurückgreifen. Bei der Betrachtung der Emissionen beschränken wir uns auf Treibhausgase (CO$_{2}$-Äquivalente). Je nach Wirkungsmechanismus wird es erforderlich sein, unterschiedliche Betrachtungsrahmen für die Bilanzierung heranzuziehen. So können die Umwelteffekte beispielsweise auf eine einzelne Produktnutzung, auf den gesamten Konsum einer Person oder gar auf den Konsum einer ganzen Volkswirtschaft bezogen werden. Wir streben eine möglichst einheitliche Betrachtung an, die allerdings an ihre Grenzen stoßen wird, da beispielsweise Effekte einer gemeinschaftlichen Produktnutzung auf andere Konsumbereiche mit einer Produkt-zentrierten Betrachtung nicht erfasst werden können.
+
+Um die mögliche Senkung des Umweltverbrauchs durch gemeinschaftliche Nutzung zu berechnen, wird als Referenzszenario jeweils die individuelle Nutzung herangezogen. Ergänzend dazu kann das Resultat auch mit den Effekten durch andere Maßnahmen zur Senkung des Umweltverbrauchs ins Verhältnis gesetzt werden, sofern dies sinnvoll erscheint. Beispielsweise könnten technische Effizienzsteigerungen oder Konsumreduzierungen betrachtet werden.
+
+Die in Tabelle \ref{tab:Mechanismen} aufgeführten Wirkungsmechanismen möchten wir prinzipiell in unsere Betrachtung miteinbeziehen. Die Liste basiert auf \cite{scholl_marketing_2009}, wobei wir einige der dort aufgeführten Mechanismen aus Plausibilitätsüberlegungen nicht aufgenommen und andere selbst hinzugefügt haben. \todo{Unterschiede genau benennen und begründen}
+
+\begin{table}[h]
+  \begin{tabular}{p{7cm}p{7cm}}
+    \toprule
+    \multicolumn{2}{l}{\textbf{Umweltauswirkungen durch die Nutzung}} \vspace{0.2 cm} \\
+    \textbf{positiv} & \textbf{negativ} \\
+    \midrule
+    Nutzungsdauer\-verlängerung \vspace{0.2cm} &  Zusätzliche Transaktionen \vspace{0.2cm} \\
+    Einsatz langlebiger Produkte \vspace{0.2cm} &  zusätzlicher Ressourcenverbrauch für Langlebigkeit \vspace{0.2cm} \\
+    Verwendung verbrauchsarmer bzw. leistungsstarker Geräte \vspace{0.2cm} &  Beschleunigte Ausmusterung \vspace{0.2cm} \\
+    Maximierung der Geräteauslastung \vspace{0.2cm} & Tauschbedingter Verschleiß \vspace{0.2cm} \\
+    Berücksichtigung des technischen Fortschritts \vspace{0.2cm} & \vspace{0.2cm} \\
+    Wartung / Reparaturen \vspace{0.5cm}& \\
+    \midrule
+    \multicolumn{2}{l}{\textbf{Umweltauswirkungen durch Nachfrageänderung}} \vspace{0.2 cm} \\
+    \textbf{positiv} & \textbf{negativ} \\
+    \midrule
+    Nachfrageverringerung durch höhere Kostentransparenz \vspace{0.2cm} & Erleichterter Produktzugang \vspace{0.2cm} \\
+    Vermeidung von Fehlkäufen \vspace{0.2cm} & Wunsch nach Eigentum \vspace{0.5cm} \\
+    & Rebound-Effekt \vspace{0.2cm} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Betrachtete Mechanismen für die Umweltauswirkungen durch gemeinschaftliche Nutzung. Quelle: verändert nach \cite{scholl_marketing_2009}.}
+  \label{tab:Mechanismen}
+\end{table}
+
+Nicht alle Mechanismen sind für alle Produkte und Nutzungssysteme relevant. Welche Mechanismen für eine bestimmte Produkt-Nutzungssystem-Kombination zum Tragen kommen, hängt von spezifischen Annahmen über die Produkte und Nutzungssysteme ab, die im Laufe der Arbeit getroffen werden. Auch sei erwähnt, dass nicht alle Mechanismen ausschließlich bei gemeinschaftlichen Nutzungsformen wirken, sondern auch bei individueller Nutzung auftreten können.
+
+Um die Mechanismen und deren Auswirkungen quantifizierbar und vergleichbar zu machen, werden wir ein Modell entwickeln. Der Modellzweck ist, die Zusammenhänge zwischen den Merkmalen der Produkte und Nutzungssysteme und dem Umweltverbrauch abzubilden. Während das Modell letztlich möglichst allgemein anwendbar sein soll, lassen wir uns bei der Modellentwicklung durch zwei Fallbeispiele leiten. Sie dienen der Veranschaulichung der abstrakten Zusammenhänge und gewährleisten die praktische Anwendbarkeit des Modells. Zudem kann die Fokussierung auf konkrete Fallstudien die Modellanalyse vereinfachen, da der potentiell sehr große Parameterraum etwas eingeschränkt werden kann. Auswahlkriterien für die Fallstudien waren die Verfügbarkeit von Literatur und die Abdeckung möglichst unterschiedlicher Produkteigenschaften, damit alle potentiellen Mechanismen zur Anwendung kommen. Die Entscheidung fiel auf die zwei Produkte Waschmaschinen und Bücher.
+
+\subsection{Fallstudien}
 \section{Modell}
-		\subsection{Einzeleffekte}
-		\subsection{Effekt-Kopplungen}
-		\subsection{Modellübersicht}
+\subsection{Einzeleffekte}
+\subsection{Effekt-Kopplungen}
+\subsection{Modellübersicht}
+
+\section{Analyse}
+\begin{figure}
+  \centering
+  \input{Abbildungen/Auslastung.tex}
+  \caption{}
+\end{figure}
+\begin{equation}
+  \frac{\partial \MIPS[a]}{\partial a} = \frac{i_N'(a)\cdot a - i_N(a)}{a^2 \cdot K}
+  \label{eqn:ana-Auslastung}
+\end{equation}
+Wir können nun eine Bedingung angeben, unter der eine (marginale) Erhöhung der
+Produktauslastung zu einer (marginalen) Verringerung führt:
+\begin{equation}
+  \frac{\partial \MIPS[a]}{\partial a} < 0 
+  \qquad \Leftrightarrow \qquad 
+  \epsilon_{i_N, a} = i'_N(a) \cdot  \frac{a}{i_N(a)} < 1
+  \label{eqn:ana-Auslastung-Kriterium}
+\end{equation}
+
+Es ergibt sich also, dass eine Verringerung des MIPS durch eine Erhöhung der
+Produktauslastung genau dann erreicht wird, wenn der Input pro Nutzungseinheit
+unelastisch\footnote{zum Begriff der Elastizität vgl. Abschnitt \ref{sec:Elastizität}} auf
+eine Änderung der relativen Auslastung reagiert.
 \section{Synthese}
 \section{Ausblick/Diskussion}
 \section{Literaturverzeichnis}
 \printbibliography
 \section{Anhang}
+\subsection{Elastizität}\label{sec:Elastizität}
+\begin{equation}
+  \text{Elastizität} \quad \epsilon_{y,x} := \frac{dy(x)}{dx} \cdot
+  \frac{x}{y}
+  \label{eqn:def-Elastizität}
+\end{equation}
+
 
 
 
