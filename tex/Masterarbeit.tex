@@ -43,6 +43,8 @@ dashed=false]{biblatex}
 \usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
 % These packages are all incorporated in the memoir class to one degree or another...
 \usepackage{amsmath}
+\usepackage{mdframed}
+\usepackage{booktabs}
 
 %%% HEADERS & FOOTERS
 \usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
@@ -310,49 +312,177 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
   \item Welche Eigenschaften des Produkts und der Nutzungsform beeinflussen die Wirkung dieser Mechanismen und wie fließen sie ein?
 \end{itemize}
 \section{Methodisches Vorgehen}
-\subsection{Modellansatz}
-Eine Grundannahme, unter der wir an die Bearbeitung der Fragestellung herangehen, ist, dass der Umweltverbrauch eines Produktnutzungssystems durch Merkmale des Produktes (einschließlich seines Produktions- und Entsorgungssystems) und Merkmale des Nutzungssystems bestimmt wird. Ziel der Untersuchung ist es also, den Zusammenhang zwischen diesen Merkmalen und dem Umweltverbrauch zu bestimmen.
-
-Die Zielgröße \enquote{Umweltverbrauch} operationalisieren wir in unserer Untersuchung durch die Menge der eingesetzten Ressourcen und der ausgestoßenen Emissionen. Für die Ressourcenseite werden wir auf das MIPS-Konzept (\cite{schmidt-bleek_maia:_1998}) zurückgreifen. Bei der Betrachtung der Emissionen beschränken wir uns auf Treibhausgase (CO$_{2}$-Äquivalente). Je nach Wirkungsmechanismus wird es erforderlich sein, unterschiedliche Betrachtungsrahmen für die Bilanzierung heranzuziehen. So können die Umwelteffekte beispielsweise auf eine einzelne Produktnutzung, auf den gesamten Konsum einer Person oder gar auf den Konsum einer ganzen Volkswirtschaft bezogen werden. Wir streben eine möglichst einheitliche Betrachtung an, die allerdings an ihre Grenzen stoßen wird, da beispielsweise Effekte einer gemeinschaftlichen Produktnutzung auf andere Konsumbereiche mit einer Produkt-zentrierten Betrachtung nicht erfasst werden können.
-
-Um die mögliche Senkung des Umweltverbrauchs durch gemeinschaftliche Nutzung zu berechnen, wird als Referenzszenario jeweils die individuelle Nutzung herangezogen. Ergänzend dazu kann das Resultat auch mit den Effekten durch andere Maßnahmen zur Senkung des Umweltverbrauchs ins Verhältnis gesetzt werden, sofern dies sinnvoll erscheint. Beispielsweise könnten technische Effizienzsteigerungen oder Konsumreduzierungen betrachtet werden.
-
-Die in Tabelle \ref{tab:Mechanismen} aufgeführten Wirkungsmechanismen möchten wir prinzipiell in unsere Betrachtung miteinbeziehen. Die Liste basiert auf \cite{scholl_marketing_2009}, wobei wir einige der dort aufgeführten Mechanismen aus Plausibilitätsüberlegungen nicht aufgenommen und andere selbst hinzugefügt haben. \todo{Unterschiede genau benennen und begründen}
-
-\begin{table}[h]
-  \begin{tabular}{p{7cm}p{7cm}}
-    \toprule
-    \multicolumn{2}{l}{\textbf{Umweltauswirkungen durch die Nutzung}} \vspace{0.2 cm} \\
-    \textbf{positiv} & \textbf{negativ} \\
-    \midrule
-    Nutzungsdauer\-verlängerung \vspace{0.2cm} &  Zusätzliche Transaktionen \vspace{0.2cm} \\
-    Einsatz langlebiger Produkte \vspace{0.2cm} &  zusätzlicher Ressourcenverbrauch für Langlebigkeit \vspace{0.2cm} \\
-    Verwendung verbrauchsarmer bzw. leistungsstarker Geräte \vspace{0.2cm} &  Beschleunigte Ausmusterung \vspace{0.2cm} \\
-    Maximierung der Geräteauslastung \vspace{0.2cm} & Tauschbedingter Verschleiß \vspace{0.2cm} \\
-    Berücksichtigung des technischen Fortschritts \vspace{0.2cm} & \vspace{0.2cm} \\
-    Wartung / Reparaturen \vspace{0.5cm}& \\
-    \midrule
-    \multicolumn{2}{l}{\textbf{Umweltauswirkungen durch Nachfrageänderung}} \vspace{0.2 cm} \\
-    \textbf{positiv} & \textbf{negativ} \\
-    \midrule
-    Nachfrageverringerung durch höhere Kostentransparenz \vspace{0.2cm} & Erleichterter Produktzugang \vspace{0.2cm} \\
-    Vermeidung von Fehlkäufen \vspace{0.2cm} & Wunsch nach Eigentum \vspace{0.5cm} \\
-    & Rebound-Effekt \vspace{0.2cm} \\
-    \bottomrule
-  \end{tabular}
-  \caption{Betrachtete Mechanismen für die Umweltauswirkungen durch gemeinschaftliche Nutzung. Quelle: verändert nach \cite{scholl_marketing_2009}.}
-  \label{tab:Mechanismen}
-\end{table}
-
-Nicht alle Mechanismen sind für alle Produkte und Nutzungssysteme relevant. Welche Mechanismen für eine bestimmte Produkt-Nutzungssystem-Kombination zum Tragen kommen, hängt von spezifischen Annahmen über die Produkte und Nutzungssysteme ab, die im Laufe der Arbeit getroffen werden. Auch sei erwähnt, dass nicht alle Mechanismen ausschließlich bei gemeinschaftlichen Nutzungsformen wirken, sondern auch bei individueller Nutzung auftreten können.
-
-Um die Mechanismen und deren Auswirkungen quantifizierbar und vergleichbar zu machen, werden wir ein Modell entwickeln. Der Modellzweck ist, die Zusammenhänge zwischen den Merkmalen der Produkte und Nutzungssysteme und dem Umweltverbrauch abzubilden. Während das Modell letztlich möglichst allgemein anwendbar sein soll, lassen wir uns bei der Modellentwicklung durch zwei Fallbeispiele leiten. Sie dienen der Veranschaulichung der abstrakten Zusammenhänge und gewährleisten die praktische Anwendbarkeit des Modells. Zudem kann die Fokussierung auf konkrete Fallstudien die Modellanalyse vereinfachen, da der potentiell sehr große Parameterraum etwas eingeschränkt werden kann. Auswahlkriterien für die Fallstudien waren die Verfügbarkeit von Literatur und die Abdeckung möglichst unterschiedlicher Produkteigenschaften, damit alle potentiellen Mechanismen zur Anwendung kommen. Die Entscheidung fiel auf die zwei Produkte Waschmaschinen und Bücher.
-
-\subsection{Fallstudien}
+		\subsection{Modellansatz}
+		Eine Grundannahme, unter der wir an die Bearbeitung der Fragestellung herangehen, ist, dass der Umweltverbrauch eines Produktnutzungssystems durch Merkmale des Produktes (einschließlich seines Produktions- und Entsorgungssystems) und Merkmale des Nutzungssystems bestimmt wird. Ziel der Untersuchung ist es also, den Zusammenhang zwischen diesen Merkmalen und dem Umweltverbrauch zu bestimmen.
+		
+		Die Zielgröße \enquote{Umweltverbrauch} operationalisieren wir in unserer Untersuchung durch die Menge der eingesetzten Ressourcen und der ausgestoßenen Emissionen. Für die Ressourcenseite werden wir auf das MIPS-Konzept (\cite{schmidt-bleek_maia:_1998}) zurückgreifen. Bei der Betrachtung der Emissionen beschränken wir uns auf Treibhausgase (CO$_{2}$-Äquivalente). Je nach Wirkungsmechanismus wird es erforderlich sein, unterschiedliche Betrachtungsrahmen für die Bilanzierung heranzuziehen. So können die Umwelteffekte beispielsweise auf eine einzelne Produktnutzung, auf den gesamten Konsum einer Person oder gar auf den Konsum einer ganzen Volkswirtschaft bezogen werden. Wir streben eine möglichst einheitliche Betrachtung an, die allerdings an ihre Grenzen stoßen wird, da beispielsweise Effekte einer gemeinschaftlichen Produktnutzung auf andere Konsumbereiche mit einer Produkt-zentrierten Betrachtung nicht erfasst werden können.
+		
+		Um die mögliche Senkung des Umweltverbrauchs durch gemeinschaftliche Nutzung zu berechnen, wird als Referenzszenario jeweils die individuelle Nutzung herangezogen. Ergänzend dazu kann das Resultat auch mit den Effekten durch andere Maßnahmen zur Senkung des Umweltverbrauchs ins Verhältnis gesetzt werden, sofern dies sinnvoll erscheint. Beispielsweise könnten technische Effizienzsteigerungen oder Konsumreduzierungen betrachtet werden.
+		
+		Die in Tabelle \ref{tab:Mechanismen} aufgeführten Wirkungsmechanismen möchten wir prinzipiell in unsere Betrachtung miteinbeziehen. Die Liste basiert auf \cite{scholl_marketing_2009}, wobei wir einige der dort aufgeführten Mechanismen aus Plausibilitätsüberlegungen nicht aufgenommen und andere selbst hinzugefügt haben. \todo{Veränderungen genau benennen und begründen.} %  z.B. Umbenennungen von Begriffen, Weglassen und Hinzunehmen von Effekten. Idee: Textlich die Effekte anhand von Scholl 2009 durchgehen und grob beschreiben, dort auch direkt Veränderungen beschreiben und begründen. Zusammenfassend eine Tabelle mit den von uns betrachteten Effekten.
+		
+		\begin{table}[h]
+			\begin{tabular}{p{7cm}p{7cm}}
+				 \toprule
+				 \multicolumn{2}{l}{\textbf{Umweltauswirkungen durch die Nutzung}} \vspace{0.2 cm} \\
+				 \textbf{positiv} & \textbf{negativ} \\
+				 \midrule
+				 Nutzungsdauer\-verlängerung \vspace{0.2cm} &  Zusätzliche Transaktionen \vspace{0.2cm} \\
+				 Einsatz langlebiger Produkte \vspace{0.2cm} &  zusätzlicher Ressourcenverbrauch für Langlebigkeit \vspace{0.2cm} \\
+				 Verwendung verbrauchsarmer bzw. leistungsstarker Geräte \vspace{0.2cm} &  Beschleunigte Ausmusterung \vspace{0.2cm} \\
+				 Maximierung der Geräteauslastung \vspace{0.2cm} & Tauschbedingter Verschleiß \vspace{0.2cm} \\
+				 Berücksichtigung des technischen Fortschritts \vspace{0.2cm} & \vspace{0.2cm} \\
+				 Wartung / Reparaturen \vspace{0.5cm}& \\
+				 \midrule
+				 \multicolumn{2}{l}{\textbf{Umweltauswirkungen durch Nachfrageänderung}} \vspace{0.2 cm} \\
+				 \textbf{positiv} & \textbf{negativ} \\
+				 \midrule
+				 Nachfrageverringerung durch höhere Kostentransparenz \vspace{0.2cm} & Erleichterter Produktzugang \vspace{0.2cm} \\
+				 Vermeidung von Fehlkäufen \vspace{0.2cm} & Wunsch nach Eigentum \vspace{0.5cm} \\
+				  & Rebound-Effekt \vspace{0.2cm} \\
+				 \bottomrule
+			\end{tabular}
+			\caption{Betrachtete Mechanismen für die Umweltauswirkungen durch gemeinschaftliche Nutzung. Quelle: verändert nach \cite{scholl_marketing_2009}.}
+			\label{tab:Mechanismen}
+		\end{table}
+		
+		Nicht alle Mechanismen sind für alle Produkte und Nutzungssysteme relevant. Welche Mechanismen für eine bestimmte Produkt-Nutzungssystem-Kombination zum Tragen kommen, hängt von spezifischen Annahmen über die Produkte und Nutzungssysteme ab, die im Laufe der Arbeit getroffen werden. Auch sei erwähnt, dass nicht alle Mechanismen ausschließlich bei gemeinschaftlichen Nutzungsformen wirken, sondern auch bei individueller Nutzung auftreten können.
+		
+		Um die Mechanismen und deren Auswirkungen quantifizierbar und vergleichbar zu machen, werden wir ein Modell entwickeln. Der Modellzweck ist, die Zusammenhänge zwischen den Merkmalen der Produkte und Nutzungssysteme und dem Umweltverbrauch abzubilden. Während das Modell letztlich möglichst allgemein anwendbar sein soll, lassen wir uns bei der Modellentwicklung durch zwei Fallbeispiele leiten. Sie dienen der Veranschaulichung der abstrakten Zusammenhänge und gewährleisten die praktische Anwendbarkeit des Modells. Zudem kann die Fokussierung auf konkrete Fallstudien die Modellanalyse vereinfachen, da der potentiell sehr große Parameterraum etwas eingeschränkt werden kann. Auswahlkriterien für die Fallstudien waren die Verfügbarkeit von Literatur und die Abdeckung möglichst unterschiedlicher Produkteigenschaften, damit alle potentiellen Mechanismen zur Anwendung kommen. Die Entscheidung fiel auf die zwei Produkte Waschmaschinen und Bücher.
+		
+		\subsection{Fallstudien}
 \section{Modell}
-\subsection{Einzeleffekte}
-\subsection{Effekt-Kopplungen}
-\subsection{Modellübersicht}
+		\subsection{Einzeleffekte}
+			\subsubsection{Erhöhung der Produktauslastung} % Ursprünglich: "Maximierung der Geräteauslastung"
+			Unter dem Begriff \enquote{Produktauslastung} verstehen wir die Intensität, mit der ein Produkt während einer einzelnen Nutzung eingesetzt wird. Im Fall einer Waschmaschine entspricht dies dem Gewicht der Beladung während eines Waschgangs. Bei Büchern könnte analog die Anzahl der Personen, die durch Vorlesen gleichzeitig in den Genuss eines Buches kommen, betrachtet werden. Im Folgenden bleiben wir beim Beispiel der Waschmaschine, da die Relevanz des Vorlese-Szenarios als vernachlässigbar angesehen werden kann.
+			
+			Formaler betrachtet ist die Produktauslastung $A$ damit der Service, der durch eine einzelne Produktnutzungseinheit erzielt wird -- im Fall der Waschmaschine also das Gewicht der gewaschenen Wäsche pro Waschgang. Nimmt man an, dass ein Produkt über eine gewisse Kapazität $K$ (die maximale Auslastung) verfügt, so kann zur Betrachtung einer relativen Produktauslastung $a$ übergegangen werden: $a = A/K$. Im Fall einer Waschmaschine wäre die Kapazität das maximale Beladungsgewicht und die relative Produktauslastung der Anteil des tatsächlichen am maximalen Beladungsgewicht während eines Waschgangs.
+			
+			Damit ergibt sich der folgende Zusammenhang zwischen der Quantität der Produktnutzung $N$, der relativen Produktauslastung $a$, der Kapazität $K$ und dem erzielten Service $S$:
+%
+			\begin{equation}
+				\label{eq:S(a)}
+				S = N \cdot a \cdot K
+			\end{equation}
+%
+			In dieser Gleichung spiegelt sich der offensichtlichste Effekt einer Erhöhung der Produktauslastung wieder, nämlich eine proportionale Verringerung der Produktnutzung bei gleichbleibendem Service. Diesem positiven Effekt treten jedoch mitunter zwei negative Effekte gegenüber: zum einen ein Mehrbedarf an Inputs während der Nutzung und zum anderen eine Reduktion des Nutzungsvorrats.
+			
+			Ein Mehrbedarf an Inputs während der Nutzung fällt dann an, wenn durch eine erhöhte Produktauslastung mehr Energie oder andere Betriebsmittel eingesetzt werden müssen. So steigt bei einer Waschmaschine beispielsweise der Bedarf an elektrischer Energie und an Waschmittel, wenn die Maschine voller beladen wird. Formal kann dieser Zusammenhang durch eine funktionale Abhängigkeit der Inputs pro Nutzungseinheit $i_N$ von der Produktauslastung $a$ beschrieben werden:
+%
+			\begin{equation}
+				i_N = i_N (a)
+			\end{equation}
+%
+			Wir gehen davon aus, dass eine erhöhte Auslastung mit höheren oder wenigstens gleichbleibenden Inputs pro Nutzungseinheit einhergeht. Das heißt, der Funktionsverlauf von $i_N (a)$ kann als monoton steigend angenommen werden:
+%
+			\begin{equation}
+				\label{eq:monotones i_N}
+				\frac{d i_N}{d a} \geq 0
+			\end{equation}
+			
+			Eine Reduktion des Nutzungsvorrats $N_{\text{max}}$ tritt dann auf, wenn eine erhöhte Produktauslastung zu einer verstärkten Abnutzung des Produkts führt. So wird eine Waschmaschine beispielsweise nach einer geringeren Anzahl von Waschgängen aus der Nutzung genommen werden müssen, wenn sie im Durchschnitt voller beladen wurde. Auch dieser Zusammenhang kann durch eine funktionale Abhängigkeit abgebildet werden:
+%
+			\begin{equation}
+				\label{N_max(a)}
+				N_{\text{max}} = N_{\text{max}} (a)
+			\end{equation}
+%
+			Analog zu den monoton steigenden Inputs pro Nutzungseinheit gehen wir davon aus, dass der Nutzungsvorrat durch eine erhöhte Auslastung geringer wird, oder höchstens gleich bleibt:
+%
+			\begin{equation}
+				\frac{d N_{\text{max}}}{d a} \leq 0
+			\end{equation}
+
+
+			Um die Abhängigkeit des MIPS von der Produktauslastung einer Untersuchung zugänglich zu machen, sind zunächst die beiden Komponenten des MIPS, die Materialinputs und die Serviceeinheiten, näher zu betrachten. Die Materialinputs $I$ setzen sich aus nutzungsabhängigen Inputs $I_N$ und nutzungsunabhängigen Inputs $I_{\text{fix}}$ zusammen, wobei unter $I_{\text{fix}}$ hier alle Inputs zur Bereitstellung und Entsorgung des Produkts zusammengefasst werden:
+%
+			\begin{equation}
+				I=N \cdot i_N + I_{\text{fix}}
+			\end{equation}			
+
+			Auf der Seite der Serviceeinheiten haben wir mit Gleichung \ref{eq:S(a)} bereits eine Bestimmungsgleichung gegeben: $S=N \cdot a \cdot K$. Diese muss der Nebenbedingung genügen, dass die abgerufenen Nutzungseinheiten $N$ den Nutzungsvorrat $N_{\text{max}}$ nicht übersteigen:
+%
+			\begin{equation}
+				\label{eq:Nebenbedingung N_max}
+				N \leq N_{\text{max}}
+			\end{equation}
+			
+			Die Kapazität $K$ wird in diesem Teil-Modell in Bezug auf $a$ als konstant angenommen. Sie ist als Kapazität eines einzelnen Produkts zu verstehen, selbst wenn das betrachtete Produktsystem mehrere Produkte gleichen Typs umfasst. Die abgerufenen Nutzungseinheiten $N$ stellen in diesem Modell eine Zwischengröße dar, die durch die folgenden Umformungen eliminiert werden kann.
+			
+			Andererseits besteht in einem konkreten Nutzungssystem eine bestimmte Nachfrage nach Serviceeinheiten. Diese wird von der Anzahl der Personen, dem individuellen Nutzungsbedarf und dem Betrachtungszeitraum abhängen, was in diesem Teil-Modell aber nicht weiter von Belang ist. Die Service-Nachfrage $S_D$ ist eine von der Produktauslastung unabhängige Größe und kann insofern hier als Konstante betrachtet werden:
+%
+			\begin{equation}
+				S = S_D
+			\end{equation}
+%
+			Damit lässt sich Gleichung \ref{eq:S(a)} umformen zu
+%
+			\begin{equation}
+				N = \frac{S_D}{a \cdot K}
+			\end{equation}			
+%
+			und die Nebenbedingung \ref{eq:Nebenbedingung N_max} wird unter Anwendung von Gleichung \ref{N_max(a)} zu
+%
+			\begin{equation}
+				a \cdot N_{\text{max}}(a) \geq \frac{S_D}{K}.
+			\end{equation}
+%
+			Nun liegen alle Voraussetzungen vor um das MIPS für eine gegebene Auslastung $a$ zu bestimmen:
+%
+			\begin{align}
+				\text{MIPS}_a &= \frac{I}{S} = \frac{N \cdot i_N(a) + I_{\text{fix}}}{S} \\[10pt]
+				&= \frac{N \cdot i_N(a)}{S} + \frac{I_{\text{fix}}}{S} = \frac{N \cdot i_N(a)}{N \cdot a \cdot K} + \frac{I_{\text{fix}}}{S_D} \\[10pt]
+				&= \frac{i_N(a)}{a \cdot K} + \frac{I_{\text{fix}}}{S_D}
+			\end{align}	
+			
+			Zusammenfassend lässt sich das folgende Teilmodell als Zwischenergebnis festhalten:
+			\\
+			
+			\begin{mdframed}[frametitle={Erhöhung der Produktauslastung}, frametitlerule=true]
+				Teilmodell:
+				\begin{equation}
+					\text{MIPS}_a = \frac{i_N(a)}{a \cdot K} + \frac{I_{\text{fix}}}{S_D}
+				\end{equation}
+				Nebenbedingung:
+				\begin{equation}
+					a \cdot N_{\text{max}}(a) \geq \frac{S_D}{K}.
+				\end{equation}
+				Funktionseigenschaften:
+				\begin{equation}
+					\frac{d i_N}{d a} \geq 0
+				\end{equation}
+				\begin{equation}
+					\frac{d N_{\text{max}}}{d a} \leq 0
+				\end{equation}
+			\end{mdframed}
+			
+			Wie bereits bei der Herleitung des Teilmodells bereits erwähnt wurde, kann der Mechanismus \enquote{Erhöhung der Produktauslastung} sowohl positive als auch negative Umweltauswirkungen zur Folge haben. Im Modell spiegelt sich dies durch das mehrfache Vorkommen der Produktauslastung $a$ mit zum Teil entgegengesetzter Wirkung auf das MIPS wieder. Unter welchen Umständen die positiven Wirkungen die negativen überwiegen und damit eine Erhöhung der Produktauslastung insgesamt zu einer Verringerung des Umweltverbrauchs führt, wird Gegenstand der Analyse dieses Teilmodells sein. \todo{Referenz einfügen}
+			
+			\begin{table}
+				\renewcommand{\arraystretch}{1.5}
+				\begin{tabular}{p{1cm} p{3,5cm} p{3,5cm} p{\textwidth - 8 cm}}
+					\toprule
+					Symbol & Bezeichnung & Kurzbezeichnung & Definition \\
+					\midrule
+					MIPS & Material-Inputs pro Serviceeinheit & - &  $\text{MIPS} = I / S$\\
+					$I$ & Material-Inputs & Inputs & Summe aller Materialströme, die zur Bereitstellung, Nutzung und Entsorgung des betrachteten Produkts notwendig sind \\
+					$I_{\text{fix}}$ & nutzungs\textit{un}abhängige Material-Inputs & nutzungs\textit{un}abhängige Inputs & Material-Inputs, die für die Bereitstellung und die Entsorgung des betrachteten Produkts notwendig sind \\
+					$i_N$ & Material-Inputs je Produktnutzung & Inputs je Produktnutzung & Material-Inputs, die für eine Produktnutzungseinheit notwendig sind \\
+					$S$ & Service-Menge & Service & Gesamtmenge des Nutzens des betrachteten Produkts \\
+					$S_D$ & Nachgefragte Service-Menge & Service-Nachfrage & Gesamtnachfrage nach Service im betrachteten Nutzungssystem \\
+					$N$ & Produktnutzungs-Menge & Produktnutzung & Anzahl der Nutzungen oder Gesamtnutzungsdauer des betrachteten Produkts \\
+					$N_{\text{max}}$ & Nutzungsvorrat & - & maximale Produktnutzungs-Menge des betrachteten Produkts \\
+					$A$ & absolute Produktauslastung & - & erzielte Service-Menge je Produktnutzungseinheit \\ 
+					$K$ & Kapazität & - & maximale absolute Produktauslastung \\
+					$a$ & relative Produktauslastung & Auslastung & $a = A / K$\\
+					\bottomrule
+				\end{tabular}
+				\caption{Übersicht über die in den Modellen verwendeten Größen.}
+			\end{table}
+			\todo{Zelleninhalte linksbündig ausrichten)}
+			
+		\subsection{Effekt-Kopplungen}
+		\subsection{Modellübersicht}
 
 \section{Analyse}
 \begin{figure}
