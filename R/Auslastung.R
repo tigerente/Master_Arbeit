@@ -4,6 +4,8 @@ tikzheight <- 4.2
 tikzwidth <- 5.5
 fntsize <- 0.8
 
+export <- FALSE # if figures should be exported, or just visualized
+
 # Konstanten Definition
 Konstanten <- data.frame(
                         K     = 1, # Kapazität
@@ -35,14 +37,19 @@ MIPS_a <- function(a){
 a_min <- 0.1 # damit die y-Achse nicht zu groß skaliert ist
 a <- seq(length = 100, from = a_min, to=1) # der Definitionsbereich
 
-# 1) MIPS in Abhängigkeit von a
+# Plot mit vier Teilplots: Spalten sind unterschiedliche Fälle
+# (unterschiedliche i_N-Funktionen), erste Spalte ist die i_N-Funktion
+# dargestellt, zweite Spalte MIPS in Abhängigkeit von a
 
-tikz( '../tex/Abbildungen/Auslastung.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
+if(export) tikz( '../tex/Abbildungen/Auslastung.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
+
+par(mfcol=c(2,2))
+#plot(a, MIPS_a(a)) 
 plot(a, MIPS_a(a), type="l", xlim=c(0,1), ylim=c(0,MIPS_a(a_min)),
      xlab = "Produktauslastung $a$",
      ylab = "$\\text{MIPS}_a$",
      main = "Teilmodell: Erhöhung der Produktauslastung",
      cex = fntsize) 
-#plot(a, MIPS_a(a)) 
-dev.off()
+
+if(export) dev.off()
 
