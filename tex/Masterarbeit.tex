@@ -37,6 +37,7 @@ dashed=false]{biblatex}
 
 %%% PACKAGES
 \usepackage{booktabs} % for much better looking tables
+\usepackage[]{longtable}
 \usepackage{array} % for better arrays (eg matrices) in maths
 %\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
 \usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
@@ -66,13 +67,21 @@ dashed=false]{biblatex}
 
 \usepackage[hidelinks]{hyperref}
 \usepackage{ragged2e} %für links und rechtsbündige Umgebungen in Tabellen
-\usepackage{todonotes}
+\usepackage[textsize=tiny]{todonotes}
 \usepackage[normalem]{ulem} % ermöglicht es, Text mittels \sout und \xout
                             % durchzustreichen
 
 %%% Eigene Befehle %%%
 \newcommand{\was}[1]{\small\textit{#1}}
+\newcommand{\noteS}[1]{\todo[color=green!40]{\textbf{Sascha: }#1}}
+\newcommand{\noteJ}[1]{\todo[color=blue!40]{\textbf{János: }#1}}
+
+% Formeln:
 \newcommand{\MIPS}[1][]{\text{MIPS}_{#1}}
+\renewcommand{\P}[1]{P_\text{#1}}
+\newcommand{\I}[1]{I_\text{#1}}
+\newcommand{\n}[1]{n_\text{#1}}
+\renewcommand{\t}[1]{t_\text{#1}}
 
 %%% Allgemeine Daten %%%
 \newcommand{\autorOne}{Alexander Müller}
@@ -353,10 +362,32 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 		\subsection{Fallstudien}
 \section{Modell}
 		\subsection{Einzeleffekte}
-			\subsubsection{Erhöhung der Produktauslastung} % Ursprünglich: "Maximierung der Geräteauslastung"
-			Unter dem Begriff \enquote{Produktauslastung} verstehen wir die Intensität, mit der ein Produkt während einer einzelnen Nutzung eingesetzt wird. Im Fall einer Waschmaschine entspricht dies dem Gewicht der Beladung während eines Waschgangs. Bei Büchern könnte analog die Anzahl der Personen, die durch Vorlesen gleichzeitig in den Genuss eines Buches kommen, betrachtet werden. Im Folgenden bleiben wir beim Beispiel der Waschmaschine, da die Relevanz des Vorlese-Szenarios als vernachlässigbar angesehen werden kann.
+			\subsubsection{Erhöhung der Produktauslastung} % Ursprünglich:
+                                              %"Maximierung der Geräteauslastung"
+      \noteS{hmmm, ich frage mich gerade, an
+        welcher Stelle, wir diesen Mechanismus eigentlich im Kontext
+      gemeinschaftlicher Nutzungsformen erklären}
+			Unter dem Begriff \enquote{Produktauslastung} verstehen wir die
+      Intensität, mit der ein Produkt während einer einzelnen Nutzung eingesetzt
+      wird. Im Fall einer Waschmaschine entspricht dies dem Gewicht der Beladung
+      während eines Waschgangs. Bei Büchern könnte analog die Anzahl der
+      Personen, die durch Vorlesen gleichzeitig in den Genuss eines Buches
+      kommen, betrachtet werden. \noteS{bin mir nicht sicher, ob man dieses
+      Vorlese-Szenario so gut versteht, oder ob das eher verwirrt} Im Folgenden
+      bleiben wir beim Beispiel der Waschmaschine, da die Relevanz des
+      Vorlese-Szenarios als vernachlässigbar angesehen werden
+      kann.
 			
-			Formaler betrachtet ist die absolute Produktauslastung $A$ der Service, der durch eine einzelne Produktnutzungseinheit erzielt wird -- im Fall der Waschmaschine also das Gewicht der gewaschenen Wäsche pro Waschgang. Nimmt man an, dass ein Produkt über eine gewisse Kapazität $K$ (die maximale absolute Auslastung) verfügt, so kann zur Betrachtung der relativen Produktauslastung $a$ übergegangen werden: $a = A/K$. Im Fall einer Waschmaschine ist die Kapazität das maximale Beladungsgewicht und die relative Produktauslastung der Anteil des tatsächlichen am maximalen Beladungsgewicht während eines Waschgangs.
+			Formaler betrachtet ist die absolute Produktauslastung $A$ der Service,
+      der durch eine einzelne Produktnutzungseinheit erzielt wird -- im Fall der
+      Waschmaschine also das Gewicht der gewaschenen Wäsche pro Waschgang. Nimmt
+      man an, dass ein Produkt über eine gewisse Kapazität $K$ (die maximale
+      absolute Auslastung) verfügt, so kann zur Betrachtung der relativen
+      Produktauslastung $a$ übergegangen werden: $a = A/K$. Im Fall einer
+      Waschmaschine ist die Kapazität das maximale Beladungsgewicht und die
+      relative Produktauslastung der Anteil des tatsächlichen am maximalen
+      Beladungsgewicht während eines Waschgangs.\noteS{über diese
+      Satzkonstruktion bin ich gestolpert}
 			
 			Damit ergibt sich der folgende Zusammenhang zwischen der Quantität der Produktnutzung $N$, der relativen Produktauslastung $a$, der Kapazität $K$ und dem erzielten Service $S$:
 %
@@ -403,7 +434,16 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 				\frac{\partial n_{\text{max}}}{\partial a} \leq 0
 			\end{equation*}
 
-			Der vierte (positive) Effekt -- eine \textit{Einsparung von Produkten} -- tritt dann auf, wenn durch eine erhöhte Auslastung einzelne Produkte im Produktnutzungssystem nicht mehr benötigt werden und daher weder bereitgestellt, noch entsorgt werden müssen. Beispielsweise kann eine Waschmaschine eingespart werden, wenn zwei Personen, die bisher jeweils eine eigene Waschmaschine nutzten und nur halbvoll beluden, nun gemeinsam eine Maschine nutzen, die immer voll beladen wird. Während die ersten drei Effekte auch bei einer individuellen Nutzung auftreten können, wenn dort die Auslastung erhöht wird, wird der hier besprochene Effekt erst durch eine kollektive Nutzung ermöglicht.
+			Der vierte (positive) Effekt -- eine \textit{Einsparung von Produkten} --
+      tritt dann auf, wenn durch eine erhöhte Auslastung einzelne Produkte im
+      Produktnutzungssystem nicht mehr benötigt werden und daher weder
+      bereitgestellt, noch entsorgt werden müssen. Beispielsweise kann eine
+      Waschmaschine eingespart werden, wenn zwei Personen, die bisher jeweils
+      eine eigene Waschmaschine nutzten und nur halbvoll beluden, nun gemeinsam
+      eine Maschine nutzen, die immer voll beladen wird. Während die ersten drei
+      Effekte auch bei einer individuellen Nutzung auftreten können, wenn dort
+      die Auslastung erhöht wird, wird der hier besprochene Effekt erst durch
+      eine kollektive Nutzung ermöglicht. \noteS{geht auch individuell}
 			
 			Die konkrete Organisation der kollektiven Produktnutzung ist ein komplexes Problem, das von vielen Faktoren wie der zeitlichen Struktur des Bedarfs, räumlichen Gegebenheiten und organisatorischen Einschränkungen bestimmt wird. Zudem wird nicht jedes ungenutzte Produkt auch tatsächlich zeitnah aus dem Nutzungssystem genommen. Daher lässt sich aus der Produktauslastung allein nicht ableiten, wie viele Produkte durch die kollektive Nutzung eingespart werden können. Jedoch kann eine Aussage darüber getroffen werden, wie viele Produkte \textit{maximal} eingespart werden können, indem die folgende Überlegung über die Anzahl der mindestens notwendigen Produkte angestellt wird: Um den Bedarf zu decken, muss die Nebenbedingung aus Ungleichung \ref{eq:Nebenbedingung N_max} erfüllt sein. Umgestellt nach $P$ schreibt sich diese als:
 %
@@ -428,7 +468,11 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 				I = N \cdot i_N(a) + P \cdot i_P + I_{\text{fix}}
 			\end{equation*}			
 %
-			Die nutzungsbedingten Inputs $I_N$ sind solche, die unmittelbar bei der Nutzung anfallen, wie beispielsweise Energie oder andere Betriebsmittel. Die produktbezogenen Inputs $I_P$ fallen bei der Bereitstellung und Entsorgung eines Produkts an und sind daher unabhängig von der Anzahl der Nutzungen. Zu den konstanten Inputs $I_P$ schließlich zählen alle Inputs, die weder von der Anzahl der Produkte, noch von der Anzahl der Nutzungen direkt abhängen. Diese fallen beispielsweise für die Bereitstellung der Infrastruktur, wie etwa der Räumlichkeiten, eines Nutzungssystems an.
+			Die nutzungsbedingten Inputs $I_N$ sind solche, die unmittelbar bei der
+      Nutzung anfallen, wie beispielsweise Energie oder andere Betriebsmittel.
+      Die produktbezogenen Inputs $I_P$ fallen bei der Bereitstellung und
+      Entsorgung eines Produkts an und sind daher unabhängig von der Anzahl der
+      Nutzungen. Zu den konstanten Inputs $I_\text{fix}$ schließlich zählen alle Inputs, die weder von der Anzahl der Produkte, noch von der Anzahl der Nutzungen direkt abhängen. Diese fallen beispielsweise für die Bereitstellung der Infrastruktur, wie etwa der Räumlichkeiten, eines Nutzungssystems an.
 			
 			Auf der Seite der Service-Menge ist mit Gleichung \ref{eq:S(a)} bereits eine Bestimmungsgleichung gegeben, die beschreibt, welche Service-Menge von einem Nutzungssystem angeboten wird:
 %
@@ -471,7 +515,10 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 				P \cdot n_\text{max}(a) \geq \frac{S_D}{a \cdot K}
 			\end{equation*}
 %
-			Zu beachten ist hier, dass sowohl die Produktauslastung $a$ als auch die Produktanzahl $P$ freie Variablen sind, die im Zusammenspiel die Nebenbedingung erfüllen müssen.
+			Zu beachten ist hier, dass sowohl die Produktauslastung $a$ als auch die
+      Produktanzahl $P$ freie Variablen sind, die im Zusammenspiel die
+      Nebenbedingung erfüllen müssen.\noteS{dieser Fakt sollte sich vielleicht
+      auch in der Übersicht wiederspiegeln}
 			
 			Zusammenfassend lässt sich das folgende Teilmodell als Zwischenergebnis festhalten:
 			\\
@@ -496,35 +543,117 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 			
 			%Wie bereits bei der Herleitung des Teilmodells bereits erwähnt wurde, kann der Mechanismus \enquote{Erhöhung der Produktauslastung} sowohl positive als auch negative Umweltauswirkungen zur Folge haben. Im Modell spiegelt sich dies durch das mehrfache Vorkommen der Produktauslastung $a$ mit zum Teil entgegengesetzter Wirkung auf das MIPS wieder. Unter welchen Umständen die positiven Wirkungen die negativen überwiegen und damit eine Erhöhung der Produktauslastung insgesamt zu einer Verringerung des Umweltverbrauchs führt, wird Gegenstand der Analyse dieses Teilmodells sein. \todo{Referenz einfügen}
 			
-			\begin{table}
-				\renewcommand{\arraystretch}{1.25}
-				\begin{tabular}{p{1cm} p{3,5cm} p{3,5cm} p{\textwidth - 8 cm}}
-					\toprule
-					Symbol & Bezeichnung & Kurzbezeichnung & Definition \\
-					\midrule
-					MIPS & Material-Inputs pro Serviceeinheit & - &  $\text{MIPS} = I / S$\\
-					$I$ & Material-Inputs & Inputs & Summe aller Materialströme, die zur Bereitstellung, Nutzung und Entsorgung der betrachteten Produkte sowie der Infrastruktur des Nutzungssystems notwendig sind \\
-					$I_N$ & nutzungsbedingte Material-Inputs & nutzungsbedingte Inputs & Material-Inputs, die unmittelbar bei der Nutzung anfallen \\
-					$I_P$ & produktbezogene Material-Inputs & produktbezogene Inputs & Material-Inputs, die zur Bereitstellung und Entsorgung der betrachteten Produkte notwendig sind \\
-					$I_{\text{fix}}$ & konstante Material-Inputs & konstante Inputs & Material-Inputs, die weder von der Produktanzahl, noch von der Produktnutzung abhängen (Nutzungssystem-Infrastruktur) \\
-					$i_N$ & Material-Inputs je Produktnutzung & Inputs je Produktnutzung & Material-Inputs, die für eine Produktnutzungseinheit notwendig sind \\
-					$i_P$ & Material-Inputs je Produkt & Inputs je Produkt & Material-Inputs, die für die Bereitstellung und Entsorgung eines Produkts notwendig sind \\
-					$P$ & Produktanzahl & - & Anzahl der betrachteten Produkte im Produktnutzungssystem \\
-					$P_\text{min}$ & Mindestproduktanzahl & - & Anzahl mindestens notwendiger Produkte im Produktnutzungssystem \\
-					$S$ & Service-Menge & Service & Gesamtmenge des Nutzens der betrachteten Produkte \\
-					$S_D$ & nachgefragte Service-Menge & Service-Nachfrage & Gesamtnachfrage nach Service im betrachteten Nutzungssystem \\
-					$N$ & Produktnutzungs-Menge & Produktnutzung & Anzahl der Nutzungen oder Gesamtnutzungsdauer der betrachteten Produkte im Produktnutzungssystem \\
-					$N_{\text{max}}$ & Nutzungsvorrat & - & maximale Produktnutzungs-Menge im Produktnutzungssystem \\
-					$n_{\text{max}}$ & Einzelnutzungsvorrat & - & maximale Produktnutzungs-Menge eines Produkts \\
-					$A$ & absolute Produktauslastung & absolute Auslastung & erzielte Service-Menge je Produktnutzungseinheit \\ 
-					$K$ & Kapazität & - & maximale absolute Auslastung \\
-					$a$ & relative Produktauslastung & Auslastung & $a = A / K$\\
-					\bottomrule
-				\end{tabular}
-				\caption{Übersicht über die in den Modellen verwendeten Größen.}
-			\end{table}
-			\todo{Zelleninhalte linksbündig ausrichten)}
 			
+      \subsubsection{Wartung und Reparatur}
+      Produkte können während ihrer Nutzungsdauer mit dem Zweck, ihre
+      Funktionstüchtigkeit lange zu gewährleisten bzw. diese wieder
+      herzustellen, gewartet und repariert werden. Hierfür müssen Materialinputs
+      aufgebracht werden, die zunächst die Ressourcenbilanz des betrachteten
+      Produkts verschlechtern. Führen die Wartungs- und Reparaturarbeiten jedoch
+      dazu, dass eine größere Service-Menge des Produkts in Anspruch genommen
+      wird, so können sie ökologisch vorteilhaft sein. 
+      % Für dieses
+      % Teilmodell sind also drei Effekte zu formalisieren: erstens die Erhöhung
+      % des Nutzungsvorrats durch zusätzliche Wartung und Reparatur, zweitens die
+      % dafür nötige Erhöhung der Materialinputs und drittens die Erhöhung der
+      % abgerufenen Service-Menge.
+
+      Der genaue Verlauf von Wartung und Reparatur kann sehr komplex sein und
+      nicht nur vom Produkt sondern auch von vielen anderen Faktoren abhängen.
+      In dem einen Haushalt könnte beispielsweise das betrachtete Produkt viel
+      und regelmäßig gewartet werden, jedoch im Schadensfall durch ein neues
+      ersetzt werden, während in einem anderen Haushalt keine Wartung
+      vorgenommen wird, allerdings beschädigte Teile ausgetausch werden, sodass
+      eine Neuanschaffung hinausgezögert wird. Da uns jedoch nicht der genaue
+      Wartungs- und Reparaturverlaufs jedes Produkts im Nutzungssystem
+      interessiert, sondern lediglich eine Zu- oder Abnahme des Wartungs- und
+      Reparaturumfangs in Bezug auf den status quo, abstrahieren wir dieses
+      Geschehen zu einem Parameter $w$ und nehmen weiterhin identische Produkte
+      mit je identischem Wartungs- und Reparaturverlauf an. Die inhaltliche
+      Bedeutung dieses Parameters muss im jeweiligen Anwendungsfall bestimmt
+      werden, die einzige Bedingung ist, dass für $w_1 \geq w_2$ gilt, dass der
+      Wartungs- und Reparaturaufwand von $w_1$ den von $w_2$ übertrifft.
+
+      Dieser Parameter erlaubt es uns nun, die eingangs genannten Effekte zu
+      formalisieren. Die Erhöhung des Nutzungsvorrats durch zusätzliche Wartung
+      und Reparatur drückt sich in einer funktionalen Abhängkeit des
+      Einzelnutzungsvorrats $\n{max}$ von $w$ aus, deren einzige Spezifikation
+      in dem Monotonieverhalten besteht: 
+      \begin{equation*}
+        \n{max} = \n{max}(w) \quad ,\quad  
+				\frac{\partial \n{max}}{\partial w} \geq 0
+      \end{equation*}
+
+      Analog drücken wir den zweiten Effekt, die Erhöhung des Materialinputs
+      $i_P$ durch zusätzliche Wartung und Reparatur aus:
+
+      \begin{equation*}
+        i_P = i_P(w)\quad  , \quad
+        \frac{\partial i_P}{\partial w} \geq 0
+      \end{equation*}
+
+      Kommen wir nun zum dritten Effekt, die Vergrößerung der genutzten
+      Service-Menge. Bei konstanter Nutzungshäufigkeit entspricht dies einer
+      Verlängerung der Nutzungsdauer $t$ eines Produkts. Zur Berücksichtigung
+      des Effekts auf das MIPS gibt es zum einen die Möglichkeit, den
+      Betrachtungszeitraum $T$ and die verlängerte Nutzungsdauer anzupassen. Zum
+      anderen kann der Betrachtungszeitraum konstant gehalten und dafür anteilig
+      weniger produktbezogene Inputs berücksichtigt werden. Wir wählen letzteren
+      Weg, um eine Konsistenz mit den anderen Teilmodellen zu erreichen. Seien 
+
+      \begin{equation}
+        P = \P{sim} \cdot \frac{T}{t}
+      \end{equation}
+
+      
+
+      \begin{equation}
+        t = \min\{\t{technisch}, \t{fix}\} =
+        \min\left\{\frac{\n{max}(w)}{h} , \t{fix}\right\}
+      \end{equation}
+
+
+
+      Die Materialinputs setzen sich aus produktbezogenen Inputs $I_P = P \cdot
+      i_P$ und konstanten Inputs $\I{fix}$ zusammen:
+      \begin{equation*}
+        I = P \cdot i_P + \I{fix}
+      \end{equation*}
+      Die produktbezogenen Inputs umfassen alle Materialinputs die pro Produkt
+      anfallen. In diesem Teilmodell beinhalten sie neben den Inputs für die
+      Herstellung und Entsorgung der Produkte insbesondere auch die
+      Materialinputs für deren Wartung und Reparatur. Die beiden eingangs
+      erwähnten Effekte dieses Teilmodells lassen sich in dieser Formel bereits
+      erkennen: zum einen sinkt bei zusätzlichem Wartungs- und Reparaturaufwand
+      die im Nutzungssystem benötigte Produktmenge $P$. Zum anderen erhöhen sich
+      dadurch die produktbezogenen Inputs $i_P$. 
+
+      \begin{equation}
+        \MIPS[w] = \frac{I}{S} = \frac{P \cdot i_P + \I{fix}}{S_D} =
+        \frac{\P{sim} \cdot T
+      \cdot i_P(w)}{\min\left\{\frac{\n{max}(w)}{h} , \t{fix}\right\}
+        \cdot S_D} + \frac{\I{fix}}{S_D}
+        \label{eq:MIPS_Wartung}
+      \end{equation}
+
+			\begin{mdframed}[frametitle={Wartung und Reparatur}, frametitlerule=true]
+				Teilmodell:
+      \begin{equation}
+        \MIPS[w] = 
+        \frac{\P{sim} \cdot T
+      \cdot i_P(w)}{\min\left\{\frac{\n{max}(w)}{h} , \t{fix}\right\}
+        \cdot S_D} + \frac{\I{fix}}{S_D}
+      \end{equation}
+				Funktionseigenschaften:
+				\begin{equation}
+					\frac{\partial i_P}{\partial w} \geq 0
+				\end{equation}
+				\begin{equation}
+					\frac{\partial \n{max}}{\partial w} \geq 0
+				\end{equation}
+			\end{mdframed}
+
+
 		\subsection{Effekt-Kopplungen}
 		\subsection{Modellübersicht}
 
@@ -562,6 +691,42 @@ eine Änderung der relativen Auslastung reagiert.
   \frac{x}{y}
   \label{eqn:def-Elastizität}
 \end{equation}
+\subsection{Übersicht über die in den Modellen verwendeten Größen}
+				\renewcommand{\arraystretch}{1.25}
+			\begin{longtable}{p{1cm} p{3,5cm} p{3,5cm} p{\textwidth - 9.5 cm}}
+				% \begin{tabular}{p{1cm} p{3,5cm} p{3,5cm} p{\textwidth - 8 cm}}
+					\toprule
+					Symbol & Bezeichnung & Kurzbezeichnung & Definition \\
+					\midrule
+          \endhead
+          \bottomrule
+				\caption{Übersicht über die in den Modellen verwendeten Größen.
+        (Fortsetzung auf der nächsten Seite)}
+          \endfoot
+          \bottomrule
+				\caption{Übersicht über die in den Modellen verwendeten Größen.}
+          \endlastfoot
+					MIPS & Material-Inputs pro Serviceeinheit & - &  $\text{MIPS} = I / S$\\
+					$I$ & Material-Inputs & Inputs & Summe aller Materialströme, die zur Bereitstellung, Nutzung und Entsorgung der betrachteten Produkte sowie der Infrastruktur des Nutzungssystems notwendig sind \\
+					$I_N$ & nutzungsbedingte Material-Inputs & nutzungsbedingte Inputs & Material-Inputs, die unmittelbar bei der Nutzung anfallen \\
+					$I_P$ & produktbezogene Material-Inputs & produktbezogene Inputs & Material-Inputs, die zur Bereitstellung und Entsorgung der betrachteten Produkte notwendig sind \\
+					$I_{\text{fix}}$ & konstante Material-Inputs & konstante Inputs & Material-Inputs, die weder von der Produktanzahl, noch von der Produktnutzung abhängen (Nutzungssystem-Infrastruktur) \\
+					$i_N$ & Material-Inputs je Produktnutzung & Inputs je Produktnutzung & Material-Inputs, die für eine Produktnutzungseinheit notwendig sind \\
+					$i_P$ & Material-Inputs je Produkt & Inputs je Produkt & Material-Inputs, die für die Bereitstellung und Entsorgung eines Produkts notwendig sind \\
+					$P$ & Produktanzahl & - & Anzahl der betrachteten Produkte im Produktnutzungssystem \\
+					$P_\text{min}$ & Mindestproduktanzahl & - & Anzahl mindestens notwendiger Produkte im Produktnutzungssystem \\
+					$S$ & Service-Menge & Service & Gesamtmenge des Nutzens der betrachteten Produkte \\
+					$S_D$ & nachgefragte Service-Menge & Service-Nachfrage & Gesamtnachfrage nach Service im betrachteten Nutzungssystem \\
+					$N$ & Produktnutzungs-Menge & Produktnutzung & Anzahl der Nutzungen oder Gesamtnutzungsdauer der betrachteten Produkte im Produktnutzungssystem \\
+					$N_{\text{max}}$ & Nutzungsvorrat & - & maximale Produktnutzungs-Menge im Produktnutzungssystem \\
+					$n_{\text{max}}$ & Einzelnutzungsvorrat & - & maximale Produktnutzungs-Menge eines Produkts \\
+					$A$ & absolute Produktauslastung & absolute Auslastung & erzielte Service-Menge je Produktnutzungseinheit \\ 
+					$K$ & Kapazität & - & maximale absolute Auslastung \\
+					$a$ & relative Produktauslastung & Auslastung & $a = A / K$\\
+					% \bottomrule
+				% \end{tabular}
+			\end{longtable}
+			\todo{Zelleninhalte linksbündig ausrichten)}
 
 
 
