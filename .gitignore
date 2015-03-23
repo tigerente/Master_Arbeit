@@ -118,3 +118,8 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 .Rproj.user
+
+# R / R Studio
+# =========================
+*.pper
+*.Rhistory
