@@ -377,7 +377,7 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 				n = h \cdot t
 			\end{equation}
 %
-			So stellt beispielsweise eine Waschmaschine, die zwei mal pro Woche genutzt wird, in einer Nutzungsdauer von 10 Jahren $n = 2 \textfrac{Waschgänge}{Woche} \cdot 52 \textfrac{Wochen}{Jahr} \cdot 10 \text{ Jahre} = 1040$ Waschgänge zur Verfügung.
+			So stellt beispielsweise eine Waschmaschine, die zwei mal pro Woche genutzt wird, in einer Nutzungsdauer von 15 Jahren $n = 2 \textfrac{Waschgänge}{Woche} \cdot 52 \textfrac{Wochen}{Jahr} \cdot 15 \text{ Jahre} = 1560$ Waschgänge zur Verfügung.
 
 			Werden in einem Produktnutzungssystem $P$ Produkte eingesetzt, ergibt sich die Gesamtnutzungsmenge
 %
@@ -386,7 +386,7 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 				N = n \cdot P = h \cdot t \cdot P
 			\end{equation}
 %			
-			Hierbei ist zu beachten, dass die Produktanzahl $P$ sowohl gleichzeitig, als auch nacheinander eingesetzte Produkte berücksichtigt. Diese Größe muss nicht ganzzahlig sein, da ein Produkt auch anteilig dem betrachteten Nutzungssystem angerechnet werden kann, wenn es innerhalb des Betrachtungszeitraums nur einen Teil seines Nutzungsvorrats zur Verfügung stellt und der Rest auf eine vorausgegangene oder nachfolgende Nutzung entfällt. Werden beispielsweise in einem Gemeinschaftswaschkeller im Betrachtungszeitraum $T  = 15 \text{ Jahren}$ parallel zwei Maschinen betrieben, die jeweils über eine Nutzungsdauer von $t = 20 \text{ Jahren}$ verfügen, so sind sie jeweils nur zu $\nicefrac{15}{20}$ dem betrachteten Nutzungssystem anzurechnen, sodass sich eine Produktanzahl von $P = 2 \cdot \nicefrac{15}{20} = 1.5$ ergibt. Allgemein gilt:
+			Hierbei ist zu beachten, dass die Produktanzahl $P$ sowohl gleichzeitig, als auch nacheinander eingesetzte Produkte berücksichtigt. Diese Größe muss nicht ganzzahlig sein, da ein Produkt auch anteilig dem betrachteten Nutzungssystem angerechnet werden kann, wenn es innerhalb des Betrachtungszeitraums nur einen Teil seines Nutzungsvorrats zur Verfügung stellt und der Rest auf eine vorausgegangene oder nachfolgende Nutzung entfällt. Werden beispielsweise in einem Gemeinschaftswaschkeller im Betrachtungszeitraum $T  = 10 \text{ Jahren}$ parallel zwei Maschinen betrieben, die jeweils über eine Nutzungsdauer von $t = 15 \text{ Jahren}$ verfügen, so sind sie jeweils nur zu $\nicefrac{10}{15}$ dem betrachteten Nutzungssystem anzurechnen, sodass sich eine Produktanzahl von $P = 2 \cdot \nicefrac{10}{15} \approx 1.33$ ergibt. Allgemein gilt:
 %
 			\begin{equation}
 				\label{eq:P(p)}
@@ -475,9 +475,14 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 			
 			Wiederum ist der Punkt, an dem die Nutzungshäufigkeit gerade so groß ist, dass der Nutzungsvorrat innerhalb der Maximalnutzungsdauer aufgebraucht wird ($h = \frac{n_{\text{max}}}{t_{\text{max}}}$), entscheidend: Bei geringerer Nutzungshäufigkeit ist die benötigte Produktanzahl antiproportional zur Nutzungshäufigkeit, bei höherer Nutzungshäufigkeit ist sie hingegen konstant. Dies folgt direkt aus den eben gemachten Beobachtungen zur Nutzungsmenge n(h)und hat zur Folge, dass eine Nutzungsintensivierung nur solange einen positiven Umwelteffekt aufweist, bis der Nutzungsvorrat voll ausgeschöpft wird, was noch im Detail gezeigt werden wird.
 			
-			Abbildung \ref{fig:t(h)_n(h)_P(h)} stellt die Abhängigkeiten der Nutzungsdauer $t$, der Nutzungsmenge $n$ und der Produktanzahl $P$ von der Nutzungshäufigkeit $h$ dar.
+			Abbildung \ref{fig:t(h)_n(h)_P(h)} stellt die Abhängigkeiten der Nutzungsdauer $t$, der Nutzungsmenge $n$ und der Produktanzahl $P$ von der Nutzungshäufigkeit $h$ dar. Die markierte Stelle $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ ist der oben besprochene Punkt, an dem alle drei Funktionen ihren Verlauf ändern.
 			
-			\noteJ{Abbildung erstellen, einfügen, beschriften und beschreiben!}
+			\begin{figure}[ht]
+				\centering
+				\input{Abbildungen/Nutzungsintensivierung_1.tex}
+				\caption{Nutzungsdauer, Nutzungsmenge und Produktanzahl in Abhängigkeit von der Nutzungshäufigkeit (untere Skala). Die durchgezogenen Linien geben den hypothetischen Funktionsverlauf an, die kleinen Quadrate die tatsächlichen Funktionswerte für verschiedene Anzahlen parallel genutzter Produkte (obere Skala). Bei $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Parameter: $N = 10.000$ Nutzungseinheiten, $n_\text{max} = 5.000$ Nutzungseinheiten, $T = 10$ Jahre, $t_\text{max} = 15$ Jahre.}
+				\label{fig:t(h)_n(h)_P(h)}
+			\end{figure}
 			
 			Zur Berechnung der MIPS ist zunächst eine Betrachtung der Material-Inputs $I$ notwendig. Diese setzen sich aus nutzungsbedingten Inputs $I_N = N \cdot i_N$, produktbezogenen Inputs $I_P = P(h) \cdot i_P$  und konstanten Inputs $I_{\text{fix}}$ zusammen:
 			%
