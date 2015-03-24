@@ -7,7 +7,7 @@ tikzheight <- 6.2
 tikzwidth <- 5.5
 fntsize <- 0.8
 
-# export <- FALSE # if figures should be exported, or just visualized
+#export <- FALSE # if figures should be exported, or just visualized
 export <- TRUE # if figures should be exported, or just visualized 
 Plots_or_manipulate <- 1 # if set to 1, Plots are drawn, which will eventually
                          # be exported, if set to 2, a plot with manipulate is

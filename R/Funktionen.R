@@ -18,6 +18,23 @@ i_N <- function(a, i_N_max = 1, i_N_min = 0.5, i_N_exp = 1){
     (i_N_max - i_N_min) * a^i_N_exp + i_N_min
 }
 
+###############
+#### i_N_t ####
+###############
+
+# Input pro Nutzungseinheit, abhängig von der Zeit, bei gegebener
+# Wartungshäufigkeit:
+# t...Zeit
+# w...Wartungshäufigkeit (hier: Anzahl Wartungen über den gesamten Zeitraum)
+# i_N_min...i_N zum Zeitpunkt der Wartung
+# i_N_max...i_N kurz vor der Wartung
+# i_N_delta...um diesen Wert erhöht sich i_N_min und i_N_max nach jedem
+#             Wartungszyklus
+# i_N_t <- function(t, w, i_N_min, i_N_max, i_N_delta){
+#   result <- vector()
+#
+# }
+
 ###########
 #### P ####
 ###########
