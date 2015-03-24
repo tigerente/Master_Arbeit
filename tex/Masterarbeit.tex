@@ -81,6 +81,7 @@ dashed=false]{biblatex}
 \renewcommand{\P}[1]{P_\text{#1}}
 \newcommand{\I}[1]{I_\text{#1}}
 \newcommand{\n}[1]{n_\text{#1}}
+\newcommand{\N}[1]{N_\text{#1}}
 \renewcommand{\t}[1]{t_\text{#1}}
 
 %%% Allgemeine Daten %%%
@@ -462,7 +463,7 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 			
 			Nachdem nun die verschiedenen Effekte einer Erhöhung der Produktauslastung formal beschrieben sind, kann nun untersucht werden, wie sie gemeinsam auf die Zielgröße MIPS einwirken. Dazu werden im Folgenden zunächst die beiden Komponenten des MIPS, die Material-Inputs $I$ und die Service-Menge $S$, einzeln betrachtet und anschließend alle betrachteten Aspekte zu einem Modell zusammengeführt.
 			
-			Die Materialinputs setzen sich aus nutzungsbedingten Inputs $I_N = N \cdot i_N(a)$, produktbezogenen Inputs $I_P = P \cdot i_P$  und konstanten Inputs $I_{\text{fix}}$ zusammen:
+			Die Material-Inputs setzen sich aus nutzungsbedingten Inputs $I_N = N \cdot i_N(a)$, produktbezogenen Inputs $I_P = P \cdot i_P$  und konstanten Inputs $I_{\text{fix}}$ zusammen:
 %
 			\begin{equation*}
 				I = N \cdot i_N(a) + P \cdot i_P + I_{\text{fix}}
@@ -545,101 +546,287 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 			
 			
       \subsubsection{Wartung und Reparatur}
-      Produkte können während ihrer Nutzungsdauer mit dem Zweck, ihre
-      Funktionstüchtigkeit lange zu gewährleisten bzw. diese wieder
-      herzustellen, gewartet und repariert werden. Hierfür müssen Materialinputs
-      aufgebracht werden, die zunächst die Ressourcenbilanz des betrachteten
-      Produkts verschlechtern. Führen die Wartungs- und Reparaturarbeiten jedoch
-      dazu, dass eine größere Service-Menge des Produkts in Anspruch genommen
-      wird, so können sie ökologisch vorteilhaft sein. 
-      % Für dieses
-      % Teilmodell sind also drei Effekte zu formalisieren: erstens die Erhöhung
-      % des Nutzungsvorrats durch zusätzliche Wartung und Reparatur, zweitens die
-      % dafür nötige Erhöhung der Materialinputs und drittens die Erhöhung der
-      % abgerufenen Service-Menge.
+      \todo{Beispiele nennen}
+      Produkte können während ihrer Nutzungsdauer mit dem Zweck, einer
+      Verlängerung ihrer Lebensdauer gewartet und repariert werden. 
+      Unter dem Begriff "`Wartung"' verstehen wir dabei eine Pflegetätigkeit an
+      einem Produkt, welche durchgeführt wird, um dessen Funktionstüchtigkeit
+      lange zu gewährleisten bzw. diese zu verbessern. Das betreffende Produkt
+      ist zum Zeitpunkt der Wartung funktionstüchtig, die Wartung ist
+      also ein geplanter, vorausschauender Eingriff, dessen Häufigkeit von den
+      Nutzer\_innen frei festgelegt werden kann.
 
-      Der genaue Verlauf von Wartung und Reparatur kann sehr komplex sein und
-      nicht nur vom Produkt sondern auch von vielen anderen Faktoren abhängen.
-      In dem einen Haushalt könnte beispielsweise das betrachtete Produkt viel
-      und regelmäßig gewartet werden, jedoch im Schadensfall durch ein neues
-      ersetzt werden, während in einem anderen Haushalt keine Wartung
-      vorgenommen wird, allerdings beschädigte Teile ausgetausch werden, sodass
-      eine Neuanschaffung hinausgezögert wird. Da uns jedoch nicht der genaue
-      Wartungs- und Reparaturverlaufs jedes Produkts im Nutzungssystem
-      interessiert, sondern lediglich eine Zu- oder Abnahme des Wartungs- und
-      Reparaturumfangs in Bezug auf den status quo, abstrahieren wir dieses
-      Geschehen zu einem Parameter $w$ und nehmen weiterhin identische Produkte
-      mit je identischem Wartungs- und Reparaturverlauf an. Die inhaltliche
-      Bedeutung dieses Parameters muss im jeweiligen Anwendungsfall bestimmt
-      werden, die einzige Bedingung ist, dass für $w_1 \geq w_2$ gilt, dass der
-      Wartungs- und Reparaturaufwand von $w_1$ den von $w_2$ übertrifft.
+      Im Gegensatz dazu verwenden wir den Begriff "`Reparatur"' für
+      Tätigkeiten an einem defekten Produkt, mit dem Ziel, dessen
+      Funktionstüchtigkeit wieder herzustellen. In diesem Sinne sind
+      Reparaturen also Handlungen, die auf Ereignisse reagieren und nicht
+      geplant werden können. Es kann lediglich zum Zeitpunkt des Defekts
+      entschieden werden, ob die Reparatur vollzogen oder das Produkt entsorgt
+      wird.
 
-      Dieser Parameter erlaubt es uns nun, die eingangs genannten Effekte zu
-      formalisieren. Die Erhöhung des Nutzungsvorrats durch zusätzliche Wartung
-      und Reparatur drückt sich in einer funktionalen Abhängkeit des
-      Einzelnutzungsvorrats $\n{max}$ von $w$ aus, deren einzige Spezifikation
-      in dem Monotonieverhalten besteht: 
+      Sowohl für Wartungen als auch für Reparaturen werden Material-Inputs
+      aufgebracht, welche die Ressourcenbilanz zunächst verschlechtern. Dieser
+      Effekt wird jedoch durch eine Verlängerung der Lebensdauer begleitet.
+      Bei Wartungen ist diese Verlängerung beschränkt -- Produktteile können
+      selbst bei optimaler Pflege defekt werden -- während Reparaturen die
+      Lebensdauer theoretisch unbegrenzt verlängern können.
+      Führt die Verlängerung der Lebensdauer auch zu einer Verlängerung der
+      Nutzungsdauer, so können die Wartungs- und Reparaturarbeiten insgesamt
+      ökologisch vorteilhaft sein. Bei Wartungen ist noch ein dritter Effekt zu
+      beobachten: da regelmäßige Wartungen zu einer Verbesserung der
+      Funktionstüchtigkeit führen, kann dies unter Umständen auch zu einer
+      Verringerung der Material-Inputs je Produktnutzung führen, also die
+      Ressourcenbilanz zusätzlich verbessern.
+
+      % erster Effekt: Erhöhung der Material-Inputs
+      % zweiter Effekt: Erhöhung des Nutzungsvorrats
+      % dritter Effekt: Verringerung der Material-Inputs je Produktnutzung
+
+      Eine Zusammenstellung der Unterschiede und Gemeinsamkeiten zwischen
+      Reparaturen und Wartungen findet sich in Tabelle
+      \ref{tab:wartung_reparatur}. Insbesondere der Unterschied, dass es sich
+      bei Wartungen um geplante Tätigkeiten handelt, während Reparaturen auf
+      Ereignisse reagierende Handlungen sind, macht es notwendig, für die beiden
+      Fälle zwei separate
+      Modelle für die Abbildung der genannten Effekte auf die MIPS zu
+      entwickeln.
+
+      \begin{table}
+        \centering
+        \begin{tabular}{lp{4cm}p{4cm}}
+          \toprule
+                                   & Wartung             &     Reparatur\\
+          \midrule
+          \textit{Erhöhung der 
+                  Lebensdauer}     & ja, aber begrenzt   & ja, theoretisch
+                                                                unbegrenzt\\
+          \textit{Erhöhung der 
+              Material-Inputs}     & ja                  & ja\\
+
+          \textit{Zeitpunkt,
+                  Häufigkeit  }    & kann frei bestimmt 
+                                     werden              & zufällig,
+                                                           vorgegeben\\
+          \textit{Einfluss auf 
+                  Nutzungsinputs}  & verringert sie      & keiner\\
+          \bottomrule
+        \end{tabular}
+        \caption{Unterschiede und Gemeinsamkeiten zwischen Wartung und Reparatur}
+        \label{tab:wartung_reparatur}
+      \end{table}
+
+      \paragraph{Wartung}
+      Um die genannten drei Effekte höherer Wartungstätigkeiten auf den
+      Umweltverbrauch abzubilden, müssen wir zunächst die Wartungstätigkeit
+      selber formalisieren. Wir nehmen an, dass regelmäßig, d.h. nach Abruf
+      einer bestimmten Menge von Nutzungseinheiten, in dem gesamten
+      Nutzungssystem eine Wartung mit durchschnittlichen Wartungsinputs $i_W$
+      durchgeführt wird. Unter dieser Annahme können wir die Wartungshäufigkeit
+      $w$ einführen, welche die Anzahl Wartungen je Nutzungseinheiten angibt. Da
+      maximal nach jeder Produktnutzung gewartet werden kann, ist $w \in
+      [0,1]$.
+      Die Anzahl Wartungen $W$ ergeben sich dann als Produkt der
+      Wartungshäufigkeit und den Nutzungseinheiten. 
+      Der erste Effekt, die Erhöhung der Material-Inputs lässt sich nun direkt
+      formulieren:
+      \begin{equation}
+        I_W = W \cdot i_W = N \cdot w \cdot i_W
+      \end{equation}
+      Hierbei bezeichnet $I_W$ die wartungsbedingten Material-Inputs, die, wie
+      zu erkennen ist, direkt proportional mit der Wartungshäufigkeit wachsen.
+
+      Wir formalisieren den zweiten Effekt -- die Verlängerung der Lebensdauer
+      -- indem wir annehmen, dass der Nutzungsvorrat $\n{max}$ eines Produkts
+      \todo{Annahme: alles gleiche Produkte} monoton mit der Wartungshäufigkeit
+      steigt und dies als funktioneller Zusammenhang beschrieben werden kann:
       \begin{equation*}
-        \n{max} = \n{max}(w) \quad ,\quad  
-				\frac{\partial \n{max}}{\partial w} \geq 0
+        \n{max} = \n{max}(w) \quad \text{mit} \quad
+        \frac{\partial \n{max}}{\partial w}\geq 0 \quad , \quad
+      \end{equation*}
+      Bei konstanter Nutzungshäufigkeit $h$ verlängert sich mit steigender
+      Wartungshäufigkeit wegen $\t{tech} = \frac{\n{max}(w)}{h}$ die
+      Lebensdauer. 
+
+      Neben dem Monotonieverhalten treffen wir noch zwei weitere Annahmen über
+      den Verlauf von $\n{max}(w)$:  Zum einen nehmen wir an, dass der
+      Nutzungsvorrat nach oben beschränkt ist, also eine Erhöhung der
+      Wartungshäufigkeit den Nutzungsvorrat und damit die Lebensdauer nicht
+      unbeschränkt erhöhen kann. Zum anderen nehmen wir an,
+      dass der Zugewinn am Nutzungsvorrat durch eine Erhöhung der
+      Wartungshäufigkeit mit steigender Wartungshäufigkeit abnimmt. In Formeln
+      ausgedrückt, können wir schreiben:\todo{schauen, ob diese Annahmen
+      später überhaupt benötigt werden}
+
+      \begin{equation*}
+        \frac{\partial^2 \n{max}}{\partial w^2}\leq 0 \quad , \quad
+        \max_{w \in [0,1]} \n{max}(w) < \infty
+      \end{equation*}
+      
+      Die Verlängerung der technischen Lebensdauer $\t{tech}$ wird dann einen
+      positiven Effekt auf die MIPS des betrachteten Produkts haben, wenn
+      dadurch mehr der durch das Produkt bereitgestellten Nutzungseinheiten
+      verwendet werden. Bei konstanter Nutzungshäufigkeit $h$ trifft das genau
+      dann zu,
+      wenn die Nutzungsdauer $t$ verlängert wird. Der Zusammenhang zwischen
+      Nutzungsdauer und Lebensdauer wurde bereits im Abschnitt zur
+      Nutzungsintensivierung \ref{sec:Nutzungsintensivierung} formalisiert (vgl.
+      Gleichung \ref{eq:Nutzungsdauer}): 
+
+      \begin{equation*}
+        t = \min \left\{\frac{\n{max}(w)}{h}, \t{max}\right\}
+      \end{equation*}
+      Hieran lässt sich erkennen, dass eine Erhöhung der Wartungshäufigkeit
+      genau dann zu einer Verlängerung der Nutzungsdauer führt, wenn $\t{tech} <
+      \t{max}$ gilt, das Produkt also aufgrund des Erreichens des
+      Nutzungsvorrats ausgemustert wird. Unter der Annahme identischer Produkte
+      im Nutzungssystem, insbesondere also gleicher Nutzungsdauern, gilt der im
+      Abschnitt zur Nutzungsintensivierung \ref{sec:Nutzungsintensivierung}
+      beschriebene Zusammenhang zwischen der Produktnutzungs-Menge $N$ und der
+      Produktanzahl $P$:
+      \begin{equation*}
+        N = h \cdot t \cdot P
+      \end{equation*}
+      Der ökologisch positive Effekt der Nutzungsdauerverlängerung durch eine
+      Erhöhung der Wartungshäufigkeit resultiert aus einer Reduktion der
+      im Betrachtungszeitraum benötigten Produktanzahl. Bei konstanten
+      Material-Inputs je Produkt $i_P$ verringern sich
+      somit die produktbezogenen Material-Inputs $I_P$:
+      \begin{equation*}
+        I_P = i_P \cdot P = i_P \cdot \frac{N}{h \cdot t} = 
+        \left\{ 
+          \begin{array}{r@{\quad : \quad}l}
+            i_P \cdot \frac{N}{\n{max}(w)} & \t{tech} < \t{max} \\[10pt]
+            i_P \cdot \frac{N}{h \cdot \t{max}} & \text{sonst}
+          \end{array}
+        \right.
       \end{equation*}
 
-      Analog drücken wir den zweiten Effekt, die Erhöhung des Materialinputs
-      $i_P$ durch zusätzliche Wartung und Reparatur aus:
+      Es ist zu erkennen, dass die Wartungshäufigkeit nur dann einen Effekt auf
+      die produktbezogenen Material-Inputs hat, wenn die Nutzungsdauer durch
+      $\t{tech}$ beschränkt ist. 
+
+      Wie bereits erwähnt, kommt im Falle der Wartungen -- anders als bei den
+      Reparaturen -- noch ein dritter Effekt hinzu: eine höhere
+      Wartungshäufigkeit kann zu einer Verringerung der Material-Inputs je
+      Produktnutzung führen. Wir nehmen an, dass sich die Material-Inputs je
+      Produktnutzung im Allgemeinen nach folgendem Muster mit der
+      Zeit verändern: Zum Zeitpunkt der Wartung, sind sie am geringsten, erhöhen
+      sich dann und erreichen kurz vor der nächsten Wartung
+      ihr Maximum (man denke an das Ölen irgendeiner Mechanik). Da unabhängig
+      von der Wartung ein Verschleiß eintritt, werden sich die
+      durchschnittlichen Material-Inputs mit der Zeit erhöhen. Vernachlässigen
+      wir diesen letzten Aspekt, so können wir, 
+      da in diesem Teilmodell keine Größe von den Nutzungsinputs abhängt, zu
+      einer durchschnittlichen Höhe der Material-Inputs je Produktnutzung
+      übergehen. Wir nehmen an, dass dieser durchschnittliche Wert monoton 
+      mit der Wartungshäufigkeit fällt: 
+      \begin{equation}
+        i_N = i_N(w)\quad  , \quad
+        \frac{\partial i_N}{\partial w} \leq 0
+      \end{equation}
+
+      Weitere angenommene Eigenschaften der Funktion $i_N$ sind, dass sie sowohl
+      nach oben als auch nach unten beschränkt ist und dass die Verringerung der
+      Material-Inputs mit zunehmender Wartungshäufigkeit abnimmt:
 
       \begin{equation*}
-        i_P = i_P(w)\quad  , \quad
-        \frac{\partial i_P}{\partial w} \geq 0
+        0 < \min_{w \in [0,1]} i_N(w) \leq \max_{w \in [0,1]} i_N(w) < \infty
+        \quad , \quad \frac{\partial^2 i_N}{\partial w^2} \geq 0
       \end{equation*}
 
-      Kommen wir nun zum dritten Effekt, die Vergrößerung der genutzten
-      Service-Menge. Bei konstanter Nutzungshäufigkeit entspricht dies einer
-      Verlängerung der Nutzungsdauer $t$ eines Produkts. Zur Berücksichtigung
-      des Effekts auf das MIPS gibt es zum einen die Möglichkeit, den
-      Betrachtungszeitraum $T$ and die verlängerte Nutzungsdauer anzupassen. Zum
-      anderen kann der Betrachtungszeitraum konstant gehalten und dafür anteilig
-      weniger produktbezogene Inputs berücksichtigt werden. Wir wählen letzteren
-      Weg, um eine Konsistenz mit den anderen Teilmodellen zu erreichen. Seien 
+      Wir sind nun in der Lage, eine Gleichung für die MIPS anzugeben, welche
+      die Wartungshäufigkeit berücksichtigt. Zunächst betrachten wir dafür die
+      Input-Seite:
+
+      \begin{align*}
+        I &= I_N + I_W + I_P + \I{fix}\\
+          % &= N \cdot i_N + N \cdot w \cdot i_W  
+          %   + P \cdot i_P + \I{fix}\\
+          &= N \cdot i_N + N \cdot w \cdot i_W  
+            + \frac{N}{h\cdot t} \cdot i_P + \I{fix}\\
+      \end{align*}
+
+      Von der Wartungshäufigkeit hängen die nutzungsbedingten, die
+      produktbezogenen und die wartungsbedingten Material-Inputs ab. Alle
+      anderen davon unabhängigen Material-Inputs sind in der Größe $\I{fix}$
+      zusammengefasst. Unter Ausnutzung des Zusammenhangs zwischen
+      Nutzungseinheiten und Serviceeinheiten ($S=N\cdot A$), sowie bei
+      im Betrachtungszeitraum konstanter Nachfrage ($S=S_D$), ergibt sich für
+      die MIPS:
+
+      \begin{align*}
+        \MIPS[w]&= \frac{I}{S} 
+                 = \frac{I_N + I_W + I_P + \I{fix}}{S_D}\\
+                &= \frac{1}{A} \cdot \left( i_N(w) + w \cdot i_W 
+                 + \frac{i_P}{h\cdot t}\right) + \frac{\I{fix}}{S_D}
+      \end{align*}
+
+      Zu beachten ist, dass diese Gleichung abhängig davon, ob $\t{tech}$
+      kleiner oder größer als $\t{max}$ ist, jeweils eine etwas
+      unterschiedliche Gestalt annimmt. Wir geben das Ergebnis direkt in der
+      Zusammenstellung der für die Abbildung der Wartung auf die MIPS relevanten
+      Gleichungen an:\\
+
+			\begin{mdframed}[frametitle={Wartung}, frametitlerule=true]
+				Teilmodell:
+      % \begin{equation}
+      %   \MIPS[w] =\left\{
+      %             \begin{array}{l@{\quad : \quad}l}
+      %               \frac{1}{A} \cdot \left( i_N(w) + w \cdot i_W 
+      %               + \frac{i_P}{\n{max}(w)}\right) + \frac{\I{fix}}{S_D}
+      %               &
+      %               \t{tech} < \t{max} \\[10pt]
+      %
+      %               \frac{1}{A} \cdot \left( i_N(w) + w \cdot i_W 
+      %               + \frac{i_P}{h\cdot \t{max}}\right) + \frac{\I{fix}}{S_D}
+      %               &
+      %               \text{sonst}
+      %
+      %             \end{array}
+      %             \right.
+      % \end{equation}
+      \begin{equation}
+        \MIPS[w] =
+                    \frac{1}{A} \cdot \left( i_N(w) + w \cdot i_W 
+                    + \frac{i_P}{h\cdot \min\left(\frac{\n{max}(w)}{h} ,
+                    \t{max}\right)}\right) + \frac{\I{fix}}{S_D}
+      \end{equation}
+				Funktionseigenschaften:
+				\begin{equation}
+          \frac{\partial i_N}{\partial w} \leq 0 \quad , \quad
+          0 < \min_{w \in [0,1]} i_N(w) \leq \max_{w \in [0,1]} i_N(w) < \infty
+          \quad , \quad \frac{\partial^2 i_N}{\partial w^2} \geq 0
+				\end{equation}
+        \begin{equation}
+          \frac{\partial \n{max}}{\partial w}\geq 0 \quad , \quad
+          \frac{\partial^2 \n{max}}{\partial w^2}\leq 0 \quad , \quad
+          \sup_{w \in [0,1]} \n{max}(w) < \infty
+        \end{equation}
+			\end{mdframed}
+
+      \paragraph{Reparatur}
+      Laut unserer Terminologie
+      entspricht der  Zeitpunkt der Funktionsstörung, dem Erreichen des
+      Nutzungsvorrats.
+
+      Fasst man alle im Nutzungssystem durchgeführten Reparaturen zusammen, so
+      ergibt sich eine Vergrößerung der Material-Inputs $\Delta I = I_R$ und
+      eine damit korrespondierende Vergrößerung des Nutzungsvorrats $\Delta
+      \N{max}$ 
 
       \begin{equation}
         P = \P{sim} \cdot \frac{T}{t}
       \end{equation}
-
-      
 
       \begin{equation}
         t = \min\{\t{technisch}, \t{fix}\} =
         \min\left\{\frac{\n{max}(w)}{h} , \t{fix}\right\}
       \end{equation}
 
-
-
-      Die Materialinputs setzen sich aus produktbezogenen Inputs $I_P = P \cdot
-      i_P$ und konstanten Inputs $\I{fix}$ zusammen:
-      \begin{equation*}
-        I = P \cdot i_P + \I{fix}
-      \end{equation*}
-      Die produktbezogenen Inputs umfassen alle Materialinputs die pro Produkt
-      anfallen. In diesem Teilmodell beinhalten sie neben den Inputs für die
-      Herstellung und Entsorgung der Produkte insbesondere auch die
-      Materialinputs für deren Wartung und Reparatur. Die beiden eingangs
-      erwähnten Effekte dieses Teilmodells lassen sich in dieser Formel bereits
-      erkennen: zum einen sinkt bei zusätzlichem Wartungs- und Reparaturaufwand
-      die im Nutzungssystem benötigte Produktmenge $P$. Zum anderen erhöhen sich
-      dadurch die produktbezogenen Inputs $i_P$. 
-
-      \begin{equation}
-        \MIPS[w] = \frac{I}{S} = \frac{P \cdot i_P + \I{fix}}{S_D} =
-        \frac{\P{sim} \cdot T
-      \cdot i_P(w)}{\min\left\{\frac{\n{max}(w)}{h} , \t{fix}\right\}
-        \cdot S_D} + \frac{\I{fix}}{S_D}
-        \label{eq:MIPS_Wartung}
-      \end{equation}
-
-			\begin{mdframed}[frametitle={Wartung und Reparatur}, frametitlerule=true]
+			\begin{mdframed}[frametitle={Reparatur}, frametitlerule=true]
 				Teilmodell:
       \begin{equation}
-        \MIPS[w] = 
+        \MIPS[R] = 
         \frac{\P{sim} \cdot T
       \cdot i_P(w)}{\min\left\{\frac{\n{max}(w)}{h} , \t{fix}\right\}
         \cdot S_D} + \frac{\I{fix}}{S_D}
@@ -710,11 +897,19 @@ eine Änderung der relativen Auslastung reagiert.
 					$I$ & Material-Inputs & Inputs & Summe aller Materialströme, die zur Bereitstellung, Nutzung und Entsorgung der betrachteten Produkte sowie der Infrastruktur des Nutzungssystems notwendig sind \\
 					$I_N$ & nutzungsbedingte Material-Inputs & nutzungsbedingte Inputs & Material-Inputs, die unmittelbar bei der Nutzung anfallen \\
 					$I_P$ & produktbezogene Material-Inputs & produktbezogene Inputs & Material-Inputs, die zur Bereitstellung und Entsorgung der betrachteten Produkte notwendig sind \\
-					$I_{\text{fix}}$ & konstante Material-Inputs & konstante Inputs & Material-Inputs, die weder von der Produktanzahl, noch von der Produktnutzung abhängen (Nutzungssystem-Infrastruktur) \\
+          $I_W$ & wartungsbedingte Material-Inputs & wartungsbedingte Inputs &
+          Material-Inputs, die für Wartungstätigkeiten im Nutzungssystem
+          aufgebracht werden\\
+					$\I{fix}$ & konstante Material-Inputs & konstante Inputs & Material-Inputs, die weder von der Produktanzahl, noch von der Produktnutzung abhängen (Nutzungssystem-Infrastruktur) \\
 					$i_N$ & Material-Inputs je Produktnutzung & Inputs je Produktnutzung & Material-Inputs, die für eine Produktnutzungseinheit notwendig sind \\
 					$i_P$ & Material-Inputs je Produkt & Inputs je Produkt & Material-Inputs, die für die Bereitstellung und Entsorgung eines Produkts notwendig sind \\
+          $i_W$ & Material-Inputs je Wartung & Inputs je Wartung &
+          Material-Inputs die für eine Wartungstätigkeit im gesamten
+          Nutzungssystem aufgebracht werden müssen\\
 					$P$ & Produktanzahl & - & Anzahl der betrachteten Produkte im Produktnutzungssystem \\
 					$P_\text{min}$ & Mindestproduktanzahl & - & Anzahl mindestens notwendiger Produkte im Produktnutzungssystem \\
+          $W$ & Anzahl Wartungen & - & Anzahl an Wartungen im Nutzungssystem
+          während des Betrachtungszeitraums\\
 					$S$ & Service-Menge & Service & Gesamtmenge des Nutzens der betrachteten Produkte \\
 					$S_D$ & nachgefragte Service-Menge & Service-Nachfrage & Gesamtnachfrage nach Service im betrachteten Nutzungssystem \\
 					$N$ & Produktnutzungs-Menge & Produktnutzung & Anzahl der Nutzungen oder Gesamtnutzungsdauer der betrachteten Produkte im Produktnutzungssystem \\
@@ -723,6 +918,7 @@ eine Änderung der relativen Auslastung reagiert.
 					$A$ & absolute Produktauslastung & absolute Auslastung & erzielte Service-Menge je Produktnutzungseinheit \\ 
 					$K$ & Kapazität & - & maximale absolute Auslastung \\
 					$a$ & relative Produktauslastung & Auslastung & $a = A / K$\\
+          $w$ & Wartungshäufigkeit & - & Anzahl Wartungen je Nutzungseinheiten\\
 					% \bottomrule
 				% \end{tabular}
 			\end{longtable}
