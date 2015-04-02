@@ -10,69 +10,48 @@ tikzwidth <- 6
 fntsize <- 0.8
 
 # Export aktivieren
-tikz( '../tex/Abbildungen/Nutzungsintensivierung_1.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
+useTikz <- FALSE
+if(useTikz) tikz( '../tex/Abbildungen/Nutzungsintensivierung_1.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
 
 # Definition von Konstanten:
-N = 10000
+I_fix = 10000
+S_D = 10000
+i_P = 5000
+A = 1
 T = 10
 t_max = 15
 n_max = 5000
+p_min = 2
 
 # Parameter für Plots:
 p_low = 1
-p_high = 10
+p_high = 15
 h_low = h(p_high, N, T)
 h_high = h(p_low, N, T)
-t_low = 0
-t_high = t(h_low, t_max, n_max)
-n_low = 0
-n_high = n(h_high, t_max, n_max)
-P_low = 0
-P_high = P(h_low, t_max, n_max, N)
+MIPS_low = 0
+MIPS_high = MIPS (h_low, I_fix, S_D, i_P, t_max, A, n_max)
 h_len = 200 # Anzahl der Stützpunkte fuer Linien-Plots
 
-
 # Daten generieren:
+N = S_D / A
+h_max = S_D / (A * p_min * T)
 p_points = p_low:p_high
 h_points = h (p_points, N, T)
-t_points = t(h_points, t_max, n_max)
-n_points = n(h_points, t_max, n_max)
-P_points = P(h_points, t_max, n_max, N)
+MIPS_points = MIPS (h_points, I_fix, S_D, i_P, t_max, A, n_max)
 
 p_lines = seq(length = h_len, from = p_low, to = p_high)
 h_lines = h (p_lines, N, T)
-t_lines = t(h_lines, t_max, n_max)
-n_lines = n(h_lines, t_max, n_max)
-P_lines = P(h_lines, t_max, n_max, N)
+MIPS_lines = MIPS (h_lines, I_fix, S_D, i_P, t_max, A, n_max)
 
 # Plots erzeugen:
-par(mfcol=c(1,3), mar = c(5.1,4.1,6.5,2.1))
-
-plot(h_points, t_points, xlab = 'Nutzungsh\"aufigkeit $h$ [1/Jahr]', ylab = 'Nutzungsdauer $t$ [Jahre]', axes = FALSE, type = 'p', pch = 22, bg = 'white', xlim = c(0, h_high), ylim = c(t_low, t_high), panel.first = points(h_lines, t_lines, type = 'l', lty = 1, col='grey'))
-abline(v = n_max/t_max, lty = 3)
-title('Nutzungsdauer $t(h)$', line = 4.5)
-axis (side = 1, at = c(0, 500, 1000, n_max/t_max), labels = c(0, 500, 1000, '$h^*$'))
+par(mar = c(5,4,5.5,2) + 0.1)
+plot(h_points, MIPS_points, xlab = 'Nutzungsh\"aufigkeit $h$ [1/Jahr]', ylab = 'MIPS [kg/Service-Einheit]', axes = FALSE, type = 'p', pch = 22, bg = 'white', xlim = c(0, h_high), ylim = c(MIPS_low, MIPS_high), panel.first = points(h_lines, MIPS_lines, type = 'l', lty = 1, col='grey'))
+abline(v = c(n_max/t_max, h_max), lty = 3)
+title('Materialintensit\"at pro Service-Einheit MIPS$(h)$', line = 4.5)
+axis (side = 1, at = c(0, 200, 400, 600, 800, 1000, n_max/t_max, h_max), labels = c(0, 200, 400, 600, 800, 1000, '$h^*$', '$h_\\text{max}$'))
 axis (side = 2)
 axis (side = 3, at = h_points, labels = p_points)
 box()
-mtext ('parallele Produktanzahl $p$', side = 3, line = 2.5, cex = 0.66)
+mtext ('parallele Produktanzahl $p$', side = 3, line = 2.5, cex = 1)
 
-plot(h_points, n_points, xlab = 'Nutzungsh\"aufigkeit $h$ [1/Jahr]', ylab = 'Nutzungsmenge $n$ [Nutzungseinheiten]', axes = FALSE, type = 'p', pch = 22, bg = 'white', xlim = c(0, h_high), ylim = c(n_low, n_high), panel.first = points(h_lines, n_lines, type = 'l', lty = 1, col='grey'))
-abline(v = n_max/t_max, lty = 3)
-title('Nutzungsmenge $n(h)$', line = 4.5)
-axis (side = 1, at = c(0, 500, 1000, n_max/t_max), labels = c(0, 500, 1000, '$h^*$'))
-axis (side = 2)
-axis (side = 3, at = h_points, labels = p_points)
-box()
-mtext ('parallele Produktanzahl $p$', side = 3, line = 2.5, cex = 0.66)
-
-plot(h_points, P_points, xlab = 'Nutzungsh\"aufigkeit $h$ [1/Jahr]', ylab = 'Produktanzahl $P$ [Anzahl, anteilig]', axes = FALSE, type = 'p', pch = 22, bg = 'white', xlim = c(0, h_high), ylim = c(P_low, P_high), panel.first = points(h_lines, P_lines, type = 'l', lty = 1, col='grey'))
-abline(v = n_max/t_max, lty = 3)
-title('Produktanzahl $P(h)$', line = 4.5)
-axis (side = 1, at = c(0, 500, 1000, n_max/t_max), labels = c(0, 500, 1000, '$h^*$'))
-axis (side = 2)
-axis (side = 3, at = h_points, labels = p_points)
-box()
-mtext ('parallele Produktanzahl $p$', side = 3, line = 2.5, cex = 0.66)
-
-dev.off()
+if (useTikz) dev.off()
