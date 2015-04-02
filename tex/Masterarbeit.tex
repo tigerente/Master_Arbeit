@@ -6,6 +6,7 @@
 % !TEX encoding = UTF-8 Unicode
 
 \documentclass[11pt, titlepage=true]{scrreprt} % use larger type; default would be 10pt
+\setcounter{secnumdepth}{3} % Überschriften-Nummern bis zur 3. Ebene
 
 \usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
 \usepackage[ngerman]{babel} 
@@ -72,6 +73,13 @@ dashed=false]{biblatex}
 \usepackage[textsize=tiny]{todonotes}
 \usepackage[normalem]{ulem} % ermöglicht es, Text mittels \sout und \xout
                             % durchzustreichen
+
+% Überschriften-Stile anpassen
+\usepackage{titlesec}
+\titleformat{\subsection}[hang]{\sffamily\large\bfseries}{\thesubsection\quad}{0pt}{}
+\titleformat{\subsubsection}[hang]{\sffamily\large}{\thesubsubsection\quad}{0pt}{}
+\titleformat{\paragraph}[hang]{\sffamily\bfseries}{}{}{}
+\titlespacing{\paragraph}{0pt}{0pt}{0pt}
 
 %%% Eigene Befehle %%%
 \newcommand{\was}[1]{\small\textit{#1}}
@@ -578,10 +586,10 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 %			
 			Die Änderung der MIPS bewegt sich im dritten Fall also zwischen den Werten der ersten beiden Fälle und ist auch in diesem Sinne als Übergangsfall zu betrachten.
 			
-			\paragraph{Zwischenfazit}
+			\subparagraph{Zwischenfazit}
 			Die Analyse hat bis hierhin gezeigt, dass eine Nutzungsintensivierung im Sinne einer Erhöhung der Nutzungshäufigkeit im schlechtesten Fall keine Änderung der MIPS, und im besten Fall eine Verringerung der MIPS um einen konstanten Ausdruck mit sich bringt. Es kann also direkt kein schädlicher Effekt auftreten. Die Verringerung wird durch die Einsparung eines der parallel betriebenen Produkte erreicht. Eine solche ist nur möglich, wenn die genutzten Produkte vor der Nutzungsintensivierung noch nicht ihre technische Lebensdauer erreichen.
 			
-			\paragraph{Einschränkung}
+			\subparagraph{Einschränkung}
 			In der bisherigen Analyse blieb bislang unberücksichtigt, dass die Nutzungshäufigkeit nicht beliebig gesteigert werden kann, da in einem Nutzungssystem aus praktischen Gründen eine Mindestanzahl von Produkten benötigt wird. Dieser Zusammenhang wurde durch die Nebenbedingung \ref{eq:h_max} im Modell abgebildet: $h \leq h_\text{max}$. Für die Analyse hat dies zur Konsequenz, dass nicht alle theoretisch denkbaren Nutzungsintensivierungen als realisierbar betrachtet werden können. Für alle realisierbaren Fälle gelten jedoch die getroffenen Aussagen. Falls $h_\text{max} < h^*$ gilt, sind die Fälle 2 und 3 der Analyse ausgeschlossen. Ansonsten sind alle Fälle möglich.
 			
 			\subsection{Erhöhung der Produktauslastung} % Ursprünglich: "Maximierung der Geräteauslastung"
@@ -763,7 +771,7 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 			
 			%Wie bereits bei der Herleitung des Teilmodells bereits erwähnt wurde, kann der Mechanismus \enquote{Erhöhung der Produktauslastung} sowohl positive als auch negative Umweltauswirkungen zur Folge haben. Im Modell spiegelt sich dies durch das mehrfache Vorkommen der Produktauslastung $a$ mit zum Teil entgegengesetzter Wirkung auf das MIPS wieder. Unter welchen Umständen die positiven Wirkungen die negativen überwiegen und damit eine Erhöhung der Produktauslastung insgesamt zu einer Verringerung des Umweltverbrauchs führt, wird Gegenstand der Analyse dieses Teilmodells sein. \todo{Referenz einfügen}
 			
-      \subsubsection{Modellanalyse}
+      \paragraph{Modellanalyse}
 \begin{figure}
   \centering
   \input{Abbildungen/Auslastung.tex}
