@@ -5,7 +5,7 @@
 % !TEX TS-program = pdflatex
 % !TEX encoding = UTF-8 Unicode
 
-\documentclass[11pt, titlepage=true]{scrartcl} % use larger type; default would be 10pt
+\documentclass[11pt, titlepage=true]{scrreprt} % use larger type; default would be 10pt
 
 \usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
 \usepackage[ngerman]{babel} 
@@ -167,8 +167,8 @@ dashed=false]{biblatex}
 
 
 
-\section{Einleitung}
-\subsection{Thema}
+\chapter{Einleitung}
+\section{Thema}
 Die heutigen industrialisierten Kulturen sind durch einen umfangreichen
 individuellen Bedarf an Produkten und Dienstleistungen gekennzeichnet. Jeder
 Haushalt, jede Person verfügt über zahlreiche, in der Summe höchst
@@ -243,7 +243,7 @@ Welche Netto-Umweltwirkungen schließlich durch die gemeinschaftliche Nutzung zu
 erwarten sind, hängt in hohem Maße von dem betrachteten Produkt und dem konkreten
 Nutzungssystem ab. Entscheidende Produktmerkmale sind zum Beispiel, ob während der Nutzung des Produkts Ressourcen verbraucht werden (wie bei Elektrogeräten), oder wie groß das Verhältnis zwischen typischer individueller und maximal möglicher Nutzungsdauer ist (im oben genannten Beispiel der Bohrmaschine 1:6). Zu den wichtigen Eigenschaften des Nutzungssystems zählen eventuell anfallende zusätzliche Transporte (wie beim Second-Hand-Handel) und die Auslastung während der Nutzung (zum Beispiel 3 Personen pro Auto). Die Zusammenhänge zwischen Merkmalen der Produkte und Nutzungssysteme und den resultierenden Umweltwirkungen zu analysieren ist der Gegenstand unserer Arbeit.
 
-\subsection{Forschungsstand}\label{sec:forschung}
+\section{Forschungsstand}\label{sec:forschung}
 Unter die neuere Literatur, die sich mit Umwelteffekten gemeinschaftlicher Produktnutzung beschäftigt, fällt zunächst eine Reihe von Publikationen im Zusammenhang mit zwei größeren Forschungsprojekten um die Jahrtausendwende. Gegen Ende der Nuller Jahre folgen einige weitere Publikationen aus verschiedenen Forschungszusammenhängen. Schließlich wird das Thema auch in der ökonomischen Fachliteratur behandelt. Die einzelnen Bereiche werden im Folgenden grob umrissen.
 
 In den Jahren 1997-2000 bearbeitete das Institut für ökologische
@@ -313,7 +313,7 @@ Generell stellen wir fest, dass zu dem Thema \enquote{gemeinschaftliche Nutzungs
 sowohl auf empirischer als auch auf theoretisch-konzeptioneller Ebene bereits einige Forschung
 betrieben wurde, auf die wir mit unserer Arbeit aufbauen können. In Hinblick auf einige Aspekte sehen wir jedoch weiteren Forschungsbedarf. Zum einen beschränkt sich die Quantifizierung der Umwelteffekte in den meisten angegebenen Quellen auf spezielle Produkte und Nutzungssysteme. Eine Ausnahme bilden die formalen Modelle der ökonomischen Fachliteratur, die allerdings wiederum nur spezielle Umwelteffekte abbilden. Der Versuch einer allgemeinen Betrachtung wurde unseres Wissens nach noch nicht unternommen. Damit einhergehend weisen die Einzeluntersuchungen kein einheitliches methodisches Vorgehen auf, sondern variieren in den verwendeten Zielgrößen, Betrachtungsrahmen und Berechnungsmethoden. Es werden in der Regel Einzelfallberechnungen durchgeführt, ohne den Einfluss der (implizit) verwendeten Parameter zu untersuchen. Was die Zielgrößen angeht, so konzentriert sich ein Großteil der Literatur auf Emissionen, während die Ressourcen-Seite eher vernachlässigt wird. Diese Forschungslücke möchten wir mit unserer Arbeit schließen.
 
-\subsection{Forschungsziel und Fragestellung}
+\section{Forschungsziel und Fragestellung}
 Das Hauptziel unserer Arbeit ist die Entwicklung von Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung. Darunter fällt eine systematische und möglichst allgemeine Betrachtung der verschiedenen Umweltwirkungen von gemeinschaftlichen Nutzungsformen. Ein methodologisches Ziel der Arbeit ist es, einen einheitlichen Methodenrahmen für die Untersuchung verschiedener Produkte und Nutzungssysteme zu entwickeln.
 
 Eine mit diesem Forschungsziel korrespondierende Fragestellung lautet:
@@ -366,9 +366,10 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 		
 		\subsection{Fallstudien}
 
+\chapter{Modell}
 		\section{Einzeleffekte}
 			\subsection{Nutzungsintensivierung} % Ursprünglich: "Nutzungsdauerverlängerung"
-			\subsubsection{Modellbeschreibung}
+			\paragraph{Modellbeschreibung}
 			Unter \enquote{Nutzungsintensivierung} verstehen wir eine Erhöhung der Häufigkeit, mit der ein bestimmtes Produkt genutzt wird. Diese bezeichnen wir als Nutzungshäufigkeit $h$ und definieren sie als die Produktnutzungsmenge pro Zeit. Für eine Waschmaschine wäre dies etwa die Anzahl an Waschgängen pro Woche, für ein Buch die Anzahl, wie häufig es in einem Jahr gelesen wird.
 			
 			Ein Produkt wird während seines Lebenszyklus eine bestimmte Zeitperiode lang genutzt. Diese Zeitspanne zwischen Anschaffung bis Entsorgung wird als Nutzungsdauer $t$ bezeichnet. Aus der Nutzungshäufigkeit $h$ und der Nutzungsdauer $t$ ergibt sich die Nutzungsmenge $n$ eines einzelnen Produkts:
@@ -396,12 +397,12 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 				P = p \cdot q = p \cdot \frac{T}{t}
 			\end{equation}
 %
-			\begin{figure}[ht]
-				\includegraphics[width=\textwidth]{Produktanzahlen}
-				\caption{Veranschaulichung des Zusammenhangs zwischen paralleler, sequentieller und effektiver Produktanzahl. In Fall a) ist der Betrachtungszeitraum $T$ kürzer als die Nutzungsdauer $t$, sodass die zwei parallel eingesetzten Produkte nur anteilig auf das Nutzungssystem angerechnet werden. In Fall b) ist der Betrachtungszeitraum länger als die Nutzungsdauer, sodass zwei Produkte voll und zwei weitere anteilig angerechnet werden.}
-				\label{fig:Produktanzahlen}
-			\end{figure}
-			\noteJ{Abbildung schön machen: Text in LaTeX}
+			% \begin{figure}[ht]
+			% 	\includegraphics[width=\textwidth]{Produktanzahlen}
+			% 	\caption{Veranschaulichung des Zusammenhangs zwischen paralleler, sequentieller und effektiver Produktanzahl. In Fall a) ist der Betrachtungszeitraum $T$ kürzer als die Nutzungsdauer $t$, sodass die zwei parallel eingesetzten Produkte nur anteilig auf das Nutzungssystem angerechnet werden. In Fall b) ist der Betrachtungszeitraum länger als die Nutzungsdauer, sodass zwei Produkte voll und zwei weitere anteilig angerechnet werden.}
+			% 	\label{fig:Produktanzahlen}
+			% \end{figure}
+			% \noteJ{Abbildung schön machen: Text in LaTeX}
 
 			Dabei ist zu beachten, dass die parallele Produktanzahl $p$ eine Nutzungssystem-spezifische Mindestproduktanzahl $p_\text{min}$ nicht unterschreitet. Die Mindestproduktanzahl kann beispielsweise dadurch erforderlich sein, dass aus praktisch-organisatorischen Gründen zu Stoßzeiten eine gewisse Anzahl an Produkten gleichzeitig im Einsatz ist. Als Formel:
 %
@@ -538,7 +539,7 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 				\end{equation}
 			\end{mdframed}
 			
-			\subsubsection{Modellanalyse}
+			\paragraph{Modellanalyse}
 			In dieser Analyse des Teilmodells zur Nutzungsintensivierung wird untersucht, wie sich eine Erhöhung der Nutzungsintensivierung auf die MIPS auswirkt. Da die Nutzungshäufigkeit $h$ gemäß Nebenbedingung \ref{eq:h(p)} nur in diskreten Schritten variiert werden kann, wird die Änderung der MIPS von einer gegebenen Nutzungshäufigkeit ($h = h_1$) zur nächsgrößeren ($h = h_2$) betrachtet. Diese ist durch die Verringerung der parallelen Produktanzahl von $p = p_1$ auf $p = p_2$ um eins gegeben: $p_2 - p_1 = -1$. Es können drei Fälle unterschieden werden:
 			
 			\underline{Fall 1}: $h_1 < h_2 < h^*$ \\
@@ -762,6 +763,29 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 			
 			%Wie bereits bei der Herleitung des Teilmodells bereits erwähnt wurde, kann der Mechanismus \enquote{Erhöhung der Produktauslastung} sowohl positive als auch negative Umweltauswirkungen zur Folge haben. Im Modell spiegelt sich dies durch das mehrfache Vorkommen der Produktauslastung $a$ mit zum Teil entgegengesetzter Wirkung auf das MIPS wieder. Unter welchen Umständen die positiven Wirkungen die negativen überwiegen und damit eine Erhöhung der Produktauslastung insgesamt zu einer Verringerung des Umweltverbrauchs führt, wird Gegenstand der Analyse dieses Teilmodells sein. \todo{Referenz einfügen}
 			
+      \subsubsection{Modellanalyse}
+\begin{figure}
+  \centering
+  \input{Abbildungen/Auslastung.tex}
+  \caption{}
+\end{figure}
+\begin{equation}
+  \frac{\partial \MIPS[a]}{\partial a} = \frac{i_N'(a)\cdot a - i_N(a)}{a^2 \cdot K}
+  \label{eqn:ana-Auslastung}
+\end{equation}
+Wir können nun eine Bedingung angeben, unter der eine (marginale) Erhöhung der
+Produktauslastung zu einer (marginalen) Verringerung führt:
+\begin{equation}
+  \frac{\partial \MIPS[a]}{\partial a} < 0 
+  \qquad \Leftrightarrow \qquad 
+  \epsilon_{i_N, a} = i'_N(a) \cdot  \frac{a}{i_N(a)} < 1
+  \label{eqn:ana-Auslastung-Kriterium}
+\end{equation}
+
+Es ergibt sich also, dass eine Verringerung des MIPS durch eine Erhöhung der
+Produktauslastung genau dann erreicht wird, wenn der Input pro Nutzungseinheit
+unelastisch\footnote{zum Begriff der Elastizität vgl. Abschnitt \ref{sec:Elastizität}} auf
+eine Änderung der relativen Auslastung reagiert.
 			
       \subsection{Wartung und Reparatur}
       \todo{Beispiele nennen}
@@ -1154,44 +1178,22 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 			\end{mdframed}
 
 
-		\subsection{Effekt-Kopplungen}
-		\subsection{Modellübersicht}
+		\section{Effekt-Kopplungen}
+		\section{Modellübersicht}
 
-\section{Analyse}
-\begin{figure}
-  \centering
-  \input{Abbildungen/Auslastung.tex}
-  \caption{}
-\end{figure}
-\begin{equation}
-  \frac{\partial \MIPS[a]}{\partial a} = \frac{i_N'(a)\cdot a - i_N(a)}{a^2 \cdot K}
-  \label{eqn:ana-Auslastung}
-\end{equation}
-Wir können nun eine Bedingung angeben, unter der eine (marginale) Erhöhung der
-Produktauslastung zu einer (marginalen) Verringerung führt:
-\begin{equation}
-  \frac{\partial \MIPS[a]}{\partial a} < 0 
-  \qquad \Leftrightarrow \qquad 
-  \epsilon_{i_N, a} = i'_N(a) \cdot  \frac{a}{i_N(a)} < 1
-  \label{eqn:ana-Auslastung-Kriterium}
-\end{equation}
-
-Es ergibt sich also, dass eine Verringerung des MIPS durch eine Erhöhung der
-Produktauslastung genau dann erreicht wird, wenn der Input pro Nutzungseinheit
-unelastisch\footnote{zum Begriff der Elastizität vgl. Abschnitt \ref{sec:Elastizität}} auf
-eine Änderung der relativen Auslastung reagiert.
-\section{Synthese}
-\section{Ausblick/Diskussion}
-\section{Literaturverzeichnis}
+\chapter{Ergebnisse}
+    \section{Synthese}
+    \section{Ausblick/Diskussion}
+\chapter{Literaturverzeichnis}
 \printbibliography
-\section{Anhang}
-\subsection{Elastizität}\label{sec:Elastizität}
+\chapter{Anhang}
+\section{Elastizität}\label{sec:Elastizität}
 \begin{equation}
   \text{Elastizität} \quad \epsilon_{y,x} := \frac{dy(x)}{dx} \cdot
   \frac{x}{y}
   \label{eqn:def-Elastizität}
 \end{equation}
-\subsection{Übersicht über die in den Modellen verwendeten Größen}
+\section{Übersicht über die in den Modellen verwendeten Größen}
 				\renewcommand{\arraystretch}{1.25}
 			\begin{longtable}{p{1cm} p{3,5cm} p{3,5cm} p{\textwidth - 9.5 cm}}
 				% \begin{tabular}{p{1cm} p{3,5cm} p{3,5cm} p{\textwidth - 8 cm}}
