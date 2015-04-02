@@ -375,7 +375,7 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 %
 			\begin{equation}
 				\label{eq:n(h)}
-				n = h \cdot t
+				n (h) = h \cdot t
 			\end{equation}
 %
 			So stellt beispielsweise eine Waschmaschine, die zwei mal pro Woche genutzt wird, in einer Nutzungsdauer von 15 Jahren $n = 2 \textfrac{Waschgänge}{Woche} \cdot 52 \textfrac{Wochen}{Jahr} \cdot 15 \text{ Jahre} = 1560$ Waschgänge zur Verfügung.
@@ -384,17 +384,26 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 %
 			\begin{equation}
 				\label{eq:N(h)}
-				N = n \cdot P = h \cdot t \cdot P
+				N (h) = n \cdot P = h \cdot t \cdot P
 			\end{equation}
-%			
-			Hierbei ist zu beachten, dass die Produktanzahl $P$ sowohl gleichzeitig, als auch nacheinander eingesetzte Produkte berücksichtigt. Diese Größe muss nicht ganzzahlig sein, da ein Produkt auch anteilig dem betrachteten Nutzungssystem angerechnet werden kann, wenn es innerhalb des Betrachtungszeitraums nur einen Teil seines Nutzungsvorrats zur Verfügung stellt und der Rest auf eine vorausgegangene oder nachfolgende Nutzung entfällt. Werden beispielsweise in einem Gemeinschaftswaschkeller im Betrachtungszeitraum $T  = 10 \text{ Jahren}$ parallel zwei Maschinen betrieben, die jeweils über eine Nutzungsdauer von $t = 15 \text{ Jahren}$ verfügen, so sind sie jeweils nur zu $\nicefrac{10}{15}$ dem betrachteten Nutzungssystem anzurechnen, sodass sich eine Produktanzahl von $P = 2 \cdot \nicefrac{10}{15} \approx 1.33$ ergibt. Allgemein gilt:
+%
+			Hierbei ist zu beachten, dass die effektive Produktanzahl $P$ sowohl gleichzeitig, als auch nacheinander eingesetzte Produkte berücksichtigt. Die Anzahl der gleichzeitig eingesetzten Produkte bezeichnen wir als parallele Produktanzahl $p$, was stets eine natürliche Zahl ist. Demgegenüber verstehen wird unter der sequentiellen Produktanzahl $q$ die Anzahl der Produkte, die innerhalb des Betrachtungszeitraums nacheinander eingesetzt werden. Diese Größe muss nicht ganzzahlig sein, da ein Produkt auch anteilig dem betrachteten Nutzungssystem angerechnet werden kann, wenn es innerhalb des Betrachtungszeitraums nur einen Teil seines Nutzungsvorrats zur Verfügung stellt und der Rest auf eine vorausgegangene oder nachfolgende Nutzung entfällt. Diese Eigenschaft überträgt sich auf die effektive Produktanzahl $P$, wie das folgende Beispiel illustriert: Werden in einem Gemeinschaftswaschkeller im Betrachtungszeitraum $T  = 10 \text{ Jahren}$ parallel $p = 2$ Maschinen betrieben, die jeweils über eine Nutzungsdauer von $t = 15 \text{ Jahren}$ verfügen, so sind sie jeweils nur zu $q = \nicefrac{10}{15}$ dem betrachteten Nutzungssystem anzurechnen, sodass sich eine Produktanzahl von $P = 2 \cdot \nicefrac{10}{15} \approx 1.33$ ergibt. Für den Fall, dass der Betrachtungszeitraum $T$ hingegen länger ist als die Nutzungsdauer $t$, muss jedes parallel eingesetzte Produkt mehr als einmal angerechnet werden, da es innerhalb des Betrachtungszeitraums ersetzt werden muss: So würden im obigen Beispiel in einem Zeitraum von $T  = 20 \text{ Jahren}$ eine Anzahl von $P = 2 \cdot \nicefrac{20}{15} \approx 2.67$ Maschinen eingesetzt werden. Abbildung \ref{fig:Produktanzahlen} stellt die beiden Zahlenbeispiele grafisch dar.
+			
+			Allgemein gilt:
 %
 			\begin{equation}
 				\label{eq:P(p)}
-				P = p \cdot \frac{T}{t}
+				P = p \cdot q = p \cdot \frac{T}{t}
 			\end{equation}
 %
-			Dabei wird mit $p$ die Anzahl der \emph{parallel} im Nutzungssystem eingesetzten Produkte bezeichnet. Dies muss eine natürliche Zahl sein, die eine Nutzungssystem-spezifische Mindestproduktanzahl $p_\text{min}$ nicht unterschreitet. Die Mindestproduktanzahl kann beispielsweise dadurch erforderlich sein, dass aus praktisch-organisatorischen Gründen zu Stoßzeiten eine gewisse Anzahl an Produkten gleichzeitig im Einsatz ist. Als Formel:
+			\begin{figure}[ht]
+				\includegraphics[width=\textwidth]{Produktanzahlen}
+				\caption{Veranschaulichung des Zusammenhangs zwischen paralleler, sequentieller und effektiver Produktanzahl. In Fall a) ist der Betrachtungszeitraum $T$ kürzer als die Nutzungsdauer $t$, sodass die zwei parallel eingesetzten Produkte nur anteilig auf das Nutzungssystem angerechnet werden. In Fall b) ist der Betrachtungszeitraum länger als die Nutzungsdauer, sodass zwei Produkte voll und zwei weitere anteilig angerechnet werden.}
+				\label{fig:Produktanzahlen}
+			\end{figure}
+			\noteJ{Abbildung schön machen: Text in LaTeX}
+
+			Dabei ist zu beachten, dass die parallele Produktanzahl $p$ eine Nutzungssystem-spezifische Mindestproduktanzahl $p_\text{min}$ nicht unterschreitet. Die Mindestproduktanzahl kann beispielsweise dadurch erforderlich sein, dass aus praktisch-organisatorischen Gründen zu Stoßzeiten eine gewisse Anzahl an Produkten gleichzeitig im Einsatz ist. Als Formel:
 %
 			\begin{equation}
 				\label{eq:p_min}
@@ -415,16 +424,16 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 				N = \frac{S_D}{A}
 			\end{equation}
 %						
-			gegeben. Betrachtet man Gleichung \ref{eq:N(h)} ($N = h \cdot t \cdot P$) unter diesem Gesichtspunkt, so wird deutlich, dass eine Erhöhung der Nutzungshäufigkeit $h$ bei gleichbleibender Produktnutzungsdauer $t$ zu einer geringeren Produktanzahl $P$ führt. Dies liegt daran, dass die Nutzungsmenge $n$ je Produkt steigen muss um das Niveau der Gesamtnutzungsmenge $N$ konstant zu halten. Hierin besteht der positive Umwelteffekt der Nutzungsintensivierung, da weniger Produkte für die gleiche Servicemenge hergestellt und entsorgt werden müssen.
+			gegeben. Betrachtet man Gleichung \ref{eq:N(h)} ($N (h) = h \cdot t \cdot P$) unter diesem Gesichtspunkt, so wird deutlich, dass eine Erhöhung der Nutzungshäufigkeit $h$ bei gleichbleibender Produktnutzungsdauer $t$ zu einer geringeren effektiven Produktanzahl $P$ führt. Hierin besteht der positive Umwelteffekt der Nutzungsintensivierung, da weniger Produkte für die gleiche Servicemenge hergestellt und entsorgt werden müssen.
 			
-			Für ein Nutzungssystem mit gegebener Service-Nachfrage $S_D$, gegebener Produktauslastung $A$ und einem festen Betrachtungszeitraum $T$ ist die Nutzungshäufigkeit $h$ nicht vollkommen frei wählbar, sondern nur in bestimmten Schritten, die von der parallelen Produktanzahl $p$ abhängen. Dieser Zusammenhang lässt sich formal folgendermaßen nachvollziehen:
+			Umgekehrt wird eine Erhöhung der Nutzungshäufigkeit bei kollektiver Nutzung gerade durch eine Reduktion der Produktanzahl erreicht: Teilen sich beispielsweise mehrere Personen eine Waschmaschine, anstatt jeweils eine eigene zu besitzen, erhöht sich die Häufigkeit, mit der die Maschine betrieben wird. Genauer gesagt ist die Nutzungshäufigkeit $h$ für ein Nutzungssystem mit gegebener Service-Nachfrage $S_D$, gegebener Produktauslastung $A$ und einem festen Betrachtungszeitraum $T$ von der parallelen Produktanzahl $p$ abhängig: Je weniger Produkte parallel im Einsatz sind, desto häufiger müssen diese genutzt werden um die Nachfrage zu bedienen. Dieser Zusammenhang lässt sich formal folgendermaßen nachvollziehen:
 %
 			\begin{equation*}
 				h \eqnref{eq:N(h)} \frac{N}{t \cdot P} \eqnref{eq:P(p)} \frac{N}{t \cdot p \cdot \frac{T}{t}}
 				= \frac{N}{p \cdot T} \eqnref{eq:N(S_D)} \frac{S_D}{A \cdot p \cdot T} \qquad p \in \mathbb{N}
 			\end{equation*}
 %
-			Die Nutzungshäufigkeit ist also reziprok proportional zur ganzzahligen Anzahl $p$ der parallel eingesetzten Produkte. Da diese gemäß Gleichung \ref{eq:p_min} durch $p_\text{min}$ nach unten beschränkt ist, ergibt sich eine Maximalnutzungshäufigkeit $h_\text{max}$:
+			Die Nutzungshäufigkeit ist also reziprok proportional zur parallelen Produktanzahl $p$. Da es sich bei $p$ um eine natürliche Zahl handelt, kann in dem betrachteten Szenario auch die Nutzungshäufigkeit $h$ nur diskrete Werte annehmen. Durch die Beschränkung von $p$ durch $p_\text{min}$ gemäß Gleichung \ref{eq:p_min} ergibt sich zudem eine Maximalnutzungshäufigkeit $h_\text{max}$:
 %
 			\begin{equation*}
 				h = \frac{S_D}{A \cdot p \cdot T} \leq \frac{S_D}{A \cdot p_\text{min} \cdot T} =: h_\text{max}
@@ -454,51 +463,45 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 			Dies ist gleichbedeutend zu:
 %			
 			\begin{equation*}	
-				t (h) =\left\{\begin{array}{cl}  t_{\text{max}}, & \mbox{falls } h < \frac{n_{\text{max}}}{t_{\text{max}}} \\ \frac{n_{\text{max}}}{h}, & \mbox{sonst} \end{array}\right.
+				t (h) =\left\{\begin{array}{cl}  t_{\text{max}}, & \mbox{falls } h <  \frac{n_{\text{max}}}{t_{\text{max}}} =: h^* \\ \frac{n_{\text{max}}}{h}, & \mbox{sonst} \end{array}\right.
 			\end{equation*}	
 %
-			Solange also die Nutzungshäufigkeit zu gering ist um den Nutzungsvorrat innerhalb der Maximalnutzungsdauer aufzubrauchen ($h < \frac{n_{\text{max}}}{t_{\text{max}}}$), ist die Nutzungsdauer durch die Maximalnutzungsdauer $t_{\text{max}}$ gegeben. Bei einer höheren Nutzungshäufigkeit ist hingegen die technische Lebensdauer $\frac{n_{\text{max}}}{h}$ ausschlaggebend, die mit zunehmender Nutzungshäufigkeit antiproportional abnimmt, da der Nutzungsvorrat schneller aufgebraucht wird.
+			Solange also die Nutzungshäufigkeit zu gering ist um den Nutzungsvorrat innerhalb der Maximalnutzungsdauer aufzubrauchen ($h < h*$), ist die Nutzungsdauer durch die Maximalnutzungsdauer $t_{\text{max}}$ gegeben. Bei einer höheren Nutzungshäufigkeit ist hingegen die technische Lebensdauer $\frac{n_{\text{max}}}{h}$ ausschlaggebend, die mit zunehmender Nutzungshäufigkeit antiproportional abnimmt, da der Nutzungsvorrat schneller aufgebraucht wird.
 			
 			Für die Nutzungsmenge $n$ eines Produkts ergibt sich hieraus mit Gleichung \ref{eq:n(h)}:
 %			
 			\begin{equation}
 				\label{eq:n(h)_cases}
-				n (h) = h \cdot t(h) = \left\{\begin{array}{cl}  h \cdot t_{\text{max}}, & \mbox{falls } h < \frac{n_{\text{max}}}{t_{\text{max}}} \\ n_{\text{max}}, & \mbox{sonst} \end{array}\right.
+				n (h) = h \cdot t(h) = \left\{\begin{array}{cl}  h \cdot t_{\text{max}}, & \mbox{falls } h < h^* \\ n_{\text{max}}, & \mbox{sonst} \end{array}\right.
 			\end{equation}	
 %			
-			Hier verhält es sich also umgekehrt als bei der Nutzungsdauer: Solange der Nutzungsvorrat innerhalb der Maximalnutzungsdauer aufgrund einer geringen Nutzungshäufigkeit nicht aufgebraucht wird ($h < \frac{n_{\text{max}}}{t_{\text{max}}}$), ist die Nutzungsmenge proportional von der Nutzungshäufigkeit abhängig, weil das Produkt in derselben Zeit häufiger genutzt wird: $n (h) = h \cdot t_{\text{max}}$. Bei einer höheren Nutzungshäufigkeit bleibt die Nutzungsmenge hingegen konstant auf dem Niveau des Nutzungsvorrats $n_{\text{max}}$, weil das Produkt nicht darüber hinaus genutzt werden kann.
+			Hier verhält es sich also umgekehrt als bei der Nutzungsdauer: Solange der Nutzungsvorrat innerhalb der Maximalnutzungsdauer aufgrund einer geringen Nutzungshäufigkeit nicht aufgebraucht wird ($h < h^*$), ist die Nutzungsmenge proportional von der Nutzungshäufigkeit abhängig, weil das Produkt in derselben Zeit häufiger genutzt wird: $n (h) = h \cdot t_{\text{max}}$. Bei einer höheren Nutzungshäufigkeit bleibt die Nutzungsmenge hingegen konstant auf dem Niveau des Nutzungsvorrats $n_{\text{max}}$, weil das Produkt nicht darüber hinaus genutzt werden kann.
 			
-			Mit Gleichung \ref{eq:N(h)} lässt sich schließlich die Produktanzahl $P(h)$ bestimmen:
+			Mit Gleichung \ref{eq:N(h)} lässt sich schließlich die effektive Produktanzahl $P(h)$ bestimmen:
 %			
 			\begin{equation*}	
-				P (h) = \frac{N}{n(h)} = \left\{\begin{array}{cl}  \frac{N}{h \cdot t_{\text{max}}}, & \mbox{falls } h < \frac{n_{\text{max}}}{t_{\text{max}}} \\[5pt] \frac{N}{n_{\text{max}}}, & \mbox{sonst} \end{array}\right.
+				P (h) = \frac{N}{n(h)} = \left\{\begin{array}{cl}  \frac{N}{h \cdot t_{\text{max}}}, & \mbox{falls } h < h^* \\[5pt] \frac{N}{n_{\text{max}}}, & \mbox{sonst} \end{array}\right.
 			\end{equation*}	
 			
-			Wiederum ist der Punkt, an dem die Nutzungshäufigkeit gerade so groß ist, dass der Nutzungsvorrat innerhalb der Maximalnutzungsdauer aufgebraucht wird ($h = \frac{n_{\text{max}}}{t_{\text{max}}}$), entscheidend: Bei geringerer Nutzungshäufigkeit ist die benötigte Produktanzahl antiproportional zur Nutzungshäufigkeit, bei höherer Nutzungshäufigkeit ist sie hingegen konstant. Dies folgt direkt aus den eben gemachten Beobachtungen zur Nutzungsmenge n(h)und hat zur Folge, dass eine Nutzungsintensivierung nur solange einen positiven Umwelteffekt aufweist, bis der Nutzungsvorrat voll ausgeschöpft wird, was noch im Detail gezeigt werden wird.
+			Wiederum ist der Punkt, an dem die Nutzungshäufigkeit gerade so groß ist, dass der Nutzungsvorrat innerhalb der Maximalnutzungsdauer aufgebraucht wird ($h = h*$), entscheidend: Bei geringerer Nutzungshäufigkeit ist die benötigte Produktanzahl antiproportional zur Nutzungshäufigkeit, bei höherer Nutzungshäufigkeit ist sie hingegen konstant. Dies folgt direkt aus den eben gemachten Beobachtungen zur Nutzungsmenge n(h)und hat zur Folge, dass eine Nutzungsintensivierung nur solange einen positiven Umwelteffekt aufweist, bis der Nutzungsvorrat voll ausgeschöpft wird, was noch im Detail gezeigt werden wird.
 			
-			Abbildung \ref{fig:t(h)_n(h)_P(h)} stellt die Abhängigkeiten der Nutzungsdauer $t$, der Nutzungsmenge $n$ und der Produktanzahl $P$ von der Nutzungshäufigkeit $h$ dar. Die markierte Stelle $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ ist der oben besprochene Punkt, an dem alle drei Funktionen ihren Verlauf ändern.
+			Abbildung \ref{fig:t(h)_n(h)_P(h)} stellt die Abhängigkeiten der Nutzungsdauer $t$, der Nutzungsmenge $n$ und der Produktanzahl $P$ von der Nutzungshäufigkeit $h$ dar.
 			
 			\begin{figure}[ht]
 				\centering
 				\input{Abbildungen/Nutzungsintensivierung_1.tex}
-				\caption{Nutzungsdauer, Nutzungsmenge und Produktanzahl in Abhängigkeit von der Nutzungshäufigkeit (untere Skala). Die durchgezogenen Linien geben den hypothetischen Funktionsverlauf an, die kleinen Quadrate die tatsächlichen Funktionswerte für verschiedene Anzahlen parallel genutzter Produkte (obere Skala). Bei $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Parameter: $N = 10.000$ Nutzungseinheiten, $n_\text{max} = 5.000$ Nutzungseinheiten, $T = 10$ Jahre, $t_\text{max} = 15$ Jahre.}
+				\caption{Nutzungsdauer, Nutzungsmenge und Produktanzahl in Abhängigkeit von der Nutzungshäufigkeit (untere Skala). Die durchgezogenen Linien folgen dem hypothetischen Funktionsverlauf für eine kontinuierlich angenommene Nutzungshäufigkeit, die kleinen Quadrate zeigen die tatsächlichen Funktionswerte für verschiedene Anzahlen parallel genutzter Produkte (obere Skala). Bei $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Parameter: $N = 10.000$ Nutzungseinheiten, $n_\text{max} = 5.000$ Nutzungseinheiten, $T = 10$ Jahre, $t_\text{max} = 15$ Jahre.}
 				\label{fig:t(h)_n(h)_P(h)}
 			\end{figure}
 			
-			Zur Berechnung der MIPS ist zunächst eine Betrachtung der Material-Inputs $I$ notwendig. Diese setzen sich aus nutzungsbedingten Inputs $I_N = N \cdot i_N$, produktbezogenen Inputs $I_P = P(h) \cdot i_P$  und konstanten Inputs $I_{\text{fix}}$ zusammen:
+			Zur Berechnung der MIPS ist zunächst eine Betrachtung der Material-Inputs $I$ notwendig. Diese lassen sich für dieses Modell in produktbezogene Inputs $I_P = P(h) \cdot i_P$  und konstante Inputs $I_{\text{fix}}^h$ unterscheiden:
 			%
 			\begin{equation*}
-				I = N \cdot i_N + P(h) \cdot i_P + I_{\text{fix}}
+				I = P(h) \cdot i_P + I_{\text{fix}}^h
 			\end{equation*}	
 			%
-			Die nutzungsbedingten Inputs $I_N$ sind solche, die unmittelbar bei der
-			Nutzung anfallen, wie beispielsweise Energie oder andere Betriebsmittel.
-			Die produktbezogenen Inputs $I_P$ entstehen durch die Bereitstellung und
-			Entsorgung eines Produkts und sind daher unabhängig von der Anzahl der
-			Nutzungen. Zu den konstanten Inputs $I_\text{fix}$ schließlich zählen alle
-			Inputs, die weder von der Anzahl der Produkte, noch von der Anzahl der
-			Nutzungen direkt abhängen. Diese werden für die
-			Bereitstellung der Infrastruktur wie etwa der Räumlichkeiten eines Nutzungssystems benötigt.
+			Die produktbezogenen Inputs $I_P$ sind solche, die von der Anzahl der Produkte abhängen. Sie fallen bei der Bereitstellung und
+			Entsorgung der eingesetzten Produkte an. Unter den konstanten Inputs $I_\text{fix}^h$ werden hier alle anderen Inputs zusammengefasst, das heißt solche, die von der Anzahl der Produkte \emph{nicht} abhängen.
 			
 			Für die Service-Menge $S$ wurden bereits zwei Bestimmungsgleichungen eingeführt:
 			$S = N \cdot A$ und $S = S_D$. Unter Berücksichtigung von Gleichung \ref{eq:N(h)} lässt
@@ -507,10 +510,10 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 			Nutzungshäufigkeit $h$ ableiten:
 %
 			\begin{align*}
-				\text{MIPS}_h &= \frac{I}{S} = \frac{N \cdot i_N + P(h) \cdot i_P + I_{\text{fix}}}{S} =
-				\frac{N \cdot i_N}{S} + \frac{P(h) \cdot i_P}{S} + \frac{I_{\text{fix}}}{S} \\[10pt]
-				&= \frac{N \cdot i_N}{ N \cdot A} + \frac{P(h) \cdot i_P}{n(h) \cdot P(h) \cdot A} + \frac{I_{\text{fix}}}{S_D} = \frac{i_N}{A} + \frac{I_{\text{fix}}}{S_D} + \frac{i_P}{n(h) \cdot A} \\[10pt]
-				&\eqnref{eq:n(h)_cases} \frac{i_N}{A} + \frac{I_{\text{fix}}}{S_D} + \left\{ \begin{array}{cl}  \frac{i_P}{h \cdot t_{\text{max}} \cdot A}, & \mbox{falls } h < \frac{n_{\text{max}}}{t_{\text{max}}} \\[5pt] \frac{i_P}{n_{\text{max}} \cdot A}, & \mbox{sonst} \end{array}\right.
+				\text{MIPS}(h) &= \frac{I}{S} = \frac{P(h) \cdot i_P + I_{\text{fix}}^h}{S} =
+				\frac{P(h) \cdot i_P}{S_D} + \frac{I_{\text{fix}}^h}{S_D} \\[10pt]
+				&= \frac{P(h) \cdot i_P}{n(h) \cdot P(h) \cdot A} + \frac{I_{\text{fix}}^h}{S_D} = \frac{I_{\text{fix}}^h}{S_D} + \frac{i_P}{n(h) \cdot A} \\[10pt]
+				&\eqnref{eq:n(h)_cases} \frac{I_{\text{fix}}^h}{S_D} + \left\{ \begin{array}{cl}  \frac{i_P}{h \cdot t_{\text{max}} \cdot A}, & \mbox{falls } h < \frac{n_{\text{max}}}{t_{\text{max}}} \\[5pt] \frac{i_P}{n_{\text{max}} \cdot A}, & \mbox{sonst} \end{array}\right.
 			\end{align*}
 %
 			Für die Nutzungsintensivierung lässt sich zusammenfassend das folgende Teilmodell festhalten:
@@ -518,19 +521,67 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 						
 			\begin{mdframed}[frametitle={Nutzungsintensivierung}, frametitlerule=true]
 				Teilmodell:
-				\begin{equation}
-					\text{MIPS}_h = \frac{i_N}{A} + \frac{I_{\text{fix}}}{S_D} + \left\{ \begin{array}{cl}  \frac{i_P}{h \cdot t_{\text{max}} \cdot A}, & \mbox{falls } h < \frac{n_{\text{max}}}{t_{\text{max}}} \\[5pt] \frac{i_P}{n_{\text{max}} \cdot A}, & \mbox{sonst} \end{array} \right.
-				\end{equation}
+				\begin{align}
+					\label{eq:MIPS(h)}
+					\text{MIPS}(h) &= \frac{P(h) \cdot i_P}{S_D} + \frac{I_{\text{fix}}^h}{S_D} \\[10pt]
+					\label{eq:MIPS(h)_2}
+					&= \frac{I_{\text{fix}}^h}{S_D} + \left\{ \begin{array}{cl}  \frac{i_P}{h \cdot t_{\text{max}} \cdot A}, & \mbox{falls } h < h^* := \frac{n_{\text{max}}}{t_{\text{max}}} \\[5pt] \frac{i_P}{n_{\text{max}} \cdot A}, & \mbox{sonst} \end{array} \right.
+				\end{align}
 				Nebenbedingungen:
 				\begin{equation}
 					h = \frac{S_D}{A \cdot p \cdot T} \qquad p \in \mathbb{N}
+					\label{eq:h(p)}
 				\end{equation}
 				\begin{equation}
+					\label{eq:h_max}
 					h \leq h_\text{max} := \frac{S_D}{A \cdot p_\text{min} \cdot T}
 				\end{equation}
 			\end{mdframed}
 			
 			\paragraph{Modellanalyse}
+			In dieser Analyse des Teilmodells zur Nutzungsintensivierung wird untersucht, wie sich eine Erhöhung der Nutzungsintensivierung auf die MIPS auswirkt. Da die Nutzungshäufigkeit $h$ gemäß Nebenbedingung \ref{eq:h(p)} nur in diskreten Schritten variiert werden kann, wird die Änderung der MIPS von einer gegebenen Nutzungshäufigkeit ($h = h_1$) zur nächsgrößeren ($h = h_2$) betrachtet. Diese ist durch die Verringerung der parallelen Produktanzahl von $p = p_1$ auf $p = p_2$ um eins gegeben: $p_2 - p_1 = -1$. Es können drei Fälle unterschieden werden:
+			
+			\underline{Fall 1}: $h_1 < h_2 < h^*$ \\
+			Hier wird sowohl vor, als auch nach der Erhöhung der Nutzungshäufigkeit der Nutzungsvorrat eines einzelnen Produkts nicht aufgebraucht, bevor die Maximalnutzungsdauer erreicht ist. Für die Änderung der MIPS gilt unter Anwendung von Gleichung \ref{eq:MIPS(h)_2}:
+%
+			\begin{align}
+				\Delta \text{MIPS} &= \text{MIPS}(h_2) - \text{MIPS}(h_1) = \frac{i_P}{t_\text{max} \cdot A} \cdot \left( \frac{1}{h_2} - \frac{1}{h_1} \right) \label{eq:Delta_MIPS_h_1}\\[10pt]
+				&= \frac{i_P}{t_\text{max} \cdot A} \cdot \frac{h_1 - h_2}{h_1 \cdot h_2}
+				\eqnref{eq:h(p)} \frac{i_P}{t_\text{max} \cdot A} \cdot \frac{A \cdot T}{S_D} \cdot \frac{\frac{1}{p_1} - \frac{1}{p_2}}{\frac{1}{p_1 \cdot p_2}} \nonumber \\[10pt]
+				&= \frac{i_P \cdot T}{t_\text{max} \cdot S_D} \cdot \frac{\frac{p_2 - p_1}{p_1 \cdot p_1}}{\frac{1}{p_1 \cdot p_2}} = - \frac{i_P \cdot T}{t_\text{max} \cdot S_D} = - \frac{q \cdot i_P}{S_D} \nonumber
+			\end{align}
+%
+			Im letzten Schritt wurde die Definition $q := \frac{T}{t}$ mit $t = t_\text{max}$ angewendet. Die obige Analyse ergibt, dass die MIPS durch die Nutzungsintensivierung im ersten Fall bei der Einsparung eines parallel betriebenen Produkts unabhängig vom Ausgangsniveau um einen konstanten Wert abnimmt. Dabei lässt sich der Zähler $q \cdot i_P$ als die produktbezogenen Inputs des eingesparten Produkts identifizieren, wenn man sich vergegenwärtigt, dass im Betrachtungszeitraum nacheinander $q$ Produkte eingesetzt werden.
+			
+			\underline{Fall 2}: $h^* \leq h_1 < h_2$ \\
+			Der zweite Fall ist dadurch gegeben, dass der Nutzungsvorrat eines einzelnen Produkts sowohl vor, als auch nach der Erhöhung der Nutzungshäufigkeit spätestens bis zum Erreichen der Maximalnutzungsdauer aufgebraucht wird. Es ergibt sich direkt aus Gleichung \ref{eq:MIPS(h)_2}:
+%
+			\begin{equation}
+				\Delta \text{MIPS} = \text{MIPS}(h_2) - \text{MIPS}(h_1) = 0
+			\end{equation}
+%
+			Hier bewirkt eine Erhöhung der Nutzungshäufigkeit also keine Veränderung der MIPS. Dies leuchtet insofern ein, als dass hier die effektive Produktanzahl $P$ unveränderlich ist, da ansonsten aufgrund der konstanten Nutzungsmenge $n = n_\text{max}$ die Service-Menge steigen würde. Es wird also effektiv kein Produkt eingespart.
+			
+			\underline{Fall 3}: $h_1 < h^* \leq h_2$ \\
+			Der dritte Fall stellt als Sonderfall den Übergang vom ersten zum dritten Fall dar: Vor der Erhöhung der Nutzungshäufigkeit wird der Nutzungsvorrat eines einzelnen Produkts nicht voll ausgeschöpft, nach der Erhöhung jedoch schon. Für die Veränderung der MIPS gilt nach Gleichung \ref{eq:MIPS(h)_2}:
+%
+			\begin{equation}
+				\Delta \text{MIPS} = \text{MIPS}(h_2) - \text{MIPS}(h_1) = \frac{i_P}{A} \cdot \left( \frac{1}{n_\text{max}} - \frac{1}{h_1 \cdot t_\text{max}} \right)
+			\end{equation}
+%
+			Dieser Ausdruck ist für sich betrachtet nicht sehr aufschlussreich, kann jedoch nach oben und nach unten abgeschätzt werden. Einerseits ist wegen $h_1 < \frac{n_\text{max}}{t_\text{max}}$ der Klammerausdruck und damit der gesamte Ausdruck negativ, also $\Delta \text{MIPS} < 0$. Andererseits gilt wegen $h_2 \geq \frac{n_\text{max}}{t_\text{max}}$:
+%
+			\begin{equation}
+				\Delta \text{MIPS} = \frac{i_P}{A} \cdot \left( \frac{1}{n_\text{max}} - \frac{1}{h_1 \cdot t_\text{max}} \right) \geq \frac{i_P}{A} \cdot \left( \frac{1}{h_2 \cdot t_\text{max}} - \frac{1}{h_1 \cdot t_\text{max}} \right) \eqnref{eq:Delta_MIPS_h_1} - \frac{q \cdot i_P}{S_D}
+			\end{equation}
+%			
+			Die Änderung der MIPS bewegt sich im dritten Fall also zwischen den Werten der ersten beiden Fälle und ist auch in diesem Sinne als Übergangsfall zu betrachten.
+			
+			\subparagraph{Zwischenfazit}
+			Die Analyse hat bis hierhin gezeigt, dass eine Nutzungsintensivierung im Sinne einer Erhöhung der Nutzungshäufigkeit im schlechtesten Fall keine Änderung der MIPS, und im besten Fall eine Verringerung der MIPS um einen konstanten Ausdruck mit sich bringt. Es kann also direkt kein schädlicher Effekt auftreten. Die Verringerung wird durch die Einsparung eines der parallel betriebenen Produkte erreicht. Eine solche ist nur möglich, wenn die genutzten Produkte vor der Nutzungsintensivierung noch nicht ihre technische Lebensdauer erreichen.
+			
+			\subparagraph{Einschränkung}
+			In der bisherigen Analyse blieb bislang unberücksichtigt, dass die Nutzungshäufigkeit nicht beliebig gesteigert werden kann, da in einem Nutzungssystem aus praktischen Gründen eine Mindestanzahl von Produkten benötigt wird. Dieser Zusammenhang wurde durch die Nebenbedingung \ref{eq:h_max} im Modell abgebildet: $h \leq h_\text{max}$. Für die Analyse hat dies zur Konsequenz, dass nicht alle theoretisch denkbaren Nutzungsintensivierungen als realisierbar betrachtet werden können. Für alle realisierbaren Fälle gelten jedoch die getroffenen Aussagen. Falls $h_\text{max} < h^*$ gilt, sind die Fälle 2 und 3 der Analyse ausgeschlossen. Ansonsten sind alle Fälle möglich.
 			
 			\subsubsection{Erhöhung der Produktauslastung} % Ursprünglich: "Maximierung der Geräteauslastung"
 			\label{sec:Produktauslastung}
