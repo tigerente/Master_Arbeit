@@ -5,13 +5,13 @@ source('./Funktionen_Nutzungsintensivierung.R')
 require(tikzDevice)
 
 # Einstellungen für den Export der Graphik
-tikzheight <- 2.5
-tikzwidth <- 6
+tikzheight <- 4.0
+tikzwidth <- 5.8
 fntsize <- 0.8
 
 # Export aktivieren
-useTikz <- FALSE
-if(useTikz) tikz( '../tex/Abbildungen/Nutzungsintensivierung_1.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
+useTikz <- TRUE
+if(useTikz) tikz( '../tex/Abbildungen/Nutzungsintensivierung_2.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
 
 # Definition von Konstanten:
 I_fix = 10000
@@ -44,12 +44,12 @@ h_lines = h (p_lines, N, T)
 MIPS_lines = MIPS (h_lines, I_fix, S_D, i_P, t_max, A, n_max)
 
 # Plots erzeugen:
-par(mar = c(5,4,5.5,2) + 0.1)
-plot(h_points, MIPS_points, xlab = 'Nutzungsh\"aufigkeit $h$ [1/Jahr]', ylab = 'MIPS [kg/Service-Einheit]', axes = FALSE, type = 'p', pch = 22, bg = 'white', xlim = c(0, h_high), ylim = c(MIPS_low, MIPS_high), panel.first = points(h_lines, MIPS_lines, type = 'l', lty = 1, col='grey'))
+par(mar = c(4.1,3.9,5.6,0.1))
+plot(h_points, MIPS_points, xlab = 'Nutzungsh\"aufigkeit $h$ [Nutzungseinheiten/Jahr]', ylab = 'MIPS [kg/Service-Einheit]', axes = FALSE, type = 'p', pch = 22, bg = 'white', xlim = c(0, h_high), ylim = c(MIPS_low, MIPS_high), panel.first = points(h_lines, MIPS_lines, type = 'l', lty = 1, col='grey'))
 abline(v = c(n_max/t_max, h_max), lty = 3)
 title('Materialintensit\"at pro Service-Einheit MIPS$(h)$', line = 4.5)
 axis (side = 1, at = c(0, 200, 400, 600, 800, 1000, n_max/t_max, h_max), labels = c(0, 200, 400, 600, 800, 1000, '$h^*$', '$h_\\text{max}$'))
-axis (side = 2)
+axis (side = 2, at = c(0, 1, MIPS_points), labels = c(0, 1, MIPS_points))
 axis (side = 3, at = h_points, labels = p_points)
 box()
 mtext ('parallele Produktanzahl $p$', side = 3, line = 2.5, cex = 1)
