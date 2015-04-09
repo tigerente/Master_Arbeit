@@ -45,6 +45,7 @@ dashed=false]{biblatex}
 % These packages are all incorporated in the memoir class to one degree or another...
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage{mdframed}
 \usepackage{booktabs}
 \usepackage{nicefrac}
@@ -79,11 +80,15 @@ dashed=false]{biblatex}
 \newcommand{\noteJ}[1]{\todo[color=blue!40]{\textbf{János: }#1}}
 \newcommand{\textfrac}[2]{\hspace{2pt} \frac{\text{#1}}{\text{#2}}}
 \newcommand{\eqnref}[1]{\overset{(\ref{#1})}{=}} % Gleichheitszeichen mit Referenz auf die verwendete Gleichung
+\newcommand{\defeq}{\vcentcolon=} %Definitions-Gleichheitszeichen
+\newcommand{\eqdef}{=\vcentcolon}
 
 % Formeln:
 \newcommand{\MIPS}[1][]{\text{MIPS}({#1})}
 \renewcommand{\P}[1]{P_\text{#1}}
 \newcommand{\I}[1]{I_\text{#1}}
+\newcommand{\itext}[1]{i_\text{#1}}
+\newcommand{\T}[1]{T_\text{#1}}
 \newcommand{\n}[1]{n_\text{#1}}
 \newcommand{\N}[1]{N_\text{#1}}
 \renewcommand{\t}[1]{t_\text{#1}}
@@ -367,6 +372,88 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 		\subsection{Fallstudien}
 
 \chapter{Modell}
+\section{Grundmodell}
+\noteS{nur ein ganz fixer erster Entwurf}Für die Berechnung des MIPS müssen die innerhalb der Systemgrenzen (die u.a.
+durch eine Zeit $T$ charakterisiert sind) anfallenden
+Material-Inputs durch die abgerufene Servicemenge geteilt werden:
+\begin{equation}
+  \MIPS = \frac{I}{S}
+\end{equation}
+Die Effekte kollektiver Nutzung lassen sich in Mengeneffekte und
+Nachfrageeffekte einteilen. Um die beiden Effekte mathematisch sauber
+voneinander abzugrenzen, führen wir einen konstanten Betrachtungszeitraum
+$\T{eff}$
+ein, innerhalb dessen eine bestimmte Servicemenge $S_D$ nachgefragt wird.
+Mengeneffekte sind nun gerade dadurch charakterisiert, dass $S_D =
+\text{konst}$ gilt. Beim Übergang zu $\T{eff}$ müssen wir berücksichtigen, dass
+wir
+nur einen bestimmten Anteil der innerhalb der Systemgrenzen anfallenden
+Material-Inputs anrechnen müssen. Wir nennen diesen Anteil die effektiven
+Material-Inputs $\I{eff}$. Es ergibt sich also:
+\begin{equation}
+  \MIPS = \frac{I}{S} = \frac{\I{eff}}{S_D}
+\end{equation}
+Wir betrachten nun die effektiven Material-Inputs, die sich durch Mengeneffekte
+ändern können. Deren Anteil an den gesamten Material-Inputs entspricht dem
+Verhältnis Betrachtungszeitraum zum gesamt Zeitraum des Nutzungssystems
+$\frac{\T{eff}}{T}$, sie können also folgendermaßen berechnet werden:
+\begin{equation}
+  \I{eff} = I \cdot \frac{\T{eff}}{T}
+\end{equation}
+Die Material-Inputs können wir in nutzungsbedingte Inputs $I_N$, produktbezogene
+Inputs $I_P$ und von den Anzahl der Nutzungen und Produkte innerhalb des Systems
+unabhängige Inputs $\I{fix}$ einteilen.
+Die ersten beiden Inputs berechnen sich als Summe über die Inputs bei jeder
+Nutzung $i_N^k$ bzw. die Inputs für jedes Produkt $i_P^k$:
+\begin{align}
+  I_P &= \sum_k^P i_P^k = P \cdot \overline{i_P}\\
+  I_N &= \sum_k^N i_N^k = N \cdot \overline{i_N}
+\end{align}
+Hierbei bezeichnet $P$ die Produktanzahl im System und $N$ die Anzahl der
+Nutzungen. Die Summen wurden in die alternative Schreibweise mit 
+Durchschnittswerten umgeformt. Die effektiven Inputs lassen sich nun
+folgendermaßen berechnen:
+\begin{equation}
+  \I{eff} = \frac{\T{eff}}{T} \cdot I 
+          = \frac{\T{eff}}{T} \cdot (N \cdot \overline{i_N} + P \cdot
+          \overline{i_P} + \I{fix})
+\end{equation}
+Wir können in einem letzten Schritt zur effektiven Nutzungsmenge, effektiven
+Produktmenge und effektiven fixen Inputs übergehen, indem wir definieren:
+\begin{align}
+  \N{eff} &\defeq N \cdot \frac{\T{eff}}{T} \\
+  \P{eff} &\defeq P \cdot \frac{\T{eff}}{T} \\
+  \I{fix, eff} &\defeq \I{fix} \cdot \frac{\T{eff}}{T} 
+\end{align}
+Natürlich stellt sich die Frage, wie diese effektiven Größen bestimmt werden
+können. Für den Fall der Nutzungsmenge ist dies einfach: die effektive
+Nutzungsmenge ist einfach die Nutzungsmenge, die im Betrachtungszeitraum
+$\T{eff}$ anfällt und ergibt sich damit direkt aus der Servicemenge $S_D$. Die
+effektive Produktmenge kann unter der Annahme identischer Nutzungsdauern $t$ und
+der Kenntnis der parallel genutzten Produkte $p$ wie folgt bestimmt werden:
+\begin{equation}
+  \P{eff} = \frac{\T{eff}}{t} \cdot p
+\end{equation}
+Letztlich können die effektiven fixen Inputs unter der Annahme, dass dafür pro
+Zeiteinheit $\itext{fix} = \frac{\I{fix}}{T}$ viele Inputs anfallen, so bestimmt
+werden:
+\begin{equation}
+  \I{fix, eff} = T \cdot \itext{fix} = \text{konst}
+\end{equation}
+
+Insgesamt lässt sich also schreiben: 
+\begin{equation}
+  \I{eff} = \N{eff} \cdot \overline{i_N} + \P{eff} \cdot
+          \overline{i_P} + \I{fix, eff}
+          = \frac{S_D}{A} \cdot \overline{i_N} + \frac{\T{eff}}{t} \cdot p \cdot
+          \overline{i_P} + \T{eff} \cdot \itext{fix}
+\end{equation}
+
+Wir haben also eine Gleichung erhalten, die nur noch effektive und
+durchschnittliche Werte beinhalten. Diese Gleichung verwenden wir im folgenden
+bei der Modellierung der Teileffekte, und lassen dabei den Index "`eff"' sowie
+den Durchschnitts-Querstrich weg, da wir diese nicht mehr von den realen Größen
+unterscheiden müssen. 
 		\section{Einzeleffekte}
 			\subsection{Nutzungsintensivierung} % Ursprünglich: "Nutzungsdauerverlängerung"
 			\paragraph{Modellbeschreibung}
