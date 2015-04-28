@@ -47,9 +47,12 @@ dashed=false]{biblatex}
 % These packages are all incorporated in the memoir class to one degree or another...
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage{mdframed}
 \usepackage{booktabs}
 \usepackage{nicefrac}
+
+\usepackage{ifthen}
 
 %%% HEADERS & FOOTERS
 \usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
@@ -92,11 +95,20 @@ dashed=false]{biblatex}
 \newcommand{\noteJ}[1]{\todo[color=blue!40]{\textbf{János: }#1}}
 \newcommand{\textfrac}[2]{\hspace{2pt} \frac{\text{#1}}{\text{#2}}}
 \newcommand{\eqnref}[1]{\overset{(\ref{#1})}{=}} % Gleichheitszeichen mit Referenz auf die verwendete Gleichung
+\newcommand{\defeq}{\vcentcolon=} %Definitions-Gleichheitszeichen
+\newcommand{\eqdef}{=\vcentcolon}
+\newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
 
 % Formeln:
-\newcommand{\MIPS}[1][]{\text{MIPS}({#1})}
+\newcommand{\MIPS}[1][]{
+  \ifthenelse {\equal {#1} {}}
+  {\text{MIPS}} % if argument is blank
+  {\text{MIPS}({#1})} % if an optional argument is given
+}
 \renewcommand{\P}[1]{P_\text{#1}}
 \newcommand{\I}[1]{I_\text{#1}}
+\newcommand{\itext}[1]{i_\text{#1}}
+\newcommand{\T}[1]{T_\text{#1}}
 \newcommand{\n}[1]{n_\text{#1}}
 \newcommand{\N}[1]{N_\text{#1}}
 \renewcommand{\t}[1]{t_\text{#1}}
@@ -377,6 +389,89 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 		\subsection{Fallstudien}
 
 \chapter{Modell}
+\section{Grundmodell}
+\noteS{nur ein ganz fixer erster Entwurf}Für die Berechnung des MIPS müssen die innerhalb der Systemgrenzen (die u.a.
+durch eine Zeit $T$ charakterisiert sind) anfallenden
+Material-Inputs durch die abgerufene Servicemenge geteilt werden:
+\begin{equation}
+  \MIPS = \frac{I}{S}
+\end{equation}
+Die Effekte kollektiver Nutzung lassen sich in Mengeneffekte und
+Nachfrageeffekte einteilen. Um die beiden Effekte mathematisch sauber
+voneinander abzugrenzen, führen wir einen konstanten Betrachtungszeitraum
+$\T{eff}$
+ein, innerhalb dessen eine bestimmte Servicemenge $S_D$ nachgefragt wird.
+Mengeneffekte sind nun gerade dadurch charakterisiert, dass $S_D =
+\text{konst}$ gilt. Beim Übergang zu $\T{eff}$ müssen wir berücksichtigen, dass
+wir
+nur einen bestimmten Anteil der innerhalb der Systemgrenzen anfallenden
+Material-Inputs anrechnen müssen. Wir nennen diesen Anteil die effektiven
+Material-Inputs $\I{eff}$. Es ergibt sich also:
+\begin{equation}
+  \MIPS = \frac{I}{S} = \frac{\I{eff}}{S_D}
+\end{equation}
+Wir betrachten nun die effektiven Material-Inputs, die sich durch Mengeneffekte
+ändern können. Deren Anteil an den gesamten Material-Inputs entspricht dem
+Verhältnis Betrachtungszeitraum zum gesamt Zeitraum des Nutzungssystems
+$\frac{\T{eff}}{T}$, sie können also folgendermaßen berechnet werden:
+\begin{equation}
+  \I{eff} = I \cdot \frac{\T{eff}}{T}
+\end{equation}
+Die Material-Inputs können wir in nutzungsbedingte Inputs $I_N$, produktbezogene
+Inputs $I_P$ und von den Anzahl der Nutzungen und Produkte innerhalb des Systems
+unabhängige Inputs $\I{fix}$ einteilen.
+Die ersten beiden Inputs berechnen sich als Summe über die Inputs bei jeder
+Nutzung $i_N^k$ bzw. die Inputs für jedes Produkt $i_P^k$:
+\begin{align}
+  I_P &= \sum_k^P i_P^k = P \cdot \overline{i_P}\\
+  I_N &= \sum_k^N i_N^k = N \cdot \overline{i_N}
+\end{align}
+Hierbei bezeichnet $P$ die Produktanzahl im System und $N$ die Anzahl der
+Nutzungen. Die Summen wurden in die alternative Schreibweise mit 
+Durchschnittswerten umgeformt. Die effektiven Inputs lassen sich nun
+folgendermaßen berechnen:
+\begin{equation}
+  \I{eff} = \frac{\T{eff}}{T} \cdot I 
+          = \frac{\T{eff}}{T} \cdot (N \cdot \overline{i_N} + P \cdot
+          \overline{i_P} + \I{fix})
+\end{equation}
+Wir können in einem letzten Schritt zur effektiven Nutzungsmenge, effektiven
+Produktmenge und effektiven fixen Inputs übergehen, indem wir definieren:
+\begin{align}
+  \N{eff} &\defeq N \cdot \frac{\T{eff}}{T} \\
+  \P{eff} &\defeq P \cdot \frac{\T{eff}}{T} \\
+  \I{fix, eff} &\defeq \I{fix} \cdot \frac{\T{eff}}{T} 
+\end{align}
+Natürlich stellt sich die Frage, wie diese effektiven Größen bestimmt werden
+können. Für den Fall der Nutzungsmenge ist dies einfach: die effektive
+Nutzungsmenge ist einfach die Nutzungsmenge, die im Betrachtungszeitraum
+$\T{eff}$ anfällt und ergibt sich damit direkt aus der Servicemenge $S_D$. Die
+effektive Produktmenge kann unter der Annahme identischer Nutzungsdauern $t$ und
+der Kenntnis der parallel genutzten Produkte $p$ wie folgt bestimmt werden:
+\begin{equation}
+  \P{eff} = \frac{\T{eff}}{t} \cdot p = \frac{\N{eff}}{h \cdot t}
+\end{equation}
+Letztlich können die effektiven fixen Inputs unter der Annahme, dass dafür pro
+Zeiteinheit $\itext{fix} = \frac{\I{fix}}{T}$ viele Inputs anfallen, so bestimmt
+werden:
+\begin{equation}
+  \I{fix, eff} = T \cdot \itext{fix} = \text{konst}
+\end{equation}
+
+Insgesamt lässt sich also schreiben: 
+\begin{equation}
+  \I{eff} = \N{eff} \cdot \overline{i_N} + \P{eff} \cdot
+          \overline{i_P} + \I{fix, eff}
+          = \frac{S_D}{A} \cdot \overline{i_N} + \frac{\N{eff}}{h \cdot t} \cdot
+          \overline{i_P} + \T{eff} \cdot \itext{fix}
+          \label{eq:Grundmodell}
+\end{equation}
+
+Wir haben also eine Gleichung erhalten, die nur noch effektive und
+durchschnittliche Werte beinhalten. Diese Gleichung verwenden wir im folgenden
+bei der Modellierung der Teileffekte, und lassen dabei den Index "`eff"' sowie
+den Durchschnitts-Querstrich weg, da wir diese nicht mehr von den realen Größen
+unterscheiden müssen. 
 		\section{Einzeleffekte}
 			\subsection{Nutzungsintensivierung} % Ursprünglich: "Nutzungsdauerverlängerung"
 			\label{sec:Nutzungsintensivierung}
@@ -940,6 +1035,7 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
       \end{table}
 
       \subsubsection{Wartung}
+      \paragraph{Modellbeschreibung}
       Um die genannten drei Effekte höherer Wartungstätigkeiten auf den
       Umweltverbrauch abzubilden, müssen wir zunächst die Wartungstätigkeit
       selber formalisieren. Wir nehmen an, dass regelmäßig, d.h. nach Abruf
@@ -948,7 +1044,7 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
       durchgeführt wird. Unter dieser Annahme können wir die Wartungshäufigkeit
       $w$ einführen, welche die Anzahl Wartungen je Nutzungseinheiten angibt. Da
       maximal nach jeder Produktnutzung gewartet werden kann, ist $w \in
-      [0,1]$.
+      [0,1]$. 
       Die Anzahl Wartungen $W$ ergeben sich dann als Produkt der
       Wartungshäufigkeit und den Nutzungseinheiten. 
       Der erste Effekt, die Erhöhung der Material-Inputs lässt sich nun direkt
@@ -957,12 +1053,24 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
         I_W = W \cdot i_W = N \cdot w \cdot i_W
       \end{equation}
       Hierbei bezeichnet $I_W$ die wartungsbedingten Material-Inputs, die, wie
-      zu erkennen ist, direkt proportional mit der Wartungshäufigkeit wachsen.
+      zu erkennen ist, direkt proportional mit der Wartungshäufigkeit
+      wachsen.\footnote{Da die wartungsbedingten Material-Inputs in der hier
+          angegeben Formalisierung proportional zur Nutzungsmenge $N$ sind,
+          finden sie implizit auch Berücksichtigung in Teilmodellen, in denen
+          allgemein nutzungsbedingte Material-Inputs betrachtet werden.}
+      % Da die Inputs für die Wartung außerdem proportional zu $N$ sind, sind
+      % sie formal ein Teil der nutzungsbedingten Material-Inputs $I_N$: 
+      % \begin{equation*}
+      %     I_N = \tilde{I}_N + I_W = N \cdot (i_N + w\cdot i_W)
+      % \end{equation*}
+      % $\tilde{I}_N$ bezeichnet hierbei alle nutzungsbedingten Material-Inputs
+      % die nicht auf Wartungen zurückzuführen sind.
 
-      Wir formalisieren den zweiten Effekt -- die Verlängerung der Lebensdauer
-      -- indem wir annehmen, dass der Nutzungsvorrat $\n{max}$ eines Produkts
-      \todo{Annahme: alles gleiche Produkte} monoton mit der Wartungshäufigkeit
-      steigt und dies als funktioneller Zusammenhang beschrieben werden kann:
+      Wir formalisieren nun den zweiten Effekt -- die Verlängerung der
+      Lebensdauer -- indem wir annehmen, dass der Nutzungsvorrat $\n{max}$ eines
+      Produkts \todo{Annahme: alles gleiche Produkte} monoton mit der
+      Wartungshäufigkeit steigt und dies als funktioneller Zusammenhang
+      beschrieben werden kann:
       \begin{equation*}
         \n{max} = \n{max}(w) \quad \text{mit} \quad
         \frac{\partial \n{max}}{\partial w}\geq 0 \quad , \quad
@@ -1047,25 +1155,28 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
       \begin{equation}
         i_N = i_N(w)\quad  , \quad
         \frac{\partial i_N}{\partial w} \leq 0
+        \label{eq:Wartung_i_N}
       \end{equation}
 
       Weitere angenommene Eigenschaften der Funktion $i_N$ sind, dass sie sowohl
       nach oben als auch nach unten beschränkt ist und dass die Verringerung der
       Material-Inputs mit zunehmender Wartungshäufigkeit abnimmt:
 
-      \begin{equation*}
-        0 < \min_{w \in [0,1]} i_N(w) \leq \max_{w \in [0,1]} i_N(w) < \infty
-        \quad , \quad \frac{\partial^2 i_N}{\partial w^2} \geq 0
-      \end{equation*}
+      \begin{equation}
+        % 0 < \min_{w \in [0,1]} i_N(w) \leq \max_{w \in [0,1]} i_N(w) < \infty
+        % \quad , \quad 
+        \pfrac{^2 i_N}{w^2} \geq 0
+        \label{eq:Wartung_i_N2}
+      \end{equation}
 
       Wir sind nun in der Lage, eine Gleichung für die MIPS anzugeben, welche
       die Wartungshäufigkeit berücksichtigt. Zunächst betrachten wir dafür die
       Input-Seite:
       \begin{align*}
-        I &= I_N + I_W + I_P + \I{fix}\\
+          I &= I_N + I_W + I_P + \I{fix}\\
           % &= N \cdot i_N + N \cdot w \cdot i_W  
           %   + P \cdot i_P + \I{fix}\\
-          &= N \cdot i_N + N \cdot w \cdot i_W  
+          &= N \cdot (i_N +  w \cdot i_W)
             + \frac{N}{h\cdot t} \cdot i_P + \I{fix}
       \end{align*}
       Von der Wartungshäufigkeit hängen die nutzungsbedingten, die
@@ -1075,12 +1186,13 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
       Nutzungseinheiten und Serviceeinheiten ($S=N\cdot A$), sowie bei
       im Betrachtungszeitraum konstanter Nachfrage ($S=S_D$), ergibt sich für
       die MIPS:
-      \begin{align*}
+      \begin{align}
         \MIPS[w]&= \frac{I}{S} 
-                 = \frac{I_N + I_W + I_P + \I{fix}}{S_D}\\
+                 = \frac{I_N(w) + I_W(w) + I_P(w) + \I{fix}}{S_D}
+                 \label{eq:MIPSWartung_simpel}\\
                 &= \frac{1}{A} \cdot \left( i_N(w) + w \cdot i_W 
-                 + \frac{i_P}{h\cdot t}\right) + \frac{\I{fix}}{S_D}
-      \end{align*}
+                 + \frac{i_P}{h\cdot t}\right) + \frac{\I{fix}}{S_D}  \nonumber
+      \end{align}
       Zu beachten ist, dass diese Gleichung abhängig davon, ob $\t{tech}$
       kleiner oder größer als $\t{max}$ ist, jeweils eine etwas
       unterschiedliche Gestalt annimmt. Wir geben das Ergebnis direkt in der
@@ -1089,28 +1201,29 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 
 			\begin{mdframed}[frametitle={Wartung}, frametitlerule=true]
 				Teilmodell:
-      % \begin{equation}
-      %   \MIPS[w] =\left\{
-      %             \begin{array}{l@{\quad : \quad}l}
-      %               \frac{1}{A} \cdot \left( i_N(w) + w \cdot i_W 
-      %               + \frac{i_P}{\n{max}(w)}\right) + \frac{\I{fix}}{S_D}
-      %               &
-      %               \t{tech} < \t{max} \\[10pt]
-      %
-      %               \frac{1}{A} \cdot \left( i_N(w) + w \cdot i_W 
-      %               + \frac{i_P}{h\cdot \t{max}}\right) + \frac{\I{fix}}{S_D}
-      %               &
-      %               \text{sonst}
-      %
-      %             \end{array}
-      %             \right.
-      % \end{equation}
       \begin{equation}
-        \MIPS[w] =
-                    \frac{1}{A} \cdot \left( i_N(w) + w \cdot i_W 
-                    + \frac{i_P}{h\cdot \min\left(\frac{\n{max}(w)}{h} ,
-                    \t{max}\right)}\right) + \frac{\I{fix}}{S_D}
+          \MIPS[w] = \frac{\I{fix}}{S_D} 
+                   + \frac{1}{A} \cdot \left( i_N(w) + w\cdot i_W +
+                  \left\{
+                  \begin{array}{l@{\quad : \quad}l}
+                     \frac{i_P}{\n{max}(w)} 
+                    &
+                    \n{max}(w) < h\cdot\t{max} \\[10pt]
+                    \frac{i_P}{h\cdot \t{max}} 
+                    &
+                    \text{sonst}
+
+                  \end{array}
+                  \right.\right)
+                  \label{eq:MIPSWartung}
       \end{equation}
+      % \begin{equation}
+      %   \MIPS[w] =
+      %               \frac{1}{A} \cdot \left( i_N(w) + w \cdot i_W 
+      %               + \frac{i_P}{h\cdot \min\left(\frac{\n{max}(w)}{h} ,
+      %               \t{max}\right)}\right) + \frac{\I{fix}}{S_D}
+      %               \label{eq:MIPSWartung}
+      % \end{equation}
 				Funktionseigenschaften:				\begin{equation}
           \frac{\partial i_N}{\partial w} \leq 0 \quad , \quad
           0 < \min_{w \in [0,1]} i_N(w) \leq \max_{w \in [0,1]} i_N(w) < \infty
@@ -1125,85 +1238,198 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
         sind}
 
 
-      \subsubsection{Reparatur}
+      \paragraph{Modellanalyse}
+        Die Wirkung einer Erhöhung der Wartungshäufigkeit ist aufgrund der
+        beschriebenen gegenläufigen Effekte nicht eindeutig. Ziel der
+        Analyse soll es daher sein, die möglichen Verläufe zu charakterisieren,
+        Kriterien für die Unterscheidung dieser Verläufe anzugeben und eine
+        Bedingung zu entwickeln, unter der eine Erhöhung der Wartungshäufigkeit
+        einen positiven Einfluss auf die Ökobilanz des Nutzungssystems hat. 
+        
+        Wir betrachten hierfür zunächst die Ableitung der MIPS-Gleichung in der
+        einfachen Form:  $\MIPS[w]= \frac{1}{S_D}
+        \cdot ( I_N(w) + I_W(w) + I_P(w) + \I{fix})$ (vgl.
+        \eqref{eq:MIPSWartung_simpel}) und fragen, wann die
+        MIPS unter einer marginalen Erhöhung der Wartungshäufigkeit sinken:
+        \begin{align*}
+                \pfrac{\MIPS[w]}{w} < 0 
+            \Leftrightarrow \quad & 
+                \frac{1}{S_D} \cdot ( I'_N(w) + I'_W(w) + I'_P(w)) < 0 \\[10pt]
+            \Leftrightarrow \quad & 
+                I'_W(w) < |I'_N(w)| + |I'_P(w)| 
+        \end{align*}
+        Dass die Verwendung der Betragsstriche im letzten Schritt gerechtfertigt
+        ist, wird sich im folgenden aus der genaueren Betrachtung der
+        Ableitungen ergeben. Der Ausdruck sei vorher zunächst inhaltlich
+        erläutert: Gemäß Modellannahme führt eine Erhöhung der
+        Wartungshäufigkeit zu einer Erhöhung der Nutzungsinputs auf der einen
+        und zu einer Verringerung der nutzungsbedingten sowie produktbezogenen
+        Inputs auf der anderen Seite.  Da diese drei Effekte voneinander
+        unabhängig sind, können sie auch in der marginalen Sichtweise separat
+        betrachtet werden: eine marginale Verringerung der MIPS tritt demnach
+        genau dann auf, wenn der marginale Zuwachs der Inputs für die Wartungen
+        $I'_W$ betragsmäßig kleiner ist als die Summe der marginalen
+        Einsparungen $|I'_N| + |I'_P|$ durch den Effekt auf die Nutzungs- und
+        Produktinputs. 
+
+        Wir haben also eine Bedingung gefunden, unter der eine Zunahme der
+        Wartungshäufigkeit zu einer Ressourceneinsparung führt. Schauen wir uns
+        nun die darin auftretenden Ableitungen noch etwas näher an: Der Anstieg
+        der Wartungs-Inputs ist aufgrund der direkten Proportionalität zur
+        Wartungshäufigkeit konstant und betragen:
+        \begin{equation*}
+            I'_W(w) = N \cdot i_W = const. \geq 0
+        \end{equation*}
+        Der Anstieg der nutzungsbedingten Material-Inputs beträgt:
+        \begin{equation*}
+            I'_N(w) = N \cdot i'_N(w) \leq 0
+        \end{equation*}
+        Er ist nicht positiv, da wir angenommen haben, dass $i_N(w)$ eine in $w$
+        monoton fallende Funktion ist (vgl. \eqref{eq:Wartung_i_N}).
+        Da wir weiterhin angenommen haben, dass $i_N$ rechtsgekrümmt ist (vgl.
+        \eqref{eq:Wartung_i_N2}: $\pfrac{^2 i_N}{w^2} \geq 0$) können wir
+        darüberhinaus eine Aussage über die Veränderung des Betrags $|I'_N(w)|$
+        machen:
+        \begin{equation*}
+            |I'_N(w)|' = (- N \cdot i'_N(w))' = - N \cdot i''_N(w) \leq 0
+        \end{equation*}
+        D.h. der Betrag nimmt mit steigender Wartungshäufigkeit ab. Betrachten
+        wir als letztes den Anstieg der produktbezogenen Inputs:
+        \begin{equation*}
+            I'_P = \left\{ 
+                \begin{array}{r@{\quad : \quad}l}
+                    - \frac{i_P}{\n{max}^2} \cdot
+                    \pfrac{\n{max}(w)}{w} & \n{max}(w) <
+                    h\cdot \t{max}\\
+                    0 & \n{max}(w) > h\cdot\t{max}
+                \end{array}
+                \right.
+        \end{equation*}
+
+
+
+        \begin{align*}
+                              & \pfrac{\MIPS[w]}{w} < 0 \\
+        \Leftrightarrow \quad & \frac{1}{A} \cdot 
+                                \left( \pfrac{i_N(w)}{w} + i_W + 
+                            \left\{ 
+                                \begin{array}{r@{\quad : \quad}l}
+                                    - \frac{i_P}{\n{max}^2} \cdot
+                                    \pfrac{\n{max}(w)}{w} & \n{max}(w) <
+                                    h\cdot \t{max}\\
+                                    0 & \n{max}(w) > h\cdot\t{max}
+                                \end{array}
+                                \right.
+                                \right) < 0 \\
+        \Leftrightarrow \quad &
+                                i_W < -\pfrac{i_N(w)}{w} +
+                               \left\{ 
+                                   \begin{array}{r@{\quad : \quad}l}
+                                       \frac{i_P}{\n{max}^2} \cdot
+                                       \pfrac{\n{max}(w)}{w} & \n{max}(w) <
+                                       h\cdot\t{max}\\
+                                       0 & \n{max}(w) > h\cdot\t{max}
+                                   \end{array}
+                                   \right.
+                                   \\
+        \end{align*}
+        Eine Verringerung der MIPS durch eine Erhöhung der Wartungshäufigkeit
+        ist also genau dann zu erreichen, wenn die Material-Inputs für
+        Wartungen 
+        
+        Dass bedeutet, dass das Nutzungssystem bezüglich der Wartungshäufigkeit
+        drei charakteristische Verläufe aufweisen kann: Die Extremfälle sind,
+        dass eine Erhöhung der Wartungshäufigkeit auf dem gesamten Intervall
+        $[0,1]$ entweder keinen ökologischen Vorteil bringt oder immer. Ersterer
+        Fall liegt vor wenn \dots Letzterer Fall liegt dagegen vor wenn \dots
+        Als dritte Variante kann es genau eine optimale Wartungshäufigkeit
+        geben\dots
+        In der Abbildung \ref{fig:Wartungen} ist dieser letzte Verlauf mit den
+        zugehörigen Spezifizierungen der Funktionen $i_N$ und $\n{max}$
+        dargestellt.
+
+      \begin{figure}[ht]
+          \centering
+          \input{Abbildungen/Wartungen.tex}
+          \caption{}
+          \label{fig:Wartungen}
+      \end{figure}
+        \subsubsection{Reparatur}
+      \paragraph{Modellbeschreibung}
       Der Reparaturverlauf eines Produkts kann sehr komplex sein, da es sich
       dabei um einen zufälligen Prozess handelt. Sowohl der Zeitpunkt
       eines Defekts als auch dessen Ausmaß sind zufällig, sodass die für das
-      Beheben dieses Defekts notwendigen Material-Inputs genauso wie die durch
+      Beheben dieses Defekts notwendigen Material-Inputs, genauso wie die durch
       die Reparatur zusätzlich gewonnene Lebensdauer sehr unterschiedlich sein
       können.      
 
-      In einer nachträglichen Betrachtung des Nutzungssystems kann jedoch sehr
-      wohl festgestellt werden, wieviele Material-Inputs für Reparaturen $I_R$
-      aufgebracht wurden und wie sich dadurch die Nutzungsdauer $t$ der Produkte
-      verändert hat. Unter der Annahme identischer Produkte, lässt sich die MIPS
-      für diese Betrachtungsweise leicht aufstellen. Die gesamten
-      Material-Inputs betragen:
-      \begin{equation*}
-        I = I_R + I_P + \I{fix}
-      \end{equation*}
-      Sie setzen sich aus den Inputs für Reparaturen $I_R$, den
-      produktbezogenen, von der Nutzungsdauer $t$ abhängigen Inputs $I_P$ und
-      den restlichen, von den durchgeführten Reparaturen unabhängigen
-      Material-Inputs $\I{fix}$ zusammen. 
-      
-      Mit Hilfer der bereits bekannten
-      Beziehung \eqref{eq:Nutzungseinheiten_Produktanzahl}:
-      \begin{equation*}
-        N = h \cdot t \cdot P(t)
-      \end{equation*}
-      ergeben sich die produktbezogenen Material-Inputs in Abhängigkeit von der
-      Nutzungsdauer wie folgt:
-      \begin{equation*}
-        I_P = P(t) \cdot i_P = \frac{N \cdot i_P}{h \cdot t}
-      \end{equation*}
-
-      Damit berechnen sich die MIPS folgendermaßen:
-
-      \begin{align}
-        MIPS(t,I_R) &= \frac{I}{S_D} 
-                     = \frac{I_R + I_P + \I{fix}}{S_D} \nonumber\\
-                    &= \frac{I_R}{S_D} +
-                         \frac{i_P}{h\cdot t \cdot A} + \frac{\I{fix}}{S_D}
-                         \label{eq:MIPS_Reparatur1}
-      \end{align}
-
-      Die beiden variablen Größen in diesem Modell sind also die Nutzungsdauer
-      $t$ sowie die Material-Inputs für Reparaturen $I_R$. Wir erweitern diese
-      Ex-post-Sicht nun, in dem wir den  Nutzer\_innen eines Nutzungssystems
-      unterstellen, dass sie jedes Produkt eine bestimmte Zeit $\t{max}$ nutzen
-      möchten und diese gewünschte Nutzungsdauer durch gegebenenfalls notwendig
-      werdende Reparaturen realisieren. Die Zeit $\t{max}$ wurde bereits in
+      Wir nehmen im folgenden an, dass die Nutzer\_innen des Nutzungssystems
+      jedes Produkt eine bestimmte Zeit $\t{max}$ nutzen möchten und diese
+      gewünschte Nutzungsdauer durch gegebenenfalls notwendig werdende
+      Reparaturen realisieren. Die Zeit $\t{max}$ wurde bereits in
       vorangegangenen Modellen eingeführt und hatte auch dort dieselbe Bedeutung
       als gewünschte Nutzungsdauer\todo{bei der Einführung von $\t{max}$ dieses
-    als gewünschte Nutzungsdauer bezeichnen}. Der Unterschied war jedoch, dass
-    in diesen Teilmodellen die Nutzungsdauer unter Umständen auch durch die
-    technische Lebensdauer $\t{tech}$ beschränkt sein konnte, das Produkt also
-    beim Auftreten eines Defekts entsorgt wurde, obwohl die Nutzer\_innen das
-    Produkt ohne den Defekt noch weiter benutzt hätten.  Für den Fall mit
-    Reparaturen gilt nun per Definition immer $t = \t{max}$.  Insbesondere
-    stellt sich anders als im Falle der Wartungen damit nicht die Frage, ob die
-    Verlängerung der Lebensdauer eines Produkts durch dessen Reparatur zu einer
-    Verlängerung seiner Nutzungsdauer führt, vielmehr wird die Lebensdauer
-    gerade solange verlängert, bis die gewünschte Nutzungsdauer erreicht wird. 
+      als gewünschte Nutzungsdauer bezeichnen}. Der Unterschied war jedoch, dass
+      in diesen Teilmodellen die Nutzungsdauer unter Umständen auch durch die
+      technische Lebensdauer $\t{tech}$ beschränkt sein konnte, das Produkt also
+      beim Auftreten eines Defekts entsorgt wurde, obwohl die Nutzer\_innen das
+      Produkt ohne den Defekt noch weiter benutzt hätten.  Für den Fall mit
+      Reparaturen gilt nun per Definition immer $t = \t{max}$.  Insbesondere
+      stellt sich anders als im Falle der Wartungen damit nicht die Frage, ob
+      die Verlängerung der Lebensdauer eines Produkts durch dessen Reparatur zu
+      einer Verlängerung seiner Nutzungsdauer führt, vielmehr wird die
+      Lebensdauer gerade solange verlängert, bis die gewünschte Nutzungsdauer
+      erreicht wird. 
 
-      Mit dieser Sichtweise ändert sich qualitativ nichts an der Berechnung der
-      MIPS. Setzen wir $\t{max}$ anstelle von $t$ in Gleichung
-      \eqref{eq:MIPS_Reparatur1} ein, so bleibt das formale Ergebnis 
-      dasselbe. Jedoch sind wir mit der Einführung von $\t{max}$ konzeptionell
-      von einer Ex-post-Sicht zu einer Ex-ante-Sicht übergegangen, wodurch die
-      gewünschte Nutzungsdauer zu einem Parameter geworden ist, der die
-      Reparaturfreundlichkeit im Nutzungssystem angibt. Nutzer\_innen, die eine
-      längere Nutzungsdauer anstreben als andere, sind bereit, mehr in
-      Reparaturen zu investieren. 
+      Wir bezeichnen die Material-Inputs die durchschnittlich je Produkt für
+      dessen Reparaturen anfallen mit $I_R$. Sie sind also ein Bestandteil der
+      Inputs je Produkt $i_P$. Darüber hinaus fallen je Produkt Inputs für
+      dessen Herstellung, Entsorgung und sonstige, vom Reparaturverlauf
+      unabhängige Prozesse an, die wir mit $\tilde{i}_P$. Somit betragen die
+      Inputs je Produkt:
+      \begin{equation}
+        i_P = \tilde{i}_P + I_R
+        \label{eq:InputsProdukt}
+      \end{equation}
 
-      Aus dieser Perspektive stellt sich nun die Frage, ob es einen funktionalen
-      Zusmamenhang zwischen $I_R$ und $\t{max}$ gibt. Aufgrund des eingangs
-      unterstellten, zufälligen Reparaturverlaufs, muss diese Frage verneint
-      werden: auf der einen Seite kann ein bestimmtes $\t{max}$ durch
+      Die Einführung der gewünschten Nutzungsdauer ändert nichts an dem eingangs
+      angesprochenen zufälligen Reparaturverlauf, der nach wie vor je Produkt
+      als unterschiedlich betrachtet werden kann. Jedoch haben wir mit $\t{max}$
+      nun einen Parameter, der die Reparaturfreundlichkeit im Nutzungssystem
+      angibt -- Nutzer\_innen, die eine längere Nutzungsdauer anstreben als
+      andere, sind bereit, mehr in Reparaturen zu investieren -- und der darüber
+      hinaus sicherstellt, dass die Nutzungsdauer aller Produkte diesselbe ist,
+      wir also das Grundmodell \ref{eq:Grundmodell} verwenden können. Die
+      effektiven Material-Inputs im Falle der Reparaturen lassen sich damit
+      folgendermaßen berechnen (Im Vergleich zum Grundmodell wurden auch die
+      nutzungsbedingten Inputs den fixen Inputs angerechnet, da sie sich in
+      diesem Teilmodell nicht verändern):
+
+      \begin{equation}
+        I(\t{max}, I_R) = \frac{N}{h \cdot \t{max}} \cdot i_P + \I{fix}^R 
+                        \eqnref{eq:InputsProdukt} 
+                        \frac{N}{h \cdot \t{max}} \cdot (\tilde{i}_P+ I_R) 
+                        + \I{fix}^R
+      \end{equation}
+
+      Die Material-Inputs sind in diesem Teilmodell abhängig von der gewünschten
+      Nutzungsdauer $\t{max}$ und den durchschnittlich je Produkt anfallenden
+      Inputs für Reparaturen $I_R$. In der Gleichung sind die beiden
+      Umwelteffekte, die bei der Betrachtung von Reparaturen auftreten zu
+      erkennen: eine Erhöhung der Nutzungsdauer $\t{max}$ der Produkte, führt
+      zunächst dazu, dass die effektiven produktbezogenen Material-Inputs
+      sinken. Diese längere Nutzungsdauer geht in der Regel jedoch mit höheren
+      Inputs für Reparaturen $I_R$ einher. Ob die Reparaturen daher ökologisch
+      sinnvoll sind, hängt von der Kombination dieser beiden Parameter ab.
+      
+      Dass die Inputs von zwei Parametern abhängen
+      ist der zufälligen Natur der Reparaturen geschuldet, der zufolge kein
+      funktioneller Zusammenhang zwischen den beiden Größen angegeben werden
+      kann.  
+      So kann ein bestimmtes $\t{max}$ einerseits durch
       verschiedenartige Reparaturen realisiert werden (beispielsweise kann ein
-      Fahrradschlauch geflickt oder ganz ausgetauscht werden). Auf der anderen
-      Seite können im Nutzungsverlauf identischer Produkte ganz unterschiedliche
+      Fahrradschlauch geflickt oder ganz ausgetauscht werden). Andererseits
+      können im Nutzungsverlauf identischer Produkte ganz unterschiedliche
       Reparaturen notwendig werden (so kann z.B. eins von zwei identischen
       Fahrrädern in einen Unfall geraten, und somit viel umfangreichere
       Reparaturen erfordern, als das Fahrrad, welches unfallfrei geblieben ist)
@@ -1212,47 +1438,292 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
       Reparaturen, welche durch den Verschleiß der Produkte notwendig werden, so
       können wir in einer stark vereinfachenden Sicht, einen funktionalen
       Zusammenhang konstruieren:
-      Wir nehmen an, dass jede Reparatur
-      die Lebensdauer des Produkts um genau die ursprüngliche technische
+      Wir können annehmen, dass jede Reparatur
+      die Lebensdauer eines Produkts um genau seine ursprüngliche technische
       Lebensdauer $\t{tech}$ erhöht und dass für jede dieser
       Reparaturen Material-Inputs $i_R$ benötigt werden.
       Es müssen dann pro Produkt
-      $\left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor$ viele Reparaturen
-      durchgeführt werden, die gesamten Material-Inputs betragen also:
-
+      $\left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor$\todo{diese
+      Stufenfunktion anpassen, sodass sie linksseitig stetig ist} viele Reparaturen
+      durchgeführt werden, die gesamten Material-Inputs für die Reparaturen an
+      einem Produkt betragen somit:
       \begin{equation*}
         I_R(\t{max}) = i_R \cdot
                        \left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor
-                       \cdot P(\t{max})
       \end{equation*}
-
       Es handelt sich also um eine Stufenfunktion, mit Sprungstellen bei
-      Vielfachen von $\t{tech}$.\footnote{Man könnte diese Überlegung noch
-        dahingehend erweitern, dass man annimmt, das Produkt bestünde aus
-        verschiedenen Produtkteilen, die je ihre eigene Lebensdauer haben und
-        mit einer bestimmten Menge an Material-Inputs repariert werden können.
-        $I_R$ würde sich dann als Summe von Treppenfunktionen für jedes
+      Vielfachen von $\t{tech}$.\footnote{Diese Überlegung könnte noch
+        dahingehend erweitert werden, wenn angenommen wird, dass das Produkt
+        bestünde aus verschiedenen Produtkteilen, die je ihre eigene Lebensdauer
+        haben und mit einer bestimmten Menge an Material-Inputs repariert werden
+        können.  $I_R$ würde sich dann als Summe von Treppenfunktionen für jedes
         Produktteil darstellen lassen. Allerdings führt diese kompliziertere
         Betrachtungsweise zu keinen qualitativ anderen Ergebnissen und wird
       daher an dieser Stelle nicht weiter verfolgt.}
-      
-      \begin{equation*}
-        I = I_R + I_P + \I{fix}
-      \end{equation*}
+      Zusammenfassend geben wir nun das Teilmodell für Reparaturen an:\\
 
 			\begin{mdframed}[frametitle={Reparatur}, frametitlerule=true]
 				Teilmodell:
       \begin{equation}
-        \MIPS[\t{max}, I_R] = \frac{I_R}{S_D} +
-                         \frac{i_P}{h\cdot \t{max}\cdot A} + \frac{\I{fix}}{S_D}
+        \MIPS[\t{max}, I_R] = \frac{\tilde{i}_P + I_R}{h\cdot \t{max}\cdot A} 
+                              + \frac{\I{fix}^R}{S_D}
+                              \label{eq:MIPSReparaturen}
       \end{equation}
 				Mögliche Modellerweiterung:
         \begin{equation}
           I_R = I_R(\t{max}) = i_R \cdot
                        \left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor
+           \label{eq:ReparaturModellerweiterung}
         \end{equation}
 			\end{mdframed}
 
+
+      \paragraph{Modellanalyse}
+      Wir widmen uns zunächst dem Modell ohne einen speziellen funktionellen
+      Zusammenhang zwischen $\t{max}$ und $I_R$ anzunehmen und ergänzen diese
+      Betrachtung dann in einem zweiten Schritt unter Berücksichtigung der
+      Modellerweiterung \eqref{eq:ReparaturModellerweiterung}.
+
+      \subparagraph{Ohne Modellerweiterung}
+      In der allgemeinen Formulierung der MIPS-Gleichung für Reparaturen
+      \eqref{eq:MIPSReparaturen} interessiert uns, ob eine
+      Erhöhung $\Delta \t{max}$ der gewünschten Nutzungsdauer bei zusätzlich
+      anfallenden Inputs $\Delta i_P$ einen positiven Umwelt-Effekt hat. 
+      Dies ist genau dann der Fall wenn gilt:
+      \begin{align*}
+        & \MIPS[\t{max}, I_R] &>&  \quad \MIPS[\t{max} + \Delta \t{max}, I_R + \Delta
+        i_P]\\
+        \Leftrightarrow \quad & \frac{i_P}{h\cdot \t{max}\cdot A} 
+        + \frac{\I{fix}^R}{S_D}
+        &>&  \quad \frac{i_P + \Delta i_P}{h\cdot (\t{max} + \Delta
+        \t{max}) \cdot A} 
+        + \frac{\I{fix}^R}{S_D}\\
+      \end{align*}
+      Diese Bedingung kann nun weiter vereinfacht werden. Sie ist äquivalent zu:
+      \begin{align}
+        & i_P\cdot(\t{max} + \Delta
+        \t{max})
+        &>& \quad (i_P + \Delta i_P)\cdot\t{max}\nonumber\\
+        \Leftrightarrow \quad & i_P\cdot\Delta
+        \t{max}
+        &>& \quad \Delta i_P\cdot\t{max}\nonumber\\
+        \Leftrightarrow \quad & \frac{\Delta
+          \t{max}}{\t{max}}
+        &>& \quad \frac{\Delta i_P}{i_P}  
+\label{eq:Bedingung_Reparatur}
+      \end{align}
+      Dies bedeutet also, dass eine Erhöhung $\Delta \t{max}$ der gewünschten
+      Nutzungsdauer bei zusätzlich anfallenden Inputs $\Delta I_R$ genau dann
+      einen positiven Umwelt-Effekt hat, wenn die prozentuale
+      Nutzungsdauerverlängerung $\frac{\Delta \t{max}}{\t{max}}$ größer ist, als
+      die prozentuale Erhöhung der produktbezogenen Material-Inputs
+      $\frac{\Delta i_P}{i_P}$. Die Bedingung umfasst natürlich die
+      trivialen Extremfälle: zum einen kann eine Ressourceneinsparung immer
+      erzielt werden, wenn die Nutzungsdauer ohne zusätzliche Material-Inputs
+      erhöht werden kann ($\Delta \t{max} > 0$ und $\Delta i_P = 0$), zum
+      anderen wird eine Reparatur nie zu einer Ressourceneinsparung führen, wenn
+      dadurch die Nutzungsdauer nicht verlängert wird ($\Delta \t{max} = 0$ und
+      $\Delta i_P > 0$). 
+      
+      Interessanterweise offenbart diese Bedingung auch die
+      Pfadabhängigkeit der Ressourceneinsparung. Nehmen wir beispielsweise an,
+      dass ein Produkt maximal zehn Monate genutzt wird und während dieser Zeit
+      einmal defekt wird. Wir untersuchen nun die Ressourceneinsparmöglichkeiten
+      durch eine Reparatur, für die beispielsweise Material-Inputs in Höhe von
+      $\Delta i_P = 0,5 i_P$ anfallen.
+      $\t{max}$ beschreibe die Zeit bis zur Funktionsuntüchtigkeit des Produkts,
+      d.h. die gewünschte Nutzungsdauer entspricht zunächst der Lebensdauer des
+      Produkts. $\Delta \t{max}$ sei dann die Restzeit bis zum Erreichen der
+      zehn Monate, also $\Delta \t{max} = 10 \text{Monate} - \t{max}$.
+      Die MIPS des Produkts über die zehn Monate unter Berücksichtigung einer
+      Reparatur sind unabhängig von $\t{max}$. Allerdings hängt die
+      Ressourceneinsparung sehr wohl von $\t{max}$ ab. Sei beispielsweise im
+      ersten Fall $\t{max} = 1 \text{Monat}$. Dann gilt:
+      \begin{equation*}
+        \frac{\Delta \t{max}}{\t{max}} = \frac{9}{1}
+        > 0,5 = \frac{\Delta i_P}{i_P}
+      \end{equation*}
+      Dass heißt, die Reparatur ist ökologisch vorteilhaft. Ist dagegen
+      $\t{max} = 9 \text{Monate}$, so ergibt sich:
+      \begin{equation*}
+        \frac{\Delta \t{max}}{\t{max}} = \frac{1}{9}
+        < 0,5 = \frac{\Delta i_P}{i_P}
+      \end{equation*}
+      In diesem Fall ist die Reparatur also ökologisch unvorteilhaft.
+      
+      Zum Abschluss der Modellanalyse des Modells ohne Spezifizierung eines
+      funktionalen Zusammenhangs zwischen $I_R$ und $\t{max}$ geben wir noch
+      eine alternative Schreibweise für die ermittelte Bedingung unter
+      Verwendung der Bogenelastizität (vgl. \ref{sec:Elastizität}) an. Die
+      Bedinung \eqref{eq:BedingungReparatur} ist äquivalent zu:
+      \begin{equation*}
+        \breve{\epsilon}_{i_P, \t{max}} = \frac{\Delta i_P}{\Delta
+          \t{max}}
+        \cdot \frac{i_P}{\t{max}} < 1
+      \end{equation*}
+      D.h. dass ein positiver Umwelteffekt genau dann zu beobachten ist, wenn
+      die Material-Inputs je Produkt unelastisch bezüglich der
+      gewünschten Nutzungsdauer sind.
+
+      \subparagraph{Berücksichtigung der Modellerweiterung}
+      Wir betrachten jetzt die Modellerweiterung
+      \eqref{eq:ReparaturModellerweiterung}:
+      \begin{equation}
+          I_R(\t{max}) = i_R \cdot
+          \left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor
+      \end{equation}
+      
+      Diese Funktion ist durch zwei lineare Funktionen nach oben und nach unten
+      beschränkt:
+      \begin{equation*}
+        I_R^\text{max} \defeq \frac{i_R}{\t{tech}} \cdot \t{max} 
+        \geq I_R 
+        % = i_R \cdot \left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor 
+        \geq \frac{i_R}{\t{tech}} \cdot \t{max} - i_R \eqdef I_R^\text{min}
+      \end{equation*}
+
+      Die drei Funktionen sind in Abbildung \ref{fig:Reparatur_I_R} dargestellt.
+
+      \begin{figure}[ht]
+          \centering
+          \input{Abbildungen/Reparaturen_I_R.tex}
+          \caption{}
+          \label{fig:Reparatur_I_R}
+      \end{figure}
+
+      Wir können nun die Modellerweiterung \eqref{eq:ReparaturModellerweiterung}
+      verwenden, um eine Funktion der MIPS zu erhalten, die nur noch von der
+      gewünschten Nutzungsdauer abhängt: 
+      \begin{equation}
+        \MIPS            = \frac{\tilde{i}_P + i_R \cdot
+                             \left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor }
+                             {h\cdot \t{max}\cdot A} 
+                           + \frac{\I{fix}^R}{S_D}
+      \end{equation}
+
+      Verwenden wir anstatt der Modellerweiterung deren Schranken, so erhalten
+      wir obere und untere Schranken für die MIPS, welche entsprechend die
+      lokalen Maxima bzw. die lokalen Minima der MIPS-Funktion stetig verbinden:
+      \begin{align}
+        \MIPS^\text{max} &= \frac{\tilde{i}_P}{h\cdot \t{max}\cdot A} 
+                                    + \frac{i_R}{h\cdot \t{tech}\cdot A} 
+                                    + \frac{\I{fix}^R}{S_D}\\
+        \MIPS^\text{min} &= \frac{\tilde{i}_P - i_R}{h\cdot \t{max}\cdot A} 
+                                    + \frac{i_R}{h\cdot \t{tech}\cdot A} 
+                                    + \frac{\I{fix}^R}{S_D}
+      \end{align}
+      Die MIPS in Abhängigkeit von $\t{max}$ ist in Abbildung
+      \ref{fig:Reparatur_MIPS} für zwei unterschiedliche
+      Parameterkonstellationen zusammen mit ihrer oberen und unteren Schranke
+      dargestellt. Sie konvergieren für $\t{max} \rightarrow \infty$ gegen einen
+      konstanten Wert:
+      \begin{equation*}
+        \lim_{\t{max} \rightarrow \infty} \MIPS[\t{max}]            
+      = \lim_{\t{max} \rightarrow \infty} \left[\frac{\tilde{i}_P}{h\cdot \t{max}\cdot A} 
+                           + \frac{i_R \cdot
+                             \left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor }
+                             {h\cdot \t{max}\cdot A} 
+                           + \frac{\I{fix}^R}{S_D}\right]
+      = \frac{i_R } {h\cdot \t{tech}\cdot A} + \frac{\I{fix}^R}{S_D}
+      \end{equation*}
+      \begin{figure}[ht]
+          \centering
+          \input{Abbildungen/Reparaturen_MIPS.tex}
+          \caption{}
+          \label{fig:Reparatur_MIPS}
+      \end{figure}
+
+      Wir können hier gut die beiden Spezialfälle aus dem ersten Teil der
+      Analyse erkennen: zwischen den Sprungstellen wird 
+      $\t{max}$ verlängert ohne die produktbezogenen Inputs zu verändern. Die
+      MIPS fallen also in diesem Bereich. Dagegen wird an den Sprungstellen
+      $\t{max}$ nicht verlängert, jedoch die produktbezogenen Inputs um $i_R$
+      erhöht. Die MIPS verschlechtern sich dadurch. 
+
+      Natürlich wird die Reparatur im Allgemeinen nicht ohne eine Verlängerung
+      der Nutzungsdauer durchgeführt, im Einzelfall muss also die Kombination
+      der beiden Spezialfälle betrachtet werden. Da die Inputs für eine
+      Reparatur durch $i_R$ gegeben sind, betrachten wir hierfür die notwendige
+      Verlängerung der gewünschten Nutzungsdauer $\Delta \t{max}$. Gemäß dem
+      Ergebnis aus dem ersten Teil der Analyse (vgl. Gleichung
+      \eqref{eq:Bedingung_Reparatur}) muss die gewünschte Nutzungsdauer für die
+      $n$-te Reparatur folgender Ungleichung genügen:
+      \begin{equation*}
+          \frac{\Delta \t{max} }{n\cdot \t{max}} > \frac{i_R}{\tilde{i}_P + (n
+      - 1)\cdot i_R} 
+      \Leftrightarrow 
+            \Delta \t{max} > \frac{i_R \cdot n}{\tilde{i}_P + (n
+        - 1)\cdot i_R} \cdot \t{tech} 
+        = \frac{i_R \cdot n}{\tilde{i}_P - i_R + i_R \cdot n} \cdot \t{tech}
+      \end{equation*}
+
+      Für $\tilde{i}_P \leq i_R$ ist der letzte Bruch größergleich eins, d.h.
+      die Verlängerung der gewünschten Nutzungsdauer müsste in diesem Fall
+      größer sein, als die durch die Reparatur erreichte Verlängerung der
+      Lebensdauer. Dieser Fall ist im unteren Diagramm der Abbildung
+      \ref{fig:Reparatur_MIPS} dargestellt. Übertreffen also die für eine
+      Reparatur notwendigen Material-Inputs die Material-Inputs für die
+      Bereitstellung und Entsorgung eines Produkts, so wirken sich Reparaturen
+      negativ auf die MIPS aus, minimale MIPS werden dann benötigt, wenn die
+      Nutzungsdauer des Produkts gerade seiner technischen Lebensdauer
+      entspricht. 
+
+      Anders im Fall $\tilde{i}_P \geq i_R$, der im oberen Diagramm der
+      Abbildung \ref{fig:Reparatur_MIPS} dargestellt ist. Hier können die
+      Material-Inputs für eine Reparatur noch vor dem nächsten Defekt durch eine
+      Verlängerung der Nutzungsdauer kompensiert werden. Da dies für jede
+      Reparatur gilt, gibt es in diesem Fall also kein
+      globales Minimum der MIPS, jedoch nimmt der ökologische Nutzen einer
+      zusätzlichen Reparatur mit der Anzahl der durchgeführten Reparaturen ab.
+      
+      
+    %%%%%%%%
+    %   Um das einzusehen, betrachten wir die Funktion $\MIPS^\text{min}$,
+    %   welche die lokalen Minima der MIPS-Funktion verbindet. Der Anstieg dieser
+    %   Funktion ist gegeben durch:
+    %   \begin{equation*}
+    %       \frac{\partial \MIPS^\text{min}}{\partial \t{max}} = -
+    %       \frac{\tilde{i}_P - i_R}{h \cdot A \cdot \t{max}^2}
+    %   \end{equation*}
+    %   Nur für $\tilde{i}_P > i_R$ ist der Anstieg negativ, 
+    %
+    %   Wir können nun zwei Fälle unterscheiden: ist $\tilde{i}_P > i_R$, so gilt $\lim_{\t{max} \rightarrow
+    % \infty} \MIPS[\t{max}] <\MIPS[\t{tech},0] $, dass heißt, dass sich
+    % die MIPS für mehr Reparaturen immer weiter verbessern. Für $\tilde{i}_P \leq
+    % i_R$, gilt dagegen $\lim_{\t{max} \rightarrow \infty} \MIPS[\t{max}]
+    % \geq \MIPS[\t{tech},0] $, dass heißt, dass das Produkt nicht repariert
+    % werden sollte.
+    %%%%%%%%
+    %   
+    %   Werden die Produkte nicht repariert, jedoch bis zum Ende ihrer technischen
+    %   Lebensdauer benutzt, so ergibt sich folgendes MIPS:
+    %   \begin{equation*}
+    %     \MIPS[\t{tech},0] = \frac{\tilde{i}_P } {h\cdot \t{tech}\cdot A} +
+    %                          \frac{\I{fix}^R}{S_D}
+    %   \end{equation*}
+      \subparagraph{Zusammenfassung der Ergebnisse} Wir halten folgende
+      Ergebnisse für das Teilmodell Reparatur fest:
+      \begin{itemize}
+          \item Eine Reparatur führt genau dann zu einem ökologisch positiven
+              Effekt, wenn der prozentuale Zuwachs der Nutzungsdauer den
+              prozentualen Anstieg an produktbezogenen Material-Inputs
+              übersteigt. Dies ist genau dann der Fall, wenn die Material-Inputs
+              je Produkt unelastisch bezüglich der gewünschten Nutzungsdauer
+              sind.
+          \item Sind die Material-Inputs für jede Reparatur gleich und führen
+              die Reparaturen immer zur selben Verlängerung der Lebensdauer, so
+              können Reparaturen nur dann einen ökologischen Vorteil bringen,
+              wenn die dafür notwendigen Material-Inputs kleiner als die Inputs
+              sind, die für die Bereitstellung und Entsorgung der Produkte
+              aufgebracht werden muss.
+      \end{itemize}
+
+
+
+
+
+
+      
 
 		\section{Effekt-Kopplungen}
 		\section{Modellübersicht}
@@ -1264,6 +1735,7 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 \printbibliography
 \chapter{Anhang}
 \section{Elastizität}\label{sec:Elastizität}
+\todo{Bogenelastizität einführen}
 \begin{equation}
   \text{Elastizität} \quad \epsilon_{y,x} := \frac{dy(x)}{dx} \cdot
   \frac{x}{y}

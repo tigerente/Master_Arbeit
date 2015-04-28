@@ -1,0 +1,60 @@
+\documentclass[beamer]{beamer}
+%\usepackage{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{lmodern} % for removing warning about font shape
+
+%\usetheme{Madrid}
+\usetheme{Frankfurt}
+%\usetheme{Singapore}
+\usecolortheme{seagull}
+
+\setbeamertemplate{footline}[frame number] % für Foliennummerierung
+
+\beamertemplatenavigationsymbolsempty % Navigationsleiste ausblenden
+
+%\setbeameroption{show notes}
+
+\usepackage{amsmath}
+\usepackage{calc}
+% Für die korrekte Darstellung von Einheiten:
+\usepackage{siunitx}
+\sisetup{locale=DE,seperr,repeatunits=false,tophrase=dash}
+
+\usepackage{graphicx} %Zum Einbinden von Grafikdateien
+\usepackage[font={footnotesize, sf}]{caption}
+\usepackage{subfig}
+
+\usepackage{booktabs} %Für schönere Tabellen
+\usepackage{xspace}
+
+\usepackage{tikz} %Für Skizzen
+
+%\usepackage{vmargin} %Fürs Seitenlayout
+%\setmarginsrb{2.5cm}{1.5cm}{2cm}{1.5cm}{0mm}{0.5cm}{0mm}{1cm}
+
+\newcommand{\reff}[1]{(\ref{#1})} %Zum Referenzieren von Formeln
+\newcommand{\zb}{z.\,B. }
+\newcommand{\betrag}[1]{\vert #1 \vert}
+\newcommand{\fracd}[2]{\frac{\text{d}#1}{\text{d}#2}}
+\newcommand{\footnotetextn}[1]{\let\thefootnote\relax\footnotetext{\tiny{#1}}}
+
+\title{"`Nutzen statt Besitzen"'}
+\subtitle{Beitrag zum Seminar\\\textit{Modellbildung in verschiedenen Wissenschaftsbereichen}}
+\author{Alexander Müller \and János Sebestyén}
+\date{29.04.2015}
+
+\begin{document}
+
+\frame{\titlepage}
+
+
+\begin{frame}{Ziele}
+  \begin{center}
+  \end{center}
+\end{frame}
+
+\frame<beamer>{\tableofcontents[hidesubsections]}
+\section{Grundkonzepte physikalischer Modellbildung}
+\end{document}
