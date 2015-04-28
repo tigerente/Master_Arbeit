@@ -65,5 +65,5 @@ P <- function(h, t_max = 15, n_max = 4000, N = 10000){
 #             n_max:  Nutzungsvorrat      [n_max] = Nutzungseinheiten
 
 MIPS <- function(h, I_fix, S_D, i_P, t_max, A, n_max){
-  return (I_fix/S_D + ifelse(h < n_max / t_max, i_P/(h * t_max * A), i_P/(n_max * A))
+  return (I_fix/S_D + ifelse(h < n_max / t_max, i_P/(h * t_max * A), i_P/(n_max * A)))
 }
