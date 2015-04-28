@@ -160,7 +160,7 @@ if(Plots_or_manipulate == 2){
     # first, we define a function, which draws the desired plots. In the second
     # step we call that function in a manipulate routine
   plotMIPS <- function(a_min, # Kleinster Wert von a für Plots
-                       K, I_fix, i_P, S_D, p, T, t_max, # Konstanten
+                       K, I_fix, i_P, S_D, p_is_const, p_const, h_max, T, t_max, # Konstanten
                        n_max_max, n_max_min, n_max_exp, # n_max Parameter
                        i_N_max, i_N_min, i_N_exp # i_N Parameter
                       )
@@ -169,7 +169,7 @@ if(Plots_or_manipulate == 2){
     ### Vorbereitungen ###
     
     # Definitionsbereich von a:
-    a <- seq(length = 100, from = a_min, to=1)
+    a <- seq(length = 1000, from = a_min, to=1)
 
     # Parameter für i_N zusammenfassen:
     i_N_Pars <- data.frame(
@@ -191,12 +191,17 @@ if(Plots_or_manipulate == 2){
                             I_fix = I_fix, # alle nicht variablen Inputs
                             i_P   = i_P, # Input für die Bereitstellung eines Produkts
                             S_D   = S_D, # Nachfrage
-                            p     = p, # parallele Produktanzahl
+                            p_is_const = p_is_const, # konstante parallele Produktanzahl? (Boolean)
+                            p_const     = p_const, # parallele Produktanzahl (relevant nur bei p_is_const=TRUE)
+                            h_max     = h_max, # Nutzungshäufigkeit (relevant nur bei p_is_const=FALSE)
                             T     = T, # Betrachtungszeitraum
                             t_max = t_max # maximale Nutzungsdauer
                           )
     
     ### Funktionen auswerten ###
+    
+    # p(a):
+    eval_p = p(a, Konstanten)
     
     # MIPS(a):
     eval_MIPS = MIPS(a,
@@ -217,57 +222,68 @@ if(Plots_or_manipulate == 2){
     # h(a)
     eval_h = h(a, Konstanten)
     
+    # q(a)
+    eval_q = q(a, n_max_Pars, Konstanten)
+    
     # P(a)
     eval_P = P(a, n_max_Pars, Konstanten)
     
     # t(a)
-    eval_t = t(a, n_max_Pars, Konstanten)
+    #eval_t = t(a, n_max_Pars, Konstanten)
     
     # t_tech(a)
-    eval_t_tech = t_tech(a, n_max_Pars, Konstanten)
+    #eval_t_tech = t_tech(a, n_max_Pars, Konstanten)
     
     ### Plots erstellen ###
     
-    par(mfrow=c(2,2))
+    par(mfrow=c(2,3))
     
-    plot(a, eval_n_max, type='l', col='grey')
-    lines(a, eval_h * t_max, lty='dotted', col='grey')
+    plot (a, eval_p, type='l')
+    
+    y_min = min(eval_h*t_max, eval_n_max)
+    y_max = max(eval_h*t_max, eval_n_max)
+    plot(a, eval_h * t_max, type='l', lty='dotted', col='grey', ylim=c(y_min, y_max))
+    lines(a, eval_n_max, col='grey')
     lines(a, eval_n)
     legend(x='topright', legend=c("n_max", "h*t_max", "n"), col=c('grey', 'grey', 'black'), lty=c('solid', 'dotted', 'solid'))
     
-    #plot(a, eval_h, type='l')
+    plot(a, eval_h, type='l')
     
-    plot(a, eval_t_tech, type='l', col='grey')
-    lines(a, rep(t_max, times=length(a)), lty='dotted', col='grey')
-    lines(a, eval_t)
-    legend(x='topright', legend=c("t_tech", "t_max", "t"), col=c('grey', 'grey', 'black'), lty=c('solid', 'dotted', 'solid'))
+    plot(a, eval_q, type='l')
+    
+    #plot(a, eval_t_tech, type='l', col='grey')
+    #lines(a, rep(t_max, times=length(a)), lty='dotted', col='grey')
+    #lines(a, eval_t)
+    #legend(x='topright', legend=c("t_tech", "t_max", "t"), col=c('grey', 'grey', 'black'), lty=c('solid', 'dotted', 'solid'))
     
     plot(a, eval_P, type='l')
     
     #plot(a, eval_i_N, type='l')
-    plot(a, eval_MIPS, type='l', ylim=c(0,1))
+    plot(a, eval_MIPS, type='l')
   }
     
     ### Parameter als Schieberegler ###
     manipulate(
              plotMIPS(a_min=0.1,
                       K=5, I_fix=5, i_P=10, S_D=100, 
-                      p=1, T=10, t_max=t_max,
+                      p_is_const = p_is_const, p_const = p_const, h_max=h_max, T=10, t_max=t_max,
                       n_max_max=n_max_max, n_max_min=n_max_min, n_max_exp=n_max_exp,
                       i_N_max=i_N_max, i_N_min=i_N_min, i_N_exp=i_N_exp
                       ),
-             #p = slider(1, 15, step=1),
+             p_is_const = checkbox (initial = TRUE, label = "p(a)=p (konstant)"),
+             p_const = slider(1, 15, step=1, initial=2, label = "p (wirksam nur bei 'p(a)=p'=TRUE)"),
+             h_max = slider(1, 5, step=0.5, initial=2.5, label ="h_max (wirksam nur bei 'p(a)=p'=FALSE)"),
              #T = slider(1, 20, step=1, initial=10),
-             t_max = slider (1, 20, step=1, initial=7),
-             i_N_min = slider(0.1,2, step = 0.1, initial=0.3),
-             i_N_max = slider(0.5, 2, step=0.1),
+             t_max = slider (1, 20, step=1, initial=5),
+             i_N_min = slider(0.1,2, step = 0.1, initial=0.5),
+             i_N_max = slider(0.5, 2, step=0.1, initial=0.5),
              i_N_exp = slider(0.1, 3, step = 0.1, initial=0.8),
              #a_min = slider(0.1, 1, step = 0.05), 
              #K     = slider(1, 10, step = 1, initial=5), # Kapazität
              #i_P   = slider(0, 50, initial = 10), # Input für die Bereitstellung eines Produkts
              #S_D   = slider(50,200,step=10, initial=100), # Nachfrage
-             n_max_min = slider(1, 50, step = 1, initial = 10),
-             n_max_max = slider(1, 200, step=10, initial = 100),
+             n_max_min = slider(10, 50, step = 1, initial = 10),
+             n_max_max = slider(10, 200, step=10, initial = 10),
              n_max_exp = slider(0.1, 3, step = 0.1, initial=0.5)
              #I_fix = slider(0, 10, initial=5) # alle nicht variablen Inputs
              ) 

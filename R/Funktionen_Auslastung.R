@@ -19,6 +19,21 @@ i_N <- function(a, i_N_max, i_N_min = 0.5, i_N_exp = 1){
 }
 
 
+#############
+### p(a) ####
+#############
+
+# Parallele Produktzahl. Zwei Varianten:
+# - konstant (p_is_const=TRUE)
+# - variabel (p_is_const=FALSE): Für gegebenes a, wähle p = min {p | h(a, p) <= h_max}
+p <- function(a, Konstanten){
+  attach(Konstanten)  
+  eval_p <- if(p_is_const==TRUE) rep(p_const, times=length(a)) else ceiling(S_D/(a*K*h_max*T))
+  detach(Konstanten)
+  return(eval_p)
+}
+
+
 ################
 ##### P(a) #####
 ################
@@ -30,6 +45,9 @@ P <- function(a, n_max_Pars, Konstanten){
   eval_n_max <- n_max(a = a, n_max_max = n_max_max, n_max_min = n_max_min, n_max_exp = n_max_exp)
   detach(n_max_Pars)
   
+  # p(a) auswerten:
+  p <- p(a, Konstanten)
+  
   # P(a) auswerten und zurückgeben:
   attach(Konstanten)
   eval_P <- ifelse(eval_n_max > S_D*t_max/(a*K*p*T), p*T/(t_max), S_D/(a*K*eval_n_max))
@@ -38,11 +56,31 @@ P <- function(a, n_max_Pars, Konstanten){
 }
 
 
+#############
+### q(a) ####
+#############
+
+# Sequentielle Produktanzahl: q=P/p
+q <- function(a, n_max_Pars, Konstanten){
+  # P(a) auswerten:
+  P <- P(a, n_max_Pars, Konstanten)  
+  
+  # p(a) auswerten:
+  p <- p(a, Konstanten)
+  
+  eval_q <- P/p
+  return(eval_q)
+}
+
+
 ################
 ##### h(a) #####
 ################
 
 h <- function(a, Konstanten){
+  # p(a) auswerten:
+  p <- p(a, Konstanten)
+  
   # h(a) auswerten und zurückgeben:
   attach(Konstanten)
   eval_h <- S_D/(a*K*p*T)
@@ -60,6 +98,9 @@ n <- function(a, n_max_Pars, Konstanten){
   attach(n_max_Pars)
   eval_n_max <- n_max(a = a, n_max_max = n_max_max, n_max_min = n_max_min, n_max_exp = n_max_exp)
   detach(n_max_Pars)
+  
+  # p(a) auswerten:
+  p <- p(a, Konstanten)
   
   # n(a) auswerten und zurückgeben:
   attach(Konstanten)
@@ -79,6 +120,9 @@ t <- function(a, n_max_Pars, Konstanten){
   eval_n_max <- n_max(a = a, n_max_max = n_max_max, n_max_min = n_max_min, n_max_exp = n_max_exp)
   detach(n_max_Pars)
   
+  # p(a) auswerten:
+  p <- p(a, Konstanten)
+  
   # t(a) auswerten und zurückgeben:
   attach(Konstanten)
   eval_t <- ifelse(eval_n_max > S_D*t_max/(a*K*p*T), t_max, eval_n_max*a*K*p*T/S_D)
@@ -96,6 +140,9 @@ t_tech <- function(a, n_max_Pars, Konstanten){
   attach(n_max_Pars)
   eval_n_max <- n_max(a = a, n_max_max = n_max_max, n_max_min = n_max_min, n_max_exp = n_max_exp)
   detach(n_max_Pars)
+  
+  # p(a) auswerten:
+  p <- p(a, Konstanten)
   
   # t_tech(a) auswerten und zurückgeben:
   attach(Konstanten)
@@ -145,6 +192,9 @@ MIPS <- function(a,
   attach(n_max_Pars)
   eval_n_max <- n_max(a = a, n_max_max = n_max_max, n_max_min = n_max_min, n_max_exp = n_max_exp)
   detach(n_max_Pars)
+  
+  # p(a) auswerten:
+  p <- p(a, Konstanten)
   
   # MIPS(a) auswerten und zurückgeben:
   attach(Konstanten)
