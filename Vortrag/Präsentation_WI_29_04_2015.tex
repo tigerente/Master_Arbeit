@@ -96,7 +96,7 @@
 			\begin{itemize}
 				\item Wie lange ist ein Produkt in der Nutzung?
 				\item Erreichen der technischen Lebensdauer oder der Maximalnutzungsdauer:
-				$	t = \min \left\{t_\text{tech}, t_{\text{max}} \right\}$
+				$t = \min \left\{t_\text{tech}, t_{\text{max}} \right\}$
 				\item Nicht fest vorgegeben, sondern von der Nutzung abhängig.
 			\end{itemize}
 			\pause
@@ -126,22 +126,64 @@
 		\end{figure}
 		\pause
 		\begin{itemize}
-			\item<6-> Fragen / Anmerkungen?
+			\item <6-> $P = p \cdot q = p \cdot \frac{T}{t}$
+			\item<7-> Fragen / Anmerkungen?
 		\end{itemize}
 	\end{frame}
 
 \subsection{Nutzungsintensivierung}
 	\frame{\subsectionpage}
 	\begin{frame}{Modellbeschreibung}
+		\begin{itemize}
+			\item Nutzungsintensivierung = Erhöhung der Nutzungshäufigkeit $h$
+			\pause
+			\item Nutzungsmenge $n$ \emph{eines} Produkts während $t$: \\ $n = h \cdot t$
+			\pause
+			\item \emph{Gesamt}nutzungsmenge $N$ während $T$: \\ $N = n \cdot P = h \cdot t \cdot P = h \cdot t \cdot p \cdot \frac{T}{t} = h \cdot p \cdot T$
+			\pause
+			\item Mindestproduktanzahl $p_{\text{min}}$: \\ $p \geq p_{\text{min}} \quad  (p, p_{\text{min}} \in \mathbb{N})$
+			\pause
+			\item Servicemenge $S$: \\ $S = S_D = N \cdot A \quad \Leftrightarrow \quad N = \frac{S_D}{A}$ \quad ($A$: Produktauslastung)
+			\pause
+			\item Nutzungshäufigkeit $h$: \\ $h = \frac{N}{p \cdot T} = \frac{S_D}{A \cdot p \cdot T} \qquad h \leq h_\text{max} := \frac{S_D}{A \cdot p_\text{min} \cdot T}$
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Modellbeschreibung}
+		\begin{itemize}
+			\item Technische Lebensdauer $t_\text{tech}$: \\ $t_\text{tech} := \frac{n_{\text{max}}}{h}$
+			\pause
+			\item Produktnutzungsdauer $t$: \\[5pt] $t(h) = \min \left\{t_\text{tech}, t_{\text{max}} \right\} = \left\{\begin{array}{cl}  t_{\text{max}}, & \mbox{falls } h < h^* := \frac{n_{\text{max}}}{t_{\text{max}}} \\ \frac{n_{\text{max}}}{h}, & \mbox{sonst} \end{array}\right.$
+			\pause
+			\item Nutzungsmenge $n(h)$: \\[5pt] $n (h) = h \cdot t(h) = \left\{\begin{array}{cl}  h \cdot t_{\text{max}}, & \mbox{falls } h < h^* \\ n_{\text{max}}, & \mbox{sonst} \end{array}\right.$
+			\pause
+			\item Effektive Produktanzahl $P$: \\[5pt] $P (h) = \frac{N}{n(h)} = \left\{\begin{array}{cl}  \frac{S_D}{A \cdot h \cdot t_{\text{max}}}, & \mbox{falls } h < h^* \\[5pt] \frac{S_D}{A \cdot n_{\text{max}}}, & \mbox{sonst} \end{array}\right.$
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Modellbeschreibung}
+		\begin{itemize}
+			\item $\text{MIPS}(h) = \frac{I}{S} = \frac{P(h) \cdot i_P + I_{\text{fix}}^h}{S} =
+			\frac{I_{\text{fix}}^h}{S_D} + \left\{ \begin{array}{cl}  \frac{i_P}{h \cdot t_{\text{max}} \cdot A}, & \mbox{falls } h < h^* \\[5pt] \frac{i_P}{n_{\text{max}} \cdot A}, & \mbox{sonst} \end{array}\right.$
+		\end{itemize}
+		\pause
 		\begin{center}
-			Bla
+			\resizebox{0.7\linewidth}{!}{
+				\input{Abbildungen/Nutzungsintensivierung_2.tex}
+			}
 		\end{center}
 	\end{frame}
 	
-	\begin{frame}{Analyse}
+	\begin{frame}{Analyse}		
+		\begin{itemize}
+			\item<1-> Wie stark fällt die MIPS mit steigendem $h$ im Bereich $h$ < $h^*$?
+			\item<2-> Korrespondenz von $h$ und $p$: \\ $h_1 \rightarrow h_2 = h_1 + \Delta h \qquad \Leftrightarrow \qquad p_1 \rightarrow p_2 = p_1 -1$
+			\item<3-> Änderung der MIPS: \\ $\Delta \text{MIPS} = \text{MIPS}(h_2) - \text{MIPS}(h_1) = - \frac{q \cdot i_P}{S_D}$
+		\end{itemize}
 		\begin{center}
-			Bla
-			Fragen / Diskussion
+			\resizebox{0.5\linewidth}{!}{
+				\input{Abbildungen/Nutzungsintensivierung_2.tex}
+			}
 		\end{center}
 	\end{frame}
 	
