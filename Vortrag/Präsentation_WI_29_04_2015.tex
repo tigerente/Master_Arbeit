@@ -1,10 +1,11 @@
-\documentclass[beamer]{beamer}
+\documentclass[beamer, xcolor=table]{beamer}
 %\usepackage{mathpazo}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage[babel,german=quotes]{csquotes}
 \usepackage{lmodern} % for removing warning about font shape
+
 
 %\usetheme{Madrid}
 \usetheme{Frankfurt}
@@ -38,8 +39,38 @@
 
 \usepackage{tikz} %Für Skizzen
 
+\usepackage[bibstyle=authortitle, citestyle=authoryear, isbn=false, doi=false,
+dashed=false]{biblatex}
+\addbibresource{Masterarbeit.bib}
+
 %\usepackage{vmargin} %Fürs Seitenlayout
 %\setmarginsrb{2.5cm}{1.5cm}{2cm}{1.5cm}{0mm}{0.5cm}{0mm}{1cm}
+
+%%% Eigene Befehle %%%
+\newcommand{\was}[1]{\small\textit{#1}}
+\newcommand{\noteS}[1]{\todo[color=green!40]{\textbf{Sascha: }#1}}
+\newcommand{\noteJ}[1]{\todo[color=blue!40]{\textbf{János: }#1}}
+\newcommand{\textfrac}[2]{\hspace{2pt} \frac{\text{#1}}{\text{#2}}}
+\newcommand{\eqnref}[1]{\overset{(\ref{#1})}{=}} % Gleichheitszeichen mit Referenz auf die verwendete Gleichung
+\newcommand{\defeq}{\vcentcolon=} %Definitions-Gleichheitszeichen
+\newcommand{\eqdef}{=\vcentcolon}
+\newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
+
+% Formeln:
+\newcommand{\MIPS}[1][]{
+  \ifthenelse {\equal {#1} {}}
+  {\text{MIPS}} % if argument is blank
+  {\text{MIPS}({#1})} % if an optional argument is given
+}
+\renewcommand{\P}[1]{P_\text{#1}}
+\newcommand{\I}[1]{I_\text{#1}}
+\newcommand{\itext}[1]{i_\text{#1}}
+\newcommand{\T}[1]{T_\text{#1}}
+\newcommand{\n}[1]{n_\text{#1}}
+\newcommand{\N}[1]{N_\text{#1}}
+\renewcommand{\t}[1]{t_\text{#1}}
+
+
 
 \title{Ökologische Nachhaltigkeit durch \\ \enquote{Nutzen statt Besitzen}}
 \subtitle{{\small Entwicklung eines Modells zur Ableitung von Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung}}
@@ -55,36 +86,104 @@
 \section{Thema, Fragestellung, Methodik}
 
 	\begin{frame}{Thema und Fragestellung}
-	  \begin{center}
-	  	Hier steht das Thema.
-	  \end{center}
+        Thema: 
+        \begin{itemize}
+            \item Gemeinschaftliche Nutzung von Produkten (Bspw. Waschmaschinen,
+                Autos, Kleidung,\dots)
+            \item Ökologische Vorteile solcher Nutzungsformen gegenüber
+                individueller Nutzung
+        \end{itemize}
+
+        \begin{block}{Fragestellung:}
+            \begin{itemize}
+                \item Unter welchen Umständen kann der Umweltverbrauch eines Produktes durch gemeinschaftliche Nutzung gegenüber der individuellen Nutzung gesenkt werden?
+                % \item Was sind die Mechanismen, die den Umweltverbrauch bei gemeinschaftlicher Nutzung bestimmen und wie wirken diese? 
+                % \item Welche Eigenschaften des Produkts und der Nutzungsform beeinflussen die Wirkung dieser Mechanismen und wie fließen sie ein?
+            \end{itemize}
+        \end{block}
 	\end{frame}
 	
 	\begin{frame}{Untersuchte Effekte}
+        \only<1>{
+            Was ist eigentlich ein Effekt/Mechanismus?
+        }
 		\begin{center}
-			Bla
-		\end{center}
+            \scriptsize
+            \only<2>{
+			\begin{tabular}{p{5cm}p{5cm}}
+				 \toprule
+				 \multicolumn{2}{l}{\textbf{Umweltauswirkungen durch die Nutzung}}  \\
+				 \textbf{positiv} & \textbf{negativ} \\
+				 \midrule
+				 Nutzungsintensivierung  &  Zusätzliche Transaktionen  \\
+				 Einsatz langlebiger Produkte  &  zusätzlicher Ressourcenverbrauch für Langlebigkeit  \\
+				 Verwendung verbrauchsarmer bzw. leistungsstarker Geräte  &  Beschleunigte Ausmusterung  \\
+				 Maximierung der Geräteauslastung  & Tauschbedingter Verschleiß  \\
+				 Berücksichtigung des technischen Fortschritts  &  \\
+				 Wartung / Reparaturen & \\
+				 \midrule
+				 \multicolumn{2}{l}{\textbf{Umweltauswirkungen durch Nachfrageänderung}}  \\
+				 \textbf{positiv} & \textbf{negativ} \\
+				 \midrule
+				 Nachfrageverringerung durch höhere Kostentransparenz  & Erleichterter Produktzugang  \\
+				 Vermeidung von Fehlkäufen  & Wunsch nach Eigentum  \\
+				  & Rebound-Effekt  \\
+				 \bottomrule
+			\end{tabular}
+            \vspace{3pt}
+
+			Mechanismen für die Umweltauswirkungen durch
+            gemeinschaftliche Nutzung. Quelle: verändert nach
+            \cite{scholl_marketing_2009}.}
+            \only<3>{
+            \normalsize
+			\begin{tabular}{p{5cm}p{5cm}}
+				 \toprule
+				 \multicolumn{2}{l}{\textbf{Umweltauswirkungen durch die
+                 Nutzung}}  \\[5pt]
+				 \textbf{positiv} & \textbf{negativ} \\
+				 \midrule
+				 Nutzungsintensivierung  &  Zusätzliche Transaktionen
+                 \\[3pt]
+                 Maximierung der Geräteauslastung  & \\[3pt]
+                 Wartung / Reparaturen & \\[3pt]
+				 \bottomrule
+			\end{tabular}
+            \vspace{3pt}
+
+			Betrachtete Mechanismen für die Umweltauswirkungen durch gemeinschaftliche Nutzung. Quelle: verändert nach \cite{scholl_marketing_2009}.}
+        \end{center}
 	\end{frame}
 	
 	\begin{frame}{Methodik}
 		\begin{center}
-			Modellierung
-				Nutzungssystem
-					Personen
-					Service-Nachfrage
-					Produkte
-						…
-					Organisation der Nutzung
-						…
-				Vergleich verschiedener Nutzungssysteme
-					Wie wirken die einzelnen Faktoren auf die MIPS?
-					MIPS gewährleistet Vergleichbarkeit
-			
-			Analyse
-				Unter welchen Umständen verringert sich die MIPS durch gemeinschaftliche Nutzung?
-				Grund-Annahme: Parameter ändern sich durch gemeinschaftliche Nutzung in eine bestimmte Richtung
-				Partialanalyse: Nutzungssysteme, die sich in nur einem Parameter unterscheiden
-				Modellkopplung: mehrere Parameter ändern sich	
+            \begin{itemize}
+                \item Modellierung
+                    \begin{itemize}
+                        \item Nutzungssystem
+                            \begin{itemize}
+                                \item Personen (Service-Nachfrage)
+                                \item Produkte
+                                \item Organisation der Nutzung
+                            \end{itemize}
+                        \item Vergleich verschiedener Nutzungssysteme
+                            \begin{itemize}
+                                \item Wie wirken die einzelnen Faktoren auf die MIPS?
+                                \item MIPS gewährleistet Vergleichbarkeit
+                            \end{itemize}
+                    \end{itemize}
+
+                \item Analyse
+                    \begin{itemize}
+                        \item Unter welchen Umständen verringert sich die MIPS
+                            durch gemeinschaftliche Nutzung?
+                        \item Grund-Annahme: Parameter ändern sich durch
+                            gemeinschaftliche Nutzung in eine bestimmte Richtung
+                        \item Partialanalyse: Nutzungssysteme, die sich in nur
+                            einem Parameter unterscheiden
+                        \item Modellkopplung: mehrere Parameter ändern sich	
+                    \end{itemize}
+            \end{itemize}
 		\end{center}
 	\end{frame}
 
@@ -190,23 +289,132 @@
 \subsection{Reparatur}
 \frame{\subsectionpage}
 	\begin{frame}{Modellbeschreibung}
+        \begin{itemize}
+            \item<1-> $t = \t{max}$
+            \item<2-> $i_P = \tilde{i}_P + I_R$
+            \item<3-> Einsetzen in: 
+                    \begin{equation*} 
+                        \text{MIPS}(h) =
+                        \frac{I_{\text{fix}}^h}{S_D} + \left\{ 
+                            \begin{array}{r@{\quad : \quad}l}
+                                \frac{i_P}{h \cdot t_{\text{max}} \cdot A}&
+                                h < h^*  \\[5pt]
+                                \frac{i_P}{n_{\text{max}} \cdot A}&  \text{sonst}
+                            \end{array} 
+                        \right.
+                    \end{equation*}
+        \end{itemize}
 		\begin{center}
-			Bla
+            \begin{block}{Reparatur}<4->
+                Teilmodell:
+                \begin{equation*}
+                    \MIPS[\t{max}, I_R] = \frac{\tilde{i}_P + I_R}{h\cdot \t{max}\cdot A} 
+                    + \frac{\I{fix}^R}{S_D}
+                \end{equation*}
+                Mögliche Modellerweiterung:
+                \begin{equation*}
+                    I_R = I_R(\t{max}) = i_R \cdot
+                    \left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor
+                \end{equation*}
+            \end{block}
 		\end{center}
 	\end{frame}
 	
-	\begin{frame}{Analyse}
+	\begin{frame}{Analyse - ohne Modellerweiterung}
 		\begin{center}
-			Bla
-			Fragen / Diskussion
+            \begin{block}{Ansatz}<1->
+                \begin{equation*}
+                    \MIPS[\t{max}, I_R] >  \MIPS[\t{max} + \Delta \t{max}, I_R +
+                    \Delta i_P]
+                \end{equation*}
+            \end{block}
+
+            \begin{block}{Ergebnis}<2->
+                \begin{equation*}
+                    \frac{\Delta \t{max}}{\t{max}} >  \frac{\Delta i_P}{i_P}  
+                \end{equation*}
+            \end{block}
 		\end{center}
 	\end{frame}
 
+	\begin{frame}{Analyse - mit Modellerweiterung}
+          \centering
+          \only<1>{
+              \resizebox{\linewidth}{!}{
+              \input{Abbildungen/Reparaturen_I_R.tex}}
+          }
+          \only<2>{
+              \resizebox{\linewidth}{!}{
+              \input{Abbildungen/Reparaturen_MIPS_1.tex}}
+          }
+          \only<3>{
+              \resizebox{\linewidth}{!}{
+              \input{Abbildungen/Reparaturen_MIPS_2.tex}}
+          }
+          % \input{Abbildungen/Reparaturen_MIPS.tex}
+	\end{frame}
+
 \section{Fallstudie}
-	\begin{frame}{Fallstudie}
+	\begin{frame}{Fallstudie - Datenverfügbarkeit?}
+            Szenarien: 
+            \begin{itemize}
+                \item Individuelle Waschmaschinennutzung (Ind.)
+                \item Gemeinschaftliche Nutzung eines Waschkellers (Gem.)
+                \item Nutzung eines öffentlichen Waschsalons (Sal.)
+            \end{itemize}
 		\begin{center}
-			Szenarien
-			Datenverfügbarkeit?
+\pause
+\definecolor{lightorange}{RGB}{253,208,81}
+% \definecolor{lightorange}{RGB}{255,238,193}
+\definecolor{darkorange}{RGB}{252,187,6}
+\rowcolors{1}{lightorange}{}
+            \begin{tabular}[h]{lccc}
+                % \toprule
+                \hline
+            \rowcolor{darkorange}
+                Parameter & Ind. & Gem. & Sal.\\
+                \hline
+                % \midrule
+                Servicebedarf $S_D$ &&& \pause\\
+                Nutzungshäufigkeit $h$ &&& \pause\\
+                absolute Produktauslastung $A$ &&&\pause\\
+                Einzelnutzungsvorrat $\n{max}$ &&&\pause\\
+                Inputs je Produkt $i_P$ &&&\pause\\
+                gewünschte Nutzungsdauer $\t{max}$ &&&\pause\\
+                technische Lebensdauer $\t{tech}$ &&&\pause\\
+                reparaturbedingte Inputs $I_R$ &&&\pause\\
+                Inputs je Reparatur $i_R$ &&&\pause\\
+                fixe Inputs $\I{fix}$ &&&\\
+                \hline
+                % \bottomrule
+            \end{tabular}
+            % \onslide<2->
+            % \begin{tabular}[h]{|l|c|c|c|}
+            %     \hline
+            %     \bfseries{Parameter }& \bfseries{Ind.} & \bfseries{Gem.} &
+            %     \bfseries{Sal.}\\
+            %     \hline\hline
+            %     Servicebedarf $S_D$ &&&\\
+            %     \hline
+            %     Nutzungshäufigkeit $h$ &&&\\
+            %     \hline
+            %     absolute Produktauslastung $A$ &&&\\
+            %     \hline
+            %     Einzelnutzungsvorrat $\n{max}$ &&&\\
+            %     \hline
+            %     Inputs je Produkt $i_P$ &&&\\
+            %     \hline
+            %     gewünschte Nutzungsdauer $\t{max}$ &&&\\
+            %     \hline
+            %     technische Lebensdauer $\t{tech}$ &&&\\
+            %     \hline
+            %     reparaturbedingte Inputs $I_R$ &&&\\
+            %     \hline
+            %     Inputs je Reparatur $i_R$ &&&\\
+            %     \hline
+            %     fixe Inputs $\I{fix}$ &&&\\
+            %     \hline
+            % \end{tabular}
 		\end{center}
 	\end{frame}
 
