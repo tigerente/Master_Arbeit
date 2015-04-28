@@ -3,24 +3,30 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
+\usepackage[babel,german=quotes]{csquotes}
 \usepackage{lmodern} % for removing warning about font shape
 
 %\usetheme{Madrid}
 \usetheme{Frankfurt}
 %\usetheme{Singapore}
-\usecolortheme{seagull}
+\usecolortheme{crane}
 
 \setbeamertemplate{footline}[frame number] % für Foliennummerierung
+\beamertemplatenavigationsymbolsempty % Navigationsleiste 
 
-\beamertemplatenavigationsymbolsempty % Navigationsleiste ausblenden
+\AtBeginSection{\frame{\sectionpage}}
+\newtranslation[to=ngerman]{Section}{Abschnitt}
+\newtranslation[to=ngerman]{Subsection}{Beispielmodell}
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\slideentry}{\ifnum#2>0}{\ifnum2>0}{}{\@error{unable to patch}}% replace the subsection number test with a test that always returns true
+\makeatother
 
 %\setbeameroption{show notes}
 
 \usepackage{amsmath}
 \usepackage{calc}
-% Für die korrekte Darstellung von Einheiten:
-\usepackage{siunitx}
-\sisetup{locale=DE,seperr,repeatunits=false,tophrase=dash}
 
 \usepackage{graphicx} %Zum Einbinden von Grafikdateien
 \usepackage[font={footnotesize, sf}]{caption}
@@ -34,27 +40,101 @@
 %\usepackage{vmargin} %Fürs Seitenlayout
 %\setmarginsrb{2.5cm}{1.5cm}{2cm}{1.5cm}{0mm}{0.5cm}{0mm}{1cm}
 
-\newcommand{\reff}[1]{(\ref{#1})} %Zum Referenzieren von Formeln
-\newcommand{\zb}{z.\,B. }
-\newcommand{\betrag}[1]{\vert #1 \vert}
-\newcommand{\fracd}[2]{\frac{\text{d}#1}{\text{d}#2}}
-\newcommand{\footnotetextn}[1]{\let\thefootnote\relax\footnotetext{\tiny{#1}}}
-
-\title{"`Nutzen statt Besitzen"'}
-\subtitle{Beitrag zum Seminar\\\textit{Modellbildung in verschiedenen Wissenschaftsbereichen}}
-\author{Alexander Müller \and János Sebestyén}
+\title{Ökologische Nachhaltigkeit durch \\ \enquote{Nutzen statt Besitzen}}
+\subtitle{Entwicklung eines Modells zur Ableitung von Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung}
+\author{Sascha \and János}
 \date{29.04.2015}
 
 \begin{document}
 
 \frame{\titlepage}
 
-
-\begin{frame}{Ziele}
-  \begin{center}
-  \end{center}
-\end{frame}
-
 \frame<beamer>{\tableofcontents[hidesubsections]}
-\section{Grundkonzepte physikalischer Modellbildung}
+
+\section{Thema, Fragestellung, Methodik}
+
+	\begin{frame}{Thema und Fragestellung}
+	  \begin{center}
+	  	Hier steht das Thema.
+	  \end{center}
+	\end{frame}
+	
+	\begin{frame}{Untersuchte Effekte}
+		\begin{center}
+			Bla
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Methodik}
+		\begin{center}
+			Modellierung
+				Nutzungssystem
+					Personen
+					Service-Nachfrage
+					Produkte
+						…
+					Organisation der Nutzung
+						…
+				Vergleich verschiedener Nutzungssysteme
+					Wie wirken die einzelnen Faktoren auf die MIPS?
+					MIPS gewährleistet Vergleichbarkeit
+			
+			Analyse
+				Unter welchen Umständen verringert sich die MIPS durch gemeinschaftliche Nutzung?
+				Grund-Annahme: Parameter ändern sich durch gemeinschaftliche Nutzung in eine bestimmte Richtung
+				Partialanalyse: Nutzungssysteme, die sich in nur einem Parameter unterscheiden
+				Modellkopplung: mehrere Parameter ändern sich	
+		\end{center}
+	\end{frame}
+
+\section{Modelle}
+	\begin{frame}{Modell-Grundlagen}
+		\begin{center}
+			$S = S_D$ (in Bezug auf konstantes T)
+			Abbildung 2.1
+			T, p, q, P
+			$t_max, n_max$
+			
+			Fragen / Anmerkungen?
+		\end{center}
+	\end{frame}
+
+\subsection{Nutzungsintensivierung}
+	\frame{\subsectionpage}
+	\begin{frame}{Modellbeschreibung}
+		\begin{center}
+			Bla
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Analyse}
+		\begin{center}
+			Bla
+			Fragen / Diskussion
+		\end{center}
+	\end{frame}
+	
+\subsection{Reparatur}
+\frame{\subsectionpage}
+	\begin{frame}{Modellbeschreibung}
+		\begin{center}
+			Bla
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Analyse}
+		\begin{center}
+			Bla
+			Fragen / Diskussion
+		\end{center}
+	\end{frame}
+
+\section{Fallstudie}
+	\begin{frame}{Fallstudie}
+		\begin{center}
+			Szenarien
+			Datenverfügbarkeit?
+		\end{center}
+	\end{frame}
+
 \end{document}
