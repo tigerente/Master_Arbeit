@@ -247,16 +247,69 @@ dashed=false]{biblatex}
 \subsection{Reparatur}
 \frame{\subsectionpage}
 	\begin{frame}{Modellbeschreibung}
+        \begin{itemize}
+            \item<1-> $t = \t{max}$
+            \item<2-> $i_P = \tilde{i}_P + I_R$
+            \item<3-> Einsetzen in: 
+                    \begin{equation*} 
+                        \text{MIPS}(h) =
+                        \frac{I_{\text{fix}}^h}{S_D} + \left\{ 
+                            \begin{array}{r@{\quad : \quad}l}
+                                \frac{i_P}{h \cdot t_{\text{max}} \cdot A}&
+                                h < h^*  \\[5pt]
+                                \frac{i_P}{n_{\text{max}} \cdot A}&  \text{sonst}
+                            \end{array} 
+                        \right.
+                    \end{equation*}
+        \end{itemize}
 		\begin{center}
-			Bla
+            \begin{block}{Reparatur}<4->
+                Teilmodell:
+                \begin{equation*}
+                    \MIPS[\t{max}, I_R] = \frac{\tilde{i}_P + I_R}{h\cdot \t{max}\cdot A} 
+                    + \frac{\I{fix}^R}{S_D}
+                \end{equation*}
+                Mögliche Modellerweiterung:
+                \begin{equation*}
+                    I_R = I_R(\t{max}) = i_R \cdot
+                    \left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor
+                \end{equation*}
+            \end{block}
 		\end{center}
 	\end{frame}
 	
-	\begin{frame}{Analyse}
+	\begin{frame}{Analyse - ohne Modellerweiterung}
 		\begin{center}
-			Bla
-			Fragen / Diskussion
+            \begin{block}{Ansatz}<1->
+                \begin{equation*}
+                    \MIPS[\t{max}, I_R] >  \MIPS[\t{max} + \Delta \t{max}, I_R +
+                    \Delta i_P]
+                \end{equation*}
+            \end{block}
+
+            \begin{block}{Ergebnis}<2->
+                \begin{equation*}
+                    \frac{\Delta \t{max}}{\t{max}} >  \frac{\Delta i_P}{i_P}  
+                \end{equation*}
+            \end{block}
 		\end{center}
+	\end{frame}
+
+	\begin{frame}{Analyse - mit Modellerweiterung}
+          \centering
+          \only<1>{
+              \resizebox{\linewidth}{!}{
+              \input{Abbildungen/Reparaturen_I_R.tex}}
+          }
+          \only<2>{
+              \resizebox{\linewidth}{!}{
+              \input{Abbildungen/Reparaturen_MIPS_1.tex}}
+          }
+          \only<3>{
+              \resizebox{\linewidth}{!}{
+              \input{Abbildungen/Reparaturen_MIPS_2.tex}}
+          }
+          % \input{Abbildungen/Reparaturen_MIPS.tex}
 	\end{frame}
 
 \section{Fallstudie}
@@ -269,11 +322,14 @@ dashed=false]{biblatex}
             \end{itemize}
 		\begin{center}
 \pause
-\rowcolors{1}{yellow!40}{white}
+\definecolor{lightorange}{RGB}{253,208,81}
+% \definecolor{lightorange}{RGB}{255,238,193}
+\definecolor{darkorange}{RGB}{252,187,6}
+\rowcolors{1}{lightorange}{}
             \begin{tabular}[h]{lccc}
                 % \toprule
                 \hline
-            \rowcolor{yellow!70!red}
+            \rowcolor{darkorange}
                 Parameter & Ind. & Gem. & Sal.\\
                 \hline
                 % \midrule

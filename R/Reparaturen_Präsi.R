@@ -4,8 +4,8 @@ require(plot3D)
 source('./Funktionen_Reparatur.R')
 
 
-export <- FALSE # if figures should be exported, or just visualized
-# export <- TRUE # if figures should be exported, or just visualized 
+# export <- FALSE # if figures should be exported, or just visualized
+export <- TRUE # if figures should be exported, or just visualized 
 Plots_or_manipulate <- 1 # if set to 1, Plots are drawn, which will eventually
                          # be exported, if set to 2, a plot with manipulate is
                          # drawn in order to analyse the model
@@ -13,11 +13,10 @@ Plots_or_manipulate <- 1 # if set to 1, Plots are drawn, which will eventually
 if(Plots_or_manipulate == 1){
   const <- data.frame(
     A     = 1,
-    I_fix = 1,                    
+    I_fix = 1,
     h     = 1,
     S_D   = 100
   )
-
 ###############
 #### Plots ####
 ###############
@@ -38,7 +37,7 @@ param_2 <- data.frame(
 tikzheight <- 3.2
 tikzwidth <- 4.5
 fntsize <- 0.8
-if(export) tikz( '../tex/Abbildungen/Reparaturen_I_R.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
+if(export) tikz( '../Vortrag/Abbildungen/Reparaturen_I_R.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
 
   attach(param_1)
   t <- seq(length = 1000, from = 0.1, to=t_to)
@@ -53,12 +52,12 @@ if(export) tikz( '../tex/Abbildungen/Reparaturen_I_R.tex', packages=c('\\usepack
 if(export) dev.off()
 
 # Einstellungen für den Export der Graphik
-tikzheight <- 7.5
+tikzheight <- 4.0
 tikzwidth <- 5.5
 fntsize <- 0.8
-if(export) tikz( '../tex/Abbildungen/Reparaturen_MIPS.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
+if(export) tikz( '../Vortrag/Abbildungen/Reparaturen_MIPS_1.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
 
-  orig_par <- par(mfcol =c(2,1), mgp=c(2,1,0))
+  orig_par <- par(mgp=c(2,1,0))
   on.exit(par(orig_par), add=TRUE)
 
   MIPS_1 <- MIPS_R(t_max = t, I_R = vec_1, const = const)
@@ -83,6 +82,11 @@ col=c("black","white", "black","white", "grey"),
 
   detach(param_1)
 
+if(export) dev.off()
+
+if(export) tikz( '../Vortrag/Abbildungen/Reparaturen_MIPS_2.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
+  orig_par <- par(mgp=c(2,1,0))
+  on.exit(par(orig_par), add=TRUE)
   attach(param_2)
   vec_1 <- I_R(t=t, i_R=i_R, t_tech=t_tech, case = 1) 
   vec_2 <- I_R(t=t, i_R=i_R, t_tech=t_tech, case = 2) 
