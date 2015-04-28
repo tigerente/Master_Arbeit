@@ -31,6 +31,7 @@
 \usepackage{graphicx} %Zum Einbinden von Grafikdateien
 \usepackage[font={footnotesize, sf}]{caption}
 \usepackage{subfig}
+\graphicspath{{./Abbildungen/}}
 
 \usepackage{booktabs} %Für schönere Tabellen
 \usepackage{xspace}
@@ -41,8 +42,8 @@
 %\setmarginsrb{2.5cm}{1.5cm}{2cm}{1.5cm}{0mm}{0.5cm}{0mm}{1cm}
 
 \title{Ökologische Nachhaltigkeit durch \\ \enquote{Nutzen statt Besitzen}}
-\subtitle{Entwicklung eines Modells zur Ableitung von Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung}
-\author{Sascha \and János}
+\subtitle{{\small Entwicklung eines Modells zur Ableitung von Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung}}
+\author{Sascha, János}
 \date{29.04.2015}
 
 \begin{document}
@@ -89,14 +90,44 @@
 
 \section{Modelle}
 	\begin{frame}{Modell-Grundlagen}
-		\begin{center}
-			$S = S_D$ (in Bezug auf konstantes T)
-			Abbildung 2.1
-			T, p, q, P
-			$t_max, n_max$
-			
-			Fragen / Anmerkungen?
-		\end{center}
+		\begin{itemize}
+			\pause
+			\item Wichtige Größe: Produktnutzungsdauer $t$
+			\begin{itemize}
+				\item Wie lange ist ein Produkt in der Nutzung?
+				\item Erreichen der technischen Lebensdauer oder der Maximalnutzungsdauer:
+				$	t = \min \left\{t_\text{tech}, t_{\text{max}} \right\}$
+				\item Nicht fest vorgegeben, sondern von der Nutzung abhängig.
+			\end{itemize}
+			\pause
+			\item Nicht betrachtet: Nachfrage-Änderungen
+			\begin{itemize}
+				\item Konstante Service-Nachfrage $S = S_D$
+				\item Problem: Nicht kompatibel mit variabler Produktnutzungsdauer.
+				\item Lösung: Konstanter Betrachtungszeitraum T
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Modell-Grundlagen}
+		\begin{itemize}
+			\item Produkte des Nutzungssystems
+				\begin{itemize}
+					\item parallel eingesetzte Produkte
+					\item sequentiell eingesetzte Produkte
+				\end{itemize}
+		\end{itemize}
+		\begin{figure}[h]
+			\includegraphics<1>[height=3cm]{Produktanzahlen_1_0}
+			\includegraphics<2>[height=3cm]{Produktanzahlen_1_1}
+			\includegraphics<3>[height=3cm]{Produktanzahlen_1_2}
+			\includegraphics<4>[height=3cm]{Produktanzahlen_1_3}
+			\includegraphics<5->[height=3cm]{Produktanzahlen_2}
+		\end{figure}
+		\pause
+		\begin{itemize}
+			\item<6-> Fragen / Anmerkungen?
+		\end{itemize}
 	\end{frame}
 
 \subsection{Nutzungsintensivierung}
