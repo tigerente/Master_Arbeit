@@ -391,7 +391,47 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 		\subsection{Fallstudien}
 
 \chapter{Modell}
-\section{Grundmodell}
+In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ein Modell zur Ableitung von Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung entwickelt. Dazu werden Teilmodelle zu ausgewählten Umwelteffekten aufgestellt (Abschnitt \ref{sec:Einzeleffekte}), sowie exemplarisch zwei der Teilmodelle miteinander gekoppelt (Abschnitt \ref{sec:Effektkopplungen}). Zunächst werden jedoch einige allgemeine Grundlagen erarbeitet, auf die bei der Erstellung der Teilmodelle zurückgegriffen wird (Abschnitt \ref{sec:Grundmodell}).
+
+\section{Modellgrundlagen}
+\label{sec:Grundmodell}
+Eine entscheidende Größe für den Umweltverbrauch eines Produkts ist die Dauer, über die das Produkt genutzt wird. Sie wird als Produktnutzungsdauer $t$ bezeichnet und ist definiert als die Zeitspanne zwischen Anschaffung und Entsorgung des Produkts. Es kann zahlreiche Gründe geben, weshalb ein Produkt entsorgt wird. Wir unterscheiden im Modell zwei charakteristische Fälle: eine zeitlich bedingte Entsorgung und eine nutzungsbedingte Entsorgung.
+
+Die zeitlich bedingte Entsorgung tritt dann auf, wenn ein Produkt nach einer gewissen Zeitdauer trotz gegebener Funktionstüchtigkeit den aktuellen technischen, ästhetischen oder sonstigen Anforderungen nicht mehr genügt. Diese Zeitdauer bezeichnen wir als Maximalnutzungsdauer $t_\text{max}$, die unabhängig davon ist, ob und wie intensiv ein Produkt genutzt wird. Sie hängt neben äußeren Rahmenbedingungen (technischer Fortschritt, Modezyklen) in hohem Maße vom Verhalten der Nutzer\_innen ab und kann daher zu einem gewissen Grad bewusst beeinflusst werden (vgl. Kapitel \ref{sec:Reparatur}).
+
+Von einer nutzungsbedingten Entsorgung hingegen ist die Rede, wenn das Produkt aufgrund von Abnutzung und damit einhergehenden Defekten nicht mehr funktionstüchtig ist. Sie tritt nach Ablauf der technischen Lebensdauer $t_\text{tech}$ auf, die umso kürzer ist, je intensiver das Produkt genutzt wird (vgl. Kapitel \ref{sec:Nutzungsintensivierung}). Diese Betrachtungsweise beruht auf der Annahme, dass ein Produkt durchschnittlich eine gewisse Anzahl an Nutzungen ermöglicht bis es defekt wird.
+
+Ausschlaggebend für die Produktnutzungsdauer ist, welcher der beiden genannten Gründe für eine Entsorgung zuerst eintritt. -- Ein Produkt bleibt genau so lange in der Nutzungsphase, bis es entweder nicht mehr benötigt wird oder nicht mehr funktionstüchtig ist. Somit gilt:
+\begin{equation}
+	t = \text{min} \{t_\text{max}, t_\text{tech}\}
+\end{equation}
+
+Durch die oben angesprochenen Abhängigkeiten der Maximalnutzungsdauer und der technischen Nutzungsdauer vom Nutzungsverhalten handelt es sich bei der Produktnutzungsdauer um eine dynamische Größe: Werden einzelne Parameter des Nutzungssystems variiert, wie es in den Analysen der Teilmodelle geschehen wird, verändert sich mitunter auch die Produktnutzungsdauer. Dies stellt eine gewisse Herausforderung für die Modellierung dar, wie im folgenden gezeigt wird.
+
+Die in dieser Master-Arbeit untersuchten \enquote{Umweltauswirkungen durch die Nutzung} sollen von den \enquote{Umweltauswirkungen durch Nachfrageänderung} abgegrenzt werden. Dazu wird in den Modellen eine unveränderliche Nachfrage $S_D$ nach Service angenommen. Damit pro Zeit stets die gleiche Servicemenge nachgefragt wird, muss jedoch auch der Zeitraum, über den bilanziert wird, konstant sein. Daher kommt die Produktnutzungsdauer als Bilanzierungszeitraum nicht in Betracht. Stattdessen wird ein beliebig wählbarer, jedoch unveränderlicher Betrachtungszeitraum $T$ eingeführt, über den die Bilanz aufgestellt wird. Das heißt, sowohl die nachgefragte Servicemenge als auch die zu berücksichtigenden Materialinputs beziehen sich auf eine feste Zeitspanne, die im Allgemeinen nicht mit der Produktnutzungsdauer übereinstimmt.
+
+Um den Umweltverbrauch eines Nutzungssystems zu bestimmen, ist es erforderlich zu wissen, welche Produkte dem Nutzungssystem angehören. Unter der vereinfachenden Annahme eines einzigen Produkttyps lässt sich diese Information auf die Anzahl der Produkte reduzieren. In einem Nutzungssystem können Produkte sowohl parallel (d.h. gleichzeitig), als auch sequentiell (d.h. nacheinander) eingesetzt werden. Beispielsweise können in einem Gemeinschaftswaschkeller mehrere Maschinen nebeneinander betrieben werden, die jeweils nach einer gewissen Zeit ausgetauscht werden.
+
+Die Anzahl der parallel eingesetzten Produkte bezeichnen wir als parallele Produktanzahl $p$. Dies ist eine (positive) ganze Zahl, die unter anderem davon abhängt, wie die Produktnutzung organisiert ist. Demgegenüber verstehen wird unter der sequentiellen Produktanzahl $q$ die Anzahl der Produkte, die innerhalb des Betrachtungszeitraums nacheinander eingesetzt werden. Diese Größe entspricht dem Verhältnis aus Produktnutzungsdauer und Betrachtungszeitraum: $q = \frac{t}{T}$. Die sequentielle Produktanzahl ist demnach im Allgemeinen nicht ganzzahlig, und sie kann Werte größer oder kleiner oder gleich eins annehmen. Insgesamt werden im Nutzungssystem innerhalb des Betrachtungszeitraums $P = p \cdot q = p \cdot \frac{t}{T}$ Produkte eingesetzt. Dabei bezeichnen wir $P$ als effektive Produktanzahl.
+
+\noteJ{Hier bin ich stehen geblieben. Der folgende Abschnitt muss noch angepasst werden.}
+Diese Eigenschaft überträgt sich auf die effektive Produktanzahl $P$, wie das folgende Beispiel illustriert: Werden in einem Gemeinschaftswaschkeller im Betrachtungszeitraum $T  = 10 \text{ Jahren}$ parallel $p = 2$ Maschinen betrieben, die jeweils über eine Nutzungsdauer von $t = 15 \text{ Jahren}$ verfügen, so sind sie jeweils nur zu $q = \nicefrac{10}{15}$ dem betrachteten Nutzungssystem anzurechnen, sodass sich eine Produktanzahl von $P = 2 \cdot \nicefrac{10}{15} \approx 1.33$ ergibt. Für den Fall, dass der Betrachtungszeitraum $T$ hingegen länger ist als die Nutzungsdauer $t$, muss jedes parallel eingesetzte Produkt mehr als einmal angerechnet werden, da es innerhalb des Betrachtungszeitraums ersetzt werden muss: So würden im obigen Beispiel in einem Zeitraum von $T  = 20 \text{ Jahren}$ eine Anzahl von $P = 2 \cdot \nicefrac{20}{15} \approx 2.67$ Maschinen eingesetzt werden. Abbildung \ref{fig:Produktanzahlen} stellt die beiden Zahlenbeispiele grafisch dar.
+
+Allgemein gilt:
+%
+\begin{equation}
+\label{eq:P(p)}
+P = p \cdot q = p \cdot \frac{T}{t}
+\end{equation}
+%
+\begin{figure}[ht]
+	\includegraphics[width=\textwidth]{Produktanzahlen}
+	\caption{Veranschaulichung des Zusammenhangs zwischen paralleler, sequentieller und effektiver Produktanzahl. In Fall a) ist der Betrachtungszeitraum $T$ kürzer als die Nutzungsdauer $t$, sodass die zwei parallel eingesetzten Produkte nur anteilig auf das Nutzungssystem angerechnet werden. In Fall b) ist der Betrachtungszeitraum länger als die Nutzungsdauer, sodass zwei Produkte voll und zwei weitere anteilig angerechnet werden.}
+	\label{fig:Produktanzahlen}
+\end{figure}
+\noteJ{Abbildung schön machen: Text in LaTeX}
+
+\subsection{Effektive Größen, Mittelwerte}
 \noteS{nur ein ganz fixer erster Entwurf}Für die Berechnung des MIPS müssen die innerhalb der Systemgrenzen (die u.a.
 durch eine Zeit $T$ charakterisiert sind) anfallenden
 Material-Inputs durch die abgerufene Servicemenge geteilt werden:
@@ -475,6 +515,7 @@ bei der Modellierung der Teileffekte, und lassen dabei den Index "`eff"' sowie
 den Durchschnitts-Querstrich weg, da wir diese nicht mehr von den realen Größen
 unterscheiden müssen. 
 		\section{Einzeleffekte}
+		\label{sec:Einzeleffekte}
 			\subsection{Nutzungsintensivierung} % Ursprünglich: "Nutzungsdauerverlängerung"
 			\label{sec:Nutzungsintensivierung}
 				\paragraph{Modellbeschreibung}
@@ -1786,6 +1827,7 @@ unterscheiden müssen.
       
 
 		\section{Effekt-Kopplungen}
+		\label{sec:Effektkopplungen}
 		\section{Modellübersicht}
 
 \chapter{Ergebnisse}
