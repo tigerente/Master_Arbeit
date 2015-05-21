@@ -1,0 +1,71 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Transporte_Matrix.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{315.56568071bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.86684143)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Transporte_Matrix.pdf}}%
+    \put(0.1358294,0.80216936){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.43790841\unitlength}\centering konstant \\ $M_\Theta = konst.$\end{minipage}}}%
+    \put(0.61324482,1.00642111){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.38925192\unitlength}\raggedright \end{minipage}}}%
+    \put(0.03852209,0.10833253){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lb]{\smash{\textbf{Auslastung der Transporte}}}}}%
+    \put(0.32523457,0.82731478){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textbf{Einzel-Transportmenge}}}}%
+    \put(0.34966367,0.80217049){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.71192132\unitlength}\centering variabel\\ $M_\Theta \propto \frac{1}{\Theta}$\end{minipage}}}%
+    \put(0.10129215,0.11629884){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lb]{\smash{variabel}}}}%
+    \put(0.14491049,0.09525033){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lb]{\smash{$i_d = konst.$}}}}%
+    \put(0.10129215,0.46009829){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lb]{\smash{konstant}}}}%
+    \put(0.14491049,0.4304312){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lb]{\smash{$i_{d, M} = konst.$}}}}%
+    \put(0.23131012,0.55314745){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Bohrmaschine,}}}%
+    \put(0.23131012,0.49229157){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Lieferservice}}}%
+    \put(0.57450631,0.49229157){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Lieferservice}}}%
+    \put(0.57190558,0.55314745){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Waschmaschine,}}}%
+    \put(0.21284815,0.1956059){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Bohrmaschine,}}}%
+    \put(0.21312667,0.13494498){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{privater Transport}}}%
+    \put(0.56371584,0.1956059){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Waschmaschine,}}}%
+    \put(0.5665951,0.13494498){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{privater Transport}}}%
+  \end{picture}%
+\endgroup%
