@@ -72,7 +72,7 @@ dashed=false]{biblatex}
 
 
 
-\title{Ökologische Nachhaltigkeit durch \\ \enquote{Nutzen statt Besitzen}}
+\title{Ökologische Nachhaltigkeit durch \\ \enquote{Nutzen statt Besitzen}?}
 \subtitle{{\small Entwicklung eines Modells zur Ableitung von Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung}}
 \author{Sascha, János}
 \date{29.04.2015}
@@ -104,12 +104,12 @@ dashed=false]{biblatex}
 	\end{frame}
 	
 	\begin{frame}{Untersuchte Effekte}
-        \only<1>{
-            Was ist eigentlich ein Effekt/Mechanismus?
-        }
+        % \only<1>{
+        %     Was ist eigentlich ein Effekt/Mechanismus?
+        % }
 		\begin{center}
             \scriptsize
-            \only<2>{
+            \only<1>{
 			\begin{tabular}{p{5cm}p{5cm}}
 				 \toprule
 				 \multicolumn{2}{l}{\textbf{Umweltauswirkungen durch die Nutzung}}  \\
@@ -118,7 +118,7 @@ dashed=false]{biblatex}
 				 Nutzungsintensivierung  &  Zusätzliche Transaktionen  \\
 				 Einsatz langlebiger Produkte  &  zusätzlicher Ressourcenverbrauch für Langlebigkeit  \\
 				 Verwendung verbrauchsarmer bzw. leistungsstarker Geräte  &  Beschleunigte Ausmusterung  \\
-				 Maximierung der Geräteauslastung  & Tauschbedingter Verschleiß  \\
+				 Erhöhung der Produktauslastung  & Tauschbedingter Verschleiß  \\
 				 Berücksichtigung des technischen Fortschritts  &  \\
 				 Wartung / Reparaturen & \\
 				 \midrule
@@ -135,8 +135,8 @@ dashed=false]{biblatex}
 			Mechanismen für die Umweltauswirkungen durch
             gemeinschaftliche Nutzung. Quelle: verändert nach
             \cite{scholl_marketing_2009}.}
-            \only<3>{
-            \normalsize
+            \only<2>{
+            \small
 			\begin{tabular}{p{5cm}p{5cm}}
 				 \toprule
 				 \multicolumn{2}{l}{\textbf{Umweltauswirkungen durch die
@@ -145,7 +145,7 @@ dashed=false]{biblatex}
 				 \midrule
 				 Nutzungsintensivierung  &  Zusätzliche Transaktionen
                  \\[3pt]
-                 Maximierung der Geräteauslastung  & \\[3pt]
+                 Erhöhung der Produktauslastung  & \\[3pt]
                  Wartung / Reparaturen & \\[3pt]
 				 \bottomrule
 			\end{tabular}
@@ -158,30 +158,32 @@ dashed=false]{biblatex}
 	\begin{frame}{Methodik}
 		\begin{center}
             \begin{itemize}
-                \item Modellierung
+                \item<1-> Modellierung
                     \begin{itemize}
                         \item Nutzungssystem
                             \begin{itemize}
-                                \item Personen (Service-Nachfrage)
+                                \item Personen 
                                 \item Produkte
                                 \item Organisation der Nutzung
                             \end{itemize}
                         \item Vergleich verschiedener Nutzungssysteme
                             \begin{itemize}
-                                \item Wie wirken die einzelnen Faktoren auf die MIPS?
-                                \item MIPS gewährleistet Vergleichbarkeit
+                                \item Effekte: Veränderung einzelner Parameter
+                                    des Systems 
+                                \item Wie wirken die einzelnen Parameter auf die
+                                    MIPS?
                             \end{itemize}
                     \end{itemize}
 
-                \item Analyse
+                \item<2> Analyse
                     \begin{itemize}
                         \item Unter welchen Umständen verringert sich die MIPS
                             durch gemeinschaftliche Nutzung?
                         \item Grund-Annahme: Parameter ändern sich durch
                             gemeinschaftliche Nutzung in eine bestimmte Richtung
-                        \item Partialanalyse: Nutzungssysteme, die sich in nur
-                            einem Parameter unterscheiden
-                        \item Modellkopplung: mehrere Parameter ändern sich	
+                        \item Analyse der Einzelmodelle: ein Parameter ändert
+                        sich 
+                    \item Modellkopplung: mehrere Parameter ändern sich	
                     \end{itemize}
             \end{itemize}
 		\end{center}
@@ -292,17 +294,17 @@ dashed=false]{biblatex}
         \begin{itemize}
             \item<1-> $t = \t{max}$
             \item<2-> $i_P = \tilde{i}_P + I_R$
-            \item<3-> Einsetzen in: 
-                    \begin{equation*} 
-                        \text{MIPS}(h) =
-                        \frac{I_{\text{fix}}^h}{S_D} + \left\{ 
-                            \begin{array}{r@{\quad : \quad}l}
-                                \frac{i_P}{h \cdot t_{\text{max}} \cdot A}&
-                                h < h^*  \\[5pt]
-                                \frac{i_P}{n_{\text{max}} \cdot A}&  \text{sonst}
-                            \end{array} 
-                        \right.
-                    \end{equation*}
+            % \item<3-> Einsetzen in: 
+            %         \begin{equation*} 
+            %             \text{MIPS}(h) =
+            %             \frac{I_{\text{fix}}^h}{S_D} + \left\{ 
+            %                 \begin{array}{r@{\quad : \quad}l}
+            %                     \frac{i_P}{h \cdot t_{\text{max}} \cdot A}&
+            %                     h < h^*  \\[5pt]
+            %                     \frac{i_P}{n_{\text{max}} \cdot A}&  \text{sonst}
+            %                 \end{array} 
+            %             \right.
+            %         \end{equation*}
         \end{itemize}
 		\begin{center}
             \begin{block}{Reparatur}<4->

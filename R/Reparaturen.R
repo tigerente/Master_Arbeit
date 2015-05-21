@@ -6,7 +6,7 @@ source('./Funktionen_Reparatur.R')
 
 export <- FALSE # if figures should be exported, or just visualized
 # export <- TRUE # if figures should be exported, or just visualized 
-Plots_or_manipulate <- 1 # if set to 1, Plots are drawn, which will eventually
+Plots_or_manipulate <- 2 # if set to 1, Plots are drawn, which will eventually
                          # be exported, if set to 2, a plot with manipulate is
                          # drawn in order to analyse the model
 
