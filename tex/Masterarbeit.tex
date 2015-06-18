@@ -1978,13 +1978,6 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
               aufgebracht werden muss.
       \end{itemize}
 
-
-
-
-
-
-
-
       \subsection{Transporte}
       \paragraph{Modellbeschreibung}
       Mit Produktnutzungen geht im Allgemeinen eine Mobilitätsnachfrage 
@@ -2223,6 +2216,91 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
                      =  \frac{\theta \cdot d \cdot i_d}{a \cdot K} 
                         + \frac{\I{fix}^d}{S_D}
       \end{equation}
+
+      Für den Fall hingegen, dass $i_d \propto M_\Theta \propto
+      \frac{1}{\Theta}$ gilt, ergibt sich die folgende Gleichung:
+      \begin{align}
+          I_\Theta^b &= \Theta \cdot d \cdot \tilde{i}_{d, M_\Theta} \cdot M_\Theta
+                   = \Theta \cdot d \cdot \tilde{i}_{d, M_\Theta} 
+                   \cdot \frac{m_S \cdot S_D}{\Theta}\nonumber\\
+                   &= m_S \cdot S_D \cdot d \cdot \tilde{i}_{d, M_\Theta}
+                   % \quad \text{ für } \quad i_d \propto M_\Theta \propto
+                   % \frac{1}{\Theta}
+        \label{eq:I_Theta_2}
+      \end{align}
+      In diesem Fall ergeben sich die MIPS aus:
+      \begin{equation}
+          \MIPS[d]^b = d \cdot \tilde{i}_{d, M} \cdot m_S +
+          \frac{\I{fix}^d}{S_D}
+          \label{eq:MIPSTransporte_Alt}
+      \end{equation}
+      
+      % Auch in Gleichung \eqref{eq:Transport_Inputs_je_Weg}
+      % können wieder zwei Fälle auftreten: zum einen können die spezifischen
+      % Transportinputs konstant sein, zum anderen können die Inputs je
+      % Transportweg konstant sein. Für ersteren Fall wurde gerade schon ein
+      % Beispiel genannt: der Versand mittels eines Lieferservices. Dies ist
+      % darauf zurückzuführen, dass im Durchschnitt die dabei eingesetzten
+      % Transportmittel gleich ausgelastet sind.       
+      % Der zweite Fall -- kontante Materialinputs je Transportweg -- ist dagegen
+      % typisch für den privaten Transport. Dieser ist dadurch charakterisiert, dass das
+      % Transportmittel in der Regel nicht voll ausgelastet ist und folglich bei
+      % demselben Transportweg eine verschieden große Transportmenge transportiert
+      % werden kann. So macht es zum Beispiel keinen Unterschied, ob im Auto vier
+      % oder acht Kilogramm Wäsche transportiert werden. Wir nehmen an,
+      % dass diese unterschiedlichen möglichen Auslastungen nicht zu einer
+      % relevanten Veränderungen der Inputs je Transportweg $i_d$ führen.     
+      %
+      %  Um dem gerecht zu
+      % werden, betrachten wir im folgenden prototypisch in der Dimension Produkt
+      % die Bohrmaschine und die Waschmaschine und in der Dimension Organisation
+      % der Transporte den privaten Transport mittels PKW und den Transport
+      % mittels eines Lieferservices. In der Kombination ergeben sich die
+      % folgenden vier Prototypen kollektiver Produktnutzungssysteme:
+      % \begin{itemize}
+      %     \item Verleih von Bohrmaschinen, Versand per Lieferservice
+      %     \item Verleih von Bohrmaschinen, private Abholung
+      %     \item Wäschereiservice (Transport der Wäsche durch einen
+      %         Lieferservice)
+      %     \item Waschsalon, Anfahrt mit privaten Verkehrsmittel
+      % \end{itemize}
+      % Wir werden nun zunächst ein Modell entwickeln, mit dem die
+      % Ressourcenverbräuche aller vier Prototypen abgebildet werden können und
+      % arbeiten dann in einem nächsten Schritt die Charakteristika der
+      % Prototypen heraus, um das Modell entsprechend zu spezifizieren.
+ 
+
+      % \subparagraph{Erkenntnis}
+      % Transporte können dabei zum einen sehr
+      % unterschiedlich organisiert sein und zum anderen werden an sie
+      % produktspezifisch verschiedene Anforderungen gestellt.
+
+
+      Abschließend fassen wir die beiden entwickelten Gleichungen nocheinmal
+      zusammen:\\ 
+
+      \begin{mdframed}[frametitle={Transporte}, frametitlerule=true]
+          Teilmodell für $i_d = konst.$ oder $M_\Theta = konst.$:
+          \begin{equation}
+              \MIPS[d]^a = \frac{\theta \cdot d \cdot i_d}{a \cdot K} +
+              \frac{\I{fix}^d}{S_D}
+              \label{eq:MIPSTransporte}
+          \end{equation}
+          Teilmodell für $i_d = konst.$ oder $M_\Theta = konst.$:
+          \begin{equation}
+              \MIPS[d]^b = d \cdot \tilde{i}_{d, M} \cdot m_S +
+              \frac{\I{fix}^d}{S_D}
+              \label{eq:MIPSTransporte_Alt}
+          \end{equation}
+      \end{mdframed}
+      \todo{Graphik anpassen (y-Dimension) und in Text einbinden}
+      
+      \begin{figure}
+          \centering
+          \input{Abbildungen/Transporte_Matrix.pdf_tex}
+          \label{fig:Transporte_Matrix}
+          \caption{}
+      \end{figure}
 
 		\section{Effekt-Kopplungen}
 		\label{sec:Effektkopplungen}
