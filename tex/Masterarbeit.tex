@@ -440,6 +440,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 		
 		Weiter spezifizieren wir die Teil-Inputs auf die folgende Weise:
 		\begin{equation}
+			\label{eq:Inputs_Allgemein}
 			I = P \cdot i_P + N \cdot i_N + W \cdot i_W + R \cdot i_R + \Theta \cdot i_\Theta + I_\text{Rest}
 		\end{equation}		
 		%
@@ -611,9 +612,10 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 		bei der Modellierung der Teileffekte, und lassen dabei den Index "`eff"' sowie
 		den Durchschnitts-Querstrich weg, da wir diese nicht mehr von den realen Größen
 		unterscheiden müssen. 
+\newpage
 		\section{Einzeleffekte}
 		\label{sec:Einzeleffekte}
-			\subsection{Nutzungsintensivierung} % Ursprünglich: "Nutzungsdauerverlängerung"
+			\subsection{Nutzungsintensivierung \normalfont{(János Sebestyén)}} % Ursprünglich: "Nutzungsdauerverlängerung"
 			\label{sec:Nutzungsintensivierung}
 				\paragraph{Modellbeschreibung}
 				Unter \enquote{Nutzungsintensivierung} verstehen wir eine Erhöhung der Häufigkeit, mit der ein bestimmtes Produkt genutzt wird. Diese bezeichnen wir als Nutzungshäufigkeit $h$ und definieren sie als die Produktnutzungsmenge pro Zeit. Für eine Waschmaschine wäre dies etwa die Anzahl an Waschgängen pro Woche.
@@ -634,8 +636,15 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 					N = n \cdot P = h \cdot t \cdot P
 				\end{equation}
 	%
-				Hierbei ist zu beachten, dass die effektive Produktanzahl $P$ sowohl gleichzeitig, als auch nacheinander eingesetzte Produkte berücksichtigt. Die Anzahl der gleichzeitig eingesetzten Produkte bezeichnen wir als parallele Produktanzahl $p$, was stets eine natürliche Zahl ist. Demgegenüber verstehen wird unter der sequentiellen Produktanzahl $q$ die Anzahl der Produkte, die innerhalb des Betrachtungszeitraums nacheinander eingesetzt werden. Diese Größe muss nicht ganzzahlig sein, da ein Produkt auch anteilig dem betrachteten Nutzungssystem angerechnet werden kann, wenn es innerhalb des Betrachtungszeitraums nur einen Teil seines Nutzungsvorrats zur Verfügung stellt und der Rest auf eine vorausgegangene oder nachfolgende Nutzung entfällt. Diese Eigenschaft überträgt sich auf die effektive Produktanzahl $P$, wie das folgende Beispiel illustriert: Werden in einem Gemeinschaftswaschkeller im Betrachtungszeitraum $T  = 10 \text{ Jahren}$ parallel $p = 2$ Maschinen betrieben, die jeweils über eine Nutzungsdauer von $t = 15 \text{ Jahren}$ verfügen, so sind sie jeweils nur zu $q = \nicefrac{10}{15}$ dem betrachteten Nutzungssystem anzurechnen, sodass sich eine Produktanzahl von $P = 2 \cdot \nicefrac{10}{15} \approx 1.33$ ergibt. Für den Fall, dass der Betrachtungszeitraum $T$ hingegen länger ist als die Nutzungsdauer $t$, muss jedes parallel eingesetzte Produkt mehr als einmal angerechnet werden, da es innerhalb des Betrachtungszeitraums ersetzt werden muss: So würden im obigen Beispiel in einem Zeitraum von $T  = 20 \text{ Jahren}$ eine Anzahl von $P = 2 \cdot \nicefrac{20}{15} \approx 2.67$ Maschinen eingesetzt werden. Abbildung \ref{fig:Produktanzahlen} stellt die beiden Zahlenbeispiele grafisch dar.
+				Hierbei ist zu beachten, dass die effektive Produktanzahl $P$ sowohl gleichzeitig, als auch nacheinander eingesetzte Produkte berücksichtigt. Die Anzahl der gleichzeitig eingesetzten Produkte bezeichnen wir als parallele Produktanzahl $p$, was stets eine natürliche Zahl ist. Demgegenüber verstehen wird unter der sequentiellen Produktanzahl $q$ die Anzahl der Produkte, die innerhalb des Betrachtungszeitraums nacheinander eingesetzt werden. Diese Größe muss nicht ganzzahlig sein, da ein Produkt auch anteilig dem betrachteten Nutzungssystem angerechnet werden kann, wenn es innerhalb des Betrachtungszeitraums nur einen Teil seines Nutzungsvorrats zur Verfügung stellt, und der Rest auf eine vorausgegangene oder nachfolgende Nutzung entfällt. Diese Eigenschaft überträgt sich auf die effektive Produktanzahl $P$, wie das folgende Beispiel illustriert: Werden in einem Gemeinschaftswaschkeller im Betrachtungszeitraum $T  = 10 \text{ Jahre}$ parallel $p = 2$ Maschinen betrieben, die jeweils über eine Nutzungsdauer von $t = 15 \text{ Jahren}$ verfügen, so sind sie jeweils nur zu $q = \nicefrac{10}{15}$ dem betrachteten Nutzungssystem anzurechnen, sodass sich eine Produktanzahl von $P = 2 \cdot \nicefrac{10}{15} \approx 1.33$ ergibt. Für den Fall, dass der Betrachtungszeitraum $T$ hingegen länger ist als die Nutzungsdauer $t$, muss jedes parallel eingesetzte Produkt mehr als einmal angerechnet werden, da es innerhalb des Betrachtungszeitraums ersetzt werden muss: So würden im obigen Beispiel in einem Zeitraum von $T  = 20 \text{ Jahren}$ eine Anzahl von $P = 2 \cdot \nicefrac{20}{15} \approx 2.67$ Maschinen eingesetzt werden. Abbildung \ref{fig:Produktanzahlen} stellt die beiden Zahlenbeispiele grafisch dar.
 				
+				 \begin{figure}[ht]
+				 	\includegraphics[width=\textwidth]{Produktanzahlen}
+				 	\caption{Veranschaulichung des Zusammenhangs zwischen paralleler, sequentieller und effektiver Produktanzahl. In Fall a) ist der Betrachtungszeitraum $T$ kürzer als die Nutzungsdauer $t$, sodass die zwei parallel eingesetzten Produkte nur anteilig auf das Nutzungssystem angerechnet werden. In Fall b) ist der Betrachtungszeitraum länger als die Nutzungsdauer, sodass zwei Produkte voll und zwei weitere anteilig angerechnet werden.}
+				 	\label{fig:Produktanzahlen}
+				 \end{figure}
+				 \noteJ{Abbildung schön machen: Text in LaTeX}
+
 				Allgemein gilt:
 	%
 				\begin{equation}
@@ -643,14 +652,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 					P = p \cdot q = p \cdot \frac{T}{t}
 				\end{equation}
 	%
-				 \begin{figure}[ht]
-				 	\includegraphics[width=\textwidth]{Produktanzahlen}
-				 	\caption{Veranschaulichung des Zusammenhangs zwischen paralleler, sequentieller und effektiver Produktanzahl. In Fall a) ist der Betrachtungszeitraum $T$ kürzer als die Nutzungsdauer $t$, sodass die zwei parallel eingesetzten Produkte nur anteilig auf das Nutzungssystem angerechnet werden. In Fall b) ist der Betrachtungszeitraum länger als die Nutzungsdauer, sodass zwei Produkte voll und zwei weitere anteilig angerechnet werden.}
-					\label{fig:Produktanzahlen}
-				 \end{figure}
-				 \noteJ{Abbildung schön machen: Text in LaTeX}
-	
-				Dabei ist zu beachten, dass die parallele Produktanzahl $p$ eine Nutzungssystem-spezifische Mindestproduktanzahl $p_\text{min}$ nicht unterschreitet. Die Mindestproduktanzahl kann beispielsweise dadurch erforderlich sein, dass aus praktisch-organisatorischen Gründen zu Stoßzeiten eine gewisse Anzahl an Produkten gleichzeitig im Einsatz ist. Als Formel:
+				Als Nebenbedingung muss berücksichtigt werden, dass die parallele Produktanzahl $p$ eine Nutzungssystem-spezifische Mindestproduktanzahl $p_\text{min}$ nicht unterschreitet. Die Mindestproduktanzahl kann beispielsweise dadurch erforderlich sein, dass aus praktisch-organisatorischen Gründen zu Stoßzeiten eine gewisse Anzahl an Produkten gleichzeitig im Einsatz ist. Als Formel:
 	%
 				\begin{equation}
 					\label{eq:p_min}
@@ -773,7 +775,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 					&\eqnref{eq:n(h)_cases} \frac{I_{\text{fix}}^h}{S_D} + \left\{ \begin{array}{ll}  \frac{i_P}{h \cdot t_{\text{max}} \cdot A} & \mbox{falls } h < \frac{n_{\text{max}}}{t_{\text{max}}} \\[5pt] \frac{i_P}{n_{\text{max}} \cdot A} & \mbox{sonst} \end{array}\right.
 				\end{align*}
 	%
-				Für die Nutzungsintensivierung lässt sich zusammenfassend das folgende Teilmodell festhalten:
+				Zusammenfassend lässt sich das folgende Teilmodell für die Nutzungsintensivierung festhalten:
 				\\
 							
 				\begin{mdframed}[frametitle={Nutzungsintensivierung}, frametitlerule=true]
@@ -795,12 +797,21 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 					\end{equation}
 				\end{mdframed}
 				
+\newpage
 				\paragraph{Modellanalyse}
 				
-				In dieser Analyse des Teilmodells zur Nutzungsintensivierung wird untersucht, wie sich eine Erhöhung der Nutzungshäufigkeit auf die MIPS auswirkt. Da die Nutzungshäufigkeit $h$ gemäß Nebenbedingung \ref{eq:h(p)} nur in diskreten Schritten variiert werden kann, wird die Änderung der MIPS von einer gegebenen Nutzungshäufigkeit ($h = h_1$) zur nächstgrößeren ($h = h_2$) betrachtet. Diese ist durch die Verringerung der parallelen Produktanzahl von $p = p_1$ auf $p = p_2$ um eins gegeben: $p_2 - p_1 = -1$. Es können drei Fälle unterschieden werden:
+				In dieser Analyse des Teilmodells zur Nutzungsintensivierung wird untersucht, wie sich eine Erhöhung der Nutzungshäufigkeit auf die MIPS auswirkt. Da die Nutzungshäufigkeit $h$ gemäß Nebenbedingung \ref{eq:h(p)} nur in diskreten Schritten variiert werden kann, wird die Änderung der MIPS von einer gegebenen Nutzungshäufigkeit ($h = h_1$) zur nächstgrößeren ($h = h_2$) betrachtet. Diese ist durch die Verringerung der parallelen Produktanzahl von $p = p_1$ auf $p = p_2$ um eins gegeben: $p_2 - p_1 = -1$.
+				
+				Mit Gleichung \ref{eq:MIPS(h)} ergibt sich für die Änderung der MIPS:
+				\begin{equation}
+					\label{eq:Delta_MIPS_h}
+					\Delta \text{MIPS} = \text{MIPS}(h_2) - \text{MIPS}(h_1) = \frac{i_P}{S_D} \cdot (P(h_2) - P(h_1))
+				\end{equation}
+				
+				Unter Berücksichtigung von Gleichung \ref{eq:MIPS(h)_2} lässt sich dieser Ausdruck näher bestimmen. Dabei ist die Fallunterscheidung nach $h_1$ bzw. $h_2$ in Bezug auf $h^*$ zu berücksichtigen. Da $h_1 < h_2$ gilt, ergeben sich drei mögliche Fälle.
 				
 				\underline{Fall 1}: $h_1 < h_2 < h^*$ \\
-				Hier wird sowohl vor, als auch nach der Erhöhung der Nutzungshäufigkeit der Nutzungsvorrat eines einzelnen Produkts nicht aufgebraucht, bevor die Maximalnutzungsdauer erreicht ist. Für die Änderung der MIPS gilt unter Anwendung von Gleichung \ref{eq:MIPS(h)_2}:
+				Hier wird der Nutzungsvorrat eines einzelnen Produkts sowohl vor, als auch nach der Erhöhung der Nutzungshäufigkeit \emph{nicht} aufgebraucht, bevor die Maximalnutzungsdauer erreicht ist. Für die Änderung der MIPS gilt unter Anwendung von Gleichung \ref{eq:MIPS(h)_2}:
 	%
 				\begin{align}
 					\Delta \text{MIPS} &= \text{MIPS}(h_2) - \text{MIPS}(h_1) = \frac{i_P}{t_\text{max} \cdot A} \cdot \left( \frac{1}{h_2} - \frac{1}{h_1} \right) \label{eq:Delta_MIPS_h_1}\\[10pt]
@@ -815,6 +826,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 				Der zweite Fall ist dadurch gegeben, dass der Nutzungsvorrat eines einzelnen Produkts sowohl vor, als auch nach der Erhöhung der Nutzungshäufigkeit spätestens bis zum Erreichen der Maximalnutzungsdauer aufgebraucht wird. Es ergibt sich direkt aus Gleichung \ref{eq:MIPS(h)_2}:
 	%
 				\begin{equation}
+					\label{eq:Delta_MIPS_h_2}
 					\Delta \text{MIPS} = \text{MIPS}(h_2) - \text{MIPS}(h_1) = 0
 				\end{equation}
 	%
@@ -830,18 +842,21 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 				Dieser Ausdruck ist für sich betrachtet nicht sehr aufschlussreich, kann jedoch nach oben und nach unten abgeschätzt werden. Einerseits ist wegen $h_1 < \frac{n_\text{max}}{t_\text{max}}$ der Klammerausdruck und damit der gesamte Ausdruck negativ, also $\Delta \text{MIPS} < 0$. Andererseits gilt wegen $h_2 \geq \frac{n_\text{max}}{t_\text{max}}$:
 	%
 				\begin{equation}
+					\label{eq:Delta_MIPS_h_3}
 					\Delta \text{MIPS} = \frac{i_P}{A} \cdot \left( \frac{1}{n_\text{max}} - \frac{1}{h_1 \cdot t_\text{max}} \right) \geq \frac{i_P}{A} \cdot \left( \frac{1}{h_2 \cdot t_\text{max}} - \frac{1}{h_1 \cdot t_\text{max}} \right) \eqnref{eq:Delta_MIPS_h_1} - \frac{q \cdot i_P}{S_D}
 				\end{equation}
 	%			
 				Die Änderung der MIPS bewegt sich im dritten Fall also zwischen den Werten der ersten beiden Fälle und ist auch in diesem Sinne als Übergangsfall zu betrachten.
+				\\
 				
-				\subparagraph{Fazit}
-				Die Analyse hat bis hierhin gezeigt, dass eine Nutzungsintensivierung im Sinne einer Erhöhung der Nutzungshäufigkeit im schlechtesten Fall keine Änderung der MIPS, und im besten Fall eine Verringerung der MIPS um einen konstanten Ausdruck mit sich bringt. Es kann also direkt kein schädlicher Effekt auftreten. Die Verringerung wird durch die Einsparung eines der parallel betriebenen Produkte erreicht. Eine solche ist nur möglich, wenn die genutzten Produkte vor der Nutzungsintensivierung noch nicht ihre technische Lebensdauer erreichen.
+				\begin{mdframed}[frametitle={Fazit}, frametitlerule=true]				
+					Die Verringerung des Umweltverbrauchs durch eine Nutzungsintensivierung ist stets positiv oder null. Ein echt positives Ergebnis wird genau dann erzielt, wenn die Produkte \emph{vor} der Nutzungsintensivierung noch nicht bis zum Erreichen ihrer technischen Lebensdauer genutzt wurden. In diesem Fall besteht die Einsparung in der Verringerung der Anzahl parallel eingesetzter Produkte.
+				\end{mdframed}
 				
 				\subparagraph{Einschränkung}
 				In der bisherigen Analyse blieb bislang unberücksichtigt, dass die Nutzungshäufigkeit nicht beliebig gesteigert werden kann, da in einem Nutzungssystem aus praktischen Gründen eine Mindestanzahl von Produkten benötigt wird. Dieser Zusammenhang wurde durch die Nebenbedingung \ref{eq:h_max} im Modell abgebildet: $h \leq h_\text{max}$. Für die Analyse hat dies zur Konsequenz, dass nicht alle theoretisch denkbaren Nutzungsintensivierungen als realisierbar betrachtet werden können. Für alle realisierbaren Fälle gelten jedoch die getroffenen Aussagen. Falls $h_\text{max} < h^*$ gilt, sind die Fälle 2 und 3 der Analyse ausgeschlossen. Ansonsten sind alle Fälle möglich.
 				
-				Abbildung \ref{fig:MIPS(h)} stellt den Verlauf der MIPS in Abhängigkeit von der Nutzungshäufigkeit exemplarisch dar. An den gleichbleibenden vertikalen Abständen der Datenpunkte bis zur Stelle $h = h^*$ ist die konstante Verringerung mit jedem eingesparten Produkt gut erkennbar.
+				In Abbildung \ref{fig:MIPS(h)} wird Verlauf der MIPS in Abhängigkeit von der Nutzungshäufigkeit exemplarisch dargestellt. An den gleichbleibenden vertikalen Abständen der Datenpunkte bis zur Stelle $h = h^*$ ist die konstante Verringerung mit jedem eingesparten Produkt gut erkennbar.
 
 				\begin{figure}[pht]
 					\centering
@@ -1923,8 +1938,146 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 
       
 
-		\section{Effekt-Kopplungen}
+		\section{Effekt-Kopplung: Nutzungsintensivierung und zusätzliche Transporte}
 		\label{sec:Effektkopplungen}
+		Nachdem im vorigen Kapitel ausgewählte Umwelteffekte durch gemeinschaftliche Produktnutzung isoliert untersucht wurden, soll nun analysiert werden, wie mehrere dieser Effekte zusammenwirken. Aus pragmatischen Gründen musste eine Auswahl von zwei Einzeleffekten getroffen werden, deren Kopplung im Rahmen dieser Master-Arbeit betrachtet werden kann.
+		
+		 Die Wahl der zu untersuchenden Effekt-Kopplung fiel auf die Einzel-Effekte \enquote{\nameref{sec:Nutzungsintensivierung}} (vgl. Kapitel \ref{sec:Nutzungsintensivierung}) und \enquote{\nameref{sec:Transporte}} (vgl. Kapitel \ref{sec:Transporte}). Dies sind zwei Effekte, die beide für eine Vielzahl von Anwendungen relevant erscheinen und sich in ihrer Wirkung entgegengesetzt verhalten: Wie gezeigt wurde, weist eine Nutzungsintensivierung stets eine positive (oder schlimmstenfalls neutrale) Umweltwirkung auf, während zusätzliche Transporte immer mit einem negativen (oder bestenfalls neutralen) \noteJ{entsprechend im Transportmodell ergänzen... Null-Inputs, z.B. zu Fuß gehen} Umwelteffekt einhergehen.
+		 
+		 Entsprechend dem Ziel dieser Master-Arbeit, Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung herzuleiten, geht es in diesem Kapitel darum, zu bestimmen, unter welchen Umständen die negative Umweltwirkung zusätzlicher Transporte durch die positive Umweltwirkung einer Nutzungsintensivierung übertroffen wird.
+		 
+		 Hinter diesem Ansatz steht der folgende Grundgedanke: Eine Nutzungsintensivierung durch gemeinschaftliche Produktnutzung wird dadurch ermöglicht, dass mehrere Personen ein Produkt gemeinsam nutzen. Dafür ist es in vielen Anwendungen erforderlich, dass entweder die Personen zum Produkt oder das Produkt zu den Personen transportiert werden. Beispielsweise müssen die Nutzer\_innen eines Waschsalons sich selbst und die zu waschende Wäsche von ihrem Wohnort zum Waschsalon transportieren, wohingegen bei einem versandbasierten Werkzeugverleih das geliehene Werkzeug zu den nutzenden Personen transportiert werden muss.
+		 
+		 Im folgenden Abschnitt (\ref{sec:Kopplung_Allg}) wird zunächst ein allgemeines Modell entwickelt, das die Einsparung von parallel eingesetzten Produkten einer Vergrößerung der durch durchschnittlichen Transportdistanz gegenüberstellt, ohne einen konkreten quantitativen Zusammenhang zwischen diesen Effekten vorzugeben. Durch dieses relativ hohe Abstraktionsniveau wird einerseits eine Anwendbarkeit auf sehr unterschiedliche Anwendungen ermöglicht, bei denen das Verhältnis aus Produkteinsparung und zusätzlichen Transporten grundsätzlich sehr verschieden sein kann. Andererseits ist die Aussagekraft der mit diesem allgemeinen Ansatz erzielbaren Ergebnisse recht eng begrenzt.
+		 
+		 Aus diesem Grund schließt sich im übernächsten Abschnitt (\ref{sec:Kopplung_Spez}) ein spezifisches Modell an, das durch die Ausnutzung einfacher raumbezogener Zusammenhänge zu stärkeren Aussagen gelangt. Die Gültigkeit des Modells ist allerdings eingeschränkt auf Anwendungen, die mit den ebenfalls stärkeren Modellannahmen übereinstimmen.
+					 
+		 \subsection{Allgemeines Modell}
+		 \label{sec:Kopplung_Allg}
+		 
+		\paragraph{Modellbeschreibung}
+		 Für die Bildung des Allgemeinen Modells zur Effekt-Kopplung zwischen Nutzungsintensivierung und zusätzlichen Transporten können wir vollständig auf bereits beschriebene Zusammenhänge zurückgreifen.
+		 
+		 Für die Materialinputs gilt gemäß Gleichung \ref{eq:I_Komponenten}:
+		 \begin{equation}
+		 	I = I_P + I_\Theta + I_\text{fix}^{h,d}
+		 \end{equation}
+		 %
+		 Für den Zweck des Kopplungsmodells werden also lediglich die produktbezogenen Inputs $I_P$ und die transportbedingten Inputs $I_\Theta$ explizit betrachtet und alle sonstigen Inputs zu den fixen Inputs zusammengefasst ($I_\text{fix}^{h,d} = I_N + I_W + I_R + I_\text{Rest}$).
+		 
+		 Für die produktbezogenen Inputs $I_P$ gelten die im Teilmodell \enquote{Nutzungsintensivierung} beschriebenen Abhängigkeiten von der Nutzungshäufigkeit: $I_P = P(h) \cdot i_P$, siehe Abschnitt \ref{sec:Nutzungsintensivierung}. Die transportbedingten Inputs $I_\Theta$ sind gemäß den Ergebnissen des Teilmodells \enquote{Zusätzliche Transporte} proportional zum Produkt aus Servicemenge und durchschnittlicher Distanz: \noteJ{Referenz einfügen, ggf. angleichen} $I_\Theta (d) = \alpha \cdot S \cdot d$. Für die Service-Menge gilt wie üblich eine konstante Nachfrage $S = S_D$.
+		 
+		 Damit ergibt sich das folgende Modell für die Effekt-Kopplung: \\
+		 
+			\begin{mdframed}[frametitle={Nutzungsintensivierung und zusätzliche Transporte}, frametitlerule=true]
+				Kopplungsmodell:
+				\begin{align}
+					\label{eq:MIPS(h,d)}
+					\text{MIPS}(h,d) &= \alpha \cdot d + \frac{P(h) \cdot i_P}{S_D} + \frac{I_{\text{fix}}^{h,d}}{S_D} \\[10pt]
+					\label{eq:MIPS(h,d)_2}
+					&= \alpha \cdot d + \frac{I_{\text{fix}}^{h,d}}{S_D} + \left\{ \begin{array}{ll}  \frac{i_P}{h \cdot t_{\text{max}} \cdot A} & \mbox{falls } h < h^* := \frac{n_{\text{max}}}{t_{\text{max}}} \\[5pt] \frac{i_P}{n_{\text{max}} \cdot A} & \mbox{sonst} \end{array} \right.
+				\end{align}
+				Nebenbedingungen:
+				\begin{equation}
+					h = \frac{S_D}{A \cdot p \cdot T} \qquad p \in \mathbb{N}
+					\label{eq:h(p)}
+				\end{equation}
+				\begin{equation}
+					\label{eq:h_max}
+					h \leq h_\text{max} := \frac{S_D}{A \cdot p_\text{min} \cdot T} \qquad p_\text{min} \in \mathbb{N}
+				\end{equation}
+			\end{mdframed}
+
+		 \paragraph{Modellanalyse}
+		 In dieser Analyse des Kopplungs-Modells wird untersucht, wie sich eine Erhöhung der Nutzungshäufigkeit, bzw. die damit zusammenhängende Produkteinsparung, bei einer gleichzeitigen Vergrößerung der durchschnittlichen Transportdistanz auf die MIPS eines Produktnutzungssystems auswirkt. Für die Nutzungshäufigkeit wird wie bereits im Teilmodell \enquote{Nutzungsintensivierung} die Änderung von einer gegebenen Nutzungshäufigkeit ($h=h_1$) zur nächstgrößeren ($h=h_2$) betrachtet, die durch die Verringerung der parallelen Produktanzahl von $p = p_1$ auf $p = p_2$ um eins gegeben ist:
+		 \begin{equation}
+		 	\Delta p = p_2 - p_1 = -1
+		 \end{equation}
+		 
+		 Für die Erhöhung der durchschnittlichen Transportdistanz wird hier eine nicht näher spezifizierte positive Konstante angenommen:
+		 \begin{equation}
+		 	\Delta d = d_2 - d_1 > 0
+		 \end{equation}
+		 
+		 Daraus ergibt sich mit Gleichung \ref{eq:MIPS(h,d)} die folgende Änderung der MIPS:
+		 \begin{equation}
+		 	\Delta \text{MIPS} = \text{MIPS} (h_2, d_2) - \text{MIPS} (h_1, d_1) = \alpha \cdot \Delta d + \frac{i_P}{S_D} \cdot (P(h_2) - P(h_1))
+		 \end{equation}
+		
+		Dieser Ausdruck unterscheidet sich vom Zwischenergebnis der Modellanalyse zur Nutzungsintensivierung (Gleichung \ref{eq:Delta_MIPS_h}) nur durch den Term $\alpha \cdot \Delta d$. Daher lassen sich die dort erzielten Ergebnisse durch Addition von $\alpha \cdot \Delta d$ leicht übertragen. Wir betrachten wiederum die drei möglichen Fälle bezüglich der Lage von $h_1$, $h_2$ und $h^*$.
+		
+		\underline{Fall 1}: $h_1 < h_2 < h^*$ \\
+		Dies ist der Fall, bei dem der Nutzungsvorrat eines einzelnen Produkts sowohl vor, als auch nach der Nutzungsintensivierung nicht aufgebraucht wird, bevor die Maximalnutzungsdauer erreicht ist. Es ergibt sich mit Gleichung \ref{eq:Delta_MIPS_h_1}:
+		\begin{equation}
+			\Delta \text{MIPS} = \alpha \cdot \Delta d - \frac{q \cdot i_P}{S_D}
+		\end{equation}
+		%
+		Dieser Ausdruck ist genau dann negativ, wenn gilt:
+		\begin{equation}
+			\alpha \cdot S_D \cdot \Delta d < q \cdot i_P
+		\end{equation}
+		%
+		Es kommt also im ersten Fall genau dann zu einer Reduzierung der MIPS, wenn die Inputs, die durch den zusätzlichen Transport über die durchschnittliche Distanz $\Delta d$ anfallen, geringer sind als die vermiedenen Inputs durch die Einsparung eines parallel eingesetzten Produkts.
+		
+		\underline{Fall 2}: $h^* \leq h_1 < h_2$ \\
+		Im zweiten Fall wird der Nutzungsvorrat eines einzelnen Produkts sowohl vor als nach der Nutzungsintensivierung ausgeschöpft. Hier liefert Gleichung \ref{eq:Delta_MIPS_h_2}:
+		\begin{equation}
+			\Delta \text{MIPS} = \alpha \cdot \Delta d
+		\end{equation}
+		%
+		Dieser Ausdruck ist stets positiv, sodass sich im zweiten Fall immer eine Erhöhung der Materialintensität ergibt. Dies ist darauf zurückzuführen, dass die Einsparung eines Produkts keine Veränderung der MIPS bewirkt und somit die zusätzlichen Transportinputs voll zu Buche schlagen.
+		
+		\underline{Fall 3}: $h_1 < h^* \leq h_2$ \\
+		Im dritten Fall, bei dem der Nutzungsvorrat vor der Nutzungsintensivierung noch nicht ausgeschöpft wird, nach der Nutzungsintensivierung jedoch schon, gilt mit Gleichung \ref{eq:Delta_MIPS_h_3}:
+		\begin{equation}
+			\alpha \cdot \Delta d - \frac{q \cdot i_P}{S_D} \leq \Delta \text{MIPS} < \alpha \cdot \Delta d
+		\end{equation}
+		%
+		Wie schon bei der Modellanalyse zur Nutzungsintensivierung bewegt sich die Änderung der MIPS im dritten Fall also zwischen den Werten der ersten beiden Fälle. Dieser Wert kann positiv oder negativ sein, was im Einzelfall zu bestimmen ist. Da der dritte Fall jeweils nur beim Übergang vom ersten zum zweiten Fall auftritt, ist er für die grundsätzliche Aussage der Analyse nicht weiter relevant.
+		
+		\subparagraph{Fazit}
+		Anders als bei der isolierten Betrachtung der Nutzungsintensivierung können unter der gleichzeitigen Berücksichtigung zusätzlicher Transporte sowohl Verbesserungen als auch Verschlechterungen der MIPS auftreten. Als hartes Kriterium für eine Senkung des Umweltverbrauchs erweist sich eine hinreichend geringe Nutzungsintensität im Ausgangsniveau, d.h. vor der Nutzungsintensivierung: Nur wenn der Nutzungsvorrat ursprünglich nicht voll ausgeschöpft wird ($h_1 < h^*$), kann es zu einer Reduzierung der MIPS kommen. In diesem Fall muss jedoch die weitere Bedingung gelten, dass die Materialinputs für die zusätzlichen Transporte kleiner sind als die eingesparten produktbezogenen Inputs für ein parallel eingesetztes Produkt ($\alpha \cdot S_D \cdot \Delta d < q \cdot i_P$).
+		
+		 \subsection{Spezifisches Modell}
+		 \label{sec:Kopplung_Spez}
+		 Die vorstehende Modellanalyse kam ohne die Annahme eines bestimmten quantitativen Zusammenhangs zwischen der Produkteinsparung durch Nutzungsintensivierung und den zusätzlichen Transporten aus: Die Einsparung eines parallel eingesetzten Produkts ($\Delta p = -1$) konnte mit einer beliebigen zusätzlichen mittleren Transportdistanz ($\Delta d > 0$) einhergehen. Im folgenden Modell wird ein Zusammenhang zwischen $p$ und $d$ spezifiziert werden um zu aussagekräftigeren Ergebnissen zu gelangen.
+		 
+ 		 Das Modell bezieht sich auf solche gemeinschaftliche Produktnutzungsformen, die darauf beruhen, Produkte an einem zentralen Ort bereitzustellen um von den teilnehmenden Personen dort genutzt oder entliehen werden zu können. Für dieses Szenario gilt der folgende Zusammenhang: Je mehr Menschen an dem gemeinschaftlichen Produktnutzungssystem teilnehmen, desto mehr Produkte und damit Ressourcen können einerseits eingespart werden. Andererseits vergrößern sich auch die zurückzulegenden Transportdistanzen, wenn weiter vom Zentrum entfernte Personen dem Nutzungssystem beitreten. Vereinfacht gesagt: Je \enquote{größer} das gemeinschaftliche Nutzungssystem, desto mehr Produkte können eingespart werden, aber desto größer sind auch die Transportdistanzen, mit gegenläufigen Implikationen für den Umweltverbrauch.\footnote{Der Begriff der \enquote{Größe} eines Produktnutzungssystems wird im weiteren Verlauf noch operationalisiert.}
+ 		 
+ 		 Dieser Trade-off ist Gegenstand der nachfolgenden Modellanalyse. Es sollen die folgenden Fragen beantwortet werden:
+ 		 \begin{itemize}
+  		 	\item Gibt es eine optimale Größe des gemeinschaftlichen Produktnutzungssystems, d.h. eine Größe, bis zu der die positive Wirkung der Nutzungsintensivierung überwiegt, und ab der die negative Wirkung der zusätzlichen Transporte dominiert?
+  		 	\item Falls ja, wie bestimmt sich diese optimale Größe?
+  		 	\item Wie groß darf das gemeinschaftliche Produktnutzungssystem maximal sein, sodass es einen geringeren Umweltverbrauch gegenüber der individuellen Nutzung aufweist?
+ 		 \end{itemize}		 
+ 		 
+ 		 Es geht, wie auch bei den bisher vorgestellten Modellen, um die Änderung des Umweltverbrauchs durch den Übergang von der individuellen zur gemeinschaftlichen Produktnutzung. Anders als in den bisherigen Modellen wird dieser Übergang jedoch nicht durch die Variation eines Parameters abgebildet, in dem sich individuelle und gemeinschaftliche Produktnutzung voneinander unterscheiden, sondern durch eine allmähliche Ausweitung der gemeinschaftlichen Produktnutzung zuungunsten der individuellen Nutzung.
+ 		 
+ 		 Im Modell kommen beide Nutzungstypen parallel in Form von zwei \enquote{Teilnutzungssystemen} vor. Jede Person gehört entweder dem individuellen oder dem gemeinschaftlichen (Teil-)Nutzungssystem an und nutzt entsprechend entweder ihr eigenes Produkt, oder ein gemeinschaftliches. In der Analyse wird eine Vergrößerung des Anteils der Personen untersucht, die dem gemeinschaftlichen Nutzungssystem angehören. Innerhalb der einzelnen Teilnutzungssysteme findet keine Variation der Modellparameter statt, zwischen den beiden Teilnutzungssystemen gibt es jedoch Unterschiede, die im nächsten Abschnitt noch detailliert besprochen werden.
+		 
+			\paragraph{Modellbeschreibung}
+			Das Modell beruht auf den folgenden Annahmen:
+			\begin{enumerate}
+				\item \label{Kopplung_2_Annahme_1} Das gemeinschaftliche Produktnutzungssystem besitzt ein Zentrum. Zwischen diesem Zentrum und den Standorten der teilnehmenden Personen finden Transporte (von Personen oder Produkten) statt.
+				\item \label{Kopplung_2_Annahme_2} Die Standorte der Personen sind homogen über das gesamte Untersuchungsgebiet verteilt.
+				\item \label{Kopplung_2_Annahme_3} Das gemeinschaftliche Produktnutzungssystem wächst am Rand, das heißt es treten immer die vom Zentrum am wenigsten weit entfernten Personen bei, die bisher noch nicht an der gemeinschaftlichen Nutzung teilnehmen.
+				\item \label{Kopplung_2_Annahme_4} Die gemeinschaftliche Produktnutzung unterscheidet sich von der individuellen Produktnutzung durch eine höhere Nutzungshäufigkeit und die Notwendigkeit von zusätzlichen Transporten (siehe Annahme \ref{Kopplung_2_Annahme_1}).
+			\end{enumerate}
+			
+			Wir betrachten ein kreisförmiges Untersuchungsgebiet mit dem Radius $R$ um das Zentrum $Z$ des gemeinschaftlichen Produktnutzungssystems. Das Untersuchungsgebiet definiert ein zusammengesetztes Produktnutzungssystem, in deren Inneren sich das Einzugsgebiet des gemeinschaftlichen Nutzungssystems befindet. Dieses ist ebenfalls kreisförmig mit dem Radius $r \leq R$ um das Zentrum $Z$. Der verbleibende Kreisring stellt das Gebiet des individuellen Nutzungssystems dar. In Abbildung \ref{fig:Kopplung_Geometrie} wird die soeben beschriebene Geometrie des zusammengesetzten Nutzungssystems grafisch dargestellt.
+			
+			\noteJ{Abbildung erstellen, einfügen und beschriften}
+			
+			Der Radius $r$ des Einzugsgebiets stellt somit eine Operationalisierung für die \enquote{Größe} des gemeinschaftlichen Nutzungssystems dar. Mit wachsendem $r$ steigen mehr und mehr Personen von der individuellen auf die gemeinschaftliche Produktnutzung um. Der Einfachheit halber betrachten wir nur Personen, die zur Teilnahme an der gemeinschaftlichen Nutzungsform bereit sind und umsteigen, sobald das Einzugsgebiet sie erfasst. Diese seien mit einer gewissen Dichte $\rho$ gemäß Annahme \ref{Kopplung_2_Annahme_2} homogen über das gesamte Untersuchungsgebiet verteilt. Damit gehören alle betrachteten Personen, deren Standort nicht weiter als $r$ vom Zentrum $Z$ entfernt liegt, dem gemeinschaftlichen Nutzungssystem an, während die weiter entfernt positionierten Personen zum individuellen Nutzungssystem gehören.
+			
+			
+			
+			Technische Annahme: Personen nicht diskret, sondern kontinuierlich verteilt
+
+			
+			\paragraph{Modellanalyse}			
+		
+			\noteJ{Gibt es eine Abhängigkeit von der Dichte an interessierten Personen?}
 		\section{Modellübersicht}
 
 \chapter{Ergebnisse}
