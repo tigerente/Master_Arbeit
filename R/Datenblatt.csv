@@ -1,0 +1,16 @@
+Maschine;Gewicht;Strom;Wasser;Programm;Temperatur;Drehzahl;Kurz;Vorwaesche;Einweichen;WasserPlus;Sonstiges
+rechts;7;1,33;52;Baumwolle;60;1400;0;0;0;0;-
+rechts;3,5;1;45;Baumwolle;60;1400;0;0;0;0;-
+rechts;7;0,94;52;Baumwolle;60;1400;0;0;0;0;Sparprogramm
+rechts;3,5;0,82;45;Baumwolle;60;1400;0;0;0;0;Sparprogramm
+rechts;7;0,87;67;Baumwolle;40;1400;0;0;0;0;-
+rechts;3,5;0,76;45;Baumwolle;40;1400;0;0;0;0;-
+rechts;3,5;0,58;45;Baumwolle;40;1400;0;0;0;0;Sparprogramm
+rechts;3,5;0,6;49;Pflegeleicht;40;1200;0;0;0;0;-
+rechts;5;0,52;62;Automatic;40;1200;0;0;0;0;-
+links;6;1,02;49;Baumwolle;60;1400;0;0;0;0;-
+links;3;0,73;39;Baumwolle;60;1400;1;0;0;0;-
+links;6;0,65;59;Baumwolle;40;1400;0;0;0;0;-
+links;3;0,36;39;Baumwolle;40;1400;1;0;0;0;-
+links;3;0,5;55;Pflegeleicht;40;1200;0;0;0;0;-
+links;3,5;0,42;47,5;Automatic;40;1200;0;0;0;0;-

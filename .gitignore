@@ -72,6 +72,10 @@
 # nomencl
 *.nlo
 
+# Vim
+*.swp
+*Session.vim
+
 # todonotes
 *.tdo
 
