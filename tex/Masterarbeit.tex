@@ -615,7 +615,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 \newpage
 		\section{Einzeleffekte}
 		\label{sec:Einzeleffekte}
-			\subsection{Nutzungsintensivierung \normalfont{(János Sebestyén)}} % Ursprünglich: "Nutzungsdauerverlängerung"
+			\subsection{Nutzungsintensivierung} % Ursprünglich: "Nutzungsdauerverlängerung"
 			\label{sec:Nutzungsintensivierung}
 				\paragraph{Modellbeschreibung}
 				Unter \enquote{Nutzungsintensivierung} verstehen wir eine Erhöhung der Häufigkeit, mit der ein bestimmtes Produkt genutzt wird. Diese bezeichnen wir als Nutzungshäufigkeit $h$ und definieren sie als die Produktnutzungsmenge pro Zeit. Für eine Waschmaschine wäre dies etwa die Anzahl an Waschgängen pro Woche.
@@ -684,10 +684,10 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 
 				Umgekehrt wird eine Erhöhung der Nutzungshäufigkeit bei kollektiver Nutzung gerade durch eine Reduktion der Produktanzahl erreicht: Teilen sich beispielsweise mehrere Personen eine Waschmaschine, anstatt jeweils eine eigene zu besitzen, erhöht sich die Häufigkeit, mit der die Maschine betrieben wird. Genauer gesagt ist die Nutzungshäufigkeit $h$ für ein Nutzungssystem mit gegebener Service-Nachfrage $S_D$, gegebener Produktauslastung $A$ und einem festen Betrachtungszeitraum $T$ von der parallelen Produktanzahl $p$ abhängig: Je weniger Produkte parallel im Einsatz sind, desto häufiger müssen diese genutzt werden um die Nachfrage zu bedienen. Dieser Zusammenhang lässt sich formal folgendermaßen nachvollziehen:
 	%
-				\begin{equation*}
+				\begin{equation}
 					h \eqnref{eq:N(h)} \frac{N}{t \cdot P} \eqnref{eq:P(p)} \frac{N}{t \cdot p \cdot \frac{T}{t}}
 					= \frac{N}{p \cdot T} \eqnref{eq:N(S_D)} \frac{S_D}{A \cdot p \cdot T} \qquad p \in \mathbb{N}
-				\end{equation*}
+				\end{equation}
 	%
 				Die Nutzungshäufigkeit ist also reziprok proportional zur parallelen Produktanzahl $p$. Da es sich bei $p$ um eine natürliche Zahl handelt, kann in dem betrachteten Szenario auch die Nutzungshäufigkeit $h$ nur diskrete Werte annehmen. Durch die Beschränkung von $p$ durch $p_\text{min}$ gemäß Gleichung \ref{eq:p_min} ergibt sich zudem eine Maximalnutzungshäufigkeit $h_\text{max}$:
 	%
@@ -2311,7 +2311,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
       
       \begin{figure}
           \centering
-          \input{Abbildungen/Transporte_Matrix.pdf_tex}
+          %\input{Abbildungen/Transporte_Matrix.pdf_tex}
           \label{fig:Transporte_Matrix}
           \caption{}
       \end{figure}
@@ -2347,7 +2347,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 		 
 		 Damit ergibt sich das folgende Modell für die Effekt-Kopplung: \\
 		 
-			\begin{mdframed}[frametitle={Nutzungsintensivierung und zusätzliche Transporte}, frametitlerule=true]
+			\begin{mdframed}[frametitle={Nutzungsintensivierung und zusätzliche Transporte -- Allgemeines Modell}, frametitlerule=true]
 				Kopplungsmodell:
 				\begin{align}
 					\label{eq:MIPS(h,d)}
@@ -2358,7 +2358,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 				Nebenbedingungen:
 				\begin{equation}
 					h = \frac{S_D}{A \cdot p \cdot T} \qquad p \in \mathbb{N}
-					\label{eq:h(p)}
+					\label{eq:h(p)_Kopplung}
 				\end{equation}
 				\begin{equation}
 					\label{eq:h_max}
@@ -2436,26 +2436,126 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 			\paragraph{Modellbeschreibung}
 			Das Modell beruht auf den folgenden Annahmen:
 			\begin{enumerate}
-				\item \label{Kopplung_2_Annahme_1} Das gemeinschaftliche Produktnutzungssystem besitzt ein Zentrum. Zwischen diesem Zentrum und den Standorten der teilnehmenden Personen finden Transporte (von Personen oder Produkten) statt.
-				\item \label{Kopplung_2_Annahme_2} Die Standorte der Personen sind homogen über das gesamte Untersuchungsgebiet verteilt.
-				\item \label{Kopplung_2_Annahme_3} Das gemeinschaftliche Produktnutzungssystem wächst am Rand, das heißt es treten immer die vom Zentrum am wenigsten weit entfernten Personen bei, die bisher noch nicht an der gemeinschaftlichen Nutzung teilnehmen.
-				\item \label{Kopplung_2_Annahme_4} Die gemeinschaftliche Produktnutzung unterscheidet sich von der individuellen Produktnutzung durch eine höhere Nutzungshäufigkeit und die Notwendigkeit von zusätzlichen Transporten (siehe Annahme \ref{Kopplung_2_Annahme_1}).
+				\item \label{Kopplung_2_Annahme_homogen} Die Standorte der Personen sind homogen über das gesamte Untersuchungsgebiet verteilt.
+				\item \label{Kopplung_2_Annahme_ind_keine_Transp} Die am individuellen Produktnutzungssystem teilnehmenden Personen nutzen jeweils ihre eigenen Produkte. Dazu sind keine Transporte erforderlich.
+				\item \label{Kopplung_2_Annahme_Zentrum} Das gemeinschaftliche Produktnutzungssystem besitzt ein Zentrum. Zwischen diesem Zentrum und den Standorten der teilnehmenden Personen finden Transporte (von Personen oder Produkten) statt.
+				\item \label{Kopplung_2_Annahme_Randwachstum} Das gemeinschaftliche Produktnutzungssystem wächst am Rand, das heißt es treten immer die vom Zentrum am wenigsten weit entfernten Personen bei, die bisher noch nicht an der gemeinschaftlichen Nutzung teilnehmen.
+				\item \label{Kopplung_2_Annahme_Unterschied_gem_ind} Die gemeinschaftliche Produktnutzung unterscheidet sich von der individuellen Produktnutzung durch eine höhere Nutzungshäufigkeit und die Notwendigkeit von zusätzlichen Transporten (siehe Annahme \ref{Kopplung_2_Annahme_Zentrum}).
 			\end{enumerate}
 			
 			Wir betrachten ein kreisförmiges Untersuchungsgebiet mit dem Radius $R$ um das Zentrum $Z$ des gemeinschaftlichen Produktnutzungssystems. Das Untersuchungsgebiet definiert ein zusammengesetztes Produktnutzungssystem, in deren Inneren sich das Einzugsgebiet des gemeinschaftlichen Nutzungssystems befindet. Dieses ist ebenfalls kreisförmig mit dem Radius $r \leq R$ um das Zentrum $Z$. Der verbleibende Kreisring stellt das Gebiet des individuellen Nutzungssystems dar. In Abbildung \ref{fig:Kopplung_Geometrie} wird die soeben beschriebene Geometrie des zusammengesetzten Nutzungssystems grafisch dargestellt.
 			
 			\noteJ{Abbildung erstellen, einfügen und beschriften}
 			
-			Der Radius $r$ des Einzugsgebiets stellt somit eine Operationalisierung für die \enquote{Größe} des gemeinschaftlichen Nutzungssystems dar. Mit wachsendem $r$ steigen mehr und mehr Personen von der individuellen auf die gemeinschaftliche Produktnutzung um. Der Einfachheit halber betrachten wir nur Personen, die zur Teilnahme an der gemeinschaftlichen Nutzungsform bereit sind und umsteigen, sobald das Einzugsgebiet sie erfasst. Diese seien mit einer gewissen Dichte $\rho$ gemäß Annahme \ref{Kopplung_2_Annahme_2} homogen über das gesamte Untersuchungsgebiet verteilt. Damit gehören alle betrachteten Personen, deren Standort nicht weiter als $r$ vom Zentrum $Z$ entfernt liegt, dem gemeinschaftlichen Nutzungssystem an, während die weiter entfernt positionierten Personen zum individuellen Nutzungssystem gehören.
+			Der Radius $r$ des Einzugsgebiets stellt somit eine Operationalisierung für die \enquote{Größe} des gemeinschaftlichen Nutzungssystems dar. Mit wachsendem $r$ steigen mehr und mehr Personen von der individuellen auf die gemeinschaftliche Produktnutzung um. Der Einfachheit halber betrachten wir nur Personen, die zur Teilnahme an der gemeinschaftlichen Nutzungsform bereit sind und umsteigen, sobald das Einzugsgebiet sie erfasst. Damit gehören alle betrachteten Personen, deren Standort nicht weiter als $r$ vom Zentrum $Z$ entfernt liegt, dem gemeinschaftlichen Nutzungssystem an, während die weiter entfernt positionierten Personen zum individuellen Nutzungssystem gehören.
 			
+			Um die Modellierung zu vereinfachen, bilden wir nicht die diskreten Standorte der einzelnen Personen ab, sondern nähern diese durch eine kontinuierliche räumliche Verteilung an. Gemäß Annahme \ref{Kopplung_2_Annahme_homogen} gehen wir von einer homogenen Verteilung über das gesamte Untersuchungsgebiet aus, die sich durch eine gewisse Personen-Dichte $\rho$ charakterisieren lässt.
 			
+			Wie zu Beginn des Kapitels bereits erwähnt, soll im vorliegenden Modell ein Zusammenhang zwischen der Anzahl parallel eingesetzter Produkte $p$ und der mittleren Transportdistanz $d$ abgebildet werden. Dies geschieht über eine gemeinsame Abhängigkeit vom Radius $r$ des Einzugsgebiets der gemeinschaftlichen Produktnutzung. Beide Zusammenhänge werden im Folgenden nacheinander eingeführt, bevor sie zu einem Gesamtmodell zusammengefasst werden. Dabei wird jeweils zwischen dem individuellen und dem gemeinschaftlichen Teilnutzungssystem unterschieden, was sich in der Notation durch ein hochgestelltes \enquote{ind} bzw. \enquote{gem} ausdrückt.
 			
-			Technische Annahme: Personen nicht diskret, sondern kontinuierlich verteilt
-
+			Wir kommen zunächst zur Abhängigkeit der mittleren Transportdistanz $d$ vom Radius $r$.	Gemäß Annahmen \ref{Kopplung_2_Annahme_ind_keine_Transp} und \ref{Kopplung_2_Annahme_Zentrum} finden nutzungsbedingte Transporte nur im gemeinschaftlichen Teilnutzungssystem statt und zwar zwischen dem Zentrum $Z$ und den jeweiligen Standorten der Personen. Damit ist die mittlere Transportdistanz für das individuelle Nutzungssystem null ($d^\text{ind} = 0$), und für das gemeinschaftliche Nutzungssystem gleichbedeutend mit dem mittleren Abstand der Personen-Standorte vom Zentrum Z.
 			
-			\paragraph{Modellanalyse}			
-		
-			\noteJ{Gibt es eine Abhängigkeit von der Dichte an interessierten Personen?}
+			Dieser lässt sich folgendermaßen bestimmen: Wir ziehen $k$ konzentrische Kreise um den Mittelpunkt $Z$ mit den Radien $r_i = i \cdot \frac{r}{k}$ ($i = 1, \dots, k$) und unterteilen damit das Einzugsgebiet in $k-1$ Kreisringe der Breite $\frac{r}{k}$, siehe Abbildung \ref{fig:Kreisringe}.\footnote{Anmerkung: Der innerste Kreisring ist zu einem Kreis mit Radius $\frac{r}{k}$ entartet.} Die Anzahl $m_i$ der Personen-Standorte im $i$-ten Kreisring beträgt
+			%
+			\begin{align}
+				m_i &= \pi \cdot \left(r_i^2 - r_{i-1}^2\right) \cdot \rho = \pi \cdot \left(\left(i \cdot \frac{r}{k}\right)^2 - \left(\left(i-1\right) \cdot \frac{r}{k}\right)^2\right) \cdot \rho \\
+				&= \pi \cdot \frac{r^2}{k^2} \cdot (2i-1) \cdot \rho
+			\end{align}
+			%
+			Im Folgenden wird durch die Grenzwertbildung $k \to \infty$ zu infinitesimal kleinen Ringbreiten übergegangen. Daher kann der Abstand aller Punkte eines Kreisrings zum Zentrum $Z$ durch den Außenradius $r_i$ dieses Kreisrings angenähert werden. Unter Berücksichtigung der Tatsache, dass sich im gesamten Einzugsgebiet $m = \pi \cdot r^2 \cdot \rho$ Personenstandorte befinden, lässt sich nun die mittlere Transportdistanz für das gemeinschaftliche Nutzungssystem berechnen:
+			
+			\begin{align}
+				d^\text{gem} &= \lim\limits_{k \to \infty} \frac{\sum\limits_{i=1}^{k} r_i \cdot m_i}{m} = \lim\limits_{k \to \infty} \frac{\sum\limits_{i=1}^{k} i \cdot \frac{r}{k} \cdot \pi \cdot \frac{r^2}{k^2} \cdot (2i-1) \cdot \rho}{\pi \cdot r^2 \cdot \rho} \\[10pt]
+				&= \lim\limits_{k \to \infty} \sum\limits_{i=1}^{k} i \cdot \frac{r}{k^3} \cdot (2i-1) = \lim\limits_{k \to \infty} \frac{r}{k^3} \left( 2 \cdot \sum\limits_{i=1}^{k} i^2 - \sum\limits_{i=1}^{k} i \right) \\[10pt]
+				&= \lim\limits_{k \to \infty} \frac{r}{k^3} \left( \frac{k \cdot (k+1) \cdot (2k+1)}{3} - \frac{k \cdot (k+1)}{2} \right) \\[10pt]
+				&= \frac{2}{3} \cdot r
+			\end{align}
+			%
+			Die im vorletzten Schritt angewandten Formeln für die Summe der k ersten natürlichen Zahlen bzw. der k ersten Quadratzahlen können per Induktion nach k bewiesen werden.
+			
+			Nachdem nun ein einfacher Ausdruck für die mittlere Transportdistanz in Abhängigkeit vom Radius des Einzugsgebiets gefunden wurde, wenden wir uns der Anzahl parallel eingesetzter Produkte $p$ zu. Zunächst greifen wir die Nebenbedingung \ref{eq:h(p)_Kopplung} aus dem allgemeinen Modell (Abschnitt \ref{sec:Kopplung_Allg}) wieder auf und stellen nach $p$ um:
+			\begin{equation}
+				p = \left \lceil \frac{S_D}{A \cdot h \cdot T} \right \rceil
+			\end{equation}
+			%
+			Die Rundungsklammer ist formal notwendig, da $p$ nur ganzzahlige Werte zulässt. Für die Bestimmung der MIPS ist es notwendig, die parallele Produktanzahl für das individuelle und für das gemeinschaftliche Teilnutzungssystem getrennt zu ermitteln. Dazu müssen zunächst die Größen $h$ und $S_D$ nach den Teilnutzungssystemen differenziert betrachtet werden.
+			
+			Die Nutzungshäufigkeit ist die zentrale Größe im Zusammenhang mit der Nutzungsintensivierung. Gemäß Annahme \ref{Kopplung_2_Annahme_Unterschied_gem_ind} gehen wir davon aus, dass die Nutzungshäufigkeit $h^\text{gem}$ des gemeinschaftlichen Teilsystems größer ist als die Nutzungshäufigkeit $h^\text{ind}$ des individuellen Teilsystems. Beide Größen werden als Konstanten betrachtet.
+			
+			Für die Service-Nachfrage $S_D$ ist in diesem Modell folgende Besonderheit gegenüber den bisherigen Modelluntersuchungen zu beachten: Zwar wird die Service-Nachfrage des gesamten, zusammengesetzten Produktnutzungssystems wie gehabt als konstant angenommen, jedoch variiert die Service-Nachfrage der einzelnen Teilnutzungssysteme mit dem Anteil der Personen, die dem jeweiligen Teilsystem angehören. Dies beruht auf der Annahme, dass jede Person eine bestimmte, konstante Service-Menge nachfragt. Unter Berücksichtigung der oben bereits eingeführten Personen-Dichte $\rho$ und der beschriebenen Geometrie gelten die folgenden Zusammenhänge:
+			\begin{equation}
+				S_D^\text{ind} = S_D \cdot \frac{\pi \cdot (R^2-r^2) \cdot \rho}{\pi \cdot R^2 \cdot \rho} = S_D \cdot \frac{R^2-r^2}{R^2} = S_D \cdot \left( 1 - \frac{r^2}{R^2} \right)
+			\end{equation}
+			
+			\begin{equation}
+				S_D^\text{gem} = S_D \cdot \frac{\pi \cdot r^2 \cdot \rho}{\pi \cdot R^2 \cdot \rho} = S_D \cdot \frac{r^2}{R^2}
+			\end{equation}
+			
+			Nach diesen Vorüberlegungen ergibt sich für die Anzahlen der parallel eingesetzten Produkte:
+			\begin{equation}
+				p^\text{ind} = \left \lceil \frac{S_D^\text{ind}}{A \cdot h^\text{ind} \cdot T} \right \rceil
+				= \left \lceil \left( 1 - \frac{r^2}{R^2} \right) \cdot \frac{S_D}{A \cdot h^\text{ind} \cdot T} \right \rceil
+			\end{equation}
+			bzw.
+			\begin{equation}
+				p^\text{gem} = \left \lceil \frac{S_D^\text{gem}}{A \cdot h^\text{gem} \cdot T} \right \rceil
+			= \left \lceil \frac{r^2}{R^2} \cdot \frac{S_D}{A \cdot h^\text{gem} \cdot T} \right \rceil
+			\end{equation}			
+			
+			Mit Gleichung \textbf{??} \noteJ{Referenz einfügen} lässt sich schließlich die effektive Produktanzahl des zusammengesetzten Produktnutzungssystems angeben:
+			\begin{equation}
+				P = P^\text{ind} + P^\text{gem} = p^\text{ind} \cdot q^\text{ind} + p^\text{gem} \cdot q^\text{gem}
+			\end{equation}
+			
+			Es liegen nun alle Voraussetzungen vor um die MIPS für das zusammengesetzte Produktnutzungssystem zu bestimmen:
+			%
+			\begin{align}
+				\text{MIPS}(r) &= \frac{I_P + I_\Theta + I_\text{fix}^{h,d}}{S_D} = 
+				\frac{(p^\text{ind} \cdot q^\text{ind} + p^\text{gem} \cdot q^\text{gem}) \cdot i_P + \alpha \cdot S_D^\text{gem} \cdot d^\text{gem} + I_\text{fix}^{h,d}}{S_D} \\
+				&= \frac{(p^\text{ind} \cdot q^\text{ind} + p^\text{gem} \cdot q^\text{gem}) \cdot i_P}{S_D} + \frac{\alpha \cdot S_D \cdot \frac{r^2}{R^2} \cdot \frac{2}{3} \cdot r}{S_D} + \frac{I_\text{fix}^{h,d}}{S_D} \\[10pt]
+				&= \frac{\left \lceil \left( 1 - \frac{r^2}{R^2} \right) \cdot \frac{S_D}{A \cdot h^\text{ind} \cdot T} \right \rceil \cdot q^\text{ind} \cdot i_P}{S_D} + \frac{\left \lceil \frac{r^2}{R^2} \cdot \frac{S_D}{A \cdot h^\text{gem} \cdot T} \right \rceil \cdot q^\text{gem} \cdot i_P}{S_D} + \alpha \cdot \frac{2}{3} \cdot \frac{r^3}{R^2} + \frac{I_\text{fix}^{h,d}}{S_D} \\
+				&\approx \frac{\left( 1 - \frac{r^2}{R^2} \right) \cdot \frac{S_D}{A \cdot h^\text{ind} \cdot T} \cdot q^\text{ind} \cdot i_P}{S_D} + \frac{\frac{r^2}{R^2} \cdot \frac{S_D}{A \cdot h^\text{gem} \cdot T} \cdot q^\text{gem} \cdot i_P}{S_D} + \alpha \cdot \frac{2}{3} \cdot \frac{r^3}{R^2} + \frac{I_\text{fix}^{h,d}}{S_D} \\
+				&= \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} - \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} \cdot \frac{r^2}{R^2} + \frac{q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} \cdot \frac{r^2}{R^2} + \alpha \cdot \frac{2}{3} \cdot \frac{r^3}{R^2} + \frac{I_\text{fix}^{h,d}}{S_D}
+			\end{align}
+			\noteJ{Referenz für $I_\Theta = \alpha \cdot S_D \cdot d$ einfügen}
+			%
+			Im vierten Schritt wurden die Rundungsklammern ignoriert um den Ausdruck differenzierbar zu machen. Der dabei gemachte Fehler -- eine Unterschätzung der MIPS -- kann folgendermaßen quantifiziert werden:
+			\begin{equation}
+				|\epsilon| = \Delta_1 \cdot \frac{q^{ind} \cdot i_P}{S_D} + \Delta_2 \cdot \frac{q^{gem} \cdot i_P}{S_D} < (q^{ind} + q^{gem}) \cdot \frac{i_P}{S_D} \qquad (\Delta_1, \Delta_1 \in [0,1))
+			\end{equation}
+			
+			Wir halten die Modellgleichung fest:\\
+			
+			\begin{mdframed}[frametitle={Nutzungsintensivierung und zusätzliche Transporte -- Spezifisches Modell}, frametitlerule=true]
+				Kopplungsmodell:
+				\begin{equation}
+					\text{MIPS}(r) = \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} - \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} \cdot \frac{r^2}{R^2} + \frac{q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} \cdot \frac{r^2}{R^2} + \alpha \cdot \frac{2}{3} \cdot \frac{r^3}{R^2} + \frac{I_\text{fix}^{h,d}}{S_D}
+				\end{equation}
+			\end{mdframed}
+			
+			\paragraph{Modellanalyse}
+			In der folgenden Modellanalyse wird untersucht, wie sich eine Vergrößerung des gemeinschaftlichen Produktnutzungssystems -- operationalisiert durch eine Erhöhung des Einzugsgebiets-Radius $r$ -- auf die MIPS des gesamten Produktnutzungssystems auswirkt. Insbesondere wird bestimmt, bis zu welchem Radius eine Vergrößerung des Einzugsgebiets zu einer Verringerung der MIPS führt.
+			
+			Dazu bestimmen wir zunächst die Ableitung der MIPS-Gleichung:
+			\begin{equation}
+				\frac{\partial \text{MIPS}}{\partial r} = \frac{2 \cdot q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} \cdot \frac{r}{R^2} - \frac{2 \cdot q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} \cdot \frac{r}{R^2} + 2 \alpha \cdot \frac{r^2}{R^2}
+			\end{equation}
+			
+			Falls es ein Minimum gibt, muss dort die folgende Bedingung gelten:
+			\begin{align}
+				& \frac{\partial \text{MIPS}}{\partial r} = 0 \\[10pt]
+				\Leftrightarrow \quad & \frac{2 \cdot q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} \cdot \frac{r}{R^2} - \frac{2 \cdot q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} \cdot \frac{r}{R^2} + 2 \alpha \cdot \frac{r^2}{R^2} = 0 \\[10pt]
+				\Leftrightarrow \quad & r = 0 \quad \text{oder} \quad \frac{q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} - \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} + \alpha \cdot r = 0 \\[10pt]
+				\Leftrightarrow \quad & r = 0 \quad \text{oder} \quad r = r^* := \frac{i_P}{A \cdot T \cdot \alpha} \left( \frac{q^\text{ind}}{h^\text{ind}} - \frac{q^\text{gem}}{h^\text{gem}} \right)
+			\end{align}
+			
+			Die zweite Ableitung gibt Aufschluss darüber, ob es sich jeweils um ein Maximum, Minimum oder eine Wendestelle handelt.
+			\begin{equation}
+				\frac{\partial^2 \text{MIPS}}{\partial r^2} = \frac{2 \cdot q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T \cdot R^2}  - \frac{2 \cdot q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T \cdot R^2} + 4 \alpha \cdot \frac{r}{R^2}
+			\end{equation}						
+			
+			\noteJ{Abbildung mit verschiedenen typischen Verläufen der MIPS}
+			
 		\section{Modellübersicht}
 
 \chapter{Fallstudie}
