@@ -2488,6 +2488,7 @@ benötigt:
         \item  Transportierte Menge je Serviceeinheit $m_S$
         \item  Kapazität $K$
         \item  gewünschte Nutzungsdauer $\t{max}$
+        \item  Produktauslastung $a$
     \end{itemize}
 \end{minipage}
 % alternativ: eine lange Liste:
@@ -2543,12 +2544,44 @@ Neben den Szenario übergreifenden werden werden desweiteren die folgenden
 Wir geben nun zunächst an, welche Datenquellen wir benutzt haben und stellen
 dann die für die Berechnungen verwendeten Daten dar.
 \subsection{Datenquellen}
-% eigene Datenerhebung
-% Datenblatt der Waschmaschinen
-% Schätzung
-% Definition des Szenarios
-% Werte aus der Datenbank
+Wir haben die folgenden Datenquellen benutzt:
+
+\begin{description}
+    \item[Werte aus der MIPS-Datenbank:] Der Datenbank \todo{genaue Quelle
+        angeben} konnten MIPS-Werte für eine Waschmaschine (Herstellung und
+        Entsorgung), für eine Kilowattstunde Strom (Deutscher Durchschnittsmix)
+        und für die Benutzung eines Autos über einen Kilometer entnommen
+        werden.\\
+        \textit{Parameter: Material-Inputs je Produkt, Material-Inputs je
+        Transportdistanz}
+    \item[eigene Datenerhebung:] wir führten eine einwöchige Erhebung in unserem
+        Wohnheim \enquote{Luhrmannhof} durch, bei der wir die nachgefragte
+        Nutzungsmenge von den 50 hier lebenden Studierenden, die Auslastung
+        je Waschgang und die Verteilung der Waschprogramme ermitteln konnten.\\
+        \textit{Parameter: Produktauslastung, nachgefragte Service-Menge,
+        Nachfrage pro Person}
+    \item[Datenblatt der Waschmaschinen:] Die Anleitung der bei uns im
+        Wohnheim verwendeten Waschmaschiinen beinhaltet eine Übersicht über den
+        Strom- und Wasserverbrauch in Abhängigkeit von dem Programm, der
+        Temperatur und der Auslastung (Übersicht unvollständig). Außerdem
+        beinhaltet die Anleitung die maximale Beladungsmenge der Waschmaschinen.\\
+        \textit{Parameter: Kapazität, Material-Inputs je Produktnutzung (Konnten
+        zusammen mit der Kenntnis der Verteilung der Waschprogramme, der
+        Auslastung und den Material-Inputs je Kilowattstunde bestimmt werden.)} 
+    \item[Definition des Szenarios:] Einige Parameter sind durch die Definition
+        der Szenarien bereits vorgegeben.\\
+        \textit{Parameter: Produktanzahl, mittlere Transportdistanz,
+            Transporthäufigkeit, Transportierte Menge je Serviceeinheit, 
+            \todo{Parameter des zweiten Analyseteils einfügen}}
+    \item[Schätzung:] Alle Parameter die mit den genannten Quellen nicht
+        bestimmt werden konnten, wurden geschätzt. Diese Parameter wurden bei
+        den Berechnungen einer Sensitivitätsanalyse unterzogen.\\
+        \textit{Parameter: Einzelnutzungsvorrat, gewünschte Nutzungsdauer}
+\end{description}
+
 \subsection{Übersicht über die verwendeten Daten}
+Die folgenden Tabellen stellen alle für die Beispielrechnungen verwendeten Daten
+und deren Quelle dar:
 
         % Hier führten wir auch eine Erhebung der in allen drei Szenarien
         % identischen Parameter Auslastung der Waschmaschinen und nachgefragte
