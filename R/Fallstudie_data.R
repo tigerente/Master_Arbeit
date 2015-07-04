@@ -153,47 +153,60 @@ i_N_Wasser = weighted.mean(wasser[,"W"], wasser[,"H"])
 ##########################################
 
 Szenario.Ind <- data.frame(
-  a = c(-1, sig = 0),
   p = c(-1, sig = 0),
-  h = c(-1, sig = 0),
-  w = c(-1, sig = 0),
   d = c(-1, sig = 0)
 )
 Szenario.Luh <- data.frame(
-  a = c(-1, sig = 0),
   p = c(-1, sig = 0),
-  h = c(-1, sig = 0),
-  w = c(-1, sig = 0),
   d = Szenario.Ind$d
 )
 Szenario.Tra <- data.frame(
-  a = Szenario.Luh$a,
   p = Szenario.Luh$p,
-  h = Szenario.Luh$h,
-  w = Szenario.Luh$w,
   d = c(-1, sig = 0)
 )
 
+# Material-Inputs:
+i_N <- data.frame(
+  dim1 = c(-1, sig = 0),
+  dim2 = c(-1, sig = 0)
+)
+i_P <- data.frame(
+  dim1 = c(-1, sig = 0),
+  dim2 = c(-1, sig = 0)
+)
+i_d <- data.frame(
+  dim1 = c(-1, sig = 0),
+  dim2 = c(-1, sig = 0)
+)
+I_fix_h <- data.frame(
+  dim1 = c(-1, sig = 0),
+  dim2 = c(-1, sig = 0)
+)
+I_fix_d  <- data.frame(
+  dim1 = c(-1, sig = 0),
+  dim2 = c(-1, sig = 0)
+)
+I_fix_k  <- data.frame(
+  dim1 = c(-1, sig = 0),
+  dim2 = c(-1, sig = 0)
+)
+
 results <- data.frame(
-  S_D = c(-1, sig = 0),
-  i_P = c(-1, sig = 0),
-  i_N = c(-1, sig = 0),
+  i_P = i_P,
+  i_N = i_N,
+  i_d = i_d,
+
+  I_fix_h = I_fix_h,
+  I_fix_d = I_fix_d,
+  I_fix_k = I_fix_k,
+
+  S_D   = c(-1, sig = 0),
   n_max = c(-1, sig = 0),
-  I_fix_h = c(-1, sig = 0),
-  I_fix_a = c(-1, sig = 0),
-  I_fix_w = c(-1, sig = 0),
-  I_fix_R = c(-1, sig = 0),
-  I_fix_d = c(-1, sig = 0),
-  I_fix_k = c(-1, sig = 0),
-  i_w = c(-1, sig = 0),
-  i_R = c(-1, sig = 0),
-  I_R = c(-1, sig = 0),
-  i_d_M = c(-1, sig = 0),
-  i_d = c(-1, sig = 0),
   theta = c(-1, sig = 0),
-  m_S = c(-1, sig = 0),
-  K = c(-1, sig = 0),
+  m_S   = c(-1, sig = 0),
+  K     = c(-1, sig = 0),
   t_max = c(-1, sig = 0),
+  a     = c(-1, sig = 0),
   
   Ind = Szenario.Ind,
   Luh = Szenario.Luh,
