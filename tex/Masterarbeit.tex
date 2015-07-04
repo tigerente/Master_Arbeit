@@ -36,6 +36,9 @@ dashed=false]{biblatex}
 \graphicspath{{../Abbildungen/}{./Abbildungen/}}
 
 \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{setspace} % Provides the commands \doublespacing, \onehalfspacing,
+                      % \singlespacing and \setstretch{baselinestretch} for
+                      % controlling the line height
 
 %%% PACKAGES
 \usepackage{booktabs} % for much better looking tables
@@ -467,7 +470,11 @@ Etwas feinteiliger betrachtet, lässt sich diese Fragestellung in die folgenden 
 
         Die Szenarien unterscheiden sich also in den Paramtern Produktanzahl und
         Transportdistanz. Wir nehmen an, dass alle weiteren Parameter zwischen
-        den Szenarien identisch sind.        
+        den Szenarien identisch sind. Außerdem nehmen wir an in diesem und
+        auch im nächsten Analyseteil an, dass Material-Inputs sich aus den drei
+        Bestandteilen nutzungsbedingte Inputs, produktbezogene Inputs und
+        transportbedingten Inputs ergeben und darüber hinaus keine weiteren
+        Ressourcenverbräuche anfallen.
 
         Aus den drei Szenarien ergeben sich die in der Tabelle
         \ref{tab:Fallbeispiele} angegebenen drei Kombinationsmöglichkeiten, die
@@ -2447,7 +2454,101 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 		\section{Modellübersicht}
 
 \chapter{Fallstudie}
-\section{Verwendete Daten}
+Wir kommen nun zur Anwendung der theoretischen Erkenntnisse auf das Beispiel der
+gemeinschaftlichen Nutzung von Waschmaschinen. Im ersten Abschnitt stellen wir zunächst
+die für die Berechnung verwendeten Daten und deren Datenquellen dar. Im zweiten
+Abschnitt führen wir dann die Beispielrechnungen für die Modelle
+Nutzungsintensivierung und Transporte sowie deren Kopplung durch. Im dritten
+Abschnitt diskutieren wir schließlich die Ergebnisse.
+\section{Daten}
+Zunächst seien alle Daten zusammengefasst, die für die Anwendung der Modelle
+benötigt werden. Es werden zum einen die folgenden \emph{Szenario übergreifende Daten}
+benötigt:
+
+\begin{minipage}[t]{0.45\textwidth}
+    \onehalfspacing
+    \emph{Material-Inputs}:
+    \begin{itemize}
+        \item  Material-Inputs je Produkt $i_P$
+        \item  Material-Inputs je Produktnutzung $i_N$
+        \item  Material-Inputs je Transportdistanz $i_d$
+        \item  fixe Inputs (Diese sind je Modell unterschiedlich, ergeben
+            sich aber jeweils aus der Annahme, dass $I = I_N + I_P +
+            I_\Theta$ ist.)
+    \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+    \onehalfspacing
+    \emph{sonstige Parameter}:
+    \begin{itemize}
+        \item  nachgefragte Service-Menge $S_D$
+        \item  Einzelnutzungsvorrat $\n{max}$
+        \item  Transporthäufigkeit $\theta$
+        \item  Transportierte Menge je Serviceeinheit $m_S$
+        \item  Kapazität $K$
+        \item  gewünschte Nutzungsdauer $\t{max}$
+    \end{itemize}
+\end{minipage}
+% alternativ: eine lange Liste:
+% \begin{itemize}
+%     \item Inputs:
+%         \begin{itemize}
+%             \item  Material-Inputs je Produkt $i_P$
+%             \item  Material-Inputs je Produktnutzung $i_N$
+%             \item  Material-Inputs je Transportdistanz $i_d$
+%             \item  fixe Inputs (Diese sind je Modell unterschiedlich, ergeben
+%                 sich aber jeweils aus der Annahme, dass $I = I_N + I_P +
+%                 I_\Theta$ ist.)
+%         \end{itemize}
+%     \item sonstige Parameter:
+%         \begin{itemize}
+%             \item  nachgefragte Service-Menge $S_D$
+%             \item  Einzelnutzungsvorrat $\n{max}$
+%             \item  Transporthäufigkeit $\theta$
+%             \item  Transportierte Menge je Serviceeinheit $m_S$
+%             \item  Kapazität $K$
+%             \item  gewünschte Nutzungsdauer $\t{max}$
+%         \end{itemize}
+% \end{itemize}
+
+Die Material-Inputs sind insofern besonders, als dass sie mehrdimensionale
+Vektoren darstellen, da sie für die verschiedenen MIPS-Dimensionen
+unterschiedliche Werte annehmen.
+
+Neben den Szenario übergreifenden werden werden desweiteren die folgenden
+\emph{Szenario spezifischen Daten} für die Beispielrechnungen benötigt:
+
+\begin{minipage}[t]{0.45\textwidth}
+    \onehalfspacing
+    \emph{Erster Analyseteil}:
+    \begin{itemize}
+        \item  parallele Produktanzahl p
+        \item  mittlere Transportdistanz d
+    \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+    \onehalfspacing
+    \emph{Zweiter Analyseteil}:
+    \begin{itemize}
+        \item  Radius R
+        \item  Bevölkerungsdichte und Dichte der potentiellen Nutzer\_innen
+        \item  Nutzungsintensität im Waschsalon
+        \item  Nachfrage pro Person
+    \end{itemize}
+\end{minipage}
+    \todo{die richtigen Daten des Kopplungsmodells eintragen}
+
+Wir geben nun zunächst an, welche Datenquellen wir benutzt haben und stellen
+dann die für die Berechnungen verwendeten Daten dar.
+\subsection{Datenquellen}
+% eigene Datenerhebung
+% Datenblatt der Waschmaschinen
+% Schätzung
+% Definition des Szenarios
+% Werte aus der Datenbank
+\subsection{Übersicht über die verwendeten Daten}
 
         % Hier führten wir auch eine Erhebung der in allen drei Szenarien
         % identischen Parameter Auslastung der Waschmaschinen und nachgefragte
