@@ -21,7 +21,7 @@ r <- mapply(round, x=results[1,], digits=results["sig",], SIMPLIFY = FALSE)
         \midrule
         $i_P$       &\Sexpr{r$i_P.dim1}\sourceD      &\Sexpr{r$i_P.dim2}\sourceD\\
         $i_N$       &\Sexpr{r$i_N.dim1}\sourceW\sourceD\sourceE
-        &\Sexpr{r$i_N.dim2}\sourceW\sourceD\sourceE\\
+                    &\Sexpr{r$i_N.dim2}\sourceW\sourceD\sourceE\\
         $i_d$       &\Sexpr{r$i_d.dim1}\sourceD     &\Sexpr{r$i_d.dim2}\sourceD\\
 %    $\I{fix}^h$ &\Sexpr{r$I_fix_h.dim1}\sourceU  &\Sexpr{r$I_fix_h.dim2}\sourceU\\
 %    $\I{fix}^d$ &\Sexpr{r$I_fix_d.dim1}\sourceU  &\Sexpr{r$I_fix_d.dim2}\sourceU\\
