@@ -18,6 +18,11 @@ source("./Data_Selections.R") # define data selections
 # jetzt erstellen wir noch einen Vektor, der alle Zeilen mit Gewicht angibt
 selNotNull <- Ergebnisse$Gewicht != 0
 
+# MIPS-Data from the database:
+MIPS_Strom = 1
+i_P = c(1,1)
+i_d = c(1,1)
+
 ##############################
 #### Calculate parameters ####
 ##############################
@@ -25,7 +30,7 @@ selNotNull <- Ergebnisse$Gewicht != 0
 mean_A = mean(Ergebnisse[selNotNull,]$Gewicht)
 delta_N = 22 # Schätzwert für die nicht angegebenen Waschgänge
 N = nrow(Ergebnisse) + delta_N
-S = N * mean_A
+S = N * mean_A,
 
 # Strom:
 I_N_Strom = sum(Ergebnisse$Strom)
@@ -153,47 +158,72 @@ i_N_Wasser = weighted.mean(wasser[,"W"], wasser[,"H"])
 ##########################################
 
 Szenario.Ind <- data.frame(
-  a = c(-1, sig = 0),
-  p = c(-1, sig = 0),
-  h = c(-1, sig = 0),
-  w = c(-1, sig = 0),
-  d = c(-1, sig = 0)
+  p = c(10, sig = 0),
+  d = c(0, sig = 0)
 )
 Szenario.Luh <- data.frame(
-  a = c(-1, sig = 0),
-  p = c(-1, sig = 0),
-  h = c(-1, sig = 0),
-  w = c(-1, sig = 0),
+  p = c(2, sig = 0),
   d = Szenario.Ind$d
 )
 Szenario.Tra <- data.frame(
-  a = Szenario.Luh$a,
   p = Szenario.Luh$p,
-  h = Szenario.Luh$h,
-  w = Szenario.Luh$w,
-  d = c(-1, sig = 0)
+  d = c(1.5, sig = 0) # Einheit: Kilometer
 )
 
-results <- data.frame(
-  S_D = c(-1, sig = 0),
-  i_P = c(-1, sig = 0),
-  i_N = c(-1, sig = 0),
-  n_max = c(-1, sig = 0),
-  I_fix_h = c(-1, sig = 0),
-  I_fix_a = c(-1, sig = 0),
-  I_fix_w = c(-1, sig = 0),
-  I_fix_R = c(-1, sig = 0),
-  I_fix_d = c(-1, sig = 0),
-  I_fix_k = c(-1, sig = 0),
-  i_w = c(-1, sig = 0),
-  i_R = c(-1, sig = 0),
-  I_R = c(-1, sig = 0),
-  i_d_M = c(-1, sig = 0),
-  i_d = c(-1, sig = 0),
-  theta = c(-1, sig = 0),
-  m_S = c(-1, sig = 0),
-  K = c(-1, sig = 0),
-  t_max = c(-1, sig = 0),
+# Material-Inputs:
+i_N <- data.frame(
+  dim1 = c(I_N_Strom * MIPS_Strom, sig = 0),
+  dim2 = c(i_N_Wasser, sig = 0)
+)
+i_P <- data.frame(
+  dim1 = c(i_P[1], sig = 0),
+  dim2 = c(i_P[2], sig = 0)
+)
+i_d <- data.frame(
+  dim1 = c(i_d[1], sig = 0),
+  dim2 = c(i_d[2], sig = 0)
+)
+I_fix_h <- data.frame(
+  dim1 = c(0, sig = 0),
+  dim2 = c(0, sig = 0)
+)
+I_fix_d  <- data.frame(
+  dim1 = c(-1, sig = 0),
+  dim2 = c(-1, sig = 0)
+)
+I_fix_k  <- data.frame(
+  dim1 = c(0, sig = 0),
+  dim2 = c(0, sig = 0)
+)
+
+# alle weiteren Parameter:
+S_D   = c(          S, sig = 0)
+n_max = c(         -1, sig = 0)
+theta = c(         -1, sig = 0)
+m_S   = c(         -1, sig = 0)
+K     = c(          7, sig = 0)       # Einheit: Kilogramm
+t_max = c(         -1, sig = 0)
+A     = c(     mean_A, sig = 0)
+a     = c(  A[1]/K[1], sig = 0)
+
+# results <- list( # use list for calculations
+results <- data.frame( # use for tex-printout
+  i_P = i_P,
+  i_N = i_N,
+  i_d = i_d,
+
+  I_fix_h = I_fix_h,
+  I_fix_d = I_fix_d,
+  I_fix_k = I_fix_k,
+
+  S_D   = S_D,
+  n_max = n_max,
+  theta = theta,
+  m_S   = m_S,
+  K     = K,
+  t_max = t_max,
+  A     = A,
+  a     = a,
   
   Ind = Szenario.Ind,
   Luh = Szenario.Luh,
