@@ -20,8 +20,8 @@ selNotNull <- Ergebnisse$Gewicht != 0
 
 # MIPS-Data from the database:
 MIPS_Strom = 1
-i_P = c(1,1)
-i_d = c(1,1)
+i_P_db = c(1,1)
+i_d_db = c(1,1)
 
 ##############################
 #### Calculate parameters ####
@@ -30,7 +30,8 @@ i_d = c(1,1)
 mean_A = mean(Ergebnisse[selNotNull,]$Gewicht)
 delta_N = 22 # Schätzwert für die nicht angegebenen Waschgänge
 N = nrow(Ergebnisse) + delta_N
-S = N * mean_A,
+S = N * mean_A
+Time = 7/365 # Betrachtungszeitraum in Jahren
 
 # Strom:
 I_N_Strom = sum(Ergebnisse$Strom)
@@ -176,17 +177,21 @@ i_N <- data.frame(
   dim2 = c(i_N_Wasser, sig = 0)
 )
 i_P <- data.frame(
-  dim1 = c(i_P[1], sig = 0),
-  dim2 = c(i_P[2], sig = 0)
+  dim1 = c(i_P_db[1], sig = 0),
+  dim2 = c(i_P_db[2], sig = 0)
 )
 i_d <- data.frame(
-  dim1 = c(i_d[1], sig = 0),
-  dim2 = c(i_d[2], sig = 0)
+  dim1 = c(i_d_db[1], sig = 0),
+  dim2 = c(i_d_db[2], sig = 0)
 )
-I_fix_h <- data.frame(
-  dim1 = c(0, sig = 0),
-  dim2 = c(0, sig = 0)
-)
+
+I_N     <- i_N * N
+I_Theta <- i_d * Szenario.Ind$d
+I_P <- 
+
+I_fix_h <- ( I_N  + I_d ) 
+I_fix_h["sig",] <- c(0,0)
+
 I_fix_d  <- data.frame(
   dim1 = c(-1, sig = 0),
   dim2 = c(-1, sig = 0)
