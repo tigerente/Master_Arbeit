@@ -168,6 +168,15 @@ if(Plots_or_manipulate == 2){
     # Definitionsbereich von r:
     r <- seq(length = 1000, from = 0, to=R)
     
+    # feste Parameter:
+    T = 1
+    n_max = 15
+    t_max = 5    
+    A = 1
+    i_P = 100
+    I_fix = 10
+    S_D = 100
+    
     ### Funktionen auswerten ###
     
     # q(h)
@@ -187,7 +196,7 @@ if(Plots_or_manipulate == 2){
     
     par(mfrow=c(1,1))
     
-    plot (r, eval_MIPS, type='l')
+    plot (r, eval_MIPS, type='l', ylim = c(0,25))
     print(paste("h*: ", n_max/t_max))
     print(paste("r_opt: ", r_opt))
     
@@ -200,16 +209,16 @@ if(Plots_or_manipulate == 2){
              n_max, t_max,
              T, A, i_P, alpha, I_fix, S_D
             ),
-    R = slider (1, 20, step = 1, initial = 10),
-    h_ind = slider(1, 5, step = 0.5, initial = 2),
-    h_gem = slider(1, 5, step = 0.5, initial = 4),
-    n_max = slider(1, 20, step = 1, initial = 15),
-    t_max = slider (1, 20, step = 1, initial = 5),    
-    T = slider(1, 20, step = 1, initial = 1),
-    A = slider(1, 20, step = 1, initial = 1),
-    i_P   = slider(0, 200, initial = 100), # Input für die Bereitstellung eines Produkts
-    alpha = slider (1, 100, initial = 1),
-    I_fix = slider(0, 10, initial = 5), # alle nicht variablen Inputs
-    S_D   = slider(50, 200, step = 10, initial = 100) # Nachfrage
+    R = slider (5, 30, step = 5, initial = 10),
+    h_ind = slider(1, 5, step = 0.1, initial = 2),
+    h_gem = slider(1, 5, step = 0.1, initial = 4),
+    #n_max = slider(1, 20, step = 1, initial = 15),
+    #t_max = slider (1, 20, step = 1, initial = 5),    
+    #T = slider(1, 20, step = 1, initial = 1),
+    #A = slider(1, 20, step = 1, initial = 1),
+    #i_P   = slider(0, 200, initial = 100), # Input für die Bereitstellung eines Produkts
+    alpha = slider (0.1, 4, step = 0.05, initial = 1)
+    #I_fix = slider(0, 10, initial = 5), # alle nicht variablen Inputs
+    #S_D   = slider(50, 200, step = 10, initial = 100) # Nachfrage
   ) 
 }
