@@ -12,15 +12,15 @@ h <- function(p, N = 10000, T = 10){
 }
 
 
-###############
-#### t(h) ####
-###############
+#################
+#### time(h) ####
+#################
 
 # Nutzungsdauer eines Produkts, abhängig von der Nutzungshäufigkeit:
 # Größen:     h:      Nutzungshäufigkeit   [h] = 1 / Jahr
-#             t:      Nutzungsdauer        [t] = Jahre
+#             t_max:  Nutzungsdauer        [t] = Jahre
 #             n_max:  Nutzungsvorrat       [n_max] = Nutzungseinheiten
-t <- function(h, t_max = 15, n_max = 4000){
+time <- function(h, t_max = 15, n_max = 4000){
   return (ifelse(h < n_max / t_max, t_max, n_max / h))
 }
 

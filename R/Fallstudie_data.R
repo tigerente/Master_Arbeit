@@ -9,6 +9,7 @@
 
 Ergebnisse <- read.csv("~/Uni/Master_Arbeit/R/Ergebnisse.csv", sep=";", dec=",", stringsAsFactors=FALSE)
 Datenblatt <- read.csv("~/Uni/Master_Arbeit/R/Datenblatt.csv", sep=";", dec=",", stringsAsFactors=FALSE)
+MIPS_Daten <- read.csv("~/Uni/Master_Arbeit/R/MIPS_Daten.csv", sep=";", dec=",", stringsAsFactors=FALSE, row.names=1)
 
 # zunächst entfernen wir die Ende-Zeilen:
 Ergebnisse <- Ergebnisse[Ergebnisse$Sonstiges != "Ende",]
@@ -17,11 +18,6 @@ source("./Data_Selections.R") # define data selections
 
 # jetzt erstellen wir noch einen Vektor, der alle Zeilen mit Gewicht angibt
 selNotNull <- Ergebnisse$Gewicht != 0
-
-# MIPS-Data from the database:
-MIPS_Strom = 1
-i_P_db = c(1,1)
-i_d_db = c(1,1)
 
 ##############################
 #### Calculate parameters ####
@@ -159,67 +155,60 @@ i_N_Wasser = weighted.mean(wasser[,"W"], wasser[,"H"])
 ##########################################
 
 Szenario.Ind <- data.frame(
-  p = c(10, sig = 0),
-  d = c(0, sig = 0)
+  values = c(p = 10, d = 0),
+  sig = c(0, sig = 0)
 )
+
 Szenario.Luh <- data.frame(
-  p = c(2, sig = 0),
-  d = Szenario.Ind$d
+  values = c(p = 2),
+  sig = c(0)
 )
-Szenario.Tra <- data.frame(
-  p = Szenario.Luh$p,
-  d = c(1.5, sig = 0) # Einheit: Kilometer
-)
+Szenario.Luh["d",] <- Szenario.Ind["d",]
+
+Szenario.Tra <- data.frame(values=vector(), sig=vector())
+Szenario.Tra["p",] <- Szenario.Luh["p",]
+Szenario.Tra["d",] <- c(10, sig = 0)# Einheit: Kilometer
 
 # Material-Inputs:
 i_N <- data.frame(
-  dim1 = c(I_N_Strom * MIPS_Strom, sig = 0),
-  dim2 = c(i_N_Wasser, sig = 0)
+  values = c(MF = i_N_Strom * MIPS_Daten["Strom", "MF"] + MIPS_Daten["Waschmittel", "MF"], 
+             CF = i_N_Strom * MIPS_Daten["Strom", "CF"] + MIPS_Daten["Waschmittel", "CF"]),
+  sig = c(2, 2)
 )
 i_P <- data.frame(
-  dim1 = c(i_P_db[1], sig = 0),
-  dim2 = c(i_P_db[2], sig = 0)
+  values = c(MF = MIPS_Daten["Waschmaschine","MF"], CF = MIPS_Daten["Waschmaschine","CF"]),
+  sig = c(1, 1)
 )
 i_d <- data.frame(
-  dim1 = c(i_d_db[1], sig = 0),
-  dim2 = c(i_d_db[2], sig = 0)
+  values = c(MF = MIPS_Daten["PKW","MF"], CF = MIPS_Daten["PKW","CF"]),
+  sig = c(3, 3)
+)
+i_d_M <- data.frame(
+  values = c(MF = MIPS_Daten["Transporter","MF"]/1000, CF = MIPS_Daten["Transporter","CF"]/1000),
+  sig = c(3, 3)
 )
 
-I_N     <- i_N * N
-I_Theta <- i_d * Szenario.Ind$d
-I_P <- 
-
-I_fix_h <- ( I_N  + I_d ) 
-I_fix_h["sig",] <- c(0,0)
-
-I_fix_d  <- data.frame(
-  dim1 = c(-1, sig = 0),
-  dim2 = c(-1, sig = 0)
-)
-I_fix_k  <- data.frame(
-  dim1 = c(0, sig = 0),
-  dim2 = c(0, sig = 0)
-)
 
 # alle weiteren Parameter:
 S_D   = c(          S, sig = 0)
-n_max = c(         -1, sig = 0)
-theta = c(         -1, sig = 0)
-m_S   = c(         -1, sig = 0)
-K     = c(          7, sig = 0)       # Einheit: Kilogramm
-t_max = c(         -1, sig = 0)
+n_max = c(       3000, sig = 0) # Nutzungseinheiten
+theta = c(        1/2, sig = 0) # Anzahl Transporte je Nutzungseinheit
+m_S   = c(          1, sig = 0) # Kilogramm (je Serviceeinheit zu transportierende Menge)
+K     = c(          7, sig = 0) # Kilogramm
+t_max = c(          3, sig = 0) # Jahre
 A     = c(     mean_A, sig = 0)
 a     = c(  A[1]/K[1], sig = 0)
 
-# results <- list( # use list for calculations
-results <- data.frame( # use for tex-printout
-  i_P = i_P,
-  i_N = i_N,
-  i_d = i_d,
 
-  I_fix_h = I_fix_h,
-  I_fix_d = I_fix_d,
-  I_fix_k = I_fix_k,
+results <- data.frame( # use for tex-printout
+  i_P   = t(i_P),
+  i_N   = t(i_N),
+  i_d   = t(i_d),
+  i_d_M = t(i_d_M),
+
+  # I_fix_h = I_fix_h,
+  # I_fix_d = I_fix_d,
+  # I_fix_k = I_fix_k,
 
   S_D   = S_D,
   n_max = n_max,
@@ -230,8 +219,8 @@ results <- data.frame( # use for tex-printout
   A     = A,
   a     = a,
   
-  Ind = Szenario.Ind,
-  Luh = Szenario.Luh,
-  Tra = Szenario.Tra
+  Ind = t(Szenario.Ind),
+  Luh = t(Szenario.Luh),
+  Tra = t(Szenario.Tra)
 )
 
