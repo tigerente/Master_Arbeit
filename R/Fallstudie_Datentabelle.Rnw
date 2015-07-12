@@ -19,13 +19,13 @@ r <- mapply(round, x=results[1,], digits=results["sig",], SIMPLIFY = FALSE)
         \toprule
         Parameter & Dimension 1 [Einheit] & Dimension 2 [Einheit] \\
         \midrule
-        $i_P$       &\Sexpr{r$i_P.dim1}\sourceD      &\Sexpr{r$i_P.dim2}\sourceD\\
-        $i_N$       &\Sexpr{r$i_N.dim1}\sourceW\sourceD\sourceE
-                    &\Sexpr{r$i_N.dim2}\sourceW\sourceD\sourceE\\
-        $i_d$       &\Sexpr{r$i_d.dim1}\sourceD     &\Sexpr{r$i_d.dim2}\sourceD\\
-%    $\I{fix}^h$ &\Sexpr{r$I_fix_h.dim1}\sourceU  &\Sexpr{r$I_fix_h.dim2}\sourceU\\
-%    $\I{fix}^d$ &\Sexpr{r$I_fix_d.dim1}\sourceU  &\Sexpr{r$I_fix_d.dim2}\sourceU\\
-%    $\I{fix}^k$ &\Sexpr{r$I_fix_k.dim1}\sourceU  &\Sexpr{r$I_fix_k.dim2}\sourceU\\
+        $i_P$       &\Sexpr{r$i_P.MF}\sourceD      &\Sexpr{r$i_P.CF}\sourceD\\
+        $i_N$       &\Sexpr{r$i_N.MF}\sourceW\sourceD\sourceE
+                    &\Sexpr{r$i_N.CF}\sourceW\sourceD\sourceE\\
+        $i_d$       &\Sexpr{r$i_d.MF}\sourceD     &\Sexpr{r$i_d.CF}\sourceD\\
+%    $\I{fix}^h$ &\Sexpr{r$I_fix_h.MF}\sourceU  &\Sexpr{r$I_fix_h.CF}\sourceU\\
+%    $\I{fix}^d$ &\Sexpr{r$I_fix_d.MF}\sourceU  &\Sexpr{r$I_fix_d.CF}\sourceU\\
+%    $\I{fix}^k$ &\Sexpr{r$I_fix_k.MF}\sourceU  &\Sexpr{r$I_fix_k.CF}\sourceU\\
         \bottomrule
     \end{tabular}\\[10pt]}
 
