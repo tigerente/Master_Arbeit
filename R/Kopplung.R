@@ -70,13 +70,13 @@ if(Plots_or_manipulate == 1){
   
   if(export) tikz( '../Vortrag_USF/Abbildungen/Kopplung.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
   
-  par(mfcol=c(1,2), mar=c(3,1.6,2,1), mgp=c(3,0.5,0), cex=fntsize)
+  par(mfcol=c(1,2), mar=c(3,1.6,0.5,1), mgp=c(3,0.5,0), cex=fntsize)
   
   # Fall 2
-  plot(r, eval_MIPS_2, type="l", xlim=c(0,R), ylim=c(0,20),
+  plot(r, eval_MIPS_2, type="l", xlim=c(0,R), ylim=c(5,20),
        xlab = "",
        ylab = "",
-       main = 'Fall 2',
+       #main = 'Fall 2',
        xaxt = 'n', yaxt = 'n'
   )
   mtext("Radius $r$", side=1, line=1.7, cex=fntsize)
@@ -84,10 +84,10 @@ if(Plots_or_manipulate == 1){
   
   
   # Fall 3:
-  plot(r, eval_MIPS_3, type="l", xlim=c(0,R), ylim=c(0,20),
+  plot(r, eval_MIPS_3, type="l", xlim=c(0,R), ylim=c(15,20),
        xlab = "",
        ylab = "",
-       main = 'Fall 3',
+       #main = 'Fall 3',
        xaxt = 'n', yaxt = 'n'
   )
   abline(v = c(r_opt, r_max), lty = 3)
