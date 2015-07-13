@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="514.40625"
+   height="514.40625"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Kopplung_2_Ergebnisse.svg">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient5463">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop5465" />
+      <stop
+         id="stop5477"
+         offset="0.47168544"
+         style="stop-color:#008100;stop-opacity:1;" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0.71823221"
+         id="stop5479" />
+      <stop
+         id="stop5467"
+         offset="1"
+         style="stop-color:#ff6600;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5443">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop5445" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop5447" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5385"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop5387" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4603">
+      <stop
+         id="stop4611"
+         offset="0"
+         style="stop-color:#006400;stop-opacity:0;" />
+      <stop
+         style="stop-color:#006400;stop-opacity:1;"
+         offset="1"
+         id="stop4607" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5484"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5486" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5411"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5413" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5463"
+       id="radialGradient5475"
+       cx="427.14285"
+       cy="502.36218"
+       fx="427.14285"
+       fy="502.36218"
+       r="255.71428"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="338.71999"
+     inkscape:cy="359.21597"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1680"
+     inkscape:window-height="998"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-158.66307,-274.41785)">
+    <path
+       id="path2985"
+       style="fill:url(#radialGradient5475);fill-opacity:1.0;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;marker-start:none;opacity:0.50000000000000000"
+       d="m 682.85713,502.36218 c 0,141.2271 -114.48718,255.71428 -255.71428,255.71428 -141.22709,0 -255.71428,-114.48718 -255.71428,-255.71428 0,-141.22709 114.48719,-255.71428 255.71428,-255.71428 141.2271,0 255.71428,114.48719 255.71428,255.71428 z"
+       inkscape:connector-curvature="0"
+       transform="translate(-11.274429,29.261597)" />
+    <path
+       id="path2985-6"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;marker-start:none"
+       d="m 671.5827,531.62378 c 0,141.2271 -114.48718,255.71428 -255.71428,255.71428 -141.22709,0 -255.71428,-114.48718 -255.71428,-255.71428 0,-141.22709 114.48719,-255.71428 255.71428,-255.71428 141.2271,0 255.71428,114.48719 255.71428,255.71428 z"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
+       x="410.89383"
+       y="536.29077"
+       id="text3937"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3939"
+         x="410.89383"
+         y="536.29077"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial">x</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua Bold Italic"
+       x="421.51639"
+       y="533.94037"
+       id="text3941"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3943"
+         x="421.51639"
+         y="533.94037"
+         style="font-size:22px;font-style:italic;font-weight:normal;-inkscape-font-specification:Book Antiqua Italic">Z</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:2.12818881000000020;stroke-miterlimit:4;stroke-dasharray:none;marker-start:none;fill-opacity:1"
+       id="path2985-1"
+       sodipodi:cx="427.14285"
+       sodipodi:cy="502.36218"
+       sodipodi:rx="255.71428"
+       sodipodi:ry="255.71428"
+       d="m 682.85713,502.36218 c 0,141.2271 -114.48718,255.71428 -255.71428,255.71428 -141.22709,0 -255.71428,-114.48718 -255.71428,-255.71428 0,-141.22709 114.48719,-255.71428 255.71428,-255.71428 141.2271,0 255.71428,114.48719 255.71428,255.71428 z"
+       transform="matrix(0.46988312,0,0,0.46988312,215.16121,295.57227)" />
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
+       x="210.26859"
+       y="397.54269"
+       id="text6622"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6624"
+         x="210.26859"
+         y="397.54269"
+         style="font-size:22px;font-style:italic;-inkscape-font-specification:Book Antiqua Italic">R</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
+       x="318.84869"
+       y="473.25702"
+       id="text6626"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6628"
+         x="318.84869"
+         y="473.25702"
+         style="font-size:22px;font-style:italic;-inkscape-font-specification:Book Antiqua Italic">r<tspan
+   style="font-size:65.00091553%;baseline-shift:super"
+   id="tspan4556">opt</tspan></tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:1.41879254000000010;stroke-miterlimit:4;stroke-dasharray:none;marker-start:none;fill-opacity:1"
+       id="path2985-1-1"
+       sodipodi:cx="427.14285"
+       sodipodi:cy="502.36218"
+       sodipodi:rx="255.71428"
+       sodipodi:ry="255.71428"
+       d="m 682.85713,502.36218 a 255.71428,255.71428 0 1 1 -511.42856,0 255.71428,255.71428 0 1 1 511.42856,0 z"
+       transform="matrix(0.70482468,0,0,0.70482468,114.8076,177.54652)" />
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
+       x="263.04141"
+       y="446.13004"
+       id="text6626-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6628-4"
+         x="263.04141"
+         y="446.13004"
+         style="font-size:22px;font-style:italic;-inkscape-font-specification:Book Antiqua Italic" /></text>
+    <g
+       id="g4586"
+       transform="translate(284.41327,538.0459)">
+      <text
+         id="text4588"
+         style="font-size:13.80000019px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:DejaVu Serif"
+         y="-97.357605"
+         x="-13.637059"
+         xml:space="preserve"><tspan
+           style="font-size:18px;font-style:italic;-inkscape-font-specification:DejaVu Serif Italic"
+           id="tspan4601">ȓ</tspan></text>
+      <text
+         id="text4590"
+         style="font-size:13.80000019px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:DejaVu Serif"
+         y="12.749026"
+         x="6.5999999"
+         xml:space="preserve"> </text>
+    </g>
+  </g>
+</svg>
