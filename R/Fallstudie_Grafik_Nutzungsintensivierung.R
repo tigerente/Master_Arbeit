@@ -4,6 +4,7 @@ source('./Fallstudie_data.R')
 
 # für den Export von Graphiken in tex-Files
 require(tikzDevice)
+require(manipulate)
 
 # Einstellungen für den Export der Graphik
 tikzheight <- 4.0
@@ -33,9 +34,10 @@ p_min = 2
 
 # Parameter für Plots:
 p_low = 1
-p_high = 10
+p_high = 50
 h_low = h(p_high, N, Time)
-h_Ind = h(Szenario.Ind["p","values"], N, Time)
+#h_Ind = h(Szenario.Ind["p","values"], N, Time)
+h_Ind = h(50, N, Time)
 h_Luh = h(Szenario.Luh["p","values"], N, Time)
 h_high = h(p_low, N, Time)
 MIPS_low = 0
@@ -59,9 +61,9 @@ MIPS_lines = MIPS_spez(h_lines)
 # Plots erzeugen:
 par(mar = c(4.1,3.9,5.6,0.1))
 plot(h_points, MIPS_points, xlab = 'Nutzungsh\"aufigkeit $h$ [Nutzungseinheiten/Jahr]', ylab = 'MIPS [kg/Service-Einheit]', axes = FALSE, type = 'p', pch = 22, bg = 'white', xlim = c(0, h_high), ylim = c(MIPS_low, MIPS_high), panel.first = points(h_lines, MIPS_lines, type = 'l', lty = 1, col='grey'))
-abline(v = c(h_low, n_max[1]/t_max[1], h_max), lty = 3)
-abline(h = c(MIPS_high, MIPS_Luh), lty = 3)
-points(rep(h_max, times=2), c(MIPS_high, MIPS_Luh+0.15), pch=c(NA_integer_,25), lty=1, type="b", bg="black", lwd=3)
+abline(v = c(h_Ind, n_max[1]/t_max[1], h_max), lty = 3)
+abline(h = c(MIPS_Ind, MIPS_Luh), lty = 3)
+points(rep(h_Luh, times=2), c(MIPS_Ind, MIPS_Luh+0.15), pch=c(NA_integer_,25), lty=1, type="b", bg="black", lwd=3)
 text(x=h_max+50, y = ( MIPS_Ind + MIPS_Luh )/ 2, labels = paste("Reduktion um", 100*round(1-MIPS_Luh/MIPS_Ind, 2), "%"), adj=0)
 title('Materialintensit\"at pro Service-Einheit MIPS$(h)$', line = 4.5)
 axis (side = 1, at = c(n_max[1]/t_max[1], h_max, 0, 500, 1000, 1500, 2000, 2500, 3000, 3500), labels = c('$h^*$', '$h_\\text{max}$', 0, 500, 1000, 1500, 2000, 2500, 3000, 3500))

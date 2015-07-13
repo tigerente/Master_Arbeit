@@ -216,7 +216,30 @@ dashed=false]{biblatex}
 		\end{itemize}
 	\end{frame}
 
-	\begin{frame}{Modell-Grundlagen}
+\begin{frame}{Systemgrenze}
+    \includegraphics<1>[width=\textwidth]{MIPS}
+    \includegraphics<2>[width=\textwidth]{Betrachtungszeitraum0}
+    \includegraphics<3>[width=\textwidth]{Betrachtungszeitraum}
+\end{frame}
+\subsection{Nutzungsintensivierung}
+	\frame{\subsectionpage}
+	\begin{frame}{Modellbeschreibung - Nutzungshäufigkeit}
+		\begin{itemize}
+			\item Nutzungsintensivierung = Erhöhung der Nutzungshäufigkeit $h$
+			\pause
+			\item Nutzungsmenge $n$ \emph{eines} Produkts während $t$: \\ $n = h \cdot t$
+			\pause
+			\item \emph{Gesamt}nutzungsmenge $N$ während $T$: \\ $N = n \cdot P = h \cdot t \cdot P = h \cdot t \cdot p \cdot \frac{T}{t} = h \cdot p \cdot T$
+			\pause
+			\item Mindestproduktanzahl $p_{\text{min}}$: \\ $p \geq p_{\text{min}} \quad  (p, p_{\text{min}} \in \mathbb{N})$
+			\pause
+			\item Servicemenge $S$: \\ $S = S_D = N \cdot A \quad \Leftrightarrow \quad N = \frac{S_D}{A}$ \quad ($A$: Produktauslastung)
+			\pause
+			\item Nutzungshäufigkeit $h$: \\ $h = \frac{N}{p \cdot T} = \frac{S_D}{A \cdot p \cdot T} \qquad h \leq h_\text{max} := \frac{S_D}{A \cdot p_\text{min} \cdot T}$
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Modellbeschreibung - Produktmenge}
 		\begin{itemize}
 			\item Produkte des Nutzungssystems
 				\begin{itemize}
@@ -234,25 +257,7 @@ dashed=false]{biblatex}
 		\pause
 		\begin{itemize}
 			\item <6-> $P = p \cdot q = p \cdot \frac{T}{t}$
-			\item<7-> Fragen / Anmerkungen?
-		\end{itemize}
-	\end{frame}
-
-\subsection{Nutzungsintensivierung}
-	\frame{\subsectionpage}
-	\begin{frame}{Modellbeschreibung}
-		\begin{itemize}
-			\item Nutzungsintensivierung = Erhöhung der Nutzungshäufigkeit $h$
-			\pause
-			\item Nutzungsmenge $n$ \emph{eines} Produkts während $t$: \\ $n = h \cdot t$
-			\pause
-			\item \emph{Gesamt}nutzungsmenge $N$ während $T$: \\ $N = n \cdot P = h \cdot t \cdot P = h \cdot t \cdot p \cdot \frac{T}{t} = h \cdot p \cdot T$
-			\pause
-			\item Mindestproduktanzahl $p_{\text{min}}$: \\ $p \geq p_{\text{min}} \quad  (p, p_{\text{min}} \in \mathbb{N})$
-			\pause
-			\item Servicemenge $S$: \\ $S = S_D = N \cdot A \quad \Leftrightarrow \quad N = \frac{S_D}{A}$ \quad ($A$: Produktauslastung)
-			\pause
-			\item Nutzungshäufigkeit $h$: \\ $h = \frac{N}{p \cdot T} = \frac{S_D}{A \cdot p \cdot T} \qquad h \leq h_\text{max} := \frac{S_D}{A \cdot p_\text{min} \cdot T}$
+			% \item<7-> Fragen / Anmerkungen?
 		\end{itemize}
 	\end{frame}
 
@@ -268,7 +273,7 @@ dashed=false]{biblatex}
 		\end{itemize}
 	\end{frame}
 
-	\begin{frame}{Modellbeschreibung}
+	\begin{frame}{Modellbeschreibung - MIPS-Gleichung}
 		\begin{itemize}
 			\item $\text{MIPS}(h) = \frac{I}{S} = \frac{P(h) \cdot i_P + I_{\text{fix}}^h}{S} =
 			\frac{I_{\text{fix}}^h}{S_D} + \left\{ \begin{array}{cl}  \frac{i_P}{h \cdot t_{\text{max}} \cdot A}, & \mbox{falls } h < h^* \\[5pt] \frac{i_P}{n_{\text{max}} \cdot A}, & \mbox{sonst} \end{array}\right.$
@@ -294,6 +299,19 @@ dashed=false]{biblatex}
 		\end{center}
 	\end{frame}
 
+    \begin{frame}{Fallstudie}
+        \begin{itemize}
+            \item IZT: (S.12): $\t{max} = 8 - 10$ Jahre, $\n{max} = 2500$
+            \item IOEW: (S.57): "`[\dots], dass von einer weitestgehend
+                vollständigen Ausnutzung des Leistungspotential von
+                Hauhaltswaschmaschinen auszugehen ist."' 
+                $\t{max} = 14$ Jahre, $\n{max} = 2500$
+            \item also kein ökologischer Gewinn (durch Nutzungsintensivierung)
+            \item es könnten jedoch andere positive und negative Effekte
+                auftreten, wie beispielweise die Effizienssteigung, Reparaturen,
+                Größeneffekte
+        \end{itemize}
+    \end{frame}
     \subsection{Modellkopplung}
     \section{Synthese und Diskussion}
 	\begin{frame}{Zusammenfassung}
