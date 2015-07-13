@@ -4,13 +4,13 @@ require(manipulate)
 source('./Funktionen_Kopplung.R')
 
 # Einstellungen für den Export der Graphik
-tikzheight <- 6.2
-tikzwidth <- 5.5
-fntsize <- 0.8
+tikzheight <- 1.6
+tikzwidth <- 4.4
+fntsize <- 0.75
 
-export <- FALSE # if figures should be exported, or just visualized
-#export <- TRUE # if figures should be exported, or just visualized 
-Plots_or_manipulate <- 2 # if set to 1, Plots are drawn, which will eventually
+export <- TRUE # if figures should be exported, or just visualized
+#export <- FALSE # if figures should be exported, or just visualized 
+Plots_or_manipulate <- 1 # if set to 1, Plots are drawn, which will eventually
 # be exported, if set to 2, a plot with manipulate is
 # drawn in order to analyse the model
 
@@ -20,135 +20,81 @@ if(Plots_or_manipulate == 1){
   #### Plots ####
   ###############
   
-  # Konstanten Definition
-  Konstanten <- data.frame(
-    K     = 1, # Kapazität
-    I_fix = 1, # alle nicht variablen Inputs
-    i_P   = 50, # Input für die Bereitstellung eines Produkts
-    S_D   = 100 # Nachfrage
+  ### Vorbereitungen ###
+  
+  # Parameter:
+  T = 1
+  n_max = 15
+  t_max = 5    
+  A = 1
+  i_P = 100
+  I_fix = 0
+  S_D = 100
+  R = 20
+  alpha = 1
+  
+  h_ind_2 = 3.5
+  h_ind_3 = 1.2
+  h_gem = 4
+  
+  # Definitionsbereich von r:
+  r <- seq(length = 1000, from = 0, to=R)
+
+  # Funktionen auswerten
+  
+  # q(h)
+  q_ind_2 = q(h_ind_2, n_max, t_max, T)
+  q_ind_3 = q(h_ind_3, n_max, t_max, T)
+  q_gem = q(h_gem, n_max, t_max, T)
+
+  
+  # MIPS(a):
+  eval_MIPS_2 = MIPS(r,
+                   R,
+                   h_ind_2, h_gem, q_ind_2, q_gem,
+                   T, A, i_P, alpha, I_fix, S_D)
+  eval_MIPS_3 = MIPS(r,
+                     R,
+                     h_ind_3, h_gem, q_ind_3, q_gem,
+                     T, A, i_P, alpha, I_fix, S_D)
+  
+  # r_opt:
+  r_opt = i_P / (A * T * alpha) * (q_ind_3/h_ind_3 - q_gem/h_gem)
+  r_max = 3/2 * r_opt
+  MIPS_r_max = MIPS(r_max,
+                    R,
+                    h_ind_3, h_gem, q_ind_3, q_gem,
+                    T, A, i_P, alpha, I_fix, S_D)
+
+  ### Plots erzeugen###
+  
+  if(export) tikz( '../Vortrag_USF/Abbildungen/Kopplung.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
+  
+  par(mfcol=c(1,2), mar=c(3,1.6,2,1), mgp=c(3,0.5,0), cex=fntsize)
+  
+  # Fall 2
+  plot(r, eval_MIPS_2, type="l", xlim=c(0,R), ylim=c(0,20),
+       xlab = "",
+       ylab = "",
+       main = 'Fall 2',
+       xaxt = 'n', yaxt = 'n'
   )
-  a_min = 0.4
+  mtext("Radius $r$", side=1, line=1.7, cex=fntsize)
+  mtext("$\\text{MIPS}(r)$", side=2, line=0.7, cex=fntsize)
   
-  #Spezifikation für den Verlauf von n_max:
-  n_max_max = 10
-  n_max_min = 10
-  n_max_exp = 0
   
-  #Spezifikation für den Verlauf von i_N im ersten Fall
-  i_N_max_1 = 2
-  i_N_min_1 = 1
-  i_N_exp_1 = 0.5
-  
-  #Spezifikation für den Verlauf von i_N im zweiten Fall
-  i_N_max_2 = 4 
-  i_N_min_2 = 1
-  i_N_exp_2 = 3
-  
-  a <- seq(length = 100, from = 0.1, to=1) # der Definitionsbereich für MIPS
-  a_i <- seq(length = 100, from = 0, to=1)
-  
-  # Plot mit vier Teilplots: Spalten sind unterschiedliche Fälle
-  # (unterschiedliche i_N-Funktionen), erste Spalte ist die i_N-Funktion
-  # dargestellt, zweite Spalte MIPS in Abhängigkeit von a
-  
-  if(export) tikz( '../tex/Abbildungen/Auslastung.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
-  
-  par(mfcol=c(2,2))
-  # i_N(a), Fall 1
-  eval_i_N <- i_N(a_i, i_N_max = i_N_max_1, i_N_min = i_N_min_1, i_N_exp =
-                    i_N_exp_1)
-  plot(a_i, eval_i_N, type="l", xlim=c(0,1), ylim=c(0,max(eval_i_N)),
-       xlab = "Relative Produktauslastung $a$",
-       ylab = "Material-Inputs je Produktnutzung $i_N(a)$",
-       cex = fntsize
+  # Fall 3:
+  plot(r, eval_MIPS_3, type="l", xlim=c(0,R), ylim=c(0,20),
+       xlab = "",
+       ylab = "",
+       main = 'Fall 3',
+       xaxt = 'n', yaxt = 'n'
   )
-  title( main = paste("$i_N(a) = ", i_N_max_1 - i_N_min_1,
-                      "* a^{", i_N_exp_1, "}+", i_N_min_1,"$", sep=""),
-         cex.main = 0.8)
-  
-  # MIPS(a), Fall 1
-  #MIPS(a), P=Konstant, i_N=allgemein
-  vec_a_1 = MIPS_a(a, case = 1,
-                   i_N_exp=i_N_exp_1, i_N_max = i_N_max_1, i_N_min = i_N_min_1, 
-                   n_max_max = n_max_max,
-                   n_max_min = n_max_min,
-                   n_max_exp = n_max_exp,
-                   a_min = a_min,
-                   const=Konstanten)
-  #MIPS(a), P=Optimal, diskret, i_N=allgemein
-  vec_a_2 = MIPS_a(a, case = 2,
-                   i_N_exp=i_N_exp_1, i_N_max = i_N_max_1, i_N_min = i_N_min_1, 
-                   n_max_max = n_max_max,
-                   n_max_min = n_max_min,
-                   n_max_exp = n_max_exp,
-                   a_min = a_min,
-                   const=Konstanten)
-  #MIPS(a), P=Optimal, kontinuierlich, i_N=allgemein
-  vec_a_3 = MIPS_a(a, case = 3,
-                   i_N_exp=i_N_exp_1, i_N_max = i_N_max_1, i_N_min = i_N_min_1, 
-                   n_max_max = n_max_max,
-                   n_max_min = n_max_min,
-                   n_max_exp = n_max_exp,
-                   a_min = a_min,
-                   const=Konstanten)
-  
-  plot(a, vec_a_1, type="l", xlim=c(0,1), ylim=c(0,max(vec_a_1)),
-       xlab = "Relative Produktauslastung $a$",
-       ylab = "$\\text{MIPS}_a$",
-       cex = fntsize,
-       panel.first = polygon(c(a, rev(a)), c(pmax(vec_a_1, vec_a_3),
-                                             rev(pmin(vec_a_1, vec_a_3))),
-                             col="lightgray", border = NA)
-  ) 
-  points(a, vec_a_2, type="l", lty="dashed", xlim=c(0,1), ylim=c(0,max(vec_a_2)))
-  points(a, vec_a_3, type="l", xlim=c(0,1), ylim=c(0,max(vec_a_3)))
-  
-  # i_N(a), Fall 2
-  eval_i_N <- i_N(a_i, i_N_max = i_N_max_2, i_N_min = i_N_min_2, i_N_exp =
-                    i_N_exp_2)
-  plot(a_i, eval_i_N, type="l", xlim=c(0,1), ylim=c(0,max(eval_i_N)),
-       xlab = "Relative Produktauslastung $a$",
-       ylab = "Material-Inputs je Produktnutzung $i_N(a)$",
-       cex = fntsize
-  )
-  title( main = paste("$i_N(a) = ", i_N_max_2 - i_N_min_2,
-                      "* a^{", i_N_exp_2, "}+", i_N_min_2,"$", sep=""),
-         cex.main = 0.8)
-  
-  # MIPS(a), Fall 2
-  vec_a_1 = MIPS_a(a, case = 1,
-                   i_N_exp=i_N_exp_2, i_N_max = i_N_max_2, i_N_min = i_N_min_2, 
-                   n_max_max = n_max_max,
-                   n_max_min = n_max_min,
-                   n_max_exp = n_max_exp,
-                   a_min = a_min,
-                   const=Konstanten)
-  #MIPS(a), P=Optimal, diskret, i_N=allgemein
-  vec_a_2 = MIPS_a(a, case = 2,
-                   i_N_exp=i_N_exp_2, i_N_max = i_N_max_2, i_N_min = i_N_min_2, 
-                   n_max_max = n_max_max,
-                   n_max_min = n_max_min,
-                   n_max_exp = n_max_exp,
-                   a_min = a_min,
-                   const=Konstanten)
-  #MIPS(a), P=Optimal, kontinuierlich, i_N=allgemein
-  vec_a_3 = MIPS_a(a, case = 3,
-                   i_N_exp=i_N_exp_2, i_N_max = i_N_max_2, i_N_min = i_N_min_2, 
-                   n_max_max = n_max_max,
-                   n_max_min = n_max_min,
-                   n_max_exp = n_max_exp,
-                   a_min = a_min,
-                   const=Konstanten)
-  
-  plot(a, vec_a_1, type="l", xlim=c(0,1), ylim=c(0,max(vec_a_1)), 
-       xlab = "Relative Produktauslastung $a$", 
-       ylab = "$\\text{MIPS}_a$", 
-       cex = fntsize,
-       panel.first = polygon(c(a, rev(a)), c(pmax(vec_a_1, vec_a_3),
-                                             rev(pmin(vec_a_1, vec_a_3))),
-                             col="lightgray", border = NA)) 
-  points(a, vec_a_2, type="l", lty="dashed", xlim=c(0,1), ylim=c(0,max(vec_a_2)))
-  points(a, vec_a_3, type="l", xlim=c(0,1), ylim=c(0,max(vec_a_3)))
+  abline(v = c(r_opt, r_max), lty = 3)
+  abline(h = MIPS_r_max, lty = 3)
+  axis (side = 1, at = c(r_opt, r_max), labels = c('$r_\\text{opt}$', '$\\hat{r}$'))
+  mtext("Radius $r$", side=1, line=1.7, cex=fntsize)
+  mtext("$\\text{MIPS}(r)$", side=2, line=0.7, cex=fntsize)
   
   if(export) dev.off()
 }
@@ -174,7 +120,7 @@ if(Plots_or_manipulate == 2){
     t_max = 5    
     A = 1
     i_P = 100
-    I_fix = 10
+    I_fix = 0
     S_D = 100
     
     ### Funktionen auswerten ###
@@ -196,7 +142,7 @@ if(Plots_or_manipulate == 2){
     
     par(mfrow=c(1,1))
     
-    plot (r, eval_MIPS, type='l', ylim = c(0,25))
+    plot (r, eval_MIPS, type='l', ylim = c(5,20))
     print(paste("h*: ", n_max/t_max))
     print(paste("r_opt: ", r_opt))
     

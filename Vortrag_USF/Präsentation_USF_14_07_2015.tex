@@ -1,11 +1,10 @@
-\documentclass[beamer, xcolor=table]{beamer}
+\documentclass[beamer, xcolor={table,usenames,dvipsnames}]{beamer}
 %\usepackage{mathpazo}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage[babel,german=quotes]{csquotes}
 \usepackage{lmodern} % for removing warning about font shape
-
 
 %\usetheme{Madrid}
 \usetheme{Frankfurt}
@@ -46,6 +45,13 @@ dashed=false]{biblatex}
 %\usepackage{vmargin} %Fürs Seitenlayout
 %\setmarginsrb{2.5cm}{1.5cm}{2cm}{1.5cm}{0mm}{0.5cm}{0mm}{1cm}
 
+%%% Häkchen und Kreuzchen %%%
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\usepackage{todonotes}
+
 %%% Eigene Befehle %%%
 \newcommand{\was}[1]{\small\textit{#1}}
 \newcommand{\noteS}[1]{\todo[color=green!40]{\textbf{Sascha: }#1}}
@@ -55,6 +61,8 @@ dashed=false]{biblatex}
 \newcommand{\defeq}{\vcentcolon=} %Definitions-Gleichheitszeichen
 \newcommand{\eqdef}{=\vcentcolon}
 \newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\markera}[1]{\textcolor{NavyBlue}{#1}} % Farbiger Text 1
+\newcommand{\markerb}[1]{\textcolor{Orange}{#1}} % Farbiger Text 2
 
 % Formeln:
 \newcommand{\MIPS}[1][]{
@@ -74,125 +82,91 @@ dashed=false]{biblatex}
 
 \title{Ökologische Nachhaltigkeit durch \\ \enquote{Nutzen statt Besitzen}?}
 \subtitle{{\small Entwicklung eines Modells zur Ableitung von Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung}}
-\author{Sascha, János}
-\date{29.04.2015}
+\author{Alexander Müller, János Sebestyén}
+\date{Universität Osnabrück, 14.07.2015}
 
 \begin{document}
 
 \frame{\titlepage}
 
 
-\begin{frame}{Apetitanreger}
+\begin{frame}{Appetitanreger}
     Grafiken, die die beiden Fallstudien darstellen
 \end{frame}
 \frame<beamer>{\tableofcontents[hidesubsections]}
 \section{Thema, Fragestellung, Methodik}
 
-	\begin{frame}{Thema und Fragestellung}
-        Thema: 
+	\begin{frame}{Thema}
         \begin{itemize}
-            \item Gemeinschaftliche Nutzung von Produkten (Bspw. Waschmaschinen,
-                Autos, Kleidung,\dots)
+            \item Gemeinschaftliche Nutzung von Produkten \\ Waschmaschinen,
+                Autos, Werkzeug,\dots
             \item Ökologische Vorteile solcher Nutzungsformen gegenüber
                 individueller Nutzung
         \end{itemize}
-
-        \begin{block}{Fragestellung:}
-            \begin{itemize}
-                \item Unter welchen Umständen kann der Umweltverbrauch eines Produktes durch gemeinschaftliche Nutzung gegenüber der individuellen Nutzung gesenkt werden?
-                % \item Was sind die Mechanismen, die den Umweltverbrauch bei gemeinschaftlicher Nutzung bestimmen und wie wirken diese? 
-                % \item Welche Eigenschaften des Produkts und der Nutzungsform beeinflussen die Wirkung dieser Mechanismen und wie fließen sie ein?
-            \end{itemize}
-        \end{block}
-	\end{frame}
-	
-	\begin{frame}{MIPS-Konzept}
-	\end{frame}
-
-	\begin{frame}{Untersuchte Effekte}
-        % \only<1>{
-        %     Was ist eigentlich ein Effekt/Mechanismus?
-        % }
-		\begin{center}
-            \scriptsize
-            \only<1>{
-			\begin{tabular}{p{5cm}p{5cm}}
-				 \toprule
-				 \multicolumn{2}{l}{\textbf{Umweltauswirkungen durch die Nutzung}}  \\
-				 \textbf{positiv} & \textbf{negativ} \\
-				 \midrule
-				 Nutzungsintensivierung  &  Zusätzliche Transaktionen  \\
-				 Einsatz langlebiger Produkte  &  zusätzlicher Ressourcenverbrauch für Langlebigkeit  \\
-				 Verwendung verbrauchsarmer bzw. leistungsstarker Geräte  &  Beschleunigte Ausmusterung  \\
-				 Erhöhung der Produktauslastung  & Tauschbedingter Verschleiß  \\
-				 Berücksichtigung des technischen Fortschritts  &  \\
-				 Wartung / Reparaturen & \\
-				 \midrule
-				 \multicolumn{2}{l}{\textbf{Umweltauswirkungen durch Nachfrageänderung}}  \\
-				 \textbf{positiv} & \textbf{negativ} \\
-				 \midrule
-				 Nachfrageverringerung durch höhere Kostentransparenz  & Erleichterter Produktzugang  \\
-				 Vermeidung von Fehlkäufen  & Wunsch nach Eigentum  \\
-				  & Rebound-Effekt  \\
-				 \bottomrule
-			\end{tabular}
-            \vspace{3pt}
-
-			Mechanismen für die Umweltauswirkungen durch
-            gemeinschaftliche Nutzung. Quelle: verändert nach
-            \cite{scholl_marketing_2009}.}
-            \only<2>{
-            \small
-			\begin{tabular}{p{5cm}p{5cm}}
-				 \toprule
-				 \multicolumn{2}{l}{\textbf{Umweltauswirkungen durch die
-                 Nutzung}}  \\[5pt]
-				 \textbf{positiv} & \textbf{negativ} \\
-				 \midrule
-				 Nutzungsintensivierung  &  Zusätzliche Transaktionen
-                 \\[3pt]
-                 Erhöhung der Produktauslastung  & \\[3pt]
-                 Wartung / Reparaturen & \\[3pt]
-				 \bottomrule
-			\end{tabular}
-            \vspace{3pt}
-
-			Betrachtete Mechanismen für die Umweltauswirkungen durch gemeinschaftliche Nutzung. Quelle: verändert nach \cite{scholl_marketing_2009}.}
+        	\begin{center}
+        		\small
+        		\begin{tabular}{p{5cm}p{5cm}}
+        			\multicolumn{2}{l}{\textbf{Umwelteffekte durch die
+        					Nutzung}}  \\[5pt]
+        			\textbf{positiv} & \textbf{negativ} \\
+        			\midrule
+        			Nutzungsintensivierung  &  Zusätzliche Transporte
+        			\\[3pt]
+        			Erhöhung der Produktauslastung  & Erhöhung der Produktauslastung \\[3pt]
+        			Wartung / Reparaturen &  Wartung / Reparaturen \\[3pt]
+        			\bottomrule
+        		\end{tabular}
+        		\vspace{3pt}
+        		
+        		Für vollständige Übersicht siehe \cite{scholl_marketing_2009}.
         \end{center}
+	\end{frame}
+
+
+	
+	\begin{frame}{Fragestellung}
+      \begin{block}{}
+	        	\begin{itemize}
+	        		\item[] Unter welchen Umständen kann der \textit{Umweltverbrauch} eines Produktes durch gemeinschaftliche Nutzung gegenüber der individuellen Nutzung gesenkt werden?
+	        		% \item Was sind die Mechanismen, die den Umweltverbrauch bei gemeinschaftlicher Nutzung bestimmen und wie wirken diese? 
+	        		% \item Welche Eigenschaften des Produkts und der Nutzungsform beeinflussen die Wirkung dieser Mechanismen und wie fließen sie ein?
+	        	\end{itemize}
+      \end{block}
 	\end{frame}
 	
 	\begin{frame}{Methodik}
-		\begin{center}
             \begin{itemize}
-                \item<1-> Modellierung
-                    \begin{itemize}
-                        \item Nutzungssystem
-                            \begin{itemize}
-                                \item Personen 
-                                \item Produkte
-                                \item Organisation der Nutzung
-                            \end{itemize}
-                        \item Vergleich verschiedener Nutzungssysteme
-                            \begin{itemize}
-                                \item Effekte: Veränderung einzelner Parameter
-                                    des Systems 
-                                \item Wie wirken die einzelnen Parameter auf die
-                                    MIPS?
-                            \end{itemize}
-                    \end{itemize}
-
-                \item<2> Analyse
-                    \begin{itemize}
-                        \item Unter welchen Umständen verringert sich die MIPS
-                            durch gemeinschaftliche Nutzung?
-                        \item Grund-Annahme: Parameter ändern sich durch
-                            gemeinschaftliche Nutzung in eine bestimmte Richtung
-                        \item Analyse der Einzelmodelle: ein Parameter ändert
-                        sich 
-                    \item Modellkopplung: mehrere Parameter ändern sich	
-                    \end{itemize}
+                \pause
+                \item Modell-Ansatz: ein Modell je Effekt
+                \pause
+                \item Produktnutzungssystem
+                \begin{itemize}
+                    \item Personen 
+                    \item Produkte
+                    \item Organisation der Nutzung
+                \end{itemize}
+                \pause
+                \item Analyse
+                \begin{itemize}
+                    \item Übergang von der individuellen zur gemeinschaftlichen Nutzung $\Leftrightarrow$ Veränderung bestimmter Systemparameter
+                    \item Umwelteffekt: ein Parameter ändert sich
+                    \item Kopplung: mehrere Parameter ändern sich
+                \end{itemize}
             \end{itemize}
-		\end{center}
+	\end{frame}
+
+	\begin{frame}{MIPS-Konzept}
+		\begin{itemize}
+			\item<1-> Operationalisierung des Umweltverbrauchs: MIPS %\todo{Quelle angeben}
+			\item<2-> MIPS = Materialinput pro Serviceeinheit
+			\item<3-> \textbf{Input-Orientierung}: Bilanzierung aller primären Materialbewegungen (Herstellung, Nutzung, Entsorgung) \\
+			$\rightarrow$ \emph{Universeller Indikator}
+			\item<4-> \textbf{Service-Orientierung}: Bezug auf den erbrachten Nutzen \\
+			$\rightarrow$ \emph{Vergleichbarkeit}
+		\end{itemize}
+		\begin{block}{Grundgleichung}<5->
+			$$\text{MIPS} = \frac{I}{S}$$
+		\end{block}
 	\end{frame}
 
 \section{Modelle}
@@ -294,10 +268,161 @@ dashed=false]{biblatex}
 		\end{center}
 	\end{frame}
 
-    \subsection{Modellkopplung}
-    \section{Synthese und Diskussion}
+    \subsection{Modellkopplung: Nutzungsintensivierung und zusätzliche Transporte}
+    \frame{\subsectionpage}
+    
+    \begin{frame}{Konzeption}
+    	\begin{itemize}
+    		\item<1-> Grundproblem: \\ Nutzungsintensivierung $\Leftrightarrow$ zusätzliche Transporte
+    		\item<2-> Tradeoff:
+	    		\begin{itemize}
+	    			\item Nutzungsintensivierung: MIPS $\searrow$ oder $\rightarrow$
+	    			\item Zusätzliche Transporte: MIPS $\nearrow$ oder $\rightarrow$
+	    		\end{itemize}
+    		\item<3-> Frage: Wann ist die Gesamtwirkung positiv? \\[1em]
+    		\item<4-> Zusammenhang: \emph{Größe} des gemeinschaftlichen Systems
+	    		\begin{itemize}
+	    			\item Je größer das System, desto mehr Produkte werden eingespart.
+	    			\item Je größer das System, desto mehr zusätzliche Transporte.
+	    		\end{itemize}
+    	\end{itemize}
+    	\begin{block}{Fragen}<5->
+			\begin{enumerate}
+			    \item Gibt es eine optimale Größe?
+			    \item Wie groß ist die maximale ökoeffiziente Größe?
+			\end{enumerate}
+    	\end{block}
+    \end{frame}
+    
+    \begin{frame}{Modellbeschreibung 1/3}
+	    \begin{itemize}
+	    	\item<1-> Zwei Teilnutzungssysteme:
+		    	\begin{itemize}
+		    		\item gemeinschaftliches Nutzungssystem
+		    		\item individuelles Nutzungssystem
+		    	\end{itemize}
+		    \item<2-> Variation: \emph{Größe} des gemeinschaftlichen Nutzungssystems
+	    	\item<3-> Annahmen:
+		    	\begin{enumerate}
+		    		\item Homogen verteilte Personen-Standorte
+		    		\item Individuelles Nutzungssystem: keine Transporte
+		    		\item Gemeinschaftliches Nutzungssystem: Transporte zwischen Zentrum $Z$ und Personen-Standorten
+		    		\item Wachstum am Rand $\Rightarrow$ Kreisform. \emph{Größe} $\hat{=}$ Radius $r$
+		    		\item Unterschiedliche Nutzungshäufigkeiten: $h^\text{gem} > h^\text{ind}$
+		    	\end{enumerate}
+	    \end{itemize}
+    \end{frame}
+    
+    \begin{frame}{Modellbeschreibung 2/3}
+		\begin{figure}[thb]
+			\centering
+			\includegraphics<1>[height=0.5\textheight]{Kopplung_2_Geometrie}
+			\includegraphics<2-3>[height=0.5\textheight]{Kopplung_2_durchschn_Distanz_0}
+			\includegraphics<4->[height=0.5\textheight]{Kopplung_2_durchschn_Distanz}
+			%\caption{Geometrie des zusammengesetzten Produktnutzungssystems.}
+		\end{figure}
+		\begin{itemize}
+			\item<2-> Gemeinschaftliches Nutzungssystem
+			\item<3-> Service-Nachfrage: $S_D^\text{gem} = S_D \cdot \frac{\pi \cdot r^2 \cdot \rho}{\pi \cdot R^2 \cdot \rho} = S_D \cdot \frac{r^2}{R^2} \propto r^2$
+			\item<4-> Durchschnittliche Transportdistanz: $d^\text{gem} = \frac{2}{3} \cdot r \propto r$
+			\item<5-> Inputs für Transporte: $I_\Theta \propto S_D^\text{gem} \cdot d^\text{gem} \propto r^3$
+		\end{itemize}
+    \end{frame}
+    
+    \begin{frame}{Modellbeschreibung 3/3}
+       	\begin{itemize}
+       		\item<1-> Inputs für Transporte: $I_\Theta \propto r^3$ \\[1em]
+       		\item<2-> Parallele Produktanzahlen:\\[0.1cm]
+       		$p^\text{gem} \approx \frac{S_D^\text{gem}}{A \cdot h^\text{gem} \cdot T}
+       		= \frac{S_D}{A \cdot h^\text{gem} \cdot T} \cdot \frac{r^2}{R^2}$ \\[0.1cm]
+       		$p^\text{ind} \approx \frac{S_D^\text{ind}}{A \cdot h^\text{ind} \cdot T}
+       		= \frac{S_D}{A \cdot h^\text{ind} \cdot T} \cdot \left( 1 - \frac{r^2}{R^2} \right)$
+       		\item<3-> Effektive Produktanzahl: \\
+    		$P = p^\text{gem} \cdot q^\text{gem} + p^\text{ind} \cdot q^\text{ind} \propto \frac{q^\text{gem}}{h^\text{gem}} \cdot \frac{r^2}{R^2} + \frac{q^\text{ind}}{h^\text{ind}} \cdot \left( 1 - \frac{r^2}{R^2} \right)$
+       		\item<4-> Produkt-Inputs: $I_P \propto P \propto r^2 \cdot \left( \frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}} \right) + c_1 \qquad (c_1 \dots \text{Konstante})$ \\[1em]
+       	\end{itemize}
+       	\begin{block}{Modell: Nutzungsintensivierung und zusätzliche Transporte}<5->
+       		$\text{MIPS}(r) = \frac{I_P + I_\Theta + I_\text{fix}^{h,d}}{S_D} = c_2 \cdot r^2 \cdot \left( \frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}} \right) + c_3 \cdot r^3 + c_4$
+       	\end{block}
+    \end{frame}
+  
+    \begin{frame}{Modellanalyse 1}
+    	\begin{itemize}
+    		\item<1-> $\text{MIPS}(r) = c_2 \cdot r^2 \cdot \left(\markera{\frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}}} \right) + c_3 \cdot r^3 + c_4$
+    		\item<2-> $q = \frac{T}{t} = \left\{ \begin{array}{ll}  \frac{T}{t_{\text{max}}} & \mbox{falls } h < h^*:= \frac{n_\text{max}}{t_\text{max}} \\[5pt] \frac{T \cdot h}{n_\text{max}} & \mbox{sonst} \end{array} \right.$
+    		\item<3-> Optimale Größe? Minimum existiert genau dann, wenn \dots
+	    		\item<4->[] $\markera{\frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}}} < 0 \quad$ bzw. $\quad \markerb{q^\text{gem} \cdot h^\text{ind}} < \markerb{q^\text{ind} \cdot h^\text{gem}}$
+   			\item<5-> \underline{Fall 1}: $h^\text{ind}< h^\text{gem} < h^*$ \\
+	 			\item<6->[] $q^\text{gem} = q^\text{ind} = \frac{T}{t_\text{max}}$
+ 			$\Rightarrow \markerb{q^\text{gem} \cdot h^\text{ind}} = q^\text{ind} \cdot h^\text{ind} < \markerb{q^\text{ind} \cdot h^\text{gem}}$ \cmark
+   			\item<7-> \underline{Fall 2}: $h^* \leq h^\text{ind} < h^\text{gem}$
+	    		\item<8->[] $\markera{\frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}}} = \frac{T \cdot h^\text{gem}}{n_\text{max} \cdot h^\text{gem}} - \frac{T \cdot h^\text{ind}}{n_\text{max} \cdot h^\text{ind}} = 0$ \xmark
+   			\item<9-> \underline{Fall 3}: $h^\text{ind} < h^* \leq h^\text{gem}$
+				 \item<10->[] $\markera{\frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}}} = \frac{T \cdot h^\text{gem}}{n_\text{max} \cdot h^\text{gem}} - \frac{T}{t_\text{max} \cdot h^\text{ind}} < \frac{T}{n_\text{max}} - \frac{T}{t_\text{max} \cdot h^*} = 0$ \cmark
+    	\end{itemize}
+    \end{frame}
+    
+    \begin{frame}{Ergebnisse}
+    	\begin{itemize}
+    		\item<1-> Fall 1: $h^\text{ind}< h^\text{gem} < h^*$ \cmark
+    		\item<1-> Fall 2: $h^* \leq h^\text{ind} < h^\text{gem}$ \xmark
+    		\item<1-> Fall 3: $h^\text{ind} < h^* \leq h^\text{gem}$ \cmark
+    	\end{itemize}
+    	\begin{block}{Ergebnisse}<2->
+    		\begin{enumerate}
+ 			    \item<2-> $\Rightarrow$ Optimum $r_\text{opt}$ existiert genau dann, wenn $h^\text{ind} < h^*$
+ 			    \item<3-> Erreichen des Ausgangsniveaus bei $r = \hat{r} := \frac{3}{2} \cdot r_\text{opt}$
+    		\end{enumerate}
+    	\end{block}
+    	\centering
+    	\only<1-3>{\rule{0in}{1.6in}} % Platzhalter für Abbildung
+    	\only<4->{\input{Abbildungen/Kopplung.tex}}
+    \end{frame}    
+    
+    \section{Zusammenfassung und Diskussion}
 	\begin{frame}{Zusammenfassung}
+		\pause
+		Fragestellung:
+		\begin{itemize}
+			\item Unter welchen Umständen kann der Umweltverbrauch eines Produktes durch gemeinschaftliche Nutzung gegenüber der individuellen Nutzung gesenkt werden?
+		\end{itemize}
+		\pause
+		\begin{block}{Antwort}
+			\textbf{Nutzungsintensivierung:}
+			\begin{itemize}
+				\item Individuelle Nutzung: Produkt wird \emph{vor} technischem Lebensende entsorgt  
+			\end{itemize}
+			\pause
+			\textbf{+ Zusätzliche Transporte:}
+			\begin{itemize}
+				\item Maximale Größe des Einzugsgebiets
+			\end{itemize}
+		\end{block}
 	\end{frame}
-	\begin{frame}{Diskussion}
+	\begin{frame}{Reflexion}
+			\pause
+			\textbf{Modellierung:}
+			\begin{itemize}
+				\item Zweck: Systemverständnis, Ableitung allgemeiner Aussagen, Theorie-Entwicklung.
+				\item Aber: Besonderheiten bestimmter Produkte oder Organisationsformen unberücksichtigt. 	
+			\end{itemize}
+			%\item Die gewonnenen Erkenntnisse (in der zusammengefassten Form) könnten auch einfacher gewonnen werden.
+			% \item Bei einigen Modellen wurden keine griffigen Ergebnisse erzielt.
+			\pause
+			\textbf{Reduktionismus:}
+			\begin{itemize}
+			\item Nur ausgewählte Effekte betrachtet.
+			\item Nur eine Kopplung untersucht.
+			\item Wäre die Kopplung aller Effekte sinnvoll?	
+			\end{itemize}
+			\pause
+			\textbf{Unsichere Annahmen:}
+			\begin{itemize}
+				\item Existenz von Nutzungsvorrat und Maximalnutzungsdauer
+				\item Homogenität von Produkten und Personen
+				%\item Schwer zu erhebende Daten ($t_\text{max}$). Ergebnis hängt von diesem Parameter ab.
+				%\item Theorie kann nicht überprüft bzw. falsifiziert werden. Lediglich die Annahmen können überprüft werden. (deduktive Herangehensweise)	
+			\end{itemize}
+			
 	\end{frame}
 \end{document}
