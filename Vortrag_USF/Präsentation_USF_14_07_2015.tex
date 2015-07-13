@@ -87,11 +87,17 @@ dashed=false]{biblatex}
 
 \begin{document}
 
-\frame{\titlepage}
+\frame[plain]{\titlepage}
 
 
-\begin{frame}{Appetitanreger}
-    Grafiken, die die beiden Fallstudien darstellen
+\begin{frame}[plain]
+    \begin{center}
+        \makebox[\textwidth]{
+        \includegraphics<1>[width=\paperwidth]{Luhrmannhof.jpg}
+        \includegraphics<2>[width=\paperwidth]{Luhrmannhof50.pdf}
+        \includegraphics<3>[width=\paperwidth]{Luhrmannhof50x2.pdf}
+        \includegraphics<4>[width=\paperwidth]{Luhrmannhof10x5.pdf}}
+    \end{center}
 \end{frame}
 \frame<beamer>{\tableofcontents[hidesubsections]}
 \section{Thema, Fragestellung, Methodik}
@@ -273,19 +279,6 @@ dashed=false]{biblatex}
 		\end{center}
 	\end{frame}
 
-    \begin{frame}{Fallstudie}
-        \begin{itemize}
-            \item IZT: (S.12): $\t{max} = 8 - 10$ Jahre, $\n{max} = 2500$
-            \item IOEW: (S.57): "`[\dots], dass von einer weitestgehend
-                vollständigen Ausnutzung des Leistungspotential von
-                Hauhaltswaschmaschinen auszugehen ist."' 
-                $\t{max} = 14$ Jahre, $\n{max} = 2500$
-            \item also kein ökologischer Gewinn (durch Nutzungsintensivierung)
-            \item es könnten jedoch andere positive und negative Effekte
-                auftreten, wie beispielweise die Effizienssteigung, Reparaturen,
-                Größeneffekte
-        \end{itemize}
-    \end{frame}
     \subsection{Modellkopplung: Nutzungsintensivierung und zusätzliche Transporte}
     \frame{\subsectionpage}
     
@@ -443,5 +436,26 @@ dashed=false]{biblatex}
 			\end{itemize}
 			
 	\end{frame}
+    \begin{frame}{Verringerter Umweltverbrauch auf dem Luhrmannhof?}
+        \begin{minipage}[t]{0.45\textwidth}
+            \includegraphics[width=\textwidth]{Luhrmannhof50x2.pdf}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[t]{0.45\textwidth}
+            \includegraphics[width=\textwidth]{Luhrmannhof10x5.pdf}
+        \end{minipage}
+        \begin{itemize}
+            % \item IZT: (S.12): $\t{max} = 8 - 10$ Jahre, $\n{max} = 2500$
+            \item In einer Studie vom IÖW
+                (2000)\footcite[S.57]{hirschl_produkte_2000} wird für einen
+                durchschnittlichen Haushalt angegeben, "`[\dots] dass von einer
+                weitestgehend vollständigen Ausnutzung des Leistungspotential
+                von Hauhaltswaschmaschinen auszugehen ist."' 
+                % $\t{max} = 14$ Jahre, $\n{max} = 2500$
+            \item[] $\Rightarrow$ Kein ökologischer Gewinn! (durch
+                Nutzungsintensivierung)
+            \item Evtl. jedoch nicht berücksichtigte Effekte auf.
+        \end{itemize}
+    \end{frame}
 \end{document}
 
