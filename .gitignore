@@ -13,7 +13,7 @@
 # *.ps
 # *.eps
 *.pdf
-!Vortrag_USF/*.pdf
+!Vortrag_USF/Abbildungen/*.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
