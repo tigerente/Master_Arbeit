@@ -38,9 +38,14 @@
 
 \usepackage{tikz} %Für Skizzen
 
-\usepackage[bibstyle=authortitle, citestyle=authoryear, isbn=false, doi=false,
+\usepackage[bibstyle=authortitle, citestyle=authortitle, isbn=false, doi=false,
 dashed=false]{biblatex}
 \addbibresource{Masterarbeit.bib}
+\renewbibmacro*{cite:title}{%
+  \printtext[bibhyperref]{%
+    \printfield[citetitle]{labeltitle}%
+    \setunit{\addcomma\space}%
+    \printdate}}
 
 %\usepackage{vmargin} %Fürs Seitenlayout
 %\setmarginsrb{2.5cm}{1.5cm}{2cm}{1.5cm}{0mm}{0.5cm}{0mm}{1cm}
@@ -99,15 +104,16 @@ dashed=false]{biblatex}
         \includegraphics<4>[width=\paperwidth]{Luhrmannhof10x5.pdf}}
     \end{center}
 \end{frame}
-\frame<beamer>{\tableofcontents[hidesubsections]}
-\section{Thema, Fragestellung, Methodik}
+\frame<beamer>{\tableofcontents}
+\section{Einleitung}
 
+\subsection{Thema}
 	\begin{frame}{Thema}
         \begin{itemize}
-            \item Gemeinschaftliche Nutzung von Produkten \\ Waschmaschinen,
-                Autos, Werkzeug,\dots
-            \item Ökologische Vorteile solcher Nutzungsformen gegenüber
-                individueller Nutzung
+            \item Gemeinschaftliche Nutzung von Produkten \\ Waschsalon,
+                Car-Sharing, Werkzeugverleih,\dots
+            \item Ökologische Auswirkungen solcher Nutzungsformen im Vergleich
+                zur individuellen Nutzung
         \end{itemize}
         	\begin{center}
         		\small
@@ -123,13 +129,14 @@ dashed=false]{biblatex}
         			\bottomrule
         		\end{tabular}
         		\vspace{3pt}
-        		
+
         		Für vollständige Übersicht siehe \cite{scholl_marketing_2009}.
         \end{center}
 	\end{frame}
 
 
-	
+
+    \subsection{Fragestellung}
 	\begin{frame}{Fragestellung}
       \begin{block}{}
 	        	\begin{itemize}
@@ -139,7 +146,8 @@ dashed=false]{biblatex}
 	        	\end{itemize}
       \end{block}
 	\end{frame}
-	
+
+    \subsection{Methodik}
 	\begin{frame}{Methodik}
             \begin{itemize}
                 \pause
@@ -163,7 +171,8 @@ dashed=false]{biblatex}
 
 	\begin{frame}{MIPS-Konzept}
 		\begin{itemize}
-			\item<1-> Operationalisierung des Umweltverbrauchs: MIPS %\todo{Quelle angeben}
+			\item<1-> Operationalisierung des Umweltverbrauchs:
+                MIPS\footcite{liedtke_resource_2014}
 			\item<2-> MIPS = Materialinput pro Serviceeinheit
 			\item<3-> \textbf{Input-Orientierung}: Bilanzierung aller primären Materialbewegungen (Herstellung, Nutzung, Entsorgung) \\
 			$\rightarrow$ \emph{Universeller Indikator}
@@ -176,88 +185,84 @@ dashed=false]{biblatex}
 	\end{frame}
 
 \section{Modelle}
-	\begin{frame}{Modell-Grundlagen}
-		\begin{itemize}
-			\pause
-			\item Wichtige Größe: Produktnutzungsdauer $t$
-			\begin{itemize}
-				\item Wie lange ist ein Produkt in der Nutzung?
-				\item Erreichen der technischen Lebensdauer oder der Maximalnutzungsdauer:
-				$t = \min \left\{t_\text{tech}, t_{\text{max}} \right\}$
-				\item Nicht fest vorgegeben, sondern von der Nutzung abhängig.
-			\end{itemize}
-			\pause
-			\item Nicht betrachtet: Nachfrage-Änderungen
-			\begin{itemize}
-				\item Konstante Service-Nachfrage $S = S_D$
-				\item Problem: Nicht kompatibel mit variabler Produktnutzungsdauer.
-				\item Lösung: Konstanter Betrachtungszeitraum T
-			\end{itemize}
-		\end{itemize}
-	\end{frame}
-
-\begin{frame}{Systemgrenze}
-    \includegraphics<1>[width=\textwidth]{MIPS}
-    \includegraphics<2>[width=\textwidth]{Betrachtungszeitraum0}
-    \includegraphics<3>[width=\textwidth]{Betrachtungszeitraum}
-\end{frame}
 \subsection{Nutzungsintensivierung}
 	\frame{\subsectionpage}
-	\begin{frame}{Modellbeschreibung - Nutzungshäufigkeit}
+	\begin{frame}{Modellbeschreibung -- Nutzungshäufigkeit}
 		\begin{itemize}
-			\item Nutzungsintensivierung = Erhöhung der Nutzungshäufigkeit $h$
-			\pause
-			\item Nutzungsmenge $n$ \emph{eines} Produkts während $t$: \\ $n = h \cdot t$
-			\pause
-			\item \emph{Gesamt}nutzungsmenge $N$ während $T$: \\ $N = n \cdot P = h \cdot t \cdot P = h \cdot t \cdot p \cdot \frac{T}{t} = h \cdot p \cdot T$
-			\pause
-			\item Mindestproduktanzahl $p_{\text{min}}$: \\ $p \geq p_{\text{min}} \quad  (p, p_{\text{min}} \in \mathbb{N})$
-			\pause
-			\item Servicemenge $S$: \\ $S = S_D = N \cdot A \quad \Leftrightarrow \quad N = \frac{S_D}{A}$ \quad ($A$: Produktauslastung)
-			\pause
-			\item Nutzungshäufigkeit $h$: \\ $h = \frac{N}{p \cdot T} = \frac{S_D}{A \cdot p \cdot T} \qquad h \leq h_\text{max} := \frac{S_D}{A \cdot p_\text{min} \cdot T}$
+			\item<1-> Nutzungsintensivierung = Erhöhung der Nutzungshäufigkeit $h$
+            \item<2-> Nutzungsdauer $t$ und Nutzungsmenge $n$ eines Produkts: 
+                \\ $n = h \cdot t$
+            \item<3-> Nutzungsvorrat $\n{max} \leftrightarrow$ technische
+                Lebensdauer $\t{tech}$
+            \item<4-> Maximalnutzungsdauer $\t{max}$: $n = \t{max} \cdot h$
+            \item<8-> Wir halten fest:
+                $$n (h) = \left\{\begin{array}{cl}  h \cdot
+                    t_{\text{max}}, & \mbox{falls } h < h^* \\ n_{\text{max}}, &
+                    \mbox{sonst} \end{array}\right.$$
+			% \item \emph{Gesamt}nutzungsmenge $N$ während $T$: \\ $N = n \cdot P = h \cdot t \cdot P = h \cdot t \cdot p \cdot \frac{T}{t} = h \cdot p \cdot T$
+			% \pause
+			% \item Mindestproduktanzahl $p_{\text{min}}$: \\ $p \geq p_{\text{min}} \quad  (p, p_{\text{min}} \in \mathbb{N})$
+			% \pause
+			% \item Servicemenge $S$: \\ $S = S_D = N \cdot A \quad \Leftrightarrow \quad N = \frac{S_D}{A}$ \quad ($A$: Produktauslastung)
+			% \pause
+			% \item Nutzungshäufigkeit $h$: \\ $h = \frac{N}{p \cdot T} = \frac{S_D}{A \cdot p \cdot T} \qquad h \leq h_\text{max} := \frac{S_D}{A \cdot p_\text{min} \cdot T}$
 		\end{itemize}
-	\end{frame}
 
-	\begin{frame}{Modellbeschreibung - Produktmenge}
-		\begin{itemize}
-			\item Produkte des Nutzungssystems
-				\begin{itemize}
-					\item parallel eingesetzte Produkte
-					\item sequentiell eingesetzte Produkte
-				\end{itemize}
-		\end{itemize}
+        % \def\svgscale{0.7}
+        \only<1>{\input{./Abbildungen/NI_0.pdf_tex}}
+        \only<2>{\input{./Abbildungen/NI_1.pdf_tex}}
+        \only<3>{\input{./Abbildungen/NI_2.pdf_tex}}
+        \only<4>{\input{./Abbildungen/NI_3.pdf_tex}}
+        \only<5>{\input{./Abbildungen/NI_4.pdf_tex}}
+        \only<6>{\input{./Abbildungen/NI_5.pdf_tex}}
+        \only<7->{\input{./Abbildungen/NI_6.pdf_tex}}
+	\end{frame}
+    \begin{frame}{Modellbeschreibung -- Service- und Inputs}
+        \begin{block}{}
+            $$ \MIPS = \frac{I}{S} $$
+        \end{block}
+        \pause
+        \textbf{Serviceeinheiten:}
+        \begin{itemize}
+            \item konstante Nachfrage $S_D$
+            \item diese bezieht sich auf Betrachtungszeitraum $T$
+            \item[$\Rightarrow$]  Nutzungseinheiten $N$ (= Serviceeinheiten $S$
+                $\cdot$ Auslastung $A$) auch konstant
+        \end{itemize}
+        \pause
+        \textbf{ Inputseite: }
+        \begin{itemize}
+            \item $I(h) = I_P + \I{fix}$
+            \item nutzungsbezogenen Inputs sind konstant
+        \end{itemize}
+        \pause
+        \textbf{Wir erhalten:}
+        \begin{block}{}
+            $$MIPS = \frac{P(h) \cdot i_P}{S_D} + \frac{\I{fix}}{S_D}$$
+        \end{block}
+
+    \end{frame}
+
+	\begin{frame}{Modellbeschreibung -- Produktmenge}
+        \visible<1->{\textbf{Was bedeutet die effektive Produktanzahl $P$? }}
 		\begin{figure}[h]
-			\includegraphics<1>[height=3cm]{Produktanzahlen_1_0}
 			\includegraphics<2>[height=3cm]{Produktanzahlen_1_1}
 			\includegraphics<3>[height=3cm]{Produktanzahlen_1_2}
 			\includegraphics<4>[height=3cm]{Produktanzahlen_1_3}
 			\includegraphics<5->[height=3cm]{Produktanzahlen_2}
 		\end{figure}
-		\pause
-		\begin{itemize}
-			\item <6-> $P = p \cdot q = p \cdot \frac{T}{t}$
-			% \item<7-> Fragen / Anmerkungen?
-		\end{itemize}
+        \visible<6->{\textbf{Wie bestimmt sich $P$?}}
+        \visible<7->{$$\text{Variante 1:} \quad P = p \cdot q = p \cdot
+        \frac{T}{t}$$}
+        \visible<8->{$$\text{Variante 2:} \quad P (h) = \frac{N}{n(h)} =
+        \left\{\begin{array}{cl}  \frac{S_D}{A \cdot h \cdot t_{\text{max}}}, &
+            \mbox{falls } h < h^* \\[5pt] \frac{S_D}{A \cdot n_{\text{max}}}, &
+            \mbox{sonst} \end{array}\right.$$}
 	\end{frame}
 
-	\begin{frame}{Modellbeschreibung}
-		\begin{itemize}
-			\item Technische Lebensdauer $t_\text{tech}$: \\ $t_\text{tech} := \frac{n_{\text{max}}}{h}$
-			\pause
-			\item Produktnutzungsdauer $t$: \\[5pt] $t(h) = \min \left\{t_\text{tech}, t_{\text{max}} \right\} = \left\{\begin{array}{cl}  t_{\text{max}}, & \mbox{falls } h < h^* := \frac{n_{\text{max}}}{t_{\text{max}}} \\ \frac{n_{\text{max}}}{h}, & \mbox{sonst} \end{array}\right.$
-			\pause
-			\item Nutzungsmenge $n(h)$: \\[5pt] $n (h) = h \cdot t(h) = \left\{\begin{array}{cl}  h \cdot t_{\text{max}}, & \mbox{falls } h < h^* \\ n_{\text{max}}, & \mbox{sonst} \end{array}\right.$
-			\pause
-			\item Effektive Produktanzahl $P$: \\[5pt] $P (h) = \frac{N}{n(h)} = \left\{\begin{array}{cl}  \frac{S_D}{A \cdot h \cdot t_{\text{max}}}, & \mbox{falls } h < h^* \\[5pt] \frac{S_D}{A \cdot n_{\text{max}}}, & \mbox{sonst} \end{array}\right.$
-		\end{itemize}
-	\end{frame}
-
-	\begin{frame}{Modellbeschreibung - MIPS-Gleichung}
-		\begin{itemize}
-			\item $\text{MIPS}(h) = \frac{I}{S} = \frac{P(h) \cdot i_P + I_{\text{fix}}^h}{S} =
-			\frac{I_{\text{fix}}^h}{S_D} + \left\{ \begin{array}{cl}  \frac{i_P}{h \cdot t_{\text{max}} \cdot A}, & \mbox{falls } h < h^* \\[5pt] \frac{i_P}{n_{\text{max}} \cdot A}, & \mbox{sonst} \end{array}\right.$
-		\end{itemize}
+	\begin{frame}{Modellbeschreibung -- MIPS-Gleichung}
+			$$\text{MIPS}(h) = \frac{I}{S} = \frac{P(h) \cdot i_P + I_{\text{fix}}^h}{S} =
+			\frac{I_{\text{fix}}^h}{S_D} + \left\{ \begin{array}{cl}  \frac{i_P}{h \cdot t_{\text{max}} \cdot A}, & \mbox{falls } h < h^* \\[5pt] \frac{i_P}{n_{\text{max}} \cdot A}, & \mbox{sonst} \end{array}\right.$$
 		\pause
 		\begin{center}
 			\resizebox{0.7\linewidth}{!}{
@@ -266,22 +271,17 @@ dashed=false]{biblatex}
 		\end{center}
 	\end{frame}
 
-	\begin{frame}{Analyse}		
-		\begin{itemize}
-			\item<1-> Wie stark fällt die MIPS mit steigendem $h$ im Bereich $h$ < $h^*$?
-			\item<2-> Korrespondenz von $h$ und $p$: \\ $h_1 \rightarrow h_2 = h_1 + \Delta h \qquad \Leftrightarrow \qquad p_1 \rightarrow p_2 = p_1 -1$
-			\item<3-> Änderung der MIPS: \\ $\Delta \text{MIPS} = \text{MIPS}(h_2) - \text{MIPS}(h_1) = - \frac{q \cdot i_P}{S_D}$
-		\end{itemize}
-		\begin{center}
-			\resizebox{0.5\linewidth}{!}{
-				\input{Abbildungen/Nutzungsintensivierung_2.tex}
-			}
-		\end{center}
+	\begin{frame}{Ergebnis des Modells zur Nutzungsintensivierung}		
+        \begin{block}{}
+            Senkung des Umweltverbrauchs durch Nutzungsintensivierung genau dann
+            möglich, wenn $ h < h^*$ gilt, der Nutzungsvorrat des Produkts also
+            nicht aufgebraucht wird.
+        \end{block}
 	\end{frame}
 
     \subsection{Modellkopplung: Nutzungsintensivierung und zusätzliche Transporte}
     \frame{\subsectionpage}
-    
+
     \begin{frame}{Konzeption}
     	\begin{itemize}
     		\item<1-> Grundproblem: \\ Nutzungsintensivierung $\Leftrightarrow$ zusätzliche Transporte
@@ -291,106 +291,99 @@ dashed=false]{biblatex}
 	    			\item Zusätzliche Transporte: MIPS $\nearrow$ oder $\rightarrow$
 	    		\end{itemize}
     		\item<3-> Frage: Wann ist die Gesamtwirkung positiv? \\[1em]
-    		\item<4-> Zusammenhang: \emph{Größe} des gemeinschaftlichen Systems
-	    		\begin{itemize}
-	    			\item Je größer das System, desto mehr Produkte werden eingespart.
-	    			\item Je größer das System, desto mehr zusätzliche Transporte.
-	    		\end{itemize}
+    		% \item<4-> Zusammenhang: \emph{Größe} des gemeinschaftlichen Systems
+	    	% 	\begin{itemize}
+	    	% 		\item Je größer das System, desto mehr Produkte werden eingespart.
+	    	% 		\item Je größer das System, desto mehr zusätzliche Transporte.
+	    	% 	\end{itemize}
     	\end{itemize}
-    	\begin{block}{Fragen}<5->
-			\begin{enumerate}
-			    \item Gibt es eine optimale Größe?
-			    \item Wie groß ist die maximale ökoeffiziente Größe?
-			\end{enumerate}
-    	\end{block}
     \end{frame}
-    
-    \begin{frame}{Modellbeschreibung 1/3}
-	    \begin{itemize}
-	    	\item<1-> Zwei Teilnutzungssysteme:
-		    	\begin{itemize}
-		    		\item gemeinschaftliches Nutzungssystem
-		    		\item individuelles Nutzungssystem
-		    	\end{itemize}
-		    \item<2-> Variation: \emph{Größe} des gemeinschaftlichen Nutzungssystems
-	    	\item<3-> Annahmen:
-		    	\begin{enumerate}
-		    		\item Homogen verteilte Personen-Standorte
-		    		\item Individuelles Nutzungssystem: keine Transporte
-		    		\item Gemeinschaftliches Nutzungssystem: Transporte zwischen Zentrum $Z$ und Personen-Standorten
-		    		\item Wachstum am Rand $\Rightarrow$ Kreisform. \emph{Größe} $\hat{=}$ Radius $r$
-		    		\item Unterschiedliche Nutzungshäufigkeiten: $h^\text{gem} > h^\text{ind}$
-		    	\end{enumerate}
-	    \end{itemize}
+    \begin{frame}{Beschreibung des Szenarios}
+        \begin{minipage}[t]{0.6\textwidth}
+            \vspace{0pt}
+            \only<1>{\includegraphics[height=0.7\textheight]{Kopplung_2_Geometrie_1}}
+            \only<2>{\includegraphics[height=0.7\textheight]{Kopplung_2_Geometrie_2}}
+            \only<3>{\includegraphics[height=0.7\textheight]{Kopplung_2_Geometrie_3}}
+            \only<4>{\includegraphics[height=0.7\textheight]{Kopplung_2_Geometrie_4}}
+            \only<5>{\includegraphics[height=0.7\textheight]{Kopplung_2_Geometrie_5}}
+        \end{minipage}
+        \begin{minipage}[t]{0.38\textwidth}
+            \vspace{0pt} 
+            \only<1>{}
+            \only<2>{Homogen verteilte Personen-Standorte}
+            \only<3>{
+                Zwei Teilnutzungssysteme:
+                \begin{itemize}
+                    \item gemeinschaftliches Nutzungssystem mit $h^\text{gem}$
+                    \item individuelles Nutzungssystem mit $h^\text{ind}$
+                \end{itemize}
+                Es gilt:
+                $$h^\text{gem} > h^\text{gem} $$
+            }
+            \only<4>{
+                \begin{itemize}
+                \item Individuelles Nutzungssystem: keine Transporte\\
+                    $\Rightarrow d^\text{ind} = 0$
+                \item Gemeinschaftliches Nutzungssystem: Transporte zwischen
+                    Zentrum $Z$ und Personen-Standorten\\
+                    $\Rightarrow d^\text{gem} = \frac{2}{3}r$
+                \end{itemize}
+            }
+            \only<5>{
+                Variation: \emph{Radius} des gemeinschaftlichen Nutzungssystems
+                \begin{itemize}
+                    \item Je größer das System, desto mehr Produkte
+                        werden eingespart.
+                    \item Je größer das System, desto mehr
+                        zusätzliche Transporte.
+                \end{itemize}
+            }
+        \end{minipage}
     \end{frame}
-    
-    \begin{frame}{Modellbeschreibung 2/3}
-		\begin{figure}[thb]
-			\centering
-			\includegraphics<1>[height=0.5\textheight]{Kopplung_2_Geometrie}
-			\includegraphics<2-3>[height=0.5\textheight]{Kopplung_2_durchschn_Distanz_0}
-			\includegraphics<4->[height=0.5\textheight]{Kopplung_2_durchschn_Distanz}
-			%\caption{Geometrie des zusammengesetzten Produktnutzungssystems.}
-		\end{figure}
-		\begin{itemize}
-			\item<2-> Gemeinschaftliches Nutzungssystem
-			\item<3-> Service-Nachfrage: $S_D^\text{gem} = S_D \cdot \frac{\pi \cdot r^2 \cdot \rho}{\pi \cdot R^2 \cdot \rho} = S_D \cdot \frac{r^2}{R^2} \propto r^2$
-			\item<4-> Durchschnittliche Transportdistanz: $d^\text{gem} = \frac{2}{3} \cdot r \propto r$
-			\item<5-> Inputs für Transporte: $I_\Theta \propto S_D^\text{gem} \cdot d^\text{gem} \propto r^3$
-		\end{itemize}
+
+
+    \begin{frame}{Modellbeschreibung}
+        \begin{itemize}
+            \item MIPS-Gleichung:
+                $$\text{MIPS}(r) = \frac{I_P + I_\Theta + I_\text{fix}^{h,d}}{S_D}$$
+
+            \item Transportbezogene Material-Inputs:
+                $$I_\Theta \propto S_D^\text{gem} \cdot d^\text{gem} \propto r^2 \cdot r
+                = r^3$$
+
+            \item Produktbezogene Material-Inputs:
+                $$ I_P \propto P \propto r^2 \cdot \left(
+                \frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}}
+                \right) + c_1 \qquad (c_1 \dots \text{Konstante})$$
+        \end{itemize}
     \end{frame}
-    
-    \begin{frame}{Modellbeschreibung 3/3}
-       	\begin{itemize}
-       		\item<1-> Inputs für Transporte: $I_\Theta \propto r^3$ \\[1em]
-       		\item<2-> Parallele Produktanzahlen:\\[0.1cm]
-       		$p^\text{gem} \approx \frac{S_D^\text{gem}}{A \cdot h^\text{gem} \cdot T}
-       		= \frac{S_D}{A \cdot h^\text{gem} \cdot T} \cdot \frac{r^2}{R^2}$ \\[0.1cm]
-       		$p^\text{ind} \approx \frac{S_D^\text{ind}}{A \cdot h^\text{ind} \cdot T}
-       		= \frac{S_D}{A \cdot h^\text{ind} \cdot T} \cdot \left( 1 - \frac{r^2}{R^2} \right)$
-       		\item<3-> Effektive Produktanzahl: \\
-    		$P = p^\text{gem} \cdot q^\text{gem} + p^\text{ind} \cdot q^\text{ind} \propto \frac{q^\text{gem}}{h^\text{gem}} \cdot \frac{r^2}{R^2} + \frac{q^\text{ind}}{h^\text{ind}} \cdot \left( 1 - \frac{r^2}{R^2} \right)$
-       		\item<4-> Produkt-Inputs: $I_P \propto P \propto r^2 \cdot \left( \frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}} \right) + c_1 \qquad (c_1 \dots \text{Konstante})$ \\[1em]
-       	\end{itemize}
-       	\begin{block}{Modell: Nutzungsintensivierung und zusätzliche Transporte}<5->
-       		$\text{MIPS}(r) = \frac{I_P + I_\Theta + I_\text{fix}^{h,d}}{S_D} = c_2 \cdot r^2 \cdot \left( \frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}} \right) + c_3 \cdot r^3 + c_4$
+
+    \begin{frame}{Modellanalyse}
+       	\begin{block}{Modell: Nutzungsintensivierung und zusätzliche Transporte}<1->
+       		$$\text{MIPS}(r) = c_2 \cdot r^2 \cdot \left( \frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}} \right) + c_3 \cdot r^3 + c_4$$
        	\end{block}
+    	\only<2-3>{\input{Abbildungen/Kopplung.tex}}
+        \visible<3->{Wann ist die Gesamtwirkung positiv?}
+        \only<4->{ \dots genau dann wenn:
+        $$\frac{q^\text{gem}}{h^\text{gem}} -
+        \frac{q^\text{ind}}{h^\text{ind}} < 0 
+        \quad  \Leftrightarrow \quad
+        h^\text{ind} < h^* $$}
     \end{frame}
-  
-    \begin{frame}{Modellanalyse 1}
-    	\begin{itemize}
-    		\item<1-> $\text{MIPS}(r) = c_2 \cdot r^2 \cdot \left(\markera{\frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}}} \right) + c_3 \cdot r^3 + c_4$
-    		\item<2-> $q = \frac{T}{t} = \left\{ \begin{array}{ll}  \frac{T}{t_{\text{max}}} & \mbox{falls } h < h^*:= \frac{n_\text{max}}{t_\text{max}} \\[5pt] \frac{T \cdot h}{n_\text{max}} & \mbox{sonst} \end{array} \right.$
-    		\item<3-> Optimale Größe? Minimum existiert genau dann, wenn \dots
-	    		\item<4->[] $\markera{\frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}}} < 0 \quad$ bzw. $\quad \markerb{q^\text{gem} \cdot h^\text{ind}} < \markerb{q^\text{ind} \cdot h^\text{gem}}$
-   			\item<5-> \underline{Fall 1}: $h^\text{ind}< h^\text{gem} < h^*$ \\
-	 			\item<6->[] $q^\text{gem} = q^\text{ind} = \frac{T}{t_\text{max}}$
- 			$\Rightarrow \markerb{q^\text{gem} \cdot h^\text{ind}} = q^\text{ind} \cdot h^\text{ind} < \markerb{q^\text{ind} \cdot h^\text{gem}}$ \cmark
-   			\item<7-> \underline{Fall 2}: $h^* \leq h^\text{ind} < h^\text{gem}$
-	    		\item<8->[] $\markera{\frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}}} = \frac{T \cdot h^\text{gem}}{n_\text{max} \cdot h^\text{gem}} - \frac{T \cdot h^\text{ind}}{n_\text{max} \cdot h^\text{ind}} = 0$ \xmark
-   			\item<9-> \underline{Fall 3}: $h^\text{ind} < h^* \leq h^\text{gem}$
-				 \item<10->[] $\markera{\frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}}} = \frac{T \cdot h^\text{gem}}{n_\text{max} \cdot h^\text{gem}} - \frac{T}{t_\text{max} \cdot h^\text{ind}} < \frac{T}{n_\text{max}} - \frac{T}{t_\text{max} \cdot h^*} = 0$ \cmark
-    	\end{itemize}
-    \end{frame}
-    
-    \begin{frame}{Ergebnisse}
-    	\begin{itemize}
-    		\item<1-> Fall 1: $h^\text{ind}< h^\text{gem} < h^*$ \cmark
-    		\item<1-> Fall 2: $h^* \leq h^\text{ind} < h^\text{gem}$ \xmark
-    		\item<1-> Fall 3: $h^\text{ind} < h^* \leq h^\text{gem}$ \cmark
-    	\end{itemize}
-    	\begin{block}{Ergebnisse}<2->
+
+    \begin{frame}{Ergebnis}
+    	\begin{block}{}
+            Gesamtwirkung positiv genau dann, wenn:
     		\begin{enumerate}
- 			    \item<2-> $\Rightarrow$ Optimum $r_\text{opt}$ existiert genau dann, wenn $h^\text{ind} < h^*$
- 			    \item<3-> Erreichen des Ausgangsniveaus bei $r = \hat{r} := \frac{3}{2} \cdot r_\text{opt}$
+ 			    \item $h^\text{ind} < h^* $
+ 			    \item $r = \hat{r}$
+                    %:= \frac{3}{2} \cdot r_\text{opt}$
     		\end{enumerate}
     	\end{block}
-    	\centering
-    	\only<1-3>{\rule{0in}{1.6in}} % Platzhalter für Abbildung
-    	\only<4->{\input{Abbildungen/Kopplung.tex}}
     \end{frame}    
-    
-    \section{Zusammenfassung und Diskussion}
+
+    \section{Abschluss}
+    \subsection{Zusammenfassung}
 	\begin{frame}{Zusammenfassung}
 		\pause
 		Fragestellung:
@@ -410,6 +403,7 @@ dashed=false]{biblatex}
 			\end{itemize}
 		\end{block}
 	\end{frame}
+    \subsection{Reflexion}
 	\begin{frame}{Reflexion}
 			\pause
 			\textbf{Modellierung:}
@@ -434,16 +428,17 @@ dashed=false]{biblatex}
 				%\item Schwer zu erhebende Daten ($t_\text{max}$). Ergebnis hängt von diesem Parameter ab.
 				%\item Theorie kann nicht überprüft bzw. falsifiziert werden. Lediglich die Annahmen können überprüft werden. (deduktive Herangehensweise)	
 			\end{itemize}
-			
+
 	\end{frame}
     \begin{frame}{Verringerter Umweltverbrauch auf dem Luhrmannhof?}
         \begin{minipage}[t]{0.45\textwidth}
-            \includegraphics[width=\textwidth]{Luhrmannhof50x2.pdf}
+            \includegraphics[width=0.9\textwidth]{Luhrmannhof50x2.pdf}
         \end{minipage}
         \hfill
         \begin{minipage}[t]{0.45\textwidth}
-            \includegraphics[width=\textwidth]{Luhrmannhof10x5.pdf}
+            \includegraphics[width=0.9\textwidth]{Luhrmannhof10x5.pdf}
         \end{minipage}
+        \pause
         \begin{itemize}
             % \item IZT: (S.12): $\t{max} = 8 - 10$ Jahre, $\n{max} = 2500$
             \item In einer Studie vom IÖW
@@ -452,9 +447,11 @@ dashed=false]{biblatex}
                 weitestgehend vollständigen Ausnutzung des Leistungspotential
                 von Hauhaltswaschmaschinen auszugehen ist."' 
                 % $\t{max} = 14$ Jahre, $\n{max} = 2500$
+                \pause
             \item[] $\Rightarrow$ Kein ökologischer Gewinn! (durch
                 Nutzungsintensivierung)
-            \item Evtl. jedoch nicht berücksichtigte Effekte auf.
+                \pause
+            \item Evtl. treten jedoch nicht berücksichtigte Effekte auf.
         \end{itemize}
     \end{frame}
 \end{document}
