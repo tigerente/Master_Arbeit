@@ -299,15 +299,15 @@ dashed=false]{biblatex}
     	\end{itemize}
     \end{frame}
     \begin{frame}{Beschreibung des Szenarios}
-        \begin{minipage}[t]{0.6\textwidth}
+        \begin{minipage}[t]{0.55\textwidth}
             \vspace{0pt}
-            \only<1>{\includegraphics[height=0.7\textheight]{Kopplung_2_Geometrie_1}}
-            \only<2>{\includegraphics[height=0.7\textheight]{Kopplung_2_Geometrie_2}}
-            \only<3>{\includegraphics[height=0.7\textheight]{Kopplung_2_Geometrie_3}}
-            \only<4>{\includegraphics[height=0.7\textheight]{Kopplung_2_Geometrie_4}}
-            \only<5>{\includegraphics[height=0.7\textheight]{Kopplung_2_Geometrie_5}}
+            \only<1>{\includegraphics[height=0.65\textheight]{Kopplung_2_Geometrie_1}}
+            \only<2>{\includegraphics[height=0.65\textheight]{Kopplung_2_Geometrie_2}}
+            \only<3>{\includegraphics[height=0.65\textheight]{Kopplung_2_Geometrie_3}}
+            \only<4>{\includegraphics[height=0.65\textheight]{Kopplung_2_Geometrie_4}}
+            \only<5>{\includegraphics[height=0.65\textheight]{Kopplung_2_Geometrie_5}}
         \end{minipage}
-        \begin{minipage}[t]{0.38\textwidth}
+        \begin{minipage}[t]{0.43\textwidth}
             \vspace{0pt} 
             \only<1>{}
             \only<2>{Homogen verteilte Personen-Standorte}
@@ -317,6 +317,7 @@ dashed=false]{biblatex}
                     \item gemeinschaftliches Nutzungssystem mit $h^\text{gem}$
                     \item individuelles Nutzungssystem mit $h^\text{ind}$
                 \end{itemize}
+                
                 Es gilt:
                 $$h^\text{gem} > h^\text{gem} $$
             }
@@ -344,27 +345,32 @@ dashed=false]{biblatex}
 
     \begin{frame}{Modellbeschreibung}
         \begin{itemize}
-            \item MIPS-Gleichung:
-                $$\text{MIPS}(r) = \frac{I_P + I_\Theta + I_\text{fix}^{h,d}}{S_D}$$
-
-            \item Transportbezogene Material-Inputs:
-                $$I_\Theta \propto S_D^\text{gem} \cdot d^\text{gem} \propto r^2 \cdot r
-                = r^3$$
-
-            \item Produktbezogene Material-Inputs:
-                $$ I_P \propto P \propto r^2 \cdot \left(
+            \pause
+            \item MIPS-Gleichung:\\
+                $\text{MIPS}(r) = \frac{I_P + I_\Theta + I_\text{fix}^{h,d}}{S_D}$
+			\pause
+            \item Transportbezogene Material-Inputs:\\
+                $I_\Theta \propto S_D^\text{gem} \cdot d^\text{gem} \propto r^2 \cdot r
+                = r^3$
+			\pause
+            \item Produktbezogene Material-Inputs:\\
+                $ I_P \propto P \propto r^2 \cdot \left(
                 \frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}}
-                \right) + c_1 \qquad (c_1 \dots \text{Konstante})$$
+                \right) + c_1 \qquad (c_1 \dots \text{Konstante})$
         \end{itemize}
+        \pause
+        \begin{block}{Modell: Nutzungsintensivierung und zusätzliche Transporte}
+             $$\text{MIPS}(r) = c_2 \cdot r^2 \cdot \left( \frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}} \right) + c_3 \cdot r^3 + c_4$$
+        \end{block}
     \end{frame}
 
     \begin{frame}{Modellanalyse}
        	\begin{block}{Modell: Nutzungsintensivierung und zusätzliche Transporte}<1->
        		$$\text{MIPS}(r) = c_2 \cdot r^2 \cdot \left( \frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}} \right) + c_3 \cdot r^3 + c_4$$
        	\end{block}
-    	\only<2-3>{\input{Abbildungen/Kopplung.tex}}
-        \visible<3->{Wann ist die Gesamtwirkung positiv?}
-        \only<4->{ \dots genau dann wenn:
+    	\only<1-2>{\input{Abbildungen/Kopplung.tex}}
+        \visible<2->{Wann ist die Gesamtwirkung positiv?}
+        \only<3->{ \dots genau dann wenn:
         $$\frac{q^\text{gem}}{h^\text{gem}} -
         \frac{q^\text{ind}}{h^\text{ind}} < 0 
         \quad  \Leftrightarrow \quad
@@ -376,7 +382,7 @@ dashed=false]{biblatex}
             Gesamtwirkung positiv genau dann, wenn:
     		\begin{enumerate}
  			    \item $h^\text{ind} < h^* $
- 			    \item $r = \hat{r}$
+ 			    \item $r < \hat{r}$
                     %:= \frac{3}{2} \cdot r_\text{opt}$
     		\end{enumerate}
     	\end{block}
