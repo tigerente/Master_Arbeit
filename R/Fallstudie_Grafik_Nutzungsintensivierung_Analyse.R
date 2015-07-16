@@ -42,12 +42,12 @@ h_Ind_hig = h(p_Ind, N*hig, Time)
 overview <- data.frame(h_Ind    = c(h_Ind_low,h_Ind_mid,h_Ind_hig),
                        h_stern  = c(h_stern_low,h_stern_mid,h_stern_hig),
                        p_Ind    = rep(p_Ind, times=3),
-                       p_stern  = c(p_stern_low,p_stern_mid,p_stern_hig))
+                       p_stern  = c(p_stern_hig,p_stern_mid,p_stern_low))
 overview$check <- overview$h_Ind < overview$h_stern
-row.names(overview) <- c("low", "mid", "high")
+row.names(overview) <- c("worst", "average", "best")
 
 print("Teil 1: Kriterienüberprüfung:")
-print(overview)
+print(overview, digits=0)
 
 #### Teil 2: Delta MIPS (h_gem) ####
 delta_MIPS <- function(p, t_max = t_max_mid[1], n_max = n_max_mid[1]){
