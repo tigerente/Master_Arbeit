@@ -16,7 +16,7 @@ fntsize <- 0.8
 useTikz <- FALSE
 if(useTikz) tikz( '../tex/Abbildungen/Fallstudie_Nutzungsintensivierung.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
 
-manipulate.function <- function(t_max=t_max[1], n_max=n_max[1]){
+manipulate.function <- function(t_max=t_max[1], n_max=n_max[1], p_Ind=Szenario.Ind["p","values"]){
 # spezifische MIPS-Funktion:
 # MIPS_spez <- function(h){
 #     I_N/S_D[1] +
@@ -36,8 +36,8 @@ p_min = 2
 p_low = 1
 p_high = 50
 h_low = h(p_high, N, Time)
-#h_Ind = h(Szenario.Ind["p","values"], N, Time)
-h_Ind = h(50, N, Time)
+h_Ind = h(p_Ind, N, Time)
+#h_Ind = h(50, N, Time)
 h_Luh = h(Szenario.Luh["p","values"], N, Time)
 h_high = h(p_low, N, Time)
 MIPS_low = 0
@@ -74,9 +74,10 @@ mtext ('parallele Produktanzahl $p$', side = 3, line = 2.5, cex = 1)
 
 if (useTikz) dev.off()
 }
-manipulate(manipulate.function(t_max=t_max, n_max = n_max), 
+manipulate(manipulate.function(t_max=t_max, n_max = n_max, p_Ind=p_Ind), 
            n_max = slider(500, 6000, step=250),
-           t_max = slider(1, 20, step=1)
+           t_max = slider(1, 20, step=1),
+           p_Ind = slider(2,50, step=1)
            )
 # sens_t <- 0.5
 # sens_n <- 0.5
