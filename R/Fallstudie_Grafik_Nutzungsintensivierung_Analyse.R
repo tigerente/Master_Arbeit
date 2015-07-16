@@ -29,9 +29,9 @@ h_stern_low = n_max_low[1]/t_max_hig[1]
 h_stern_mid = n_max_mid[1]/t_max_mid[1]
 h_stern_hig = n_max_hig[1]/t_max_low[1]
 
-p_stern_low = floor(N*low / h_stern_hig * Time)
-p_stern_mid = floor(N*mid / h_stern_mid * Time)
-p_stern_hig = floor(N*hig / h_stern_low * Time)
+p_stern_low = floor(N*low / (h_stern_hig * Time))
+p_stern_mid = floor(N*mid / (h_stern_mid * Time))
+p_stern_hig = floor(N*hig / (h_stern_low * Time))
 
 p_Ind = Szenario.Ind["p","values"]
 h_Ind_low = h(p_Ind, N*low, Time)
@@ -39,18 +39,47 @@ h_Ind_mid = h(p_Ind, N*mid, Time)
 h_Ind_hig = h(p_Ind, N*hig, Time)
 
 # Ausgabe #
-# TODO: Konsolen-Ausgabe (2 Tabellen)
+overview <- data.frame(h_Ind    = c(h_Ind_low,h_Ind_mid,h_Ind_hig),
+                       h_stern  = c(h_stern_low,h_stern_mid,h_stern_hig),
+                       p_Ind    = rep(p_Ind, times=3),
+                       p_stern  = c(p_stern_low,p_stern_mid,p_stern_hig))
+overview$check <- overview$h_Ind < overview$h_stern
+row.names(overview) <- c("low", "mid", "high")
 
+print("Teil 1: Kriterienüberprüfung:")
+print(overview)
 
 #### Teil 2: Delta MIPS (h_gem) ####
+delta_MIPS <- function(p, t_max = t_max_mid[1], n_max = n_max_mid[1]){
+  MIPS_Ind <- MIPS(h = h(p_Ind, N, Time), I_fix = 0, S_D = S_D[1], i_P = i_P["MF","values"],
+                   t_max = t_max, A = A[1], n_max = n_max)  
+  
+  MIPS_Gem <- MIPS(h = h(p, N, Time), I_fix = 0, S_D = S_D[1], i_P = i_P["MF","values"],
+                   t_max = t_max, A = A[1], n_max = n_max)  
+  
+  return(MIPS_Gem - MIPS_Ind)
+}
+
+
+p_min = 2
+p_dis <- seq(from=p_Ind, to=p_min, by=-1)
+p_con <- seq(from=p_Ind, to=p_min, length.out=200)
+
+plot(p_dis, delta_MIPS(p_dis), xlim=rev(range(p_dis)), type = 'p', pch = 22, bg = 'white',
+     panel.first = lines(p_con, delta_MIPS(p_con), type = 'l', lty = 1, col='grey'))
+
+
+
+
+
 
 I_N     <- i_N["MF","values"] * N
 
 # spezifische MIPS-Funktion:
 MIPS_spez <- function(h){
-     I_N/S_D[1] +
-     MIPS(h = h, I_fix = 0, S_D = S_D[1], i_P = i_P["MF","values"],
-          t_max = t_max[1], A = A[1], n_max = n_max[1])  
+  I_N/S_D[1] +
+    MIPS(h = h, I_fix = 0, S_D = S_D[1], i_P = i_P["MF","values"],
+         t_max = t_max[1], A = A[1], n_max = n_max[1])  
 }
 
 # Definition von Konstanten:
