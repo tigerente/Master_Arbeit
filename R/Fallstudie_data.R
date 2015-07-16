@@ -155,7 +155,7 @@ i_N_Wasser = weighted.mean(wasser[,"W"], wasser[,"H"])
 ##########################################
 
 Szenario.Ind <- data.frame(
-  values = c(p = 10, d = 0),
+  values = c(p = 17, d = 0),
   sig = c(0, sig = 0)
 )
 
@@ -167,7 +167,7 @@ Szenario.Luh["d",] <- Szenario.Ind["d",]
 
 Szenario.Tra <- data.frame(values=vector(), sig=vector())
 Szenario.Tra["p",] <- Szenario.Luh["p",]
-Szenario.Tra["d",] <- c(10, sig = 0)# Einheit: Kilometer
+Szenario.Tra["d",] <- c(2, sig = 0)# Einheit: Kilometer
 
 # Material-Inputs:
 i_N <- data.frame(
@@ -191,11 +191,15 @@ i_d_M <- data.frame(
 
 # alle weiteren Parameter:
 S_D   = c(          S, sig = 0)
-n_max = c(       3000, sig = 0) # Nutzungseinheiten
+n_max_low = c(       2000, sig = 0) # Nutzungseinheiten (unterer Wert)
+n_max_mid = c(       2500, sig = 0) # Nutzungseinheiten (mittlerer Wert)
+n_max_hig = c(       3000, sig = 0) # Nutzungseinheiten (oberer Wert)
 theta = c(        1/2, sig = 0) # Anzahl Transporte je Nutzungseinheit
 m_S   = c(          1, sig = 0) # Kilogramm (je Serviceeinheit zu transportierende Menge)
 K     = c(          7, sig = 0) # Kilogramm
-t_max = c(          3, sig = 0) # Jahre
+t_max_low = c(          8, sig = 0) # Maximalnutzungsdauer in Jahren  (unterer Wert)
+t_max_mid = c(          11, sig = 0) # Maximalnutzungsdauer in Jahren  (mittlerer Wert)
+t_max_hig = c(          14, sig = 0) # Maximalnutzungsdauer in Jahren  (oberer Wert)
 A     = c(     mean_A, sig = 0)
 a     = c(  A[1]/K[1], sig = 0)
 
