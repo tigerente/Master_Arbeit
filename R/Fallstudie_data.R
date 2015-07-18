@@ -7,9 +7,9 @@
 #### Get and Prepare Data ####
 ##############################
 
-Ergebnisse <- read.csv("~/Uni/Master_Arbeit/R/Ergebnisse.csv", sep=";", dec=",", stringsAsFactors=FALSE)
-Datenblatt <- read.csv("~/Uni/Master_Arbeit/R/Datenblatt.csv", sep=";", dec=",", stringsAsFactors=FALSE)
-MIPS_Daten <- read.csv("~/Uni/Master_Arbeit/R/MIPS_Daten.csv", sep=";", dec=",", stringsAsFactors=FALSE, row.names=1)
+Ergebnisse <- read.csv("Ergebnisse.csv", sep=";", dec=",", stringsAsFactors=FALSE)
+Datenblatt <- read.csv("Datenblatt.csv", sep=";", dec=",", stringsAsFactors=FALSE)
+MIPS_Daten <- read.csv("MIPS_Daten.csv", sep=";", dec=",", stringsAsFactors=FALSE, row.names=1)
 
 # zunächst entfernen wir die Ende-Zeilen:
 Ergebnisse <- Ergebnisse[Ergebnisse$Sonstiges != "Ende",]
@@ -215,11 +215,11 @@ results <- data.frame( # use for tex-printout
   # I_fix_k = I_fix_k,
 
   S_D   = S_D,
-  n_max = n_max,
+  n_max = n_max_mid,
   theta = theta,
   m_S   = m_S,
   K     = K,
-  t_max = t_max,
+  t_max = t_max_mid,
   A     = A,
   a     = a,
   
