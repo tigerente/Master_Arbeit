@@ -14,8 +14,8 @@ tikzwidth <- 5.8
 fntsize <- 0.8
 
 # Export aktivieren
-useTikz <- TRUE
-# useTikz <- FALSE
+# useTikz <- TRUE
+useTikz <- FALSE
 if(useTikz) tikz( '../tex/Abbildungen/Fallstudie_DeltaMIPS_p.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
 
 #### Konstanten ####
@@ -35,7 +35,8 @@ Avg <- data.frame(
   i_P   = i_P["MF","values"]*mid,
   i_d   = i_d["MF","values"]*mid,
   i_N   = i_N["MF","values"]*mid,
-  theta = theta[1]*mid
+  theta = theta[1]*mid,
+  alpha = alpha[1]*mid
   )
 Wor <- data.frame(
   # n_max = n_max_low[1],
@@ -47,7 +48,8 @@ Wor <- data.frame(
   i_P   = i_P["MF","values"]*low,
   i_d   = i_d["MF","values"]*hig,
   i_N   = i_N["MF","values"]*hig,
-  theta = theta[1]*hig
+  theta = theta[1]*hig,
+  alpha = alpha[1]*hig
   )
 Bes <- data.frame(
   # n_max = n_max_hig[1],
@@ -59,7 +61,8 @@ Bes <- data.frame(
   i_P   = i_P["MF","values"]*hig,
   i_d   = i_d["MF","values"]*low,
   i_N   = i_N["MF","values"]*low,
-  theta = theta[1]*low
+  theta = theta[1]*low,
+  alpha = alpha[1]*low
   )
 
 #### Teil 1: Kriterien überprüfen ####
@@ -163,28 +166,38 @@ if(useTikz) dev.off()
 ##################
 #### Kopplung ####
 ##################
+#------------------------------------------------------------------------------#
+d_stern <- function(p_Ind, p_Gem, daten){
+  MIPS_Ind <- with(daten, MIPS(h = h(p_Ind, N, Time), I_fix = i_N*N, S_D = N*A, i_P = i_P,
+                               t_max = t_max, A = A, n_max = n_max))
+  
+  MIPS_Gem <-  with(daten, MIPS(h = h(p_Gem, N, Time), I_fix = i_N*N, S_D = N*A, i_P = i_P,
+                                t_max = t_max, A = A, n_max = n_max))
+  return(with(daten, (MIPS_Ind - MIPS_Gem)*A/(theta * i_d * alpha)))
+}
+
+#------------------------------------------------------------------------------#
+delta_MIPS <- function(d, p, daten){
+  MIPS_Ind <- with(daten, MIPS(h = h(p_Ind, N, Time), I_fix = i_N*N, S_D = N*A, i_P = i_P,
+                               t_max = t_max, A = A, n_max = n_max))
+  
+  MIPS_Gem <-  with(daten, MIPS(h = h(p, N, Time), I_fix = i_N*N, S_D = N*A, i_P = i_P,
+                                t_max = t_max, A = A, n_max = n_max))
+  MIPS_Tra <- with(daten, MIPS_Gem + MIPS_a(d = d, theta = theta, i_d = i_d * alpha, 
+                                            a = A, K = 1, I_fix = 0, S_D = N*A))
+  return((MIPS_Ind - MIPS_Tra))
+}
 
 #### Teil 1: delta_MIPS in Abhängigkeit von d ####
 
 # Export aktivieren
-useTikz <- TRUE
-# useTikz <- FALSE
+# useTikz <- TRUE
+useTikz <- FALSE
 if(useTikz) tikz( '../tex/Abbildungen/Fallstudie_DeltaMIPS_d.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
-
-delta_MIPS <- function(d, p, daten){
-  MIPS_Ind <- with(daten, MIPS(h = h(p_Ind, N, Time), I_fix = i_N*N, S_D = N*A, i_P = i_P,
-                   t_max = t_max, A = A, n_max = n_max))
-  
-  MIPS_Gem <-  with(daten, MIPS(h = h(p, N, Time), I_fix = i_N*N, S_D = N*A, i_P = i_P,
-                   t_max = t_max, A = A, n_max = n_max))
-  MIPS_Tra <- with(daten, MIPS_Gem + MIPS_a(d = d, theta = theta, i_d = i_d, 
-                    a = A, K = 1, I_fix = 0, S_D = N*A))
-  return((MIPS_Ind - MIPS_Tra))
-}
 
 p_Tra <- Szenario.Tra["p", "values"]
 d_seq <- seq(from=0, to=4, length.out=200) 
-d_stern_Avg <- 0.8040201 # das ist numerisch gewonnen, nicht analytisch
+d_stern_Avg <- d_stern(p_Ind = p_Ind, p_Gem = p_Tra, daten = Avg)
 
 par(mar=c(5,3,6,3), mgp=c(2,0.6,0)) # mgp: for arranging axes and labels spatially, first value: distance axes label, second value: distance tick labe, third value: distance tick mark from axes
 vec_plot <- delta_MIPS(d = d_seq, p = p_Tra, daten = Bes[3,])
@@ -264,6 +277,7 @@ if(useTikz) dev.off()
 #### Teil 2: Überprüfung von d < d* ####
 
 
+
 #### Teil 3: Szenarien vergleichen ####
 MIPS_N_I <- with(Bes[3,], i_N/A)
 MIPS_N_II <- with(Bes[3,], i_N/A)
@@ -271,7 +285,7 @@ MIPS_P_I <- with(Bes[3,], MIPS(h = h(p_Ind, N, Time), I_fix = 0, S_D = N*A, i_P 
                                                 t_max = t_max, A = A, n_max = n_max))
 MIPS_P_II <- with(Bes[3,], MIPS(h = h(p_Gem, N, Time), I_fix = 0, S_D = N*A, i_P = i_P,
                                                 t_max = t_max, A = A, n_max = n_max))
-MIPS_T <- with(Bes[3,], MIPS_a(d = Szenario.Tra["d", "values"], theta = theta, i_d = i_d, 
+MIPS_T <- with(Bes[3,], MIPS_a(d = Szenario.Tra["d", "values"], theta = theta, i_d = i_d * alpha, 
                     a = A, K = 1, I_fix = 0, S_D = N*A))
 
 MIPS_Vergleich <- matrix(c(MIPS_N_II, MIPS_P_II, MIPS_T,
@@ -319,31 +333,37 @@ arrows(x0 = 3.8, x1 = 3.99, y0 = 1, y1 = 1, code=1, length=0.1)
 
 #### Teil 4: Plot d~p ####
 require(plot3D)
-require(colorspace)
-image2D(x=p_con, y=d_seq, z=outer(p_con, d_seq, FUN = function(p,d) delta_MIPS(p=p, d=d, daten=Bes[3,])), col=my_color_palette(200), zlim=c(-0.23,0.23))
-contour2D(x=p_con, y=d_seq, z=outer(p_con, d_seq, FUN = function(p,d) delta_MIPS(p=p, d=d, daten=Bes[3,])), add=TRUE, col="black", alpha = 0.5, drawlabels = FALSE, nlevels=1, lwd=2)
-contour2D(x=p_con, y=d_seq, z=outer(p_con, d_seq, FUN = function(p,d) delta_MIPS(p=p, d=d, daten=Bes[3,])), add=TRUE, col="black", alpha = 0.1, drawlabels = FALSE, nlevels=30)
-# the following palette is created using function choose_palette from package colorspace:
-my_color_palette <- function (n, h = c(365, 120), c = 120, l = c(40, 100), power = 0.979838709677419, 
-                              fixup = TRUE, gamma = NULL, alpha = 1, ...) 
-{
-  if (!is.null(gamma)) 
-    warning("'gamma' is deprecated and has no effect")
-  if (n < 1L) 
-    return(character(0L))
-  h <- rep(h, length.out = 2L)
-  c <- c[1L]
-  l <- rep(l, length.out = 2L)
-  power <- rep(power, length.out = 2L)
-  rval <- seq(1, -1, length = n)
-  rval <- hex(polarLUV(L = l[2L] - diff(l) * abs(rval)^power[2L], 
-                       C = c * abs(rval)^power[1L], H = ifelse(rval > 0, h[1L], 
-                                                               h[2L])), fixup = fixup, ...)
-  if (!missing(alpha)) {
-    alpha <- pmax(pmin(alpha, 1), 0)
-    alpha <- format(as.hexmode(round(alpha * 255 + 1e-04)), 
-                    width = 2L, upper.case = TRUE)
-    rval <- paste(rval, alpha, sep = "")
-  }
-  return(rval)
-}
+d_seq <- seq(from=0, to=4, length.out=200) 
+# background color:
+image2D(x=p_con, y=d_seq, z=outer(rev(p_con), d_seq, FUN = function(p,d) delta_MIPS(p=p, d=d, daten=Avg)), col=c("red", "green" ), zlim=c(-0.3,0.3), alpha=0.8, xlim=c(2,17), axes=FALSE)
+
+# Unsicherheitsbereiche:
+color_hig <- adjustcolor("gray90",alpha.f=0.4)
+color_mid <- adjustcolor("gray80",alpha.f=0.4)
+color_sma <- adjustcolor("gray70",alpha.f=0.4)
+
+# # -- highest variation
+polygon(c(p_con, rev(p_con)), 
+        c(d_stern(p_Ind = p_Ind, p_Gem = rev(p_con), daten = Wor[3,]),
+          rev(d_stern(p_Ind = p_Ind, p_Gem = rev(p_con), daten = Bes[3,]))),
+        col=color_hig, border = color_hig)
+
+# # -- mid variation
+polygon(c(p_con, rev(p_con)), 
+        c(d_stern(p_Ind = p_Ind, p_Gem = rev(p_con), daten = Wor[2,]),
+          rev(d_stern(p_Ind = p_Ind, p_Gem = rev(p_con), daten = Bes[2,]))),
+        col=color_mid, border = color_mid)
+
+# # -- smallest variation
+polygon(c(p_con, rev(p_con)), 
+        c(d_stern(p_Ind = p_Ind, p_Gem = rev(p_con), daten = Wor[1,]),
+          rev(d_stern(p_Ind = p_Ind, p_Gem = rev(p_con), daten = Bes[1,]))),
+        col=color_sma, border = color_sma)
+
+# -- Avg Case
+contour2D(x=p_con, y=d_seq, z=outer(rev(p_con), d_seq, FUN = function(p,d) delta_MIPS(p=p, d=d, daten=Avg)), add=TRUE, col="black", alpha = 1, drawlabels = TRUE, nlevels=1, lwd=3, labcex=1)
+
+# contour lines:
+contour2D(x=p_con, y=d_seq, z=outer(rev(p_con), d_seq, FUN = function(p,d) delta_MIPS(p=p, d=d, daten=Avg)), add=TRUE, col="black", alpha = 0.4, drawlabels = TRUE, nlevels=15, labcex= 1)
+axis(side=1, at=seq(2,17, by=2), labels=seq(17, 2, by=-2))
+axis(side=2)
