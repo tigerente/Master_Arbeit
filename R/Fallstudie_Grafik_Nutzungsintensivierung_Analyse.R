@@ -15,7 +15,7 @@ fntsize <- 0.8
 
 # Export aktivieren
 useTikz <- TRUE
-#useTikz <- FALSE
+# useTikz <- FALSE
 if(useTikz) tikz( '../tex/Abbildungen/Fallstudie_DeltaMIPS_p.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
 
 #### Konstanten ####
@@ -106,12 +106,15 @@ p_min = 2
 p_dis <- seq(from=p_Ind, to=p_min, by=-1) # ganzzahlige p-Werte
 p_con <- seq(from=p_Ind, to=p_min-0.08, length.out=200) # "kontinuierliche" p-Werte
 
-plot(p_con, delta_MIPS(p_con, Bes[3,]), type = 'l', lty = 1, col='grey90', ylim=c(0,0.3), xlim=rev(range(p_dis)), main = "MIPS-Einsparung im Vergleich zu Szenario I", xlab = "$p$ (Ziel-Szenario)", ylab = "$\\Delta$MIPS(kg/kg)",
+par(mar=c(5,3,6,3), mgp=c(2,0.6,0)) # mgp: for arranging axes and labels spatially, first value: distance axes label, second value: distance tick labe, third value: distance tick mark from axes
+plot(p_con, delta_MIPS(p_con, Bes[3,]), type = 'l', lty = 1, col='grey90', ylim=c(0,0.3), xlim=rev(range(p_dis)),  xlab = "$p$ (Ziel-Szenario)", ylab = "$\\Delta$MIPS [kg/kg]",
      panel.first = polygon(c(p_con, rev(p_con)), c(delta_MIPS(p_con, Wor[3,]),
                                            rev(delta_MIPS(p_con, Bes[3,]))),
-                           col="gray90", border = "gray90")
+                           col="gray90", border = "gray90"),
+     axes = FALSE
      )
 
+# Unsicherheitsbereiche:
 polygon(c(p_con, rev(p_con)), c(delta_MIPS(p_con, Wor[2,]),
                                                    rev(delta_MIPS(p_con, Bes[2,]))),
                            col="gray80", border = "gray80")
@@ -123,17 +126,35 @@ polygon(c(p_con, rev(p_con)), c(delta_MIPS(p_con, Wor[1,]),
 points(p_dis, delta_MIPS(p_dis, Avg), xlim=rev(range(p_dis)), type = 'p', pch = 22, bg = 'gray70', col="gray20",
      panel.first = lines(p_con, delta_MIPS(p_con, Avg), type = 'l', lty = 1, lwd = 1.5, col='gray20'))
 
-axis(side=1, at = c(p_Ind, p_Gem), labels = c(paste("$p_I=", p_Ind, "$", sep=""), paste("$p_{II}=", p_Gem,"$", sep="")))
+# Maintitle:
+title("MIPS-Einsparung im Vergleich zu Szenario I", line=4, cex.main=1.4)
+# Subtitle:
+title("Nutzungsintensivierung", line=2, cex.main=1.2)
 
+# Achsen:
+axis(side=1, at = c(p_Ind, p_Gem, p_stern_Avg, 15, 10, 5), 
+     labels = c(paste("$p^\\text{I}=", p_Ind, "$", sep=""),
+                paste("$p^\\text{II}=", p_Gem,"$", sep=""), 
+                paste("$p^*=", p_stern_Avg,"$", sep=""),
+                "", 10, 5),
+     cex.axis=0.8) 
+axis(side=2, cex.axis = 0.8, at = seq(0,0.3,by=0.05), labels = c("0.0", "", "0.1", "", "0.2", "", "0.3"))
+box()
+
+# vertikale Linie für p*:
+lines(rep(p_stern_Avg, times=2), c(-0.1,0.05), lty="dashed")
+
+# Legende:
 legend("topleft", inset = 0.02,
-       legend = c("Sch\"atzwert", "+/- 1 \\% Parameterabweichung", "+/- 5 \\% Parameterabweichung", "+/- 10 \\% Parameterabweichung"),
+       legend = c("Sch\"atzwert", "+/- \\ 1 \\% Parameterabweichung", "+/- \\ 5 \\% Parameterabweichung", "+/- 10 \\% Parameterabweichung"),
        bty = "n",
        col = c("gray20","gray70", "gray80", "gray90"),
        lty = c(1, 0, 0, 0),
        lwd = c(1, 0, 0, 0),
        pch = c(22, 22, 22, 22),
        pt.bg = c(NA,"gray70", "gray80", "gray90"),
-       pt.cex = c(1, 2.5, 2.5, 2.5)
+       pt.cex = c(1, 2.5, 2.5, 2.5)*0.8,
+       cex = 0.8
 )
 
 if(useTikz) dev.off()
@@ -157,8 +178,9 @@ delta_MIPS <- function(d, p, daten){
 
 d_seq <- seq(from=0, to=5, length.out=200) 
 
-plot(d_seq, -1 * delta_MIPS(d = d_seq, p = Szenario.Tra["p", "values"], daten = Bes), type = 'l') 
+plot(d_seq, -1 * delta_MIPS(d = d_seq, p = Szenario.Tra["p", "values"], daten = Bes[3,]), type = 'l') 
 abline(h=0, col="grey")
+axis(side=1, pos=0)
 
 
 
@@ -167,13 +189,13 @@ abline(h=0, col="grey")
 
 
 #### Teil 3: Szenarien vergleichen ####
-MIPS_N_I <- with(Bes, i_N/A)
-MIPS_N_II <- with(Bes, i_N/A)
-MIPS_P_I <- with(Bes, MIPS(h = h(p_Ind, N, Time), I_fix = 0, S_D = N*A, i_P = i_P,
+MIPS_N_I <- with(Bes[3,], i_N/A)
+MIPS_N_II <- with(Bes[3,], i_N/A)
+MIPS_P_I <- with(Bes[3,], MIPS(h = h(p_Ind, N, Time), I_fix = 0, S_D = N*A, i_P = i_P,
                                                 t_max = t_max, A = A, n_max = n_max))
-MIPS_P_II <- with(Bes, MIPS(h = h(p_Gem, N, Time), I_fix = 0, S_D = N*A, i_P = i_P,
+MIPS_P_II <- with(Bes[3,], MIPS(h = h(p_Gem, N, Time), I_fix = 0, S_D = N*A, i_P = i_P,
                                                 t_max = t_max, A = A, n_max = n_max))
-MIPS_T <- with(Bes, MIPS_a(d = Szenario.Tra["d", "values"], theta = theta, i_d = i_d, 
+MIPS_T <- with(Bes[3,], MIPS_a(d = Szenario.Tra["d", "values"], theta = theta, i_d = i_d, 
                     a = A, K = 1, I_fix = 0, S_D = N*A))
 
 MIPS_Vergleich <- matrix(c(MIPS_N_I, MIPS_P_I, 0, MIPS_N_II, MIPS_P_II, 0, MIPS_N_II, MIPS_P_II, MIPS_T), nrow=3, ncol=3)
@@ -185,14 +207,7 @@ legend("topright",c("N","P", "T"))
 
 #### Teil 4: Plot d~p ####
 require(plot3D)
-image2D(x=p_con, y=d_seq, z=outer(p_con, d_seq, FUN = function(p,d) delta_MIPS(p=p, d=d, daten=Bes)), col=grey(c(seq(0.7,1,length.out=147), seq(1,0.7
+image2D(x=p_con, y=d_seq, z=outer(p_con, d_seq, FUN = function(p,d) delta_MIPS(p=p, d=d, daten=Bes[3,])), col=grey(c(seq(0.7,1,length.out=147), seq(1,0.7
                                                                                                                                     ,length.out=200))))
-contour2D(x=p_con, y=d_seq, z=outer(p_con, d_seq, FUN = function(p,d) delta_MIPS(p=p, d=d, daten=Bes)), add=TRUE, col="black")
+contour2D(x=p_con, y=d_seq, z=outer(p_con, d_seq, FUN = function(p,d) delta_MIPS(p=p, d=d, daten=Bes[3,])), add=TRUE, col="black")
 I_N     <- i_N["MF","values"] * N
-
-# spezifische MIPS-Funktion:
-MIPS_spez <- function(h){
-  I_N/S_D[1] +
-    MIPS(h = h, I_fix = 0, S_D = S_D[1], i_P = i_P["MF","values"],
-         t_max = t_max[1], A = A[1], n_max = n_max[1])  
-}
