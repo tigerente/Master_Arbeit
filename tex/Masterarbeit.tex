@@ -3024,17 +3024,51 @@ und deren Quelle dar:
     %     $w$ [1] &\textsuperscript{S} &\multicolumn{2}{c}{\textsuperscript{S}}\\
     %     $d$ [1] &\multicolumn{2}{c}{\textsuperscript{E}}&\textsuperscript{S} 
     % \end{longtable}
+\subsection{Sensitivitätsanalyse / Min-Max-Abschätzung / Parametervariation}
 
 \section{Berechnungen / Ergebnisse}
+% allgemeines Vorgehen beschreiben:
+%   - zunächst Nutzungsintensivierung, dann Kopplung mit zusätzlichen Transporten
+%   - jeweils Überprüfung der in dem Theorieteil aufgestellten Kriterien und zum
+%   anderen werden die Daten verwendet um noch etwas mehr ins Detail zu gehen
+%   (v.a. Größenordnung der MIPS)
+
 \subsection{Nutzungsintensivierung}
+%   Beschreiben, was bei der Nutzungsintensivierung geschieht:
+%       1) aufgestelltes Kriterium aus der Theorie wird für das Fallbeispiel
+%       überprüft
+%       2) MIPS-Änderung in Abhängigkeit von der Produktanzahl im Zielszenario
+%       anschauen
+
+\subsubsection{Kriterienüberprüfung}
+% - h*, p* berechnen für die verschiedenen Cases und mit h_Ind bzw. p_Ind
+%   vergleichen
+% - als Ergebnis formulieren: 10 Maschinen hättens auch getan
+
+\subsubsection{Größenordnung der MIPS-Einsparung}
+% - Graphik beschreiben (qualitativen Verlauf beschreiben und Bedeutung von p*
+%   verdeutlichen)
+% - jetzt quantitativ: MIPS-Einsparung ablesen für p_Gem (Average Case)
+% - ja aber hängt halt von den Parametern ab: auf die Sensitivität der Parameter
+%   eingehen
 		\begin{figure}[ht]
 			\input{Abbildungen/Fallstudie_DeltaMIPS_p.tex}
 			\caption{Beschreibung}
 			\label{fig:Fallstudie_DeltaMIPS(p)}
 		\end{figure}
-\subsection{Transporte}
-\subsection{Kopplung 1}
-\subsection{Kopplung 2}
+\subsection{Kopplung: Nutzungsintensivierung und zusätzliche Transporte}
+% gleiches Schema wie zuvor
+
+\subsubsection{Kriterienüberprüfung}
+% - d*  berechnen für die verschiedenen Cases und mit d_Ind
+%   vergleichen
+
+\subsubsection{Größenordnung der MIPS-Einsparung}
+% beide Graphiken bringen (also delta Mips (d) und Säulendiagramm
+% für erstere Graphik:
+% - ansonsten gleiches Schema wie oben
+% - zusätzlich noch auf die Unsicherheitsbereiche in beiden Dimensionen eingehen
+
 \chapter{Ergebnisse}
     \section{Synthese}
     \begin{itemize}
