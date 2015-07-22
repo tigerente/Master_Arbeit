@@ -16,7 +16,6 @@ fntsize <- 0.8
 # Export aktivieren
 # useTikz <- TRUE
 useTikz <- FALSE
-if(useTikz) tikz( '../tex/Abbildungen/Fallstudie_DeltaMIPS_p.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
 
 #### Konstanten ####
 var = c(0.01, 0.05, 0.1)      # Relative Abweichung für Sensititvitäts-Analyse
@@ -65,6 +64,10 @@ Bes <- data.frame(
   alpha = alpha[1]*low
   )
 
+################################
+#### Nutzungsintensivierung ####
+################################
+
 #### Teil 1: Kriterien überprüfen ####
 # h* berechnen #
 h_stern_Wor = with(Wor, n_max/t_max)
@@ -94,6 +97,11 @@ row.names(overview) <- c("worst", "average", "best")
 print("Teil 1: Kriterienüberprüfung:")
 print(overview, digits=0)
 
+# export to latex:
+require(xtable)
+output.table <- xtable(overview)
+print.xtable(output.table, type="latex", file="../tex/Tabellen/NI_Kriterien.tex", booktabs=TRUE, floating=FALSE)
+
 #### Teil 2: Delta MIPS (p, daten) ####
 delta_MIPS <- function(p, daten){
   MIPS_Ind <- with(daten, MIPS(h = h(p_Ind, N, Time), I_fix = i_N*N, S_D = N*A, i_P = i_P,
@@ -108,6 +116,8 @@ delta_MIPS <- function(p, daten){
 p_min = 2
 p_dis <- seq(from=p_Ind, to=p_min, by=-1) # ganzzahlige p-Werte
 p_con <- seq(from=p_Ind, to=p_min-0.08, length.out=200) # "kontinuierliche" p-Werte
+
+if(useTikz) tikz( '../tex/Abbildungen/Fallstudie_DeltaMIPS_p.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
 
 par(mar=c(5,3,6,3), mgp=c(2,0.6,0)) # mgp: for arranging axes and labels spatially, first value: distance axes label, second value: distance tick labe, third value: distance tick mark from axes
 plot(p_con, delta_MIPS(p_con, Bes[3,]), type = 'l', lty = 1, col='grey90', ylim=c(0,0.3), xlim=rev(range(p_dis)),  xlab = "$p$ (Ziel-Szenario)", ylab = "$\\Delta$MIPS [kg/kg]",
@@ -190,20 +200,19 @@ delta_MIPS <- function(d, p, daten){
 
 #### Teil 1: delta_MIPS in Abhängigkeit von d ####
 
-# Export aktivieren
-# useTikz <- TRUE
-useTikz <- FALSE
 if(useTikz) tikz( '../tex/Abbildungen/Fallstudie_DeltaMIPS_d.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
 
 p_Tra <- Szenario.Tra["p", "values"]
-d_seq <- seq(from=0, to=4, length.out=200) 
-d_stern_Avg <- d_stern(p_Ind = p_Ind, p_Gem = p_Tra, daten = Avg)
+d_seq <- seq(from=0, to=5.5, length.out=200) 
+d_stern_Wor <- d_stern(p_Ind = p_Ind, p_Gem = p_Tra, Wor)
+d_stern_Avg <- d_stern(p_Ind = p_Ind, p_Gem = p_Tra, Avg)
+d_stern_Bes <- d_stern(p_Ind = p_Ind, p_Gem = p_Tra, Bes)
 
 par(mar=c(5,3,6,3), mgp=c(2,0.6,0)) # mgp: for arranging axes and labels spatially, first value: distance axes label, second value: distance tick labe, third value: distance tick mark from axes
 vec_plot <- delta_MIPS(d = d_seq, p = p_Tra, daten = Bes[3,])
 plot(d_seq, vec_plot, 
      type = 'l', lty = 1, col='grey90', 
-     ylim=range(vec_plot) + c(-0.25,0.03), 
+     ylim=c(-0.35,0.35), 
      xlab = "$d$ (Ziel-Szenario)", ylab = "$\\Delta$MIPS [kg/kg]",
      panel.first = polygon(c(d_seq, rev(d_seq)), 
                            c(delta_MIPS(d = d_seq, p = p_Tra, daten = Wor[3,]),
@@ -229,7 +238,7 @@ lines(d_seq, delta_MIPS(d_seq, p = p_Tra, daten = Avg),
 # Maintitle:
 title("MIPS-Einsparung im Vergleich zu Szenario I", line=4, cex.main=1.4)
 # Subtitle:
-title("Nutzungsintensivierung und zusätzliche Transporte", line=2, cex.main=1.2)
+title("Nutzungsintensivierung und zus\"atzliche Transporte", line=2, cex.main=1.2)
 
 # Achsen:
 axis(side=1, 
@@ -256,7 +265,7 @@ box()
 abline(h=0, lwd=0.5)
 
 # vertikale Linie für d*:
-lines(rep(d_stern_Avg, times=2), c(-0.3,0.0), lty="dashed")
+lines(rep(d_stern_Avg, times=2), c(-0.4,0.0), lty="dashed")
 
 # Legende:
 legend("topright", inset = 0.02,
@@ -276,6 +285,24 @@ if(useTikz) dev.off()
 
 #### Teil 2: Überprüfung von d < d* ####
 
+# Ausgabe #
+overview_d <- data.frame(d_Tra      = rep(Szenario.Tra["d","values"], times=3),
+                         d_stern10  = c(d_stern_Wor[3],d_stern_Avg,d_stern_Bes[3])
+                         )
+overview_d$check10 <- overview_d$d_Tra < overview_d$d_stern10
+overview_d$d_stern05 <- c(d_stern_Wor[2],d_stern_Avg,d_stern_Bes[2])
+overview_d$check05 <- overview_d$d_Tra < overview_d$d_stern05
+overview_d$d_stern01 <- c(d_stern_Wor[1],d_stern_Avg,d_stern_Bes[1])
+overview_d$check01 <- overview_d$d_Tra < overview_d$d_stern01
+row.names(overview_d) <- c("worst", "average", "best")
+
+print("Teil 2: Kriterienüberprüfung:")
+print(overview_d, digits=0)
+
+# export to latex:
+require(xtable)
+output.table <- xtable(overview_d)
+print.xtable(output.table, type="latex", file="../tex/Tabellen/Tra_Kriterien.tex", booktabs=TRUE, floating=FALSE)
 
 
 #### Teil 3: Szenarien vergleichen ####
@@ -294,11 +321,13 @@ MIPS_Vergleich <- matrix(c(MIPS_N_II, MIPS_P_II, MIPS_T,
 dimnames(MIPS_Vergleich) <- list(c("N","P", "T"), c("Szenario I", "Szenario II", "Szenario III"))
 
 # PLOT:
+if(useTikz) tikz( '../tex/Abbildungen/Vergleich_Szenarien.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
+
 par(mar=c(5,3,8,3), mgp=c(2,0.6,0))
 barplot(MIPS_Vergleich, col=c("gray70", "gray80","gray90"), xlim = c(0,4), ylim=c(0,1.9), horiz = TRUE, axes = FALSE, width=0.5)
 
 # obere Achse
-axis (side = 3, at = c(0,0.25,0.5,0.75,1)*(MIPS_N_I+MIPS_P_I), labels = paste(c(0,25,50,75,100), "%"))
+axis (side = 3, at = c(0,0.25,0.5,0.75,1)*(MIPS_N_I+MIPS_P_I), labels = paste(c(0,25,50,75,100), "\\%"))
 mtext ('MIPS relativ zu Szenario I', side = 3, line = 2, cex = 1)
 
 # untere Achse
@@ -323,19 +352,23 @@ legend("top", inset = 0.02, horiz = TRUE,
 # Maintitle:
 title("MIPS-Bestandteile", line=6, cex.main=1.4)
 # Subtitle:
-title("Nutzungsintensivierung und zusätzliche Transporte", line=4, cex.main=1.2)
+title("Nutzungsintensivierung und zus\"atzliche Transporte", line=4, cex.main=1.2)
 
 # evtl. eine Angabe der Reduktion: (noch nicht fertig)
-text(3.9,0.35, "1%", adj=0, cex=0.8) # Reduktion Transportszenario
+text(3.9,0.35, "1\\%", adj=0, cex=0.8) # Reduktion Transportszenario
 arrows(x0 = 3.9, x1 = 3.99, y0 = 0.4, y1 = 0.4, code=1, length=0.1)
-text(3.9,0.95, "5%", cex=0.8) # Reduktion Luhrmannhof
+text(3.9,0.95, "5\\%", cex=0.8) # Reduktion Luhrmannhof
 arrows(x0 = 3.8, x1 = 3.99, y0 = 1, y1 = 1, code=1, length=0.1)
+
+if(useTikz) dev.off()
 
 #### Teil 4: Plot d~p ####
 require(plot3D)
 d_seq <- seq(from=0, to=4, length.out=200) 
+
+if(useTikz) tikz( '../tex/Abbildungen/p-d-Diagramm.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
 # background color:
-image2D(x=p_con, y=d_seq, z=outer(rev(p_con), d_seq, FUN = function(p,d) delta_MIPS(p=p, d=d, daten=Avg)), col=c("red", "green" ), zlim=c(-0.3,0.3), alpha=0.8, xlim=c(2,17), axes=FALSE)
+image2D(x=p_con, y=d_seq, z=outer(rev(p_con), d_seq, FUN = function(p,d) delta_MIPS(p=p, d=d, daten=Avg)), col=c("red", "green" ), zlim=c(-0.3,0.3), alpha=0.8, xlim=c(2,17), axes=FALSE, xlabel="test", ylabel="test")
 
 # Unsicherheitsbereiche:
 color_hig <- adjustcolor("gray90",alpha.f=0.4)
@@ -367,3 +400,5 @@ contour2D(x=p_con, y=d_seq, z=outer(rev(p_con), d_seq, FUN = function(p,d) delta
 contour2D(x=p_con, y=d_seq, z=outer(rev(p_con), d_seq, FUN = function(p,d) delta_MIPS(p=p, d=d, daten=Avg)), add=TRUE, col="black", alpha = 0.4, drawlabels = TRUE, nlevels=15, labcex= 1)
 axis(side=1, at=seq(2,17, by=2), labels=seq(17, 2, by=-2))
 axis(side=2)
+
+if(useTikz) dev.off()

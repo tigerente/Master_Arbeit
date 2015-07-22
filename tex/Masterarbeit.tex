@@ -2836,6 +2836,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 			
 		\section{Modellübersicht}
 
+
 \chapter{Fallstudie}
         % Außerdem nehmen wir an in diesem und
         % auch im nächsten Analyseteil an, dass Material-Inputs sich aus den drei
@@ -3054,7 +3055,7 @@ und deren Quelle dar:
 % - h*, p* berechnen für die verschiedenen Cases und mit h_Ind bzw. p_Ind
 %   vergleichen
 % - als Ergebnis formulieren: 10 Maschinen hättens auch getan
-
+\input{Tabellen/NI_Kriterien.tex}
 \subsubsection{Größenordnung der MIPS-Einsparung}
 % - Graphik beschreiben (qualitativen Verlauf beschreiben und Bedeutung von p*
 %   verdeutlichen)
@@ -3072,13 +3073,24 @@ und deren Quelle dar:
 \subsubsection{Kriterienüberprüfung}
 % - d*  berechnen für die verschiedenen Cases und mit d_Ind
 %   vergleichen
+		\begin{figure}[ht]
+			\input{Abbildungen/Fallstudie_DeltaMIPS_d.tex}
+			\caption{Beschreibung}
+			\label{fig:Fallstudie_DeltaMIPS(d)}
+		\end{figure}
 
+\input{Tabellen/Tra_Kriterien.tex}
 \subsubsection{Größenordnung der MIPS-Einsparung}
 % beide Graphiken bringen (also delta Mips (d) und Säulendiagramm
 % für erstere Graphik:
 % - ansonsten gleiches Schema wie oben
 % - zusätzlich noch auf die Unsicherheitsbereiche in beiden Dimensionen eingehen
 
+		\begin{figure}[ht]
+			\input{Abbildungen/Vergleich_Szenarien.tex}
+			\caption{Beschreibung}
+			\label{fig:Vergleich_Szenarien}
+		\end{figure}
 \chapter{Ergebnisse}
     \section{Synthese}
     \begin{itemize}
