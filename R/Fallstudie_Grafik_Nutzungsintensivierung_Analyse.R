@@ -87,20 +87,26 @@ h_Ind_Bes = with(Bes, h(p_Ind, N, Time))
 p_Gem = Szenario.Luh["p","values"]
 
 # Ausgabe #
-overview <- data.frame(h_Ind    = c(h_Ind_Wor[3],h_Ind_Avg,h_Ind_Bes[3]),
-                       h_stern  = c(h_stern_Wor[3],h_stern_Avg,h_stern_Bes[3]),
-                       p_Ind    = rep(p_Ind, times=3),
-                       p_stern  = c(p_stern_Wor[3],p_stern_Avg,p_stern_Bes[3]))
+overview <- data.frame(h_Ind    = c(h_Ind_Wor[3], h_Ind_Wor[2],h_Ind_Wor[1], 
+                                    h_Ind_Avg,
+                                    h_Ind_Bes[1], h_Ind_Bes[2], h_Ind_Bes[3]),
+                       h_stern  = c(h_stern_Wor[3], h_stern_Wor[2],h_stern_Wor[1], 
+                                    h_stern_Avg,
+                                    h_stern_Bes[1], h_stern_Bes[2], h_stern_Bes[3]),
+                       p_Ind    = rep(p_Ind, times=7),
+                       p_stern  = c(p_stern_Wor[3], p_stern_Wor[2],p_stern_Wor[1], 
+                                    p_stern_Avg,
+                                    p_stern_Bes[1], p_stern_Bes[2], p_stern_Bes[3]))
 overview$check <- overview$h_Ind < overview$h_stern
-row.names(overview) <- c("worst", "average", "best")
+row.names(overview) <- c("worst 10%", "worst 5%", "worst 1%", "average", "best 1%", "best 5%", "best 10%")
 
 print("Teil 1: Kriterienüberprüfung:")
 print(overview, digits=0)
 
 # export to latex:
 require(xtable)
-output.table <- xtable(overview)
-print.xtable(output.table, type="latex", file="../tex/Tabellen/NI_Kriterien.tex", booktabs=TRUE, floating=FALSE)
+output.table <- xtable(overview, digits = 0)
+print(output.table, type="latex", file="../tex/Tabellen/NI_Kriterien.tex", booktabs=TRUE, floating=FALSE)
 
 #### Teil 2: Delta MIPS (p, daten) ####
 delta_MIPS <- function(p, daten){

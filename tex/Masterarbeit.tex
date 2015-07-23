@@ -50,6 +50,7 @@ dashed=false]{biblatex}
 % These packages are all incorporated in the memoir class to one degree or another...
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{siunitx}
 \usepackage{mathtools}
 \usepackage{mdframed}
 \usepackage{booktabs}
@@ -840,6 +841,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 				\begin{equation}
 					h \eqnref{eq:N(h)} \frac{N}{t \cdot P} \eqnref{eq:P(p)} \frac{N}{t \cdot p \cdot \frac{T}{t}}
 					= \frac{N}{p \cdot T} \eqnref{eq:N(S_D)} \frac{S_D}{A \cdot p \cdot T} \qquad p \in \mathbb{N}
+                    \label{eq:h(p)_verbose}
 				\end{equation}
 	%
 				Die Nutzungshäufigkeit ist also reziprok proportional zur parallelen Produktanzahl $p$. Da es sich bei $p$ um eine natürliche Zahl handelt, kann in dem betrachteten Szenario auch die Nutzungshäufigkeit $h$ nur diskrete Werte annehmen. Durch die Beschränkung von $p$ durch $p_\text{min}$ gemäß Gleichung \ref{eq:p_min} ergibt sich zudem eine Maximalnutzungshäufigkeit $h_\text{max}$:
@@ -3037,37 +3039,164 @@ und deren Quelle dar:
     % \end{longtable}
 \subsection{Sensitivitätsanalyse / Min-Max-Abschätzung / Parametervariation}
 
-\section{Berechnungen / Ergebnisse}
-% allgemeines Vorgehen beschreiben:
-%   - zunächst Nutzungsintensivierung, dann Kopplung mit zusätzlichen Transporten
-%   - jeweils Überprüfung der in dem Theorieteil aufgestellten Kriterien und zum
-%   anderen werden die Daten verwendet um noch etwas mehr ins Detail zu gehen
-%   (v.a. Größenordnung der MIPS)
+\section{Anwendungsbeispiele}
 
-\subsection{Nutzungsintensivierung}
-%   Beschreiben, was bei der Nutzungsintensivierung geschieht:
-%       1) aufgestelltes Kriterium aus der Theorie wird für das Fallbeispiel
-%       überprüft
-%       2) MIPS-Änderung in Abhängigkeit von der Produktanzahl im Zielszenario
-%       anschauen
+Die beschriebenen Daten werden nun zunächst in dem Anwendungsbeispiel zur
+Nutzungsintensivierung und danach in dem Anwendungsbeispiel zur Kopplung von
+Nutzungsintensivierung und zusätzlichen Transporten verwendet. Um zu
+entscheiden, ob jeweils eine Senkung des Umweltverbrauchs erreicht werden
+konnte, werden zum einen die im Theorieteil entwickelten Kriterien überprüft.
+Zum anderen werden die Daten verwendet, um weiterführende Analysen zur
+Größenordnung der Änderung des Umweltverbrauchs durchzuführen. Alle
+Betrachtungen erfolgen unter Berücksichtigung der drei gewählten
+Unsicherheitsbereiche.
+
+\subsection{Anwendungsbeispiel: Nutzungsintensivierung}
+Als Ergebnis des Modells zur Nutzungsintensivierung wurde festgehalten, dass
+die gemeinschaftliche Nutzung den Umweltverbrauch gegenüber der herkömmlichen
+Nutzung senkt, wenn der Nutzungsvorrat des betrachteten Produkts bei der
+herkömmlichen Nutzung nicht aufgebraucht wird (vgl. \todo{Referenz einfügen}).
+Diese Überprüfung findet im ersten Abschnitt statt. Daran anschließend, wird die
+absolute Änderung des Umweltverbrauchs durch eine Verringerung der Produktanzahl
+im Ausgangsszenario betrachtet um schließlich auch eine Aussage über die
+Verringerung des Umweltverbrauchs des Zielszenarios gegenüber der
+Ausgangsszenario treffen zu können. 
 
 \subsubsection{Kriterienüberprüfung}
-% - h*, p* berechnen für die verschiedenen Cases und mit h_Ind bzw. p_Ind
-%   vergleichen
-% - als Ergebnis formulieren: 10 Maschinen hättens auch getan
-\input{Tabellen/NI_Kriterien.tex}
+
+Eine Senkung des Umweltverbrauchs durch gemeinschaftliche Nutzung liegt gemäß
+\ldots\todo{Referenz} dann vor, wenn gilt:
+\begin{equation*}
+    h^\text{herk.} < h^*  = \frac{\n{max}}{\t{max}}
+\end{equation*}
+Wir erinnern daran, dass die Nutzungshäufigkeit in einem System über die
+Gleichung \ref{eq:h(p)_verbose} mit der parallelen Produktanzahl in folgendem
+Zusammenhang steht: 
+\begin{equation*}
+    h = \frac{N}{p \cdot T}  
+\end{equation*}
+Da die Szenarien die parallele Produktzahl definieren, werden wir im Folgenden
+das zu \ldots\todo{Referenz} äquivalente Kriterium anwenden:
+\begin{equation*}
+    p^\text{herk.} < p^*  = \frac{N \cdot \t{max}}{\n{max} \cdot T}   
+\end{equation*}
+$p^\text{herk.}$ ist bereits durch die Szenariendefinition mit 17 Waschmaschinen
+gegeben und ist von dem betrachteten Fall und der angenommenen Unsicherheit
+unabhängig. $p^*$ ist dagegen durch mit Unsicherheit behaftete Parameter
+bestimmt, ist also je nach angenommenem Fall und Unsicherheitsbereich
+verschieden. Sie sind in der Tabelle \ref{tab:NI-Kriterien} aufgeführt.
+
+\begin{table}[t]
+    \begin{center}
+        \begin{tabular}[h]{lrrrrrrr}
+            \toprule
+            Fall: &\multicolumn{3}{c}{Schlechtester} & \multicolumn{3}{c}{Bester} &
+            Schätzwert \\
+            Unsicherheitsbereich: & 10\% & 5\% & 1\% & 1\% & 5\% & 10\% & \\
+            \midrule
+            $p^*$ & 19 & 17 & 15 & 14 & 12 & 10 & 14 \\
+            $p^\text{herk.} = 17 > p^*$ ? & & & \checkmark & \checkmark & \checkmark &
+            \checkmark & \checkmark \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+    \caption{Übersicht über die Kriterienüberprüfung im Anwendungsbeispiel zur
+        Nutzungsintensivierung. Angegeben sind die für $p^*$ ermittelten Werte
+        für die verschiedenen Fälle und Unsicherheitsbereiche. Die parallele
+        Produktanzahl im Szenario \textsc{Kleine Wohneinheiten} beträgt 17. Ist dieser
+        Wert größer als als $p^*$, so ist durch gemeinschaftliche Nutzung eine
+        Ressourceneinsparung möglich. Dies ist insbesondere für den Schätzwert
+    gegeben.}
+    \label{tab:NI-Kriterien}
+\end{table}
+
+Im schlechtesten Fall -- mit angenommener Unsicherheit von 10\% bzw. 5\% -- ist
+das Kriterium nicht erfüllt, das heißt, dass hier der Nutzungsvorrat der
+Waschmaschinen in der herkömmlichen Nutzung bereits aufgebraucht wird. In allen
+anderen Fällen kann durch die gemeinschaftliche Nutzung eine
+Ressourceneinsparung erfolgen. Dies gilt insbesondere für unseren Schätzwert.
+
+Diese Betrachtung bezieht sich lediglich auf die Produktanzahl in der
+herkömmlichen Nutzung. Für das Anwendungsbeispiel ist durch das Szenario
+\textsc{Luhrmannhof} auch die Produktanzahl für die gemeinschaftliche Nutzung definiert.
+Sie beträgt zwei, ist also deutlich geringer als die ermittelten Werte für
+$p^*$. Da $p^*$ die Anzahl an parallelen Produkten angibt, bis zu der eine
+Reduktion von Produkten eine Ressourceneinsparung ermöglicht, bedeutet das, dass
+im Szenario \textsc{Luhrmannhof} die Reduktion an Produkten deutlich über das Ziel
+hinausgeschossen ist. Würden in diesem Szenario anstatt der zwei zehn
+Waschmaschinen eingesetzt, wäre -- zumindest bei reiner Betrachtung des Effekts
+der Nutzungsintensivierung -- die erzielte Ressourceneinsparung in allen Fällen
+und Unsicherheitsbereichen dieselbe.
+% \begin{table}[ht]
+%     \centering
+%     \input{Tabellen/NI_Kriterien.tex}
+%     \caption{test} 
+%     \label{tab:NI-Kriterien}
+% \end{table}
+
 \subsubsection{Größenordnung der MIPS-Einsparung}
-% - Graphik beschreiben (qualitativen Verlauf beschreiben und Bedeutung von p*
-%   verdeutlichen)
-% - jetzt quantitativ: MIPS-Einsparung ablesen für p_Gem (Average Case)
-% - ja aber hängt halt von den Parametern ab: auf die Sensitivität der Parameter
-%   eingehen
+Im vorangegangenen Abschnitt wurde bereits darauf hingewiesen, dass eine
+Reduktion der Anzahl der parallel eingesetzten Waschmaschinen von 17 auf zehn
+in allen Fällen die größtmögliche Senkung des Umweltverbrauchs
+ermöglicht hätte und eine weitere Reduktion bis auf zwei Waschmaschinen
+hinsichtlich des Umweltverbrauchs keinen weiteren Effekt hat. Wie genau sich
+eine Reduktion der Waschmaschinen gegenüber dem Ausgangsszenario auf den
+Umweltverbrauch auswirkt, ist Gegenstand dieses Abschnitts. 
+
+Für die Berechnung der MIPS-Reduktion wurde dabei auf das Modell zur
+Nutzungsintensivierung (Gleichung \ref{eq:MIPS(h)_2}) zurückgegriffen:
+\begin{equation*}
+    \text{MIPS}(h) = 
+    \frac{I_{\text{fix}}^h}{S_D} + \left\{ 
+        \begin{array}{ll}  
+            \frac{i_P}{h \cdot t_{\text{max}} \cdot A} & \mbox{falls } h < h^*
+            := \frac{n_{\text{max}}}{t_{\text{max}}} \\[5pt]
+            \frac{i_P}{n_{\text{max}} \cdot A} & \mbox{sonst} 
+        \end{array}
+    \right.
+\end{equation*}
+Da sich die für das Anwendungsbeispiel betrachteten Szenarien per Definition nur
+in der Nutzungshäufigkeit bzw. parallelen Produktanzahl unterscheiden, spielt
+der Term mit $\I{fix}$ für die MIPS-Änderung keine Rolle. Sie lässt sich
+folgendermaßen bestimmen (vgl. Gleichung \ref{eq:Delta_MIPS_h_1}):
+\begin{equation*}
+    \Delta \MIPS = \MIPS[h_2] - \MIPS[h_1] = \frac{i_P}{\t{max} \cdot A} \cdot
+    \left(\frac{1}{h_2} - \frac{1}{h_1}\right) = \frac{i_P \cdot T}{\t{max}
+\cdot S_D} \cdot (p_2 - p_1)
+\end{equation*}
+\todo{anstatt 1 und 2 in der Gleichung Indizes für die Szenarien einsetzen}
+
+Wir betrachten nun die Abbildung \ref{fig:Fallstudie_DeltaMIPS(p)}, welche die
+MIPS-Reduktion gegenüber dem Szenario \textsc{Kleine Wohneinheiten} in
+Abhängigkeit von der parallelen Produktanzahl im Zielszenario dargestellt.  Die
+durchgezogene Linie verbindet hier die zum Schätzwert gehörigen Punkte: Werden im
+Zielszenario ebenso wie im Ausgangsszenario 17 Waschmaschinen eingesetzt, so
+ergibt sich natürlich keine Ressourceneinsparung. Diese steigt aber linear mit
+jedem eingesetzten Produkt, bis sie bei 14 Produkten im Zielszenario -- dem Wert
+von $p^*$ für den Schätzwert -- ihr Maximum erreicht und ab da konstant bei etwa
+\SI{0.05}{kg/kg} bleibt. Dies entspricht damit auch der Ressourceneinsparung im
+Szenario \textsc{Luhrmannhof}.
+
+Dieser Wert unterliegt jedoch einer großen Unsicherheit: die grau schattierten
+Bereiche geben jeweils den Unsicherheitsbereich für die drei definierten
+Parameterabweichungen an. Es ist zu erkennen, dass schon bei einer Unsicherheit
+von 5\% die MIPS-Einsparung zwischen \SI{0}{kg/kg} und \SI{0.12}{kg/kg} schwankt, bei
+einer Unsicherheit von 10\% sogar maximal \SI{0.2}{kg/kg} betragen kann, also
+vier Mal soviel, wie für unseren Schätzwert.
+
+Insgesamt kann für das Anwendungsbeispiel zur Nutzungsintensivierung
+festgehalten werden, dass zwar von einer Ressourceneinsparung im Szenario
+\textsc{Luhrmannhof} im Vergleich zum Szenario \textsc{Kleine Wohneinheiten}
+ausgegangen werden kann. Dessen Umfang unterliegt allerdings einer recht großen
+Unsicherheit auf der einen Seite und diese Einsparung hätte andererseits bereits
+bei einer deutlich geringeren Reduktion von Waschmaschinen erreicht werden
+können. 
 		\begin{figure}[ht]
 			\input{Abbildungen/Fallstudie_DeltaMIPS_p.tex}
 			\caption{Beschreibung}
 			\label{fig:Fallstudie_DeltaMIPS(p)}
 		\end{figure}
-\subsection{Kopplung: Nutzungsintensivierung und zusätzliche Transporte}
+\subsection{Anwendungsbeispiel: Kopplung}
 % gleiches Schema wie zuvor
 
 \subsubsection{Kriterienüberprüfung}
