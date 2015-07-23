@@ -202,6 +202,7 @@ t_max_mid = c(          11, sig = 0) # Maximalnutzungsdauer in Jahren  (mittlere
 t_max_hig = c(          14, sig = 0) # Maximalnutzungsdauer in Jahren  (oberer Wert)
 A     = c(     mean_A, sig = 0)
 a     = c(  A[1]/K[1], sig = 0)
+alpha = c( 0.75, sig=2) # Korrekturfaktor für Transportinputs
 
 
 results <- data.frame( # use for tex-printout
