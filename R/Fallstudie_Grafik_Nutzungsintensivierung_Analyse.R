@@ -14,8 +14,8 @@ tikzwidth <- 5.8
 fntsize <- 0.8
 
 # Export aktivieren
-# useTikz <- TRUE
-useTikz <- FALSE
+ useTikz <- TRUE
+#useTikz <- FALSE
 
 #### Konstanten ####
 var = c(0.01, 0.05, 0.1)      # Relative Abweichung für Sensititvitäts-Analyse
