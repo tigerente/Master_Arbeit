@@ -1,74 +1,84 @@
-\newcommand{\sourceD}{\textsuperscript{D}} % Definition der Szenarien
-\newcommand{\sourceW}{\textsuperscript{W}} % Datenblatt der Waschmaschinen
-\newcommand{\sourceS}{\textsuperscript{S}} % Schätzung
-\newcommand{\sourceE}{\textsuperscript{E}} % eigene Datenerhebung
-\newcommand{\sourceM}{\textsuperscript{M}} % MIPS-Datenbank
-\newcommand{\sourceL}{\textsuperscript{L}} % Angaben aus der Literatur
-\newcommand{\sourceU}{\textsuperscript{?}} % unknown
+\newcommand{\sourceD}{D} % Definition der Szenarien
+\newcommand{\sourceW}{W} % Datenblatt der Waschmaschinen
+\newcommand{\sourceS}{S} % Schätzung
+\newcommand{\sourceE}{E} % eigene Datenerhebung
+\newcommand{\sourceM}{M} % MIPS-Datenbank
+\newcommand{\sourceL}{L} % Angaben aus der Literatur
+\newcommand{\sourceU}{?} % unknown
 
 \begin{table}
-    Szenario übergreifende Daten:\\
-    Material-Inputs:\\
+    % Szenario übergreifende Daten:\\
+    % Material-Inputs:\\
+
+%     {\centering
+%     \begin{tabular}[h]{p{5cm}p{3cm}p{3cm}}
+%         \toprule
+%         Parameter & Dimension 1 [Einheit] & Dimension 2 [Einheit] \\
+%         \midrule
+%         $i_P$       &2936.2\sourceD      &351.8\sourceD\\
+%         $i_N$       &12.55\sourceW\sourceD\sourceE
+%                     &0.43\sourceW\sourceD\sourceE\\
+%         $i_d$       &0.46\sourceD     &0.182\sourceD\\
+% %    $\I{fix}^h$ &\sourceU  &\sourceU\\
+% %    $\I{fix}^d$ &\sourceU  &\sourceU\\
+% %    $\I{fix}^k$ &\sourceU  &\sourceU\\
+%         \bottomrule
+%     \end{tabular}\\[10pt]}
+%
+%     sonstige Parameter:\\
 
     {\centering
-    \begin{tabular}[h]{p{5cm}p{3cm}p{3cm}}
+    \begin{tabular}[h]{p{4cm}rl}
         \toprule
-        Parameter & Dimension 1 [Einheit] & Dimension 2 [Einheit] \\
+        Parameter [Einheit] & Wert & Datenquelle\\
         \midrule
-        $i_P$       &2936.2\sourceD      &351.8\sourceD\\
-        $i_N$       &206.78\sourceW\sourceD\sourceE
-                    &27.34\sourceW\sourceD\sourceE\\
-        $i_d$       &0.46\sourceD     &0.182\sourceD\\
-%    $\I{fix}^h$ &13234\sourceU  &1750\sourceU\\
-%    $\I{fix}^d$ &-174683\sourceU  &-20766\sourceU\\
-%    $\I{fix}^k$ &0\sourceU  &0\sourceU\\
+        $i_P$       &\SI{2936.2}{kg/kg} & \sourceD\\
+        $i_N$       &\SI{12.55}{kg/kg} & \sourceW, \sourceD, \sourceE\\
+        $i_d$       &\SI{0.46}{kg/kg} & \sourceD\\
+        \midrule
+        $N$           &\SI{64}{Nutzungseinheiten} & \sourceE\\
+        $\n{max}$       &\SI{2500}{Nutzungseinheiten} & \sourceU\\
+        $\theta$        &\SI{0.5}{1/Nutzungsheinheiten} & \sourceS\\
+        $m_S$           &\SI{1}{} & \sourceS\\
+        $\t{max}$       &\SI{11}{Jahre} & \sourceU\\
+        $A$             &\SI{3.7}{kg} & \sourceE\\
+        \midrule
+        $p_\text{I}$    & \SI{17}{} & \sourceS \\
+        $p_\text{II}$,
+        $p_\text{III}$  & \SI{2}{} & \sourceE\\
+        $d_\text{I}$,
+        $d_\text{II}$   & \SI{0}{km} & \sourceS\\
+            $d_\text{III}$  & \SI{2}{km} & \sourceS\\
         \bottomrule
     \end{tabular}\\[10pt]}
 
-    sonstige Parameter:\\
+    % Szenario spezifische Daten:\\
+    % Erster Analyseteil:\\
 
-    {\centering
-    \begin{tabular}[h]{p{5cm}p{5cm}}
-        \toprule
-        Parameter [Einheit] & Wert \\
-        \midrule
-        $S_D$           &234\sourceE\\
-        $\n{max}$       &-1\sourceU\\
-        $\theta$        &-1\sourceS\\
-        $m_S$           &-1\sourceS\\
-        $K$             &7\sourceW\\
-        $\t{max}$       &-1\sourceU\\
-        $a$             &1\sourceE\\
-        \bottomrule
-    \end{tabular}\\[10pt]}
-
-    Szenario spezifische Daten:\\
-    Erster Analyseteil:\\
-
-    {\centering
-    \begin{tabular}[h]{p{5cm}p{3cm}p{3cm}p{3cm}}
-        \toprule
-        Parameter [Einheit] & Ind. & Gem. & Zen. \\
-        \midrule
-        $p$ & 10\sourceS & 2\sourceE 
-            & 2\sourceE\\
-        $d$ & 0\sourceE & 0\sourceE 
-            & 2\sourceS\\
-        \bottomrule
-    \end{tabular}\\[5pt]}
+    % {\centering
+    % \begin{tabular}[h]{p{5cm}p{3cm}p{3cm}p{3cm}}
+    %     \toprule
+    %     Parameter [Einheit] & Ind. & Gem. & Zen. \\
+    %     \midrule
+    %     $p$ & 17 \sourceS & 2\sourceE 
+    %         & 2\sourceE\\
+    %     $d$ & 0\sourceE & 0\sourceE 
+    %         & 2\sourceS\\
+    %     \bottomrule
+    % \end{tabular}\\[5pt]}
 
     \begin{minipage}[t]{6cm}
         \scriptsize
-        \sourceE eigene Datenerhebung  \\
-        \sourceS Schätzung \\
-        \sourceL Angaben aus der Literatur \\
+        \sourceE: eigene Datenerhebung  \\
+        \sourceS: Schätzung \\
+        \sourceL: Angaben aus der Literatur \\
     \end{minipage}
     \hfill
     \begin{minipage}[t]{6cm}
         \scriptsize
-        \sourceM Werte aus der MIPS-Datenbank\\
-        \sourceW Datenblatt der Waschmaschine\\
-        \sourceD Definition der Szenarien\\
+        \sourceM: Werte aus der MIPS-Datenbank\\
+        \sourceW: Datenblatt der Waschmaschine\\
+        \sourceD: Definition der Szenarien\\
     \end{minipage}\\
     \caption{Die für die Beispielrechnungen angenommenen Daten.}
 \end{table}
