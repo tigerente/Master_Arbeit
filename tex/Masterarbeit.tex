@@ -121,6 +121,11 @@ dashed=false]{biblatex}
 \newcommand{\w}[1]{w_\text{#1}}
 \renewcommand{\t}[1]{t_\text{#1}}
 
+% Szenarien:
+\newcommand{\SzenarioI}{Szenario \textsc{Kleine Wohneinheiten}}
+\newcommand{\SzenarioII}{Szenario \textsc{Luhrmannhof}}
+\newcommand{\SzenarioIII}{Szenario \textsc{Waschsalon}}
+
 %%% Allgemeine Daten %%%
 \newcommand{\autorOne}{Alexander Müller}
 \newcommand{\matrikelnrOne}{940597}
@@ -2573,6 +2578,11 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 		%
 		Wie schon bei der Modellanalyse zur Nutzungsintensivierung bewegt sich die Änderung der MIPS im dritten Fall also zwischen den Werten der ersten beiden Fälle. Dieser Wert kann positiv oder negativ sein, was im Einzelfall zu bestimmen ist. Da der dritte Fall jeweils nur beim Übergang vom ersten zum zweiten Fall auftritt, ist er für die grundsätzliche Aussage der Analyse nicht weiter relevant.
 		
+\begin{figure}[ht]
+    \input{Abbildungen/p-d-Diagramm.tex}
+    \caption{Beschreibung}
+    \label{fig:Vergleich_Szenarien}
+\end{figure}
 		\subparagraph{Fazit}
 		Anders als bei der isolierten Betrachtung der Nutzungsintensivierung können unter der gleichzeitigen Berücksichtigung zusätzlicher Transporte sowohl Verbesserungen als auch Verschlechterungen der MIPS auftreten. Als hartes Kriterium für eine Senkung des Umweltverbrauchs erweist sich eine hinreichend geringe Nutzungsintensität im Ausgangsniveau, d.h. vor der Nutzungsintensivierung: Nur wenn der Nutzungsvorrat ursprünglich nicht voll ausgeschöpft wird ($h_1 < h^*$), kann es zu einer Reduzierung der MIPS kommen. In diesem Fall muss jedoch die weitere Bedingung gelten, dass die Materialinputs für die zusätzlichen Transporte kleiner sind als die eingesparten produktbezogenen Inputs für ein parallel eingesetztes Produkt ($\alpha \cdot S_D \cdot \Delta d < q \cdot i_P$).
 		
@@ -2920,17 +2930,6 @@ Neben den Szenario übergreifenden werden werden desweiteren die folgenden
     \end{itemize}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.45\textwidth}
-    \onehalfspacing
-    \emph{Zweiter Analyseteil}:
-    \begin{itemize}
-        \item  Radius R
-        \item  Bevölkerungsdichte und Dichte der potentiellen Nutzer\_innen
-        \item  Nutzungsintensität im Waschsalon
-        \item  Nachfrage pro Person
-    \end{itemize}
-\end{minipage}
-    \todo{die richtigen Daten des Kopplungsmodells eintragen}
 
 Wir geben nun zunächst an, welche Datenquellen wir benutzt haben und stellen
 dann die für die Berechnungen verwendeten Daten dar.
@@ -3040,7 +3039,6 @@ und deren Quelle dar:
 \subsection{Sensitivitätsanalyse / Min-Max-Abschätzung / Parametervariation}
 
 \section{Anwendungsbeispiele}
-
 Die beschriebenen Daten werden nun zunächst in dem Anwendungsbeispiel zur
 Nutzungsintensivierung und danach in dem Anwendungsbeispiel zur Kopplung von
 Nutzungsintensivierung und zusätzlichen Transporten verwendet. Um zu
@@ -3052,20 +3050,26 @@ Betrachtungen erfolgen unter Berücksichtigung der drei gewählten
 Unsicherheitsbereiche.
 
 \subsection{Anwendungsbeispiel: Nutzungsintensivierung}
+Für die Anwendung der Ergebnisse zur Nutzungsintensivierung wird in diesem
+Anwendungsbeispiel das \SzenarioI\ mit dem \SzenarioII\ verglichen. Sie
+unterscheiden sich -- nach Konstruktion -- lediglich in der parallelen
+Produktanzahl und der mit dieser korrespondierenden Nutzungshäufigkeit. Das
+\SzenarioI\ wird im Folgenden dabei als das Ausgangsszenario bzw. als das
+Szenario mit der herkömmlichen Nutzung bezeichnet, während \SzenarioII\ dem
+Zielszenario bzw. dem Szenario mit gemeinschaftlicher Nutzung entspricht.
+
+\subsubsection{Kriterienüberprüfung}
 Als Ergebnis des Modells zur Nutzungsintensivierung wurde festgehalten, dass
 die gemeinschaftliche Nutzung den Umweltverbrauch gegenüber der herkömmlichen
 Nutzung senkt, wenn der Nutzungsvorrat des betrachteten Produkts bei der
 herkömmlichen Nutzung nicht aufgebraucht wird (vgl. \todo{Referenz einfügen}).
-Diese Überprüfung findet im ersten Abschnitt statt. Daran anschließend, wird die
-absolute Änderung des Umweltverbrauchs durch eine Verringerung der Produktanzahl
-im Ausgangsszenario betrachtet um schließlich auch eine Aussage über die
-Verringerung des Umweltverbrauchs des Zielszenarios gegenüber der
-Ausgangsszenario treffen zu können. 
-
-\subsubsection{Kriterienüberprüfung}
-
-Eine Senkung des Umweltverbrauchs durch gemeinschaftliche Nutzung liegt gemäß
-\ldots\todo{Referenz} dann vor, wenn gilt:
+Für die Überprüfung dieses Kriteriums hat es gereicht, die Nutzungshäufigkeit
+der herkömmlichen Nutzung $h^\text{herk.}$ mit der Nutzungshäufigkeit $h^*$, 
+das ist die Nutzungshäufigkeit bei
+der die Maximalnutzungsdauer der technischen Lebensdauer entspricht, zu
+vergleichen. Als Ungleichung ausgedrückt (vgl. \todo{Referenz}), liegt eine
+Senkung des Umweltverbrauchs durch gemeinschaftliche Nutzung genau dann vor,
+wenn gilt:
 \begin{equation*}
     h^\text{herk.} < h^*  = \frac{\n{max}}{\t{max}}
 \end{equation*}
@@ -3084,7 +3088,8 @@ $p^\text{herk.}$ ist bereits durch die Szenariendefinition mit 17 Waschmaschinen
 gegeben und ist von dem betrachteten Fall und der angenommenen Unsicherheit
 unabhängig. $p^*$ ist dagegen durch mit Unsicherheit behaftete Parameter
 bestimmt, ist also je nach angenommenem Fall und Unsicherheitsbereich
-verschieden. Sie sind in der Tabelle \ref{tab:NI-Kriterien} aufgeführt.
+verschieden. Diese verschiedenen Werte für $p^*$ sind in der Tabelle
+\ref{tab:NI-Kriterien} aufgeführt.
 
 \begin{table}[t]
     \begin{center}
@@ -3103,7 +3108,7 @@ verschieden. Sie sind in der Tabelle \ref{tab:NI-Kriterien} aufgeführt.
     \caption{Übersicht über die Kriterienüberprüfung im Anwendungsbeispiel zur
         Nutzungsintensivierung. Angegeben sind die für $p^*$ ermittelten Werte
         für die verschiedenen Fälle und Unsicherheitsbereiche. Die parallele
-        Produktanzahl im Szenario \textsc{Kleine Wohneinheiten} beträgt 17. Ist dieser
+        Produktanzahl im \SzenarioI\ beträgt 17. Ist dieser
         Wert größer als als $p^*$, so ist durch gemeinschaftliche Nutzung eine
         Ressourceneinsparung möglich. Dies ist insbesondere für den Schätzwert
     gegeben.}
@@ -3117,12 +3122,11 @@ anderen Fällen kann durch die gemeinschaftliche Nutzung eine
 Ressourceneinsparung erfolgen. Dies gilt insbesondere für unseren Schätzwert.
 
 Diese Betrachtung bezieht sich lediglich auf die Produktanzahl in der
-herkömmlichen Nutzung. Für das Anwendungsbeispiel ist durch das Szenario
-\textsc{Luhrmannhof} auch die Produktanzahl für die gemeinschaftliche Nutzung definiert.
+herkömmlichen Nutzung. Für das Anwendungsbeispiel ist durch das \SzenarioII\ auch die Produktanzahl für die gemeinschaftliche Nutzung definiert.
 Sie beträgt zwei, ist also deutlich geringer als die ermittelten Werte für
 $p^*$. Da $p^*$ die Anzahl an parallelen Produkten angibt, bis zu der eine
 Reduktion von Produkten eine Ressourceneinsparung ermöglicht, bedeutet das, dass
-im Szenario \textsc{Luhrmannhof} die Reduktion an Produkten deutlich über das Ziel
+im \SzenarioII\ die Reduktion an Produkten deutlich über das Ziel
 hinausgeschossen ist. Würden in diesem Szenario anstatt der zwei zehn
 Waschmaschinen eingesetzt, wäre -- zumindest bei reiner Betrachtung des Effekts
 der Nutzungsintensivierung -- die erzielte Ressourceneinsparung in allen Fällen
@@ -3135,6 +3139,11 @@ und Unsicherheitsbereichen dieselbe.
 % \end{table}
 
 \subsubsection{Größenordnung der MIPS-Einsparung}
+% Diese Überprüfung findet im ersten Abschnitt statt. Daran anschließend, wird die
+% absolute Änderung des Umweltverbrauchs durch eine Verringerung der Produktanzahl
+% im Ausgangsszenario betrachtet um schließlich auch eine Aussage über die
+% Verringerung des Umweltverbrauchs des Zielszenarios gegenüber der
+% Ausgangsszenario treffen zu können. 
 Im vorangegangenen Abschnitt wurde bereits darauf hingewiesen, dass eine
 Reduktion der Anzahl der parallel eingesetzten Waschmaschinen von 17 auf zehn
 in allen Fällen die größtmögliche Senkung des Umweltverbrauchs
@@ -3167,7 +3176,7 @@ folgendermaßen bestimmen (vgl. Gleichung \ref{eq:Delta_MIPS_h_1}):
 \todo{anstatt 1 und 2 in der Gleichung Indizes für die Szenarien einsetzen}
 
 Wir betrachten nun die Abbildung \ref{fig:Fallstudie_DeltaMIPS(p)}, welche die
-MIPS-Reduktion gegenüber dem Szenario \textsc{Kleine Wohneinheiten} in
+MIPS-Reduktion gegenüber dem \SzenarioI\ in
 Abhängigkeit von der parallelen Produktanzahl im Zielszenario dargestellt.  Die
 durchgezogene Linie verbindet hier die zum Schätzwert gehörigen Punkte: Werden im
 Zielszenario ebenso wie im Ausgangsszenario 17 Waschmaschinen eingesetzt, so
@@ -3175,7 +3184,7 @@ ergibt sich natürlich keine Ressourceneinsparung. Diese steigt aber linear mit
 jedem eingesetzten Produkt, bis sie bei 14 Produkten im Zielszenario -- dem Wert
 von $p^*$ für den Schätzwert -- ihr Maximum erreicht und ab da konstant bei etwa
 \SI{0.05}{kg/kg} bleibt. Dies entspricht damit auch der Ressourceneinsparung im
-Szenario \textsc{Luhrmannhof}.
+\SzenarioII.
 
 Dieser Wert unterliegt jedoch einer großen Unsicherheit: die grau schattierten
 Bereiche geben jeweils den Unsicherheitsbereich für die drei definierten
@@ -3185,8 +3194,8 @@ einer Unsicherheit von 10\% sogar maximal \SI{0.2}{kg/kg} betragen kann, also
 vier Mal soviel, wie für unseren Schätzwert.
 
 Insgesamt kann für das Anwendungsbeispiel zur Nutzungsintensivierung
-festgehalten werden, dass zwar von einer Ressourceneinsparung im Szenario
-\textsc{Luhrmannhof} im Vergleich zum Szenario \textsc{Kleine Wohneinheiten}
+festgehalten werden, dass zwar von einer Ressourceneinsparung im \SzenarioII\ im
+Vergleich zum \SzenarioI\ 
 ausgegangen werden kann. Dessen Umfang unterliegt allerdings einer recht großen
 Unsicherheit auf der einen Seite und diese Einsparung hätte andererseits bereits
 bei einer deutlich geringeren Reduktion von Waschmaschinen erreicht werden
@@ -3197,29 +3206,113 @@ können.
 			\label{fig:Fallstudie_DeltaMIPS(p)}
 		\end{figure}
 \subsection{Anwendungsbeispiel: Kopplung}
-% gleiches Schema wie zuvor
+Für das Anwendungsbeispiel zur Kopplung der Modelle Erhöhung der
+Nutzungshäufigkeit und zusätzliche Transporte, wird nun \SzenarioI\ mit
+\SzenarioIII\ verglichen. Sie unterscheiden sich jetzt sowohl in der parallelen
+Produktanzahl, als auch in der mittleren Transportdistanz. \SzenarioI\ wird wie
+gehabt als Ausgangsszenario bzw. Szenario mit herkömmlicher Nutzung bezeichnet.
+Das \SzenarioIII\ übernimmt nun die Rolle des Zielszenarios, bzw. des Szenarios
+mit gemeinschaftlicher Nutzung.
 
 \subsubsection{Kriterienüberprüfung}
-% - d*  berechnen für die verschiedenen Cases und mit d_Ind
-%   vergleichen
-		\begin{figure}[ht]
-			\input{Abbildungen/Fallstudie_DeltaMIPS_d.tex}
-			\caption{Beschreibung}
-			\label{fig:Fallstudie_DeltaMIPS(d)}
-		\end{figure}
-
-\input{Tabellen/Tra_Kriterien.tex}
+Die theoretische Analyse der Kopplung einer Erhöhung der Nutzungshäufigkeit
+mit zusätzlichen Transporten ergab, dass eine Senkung des Umweltverbrauchs durch
+die gemeinschaftliche Nutzung genau dann vorliegt, wenn bei gegebener Reduktion
+der parallelen Produktanzahl die mittlere Transportdistanz bei der
+gemeinschaftlichen Nutzung $d^\text{gem.}$ unter einem Schwellwert $d^*$ liegt.
+Der Schwellwert lässt sich mit Gleichung \ref{eq:d_stern} bestimmen:
+\todo[inline]{Formel für $d^*$ einfügen}
+Es ergeben sich die je nach Fall und Unsicherheitsbereich verschiedene Werte,
+die in Tabelle \ref{tab:Kopplung-Kriterien} aufgeführt sind. Nur für den besten
+Fall mit Parameterabweichungen von 5\% bzw. 10\% übertreffen die
+Ressourceneinsparung durch die Erhöhung der Nutzungshäufigkeit den zusätzlichen
+Ressourcenverbrauch durch die hinzugekommenen Transporte. Für die Schätzwerte
+ergibt sich ein $d^*$ von \SI{1.1}{km}, sodass hier bei einer mittleren
+Transportdistanz von $d^\text{gem.} = \SI{1.5}{km}$ im \SzenarioIII\ von keiner
+Nettoreduktion des Umweltverbrauchs auszugehen ist.
+\begin{table}[t]
+    \begin{center}
+        \begin{tabular}[h]{lrrrrrrr}
+            \toprule
+            Fall: &\multicolumn{3}{c}{Schlechtester} & \multicolumn{3}{c}{Bester} &
+            Schätzwert \\
+            Unsicherheitsbereich: & 10\% & 5\% & 1\% & 1\% & 5\% & 10\% & \\
+            \midrule
+            $d^*$ [\si{km}] & 0.0 & 0.0 & 0.8 & 1.4 & 2.8 & 5.3 & 1.1 \\
+            $d^\text{gem.} = \SI{1.5}{km} < d^*$ ? & & & & & \checkmark &
+            \checkmark & \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+    \caption{Übersicht über die Kriterienüberprüfung im Anwendungsbeispiel zur
+        Kopplung von der Erhöhung der Nutzungshäufigkeit mit zusätzlichen
+        Transporten. Angegeben sind die für $d^*$ ermittelten Werte
+        für die verschiedenen Fälle und Unsicherheitsbereiche. Die mittlere
+        Transportdistanz im \SzenarioIII\ beträgt \SI{1.5}{km}. Ist dieser
+        Wert kleiner als als $d^*$, so ist durch gemeinschaftliche Nutzung eine
+        Ressourceneinsparung möglich. Rür den Schätzwert ist dies nicht
+    gegeben.}
+    \label{tab:Kopplung-Kriterien}
+\end{table}
+% \input{Tabellen/Tra_Kriterien.tex}
 \subsubsection{Größenordnung der MIPS-Einsparung}
-% beide Graphiken bringen (also delta Mips (d) und Säulendiagramm
-% für erstere Graphik:
-% - ansonsten gleiches Schema wie oben
-% - zusätzlich noch auf die Unsicherheitsbereiche in beiden Dimensionen eingehen
+Wir betrachten nun wieder die MIPS-Änderung gegenüber dem Ausgangsszenario in
+Abhängigkeit von der mittleren Distanz im Zielszenario. Wir verwenden hierfür
+die Gleichung:
+\todo[inline]{entsprechende Gleichungen referenzieren und angeben}
 
-		\begin{figure}[ht]
-			\input{Abbildungen/Vergleich_Szenarien.tex}
-			\caption{Beschreibung}
-			\label{fig:Vergleich_Szenarien}
-		\end{figure}
+Diese Funktion ist mit den gegebenen Parametern in Abbildung
+\ref{fig:Fallstudie_DeltaMIPS(d)} dargestellt. Auf der Abszissenachse ist die
+mittlere Transportdistanz im Ziel-Szenario angegeben, gegenüber der die
+MIPS-Änderung aufgetragen wurde. Die durchgezogene Linie gibt den Zusammenhang
+für die Schätzwerte wieder: für $d^\text{gem.} = \SI{0}{km}$ beträgt sie
+\SI{0.05}{kg/kg}. Dies entspricht dem Ergebnis aus dem vorangegangenen
+Abschnitt. Von diesem Wert fällt die MIPS-Änderung linear in der mittleren
+Transportdistanz im Zielszenario. Bei $d^* = \SI{1.1}{km}$ beträgt die
+MIPS-Änderung gerade \SI{0}{kg/kg} -- genau so ist ja der Schwellwert $d^*$
+definiert. Für größere Transportdistanzen im Zielszenario, insbesondere auch für
+die mittlere Transportdistanz im \SzenarioIII\ wo sie \SI{1.5}{km} beträgt, ist
+die MIPS-Einsparung negativ, was einer Nettoerhöhung der MIPS des
+gemeinschaftlichen Szenarios gegenüber der herkömmlichen Nutzung entspricht.
+
+Auch hier sind die Unsicherheitsbereiche in denen sich die MIPS-Änderung bewegt
+schattiert dargestellt: für $d^\text{gem.} = \SI{0.0}{km}$ beträgt die Spanne für die
+Parameterabweichung von 10\% \SIrange{0.0}{0.2}{kg/kg}. Mit zunehmender
+mittlerer Transportdistanz im Zielszenario verschiebt sich diese nach unten und
+wird etwas größer. Bei $d^\text{gem.} = \SI{5.3}{km}$ beträgt die
+Unsicherheitsspanne \SIrange{0.0}{-0.3}{kg/kg}. Durch die Schnittpunkte der
+Begrenzungen der Unsicherheitsbereiche mit der Nulllinie werden die Schwellwerte
+für die verschiedenen Fälle und Parameterabweichungen definiert. So wird
+letztlich auch deren Spanne sichtbar: für eine Parameterabweichung von 10\%
+liegt $d^*$ zwischen \SI{0.0}{km} und \SI{5.3}{km}.
+
+\begin{figure}[ht]
+    \input{Abbildungen/Fallstudie_DeltaMIPS_d.tex}
+    \caption{Beschreibung}
+    \label{fig:Fallstudie_DeltaMIPS(d)}
+\end{figure}
+
+Bisher wurde die MIPS-Änderung nur für sich allein betrachtet, ohne diese in
+Relation zu den gesamten MIPS für die einzelnen Szenarien zu setzen. Diese Lücke
+schließen wir im folgenden Abschnitt.
+
+In Abbildung \ref{fig:Vergleich_Szenarien} sind die MIPS für die drei Szenarien
+mit Einteilungen nach den MIPS-Bestandteilen dargestellt. Dieser Darstellung
+liegt der beste Fall mit einer Parameterabweichung von 10\% zugrunde. Selbst in
+diesem Fall unterscheiden sich die MIPS der drei Szenarien nur um wenige
+Prozente. Das liegt daran, dass der Nutzungsanteil den Produkt- und
+Transportanteil deutlich dominiert. Die Ressourceneinparung durch die Erhöhung
+der Nutzungshäufigkeit betrifft nur den Produktanteil. Hier führt sie zwar zu
+einer Reduktion um ca. ein Drittel. Auf die gesamten MIPS betrachtet entspricht
+dies jedoch lediglich einer Reduktion um 5\% (Szenario II in der Abbildung).
+Diese Einsparung schrumpft auf 2\%, kommen wie im dritten Szenario noch
+Transporte hinzu. Für die geschätzten Parameter sind diese Änderungen noch
+kleiner und daher im wesentlichen vernachlässigbar.
+\begin{figure}[ht]
+    \input{Abbildungen/Vergleich_Szenarien.tex}
+    \caption{Beschreibung}
+    \label{fig:Vergleich_Szenarien}
+\end{figure}
 \chapter{Ergebnisse}
     \section{Synthese}
     \begin{itemize}
