@@ -6,106 +6,39 @@
 \newcommand{\sourceL}{L} % Angaben aus der Literatur
 \newcommand{\sourceU}{?} % unknown
 
-\begin{table}
-    % Szenario übergreifende Daten:\\
-    % Material-Inputs:\\
-
-%     {\centering
-%     \begin{tabular}[h]{p{5cm}p{3cm}p{3cm}}
-%         \toprule
-%         Parameter & Dimension 1 [Einheit] & Dimension 2 [Einheit] \\
-%         \midrule
-%         $i_P$       &2936.2\sourceD      &351.8\sourceD\\
-%         $i_N$       &12.55\sourceW\sourceD\sourceE
-%                     &0.43\sourceW\sourceD\sourceE\\
-%         $i_d$       &0.46\sourceD     &0.182\sourceD\\
-% %    $\I{fix}^h$ &\sourceU  &\sourceU\\
-% %    $\I{fix}^d$ &\sourceU  &\sourceU\\
-% %    $\I{fix}^k$ &\sourceU  &\sourceU\\
-%         \bottomrule
-%     \end{tabular}\\[10pt]}
-%
-%     sonstige Parameter:\\
-
-    {\centering
-    \begin{tabular}[h]{p{4cm}rl}
+\begin{center}
+    \begin{tabular}[h]{p{2cm}r@{\hspace{1cm}}l}
         \toprule
-        Parameter [Einheit] & Wert & Datenquelle\\
+        Parameter & Wert & Datenquelle\\
         \midrule
-        $i_P$       &\SI{2936.2}{kg/kg} & \sourceD\\
-        $i_N$       &\SI{12.55}{kg/kg} & \sourceW, \sourceD, \sourceE\\
-        $i_d$       &\SI{0.46}{kg/kg} & \sourceD\\
+        $i_P$       &\SI{2936.2}{kg/kg} & \sourceM\\
+        $i_N$       &\SI{12.55}{kg/kg} & \sourceW, \sourceM, \sourceE\\
+        $i_d$       &\SI{0.46}{kg/kg} & \sourceM\\
         \midrule
-        $N$           &\SI{64}{Nutzungseinheiten} & \sourceE\\
-        $\n{max}$       &\SI{2500}{Nutzungseinheiten} & \sourceU\\
-        $\theta$        &\SI{0.5}{1/Nutzungsheinheiten} & \sourceS\\
-        $m_S$           &\SI{1}{} & \sourceS\\
-        $\t{max}$       &\SI{11}{Jahre} & \sourceU\\
+        $T$           &\SI{7}{Tage} & \sourceE\\
+        $N$           &\SI{64}{} & \sourceE\\
         $A$             &\SI{3.7}{kg} & \sourceE\\
+        $\n{max}$       &\SI{2500}{} & \sourceL\\
+        $\t{max}$       &\SI{11}{Jahre} & \sourceL\\
+        $\theta$        &\SI{0.5}{} & \sourceS\\
+        $m_S$           &\SI{1}{kg/kg} & \sourceS\\
         \midrule
-        $p_\text{I}$    & \SI{17}{} & \sourceS \\
+        $p_\text{I}$    & \SI{17}{} & \sourceD \\
         $p_\text{II}$,
-        $p_\text{III}$  & \SI{2}{} & \sourceE\\
+        $p_\text{III}$  & \SI{2}{} & \sourceE, \sourceD \\
         $d_\text{I}$,
-        $d_\text{II}$   & \SI{0}{km} & \sourceS\\
-            $d_\text{III}$  & \SI{2}{km} & \sourceS\\
+        $d_\text{II}$   & \SI{0}{km} & \sourceD, \sourceE \\
+        $d_\text{III}$  & \SI{2}{km} & \sourceD\\
         \bottomrule
-    \end{tabular}\\[10pt]}
+    \end{tabular}\\[10pt]
+\end{center}
 
-    % Szenario spezifische Daten:\\
-    % Erster Analyseteil:\\
+\begin{center}
+    \scriptsize 
+    \begin{tabular}[t]{r@{: }l@{\hspace{1cm}}r@{: }l}
+        \sourceE & eigene Datenerhebung      &  \sourceM & Werte aus der MIPS-Datenbank \\
+        \sourceS & Schätzung                 &  \sourceW & Datenblatt der Waschmaschine\\
+        \sourceL & Angaben aus der Literatur &  \sourceD & Definition der Szenarien\\
+    \end{tabular}
+\end{center}
 
-    % {\centering
-    % \begin{tabular}[h]{p{5cm}p{3cm}p{3cm}p{3cm}}
-    %     \toprule
-    %     Parameter [Einheit] & Ind. & Gem. & Zen. \\
-    %     \midrule
-    %     $p$ & 17 \sourceS & 2\sourceE 
-    %         & 2\sourceE\\
-    %     $d$ & 0\sourceE & 0\sourceE 
-    %         & 2\sourceS\\
-    %     \bottomrule
-    % \end{tabular}\\[5pt]}
-
-    \begin{minipage}[t]{6cm}
-        \scriptsize
-        \sourceE: eigene Datenerhebung  \\
-        \sourceS: Schätzung \\
-        \sourceL: Angaben aus der Literatur \\
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{6cm}
-        \scriptsize
-        \sourceM: Werte aus der MIPS-Datenbank\\
-        \sourceW: Datenblatt der Waschmaschine\\
-        \sourceD: Definition der Szenarien\\
-    \end{minipage}\\
-    \caption{Die für die Beispielrechnungen angenommenen Daten.}
-\end{table}
-%\begin{tabular}{p{4cm} p{1,5cm} p{1,5cm} p{1,5cm} }
-%        \toprule
-%        Parameter [Einheit] & Ind. & Gem. & Zen. \\
-%        \midrule
-%    \endhead
-%        \bottomrule
-%        % \caption{Die für die Beispielrechnungen angenommenen Daten.
-%        %     \textsuperscript{E} eigene Datenerhebung
-%        %     \textsuperscript{S} Schätzung \textsuperscript{L} Angaben
-%        %     aus der Literatur \textsuperscript{D} Werte aus der
-%        % Datenbank}
-%    \endfoot
-%        \bottomrule
-%        \multicolumn{2}{p{4,25cm}}{\scriptsize 
-%            \textsuperscript{E} eigene Datenerhebung } &
-%            \multicolumn{2}{p{4,25cm}}{\scriptsize \textsuperscript{S} Schätzung }\\
-%            \multicolumn{2}{p{4,25cm}}{\scriptsize \textsuperscript{L} Angaben aus der
-%            Literatur} &
-%            \multicolumn{2}{p{4,25cm}}{\scriptsize \textsuperscript{D} Werte aus der
-%            Datenbank}\\
-%            \multicolumn{2}{p{4,25cm}}{\scriptsize \textsuperscript{W}Datenblatt der
-%            Waschmaschine}&\multicolumn{2}{p{4,25cm}}{\scriptsize }\\
-%        \caption{Die für die Beispielrechnungen angenommenen Daten.}
-%    \endlastfoot
-%
-%    \multicolumn{4}{l}{\textit{Szenariospezifische Daten:}}\\
-%\end{longtable}

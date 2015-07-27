@@ -190,6 +190,7 @@ i_d_M <- data.frame(
 
 
 # alle weiteren Parameter:
+TimeInTagen   = c(          7, sig = 0)
 S_D   = c(          S, sig = 0)
 N     = c(          N, sig = 0)
 n_max_low = c(       2000, sig = 0) # Nutzungseinheiten (unterer Wert)
@@ -216,6 +217,7 @@ results <- data.frame( # use for tex-printout
   # I_fix_d = I_fix_d,
   # I_fix_k = I_fix_k,
 
+  Time  = TimeInTagen,
   S_D   = S_D,
   N     = N,
   n_max = n_max_mid,
