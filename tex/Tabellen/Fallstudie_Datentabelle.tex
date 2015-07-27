@@ -1,101 +1,44 @@
-\newcommand{\sourceD}{\textsuperscript{D}} % Definition der Szenarien
-\newcommand{\sourceW}{\textsuperscript{W}} % Datenblatt der Waschmaschinen
-\newcommand{\sourceS}{\textsuperscript{S}} % Schätzung
-\newcommand{\sourceE}{\textsuperscript{E}} % eigene Datenerhebung
-\newcommand{\sourceM}{\textsuperscript{M}} % MIPS-Datenbank
-\newcommand{\sourceL}{\textsuperscript{L}} % Angaben aus der Literatur
-\newcommand{\sourceU}{\textsuperscript{?}} % unknown
+\newcommand{\sourceD}{D} % Definition der Szenarien
+\newcommand{\sourceW}{W} % Datenblatt der Waschmaschinen
+\newcommand{\sourceS}{S} % Schätzung
+\newcommand{\sourceE}{E} % eigene Datenerhebung
+\newcommand{\sourceM}{M} % MIPS-Datenbank
+\newcommand{\sourceL}{L} % Angaben aus der Literatur
+\newcommand{\sourceU}{?} % unknown
 
-\begin{table}
-    Szenario übergreifende Daten:\\
-    Material-Inputs:\\
-
-    {\centering
-    \begin{tabular}[h]{p{5cm}p{3cm}p{3cm}}
+\begin{center}
+    \begin{tabular}[h]{p{2cm}r@{\hspace{1cm}}l}
         \toprule
-        Parameter & Dimension 1 [Einheit] & Dimension 2 [Einheit] \\
+        Parameter & Wert & Datenquelle\\
         \midrule
-        $i_P$       &2936.2\sourceD      &351.8\sourceD\\
-        $i_N$       &206.78\sourceW\sourceD\sourceE
-                    &27.34\sourceW\sourceD\sourceE\\
-        $i_d$       &0.46\sourceD     &0.182\sourceD\\
-%    $\I{fix}^h$ &13234\sourceU  &1750\sourceU\\
-%    $\I{fix}^d$ &-174683\sourceU  &-20766\sourceU\\
-%    $\I{fix}^k$ &0\sourceU  &0\sourceU\\
-        \bottomrule
-    \end{tabular}\\[10pt]}
-
-    sonstige Parameter:\\
-
-    {\centering
-    \begin{tabular}[h]{p{5cm}p{5cm}}
-        \toprule
-        Parameter [Einheit] & Wert \\
+        $i_P$       &\SI{2936.2}{kg/kg} & \sourceM\\
+        $i_N$       &\SI{12.55}{kg/kg} & \sourceW, \sourceM, \sourceE\\
+        $i_d$       &\SI{0.46}{kg/kg} & \sourceM\\
         \midrule
-        $S_D$           &234\sourceE\\
-        $\n{max}$       &-1\sourceU\\
-        $\theta$        &-1\sourceS\\
-        $m_S$           &-1\sourceS\\
-        $K$             &7\sourceW\\
-        $\t{max}$       &-1\sourceU\\
-        $a$             &1\sourceE\\
-        \bottomrule
-    \end{tabular}\\[10pt]}
-
-    Szenario spezifische Daten:\\
-    Erster Analyseteil:\\
-
-    {\centering
-    \begin{tabular}[h]{p{5cm}p{3cm}p{3cm}p{3cm}}
-        \toprule
-        Parameter [Einheit] & Ind. & Gem. & Zen. \\
+        $T$           &\SI{7}{Tage} & \sourceE\\
+        $N$           &\SI{64}{} & \sourceE\\
+        $A$             &\SI{3.7}{kg} & \sourceE\\
+        $\n{max}$       &\SI{2500}{} & \sourceL\\
+        $\t{max}$       &\SI{11}{Jahre} & \sourceL\\
+        $\theta$        &\SI{0.5}{} & \sourceS\\
+        $m_S$           &\SI{1}{kg/kg} & \sourceS\\
         \midrule
-        $p$ & 10\sourceS & 2\sourceE 
-            & 2\sourceE\\
-        $d$ & 0\sourceE & 0\sourceE 
-            & 2\sourceS\\
+        $p_\text{I}$    & \SI{17}{} & \sourceD \\
+        $p_\text{II}$,
+        $p_\text{III}$  & \SI{2}{} & \sourceE, \sourceD \\
+        $d_\text{I}$,
+        $d_\text{II}$   & \SI{0}{km} & \sourceD, \sourceE \\
+        $d_\text{III}$  & \SI{2}{km} & \sourceD\\
         \bottomrule
-    \end{tabular}\\[5pt]}
+    \end{tabular}\\[10pt]
+\end{center}
 
-    \begin{minipage}[t]{6cm}
-        \scriptsize
-        \sourceE eigene Datenerhebung  \\
-        \sourceS Schätzung \\
-        \sourceL Angaben aus der Literatur \\
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{6cm}
-        \scriptsize
-        \sourceM Werte aus der MIPS-Datenbank\\
-        \sourceW Datenblatt der Waschmaschine\\
-        \sourceD Definition der Szenarien\\
-    \end{minipage}\\
-    \caption{Die für die Beispielrechnungen angenommenen Daten.}
-\end{table}
-%\begin{tabular}{p{4cm} p{1,5cm} p{1,5cm} p{1,5cm} }
-%        \toprule
-%        Parameter [Einheit] & Ind. & Gem. & Zen. \\
-%        \midrule
-%    \endhead
-%        \bottomrule
-%        % \caption{Die für die Beispielrechnungen angenommenen Daten.
-%        %     \textsuperscript{E} eigene Datenerhebung
-%        %     \textsuperscript{S} Schätzung \textsuperscript{L} Angaben
-%        %     aus der Literatur \textsuperscript{D} Werte aus der
-%        % Datenbank}
-%    \endfoot
-%        \bottomrule
-%        \multicolumn{2}{p{4,25cm}}{\scriptsize 
-%            \textsuperscript{E} eigene Datenerhebung } &
-%            \multicolumn{2}{p{4,25cm}}{\scriptsize \textsuperscript{S} Schätzung }\\
-%            \multicolumn{2}{p{4,25cm}}{\scriptsize \textsuperscript{L} Angaben aus der
-%            Literatur} &
-%            \multicolumn{2}{p{4,25cm}}{\scriptsize \textsuperscript{D} Werte aus der
-%            Datenbank}\\
-%            \multicolumn{2}{p{4,25cm}}{\scriptsize \textsuperscript{W}Datenblatt der
-%            Waschmaschine}&\multicolumn{2}{p{4,25cm}}{\scriptsize }\\
-%        \caption{Die für die Beispielrechnungen angenommenen Daten.}
-%    \endlastfoot
-%
-%    \multicolumn{4}{l}{\textit{Szenariospezifische Daten:}}\\
-%\end{longtable}
+\begin{center}
+    \scriptsize 
+    \begin{tabular}[t]{r@{: }l@{\hspace{1cm}}r@{: }l}
+        \sourceE & eigene Datenerhebung      &  \sourceM & Werte aus der MIPS-Datenbank \\
+        \sourceS & Schätzung                 &  \sourceW & Datenblatt der Waschmaschine\\
+        \sourceL & Angaben aus der Literatur &  \sourceD & Definition der Szenarien\\
+    \end{tabular}
+\end{center}
+

@@ -2,104 +2,47 @@
 source('./Fallstudie_data.R')
 r <- mapply(round, x=results[1,], digits=results["sig",], SIMPLIFY = FALSE)
 @
-\newcommand{\sourceD}{\textsuperscript{D}} % Definition der Szenarien
-\newcommand{\sourceW}{\textsuperscript{W}} % Datenblatt der Waschmaschinen
-\newcommand{\sourceS}{\textsuperscript{S}} % Schätzung
-\newcommand{\sourceE}{\textsuperscript{E}} % eigene Datenerhebung
-\newcommand{\sourceM}{\textsuperscript{M}} % MIPS-Datenbank
-\newcommand{\sourceL}{\textsuperscript{L}} % Angaben aus der Literatur
-\newcommand{\sourceU}{\textsuperscript{?}} % unknown
+\newcommand{\sourceD}{D} % Definition der Szenarien
+\newcommand{\sourceW}{W} % Datenblatt der Waschmaschinen
+\newcommand{\sourceS}{S} % Schätzung
+\newcommand{\sourceE}{E} % eigene Datenerhebung
+\newcommand{\sourceM}{M} % MIPS-Datenbank
+\newcommand{\sourceL}{L} % Angaben aus der Literatur
+\newcommand{\sourceU}{?} % unknown
 
-\begin{table}
-    Szenario übergreifende Daten:\\
-    Material-Inputs:\\
-
-    {\centering
-    \begin{tabular}[h]{p{5cm}p{3cm}p{3cm}}
+\begin{center}
+    \begin{tabular}[h]{p{2cm}r@{\hspace{1cm}}l}
         \toprule
-        Parameter & Dimension 1 [Einheit] & Dimension 2 [Einheit] \\
+        Parameter & Wert & Datenquelle\\
         \midrule
-        $i_P$       &\Sexpr{r$i_P.MF}\sourceD      &\Sexpr{r$i_P.CF}\sourceD\\
-        $i_N$       &\Sexpr{r$i_N.MF}\sourceW\sourceD\sourceE
-                    &\Sexpr{r$i_N.CF}\sourceW\sourceD\sourceE\\
-        $i_d$       &\Sexpr{r$i_d.MF}\sourceD     &\Sexpr{r$i_d.CF}\sourceD\\
-%    $\I{fix}^h$ &\Sexpr{r$I_fix_h.MF}\sourceU  &\Sexpr{r$I_fix_h.CF}\sourceU\\
-%    $\I{fix}^d$ &\Sexpr{r$I_fix_d.MF}\sourceU  &\Sexpr{r$I_fix_d.CF}\sourceU\\
-%    $\I{fix}^k$ &\Sexpr{r$I_fix_k.MF}\sourceU  &\Sexpr{r$I_fix_k.CF}\sourceU\\
-        \bottomrule
-    \end{tabular}\\[10pt]}
-
-    sonstige Parameter:\\
-
-    {\centering
-    \begin{tabular}[h]{p{5cm}p{5cm}}
-        \toprule
-        Parameter [Einheit] & Wert \\
+        $i_P$       &\SI{\Sexpr{r$i_P.MF}}{kg/kg} & \sourceM\\
+        $i_N$       &\SI{\Sexpr{r$i_N.MF}}{kg/kg} & \sourceW, \sourceM, \sourceE\\
+        $i_d$       &\SI{\Sexpr{r$i_d.MF}}{kg/kg} & \sourceM\\
         \midrule
-        $S_D$           &\Sexpr{r$S_D}\sourceE\\
-        $\n{max}$       &\Sexpr{r$n_max}\sourceU\\
-        $\theta$        &\Sexpr{r$theta}\sourceS\\
-        $m_S$           &\Sexpr{r$m_S}\sourceS\\
-        $K$             &\Sexpr{r$K}\sourceW\\
-        $\t{max}$       &\Sexpr{r$t_max}\sourceU\\
-        $a$             &\Sexpr{r$a}\sourceE\\
-        \bottomrule
-    \end{tabular}\\[10pt]}
-
-    Szenario spezifische Daten:\\
-    Erster Analyseteil:\\
-
-    {\centering
-    \begin{tabular}[h]{p{5cm}p{3cm}p{3cm}p{3cm}}
-        \toprule
-        Parameter [Einheit] & Ind. & Gem. & Zen. \\
+        $T$           &\SI{\Sexpr{r$Time}}{Tage} & \sourceE\\
+        $N$           &\SI{\Sexpr{r$N}}{} & \sourceE\\
+        $A$             &\SI{\Sexpr{r$A}}{kg} & \sourceE\\
+        $\n{max}$       &\SI{\Sexpr{r$n_max}}{} & \sourceL\\
+        $\t{max}$       &\SI{\Sexpr{r$t_max}}{Jahre} & \sourceL\\
+        $\theta$        &\SI{\Sexpr{r$theta}}{} & \sourceS\\
+        $m_S$           &\SI{\Sexpr{r$m_S}}{kg/kg} & \sourceS\\
         \midrule
-        $p$ & \Sexpr{r$Ind.p}\sourceS & \Sexpr{r$Luh.p}\sourceE 
-            & \Sexpr{r$Luh.p}\sourceE\\
-        $d$ & \Sexpr{r$Luh.d}\sourceE & \Sexpr{r$Luh.d}\sourceE 
-            & \Sexpr{r$Tra.d}\sourceS\\
+        $p_\text{I}$    & \SI{\Sexpr{r$Ind.p}}{} & \sourceD \\
+        $p_\text{II}$,
+        $p_\text{III}$  & \SI{\Sexpr{r$Luh.p}}{} & \sourceE, \sourceD \\
+        $d_\text{I}$,
+        $d_\text{II}$   & \SI{\Sexpr{r$Luh.d}}{km} & \sourceD, \sourceE \\
+        $d_\text{III}$  & \SI{\Sexpr{r$Tra.d}}{km} & \sourceD\\
         \bottomrule
-    \end{tabular}\\[5pt]}
+    \end{tabular}\\[10pt]
+\end{center}
 
-    \begin{minipage}[t]{6cm}
-        \scriptsize
-        \sourceE eigene Datenerhebung  \\
-        \sourceS Schätzung \\
-        \sourceL Angaben aus der Literatur \\
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{6cm}
-        \scriptsize
-        \sourceM Werte aus der MIPS-Datenbank\\
-        \sourceW Datenblatt der Waschmaschine\\
-        \sourceD Definition der Szenarien\\
-    \end{minipage}\\
-    \caption{Die für die Beispielrechnungen angenommenen Daten.}
-\end{table}
-%\begin{tabular}{p{4cm} p{1,5cm} p{1,5cm} p{1,5cm} }
-%        \toprule
-%        Parameter [Einheit] & Ind. & Gem. & Zen. \\
-%        \midrule
-%    \endhead
-%        \bottomrule
-%        % \caption{Die für die Beispielrechnungen angenommenen Daten.
-%        %     \textsuperscript{E} eigene Datenerhebung
-%        %     \textsuperscript{S} Schätzung \textsuperscript{L} Angaben
-%        %     aus der Literatur \textsuperscript{D} Werte aus der
-%        % Datenbank}
-%    \endfoot
-%        \bottomrule
-%        \multicolumn{2}{p{4,25cm}}{\scriptsize 
-%            \textsuperscript{E} eigene Datenerhebung } &
-%            \multicolumn{2}{p{4,25cm}}{\scriptsize \textsuperscript{S} Schätzung }\\
-%            \multicolumn{2}{p{4,25cm}}{\scriptsize \textsuperscript{L} Angaben aus der
-%            Literatur} &
-%            \multicolumn{2}{p{4,25cm}}{\scriptsize \textsuperscript{D} Werte aus der
-%            Datenbank}\\
-%            \multicolumn{2}{p{4,25cm}}{\scriptsize \textsuperscript{W}Datenblatt der
-%            Waschmaschine}&\multicolumn{2}{p{4,25cm}}{\scriptsize }\\
-%        \caption{Die für die Beispielrechnungen angenommenen Daten.}
-%    \endlastfoot
-%
-%    \multicolumn{4}{l}{\textit{Szenariospezifische Daten:}}\\
-%\end{longtable}
+\begin{center}
+    \scriptsize 
+    \begin{tabular}[t]{r@{: }l@{\hspace{1cm}}r@{: }l}
+        \sourceE & eigene Datenerhebung      &  \sourceM & Werte aus der MIPS-Datenbank \\
+        \sourceS & Schätzung                 &  \sourceW & Datenblatt der Waschmaschine\\
+        \sourceL & Angaben aus der Literatur &  \sourceD & Definition der Szenarien\\
+    \end{tabular}
+\end{center}
+

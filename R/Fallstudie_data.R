@@ -190,17 +190,19 @@ i_d_M <- data.frame(
 
 
 # alle weiteren Parameter:
+TimeInTagen   = c(          7, sig = 0)
 S_D   = c(          S, sig = 0)
+N     = c(          N, sig = 0)
 n_max_low = c(       2000, sig = 0) # Nutzungseinheiten (unterer Wert)
 n_max_mid = c(       2500, sig = 0) # Nutzungseinheiten (mittlerer Wert)
 n_max_hig = c(       3000, sig = 0) # Nutzungseinheiten (oberer Wert)
-theta = c(        1/2, sig = 0) # Anzahl Transporte je Nutzungseinheit
+theta = c(        1/2, sig = 1) # Anzahl Transporte je Nutzungseinheit
 m_S   = c(          1, sig = 0) # Kilogramm (je Serviceeinheit zu transportierende Menge)
 K     = c(          7, sig = 0) # Kilogramm
 t_max_low = c(          8, sig = 0) # Maximalnutzungsdauer in Jahren  (unterer Wert)
 t_max_mid = c(          11, sig = 0) # Maximalnutzungsdauer in Jahren  (mittlerer Wert)
 t_max_hig = c(          14, sig = 0) # Maximalnutzungsdauer in Jahren  (oberer Wert)
-A     = c(     mean_A, sig = 0)
+A     = c(     mean_A, sig = 1)
 a     = c(  A[1]/K[1], sig = 0)
 alpha = c( 0.75, sig=2) # Korrekturfaktor für Transportinputs
 
@@ -215,7 +217,9 @@ results <- data.frame( # use for tex-printout
   # I_fix_d = I_fix_d,
   # I_fix_k = I_fix_k,
 
+  Time  = TimeInTagen,
   S_D   = S_D,
+  N     = N,
   n_max = n_max_mid,
   theta = theta,
   m_S   = m_S,
