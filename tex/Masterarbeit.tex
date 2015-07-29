@@ -81,7 +81,7 @@ dashed=false]{biblatex}
 
 \usepackage[hidelinks]{hyperref}
 \usepackage{ragged2e} %für links und rechtsbündige Umgebungen in Tabellen
-\usepackage[textsize=tiny]{todonotes} % TODO-Notizen. Ausschalten mit der Option [disable]
+\usepackage[textsize=tiny, colorinlistoftodos]{todonotes} % TODO-Notizen. Ausschalten mit der Option [disable]
 \usepackage[normalem]{ulem} % ermöglicht es, Text mittels \sout und \xout
                             % durchzustreichen
 
@@ -98,8 +98,11 @@ dashed=false]{biblatex}
 
 %%% Eigene Befehle %%%
 \newcommand{\was}[1]{\small\textit{#1}}
-\newcommand{\noteS}[1]{\todo[color=green!40]{\textbf{Sascha: }#1}}
+\newcommand{\noteS}[1]{\todo[color=blue!40]{\textbf{Sascha: }#1}}
 \newcommand{\noteJ}[1]{\todo[color=blue!40]{\textbf{János: }#1}}
+\definecolor{prioH}{named}{red}
+\definecolor{prioM}{named}{yellow}
+\definecolor{prioL}{named}{green}
 \newcommand{\textfrac}[2]{\hspace{2pt} \frac{\text{#1}}{\text{#2}}}
 \newcommand{\eqnref}[1]{\overset{(\ref{#1})}{=}} % Gleichheitszeichen mit Referenz auf die verwendete Gleichung
 \newcommand{\defeq}{\vcentcolon=} %Definitions-Gleichheitszeichen
@@ -153,6 +156,7 @@ dashed=false]{biblatex}
 %%% END Article customizations
 % END_FOLD (Preamble)
 \begin{document}
+\listoftodos \newpage
 \begin{titlepage}
   \begin{center}
     \includegraphics[scale=0.5]{Logo-Uni-Osnabrueck.jpg}\\[1ex]
@@ -202,6 +206,9 @@ dashed=false]{biblatex}
   \end{center}
 \end{titlepage}
 \tableofcontents
+\todo[color=prioH]{Modellspezifizierung statt Teilmodell / Einzelmodell}
+\todo[color=prioH]{Erhöhung der Nutzungshäufigkeit statt Nutzungsintensivierung}
+\todo[color=prioH]{Faktoren statt Effekte}
 \chapter{Einleitung}
 \section{Thema}
 % Problem:
@@ -407,25 +414,25 @@ Die Input-Orientierung drückt sich dadurch aus, dass für die Bestimmung der MI
     - Konzeption: \\
         - Produktnutzungssystem (Personen + Produkte + Organisation der
         Nutzung)\\
-	        - Beispielhaft erläutern, wo die Systemgrenze liegt (z.B. ein Haushalt, eine Hausgemeinschaft, Nachbarschaft, Kunden eines Geschäfts etc.)
+	        - Beispielhaft erläutern, wo die Systemgrenze liegt (z.B. ein Haushalt, eine Hausgemeinschaft, Nachbarschaft, Kunden eines Geschäfts etc.) \\
         - entspricht der systemwissenschaftlichen Perspektive: System, Grenzen,
         Elemente, Relationen \\
-    - für den Umweltverbrauch dieser Produktnutzungssysteme entwickeln wir ein
-    Modell: eine Bestimmungsgleichung für die MIPS \\
-    - für die Analyse der Senkung des Umweltverbrauchs vergleichen wir die MIPS
-    von zwei Systemen (herkömmliches mit gemeinschaftlichem System, die den
-    selben Service erbringen)\\
-    - Scholl beschreibt, worin sich diese Systeme unterscheiden können\\
-    - wir orientieren uns an den von ihm aufgestellten Effekten\\
-    - Wichtig: Wir gehen vom Auftreten dieser Effekte aus (z.B. Nutzungshäufigkeit und/oder Auslastung sind höher bei gemeinschaftlicher Nutzung) und untersuchen deren ökologischen Konsequenzen
-    - je Effekt ein Modell entwickeln und dieses für sich analysieren\\
-    - allgemein treten mehrere Effekte gleichzeitig auf: daher Betrachtung von
-    Kopplung\\
-    - Auswahl der Effekte + Kopplung\\
-    - Erklärung der neuen Bezeichnungen\\
-    - Leitmotiv für die Modellierung: Wäsche waschen -> Überleitung zur
-    Fallstudie\\
+    - Einem Produktnutzungssystem wird ein bestimmter Umweltverbrauch zugeschrieben\\
+    - Scholl beschreibt unter der Bezeichnung Umweltauswirkungen die Veränderung von bestimmten Faktoren beim Übergang zur gemeinschaftlichen Nutzung, und deren positiven oder negativen Einfluss auf den Umweltverbrauch (siehe Tabelle Scholl)\\
+	% TO DO: Genau aufschreiben, wie wir von Scholls Umweltauswirkungen auf unsere Faktoren kommen!
+	- Die Faktoren, die wir betrachten sind (tabellarisch):\\
+	Nutzungshäufigkeit (Änderung dieses Faktors entspricht bei Scholl: Nutzungsdauerverlängerung)...\\
+    % TO DO: Recherche Deduktion... heißt das Prämisse, oder was?
+    - Prämissen: Faktoren variieren systematisch zwischen herkömmlicher und gemeinschaftlicher Produktnutzung... konkret auflisten (evtl. in Tabelle zu Faktoren integrieren) \\
+    % (Bis hierhin: Das lesen wir aus Scholl heraus)
+    - Zur Beantwortung unserer Fragestellung wählen wir ein deduktives Vorgehen: Schließen von den genannten Prämissen auf die Umweltauswirkungen. Dafür: \\
+		(a) Modell entwickeln für den Umweltverbrauch von Produktnutzungssystemen in Abhängigkeit der genannten Faktoren. Konkret: Bestimmungsgleichung für die MIPS. Spezifizierung von I und S für ein Produktnutzungssystem. \\
+		(b) Modell anwenden im Sinne der Prämissen, d.h. Untersuchung, was bei Veränderung der betrachteten Faktoren mit der MIPS passiert \\
+    - Leitmotiv für die Modellierung: Wäsche waschen. Überleitung zur
+    Fallstudie
 }
+		
+\todo[color=prioM]{Abbildung erstellen und in Text referenzieren: konzeptionelles Modell}
 		
           Während das Modell letztlich möglichst allgemein anwendbar sein soll,
           lassen wir uns bei der Modellentwicklung durch zwei Fallbeispiele
@@ -490,11 +497,19 @@ Die Input-Orientierung drückt sich dadurch aus, dass für die Bestimmung der MI
         % * Daten fließen teilweise auch in die Darstellungen der Einzelmodelle
         % ein
 
-\chapter{Modell}
+\chapter{Modellbildung und -Analyse}
+\todo[color = prioH]{
+	- Grundmodell: ...
+	- In den folgenden Abschnitten: Je Faktor: Modell so spezifizieren, dass wir in der Lage sind, die Wirkung des Faktors abzubilden und zu analysieren. \\
+	- allgemein können sich mehrere Faktoren gleichzeitig verändern (Abhängigkeiten / Wechselwirkungen): daher Betrachtung von Kopplung(en). Ausgewählte Kopplung nennen.
+	}
 In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ein Modell zur Ableitung von Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung entwickelt. Dazu werden Teilmodelle zu ausgewählten Umwelteffekten aufgestellt (Abschnitt \ref{sec:Einzeleffekte}), sowie exemplarisch zwei der Teilmodelle miteinander gekoppelt (Abschnitt \ref{sec:Effektkopplungen}). Zunächst werden jedoch einige allgemeine Grundlagen erarbeitet, auf die bei der Erstellung der Teilmodelle zurückgegriffen wird (Abschnitt \ref{sec:Grundmodell}).
-		\section{Modellgrundlagen}
+		\section{Grundmodell}
 		\label{sec:Grundmodell}
-		\noteJ{evtl. Unterabschnitte einführen}
+
+		% subsubsections zu: a) Grundgleichung und Inputs b) Service-Nachfrage c) S = N * A d) Produktanzahlen e) Nutzungsdauer und Co.
+		% Zusammenfassender Kasten am Ende der section
+
 		Für die Quantifizierung des Umweltverbrauchs, der einem Nutzungssystem angerechnet wird, greifen wir auf das MIPS-Konzept zurück\noteJ{Querverweis}. Hierfür werden alle Material-Inputs, die mit der Bereitstellung, Nutzung und Entsorgung der eingesetzten Produkte einhergehen, ins Verhältnis zu dem aus der Produktnutzung generierten Service gesetzt:
 		%
 		\begin{equation}
@@ -713,9 +728,9 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 		den Durchschnitts-Querstrich weg, da wir diese nicht mehr von den realen Größen
 		unterscheiden müssen. 
 \newpage
-		\section{Einzeleffekte}
+		\section{Faktor-spezifische Modelle}
 		\label{sec:Einzeleffekte}
-			\subsection{Nutzungsintensivierung} % Ursprünglich: "Nutzungsdauerverlängerung"
+			\subsection{Nutzungshäufigkeit} % Ursprünglich: "Nutzungsdauerverlängerung"
 			\label{sec:Nutzungsintensivierung}
 				\paragraph{Modellbeschreibung}
 				Unter \enquote{Nutzungsintensivierung} verstehen wir eine Erhöhung der Häufigkeit, mit der ein bestimmtes Produkt genutzt wird. Diese bezeichnen wir als Nutzungshäufigkeit $h$ und definieren sie als die Produktnutzungsmenge pro Zeit. Für eine Waschmaschine wäre dies etwa die Anzahl an Waschgängen pro Woche.
@@ -970,7 +985,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 					\label{fig:MIPS(h)}
 				\end{figure} \noteJ{Horizontale gestrichelte Linien einfügen um konstantes Delta zu verdeutlichen}
 			\clearpage	
-			\subsection{Erhöhung der Produktauslastung} % Ursprünglich: "Maximierung der Geräteauslastung"
+			\subsection{Produktauslastung} % Ursprünglich: "Maximierung der Geräteauslastung"
 			\label{sec:Produktauslastung}
 				\paragraph{Modellbeschreibung}
 				Unter dem Begriff \emph{Produktauslastung} verstehen wir die
@@ -2422,7 +2437,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
           \caption{}
       \end{figure}
 
-		\section{Effekt-Kopplung: Nutzungsintensivierung und zusätzliche Transporte}
+		\section{Kopplungs-Modell: Nutzungshäufigkeit und Transporte}
 		\label{sec:Effektkopplungen}
 		Nachdem im vorigen Kapitel ausgewählte Umwelteffekte durch gemeinschaftliche Produktnutzung isoliert untersucht wurden, soll nun analysiert werden, wie mehrere dieser Effekte zusammenwirken. Aus pragmatischen Gründen musste eine Auswahl von zwei Einzeleffekten getroffen werden, deren Kopplung im Rahmen dieser Master-Arbeit betrachtet werden kann.
 		
@@ -2436,7 +2451,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 		 
 		 Aus diesem Grund schließt sich im übernächsten Abschnitt (\ref{sec:Kopplung_Spez}) ein spezifisches Modell an, das durch die Ausnutzung einfacher raumbezogener Zusammenhänge zu stärkeren Aussagen gelangt. Die Gültigkeit des Modells ist allerdings auf Anwendungen eingeschränkt, die mit den ebenfalls stärkeren Modellannahmen übereinstimmen.
 					 
-		 \subsection{Allgemeines Modell}
+		 \subsection{Allgemeines Kopplungs-Modell}
 		 \label{sec:Kopplung_Allg}
 		 
 		\paragraph{Modellbeschreibung}
@@ -2527,7 +2542,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 		\subparagraph{Fazit}
 		Anders als bei der isolierten Betrachtung der Nutzungsintensivierung können unter der gleichzeitigen Berücksichtigung zusätzlicher Transporte sowohl Verbesserungen als auch Verschlechterungen der MIPS auftreten. Als hartes Kriterium für eine Senkung des Umweltverbrauchs erweist sich eine hinreichend geringe Nutzungsintensität im Ausgangsniveau, d.h. vor der Nutzungsintensivierung: Nur wenn der Nutzungsvorrat ursprünglich nicht voll ausgeschöpft wird ($h_1 < h^*$), kann es zu einer Reduzierung der MIPS kommen. In diesem Fall muss jedoch die weitere Bedingung gelten, dass die Materialinputs für die zusätzlichen Transporte kleiner sind als die eingesparten produktbezogenen Inputs für ein parallel eingesetztes Produkt ($\alpha \cdot S_D \cdot \Delta d < q \cdot i_P$).
 		
-		 \subsection{Spezifisches Modell}
+		 \subsection{Spezielles Kopplungs-Modell}
 		 \label{sec:Kopplung_Spez}
 		 Die vorstehende Modellanalyse kam ohne die Annahme eines bestimmten quantitativen Zusammenhangs zwischen der Produkteinsparung durch Nutzungsintensivierung und den zusätzlichen Transporten aus: Die Einsparung eines parallel eingesetzten Produkts ($\Delta p = -1$) konnte mit einer beliebigen zusätzlichen mittleren Transportdistanz ($\Delta d > 0$) einhergehen. Im folgenden Modell wird ein Zusammenhang zwischen $p$ und $d$ spezifiziert werden um zu aussagekräftigeren Ergebnissen zu gelangen.
 		 
@@ -2787,7 +2802,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
 			
 			\noteJ{Auf Bestätigung der Ergebnisse aus dem Allgemeinen Modell hinweisen}
 			
-		\section{Modellübersicht}
+
 
 
 \chapter{Fallstudie}
