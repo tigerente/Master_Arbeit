@@ -516,14 +516,14 @@ Reduktion des Umweltverbrauchs zu berücksichtigen \parencite[S.
 551]{liedtke_resource_2014}. 
 
 Die Quantifizierung des Umweltverbrauchs erfolgt nach Bestimmung der
-Material-Inputs und Definition der Service-Einheit schließlich durch Division
-der beiden Größen \parencite[S. 548]{liedtke_resource_2014}:
+Material-Inputs und Definition sowie Bestimmung der Servicemenge schließlich
+durch Division der beiden Größen \parencite[S. 548]{liedtke_resource_2014}:
 \begin{equation}
     \MIPS = \frac{\text{Material-Inputs}}{\text{Servicemenge}} =
     \frac{I}{S}
     \label{eq:MIPS_Einleitung}
 \end{equation}
-In dieser Gleichung werden die also die für ein Produkt aufgewendeten
+In dieser Gleichung werden also die für ein Produkt aufgewendeten
 Material-Inputs in Bezug zu dem von dem Produkt erbrachten Service gesetzt.
 Die Gleichung \eqref{eq:MIPS_Einleitung} bildet die Grundlage für unsere
 Modellentwicklung.
@@ -538,13 +538,13 @@ gemeinschaftliche Nutzung relevanten Faktoren ein.
 Als Gegenstand der Modellbildung betrachten wir Produktnutzungssysteme. Die
 Elemente des Systems sind Personen und Produkte, welche über eine bestimmte
 Nutzungsform in Beziehung stehen. Die Systemgrenze orientiert sich somit an den
-Personen, dem von diesen nachgefragten Service und den für die Befriedigung
-dieser Nachfrage eingesetzten Produkten: so kann ein Produktnutzungssystem
+Personen und den für die Befriedigung ihrer Nachfrage nach einem bestimmtem
+Service eingesetzten Produkten: so kann ein Produktnutzungssystem
 beispielsweise die Personen eines Haushalts umfassen, welche zur Befriedigung
 des Bedürfnisses nach sauberer Wäsche eine Waschmaschine benutzen. Als weiteres
-Beispiel könnten zu einem Produktnutzungssystem für dieselbe Servicenachfrage
-die Kunden eines Waschsalons zusammen mit den in diesem Waschsalon aufgestellten
-Waschmaschinen gerechnet werden.
+Beispiel könnten zu einem Produktnutzungssystem die Kunden eines Waschsalons
+zusammen mit den in diesem Waschsalon aufgestellten Waschmaschinen gezählt
+werden.
 
 Jedem derart definierten Produktnutzungssystem kann nun ein Umweltverbrauch
 zugeschrieben werden, der von Parametern des Systems abhängt. Einige dieser
@@ -552,8 +552,8 @@ Parameter sind davon abhängig, ob dem System eine herkömmliche oder
 gemeinschaftliche Nutzungsform zugrunde liegt. Diese Parameter bezeichnen wir
 als Faktoren. Aus den von \textcite{scholl_marketing_2009} beschriebenen
 \textit{Umweltauswirkungen} (siehe Tabelle \ref{tab:Mechanismen}) lassen sich
-nicht nur die für den Übergang von herkömmlichen zu gemeinschaftlichen
-Nutzungsformen relevanten Faktoren sondern auch Hypothesen über die Richtung
+sowohl die für den Übergang von herkömmlichen zu gemeinschaftlichen
+Nutzungsformen relevanten Faktoren als auch Hypothesen über die Richtung
 deren Änderung ableiten.  Wenn \textcite{scholl_marketing_2009} zum Beispiel von
 einer \enquote{Maximierung der Geräteauslastung} spricht, so beinhaltet dies
 zweierlei: zum einen, dass die Geräteauslastung ein Parameter ist, der sich beim
@@ -574,11 +574,12 @@ zugehörige Hypothese zerlegt werden kann, wurde bereits beschrieben. Ähnlich
 direkt ergibt sich diese Zerlegung bei den \enquote{zusätzlichen Transporten}:
 der Faktor umfasst dabei die im Nutzungssystem stattfindenden Transporte und die
 Hypothese lautet, dass bei der gemeinschaftlichen Nutzung im Vergleich mit der
-herkömmlichen Nutzung mehr Transporte stattfinden. Die Bestimmung der Faktoren
-und Hypothesen erweist sich bei der \enquote{Nutzungsdauerverlängerung} 
-% und bei dem \enquote{zusätzlichen Ressourcenverzehr für
-% Nutzungsdauerverlängerung} 
-als etwas komplizierter.  Laut \textcite[S. 57]{scholl_marketing_2009} bedeutet
+herkömmlichen Nutzung mehr Transporte stattfinden. 
+
+Bei der als \enquote{Nutzungsdauerverlängerung} bezeichneten Umweltauswirkung
+erweist sich die Bestimmung der damit zum Ausdruck gebrachten Faktoren und
+Hypothesen als etwas komplizierter.  Laut \textcite[S.
+57]{scholl_marketing_2009} bedeutet
 Nutzungsdauerverlängerung, \enquote{dass sich die tatsächliche Nutzungsdauer der
 Lebensdauer annähert und/oder die Lebensdauer des Produktes verlängert wird.}
 Wie wir im Abschnitt \todo{Referenz} noch im Detail erläutern werden, liegt dem
@@ -595,11 +596,7 @@ Verlängerung der Lebensdauer -- liegen die im Nutzungssystem stattfindenden
 Wartungen und Reparaturen zugrunde. Die damit einhergehende Hypothese lautet,
 dass in gemeinschaftlichen Nutzungssystemen mehr Maßnahmen zur
 Lebensdauerverlängerung, sprich mehr Wartungen und Reparaturen durchgeführt
-werden als in herkömmlichen Nutzungssystemen. In Tabelle
-\ref{tab:faktoren_hypothesen} sind noch einmal
-alle der in dieser Arbeit von \textcite{scholl_marketing_2009} betrachteten
-Umweltauswirkungen zusammen mit den von uns identifizierten Faktoren und
-Hypothesen zusammengefasst.
+werden als in herkömmlichen Nutzungssystemen. 
 
 \begin{savenotes}
     \begin{table}[t]
@@ -624,41 +621,58 @@ Hypothesen zusammengefasst.
         zusätzliche Transporte & Transporte & werden mehr\\
         \bottomrule
     \end{tabular}
-    \caption{Aufgeführt sind die in dieser Arbeit von
-        \textcite{scholl_marketing_2009} betrachteten Umweltauswirkungen
-    zusammen mit den von uns identifizierten Faktoren und Hypothesen}
+    \caption{Aufgeführt ist unsere Auswahl der von
+        \textcite{scholl_marketing_2009} identifizierten Umweltauswirkungen
+        sowie deren Zerlegung in Faktoren und Hypothesen.}
     \label{tab:faktoren_hypothesen}
 \end{table}
 \end{savenotes}
 
-Das Ziel der Modellbildung ist es nun, die Wirkung der genannten Faktoren auf
-den Umweltverbrauch eines Produktnutzungssystems zu berücksichtigen. Hierfür
+Damit wurde für unsere Auswahl der von \textcite{scholl_marketing_2009}
+aufgestellten Umweltauswirkungen jeweils die Zerlegung in Faktoren und
+Hypothesen durchgeführt. Das Ergebnis ist in Tabelle
+\ref{tab:faktoren_hypothesen} zusammenfassend dargestellt. Es ist insofern
+zentral für unsere Arbeit, als dass die hier genannten Faktoren die Grundlage
+für unsere Modellbildung bilden und die Hypothesen über die Veränderung dieser
+Faktoren beim Übergang zu gemeinschaftlichen Nutzungsformen die Analyse der
+Faktor-spezifischen Modelle leiten. Dieses Vorgehen wird nun im
+letzten Teil dieses Abschnitts erläutert:
+
+Das Ziel der Modellbildung ist es, die Wirkung der genannten Faktoren auf
+den Umweltverbrauch eines Produktnutzungssystems abzubilden. Hierfür
 gehen wir von der Grundgleichung \eqref{eq:MIPS_Einleitung} aus und
 spezifizieren diese zunächst für jeden Faktor separat, schließen dieser
 Einzelbetrachtung aber auch eine Modellkopplung an, welche die kombinierte
-Wirkung der beiden Faktoren Nutzungshäufigkeit und Transporte abbildet. Unter
-Verwendung der von \textcite{scholl_marketing_2009} aufgestellten Hypothesen über die
-Veränderung der Faktoren beim Übergang zu gemeinschaftlichen Nutzungsformen,
-sind wir im Sinne einer deduktiven Vorgehensweise in der Lage, 
+Wirkung der beiden Faktoren Nutzungshäufigkeit und Transporte abbildet. 
 
-\todo[inline]{
-    - Zur Beantwortung unserer Fragestellung wählen wir ein deduktives Vorgehen:
-    Schließen von den genannten Prämissen auf die Umweltauswirkungen. Dafür: \\
-    (a) Modell entwickeln für den Umweltverbrauch von Produktnutzungssystemen in
-    Abhängigkeit der genannten Faktoren. Konkret: Bestimmungsgleichung für die
-    MIPS. Spezifizierung von I und S für ein Produktnutzungssystem. \\ (b)
-    Modell anwenden im Sinne der Prämissen, d.h. Untersuchung, was bei
-    Veränderung der betrachteten Faktoren mit der MIPS passiert \\ - Leitmotiv
-    für die Modellierung: Wäsche waschen. Überleitung zur Fallstudie
-}
+Für die Beantwortung der Fragestellung, können wir jedoch nicht bei der
+Bestimmung des Umweltverbrauchs eines Produktnutzungssystems in Abhängigkeit von
+den Faktoren stehen bleiben, sondern müssen noch den Bezug zur
+gemeinschaftlichen Produktnutzung herstellen. Hierfür dienen uns die 
+Hypothesen über die Faktoränderung bei: nehmen wir deren Gültigkeit als Prämisse
+an, und bestimmen die daraus resultierende Änderung des Umweltverbrauchs, so
+können wir in einem deduktiven Schritt darauf schließen, unter welchen Umständen
+sich der Umweltverbrauch bei gemeinschaftlicher Produktnutzung verringert.
+
+Dieser Logik entsprechend, werden wir die für die Faktoren spezifizierten
+Modelle analysieren: wir betrachten eine Änderung der Faktoren entsprechend der
+Hypothesen und bestimmen die daraus resultierende Änderung des Umweltverbrauchs
+in Abhängigkeit von den sonstigen, das System beschreibenden Parametern. Daraus
+ergeben sich Bedingungen an die Paramter, unter denen die resultierende Änderung
+des Umweltverbrauchs negativ ist, also eine Senkung des Umweltverbrauchs
+vorliegt. Diese Bedingungen sind dann die von uns gesuchten Kriterien für eine
+Senkung des Umweltverbrauchs bei gemeinschaftlicher Nutzung.
+
+Um dieser Vorgehensweise etwas von ihrer Abstraktheit zu nehmen und
+die Anwendbarkeit der Modelle auf reale Produktnutzungssysteme zu gewährleisten,
+orientieren wir uns bei der Modellierung immer wieder an Beispielen.
+Insbesondere werden dabei Beispiele zum Thema Wäsche Waschen eine Rolle spielen,
+da diesem Thema auch in einer der Theorieentwicklung anschließenden Fallstudie
+nachgegangen wird. Das Konzept und Vorgehen der Fallstudie wird im nächsten
+Abschnitt beschrieben.
 		
 \todo[color=prioM]{Abbildung erstellen und in Text referenzieren: konzeptionelles Modell}
 		
-Während das Modell letztlich möglichst allgemein anwendbar sein soll,
-lassen wir uns bei der Modellentwicklung durch zwei Fallbeispiele
-leiten. Sie dienen der Veranschaulichung der abstrakten Zusammenhänge
-und gewährleisten die praktische Anwendbarkeit des Modells. 
-
 \subsection{Fallstudie: Waschmaschinennutzung}
 \todo[inline]{
     - Fallstudie zu gemeinschaftlichem Waschen\\
