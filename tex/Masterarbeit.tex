@@ -15,7 +15,7 @@
 \usepackage[T1]{fontenc} % for enabling non-standard characters in
                          % hyphenation-list and smallcaps-boldfont
 
-\usepackage[bibstyle=authortitle, citestyle=authoryear, isbn=false, doi=false,
+\usepackage[bibstyle=authortitle, citestyle=authoryear-ibid, isbn=false, doi=false,
 dashed=false]{biblatex}
 \addbibresource{Masterarbeit.bib}
 
@@ -35,7 +35,8 @@ dashed=false]{biblatex}
 
 \graphicspath{{../Abbildungen/}{./Abbildungen/}}
 
-\usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line
+                              % rather than an indent
 \usepackage{setspace} % Provides the commands \doublespacing, \onehalfspacing,
                       % \singlespacing and \setstretch{baselinestretch} for
                       % controlling the line height
@@ -43,6 +44,7 @@ dashed=false]{biblatex}
 %%% PACKAGES
 \usepackage{booktabs} % for much better looking tables
 \usepackage[]{longtable}
+\usepackage{tabularx} % for footnotes in tabular environment
 \usepackage{array} % for better arrays (eg matrices) in maths
 %\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
 \usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
@@ -55,6 +57,11 @@ dashed=false]{biblatex}
 \usepackage{mdframed}
 \usepackage{booktabs}
 \usepackage{nicefrac}
+
+% the following two lines prevents amsmath from using chapter numbers for
+% numbering equations:
+\usepackage{chngcntr}
+\counterwithout{equation}{chapter}
 
 \usepackage{ifthen}
 
@@ -209,6 +216,8 @@ dashed=false]{biblatex}
 \todo[color=prioH]{Modellspezifizierung statt Teilmodell / Einzelmodell}
 \todo[color=prioH]{Erhöhung der Nutzungshäufigkeit statt Nutzungsintensivierung}
 \todo[color=prioH]{Faktoren statt Effekte}
+\todo[color=prioH]{Sternchen von Equations entfernen, damit alle eine Nummer
+bekommen}
 \chapter{Einleitung}
 \section{Thema}
 % Problem:
@@ -270,11 +279,12 @@ Managementperspektive heraus werden unter den Begriffen \enquote{eco services}
 Nutzung von Produkten ergänzen oder ersetzen können. Da wir uns in unserer
 Master-Arbeit nicht auf kommerzielle Angebote beschränken möchten, kommt dieser
 Begriff ebenfalls nicht in Betracht. Mit der Formel \enquote{Nutzen statt
-	Besitzen} \parencite{leismann_nutzen_2012} und dem Begriff
+Besitzen} \parencite{leismann_nutzen_2012} und dem Begriff
 \enquote{eigentumsersetzender Konsum} \parencite{scholl_marketing_2009} wird
 schließlich betont, dass der Nutzen eines Produkts durch entsprechende
 Organisationsformen auch ohne dessen Besitz genossen werden kann. Dieser Aspekt
-soll ebenfalls kein ausschließendes Kriterium für die in dieser Master-Arbeit betrachteten Produktnutzungsformen sein.
+soll ebenfalls kein ausschließendes Kriterium für die in dieser Master-Arbeit
+betrachteten Produktnutzungsformen sein.
 
 Aus den genannten Gründen wählen wir für den Gegenstand unserer Master-Arbeit
 einen neuen Begriff, der die für unsere Untersuchung wichtigen Aspekte
@@ -285,53 +295,81 @@ die einem definierten Nutzer*innen-Kreis angehören. Sie kann professionell oder
 privat organisiert sein. Gebrauchtwarenhandel klammern wir mit diesem Begriff
 bewusst aus.
 
-Zwei positive Umwelteffekte von gemeinschaftlichen Produktnutzungsformen wurden eingangs bereits genannt: Nutzungsintensivierung und Erhöhung der Produktauslastung. Es kann jedoch eine ganze Reihe weiterer Umwelteffekte auftreten. Einerseits können weitere positive Effekte hinzukommen. Beispielsweise kann es bei der gemeinschaftlichen Nutzung von Waschmaschinen sinnvoll sein, halbgewerbliche Maschinen mit entsprechend längerer Lebensdauer und höherer Effizienz zu verwenden. Andererseits bringen gemeinschaftliche Produktnutzungsformen häufig auch negative Umwelteffekte mit sich. Beispielsweise müssen für die Koordination der
-gemeinschaftlichen Nutzung und den Transport der genutzten Produkte zwischen den Nutzer*innen zusätzliche Ressourcen aufgewendet werden. Auch können positive Effekte mit negativen Nebenwirkungen einhergehen, wie
-beispielsweise für die Produktion einer halbgewerblichen Waschmaschine im Vergleich zu einer handelsüblichen mehr Ressourcen benötigt werden.
+Zwei positive Umwelteffekte von gemeinschaftlichen Produktnutzungsformen wurden
+eingangs bereits genannt: Nutzungsintensivierung und Erhöhung der
+Produktauslastung. Es kann jedoch eine ganze Reihe weiterer Umwelteffekte
+auftreten. Einerseits können weitere positive Effekte hinzukommen.
+Beispielsweise kann es bei der gemeinschaftlichen Nutzung von Waschmaschinen
+sinnvoll sein, halbgewerbliche Maschinen mit entsprechend längerer Lebensdauer
+und höherer Effizienz zu verwenden. Andererseits bringen gemeinschaftliche
+Produktnutzungsformen häufig auch negative Umwelteffekte mit sich.
+Beispielsweise müssen für die Koordination der gemeinschaftlichen Nutzung und
+den Transport der genutzten Produkte zwischen den Nutzer*innen zusätzliche
+Ressourcen aufgewendet werden. Auch können positive Effekte mit negativen
+Nebenwirkungen einhergehen, wie beispielsweise für die Produktion einer
+halbgewerblichen Waschmaschine im Vergleich zu einer handelsüblichen mehr
+Ressourcen benötigt werden.
 
-Neben derartigen Umweltwirkungen, die unmittelbar von einer geänderten Nutzung ausgehen, gibt es auch solche, die auf veränderte Nachfragemuster der Nutzer*innen zurückzuführen sind. Beispielsweise werden Reduzierungen des Umweltverbrauchs häufig durch eine finanzielle Ersparnis begleitet, die zu einer verstärkten Nachfrage in anderen Konsumbereichen führen kann, die wiederum mit einem zusätzlichen Umweltverbrauch einhergehen (Einkommens-Effekt). Auch ist es möglich, dass sich persönliche Bedürfnisstrukturen durch die gemeinschaftliche Produktnutzung ändern, wenn beispielsweise der Zugang zu bestimmten (Luxus-) Produkten erleichtert wird, die in der Folge stärker nachgefragt werden.
+Neben derartigen Umweltwirkungen, die unmittelbar von einer geänderten Nutzung
+ausgehen, gibt es auch solche, die auf veränderte Nachfragemuster der
+Nutzer*innen zurückzuführen sind. Beispielsweise werden Reduzierungen des
+Umweltverbrauchs häufig durch eine finanzielle Ersparnis begleitet, die zu einer
+verstärkten Nachfrage in anderen Konsumbereichen führen kann, die wiederum mit
+einem zusätzlichen Umweltverbrauch einhergehen (Einkommens-Effekt). Auch ist es
+möglich, dass sich persönliche Bedürfnisstrukturen durch die gemeinschaftliche
+Produktnutzung ändern, wenn beispielsweise der Zugang zu bestimmten (Luxus-)
+Produkten erleichtert wird, die in der Folge stärker nachgefragt werden.
 
-In dieser beispielhaften Zusammenstellung wird bereits deutlich, dass gemeinschaftliche Produktnutzung mit einer Vielzahl von positiven und negativen Umwelteffekten einhergehen kann. In der vorliegenden Master-Arbeit wird untersucht, unter welchen Umständen die negativen Umwelteffekte von den positiven übertroffen werden. Diese Umstände werden als möglichst allgemeingültige und prägnante Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung formuliert.
+In dieser beispielhaften Zusammenstellung wird bereits deutlich, dass
+gemeinschaftliche Produktnutzung mit einer Vielzahl von positiven und negativen
+Umwelteffekten einhergehen kann. In der vorliegenden Master-Arbeit wird
+untersucht, unter welchen Umständen die negativen Umwelteffekte von den
+positiven übertroffen werden. Diese Umstände werden als möglichst
+allgemeingültige und prägnante Kriterien für die Senkung des Umweltverbrauchs
+durch gemeinschaftliche Produktnutzung formuliert.
 
 \section{Forschungsstand}\label{sec:forschung}
-Unter die neuere Literatur, die sich mit Umwelteffekten gemeinschaftlicher Produktnutzung beschäftigt, fällt zunächst eine Reihe von Publikationen im Zusammenhang mit zwei größeren Forschungsprojekten um die Jahrtausendwende. Gegen Ende der Nuller Jahre folgen einige weitere Publikationen aus verschiedenen Forschungszusammenhängen. Schließlich wird das Thema auch in der ökonomischen Fachliteratur behandelt. Die einzelnen Bereiche werden im Folgenden grob umrissen.
+
+Unter die neuere Literatur, die sich mit Umwelteffekten gemeinschaftlicher
+Produktnutzung beschäftigt, fällt zunächst eine Reihe von Publikationen im
+Zusammenhang mit zwei größeren Forschungsprojekten um die Jahrtausendwende.
+Gegen Ende der Nuller Jahre folgen einige weitere Publikationen aus
+verschiedenen Forschungszusammenhängen. Schließlich wird das Thema auch in der
+ökonomischen Fachliteratur behandelt. Die einzelnen Bereiche werden im Folgenden
+grob umrissen.
 
 In den Jahren 1997-2000 bearbeitete das Institut für ökologische
-Wirtschaftsforschung (IÖW) das vom Bundesministerium für Bildung und Forschung geförderte
-Forschungsvorhaben \enquote{Ökologische Entlastungspotentiale,
-  Umsetzungsprobleme und Entwicklungsperspektiven von Strategien zur
+Wirtschaftsforschung (IÖW) das vom Bundesministerium für Bildung und Forschung
+geförderte Forschungsvorhaben \enquote{Ökologische Entlastungspotentiale,
+    Umsetzungsprobleme und Entwicklungsperspektiven von Strategien zur
 Nutzungsdauerverlängerung (NV) und Nutzungsintensivierung (NI)}.
-\textcite{scholl_produkte_1998} stecken zunächst den
-begrifflichen und theoretischen Rahmen für die Beschreibung gemeinschaftlicher
-Nutzungsformen und deren ökologischen Bewertung ab. Hieran
-schließen sich eine Fallstudie zur privaten Textilwäsche
-\parencite{hirschl_produkte_2000} und eine zum Wintersport
-\parencite{konrad_produkte_2000} an, wobei hier insbesondere der
-Frage nachgegangen wird, wie das ökologische Entlastungspotenzial
-von Nutzungskonzepten im Vergleich zur herkömmlichen individuellen
-Nutzung einzuschätzen ist. Eine zusammenfassende Darstellung der
-Projektergebnisse gibt schließlich
-\textcite{hirschl_nachhaltige_2001}. Aus einem Vergleich der beiden
+\textcite{scholl_produkte_1998} stecken zunächst den begrifflichen und
+theoretischen Rahmen für die Beschreibung gemeinschaftlicher Nutzungsformen und
+deren ökologischen Bewertung ab. Hieran schließen sich eine Fallstudie zur
+privaten Textilwäsche \parencite{hirschl_produkte_2000} und eine zum Wintersport
+\parencite{konrad_produkte_2000} an, wobei hier insbesondere der Frage
+nachgegangen wird, wie das ökologische Entlastungspotenzial von
+Nutzungskonzepten im Vergleich zur herkömmlichen individuellen Nutzung
+einzuschätzen ist. Eine zusammenfassende Darstellung der Projektergebnisse gibt
+schließlich \textcite{hirschl_nachhaltige_2001}. Aus einem Vergleich der beiden
 Fallstudien werden dort allgemeinere Erkenntnisse für die
-Nachhaltigkeitsstrategien Nutzungsdauerverlängerung und
--Intensivierung abgeleitet.
+Nachhaltigkeitsstrategien Nutzungsdauerverlängerung und -Intensivierung
+abgeleitet.
 
-In einem ähnlichen Zeitraum wie die Studie des IÖW wurde
-von verschiedenen anderen
-Forschungseinrichtung ein EU finanziertes Forschungsprojekt
-unter dem Titel \enquote{Eco-Services for Sustainable Development in
-the European Union} durchgeführt. Diese Studie hat einen sehr ähnlichen Aufbau, betrachtet
-allerdings zum Teil andere Fallbeispiele und lenkt durch
-den internationalen Kontext den Blick auch auf länderspezifische
-Unterschiede. Die vertiefenden Fallstudien, die ökologische Betrachtungen
-mit einschließen, wurden in den  Bereichen Heimwerken, Baueigenleistung
-und Gartenpflege \parencite{behrendt_oko-rent_2000}, nachhaltiges
-Waschen \parencite{behrendt_nachhaltig_2000} und
-Car-Sharing \parencite{behrendt_car-sharing_2000} durchgeführt.
-\textcite{behrendt_eco-service_2003} liefert schließlich eine
-Systematisierung der betrachteten Produktdienstleistungen, eine
-vergleichende Darstellung der Fallstudien, sowie die Zusammenfassung des
-Projekts.
+In einem ähnlichen Zeitraum wie die Studie des IÖW wurde von verschiedenen
+anderen Forschungseinrichtung ein EU finanziertes Forschungsprojekt unter dem
+Titel \enquote{Eco-Services for Sustainable Development in the European Union}
+durchgeführt. Diese Studie hat einen sehr ähnlichen Aufbau, betrachtet
+allerdings zum Teil andere Fallbeispiele und lenkt durch den internationalen
+Kontext den Blick auch auf länderspezifische Unterschiede. Die vertiefenden
+Fallstudien, die ökologische Betrachtungen mit einschließen, wurden in den
+Bereichen Heimwerken, Baueigenleistung und Gartenpflege
+\parencite{behrendt_oko-rent_2000}, nachhaltiges Waschen
+\parencite{behrendt_nachhaltig_2000} und Car-Sharing
+\parencite{behrendt_car-sharing_2000} durchgeführt.
+\textcite{behrendt_eco-service_2003} liefert schließlich eine Systematisierung
+der betrachteten Produktdienstleistungen, eine vergleichende Darstellung der
+Fallstudien, sowie die Zusammenfassung des Projekts.
 
 In der jüngeren Literatur finden sich weitere Publikationen, die sich zum einen
 Teil theoretisch dem Thema gemeinschaftlicher Nutzungsformen zuwenden
@@ -341,8 +379,11 @@ untersuchen \parencites{rabelt_nachhaltiger_2007}{erdmann_quantifizierung_2011}.
 Für die vorliegende Arbeit besonders relevant ist die von
 \textcite{scholl_marketing_2009} aufgestellte Übersicht über die bei
 gemeinschaftlichen Nutzungsformen auftretenden positiven und negativen
-Umwelteffekte (vgl. Tabelle \ref{tab:Mechanismen}). Er gliedert diese in solche, die unmittelbar durch die veränderte Nutzung
-auftreten (\enquote{leistungsspezifische Umweltwirkungen}) und solche, die indirekt aus veränderten Nachfragemustern resultieren (\enquote{mengenabhängige Umweltwirkungen}).
+Umwelteffekte (vgl. Tabelle \ref{tab:Mechanismen}). Er gliedert diese in solche,
+die unmittelbar durch die veränderte Nutzung auftreten
+(\enquote{leistungsspezifische Umweltwirkungen}) und solche, die indirekt aus
+veränderten Nachfragemustern resultieren (\enquote{mengenabhängige
+Umweltwirkungen}).
 %Während die meisten der bisher zitierten Studien die letztgenannte Gruppe der
 %Nachfrage-Effekte nicht näher quantifizieren, unternimmt
 %\textcite{erdmann_quantifizierung_2011} genau dies anhand des online-basierten
@@ -375,22 +416,46 @@ auftreten (\enquote{leistungsspezifische Umweltwirkungen}) und solche, die indir
 \end{table}
 
 Auch in der ökonomischen Fachliteratur gibt es Publikationen, die sich mit
-gemeinschaftlichen Nutzungsformen auseinandersetzen. Sie greifen dabei auf eine deutlich stärker formalisierte Methodik zurück als die bisher aufgeführten Studien. \textcite{yokoo_economic_2010}
-entwickelt ein mikroökonomisches Modell der Wiederverwendung um Effekte von
-Second-Hand-Märkten auf die Wohlfahrt der Konsument*innen und die Abfallmenge
-einer Wirtschaft zu untersuchen.  \textcite{thomas_environmental_2011} stellt
-ein ähnliches Modell vor, lenkt jedoch den Blick stärker auf die ökologischen
-Effekte auf Second-Hand-Märkten, in dem sie das Marktmodell mit einem einfachen
-Modell für die Lebenszyklusbilanz verknüpft. Als Anwendungsbeispiel wird hier
-der Gebrauchtwarenhandel mit Büchern betrachtet. Obwohl der Gebrauchtwarenhandel in der vorliegenden Masterarbeit nicht berücksichtigt wird, sind die eben genannten Publikationen dennoch relevant, da sie sowohl hinsichtlich der Fragestellung als auch methodisch einen ähnlichen Ansatz verfolgen.
+gemeinschaftlichen Nutzungsformen auseinandersetzen. Sie greifen dabei auf eine
+deutlich stärker formalisierte Methodik zurück als die bisher aufgeführten
+Studien. \textcite{yokoo_economic_2010} entwickelt ein mikroökonomisches Modell
+der Wiederverwendung um Effekte von Second-Hand-Märkten auf die Wohlfahrt der
+Konsument*innen und die Abfallmenge einer Wirtschaft zu untersuchen.
+\textcite{thomas_environmental_2011} stellt ein ähnliches Modell vor, lenkt
+jedoch den Blick stärker auf die ökologischen Effekte auf Second-Hand-Märkten,
+in dem sie das Marktmodell mit einem einfachen Modell für die Lebenszyklusbilanz
+verknüpft. Als Anwendungsbeispiel wird hier der Gebrauchtwarenhandel mit Büchern
+betrachtet. Obwohl der Gebrauchtwarenhandel in der vorliegenden Masterarbeit
+nicht berücksichtigt wird, sind die eben genannten Publikationen dennoch
+relevant, da sie sowohl hinsichtlich der Fragestellung als auch methodisch einen
+ähnlichen Ansatz verfolgen.
 
 Generell stellen wir fest, dass zu dem Thema \enquote{gemeinschaftliche
-	Produktnutzung} sowohl auf empirischer als auch auf theoretisch-konzeptioneller
+Produktnutzung} sowohl auf empirischer als auch auf theoretisch-konzeptioneller
 Ebene bereits einige Forschung betrieben wurde, auf die wir mit unserer Arbeit
-aufbauen können. Allerdings stellen die Umweltauswirkungen der gemeinschaftlichen Produktnutzung in den meisten der angegebenen Studien nur \emph{einen} der dort betrachteten Aspekte dar und werden entsprechend nicht allumfassend behandelt. Ein Forschungsbedarf besteht insbesondere im Bereich der Theorie-Entwicklung, denn die Quantifizierung der Umwelteffekte beschränkt sich in den meisten angegebenen Quellen auf spezielle Produkte und Nutzungsformen, ohne die dahinterliegenden allgemeinen Prinzipien zu erfassen. Eine Ausnahme bilden die formalen Modelle der ökonomischen Fachliteratur, die sich allerdings -- wie bereits erwähnt -- auf den Gebrauchtwarenhandel beziehen. Eine weitere Forschungslücke besteht in der mangelnden Berücksichtigung von Ressourcenverbräuchen, da die angegebenen Studien sich auf Emissionen und Energieverbräuche als Zielgrößen konzentrieren.
+aufbauen können. Allerdings stellen die Umweltauswirkungen der
+gemeinschaftlichen Produktnutzung in den meisten der angegebenen Studien nur
+\emph{einen} der dort betrachteten Aspekte dar und werden entsprechend nicht
+allumfassend behandelt. Ein Forschungsbedarf besteht insbesondere im Bereich der
+Theorie-Entwicklung, denn die Quantifizierung der Umwelteffekte beschränkt sich
+in den meisten angegebenen Quellen auf spezielle Produkte und Nutzungsformen,
+ohne die dahinterliegenden allgemeinen Prinzipien zu erfassen. Eine Ausnahme
+bilden die formalen Modelle der ökonomischen Fachliteratur, die sich allerdings
+-- wie bereits erwähnt -- auf den Gebrauchtwarenhandel beziehen. Eine weitere
+Forschungslücke besteht in der mangelnden Berücksichtigung von
+Ressourcenverbräuchen, da die angegebenen Studien sich auf Emissionen und
+Energieverbräuche als Zielgrößen konzentrieren.
 
 \section{Forschungsziel und Fragestellung}\label{sec:Fragestellung}
-Zur Schließung der soeben aufgedeckten Forschungslücken möchten wir mit dieser Master-Arbeit beitragen. Das Hauptziel unserer Arbeit ist die Entwicklung von Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung. Eine Operationalisierung des Begriffs \enquote{Umweltverbrauch} folgt im nächsten Kapitel. Die abgeleiteten Kriterien sollen möglichst allgemeingültig sein, das heißt die von speziellen Produkttypen und Nutzungsformen \emph{un}abhängigen Grundprinzipien abbilden. Mit diesem Forschungsziel korrespondiert die folgende Fragestellung:\\
+
+Zur Schließung der soeben aufgedeckten Forschungslücken möchten wir mit dieser
+Master-Arbeit beitragen. Das Hauptziel unserer Arbeit ist die Entwicklung von
+Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche
+Produktnutzung. Eine Operationalisierung des Begriffs \enquote{Umweltverbrauch}
+folgt im nächsten Kapitel. Die abgeleiteten Kriterien sollen möglichst
+allgemeingültig sein, das heißt die von speziellen Produkttypen und
+Nutzungsformen \emph{un}abhängigen Grundprinzipien abbilden. Mit diesem
+Forschungsziel korrespondiert die folgende Fragestellung:\\
 
 \begin{mdframed}[frametitle={Fragestellung}, frametitlerule=true]
 	Unter welchen Umständen kann der Umweltverbrauch eines Produktes durch
@@ -399,103 +464,256 @@ Zur Schließung der soeben aufgedeckten Forschungslücken möchten wir mit diese
 
 \section{Methodisches Vorgehen}
 \subsection{Operationalisierung}
-Um von einer Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung sprechen zu können, ist es zunächst erforderlich, einen \emph{Vergleichspunkt} zu definieren. Wir wählen dafür die Nutzungsform, die typischerweise für das jeweils betrachtete Produkt gewählt wird und bezeichnen diese kurz als \enquote{herkömmliche Produktnutzung}. Dieser abstrakte Begriff bedarf selbstverständlich einer Konkretisierung im Einzelfall. Beispielsweise wird eine Waschmaschine bei der herkömmlichen Produktnutzung von den Personen eines Haushalts geteilt. Dieses Beispiel zeigt, dass eine herkömmliche Nutzung ihrerseits der Definition einer gemeinschaftlichen Produktnutzung entsprechen kann, wenn mehr als eine Person das Produkt nutzt. Jedoch wird sie in diesem Fall mit einer Nutzungsform verglichen, die \emph{stärker} gemeinschaftlich organisiert ist in dem Sinne, dass mehr Personen auf ein einzelnes Produkt bzw. auf eine einzelne Produktnutzung entfallen. Im Fall der Waschmaschine könnte die gemeinschaftliche Produktnutzung beispielsweise darin bestehen, dass eine ganze Hausgemeinschaft eine Maschine gemeinsam nutzt.
+Um von einer Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung
+sprechen zu können, ist es zunächst erforderlich, einen \emph{Vergleichspunkt}
+zu definieren. Wir wählen dafür die Nutzungsform, die typischerweise für das
+jeweils betrachtete Produkt gewählt wird und bezeichnen diese kurz als
+\enquote{herkömmliche Produktnutzung}. Dieser abstrakte Begriff bedarf
+selbstverständlich einer Konkretisierung im Einzelfall. Beispielsweise wird eine
+Waschmaschine bei der herkömmlichen Produktnutzung von den Personen eines
+Haushalts geteilt. Dieses Beispiel zeigt, dass eine herkömmliche Nutzung
+ihrerseits der Definition einer gemeinschaftlichen Produktnutzung entsprechen
+kann, wenn mehr als eine Person das Produkt nutzt. Jedoch wird sie in diesem
+Fall mit einer Nutzungsform verglichen, die \emph{stärker} gemeinschaftlich
+organisiert ist in dem Sinne, dass mehr Personen auf ein einzelnes Produkt bzw.
+auf eine einzelne Produktnutzung entfallen. Im Fall der Waschmaschine könnte die
+gemeinschaftliche Produktnutzung beispielsweise darin bestehen, dass eine ganze
+Hausgemeinschaft eine Maschine gemeinsam nutzt.
 
-Wie eingangs bereits erwähnt, wird unter dem Begriff \enquote{Umweltverbrauch} eine ganze Reihe von negativen Umweltauswirkungen zusammengefasst. Dementsprechend gibt es verschiedene Möglichkeiten, ihn zu operationalisieren und damit mess- und vergleichbar zu machen. Wir wählen den sogenannten MIPS-Ansatz, der von (\cite{schmidt-bleek_maia:_1998}) ausführlich beschrieben wird. Die Abkürzung MIPS steht für Materialinputs pro Serviceeinheit. Dieser Ansatz zeichnet sich durch zwei Merkmale aus: Input-Orientierung und Service-Orientierung.
+Wie eingangs bereits erwähnt, wird unter dem Begriff \enquote{Umweltverbrauch}
+eine ganze Reihe von negativen Umweltauswirkungen \todo[color=prioH]{wir verwenden den
+Begriff Umweltauswirkung mit zweierlei Bedeutung: 1) der Schaden, der in der
+Umwelt entsteht 2) die Veränderung des Umweltverbrauchs von herkömmlicher hinzu
+gemeinschaftlicher Nutzung; Scholl verwendet den Begriff nochmal anders} zusammengefasst.
+Dementsprechend gibt es verschiedene Möglichkeiten, ihn zu operationalisieren
+und damit mess- und vergleichbar zu machen. Wir wählen den sogenannten
+MIPS-Ansatz, der von (\cite{schmidt-bleek_maia:_1998}) ausführlich beschrieben
+wird. Die Abkürzung MIPS steht für Materialinputs pro Serviceeinheit. Dieser
+Ansatz zeichnet sich durch zwei Merkmale aus: Input-Orientierung und
+Service-Orientierung.
 
-Die Input-Orientierung drückt sich dadurch aus, dass für die Bestimmung der MIPS alle primären Materialbewegungen bilanziert werden, die zur Herstellung, Nutzung und Entsorgung eines Produkts benötigt werden. Dabei werden nicht nur die unmittelbar benötigten Materialien, sondern auch durch vorgelagerten Wertschöpfungsprozesse verursachte Materialbewegungen berücksichtigt. Im Gegensatz zu Output-orientierten Zielgrößen, wie beispielsweise einer $\text{CO}_2$-Bilanz, ist die MIPS kein spezifischer Indikator für eine bestimmte Umweltauswirkung, sondern bietet eine gute Abschätzung über alle bekannten und noch unbekannten Umweltauswirkungen, was die MIPS als universellen Indikator für den Umweltverbrauch qualifiziert.
+Die Input-Orientierung drückt sich dadurch aus, dass für die Bestimmung der MIPS
+alle primären Materialbewegungen bilanziert werden, die zur Herstellung, Nutzung
+und Entsorgung eines Produkts benötigt werden \parencite[S.
+547]{liedtke_resource_2014}. Dabei werden nicht nur die unmittelbar benötigten
+Materialien, sondern auch die durch vorgelagerte Wertschöpfungsprozesse
+verursachten Materialbewegungen berücksichtigt \parencite[S.
+547]{liedtke_resource_2014}. Im Gegensatz zu Output-orientierten Zielgrößen, wie
+beispielsweise einer $\text{CO}_2$-Bilanz, ist die MIPS kein spezifischer
+Indikator für eine bestimmte Umweltauswirkung, sondern bietet eine gute
+Abschätzung über alle bekannten und noch unbekannten Umweltauswirkungen, was die
+MIPS als universellen Indikator für den Umweltverbrauch qualifiziert
+\parencite[S. 547]{liedtke_resource_2014}.
 
-\todo[inline]{
-    Service-Orientierung: Bezug auf den erbrachten Nutzen -> Vergleichbarkeit \\
-    MIPS-Gleichung einführen\\
-}
+Mit der Service-Orientierung, wird im MIPS-Konzept der Fokus weg von dem
+betrachteten Produkt hin zu dem von ihm erbrachten Nutzen gelenkt \parencite[S.
+551]{liedtke_resource_2014}.  Diese Sichtweise schafft eine Vergleichbarkeit
+zwischen verschiedenen Produkten und Dienstleistungen, die denselben Nutzen
+erbringen und ermöglicht es somit, eine breites Spektrum für Strategien zur
+Reduktion des Umweltverbrauchs zu berücksichtigen \parencite[S.
+551]{liedtke_resource_2014}. 
+
+Die Quantifizierung des Umweltverbrauchs erfolgt nach Bestimmung der
+Material-Inputs und Definition der Service-Einheit schließlich durch Division
+der beiden Größen \parencite[S. 548]{liedtke_resource_2014}:
+\begin{equation}
+    \MIPS = \frac{\text{Material-Inputs}}{\text{Servicemenge}} =
+    \frac{I}{S}
+    \label{eq:MIPS_Einleitung}
+\end{equation}
+In dieser Gleichung werden die also die für ein Produkt aufgewendeten
+Material-Inputs in Bezug zu dem von dem Produkt erbrachten Service gesetzt.
+Die Gleichung \eqref{eq:MIPS_Einleitung} bildet die Grundlage für unsere
+Modellentwicklung.
+
 \subsection{Modellierung}
+Die mathematische Modellierung stellt unser zentrales Werkzeug für die
+Beantwortung der Fragestellung dar. Bevor wir jedoch erläutern, wie wir mit
+Hilfe eines Modells die Fragestellung beantworten, beschreiben wir zunächst die
+dem Modell zugrunde liegende Systemsicht und gehen auf die für die
+gemeinschaftliche Nutzung relevanten Faktoren ein. 
+
+Als Gegenstand der Modellbildung betrachten wir Produktnutzungssysteme. Die
+Elemente des Systems sind Personen und Produkte, welche über eine bestimmte
+Nutzungsform in Beziehung stehen. Die Systemgrenze orientiert sich somit an den
+Personen, dem von diesen nachgefragten Service und den für die Befriedigung
+dieser Nachfrage eingesetzten Produkten: so kann ein Produktnutzungssystem
+beispielsweise die Personen eines Haushalts umfassen, welche zur Befriedigung
+des Bedürfnisses nach sauberer Wäsche eine Waschmaschine benutzen. Als weiteres
+Beispiel könnten zu einem Produktnutzungssystem für dieselbe Servicenachfrage
+die Kunden eines Waschsalons zusammen mit den in diesem Waschsalon aufgestellten
+Waschmaschinen gerechnet werden.
+
+Jedem derart definierten Produktnutzungssystem kann nun ein Umweltverbrauch
+zugeschrieben werden, der von Parametern des Systems abhängt. Einige dieser
+Parameter sind davon abhängig, ob dem System eine herkömmliche oder
+gemeinschaftliche Nutzungsform zugrunde liegt. Diese Parameter bezeichnen wir
+als Faktoren. Aus den von \textcite{scholl_marketing_2009} beschriebenen
+\textit{Umweltauswirkungen} (siehe Tabelle \ref{tab:Mechanismen}) lassen sich
+nicht nur die für den Übergang von herkömmlichen zu gemeinschaftlichen
+Nutzungsformen relevanten Faktoren sondern auch Hypothesen über die Richtung
+deren Änderung ableiten.  Wenn \textcite{scholl_marketing_2009} zum Beispiel von
+einer \enquote{Maximierung der Geräteauslastung} spricht, so beinhaltet dies
+zweierlei: zum einen, dass die Geräteauslastung ein Parameter ist, der sich beim
+Übergang von einer herkömmlichen zu einer gemeinschaftlichen Nutzungsform
+ändert, zum anderen, dass sich dieser Parameter dabei erhöht. Letzteres ist also
+die Hypothese über den als Faktor identifizierten Parameter Geräteauslastung. 
+
+Wir beziehen uns in unserer Arbeit auf die folgenden von
+\textcite{scholl_marketing_2009} identifizierten Umweltauswirkungen:
+\begin{itemize}
+    \item Maximierung der Geräteauslastung
+    \item Nutzungsdauerverlängerung
+    % \item zusätzlicher Ressourcenverzehr für Nutzungsdauerverlängerung
+    \item zusätzliche Transporte
+\end{itemize}
+Wie die \enquote{Maximierung der Geräteauslastung} in einen Faktor und eine
+zugehörige Hypothese zerlegt werden kann, wurde bereits beschrieben. Ähnlich
+direkt ergibt sich diese Zerlegung bei den \enquote{zusätzlichen Transporten}:
+der Faktor umfasst dabei die im Nutzungssystem stattfindenden Transporte und die
+Hypothese lautet, dass bei der gemeinschaftlichen Nutzung im Vergleich mit der
+herkömmlichen Nutzung mehr Transporte stattfinden. Die Bestimmung der Faktoren
+und Hypothesen erweist sich bei der \enquote{Nutzungsdauerverlängerung} 
+% und bei dem \enquote{zusätzlichen Ressourcenverzehr für
+% Nutzungsdauerverlängerung} 
+als etwas komplizierter.  Laut \textcite[S. 57]{scholl_marketing_2009} bedeutet
+Nutzungsdauerverlängerung, \enquote{dass sich die tatsächliche Nutzungsdauer der
+Lebensdauer annähert und/oder die Lebensdauer des Produktes verlängert wird.}
+Wie wir im Abschnitt \todo{Referenz} noch im Detail erläutern werden, liegt dem
+ersten hier angesprochenen Prozess -- die Annäherung der tatsächlichen
+Nutzungsdauer an die Lebensdauer -- der Parameter Nutzungshäufigkeit, also die
+Häufigkeit mit der ein Produkt während einer Zeitperiode benutzt wird, zugrunde.
+Eine Annäherung der Nutzungsdauer an die Lebensdauer geschieht unter einer
+Erhöhung der Nutzungshäufigkeit, die Hypothese im Zusammenhang mit der als
+Faktor identifizierten Nutzungshäufigkeit lautet entsprechend, dass sich bei
+gemeinschaftlicher Nutzung im Vergleich mit der herkömmlichen Nutzung die
+Nutzungshäufigkeit erhöht. Dem zweiten Prozess, den
+\textcite{scholl_marketing_2009} zur Nutzungsdauerverlängerung zählt -- die
+Verlängerung der Lebensdauer -- liegen die im Nutzungssystem stattfindenden
+Wartungen und Reparaturen zugrunde. Die damit einhergehende Hypothese lautet,
+dass in gemeinschaftlichen Nutzungssystemen mehr Maßnahmen zur
+Lebensdauerverlängerung, sprich mehr Wartungen und Reparaturen durchgeführt
+werden als in herkömmlichen Nutzungssystemen. In Tabelle
+\ref{tab:faktoren_hypothesen} sind noch einmal
+alle der in dieser Arbeit von \textcite{scholl_marketing_2009} betrachteten
+Umweltauswirkungen zusammen mit den von uns identifizierten Faktoren und
+Hypothesen zusammengefasst.
+
+\begin{savenotes}
+    \begin{table}[t]
+        \renewcommand{\arraystretch}{1.25}
+        \centering
+        \begin{tabular}{p{5cm}p{4cm}p{4cm}}
+            \toprule
+            Umweltauswirkung\newline nach \textcite{scholl_marketing_2009} &
+            Faktor &
+            Hypothese zur gemeinschaftlichen Nutzung \\
+            \midrule
+            Maximierung der\newline Geräteauslastung &
+            Produktauslastung\footnote{Im Text wurde zwar von
+                \enquote{Geräteauslastung} gesprochen, wir verwenden statt
+                dessen jedoch im folgenden den Begriff
+                \enquote{Produktauslastung}, da Produkte als etwas allgemeineres
+                Konzept, die Elemente der von uns betrachteten Nutzungssysteme
+            sind.  }
+        & erhöht sich\\
+        Nutzungsdauerverlängerung & Nutzungshäufigkeit & erhöht sich\\
+        & Wartung und Reparatur & werden mehr\\
+        zusätzliche Transporte & Transporte & werden mehr\\
+        \bottomrule
+    \end{tabular}
+    \caption{Aufgeführt sind die in dieser Arbeit von
+        \textcite{scholl_marketing_2009} betrachteten Umweltauswirkungen
+    zusammen mit den von uns identifizierten Faktoren und Hypothesen}
+    \label{tab:faktoren_hypothesen}
+\end{table}
+\end{savenotes}
+
+Das Ziel der Modellbildung ist es nun, die Wirkung der genannten Faktoren auf
+den Umweltverbrauch eines Produktnutzungssystems zu berücksichtigen. Hierfür
+gehen wir von der Grundgleichung \eqref{eq:MIPS_Einleitung} aus und
+spezifizieren diese zunächst für jeden Faktor separat, schließen dieser
+Einzelbetrachtung aber auch eine Modellkopplung an, welche die kombinierte
+Wirkung der beiden Faktoren Nutzungshäufigkeit und Transporte abbildet. Unter
+Verwendung der von \textcite{scholl_marketing_2009} aufgestellten Hypothesen über die
+Veränderung der Faktoren beim Übergang zu gemeinschaftlichen Nutzungsformen,
+sind wir im Sinne einer deduktiven Vorgehensweise in der Lage, 
+
 \todo[inline]{
-    - Konzeption: \\
-        - Produktnutzungssystem (Personen + Produkte + Organisation der
-        Nutzung)\\
-	        - Beispielhaft erläutern, wo die Systemgrenze liegt (z.B. ein Haushalt, eine Hausgemeinschaft, Nachbarschaft, Kunden eines Geschäfts etc.) \\
-        - entspricht der systemwissenschaftlichen Perspektive: System, Grenzen,
-        Elemente, Relationen \\
-    - Einem Produktnutzungssystem wird ein bestimmter Umweltverbrauch zugeschrieben\\
-    - Scholl beschreibt unter der Bezeichnung Umweltauswirkungen die Veränderung von bestimmten Faktoren beim Übergang zur gemeinschaftlichen Nutzung, und deren positiven oder negativen Einfluss auf den Umweltverbrauch (siehe Tabelle Scholl)\\
-	% TO DO: Genau aufschreiben, wie wir von Scholls Umweltauswirkungen auf unsere Faktoren kommen!
-	- Die Faktoren, die wir betrachten sind (tabellarisch):\\
-	Nutzungshäufigkeit (Änderung dieses Faktors entspricht bei Scholl: Nutzungsdauerverlängerung)...\\
-    % TO DO: Recherche Deduktion... heißt das Prämisse, oder was?
-    - Prämissen: Faktoren variieren systematisch zwischen herkömmlicher und gemeinschaftlicher Produktnutzung... konkret auflisten (evtl. in Tabelle zu Faktoren integrieren) \\
-    % (Bis hierhin: Das lesen wir aus Scholl heraus)
-    - Zur Beantwortung unserer Fragestellung wählen wir ein deduktives Vorgehen: Schließen von den genannten Prämissen auf die Umweltauswirkungen. Dafür: \\
-		(a) Modell entwickeln für den Umweltverbrauch von Produktnutzungssystemen in Abhängigkeit der genannten Faktoren. Konkret: Bestimmungsgleichung für die MIPS. Spezifizierung von I und S für ein Produktnutzungssystem. \\
-		(b) Modell anwenden im Sinne der Prämissen, d.h. Untersuchung, was bei Veränderung der betrachteten Faktoren mit der MIPS passiert \\
-    - Leitmotiv für die Modellierung: Wäsche waschen. Überleitung zur
-    Fallstudie
+    - Zur Beantwortung unserer Fragestellung wählen wir ein deduktives Vorgehen:
+    Schließen von den genannten Prämissen auf die Umweltauswirkungen. Dafür: \\
+    (a) Modell entwickeln für den Umweltverbrauch von Produktnutzungssystemen in
+    Abhängigkeit der genannten Faktoren. Konkret: Bestimmungsgleichung für die
+    MIPS. Spezifizierung von I und S für ein Produktnutzungssystem. \\ (b)
+    Modell anwenden im Sinne der Prämissen, d.h. Untersuchung, was bei
+    Veränderung der betrachteten Faktoren mit der MIPS passiert \\ - Leitmotiv
+    für die Modellierung: Wäsche waschen. Überleitung zur Fallstudie
 }
 		
 \todo[color=prioM]{Abbildung erstellen und in Text referenzieren: konzeptionelles Modell}
 		
-          Während das Modell letztlich möglichst allgemein anwendbar sein soll,
-          lassen wir uns bei der Modellentwicklung durch zwei Fallbeispiele
-          leiten. Sie dienen der Veranschaulichung der abstrakten Zusammenhänge
-          und gewährleisten die praktische Anwendbarkeit des Modells. 
+Während das Modell letztlich möglichst allgemein anwendbar sein soll,
+lassen wir uns bei der Modellentwicklung durch zwei Fallbeispiele
+leiten. Sie dienen der Veranschaulichung der abstrakten Zusammenhänge
+und gewährleisten die praktische Anwendbarkeit des Modells. 
 
-        \subsection{Fallstudie: Waschmaschinennutzung}
-        \todo[inline]{
-            - Fallstudie zu gemeinschaftlichem Waschen\\
-            - Ziele: \\
-                * Anwendbarkeit überprüfen und Demonstration\\
-                * konkrete Aussage über ein Fallbeispiel treffen \\
-                * Größenordnung der Effekte bestimmen\\
-            - Beschränkung auf Nutzungsintensivierung und Kopplung\\
-            - Vorgehen beschreiben: Szenarien --> Anwendungsbeispiele für die
-            betrachteten Modelle \\
-        }
+\subsection{Fallstudie: Waschmaschinennutzung}
+\todo[inline]{
+    - Fallstudie zu gemeinschaftlichem Waschen\\
+    - Ziele: \\
+    * Anwendbarkeit überprüfen und Demonstration\\
+    * konkrete Aussage über ein Fallbeispiel treffen \\
+    * Größenordnung der Effekte bestimmen\\
+    - Beschränkung auf Nutzungsintensivierung und Kopplung\\
+    - Vorgehen beschreiben: Szenarien --> Anwendungsbeispiele für die
+    betrachteten Modelle \\
+}
 
 
-        Wir definieren die
-        folgenden Szenarien, die sich von unserer eigenen Wohnsituation im
-        Studierendenwohnheim \enquote{Luhrmannhof} ausgehen:
+Wir definieren die
+folgenden Szenarien, die sich von unserer eigenen Wohnsituation im
+Studierendenwohnheim \enquote{Luhrmannhof} ausgehen:
 
-        \begin{description}
-            \item[Szenario 1: Kleine Wohneinheiten] In diesem Szenario leben
-                50 Studierende in Wohneinheiten von je fünf Personen und
-                teilen sich je Wohnung eine Waschmaschine. Es fallen zur Nutzung
-                der Waschmaschinen keine Transporte an.
-            \item[Szenario 2: Luhrmannhof] Die 50 Studierenden bewohnen in
-                diesem Szenario ein gemeinsames Wohnheim in dem zentral zwei
-                Waschmaschinen aufgestellt sind. Auch hier müssen für deren
-                Benutzung keine umweltrelevanten Transporte durchgeführt werden.
-            \item[Szenario 3: Waschsalon] Auch in diesem Szenario leben die 50
-                Studierenden in Wohngemeinschaften zu je 5 Personen, allerdings
-                sind die Wohnungen über das Stadtgebiet verteilt. Sie nutzen
-                jedoch alle einen zentralen, vom Studentenwerk organisierten
-                Waschsalon, in dem für diese zehn Wohneinheiten zwei
-                Waschmaschinen zur Verfügung gestellt werden. Die mittlere
-                Distanz der Studierenden zu diesem Waschsalon beträgt anderthalb
-                Kilometer. 
-        \end{description}
-        \todo[inline]{Szenario 2: real, Szenario 1 und 3: konstruiert um die
-        ausgewählten Umwelteffekte demonstrieren zu können}
+\begin{description}
+    \item[Szenario 1: Kleine Wohneinheiten] In diesem Szenario leben
+        50 Studierende in Wohneinheiten von je fünf Personen und
+        teilen sich je Wohnung eine Waschmaschine. Es fallen zur Nutzung
+        der Waschmaschinen keine Transporte an.
+    \item[Szenario 2: Luhrmannhof] Die 50 Studierenden bewohnen in
+        diesem Szenario ein gemeinsames Wohnheim in dem zentral zwei
+        Waschmaschinen aufgestellt sind. Auch hier müssen für deren
+        Benutzung keine umweltrelevanten Transporte durchgeführt werden.
+    \item[Szenario 3: Waschsalon] Auch in diesem Szenario leben die 50
+        Studierenden in Wohngemeinschaften zu je 5 Personen, allerdings
+        sind die Wohnungen über das Stadtgebiet verteilt. Sie nutzen
+        jedoch alle einen zentralen, vom Studentenwerk organisierten
+        Waschsalon, in dem für diese zehn Wohneinheiten zwei
+        Waschmaschinen zur Verfügung gestellt werden. Die mittlere
+        Distanz der Studierenden zu diesem Waschsalon beträgt anderthalb
+        Kilometer. 
+\end{description}
+\todo[inline]{Szenario 2: real, Szenario 1 und 3: konstruiert um die
+ausgewählten Umwelteffekte demonstrieren zu können}
 
-        Die Szenarien unterscheiden sich also in den Paramtern Produktanzahl und
-        Transportdistanz. Wir nehmen an, dass alle weiteren Parameter zwischen
-        den Szenarien identisch sind. 
+Die Szenarien unterscheiden sich also in den Paramtern Produktanzahl und
+Transportdistanz. Wir nehmen an, dass alle weiteren Parameter zwischen
+den Szenarien identisch sind. 
 
-        \begin{description}
-            \item[Anwendungsbeispiel Nutzungsintensivierung:] Vergleich von Szenario
-                1 mit Szenario 2. Die
-                Szenarien unterscheiden sich nur in der Produktanzahl.
-            \item[Anwendungsbeispiel Kopplung:] Vergleich von Szenario 1:
-                mit Szenario 3. Die Szenarien
-                unterscheiden sich sowohl in der Produktanzahl als auch in der
-                mittleren Transportdistanz.
-        \end{description}
+\begin{description}
+    \item[Anwendungsbeispiel Nutzungsintensivierung:] Vergleich von Szenario
+        1 mit Szenario 2. Die
+        Szenarien unterscheiden sich nur in der Produktanzahl.
+    \item[Anwendungsbeispiel Kopplung:] Vergleich von Szenario 1:
+        mit Szenario 3. Die Szenarien
+        unterscheiden sich sowohl in der Produktanzahl als auch in der
+        mittleren Transportdistanz.
+\end{description}
 
-        Eine Übersicht über die in der Fallstudie verwendeten Daten und deren
-        Ursprung wird im Kapitel zur Fallstudie den Analysen vorangestellt. 
+Eine Übersicht über die in der Fallstudie verwendeten Daten und deren
+Ursprung wird im Kapitel zur Fallstudie den Analysen vorangestellt. 
 
-        % * Daten fließen teilweise auch in die Darstellungen der Einzelmodelle
-        % ein
+% * Daten fließen teilweise auch in die Darstellungen der Einzelmodelle
+% ein
 
 \chapter{Modellbildung und -Analyse}
 \todo[color = prioH]{
@@ -2280,7 +2498,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
       \end{equation}
 
       % Bevor wir uns nun den transportbedingten Material-Inputs zuwenden, fassen
-      % wir nocheinmal das bisher gesagte zusammen:
+      % wir noch einmal das bisher gesagte zusammen:
       % \begin{itemize}
       %     \item Je nach Organisation der Transporte gibt es auch für die
       %         Material-Inputs je Transportweg $i_d$ zwei Möglichkeiten: sie
@@ -2411,7 +2629,7 @@ In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ei
       % produktspezifisch verschiedene Anforderungen gestellt.
 
 
-      Abschließend fassen wir die beiden entwickelten Gleichungen nocheinmal
+      Abschließend fassen wir die beiden entwickelten Gleichungen noch einmal
       zusammen:\\ 
 
       \begin{mdframed}[frametitle={Transporte}, frametitlerule=true]
