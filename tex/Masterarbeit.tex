@@ -103,6 +103,9 @@ dashed=false]{biblatex}
 \titlespacing{\section}{0pt}{12pt}{12pt}
 \titlespacing{\paragraph}{0pt}{12pt}{0pt}
 
+% Worttrennung:
+\hyphenation{Pro-dukt-an-zahl}
+
 %%% Eigene Befehle %%%
 \newcommand{\was}[1]{\small\textit{#1}}
 \newcommand{\noteS}[1]{\todo[color=blue!40]{\textbf{Sascha: }#1}}
@@ -217,7 +220,7 @@ dashed=false]{biblatex}
 \todo[color=prioH]{Erhöhung der Nutzungshäufigkeit statt Nutzungsintensivierung}
 \todo[color=prioH]{Faktoren statt Effekte}
 \todo[color=prioL]{Gesamtnutzungsmenge N, Nutzungsmenge n}
-\chapter{Einleitung}
+\chapter{Einleitung}\marginpar{\rule{\marginparwidth}{2pt} Beginn gemeinsamer Teil}
 \section{Thema}
 % Problem:
 In heutigen Konsumkulturen werden zahlreiche Produkte häufig ineffizient
@@ -513,7 +516,7 @@ erbringen und ermöglicht es somit, eine breites Spektrum für Strategien zur
 Reduktion des Umweltverbrauchs zu berücksichtigen \parencite[S.
 551]{liedtke_resource_2014}. 
 
-Für die Quantifizierung des Umweltverbrauchs wird zunächst die Maßeinheit für die Servicemenge definiert und es werden die Material-Inputs und die Servicemenge bestimmt. Schließlich erfolgt die Division der beiden Größen \parencite[S. 548]{liedtke_resource_2014}:
+Für die Quantifizierung des Umweltverbrauchs wird zunächst die Maßeinheit für die Service-Menge definiert und es werden die Material-Inputs und die Service-Menge bestimmt. Schließlich erfolgt die Division der beiden Größen \parencite[S. 548]{liedtke_resource_2014}:
 \begin{equation}
     \MIPS = \frac{\text{Material-Inputs}}{\text{Servicemenge}}
     \label{eq:MIPS_Einleitung}
@@ -639,13 +642,13 @@ Senkung des Umweltverbrauchs bei gemeinschaftlicher Nutzung sein. In Abbildung \
 Um unser Vorgehen möglichst nachvollziehbar zu machen und
 die Anwendbarkeit des Modells auf reale Produktnutzungssysteme zu gewährleisten,
 orientieren wir uns bei der Modellierung an konkreten Beispielen.
-Insbesondere werden dabei Beispiele zur gemeinschaftlichen Waschmaschinennutzung
+Insbesondere werden dabei Beispiele zur gemeinschaftlichen Waschmaschinen-Nutzung
 eine Rolle spielen, da diesem Thema auch in einer der Theorie-Entwicklung
 sich anschließenden Fallstudie nachgegangen wird. Das Konzept und Vorgehen der
 Fallstudie wird im nächsten Abschnitt beschrieben.
 		
-\subsection{Fallstudie: Waschmaschinennutzung}
-Eine Fallstudie zum Thema gemeinschaftliche Waschmaschinennutzung soll die
+\subsection{Fallstudie: Waschmaschinen-Nutzung}
+Eine Fallstudie zum Thema gemeinschaftliche Waschmaschinen-Nutzung soll die
 Theorie um einen kleinen empirischen Teil mit dem Ziel ergänzen, die
 Anwendbarkeit der entwickelten spezifischen Modelle zu überprüfen und zu
 demonstrieren. Darüber hinaus ermöglicht es die Fallstudie -- anders als die
@@ -695,7 +698,7 @@ ergeben sich die folgenden beiden Anwendungsbeispiele:
         \SzenarioII. Die Szenarien unterscheiden sich nur in der Produktanzahl.
     \item[Anwendungsbeispiel Kopplung:] Vergleich von \SzenarioI\ mit
         \SzenarioIII. Die Szenarien unterscheiden sich sowohl in der
-        Produkt\-anzahl als auch in der mittleren Transportdistanz.
+        Produktanzahl als auch in der mittleren Transportdistanz.
 \end{description}
 
 Eine Übersicht über die in der Fallstudie verwendeten Daten und deren
@@ -725,28 +728,52 @@ In der vorliegenden Master-Arbeit bestimmen wir die MIPS stets für ein ganzes P
 
 Die MIPS bezieht sich immer auf einen konkreten Zeitraum, während der ein bestimmter Service genutzt wird (\enquote{period of utilization}, \textcite[S. 551]{liedtke_resource_2014}). Dieser Betrachtungszeitraum kann grundsätzlich willkürlich festgelegt werden. Wichtig ist nur, dass sich sowohl die Materialinputs $I$, als auch die Service-Menge $S$ auf ihn beziehen: Es werden genau diejenigen Produkte berücksichtigt, die innerhalb des Betrachtungszeitraums eingesetzt werden und auch nur die Produktnutzungen, die in diesen Zeitraum fallen. Wird ein Produkt über den Betrachtungszeitraum hinaus genutzt, so sind die mit seiner Bereitstellung und Entsorgung verbundenen Materialinputs nur anteilig anzurechnen (Details hierzu folgen in Abschnitt \enquote{\nameref{sec:Produktanzahl}} ab Seite \pageref{sec:Produktanzahl}).
 
-Wir wählen einen Betrachtungszeitraum $T$ einer bestimmten Länge, beispielsweise eine Woche, und notieren dies als $T = 10 \text{ Jahre}$. Der Betrachtungszeitraum verhält sich unveränderlich gegenüber einer Variation jeglicher Parameter des Nutzungssystems. Dies wird bei der Modellanalyse relevant sein, bei der bestimmte Parameter (beispielsweise die Nutzungshäufigkeit) systematisch variiert werden. Eine Größe, die sich bei der Variation eines Parameters nicht verändert, nennen wir \emph{konstant} in Bezug auf diesen Parameter. Wir schreiben:
+Wir wählen einen Betrachtungszeitraum $T$ einer bestimmten Länge, beispielsweise
+zehn Jahre, und notieren dies als $T = 10 \text{ Jahre}$. Der Betrachtungszeitraum verhält sich unveränderlich gegenüber einer Variation jeglicher Parameter des Nutzungssystems. Dies wird bei der Modellanalyse relevant sein, bei der bestimmte Parameter (beispielsweise die Nutzungshäufigkeit) systematisch variiert werden. Eine Größe, die sich bei der Variation eines Parameters nicht verändert, nennen wir \emph{konstant} in Bezug auf diesen Parameter. Wir schreiben:
 \begin{equation}
 \label{eq:T_konst}
 T = konst.
 \end{equation}
 
-Wir wenden uns nun nacheinander den beiden Komponenten der MIPS zu: Der Service-Menge und den Material-Inputs.
+Wir wenden uns nun nacheinander den beiden Komponenten der MIPS zu: der Service-Menge und den Material-Inputs.
 
 \paragraph{Service-Menge}
-Die Service-Menge $S$ ist ein Maß für den Nutzen, der aus dem Einsatz eines Produkts oder einer Dienstleistung gezogen wird. \todo{Referenz einfügen: Liedtke oder Methodik-Teil} Im Beispiel der Waschmaschinen-Nutzung könnte diese z.B. in Kilogramm gewaschener Wäsche gemessen werden.
+Die Service-Menge $S$ ist ein Maß für den Nutzen, der aus dem Einsatz eines
+Produkts oder einer Dienstleistung gezogen wird (vgl. Abschnitt
+\ref{sec:Operationalisierung}). Im Beispiel der Waschmaschinen-Nutzung könnte
+diese z.B. in Kilogramm gewaschener Wäsche gemessen werden.
 
 % a) Konstante Nachfrage
-Die in der vorliegenden Arbeit untersuchten Umwelteffekte gemeinschaftlicher Produktnutzung sind der Gruppe der \enquote{leistungsspezifischen Umweltwirkungen} \parencite[S. 72]{scholl_marketing_2009} zuzuordnen. Sie sind dadurch gekennzeichnet, dass keine Änderungen von Nachfragemustern berücksichtigt werden. Dementsprechend treffen wir die Modellannahme, dass jede am Nutzungssystem beteiligte Person pro Zeit eine bestimmte Menge an Service nachfragt. Bei einer gleichbleibenden Personenanzahl ergibt sich damit für den Betrachtungszeitraum T eine konstante Service-Nachfrage $S_D$:
+Wir treffen die Modellannahme, dass jede am Nutzungssystem beteiligte Person pro
+Zeit eine bestimmte Menge an Service nachfragt. Da diese individuelle
+Nachfragemenge unabhängig von den in dieser Arbeit untersuchten Faktoren ist,
+ergibt sich damit für den Betrachtungszeitraum T, bei einer gleichbleibenden
+Personenanzahl, eine konstante Service-Nachfrage $S_D$:
 %
 \begin{equation}
 S = S_D = konst.
 \end{equation}
 
 % b) Zusammenhang zwischen S, N und A
-Für die Untersuchung der Umwelteffekte durch gemeinschaftliche Produktnutzung ist es erforderlich, zwischen dem geleisteten Service und der Produktnutzung selbst zu differenzieren. So wird durch jede Produktnutzung ein gewisser Service bereitgestellt. Die Service-Menge, die mit einer Nutzungseinheit einhergeht, bezeichnen wir als absolute Produktauslastung $A$.
+Für die Untersuchung des Umweltverbrauchs gemeinschaftlicher
+Produktnutzungssysteme ist es erforderlich, zwischen dem geleisteten Service und
+der Produktnutzung selbst zu differenzieren. So wird durch jede Produktnutzung
+ein gewisser Service bereitgestellt. Die Service-Menge, die mit einer
+Nutzungseinheit einhergeht, bezeichnen wir als absolute Produktauslastung $A$.
 
-Einige Produkte können eine variable Service-Menge je Nutzungseinheit bereitstellen, je nachdem wie stark sie bei der Nutzung ausgelastet sind. Die absolute Produktauslastung einer Waschmaschine beispielsweise kann durch den Beladungsgrad je Waschgang angegeben werden, z.B. $A = 4 ~ \frac{\text{kg Wäsche}}{\text{Waschgang}}$. Andere Produkte hingegen stellen stets die gleiche Service-Menge je Nutzungseinheit bereit. Hier kann die Produktauslastung als konstant angesehen werden, wobei der Begriff \enquote{Auslastung} in diesem Fall ein wenig irreführend ist und stattdessen besser von Leistung die Rede sein sollte. Beispielsweise kann mit einer Bohrmaschine immer nur ein Loch zur gleichen Zeit gebohrt werden. Wird etwa als Nutzungseinheit \enquote{eine Minute bohren} angesetzt, und können in einer Minute durchschnittlich 2 Löcher gebohrt werden, ergibt sich eine konstante \enquote{Auslastung} bzw. Leistung von $A = 2 ~ \frac{\text{Löcher}}{\text{Minute bohren}}$.
+Einige Produkte können eine variable Service-Menge je Nutzungseinheit
+bereitstellen, je nachdem wie stark sie bei der Nutzung ausgelastet sind. Die
+absolute Produktauslastung einer Waschmaschine beispielsweise kann durch den
+Beladungsgrad je Waschgang angegeben werden, z.B. $A = 4 ~ \frac{\text{kg
+Wäsche}}{\text{Waschgang}}$. Andere Produkte stellen hingegen stets die gleiche
+Service-Menge je Nutzungseinheit bereit. Hier kann die Produktauslastung als
+konstant angesehen werden, wobei der Begriff \enquote{Auslastung} in diesem Fall
+ein wenig irreführend ist und stattdessen besser von Leistung die Rede sein
+sollte. Beispielsweise kann mit einer Bohrmaschine immer nur ein Loch zur
+gleichen Zeit gebohrt werden. Wird etwa als Nutzungseinheit \enquote{eine Minute
+bohren} angesetzt, und können in einer Minute durchschnittlich 2 Löcher gebohrt
+werden, ergibt sich eine konstante \enquote{Auslastung} bzw. Leistung von $A = 2
+~ \frac{\text{Löcher}}{\text{Minute bohren}}$.
 
 Die Anzahl der Nutzungseinheiten, die innerhalb des Betrachtungszeitraums von allen Produkten des Nutzungssystems insgesamt abgerufen werden, bezeichnen wir als Nutzungsmenge $N$. Sie hängt über die Produktauslastung $A$ unmittelbar mit der Service-Menge $S$ zusammen. Es gilt:
 \begin{equation}
@@ -754,7 +781,9 @@ Die Anzahl der Nutzungseinheiten, die innerhalb des Betrachtungszeitraums von al
 S = N \cdot A
 \end{equation}
 
-Es gibt somit eine weitere Bestimmungsgleichung für die Service-Menge. Je nach Kontext verwenden wir in den Faktor-spezifischen Modellen eine der beiden Formulierungen $S=S_D$ oder $S=N \cdot A$.
+Es gibt somit eine weitere Bestimmungsgleichung für die Service-Menge. Je nach
+Kontext verwenden wir in den Faktor-spezifischen Modellen eine der beiden
+Formulierungen ${S=S_D}$ oder $S=N \cdot A$.
 
 \paragraph{Material-Inputs}
 Wir kommen nun zu den Materialinputs $I$. Ihre genaue Bestimmung wird in den Beschreibungen der Faktor-spezifischen Modelle formuliert. An dieser Stelle erfolgt eine Übersicht über die relevanten Bestandteile um die allgemeinen Vorgehensweise zu verdeutlichen und einige zentrale Zusammenhänge herzuleiten.
@@ -788,7 +817,7 @@ Von den in Gleichung \eqref{eq:Inputs_Allgemein} vorkommenden Größen wird die 
 
 \paragraph{Produktnutzungsdauer}
 % Produktnutzungsdauer t
-Die Produktnutzungsdauer $t$ wird definiert als die Gesamtdauer, über die ein Produkt genutzt wird, d.h. die Zeitspanne zwischen Inbetriebnahme und Entsorgung. Sie ist eine entscheidende Größe für den Umweltverbrauch eines Produktnutzungssystems: Je länger die einzelnen Produkte in der Nutzung sind, desto mehr Service können sie unter sonst gleichen Umständen generieren, sodass sich die produktbezogenen Inputs gemäß der MIPS-Gleichung (\eqref{eq:MIPS}) auf eine größere Servicemenge verteilen.
+Die Produktnutzungsdauer $t$ wird definiert als die Gesamtdauer, über die ein Produkt genutzt wird, d.h. die Zeitspanne zwischen Inbetriebnahme und Entsorgung. Sie ist eine entscheidende Größe für den Umweltverbrauch eines Produktnutzungssystems: Je länger die einzelnen Produkte in der Nutzung sind, desto mehr Service können sie unter sonst gleichen Umständen generieren, sodass sich die produktbezogenen Inputs gemäß der MIPS-Gleichung \eqref{eq:MIPS} auf eine größere Service-Menge verteilen.
 
 % Nutzungsmenge n, Nutzungshäufigkeit h und Zusammenhang n = h*t
 Zwei weitere Größen, die sich auf ein einzelnes Produkt beziehen, stehen in einem engen Zusammenhang zur Produktnutzungsdauer: Die Nutzungsmenge $n$, die angibt, wie viele Nutzungseinheiten von einem Produkt während seiner Nutzungsdauer abgerufen werden, und die Nutzungshäufigkeit $h$, mit der bezeichnet wird, wie oft ein Produkt pro Zeit genutzt wird. Es gilt:
@@ -801,18 +830,39 @@ n = h \cdot t
 % t = min (t_max, t_tech)
 Die Nutzungsdauer eines Produkts wird durch den Zeitpunkt seiner Entsorgung bestimmt. Es kann zahlreiche Gründe geben, weshalb ein Produkt entsorgt wird. Wir unterscheiden im Modell zwei charakteristische Fälle: eine zeitlich bedingte Entsorgung und eine nutzungsbedingte Entsorgung.
 
-Eine zeitlich bedingte Entsorgung tritt auf, wenn ein Produkt nach einer gewissen Zeitdauer trotz eventuell gegebener Funktionstüchtigkeit den aktuellen technischen, ästhetischen oder sonstigen Anforderungen nicht mehr genügt. Diese Zeitdauer bezeichnen wir als Maximalnutzungsdauer $t_\text{max}$, die unabhängig davon ist, ob und wie intensiv ein Produkt genutzt wird. Sie hängt neben äußeren Rahmenbedingungen, wie dem technischen Fortschritt oder Modezyklen, in hohem Maße vom Verhalten der Nutzer*innen ab.
+Eine zeitlich bedingte Entsorgung tritt auf, wenn ein Produkt nach einer
+gewissen Zeitdauer trotz eventuell gegebener Funktionstüchtigkeit den aktuellen
+technischen, ästhetischen oder sonstigen Anforderungen nicht mehr genügt. Diese
+Zeitdauer, die unabhängig davon ist, ob und wie intensiv ein Produkt genutzt
+wird, bezeichnen wir als Maximalnutzungsdauer $t_\text{max}$. Sie hängt neben
+äußeren Rahmenbedingungen, wie dem technischen Fortschritt oder Modezyklen, in
+hohem Maße vom Verhalten der Nutzer*innen ab.
 
-Zu einer nutzungsbedingten Entsorgung hingegen kommt es, wenn das Produkt aufgrund von Abnutzung und damit einhergehenden Defekten nicht mehr funktionstüchtig ist. Dies bilden wir im Modell durch eine gewisse Maximalanzahl an Nutzungen ab, die ein Produkt insgesamt zur Verfügung stellt -- den Nutzungsvorrat $n_\text{max}$. Bei einer gegebenen Nutzungshäufigkeit $h$ lässt sich der Nutzungsvorrat gemäß Gleichung \eqref{eq:n_h_t} in die technische Lebensdauer $t_\text{tech}$ übersetzen, die angibt, wie lang ein Produkt in der Nutzung war, wenn sein Nutzungsvorrat aufgebraucht ist:
+Zu einer nutzungsbedingten Entsorgung hingegen kommt es, wenn das Produkt
+aufgrund von Abnutzung und damit einhergehenden Defekten nicht mehr
+funktionstüchtig ist. Dies bilden wir im Modell durch eine gewisse Maximalanzahl
+an Nutzungen ab, die ein Produkt insgesamt zur Verfügung stellt -- den
+Nutzungsvorrat $n_\text{max}$. Bei einer gegebenen Nutzungshäufigkeit $h$ lässt
+sich der Nutzungsvorrat gemäß Gleichung \eqref{eq:n_h_t} in die technische
+Lebensdauer $t_\text{tech}$ übersetzen, die angibt, wie lang ein Produkt in der
+Nutzung war, wenn sein Nutzungsvorrat aufgebraucht ist:
 %
 \begin{equation}
 \label{eq:t_tech}
 t_\text{tech} := \frac{n_\text{max}}{h}
 \end{equation}
 %
-So würde beispielsweise eine Waschmaschine, die $n_\text{max} = 1.560 \text{ Waschgänge}$ zur Verfügung stellt und mit der Nutzungshäufigkeit $h = 2 \textfrac{Waschgänge}{Woche}$ zum Einsatz kommt, eine technische Lebensdauer von $t_\text{tech} = \frac{1.560}{2} \text{ Wochen} = 15 \text{ Jahre}$ erreichen.
+So würde beispielsweise eine Waschmaschine, die $n_\text{max} = 1.560 \text{
+Waschgänge}$ zur Verfügung stellt und mit der Nutzungshäufigkeit $h = 2
+\textfrac{Waschgänge}{Woche}$ zum Einsatz kommt, eine technische Lebensdauer von
+$t_\text{tech} = \frac{1.560}{2} \text{ Wochen} = 15 \text{ Jahre}$ erreichen.
 
-Ausschlaggebend für die Produktnutzungsdauer ist, welcher der beiden genannten Gründe für eine Entsorgung zuerst eintritt: Ein Produkt verbleibt genau so lange in der Nutzungsphase, bis es entweder nicht mehr benötigt wird oder nicht mehr funktionstüchtig ist. Die Nutzungsdauer ist daher stets durch die kleinere der beiden Größen Maximalnutzungsdauer und technischer Lebensdauer gegeben. Als Gleichung formulieren wir:
+Ausschlaggebend für die Produktnutzungsdauer ist, welcher der beiden genannten
+Gründe für eine Entsorgung zuerst eintritt: Ein Produkt verbleibt genau so lange
+in der Nutzungsphase, bis es entweder nicht mehr benötigt wird oder nicht mehr
+funktionstüchtig ist. Die Nutzungsdauer ist daher stets durch die kleinere der
+beiden Größen Maximalnutzungsdauer und technischer Lebensdauer gegeben. Als
+Gleichung formulieren wir:
 \begin{equation}
 t = \text{min} \{t_\text{max}, t_\text{tech} := \frac{n_\text{max}}{h}\}
 \end{equation}
@@ -827,7 +877,7 @@ Die effektive Produktanzahl $P$ gibt an, wie viele Produkte innerhalb des Betrac
 % a) P = p * q = p * T/t (Annahme: alle Produkte gleiches t)
 Der erste Ansatz beruht auf der praktischen Organisation der Produktnutzung. In einem Nutzungssystem können Produkte sowohl parallel, als auch sequentiell eingesetzt werden. Beispielsweise können in einem Gemeinschaftswaschkeller mehrere Maschinen nebeneinander betrieben werden, die jeweils nach einer gewissen Zeit ausgetauscht werden. Die Anzahl der parallel eingesetzten Produkte bezeichnen wir als parallele Produktanzahl $p$. Dies ist stets eine (positive) ganze Zahl. Demgegenüber verstehen wir unter der sequentiellen Produktanzahl $q$ die Anzahl der Produkte, die innerhalb des Betrachtungszeitraums nacheinander eingesetzt werden.
 
-Während die parallele Produktzahl innerhalb praktisch-organisatorischer Grenzen frei gewählt werden kann, ergibt sich die sequentielle Produktanzahl daraus, wie lang ein einzelnes Produkt im Verhältnis zur Länge des Betrachtungszeitraums genutzt wird. Unter der vereinfachenden Annahme, dass alle konkret eingesetzten Produkte über die selbe Nutzungsdauer $t$ verfügen, ergibt sich die sequentielle als Quotient aus Betrachtungszeitraum und Nutzungsdauer:
+Während die parallele Produktanzahl innerhalb praktisch-organisatorischer Grenzen frei gewählt werden kann, ergibt sich die sequentielle Produktanzahl daraus, wie lang ein einzelnes Produkt im Verhältnis zur Länge des Betrachtungszeitraums genutzt wird. Unter der vereinfachenden Annahme, dass alle konkret eingesetzten Produkte über die selbe Nutzungsdauer $t$ verfügen, ergibt sich die sequentielle als Quotient aus Betrachtungszeitraum und Nutzungsdauer:
 %
 \begin{equation}
 q = \frac{T}{t}
@@ -839,7 +889,20 @@ Die Produktnutzungsdauer $t$ kann kürzer oder länger als der Betrachtungszeitr
 P = p \cdot q = p \cdot \frac{T}{t}
 \end{equation}
 %
-Das folgende Beispiel verdeutlicht diesen Zusammenhang. Werden in einem Gemeinschaftswaschkeller im Betrachtungszeitraum der Dauer $T  = 10 \text{ Jahre}$ parallel $p = 2$ Maschinen betrieben, die jeweils über eine Nutzungsdauer von $t = 15 \text{ Jahren}$ verfügen, so sind sie jeweils zu $q = \nicefrac{t}{T} = \nicefrac{10}{15}$ dem betrachteten Nutzungssystem anzurechnen. Damit ergibt sich eine effektive Produktanzahl von $P = 2 \cdot \nicefrac{10}{15} \approx 1,33$. Für den Fall, dass der gewählte Betrachtungszeitraum $T$ hingegen länger als die Nutzungsdauer $t$ ist, muss jedes parallel eingesetzte Produkt mehr als einmal angerechnet werden, da es innerhalb des Betrachtungszeitraums (gegebenenfalls mehrfach) ersetzt werden muss. So würden in einem Zeitraum von $T  = 20 \text{ Jahren}$ eine Anzahl von $P = p \cdot q = 2 \cdot \nicefrac{20}{15} \approx 2,67$ Maschinen eingesetzt werden. Abbildung \ref{fig:Produktanzahlen} stellt die beiden Zahlenbeispiele grafisch dar.
+Das folgende Beispiel verdeutlicht diesen Zusammenhang. Werden in einem
+Gemeinschaftswaschkeller im Betrachtungszeitraum der Dauer $T  = 10 \text{
+Jahre}$ parallel $p = 2$ Maschinen betrieben, die jeweils über eine
+Nutzungsdauer von $t = 15 \text{ Jahren}$ verfügen, so sind sie jeweils zu $q =
+\nicefrac{T}{t} = \nicefrac{10}{15}$ dem betrachteten Nutzungssystem
+anzurechnen. Damit ergibt sich eine effektive Produktanzahl von $P = 2 \cdot
+\nicefrac{10}{15} \approx 1,33$. Für den Fall, dass der gewählte
+Betrachtungszeitraum $T$ hingegen länger als die Nutzungsdauer $t$ ist, muss
+jedes parallel eingesetzte Produkt mehr als einmal angerechnet werden, da es
+innerhalb des Betrachtungszeitraums (gegebenenfalls mehrfach) ersetzt werden
+muss. So würden in einem Zeitraum von $T  = 20 \text{ Jahren}$ eine Anzahl von
+$P = p \cdot q = 2 \cdot \nicefrac{20}{15} \approx 2,67$ Maschinen eingesetzt
+werden. Abbildung \ref{fig:Produktanzahlen} stellt die beiden Zahlenbeispiele
+grafisch dar.
 
 \begin{figure}[ht]
 	\includegraphics[width=\textwidth]{Produktanzahlen}
@@ -855,7 +918,7 @@ Das folgende Beispiel verdeutlicht diesen Zusammenhang. Werden in einem Gemeinsc
 
 
 % b) P = N/n (Annahme: alle Produkte gleiches n)
-Der zweite Ansatz zur Bestimmung der effektiven Produktanzahl basiert auf dem Verhältnis zwischen der Nutzungsmenge $n$, die ein einzelnes Produkt während seiner Nutzungsdauer abgibt und der Gesamtnutzungsmenge $N$ des Produktnutzungssystems. Unter der Annahme, dass alle konkret eingesetzten Produkte über die gleiche Nutzungsmenge verfügen, bestimmt sich die effektive Produktanzahl folgendermaßen:
+Der zweite Ansatz zur Bestimmung der effektiven Produktanzahl basiert auf dem Verhältnis zwischen der Nutzungsmenge $n$, die ein einzelnes Produkt während seiner Nutzungsdauer abgibt und der Gesamtnutzungsmenge $N$ des Produktnutzungssystems. Unter der Annahme, dass alle eingesetzten Produkte über die gleiche Nutzungsmenge verfügen, bestimmt sich die effektive Produktanzahl folgendermaßen:
 \begin{equation}
 P = \frac{N}{n}
 \end{equation}
@@ -874,16 +937,15 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
 	\end{align} \\[-35pt]
 	\begin{minipage}[t]{0.49\textwidth}
 		\begin{align}
-		S 	&= S_D \\[10pt]
-		&= N \cdot A \\[9pt]
+		S 	&= S_D = N \cdot A\\[10pt]
 		n &= h \cdot t
 		\end{align}
 	\end{minipage}
+    \hfill
 	\begin{minipage}[t]{0.49\textwidth}
 		\begin{align}
 		t &= \text{min} \{t_\text{max}, t_\text{tech} := \frac{n_\text{max}}{h}\} \\
-		P &= p \cdot q = p \cdot \frac{T}{t} \\
-		&= \frac{N}{n}
+		P &= p \cdot q = p \cdot \frac{T}{t} = \frac{N}{n}\\
 		\end{align}
 	\end{minipage}
 \end{mdframed}		
@@ -956,7 +1018,7 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
 					N = \frac{S_D}{A}
 				\end{equation}
 	%						
-				gegeben. Betrachtet man Gleichung \eqref{eq:N(h)} ($N (h) = h \cdot t \cdot P$) unter diesem Gesichtspunkt, so wird deutlich, dass eine Erhöhung der Nutzungshäufigkeit $h$ bei gleichbleibender Produktnutzungsdauer $t$ zu einer geringeren effektiven Produktanzahl $P$ führt. Hierin besteht der positive Umwelteffekt der Nutzungsintensivierung, da weniger Produkte für die gleiche Servicemenge hergestellt und entsorgt werden müssen.
+				gegeben. Betrachtet man Gleichung \eqref{eq:N(h)} ($N (h) = h \cdot t \cdot P$) unter diesem Gesichtspunkt, so wird deutlich, dass eine Erhöhung der Nutzungshäufigkeit $h$ bei gleichbleibender Produktnutzungsdauer $t$ zu einer geringeren effektiven Produktanzahl $P$ führt. Hierin besteht der positive Umwelteffekt der Nutzungsintensivierung, da weniger Produkte für die gleiche Service-Menge hergestellt und entsorgt werden müssen.
 
 				Umgekehrt wird eine Erhöhung der Nutzungshäufigkeit bei kollektiver Nutzung gerade durch eine Reduktion der Produktanzahl erreicht: Teilen sich beispielsweise mehrere Personen eine Waschmaschine, anstatt jeweils eine eigene zu besitzen, erhöht sich die Häufigkeit, mit der die Maschine betrieben wird. Genauer gesagt ist die Nutzungshäufigkeit $h$ für ein Nutzungssystem mit gegebener Service-Nachfrage $S_D$, gegebener Produktauslastung $A$ und einem festen Betrachtungszeitraum $T$ von der parallelen Produktanzahl $p$ abhängig: Je weniger Produkte parallel im Einsatz sind, desto häufiger müssen diese genutzt werden um die Nachfrage zu bedienen. Dieser Zusammenhang lässt sich formal folgendermaßen nachvollziehen:
 	%
@@ -1396,7 +1458,7 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
 			    Da der Ausdruck $\frac{i_P}{n_\text{max} \cdot i_N(a)}$ echt positiv ist, stellt die Elastizitäts-Bedingung für $i_N(a)$ aus Fall 1 auch in Fall 2 eine hinreichende Bedingung für die Verringerung der MIPS dar. \noteJ{klarer formulieren} Darüber kommt es hier auch dann zu einer Verringerung der MIPS, wenn zwar die Elastizitäts-Bedingung verletzt wird, die Inputs pro Produkt $i_P$ jedoch hinreichend groß sind. Dies liegt an der Einsparung an sequentiell eingesetzten Produkten in Fall 2. \noteJ{Genauer erklären, evt. bereits an früherer Stelle.}
 
 			    \subparagraph{Einsparung parallel eingesetzter Produkte}
-			    Die vorherige Analyse beruhte auf der Annahme einer unveränderlichen Anzahl parallel eingesetzter Produkte. Jedoch eröffnet eine hinreichend große Erhöhung der Produktauslastung die Möglichkeit, die Zahl der parallel eingesetzten Produkte zu reduzieren und dadurch eine weitere Ressourceneinsparung zu erzielen. Im obigen Beispiel der Waschmaschinennutzung könnten die beiden Personen bei einer ausreichen hohen Maschinenbeladung eine der beiden Waschmaschinen abschaffen. Dieser Effekt wird in der folgenden Analyse untersucht.
+			    Die vorherige Analyse beruhte auf der Annahme einer unveränderlichen Anzahl parallel eingesetzter Produkte. Jedoch eröffnet eine hinreichend große Erhöhung der Produktauslastung die Möglichkeit, die Zahl der parallel eingesetzten Produkte zu reduzieren und dadurch eine weitere Ressourceneinsparung zu erzielen. Im obigen Beispiel der Waschmaschinen-Nutzung könnten die beiden Personen bei einer ausreichen hohen Maschinenbeladung eine der beiden Waschmaschinen abschaffen. Dieser Effekt wird in der folgenden Analyse untersucht.
 
 			   \noteJ{Zusammenhang zwischen $a$ und $p$ in Modellbeschreibung herleiten}
 
@@ -2330,7 +2392,7 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
       Dies ist die gesamte im Nutzungssystem während des Betrachtungszeitraums
       $T$ transportierte Menge. Hierbei sind zwei Fälle zu unterscheiden:
       entweder die Gesamt- oder die Einzeltransportmenge kann konstant in der
-      Anzahl der Transporte sein. Ersteres ist bei der Waschmaschinennutzung der
+      Anzahl der Transporte sein. Ersteres ist bei der Waschmaschinen-Nutzung der
       Fall: die gesamte im Nutzungssystem zu waschende Wäsche muss zu den
       Waschmaschinen transportiert werden, diese Menge ist daher nur von der
       Servicenachfrage $S_D$ abhängig:
@@ -2338,7 +2400,7 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
           M = m_S \cdot S_D = konst.
       \end{equation}
       Hier bezeichnet $m_S$ die je Serviceeinheit zu transportierende Menge. Für
-      die Waschmaschinennutzung würde $m_S$ zum Beispiel ein Kilogramm Wäsche je
+      die Waschmaschinen-Nutzung würde $m_S$ zum Beispiel ein Kilogramm Wäsche je
       ein Kilogramm gewaschene Wäsche betragen. 
 
       Da die Gesamttransportmenge $M$ konstant in der Anzahl Transporte ist,
@@ -2357,7 +2419,7 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
       konstanten Einzeltransportmenge), dieser Transport kann dann jedoch zur
       Realisierung verschieden vieler Serviceeinheiten führen. Deshalb variiert
       in diesem Fall gemäß Gleichung \eqref{eq:TransportMenge} -- genau
-      gegenteilig zur Waschmaschinennutzung -- die
+      gegenteilig zur Waschmaschinen-Nutzung -- die
       Gesamttransportmenge $M$ mit der Anzahl Transporte: 
       \begin{equation}
           M(\Theta) = M_\Theta \cdot \Theta 
@@ -2638,7 +2700,7 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
 		 %
 		 Für den Zweck des Kopplungsmodells werden also lediglich die produktbezogenen Inputs $I_P$ und die transportbedingten Inputs $I_\Theta$ explizit betrachtet und alle sonstigen Inputs zu den fixen Inputs zusammengefasst ($I_\text{fix}^{h,d} = I_N + I_W + I_R + I_\text{Rest}$).
 		 
-		 Für die produktbezogenen Inputs $I_P$ gelten die im Teilmodell \enquote{Nutzungsintensivierung} beschriebenen Abhängigkeiten von der Nutzungshäufigkeit: $I_P = P(h) \cdot i_P$, siehe Abschnitt \ref{sec:Nutzungsintensivierung}. Die transportbedingten Inputs $I_\Theta$ sind gemäß den Ergebnissen des Teilmodells \enquote{Zusätzliche Transporte} proportional zum Produkt aus Servicemenge und durchschnittlicher Distanz: \noteJ{Referenz einfügen, ggf. angleichen} $I_\Theta (d) = \alpha \cdot S \cdot d$. Für die Service-Menge gilt wie üblich eine konstante Nachfrage $S = S_D$.
+		 Für die produktbezogenen Inputs $I_P$ gelten die im Teilmodell \enquote{Nutzungsintensivierung} beschriebenen Abhängigkeiten von der Nutzungshäufigkeit: $I_P = P(h) \cdot i_P$, siehe Abschnitt \ref{sec:Nutzungsintensivierung}. Die transportbedingten Inputs $I_\Theta$ sind gemäß den Ergebnissen des Teilmodells \enquote{Zusätzliche Transporte} proportional zum Produkt aus Service-Menge und durchschnittlicher Distanz: \noteJ{Referenz einfügen, ggf. angleichen} $I_\Theta (d) = \alpha \cdot S \cdot d$. Für die Service-Menge gilt wie üblich eine konstante Nachfrage $S = S_D$.
 		 
 		 Damit ergibt sich das folgende Modell für die Effekt-Kopplung: \\
 		 
@@ -3140,7 +3202,7 @@ Zusammenhang steht:
 \begin{equation}
     h = \frac{N}{p \cdot T}  
 \end{equation}
-Da die Szenarien die parallele Produktzahl definieren, werden wir im Folgenden
+Da die Szenarien die parallele Produktanzahl definieren, werden wir im Folgenden
 das zu \ldots\todo{Referenz} äquivalente Kriterium anwenden:
 \begin{equation}
     p^\text{herk.} < p^*  = \frac{N \cdot \t{max}}{\n{max} \cdot T}   
