@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="Konzeptionelles_Modell.pdf">
+   sodipodi:docname="Konzeptionelles_Modell.svg">
   <defs
      id="defs4">
     <marker
@@ -110,8 +110,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="341.5448"
-     inkscape:cy="147.72261"
+     inkscape:cx="294.18162"
+     inkscape:cy="211.28008"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -133,7 +133,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -366,31 +366,13 @@
          id="tspan5504"
          x="522.78485"
          y="525.04901">Änderung</tspan></text>
-    <g
-       id="g3064">
-      <text
-         transform="scale(1.0704491,0.93418734)"
-         sodipodi:linespacing="125%"
-         id="text5472"
-         y="526.88043"
-         x="473.2511"
-         style="font-size:19.26808357px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
-         xml:space="preserve"><tspan
-           style="font-size:12px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Book Antiqua Bold"
-           y="526.88043"
-           x="473.2511"
-           id="tspan5474"
-           sodipodi:role="line">Umweltverbrauch <tspan
-   id="tspan5476"
-   style="font-size:12px;font-weight:normal;text-align:center;text-anchor:middle;-inkscape-font-specification:Book Antiqua">(MIPS)</tspan></tspan></text>
-      <rect
-         y="476.4986"
-         x="420.33206"
-         height="24.49674"
-         width="171.91617"
-         id="rect5546"
-         style="fill:none;stroke:#000000;stroke-width:0.53522456;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.14089822, 1.07044911;stroke-dashoffset:0" />
-    </g>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.53522456;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.14089822, 1.07044911;stroke-dashoffset:0"
+       id="rect5546"
+       width="171.91617"
+       height="24.49674"
+       x="420.33206"
+       y="476.4986" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#marker5808)"
        d="m 515.50687,501.107 0,42.62194"
@@ -486,7 +468,7 @@
        sodipodi:cy="126.64999"
        sodipodi:rx="12.5"
        sodipodi:ry="12.5"
-       d="m 243.5,126.64999 a 12.5,12.5 0 1 1 -25,0 12.5,12.5 0 1 1 25,0 z" />
+       d="m 243.5,126.64999 c 0,6.90356 -5.59644,12.5 -12.5,12.5 -6.90356,0 -12.5,-5.59644 -12.5,-12.5 0,-6.90356 5.59644,-12.5 12.5,-12.5 6.90356,0 12.5,5.59644 12.5,12.5 z" />
     <path
        transform="translate(142.99825,431.26791)"
        sodipodi:type="arc"
@@ -496,7 +478,7 @@
        sodipodi:cy="126.64999"
        sodipodi:rx="12.5"
        sodipodi:ry="12.5"
-       d="m 243.5,126.64999 a 12.5,12.5 0 1 1 -25,0 12.5,12.5 0 1 1 25,0 z" />
+       d="m 243.5,126.64999 c 0,6.90356 -5.59644,12.5 -12.5,12.5 -6.90356,0 -12.5,-5.59644 -12.5,-12.5 0,-6.90356 5.59644,-12.5 12.5,-12.5 6.90356,0 12.5,5.59644 12.5,12.5 z" />
     <rect
        style="fill:none;stroke:#000000;stroke-width:0.37143514;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        id="rect7215-8"
@@ -524,31 +506,41 @@
        inkscape:connection-end="#rect7215-8"
        inkscape:connection-start-point="d4"
        inkscape:connection-start="#path7177-7-9" />
-    <g
-       transform="translate(0,69.170934)"
-       id="g3064-1">
-      <text
-         transform="scale(1.0704491,0.93418734)"
-         sodipodi:linespacing="125%"
-         id="text5472-7"
-         y="526.88043"
-         x="473.2511"
-         style="font-size:19.26808357px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
-         xml:space="preserve"><tspan
-           style="font-size:12px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Book Antiqua Bold"
-           y="526.88043"
-           x="473.2511"
-           id="tspan5474-4"
-           sodipodi:role="line">Umweltverbrauch <tspan
-   id="tspan5476-0"
-   style="font-size:12px;font-weight:normal;text-align:center;text-anchor:middle;-inkscape-font-specification:Book Antiqua">(MIPS)</tspan></tspan></text>
-      <rect
-         y="476.4986"
-         x="420.33206"
-         height="24.49674"
-         width="171.91617"
-         id="rect5546-9"
-         style="fill:none;stroke:#000000;stroke-width:0.53522456;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.14089822, 1.07044911;stroke-dashoffset:0" />
-    </g>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.53522456;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.14089822, 1.07044911;stroke-dashoffset:0"
+       id="rect5546-9"
+       width="171.91617"
+       height="24.49674"
+       x="420.33206"
+       y="545.66956" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
+       x="436.46692"
+       y="493.02725"
+       id="text3059"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3061"
+         x="436.46692"
+         y="493.02725"><tspan
+           style="font-size:12px;font-weight:bold;-inkscape-font-specification:Book Antiqua Bold"
+           id="tspan3063">Umweltverbrauch <tspan
+   style="font-weight:normal;-inkscape-font-specification:Book Antiqua"
+   id="tspan3097">(MIPS) </tspan></tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
+       x="436.91516"
+       y="562.19818"
+       id="text3059-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3061-7"
+         x="436.91516"
+         y="562.19818"
+         style="font-size:12px;font-weight:bold;-inkscape-font-specification:Book Antiqua Bold">Umweltverbrauch <tspan
+   style="font-weight:normal;-inkscape-font-specification:Book Antiqua"
+   id="tspan3099">(MIPS)</tspan></tspan></text>
   </g>
 </svg>
