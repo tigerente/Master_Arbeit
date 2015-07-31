@@ -88,7 +88,7 @@ dashed=false]{biblatex}
 
 \usepackage[hidelinks]{hyperref}
 \usepackage{ragged2e} %für links und rechtsbündige Umgebungen in Tabellen
-\usepackage[textsize=tiny, colorinlistoftodos]{todonotes} % TODO-Notizen. Ausschalten mit der Option [disable]
+\usepackage[textsize=tiny, colorinlistoftodos, disable]{todonotes} % TODO-Notizen. Ausschalten mit der Option [disable]
 \usepackage[normalem]{ulem} % ermöglicht es, Text mittels \sout und \xout
                             % durchzustreichen
 
@@ -216,11 +216,68 @@ dashed=false]{biblatex}
   \end{center}
 \end{titlepage}
 \tableofcontents
+\marginpar{\vspace{-16.0cm}$\left.
+    \begin{array}{l}
+    \\[3.3cm]
+    \end{array}
+\right\}$
+\begin{minipage}[t]{0.8cm}
+    \vspace{-8pt}
+\scriptsize gemeinsamer Teil
+\end{minipage}
+}
+\marginpar{\vspace{-11.9cm}$\left.
+    \begin{array}{l}
+    \\[2cm]
+    \end{array}
+\right\}$
+\begin{minipage}[t]{0.8cm}
+    \scriptsize J.S.
+\end{minipage}
+}
+\marginpar{\vspace{-9.5cm}$\left.
+    \begin{array}{l}
+    \\[1.4cm]
+    \end{array}
+\right\}$
+\begin{minipage}[t]{0.8cm}
+\scriptsize A.M.
+\end{minipage}
+}
+\marginpar{\vspace{-7.6cm}$\left.
+    \begin{array}{l}
+        \\[8pt]
+    \end{array}
+\right\}$
+\begin{minipage}[t]{0.8cm}
+\scriptsize J.S.
+\end{minipage}
+}
+\marginpar{\vspace{-6.7cm}$\left.
+    \begin{array}{l}
+    \\[2.0cm]
+    \end{array}
+\right\}$
+\begin{minipage}[t]{0.8cm}
+\scriptsize A.M.
+\end{minipage}
+}
+\marginpar{\vspace{-3.9cm}$\left.
+    \begin{array}{l}
+    \\[3.7cm]
+    \end{array}
+\right\}$
+\begin{minipage}[t]{0.8cm}
+    \vspace{-8pt}
+\scriptsize gemeinsamer Teil
+\end{minipage}
+}
 \todo[color=prioH]{Faktor-spezifische Modelle statt Teilmodell / Einzelmodell}
 \todo[color=prioH]{Erhöhung der Nutzungshäufigkeit statt Nutzungsintensivierung}
 \todo[color=prioH]{Faktoren statt Effekte}
 \todo[color=prioL]{Gesamtnutzungsmenge N, Nutzungsmenge n}
-\chapter{Einleitung}\marginpar{\rule{\marginparwidth}{2pt} Beginn gemeinsamer Teil}
+\chapter{Einleitung}\marginpar{\vspace{-3em}\rule{\marginparwidth}{1pt}
+\scriptsize Beginn\newline gemeinsamer Teil}
 \section{Thema}
 % Problem:
 In heutigen Konsumkulturen werden zahlreiche Produkte häufig ineffizient
@@ -731,7 +788,10 @@ ergeben sich die folgenden beiden Anwendungsbeispiele:
 Eine Übersicht über die in der Fallstudie verwendeten Daten und deren
 Ursprung wird im Kapitel zur Fallstudie den Analysen vorangestellt. 
 
-\chapter{Modellbildung und -Analyse}
+\chapter{Modellbildung und -Analyse}\marginpar{\vspace{-6em}\scriptsize Ende \newline
+gemeinsamer Teil \vspace{1mm} \rule{\marginparwidth}{1pt}
+Beginn Teil von János Sebestyén}
+
 In diesem Kapitel, das den Kern der vorliegenden Masterarbeit darstellt, wird ein Modell zur Ableitung von Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung entwickelt. In Abschnitt \ref{sec:Grundmodell} stellen wir zunächst ein Grundmodell auf, das als Ausgangspunkt für die nachfolgenden Untersuchungen dient. Das Modell wird in Abschnitt \ref{sec:Einzeleffekte} jeweils spezifiziert um die Wirkung der einzelnen untersuchten Faktoren analysieren zu können. In Abschnitt \ref{sec:Effektkopplungen} wird schließlich die Wechselwirkung zweier Faktoren betrachtet.
 \section{Grundmodell}
 \label{sec:Grundmodell}
@@ -1559,7 +1619,10 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
 
 			   Die zentrale Größe für eine fallspezifische Untersuchung ist demnach die Entwicklung der Inputs je Produktnutzung bei einer Erhöhung der Auslastung. Falls diese stets unelastisch reagieren, ist der Umwelteffekt positiv. Andernfalls muss zu einer detaillierteren Betrachtung übergegangen werden. Ebenso ist es für eine Bestimmung des absoluten Umwelteffekts nötig, alle Modellparameter zu berücksichtigen.
 
-      \subsection{Wartung und Reparatur}
+      \subsection{Wartung und Reparatur}\marginpar{\vspace{-4em}\scriptsize Ende
+      Teil von János Sebestyén
+\vspace{1mm} \rule{\marginparwidth}{1pt}
+Beginn Teil von Alexander\newline Müller}
       \todo{Beispiele nennen}
       Produkte können während ihrer Nutzungsdauer mit dem Zweck, einer
       Verlängerung ihrer Lebensdauer gewartet und repariert werden. 
@@ -2805,7 +2868,10 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
 		\subparagraph{Fazit}
 		Anders als bei der isolierten Betrachtung der Nutzungsintensivierung können unter der gleichzeitigen Berücksichtigung zusätzlicher Transporte sowohl Verbesserungen als auch Verschlechterungen der MIPS auftreten. Als hartes Kriterium für eine Senkung des Umweltverbrauchs erweist sich eine hinreichend geringe Nutzungsintensität im Ausgangsniveau, d.h. vor der Nutzungsintensivierung: Nur wenn der Nutzungsvorrat ursprünglich nicht voll ausgeschöpft wird ($h_1 < h^*$), kann es zu einer Reduzierung der MIPS kommen. In diesem Fall muss jedoch die weitere Bedingung gelten, dass die Materialinputs für die zusätzlichen Transporte kleiner sind als die eingesparten produktbezogenen Inputs für ein parallel eingesetztes Produkt ($\alpha \cdot S_D \cdot \Delta d < q \cdot i_P$).
 		
-		 \subsection{Spezielles Kopplungs-Modell}
+		 \subsection{Spezielles Kopplungs-Modell}\marginpar{\vspace{-5em}\scriptsize Ende
+      Teil von Alexander\newline Müller
+\vspace{1mm} \rule{\marginparwidth}{1pt}
+Beginn Teil von János Sebestyén}
 		 \label{sec:Kopplung_Spez}
 		 Die vorstehende Modellanalyse kam ohne die Annahme eines bestimmten quantitativen Zusammenhangs zwischen der Produkteinsparung durch Nutzungsintensivierung und den zusätzlichen Transporten aus: Die Einsparung eines parallel eingesetzten Produkts ($\Delta p = -1$) konnte mit einer beliebigen zusätzlichen mittleren Transportdistanz ($\Delta d > 0$) einhergehen. Im folgenden Modell wird ein Zusammenhang zwischen $p$ und $d$ spezifiziert werden um zu aussagekräftigeren Ergebnissen zu gelangen.
 		 
@@ -3068,7 +3134,10 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
 
 
 
-\chapter{Fallstudie}
+\chapter{Fallstudie}\marginpar{\vspace{-6em}\scriptsize Ende Teil von János Sebestyén
+\vspace{1mm} \rule{\marginparwidth}{1pt}
+Beginn Teil von Alexander \newline Müller}
+
         % Außerdem nehmen wir an in diesem und auch im nächsten Analyseteil an,
         % dass Material-Inputs sich aus den drei Bestandteilen nutzungsbedingte
         % Inputs, produktbezogene Inputs und transportbedingten Inputs ergeben
@@ -3127,7 +3196,7 @@ Neben den Szenario übergreifenden werden desweiteren die folgenden
 
 Wir geben nun zunächst an, welche Datenquellen wir benutzt haben und stellen
 dann die für die Berechnungen verwendeten Daten dar.
-\subsection{Datenquellen}
+\paragraph{Datenquellen}
 Wir haben die folgenden Datenquellen benutzt:
 
 \begin{description}
@@ -3163,7 +3232,7 @@ Wir haben die folgenden Datenquellen benutzt:
         \textit{Parameter: Einzelnutzungsvorrat, gewünschte Nutzungsdauer}
 \end{description}
 
-\subsection{Übersicht über die verwendeten Daten}
+\paragraph{Übersicht über die verwendeten Daten}
 Die folgende Tabelle stellt alle für die Beispielrechnungen verwendeten Daten
 und deren Quelle dar:
 %   - kein Anspruch auf Korrektheit / grobe Schätzwerte
@@ -3171,7 +3240,7 @@ und deren Quelle dar:
     \input{Tabellen/Fallstudie_Datentabelle.tex}
     \caption{Die für die Beispielrechnungen angenommenen Daten.}
 \end{table}
-\subsection{Parametervariation}
+\paragraph{Parametervariation}
 Um Unsicherheiten der verwendeten Daten zu berücksichtigen, werden die folgenden
 Analysen mit Variationen der oben aufgeführten Parameter  durchgeführt.  Hiervon
 werden die Parameter parallele Produktanzahl und mittlere Transportdistanz --
@@ -3199,7 +3268,7 @@ Größenordnung der Änderung des Umweltverbrauchs durchzuführen. Alle
 Betrachtungen erfolgen unter Berücksichtigung der drei gewählten
 Unsicherheitsbereiche.
 
-\subsection{Anwendungsbeispiel: Nutzungsintensivierung}
+\subsection{Anwendungsbeispiel: Nutzungshäufigkeit}
 Für die Anwendung der Ergebnisse zur Nutzungsintensivierung wird in diesem
 Anwendungsbeispiel das \SzenarioI\ mit dem \SzenarioII\ verglichen. Sie
 unterscheiden sich -- nach Konstruktion -- lediglich in der parallelen
@@ -3463,7 +3532,11 @@ kleiner und daher im wesentlichen vernachlässigbar.
     \caption{Beschreibung}
     \label{fig:Vergleich_Szenarien}
 \end{figure}
-\chapter{Ergebnisse}
+\chapter{Ergebnisse}\marginpar{\vspace{-6em}\scriptsize Ende Teil von
+Alexander\newline Müller
+\vspace{1mm} \rule{\marginparwidth}{1pt}
+Beginn \newline gemeinsamer Teil}
+
     \section{Synthese}
     \begin{itemize}
         \item 
