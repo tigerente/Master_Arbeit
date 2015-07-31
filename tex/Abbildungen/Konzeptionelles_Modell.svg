@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="522.47015"
+   height="297.10309"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Konzeptionelles_Modell.pdf">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend"
+       style="overflow:visible">
+      <path
+         id="path3836"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         id="path3830"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart"
+       style="overflow:visible">
+      <path
+         id="path3827"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend-5"
+       style="overflow:visible">
+      <path
+         id="path3830-7"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend-1"
+       style="overflow:visible">
+      <path
+         id="path3830-1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5808"
+       style="overflow:visible">
+      <path
+         id="path5810"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="341.5448"
+     inkscape:cy="147.72261"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     units="pt"
+     inkscape:window-width="1680"
+     inkscape:window-height="998"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-70.045708,-368.89847)">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:1;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3763"
+       width="124.98507"
+       height="59.646755"
+       x="70.295708"
+       y="381.21649" />
+    <text
+       xml:space="preserve"
+       style="font-size:5.24747133px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
+       x="76.223305"
+       y="394.58478"
+       id="text2985"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan2987"
+         x="76.223305"
+         y="394.58478"
+         style="font-size:10px">- Nutzungshäufigkeit</tspan><tspan
+         sodipodi:role="line"
+         x="76.223305"
+         y="407.08478"
+         id="tspan2989"
+         style="font-size:10px">- Produktauslastung</tspan><tspan
+         sodipodi:role="line"
+         x="76.223305"
+         y="419.58478"
+         id="tspan2991"
+         style="font-size:10px">- Wartung und Reparatur</tspan><tspan
+         sodipodi:role="line"
+         x="76.223305"
+         y="432.08478"
+         id="tspan2993"
+         style="font-size:10px">- Transporte</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.24747133px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
+       x="108.32535"
+       y="377.5762"
+       id="text3765"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3767"
+         x="108.32535"
+         y="377.5762"
+         style="font-size:12px;font-weight:bold;-inkscape-font-specification:Book Antiqua Bold">Faktoren</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#marker5808)"
+       d="m 85.51015,440.79785 0,163.1826"
+       id="path3821"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
+       x="-550.86768"
+       y="82.135132"
+       id="text4453"
+       sodipodi:linespacing="125%"
+       transform="matrix(0,-1,1,0,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan4455"
+         x="-550.86768"
+         y="82.135132"
+         style="font-size:12px;font-weight:bold;-inkscape-font-specification:Book Antiqua Bold">Prämissen</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect4570"
+       width="124.72959"
+       height="124.72959"
+       x="268.88345"
+       y="461.3212" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua Bold"
+       x="304.54123"
+       y="456.56982"
+       id="text4594"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4596"
+         x="304.54123"
+         y="456.56982"
+         style="font-size:16px;font-weight:bold;-inkscape-font-specification:Book Antiqua Bold">Modell</tspan></text>
+    <g
+       style="stroke-width:0.5;stroke-miterlimit:1;stroke-dasharray:none"
+       id="g4874"
+       transform="translate(-44.907466,10)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text4457"
+         y="474.72263"
+         x="215.03639"
+         style="font-size:5.24747133px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
+         xml:space="preserve"><tspan
+           style="font-size:12px;font-weight:normal;text-align:center;text-anchor:middle;-inkscape-font-specification:Book Antiqua"
+           y="474.72263"
+           x="215.03639"
+           id="tspan4459"
+           sodipodi:role="line">herkömmliche</tspan><tspan
+           style="font-size:12px;font-weight:normal;text-align:center;text-anchor:middle;-inkscape-font-specification:Book Antiqua"
+           y="489.72263"
+           x="215.03639"
+           sodipodi:role="line"
+           id="tspan4786">Produktnutzung</tspan></text>
+      <path
+         transform="matrix(0.3319227,0,0,0.46072237,42.480754,350.02167)"
+         d="m 738.28429,280.93362 c 0,27.53495 -97.40941,49.85643 -217.57,49.85643 -120.16058,0 -217.56999,-22.32148 -217.56999,-49.85643 0,-27.53494 97.40941,-49.85642 217.56999,-49.85642 120.16059,0 217.57,22.32148 217.57,49.85642 z"
+         sodipodi:ry="49.856422"
+         sodipodi:rx="217.56999"
+         sodipodi:cy="280.93362"
+         sodipodi:cx="520.71429"
+         id="path4461-1-7"
+         style="fill:none;stroke:#000000;stroke-width:1.27859163;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:1;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       style="stroke-width:0.5;stroke-miterlimit:1;stroke-dasharray:none"
+       id="g4874-1"
+       transform="translate(-44.907466,78.463825)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text4457-5"
+         y="474.72263"
+         x="215.03639"
+         style="font-size:5.24747133px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
+         xml:space="preserve"><tspan
+           style="font-size:12px;font-weight:normal;text-align:center;text-anchor:middle;-inkscape-font-specification:Book Antiqua"
+           y="474.72263"
+           x="215.03639"
+           id="tspan4459-2"
+           sodipodi:role="line">gemeinschaftliche</tspan><tspan
+           style="font-size:12px;font-weight:normal;text-align:center;text-anchor:middle;-inkscape-font-specification:Book Antiqua"
+           y="489.72263"
+           x="215.03639"
+           sodipodi:role="line"
+           id="tspan4786-7">Produktnutzung</tspan></text>
+      <path
+         transform="matrix(0.3319227,0,0,0.46072237,42.480754,350.02167)"
+         d="m 738.28429,280.93362 c 0,27.53495 -97.40941,49.85643 -217.57,49.85643 -120.16058,0 -217.56999,-22.32148 -217.56999,-49.85643 0,-27.53494 97.40941,-49.85642 217.56999,-49.85642 120.16059,0 217.57,22.32148 217.57,49.85642 z"
+         sodipodi:ry="49.856422"
+         sodipodi:rx="217.56999"
+         sodipodi:cy="280.93362"
+         sodipodi:cx="520.71429"
+         id="path4461-1-7-6"
+         style="fill:none;stroke:#000000;stroke-width:1.27859163;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:1;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:5.24747133px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
+       x="76.223305"
+       y="619.47308"
+       id="text2985-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan2987-2"
+         x="76.223305"
+         y="619.47308"
+         style="font-size:10px">- Nutzungshäufigkeit</tspan><tspan
+         sodipodi:role="line"
+         x="76.223305"
+         y="631.97308"
+         id="tspan2989-3"
+         style="font-size:10px">- Produktauslastung</tspan><tspan
+         sodipodi:role="line"
+         x="76.223305"
+         y="644.47308"
+         id="tspan2991-2"
+         style="font-size:10px">- Wartung und Reparatur</tspan><tspan
+         sodipodi:role="line"
+         x="76.223305"
+         y="656.97308"
+         id="tspan2993-2"
+         style="font-size:10px">- Transporte</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:1;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3763-1"
+       width="124.98507"
+       height="59.646755"
+       x="70.295708"
+       y="606.1048" />
+    <text
+       xml:space="preserve"
+       style="font-size:5.24747133px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
+       x="108.32535"
+       y="602.46454"
+       id="text3765-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3767-8"
+         x="108.32535"
+         y="602.46454"
+         style="font-size:12px;font-weight:bold;-inkscape-font-specification:Book Antiqua Bold">Faktoren</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#marker5808)"
+       d="m 242.92906,489.45408 24.66229,0"
+       id="path5202"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#marker5808)"
+       d="m 242.92906,557.9179 24.66229,0"
+       id="path5202-6"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 170.41018,466.29137 0,-25.27907"
+       id="path5452"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 170.41018,606.04194 0,-25.27907"
+       id="path5452-1"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua Bold"
+       x="522.78485"
+       y="525.04901"
+       id="text5502"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5504"
+         x="522.78485"
+         y="525.04901">Änderung</tspan></text>
+    <g
+       id="g3064">
+      <text
+         transform="scale(1.0704491,0.93418734)"
+         sodipodi:linespacing="125%"
+         id="text5472"
+         y="526.88043"
+         x="473.2511"
+         style="font-size:19.26808357px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
+         xml:space="preserve"><tspan
+           style="font-size:12px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Book Antiqua Bold"
+           y="526.88043"
+           x="473.2511"
+           id="tspan5474"
+           sodipodi:role="line">Umweltverbrauch <tspan
+   id="tspan5476"
+   style="font-size:12px;font-weight:normal;text-align:center;text-anchor:middle;-inkscape-font-specification:Book Antiqua">(MIPS)</tspan></tspan></text>
+      <rect
+         y="476.4986"
+         x="420.33206"
+         height="24.49674"
+         width="171.91617"
+         id="rect5546"
+         style="fill:none;stroke:#000000;stroke-width:0.53522456;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.14089822, 1.07044911;stroke-dashoffset:0" />
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#marker5808)"
+       d="m 515.50687,501.107 0,42.62194"
+       id="path5606"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#marker5808)"
+       d="m 393.86304,489.45408 24.66229,0"
+       id="path5202-3"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#marker5808)"
+       d="m 393.86304,557.9179 24.66229,0"
+       id="path5202-6-8"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Mend)"
+       d="m 170.41018,512.28475 0,20.82678"
+       id="path6599"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
+       x="271.13766"
+       y="526.13519"
+       id="text7246"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7248"
+         x="271.13766"
+         y="526.13519"
+         style="font-size:11px">Produktnutzungssystem</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path7177"
+       sodipodi:cx="231"
+       sodipodi:cy="126.64999"
+       sodipodi:rx="12.5"
+       sodipodi:ry="12.5"
+       d="m 243.5,126.64999 c 0,6.90356 -5.59644,12.5 -12.5,12.5 -6.90356,0 -12.5,-5.59644 -12.5,-12.5 0,-6.90356 5.59644,-12.5 12.5,-12.5 6.90356,0 12.5,5.59644 12.5,12.5 z"
+       transform="translate(57.498249,362.80409)" />
+    <path
+       transform="translate(142.99825,362.80409)"
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path7177-7-4"
+       sodipodi:cx="231"
+       sodipodi:cy="126.64999"
+       sodipodi:rx="12.5"
+       sodipodi:ry="12.5"
+       d="m 243.5,126.64999 c 0,6.90356 -5.59644,12.5 -12.5,12.5 -6.90356,0 -12.5,-5.59644 -12.5,-12.5 0,-6.90356 5.59644,-12.5 12.5,-12.5 6.90356,0 12.5,5.59644 12.5,12.5 z" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.37143514;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect7215"
+       width="15.97171"
+       height="15.97171"
+       x="309.01239"
+       y="481.46823" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.37143514;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect7215-1"
+       width="15.97171"
+       height="15.97171"
+       x="337.51239"
+       y="481.46823" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 300.99825,489.45408 8.01414,0"
+       id="path7399"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#path7177"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#rect7215"
+       inkscape:connection-end-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 353.4841,489.45408 8.01415,0"
+       id="path7401"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#rect7215-1"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#path7177-7-4"
+       inkscape:connection-end-point="d4" />
+    <path
+       transform="translate(57.498249,431.26791)"
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path7177-7"
+       sodipodi:cx="231"
+       sodipodi:cy="126.64999"
+       sodipodi:rx="12.5"
+       sodipodi:ry="12.5"
+       d="m 243.5,126.64999 a 12.5,12.5 0 1 1 -25,0 12.5,12.5 0 1 1 25,0 z" />
+    <path
+       transform="translate(142.99825,431.26791)"
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path7177-7-9"
+       sodipodi:cx="231"
+       sodipodi:cy="126.64999"
+       sodipodi:rx="12.5"
+       sodipodi:ry="12.5"
+       d="m 243.5,126.64999 a 12.5,12.5 0 1 1 -25,0 12.5,12.5 0 1 1 25,0 z" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.37143514;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect7215-8"
+       width="15.97171"
+       height="15.97171"
+       x="323.26239"
+       y="549.93201" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 300.99825,557.91789 22.26414,-2e-5"
+       id="path7421"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#path7177-7"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#rect7215-8"
+       inkscape:connection-end-point="d4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       d="m 361.49825,557.91789 -22.26415,-2e-5"
+       id="path7423"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-end-point="d4"
+       inkscape:connection-end="#rect7215-8"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-start="#path7177-7-9" />
+    <g
+       transform="translate(0,69.170934)"
+       id="g3064-1">
+      <text
+         transform="scale(1.0704491,0.93418734)"
+         sodipodi:linespacing="125%"
+         id="text5472-7"
+         y="526.88043"
+         x="473.2511"
+         style="font-size:19.26808357px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Book Antiqua;-inkscape-font-specification:Book Antiqua"
+         xml:space="preserve"><tspan
+           style="font-size:12px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Book Antiqua Bold"
+           y="526.88043"
+           x="473.2511"
+           id="tspan5474-4"
+           sodipodi:role="line">Umweltverbrauch <tspan
+   id="tspan5476-0"
+   style="font-size:12px;font-weight:normal;text-align:center;text-anchor:middle;-inkscape-font-specification:Book Antiqua">(MIPS)</tspan></tspan></text>
+      <rect
+         y="476.4986"
+         x="420.33206"
+         height="24.49674"
+         width="171.91617"
+         id="rect5546-9"
+         style="fill:none;stroke:#000000;stroke-width:0.53522456;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.14089822, 1.07044911;stroke-dashoffset:0" />
+    </g>
+  </g>
+</svg>
