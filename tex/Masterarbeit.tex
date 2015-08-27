@@ -88,7 +88,7 @@ dashed=false]{biblatex}
 
 \usepackage[hidelinks]{hyperref}
 \usepackage{ragged2e} %für links und rechtsbündige Umgebungen in Tabellen
-\usepackage[textsize=tiny, colorinlistoftodos, disable]{todonotes} % TODO-Notizen. Ausschalten mit der Option [disable]
+\usepackage[textsize=tiny, colorinlistoftodos]{todonotes} % TODO-Notizen. Ausschalten mit der Option [disable]
 \usepackage[normalem]{ulem} % ermöglicht es, Text mittels \sout und \xout
                             % durchzustreichen
 
@@ -584,7 +584,7 @@ Material-Inputs in Bezug zu dem von dem Produkt erbrachten Service gesetzt.
 Gleichung \eqref{eq:MIPS_Einleitung} bildet die Grundlage für unsere
 Modellentwicklung.
 
-\subsection{Modellierung}
+\subsection{Modellierung}\label{sec:Modellierung}
 Die mathematische Modellierung stellt unser zentrales Werkzeug für die
 Beantwortung der Fragestellung dieser Arbeit dar. Bevor wir jedoch erläutern, wie wir mit
 Hilfe eines Modells die Fragestellung beantworten, beschreiben wir zunächst die
@@ -603,7 +603,7 @@ Aus den von \textcite{scholl_marketing_2009} beschriebenen
 \enquote{Umweltauswirkungen} (siehe Tabelle \ref{tab:Mechanismen}) lassen sich
 sowohl die relevanten Faktoren als auch Hypothesen darüber ableiten, in welcher Weise sie sich beim Übergang von herkömmlichen zu gemeinschaftlichen Nutzungsformen verändern. Wenn \textcite{scholl_marketing_2009} zum Beispiel von
 einer \enquote{Maximierung der Geräteauslastung} spricht, so impliziert dies
-zweierlei: zum einen, dass die Geräteauslastung ein Parameter ist, der sich beim
+zweierlei: Zum einen, dass die Geräteauslastung ein Parameter ist, der sich beim
 Übergang von einer herkömmlichen zu einer gemeinschaftlichen Nutzungsform
 ändert, zum anderen, dass sich dieser Parameter dabei erhöht. Letzteres ist also
 die Hypothese über den als Faktor identifizierten Parameter Geräteauslastung. 
@@ -662,7 +662,7 @@ Folgenden erläutert.
 		\toprule
 		\textbf{Umweltauswirkung}\newline nach \textcite{scholl_marketing_2009} &
 		\textbf{Faktor} &
-		\textbf{Hypothese zur gemeinschaftlichen Nutzung} \\
+        \textbf{Hypothese zur \mbox{gemeinschaftlichen} Nutzung} \\
 		\midrule
 		Maximierung der\newline Geräteauslastung &
 		Produktauslastung & erhöht sich\\
@@ -676,6 +676,7 @@ Folgenden erläutert.
 		sowie ihre Zerlegung in Faktoren und Hypothesen.}
 	\label{tab:faktoren_hypothesen}
 \end{table}
+\todo[color=prioL]{dritte Überschrift in Tabelle linksbündig machen}
 
 Das Ziel der Modellbildung ist es, die Wirkung der genannten Faktoren auf
 den Umweltverbrauch eines Produktnutzungssystems abzubilden. Hierfür
@@ -779,7 +780,9 @@ Wie in Abschnitt \ref{sec:Operationalisierung} erläutert, greifen wir für die 
 \text{MIPS} = \frac{I}{S}
 \end{equation}
 %
-Dabei steht $I$ für die Material-Inputs und $S$ für den Service. Die Modellbildung besteht nun darin, diese Größen näher zu spezifizieren um dadurch die untersuchten Umwelteffekte abbilden zu können.
+Dabei steht $I$ für die Material-Inputs und $S$ für den Service. Die
+Modellbildung besteht nun darin, diese Größen näher zu spezifizieren um dadurch
+die Umweltauswirkungen der untersuchten Faktoren abbilden zu können.
 
 In der vorliegenden Master-Arbeit bestimmen wir die MIPS stets für ein ganzes Produktnutzungssystem. Dazu können mehrere Produkte gehören, die sowohl nebeneinander als auch nacheinander im Gebrauch sein können, sowie eine für den Betrieb notwendige Infrastruktur wie etwa Räumlichkeiten, und schließlich unterstützende Dienstleistungen wie Transporte, Reparaturen und Wartungen.
 
@@ -843,7 +846,7 @@ Kontext verwenden wir in den Faktor-spezifischen Modellen eine der beiden
 Formulierungen ${S=S_D}$ oder $S=N \cdot A$.
 
 \paragraph{Material-Inputs}
-Wir kommen nun zu den Materialinputs $I$. Ihre genaue Bestimmung wird in den Beschreibungen der Faktor-spezifischen Modelle formuliert. An dieser Stelle erfolgt eine Übersicht über die relevanten Bestandteile um die allgemeinen Vorgehensweise zu verdeutlichen und einige zentrale Zusammenhänge herzuleiten.
+Wir kommen nun zu den Materialinputs $I$. Ihre genaue Bestimmung wird in den Beschreibungen der Faktor-spezifischen Modelle formuliert. An dieser Stelle erfolgt eine Übersicht über die relevanten Bestandteile um die allgemeine Vorgehensweise zu verdeutlichen und einige zentrale Zusammenhänge herzuleiten.
 
 Wir unterteilen die Materialinputs in eine Reihe von Teil-Inputs: Die produktbezogenen Inputs $I_P$ werden für die Herstellung, Bereitstellung und Entsorgung der eingesetzten Produkte aufgewendet. Die nutzungsbezogenen Inputs $I_N$ fallen bei der Produktnutzung an, wie beispielsweise Energie oder sonstige Betriebsmittel der Produkte. Die wartungsbezogenen Inputs $I_W$ bzw. reparaturbezogenen Inputs $I_R$ sind mit gegebenenfalls durchgeführten Wartungen bzw. Reparaturen verbunden. Die transportbezogenen Inputs $I_\Theta$ schließlich gehen mit Transporten von Produkten oder Personen einher, die für die räumliche Organisation des Nutzungssystems erforderlich sind.
 
@@ -872,7 +875,7 @@ Dabei wird immer eine Mengenangabe mit den durchschnittlichen Materialinputs je 
 
 Von den in Gleichung \eqref{eq:Inputs_Allgemein} vorkommenden Größen wird die effektive Produktanzahl $P$ im übernächsten Abschnitt noch näher spezifiziert. Als Vorbereitung dazu ist es jedoch hilfreich, einige Überlegungen zur Produktnutzungsdauer anzustellen.
 
-\paragraph{Produktnutzungsdauer}
+\paragraph{Produktnutzungsdauer}\label{sec:Produktnutzungsdauer}
 % Produktnutzungsdauer t
 Die Produktnutzungsdauer $t$ wird definiert als die Gesamtdauer, über die ein Produkt genutzt wird, d.h. die Zeitspanne zwischen Inbetriebnahme und Entsorgung. Sie ist eine entscheidende Größe für den Umweltverbrauch eines Produktnutzungssystems: Je länger die einzelnen Produkte in der Nutzung sind, desto mehr Service können sie unter sonst gleichen Umständen generieren, sodass sich die produktbezogenen Inputs gemäß der MIPS-Gleichung \eqref{eq:MIPS} auf eine größere Service-Menge verteilen.
 
@@ -918,12 +921,12 @@ Ausschlaggebend für die Produktnutzungsdauer ist, welcher der beiden genannten
 Gründe für eine Entsorgung zuerst eintritt: Ein Produkt verbleibt genau so lange
 in der Nutzungsphase, bis es entweder nicht mehr benötigt wird oder nicht mehr
 funktionstüchtig ist. Die Nutzungsdauer ist daher stets durch die kleinere der
-beiden Größen Maximalnutzungsdauer und technischer Lebensdauer gegeben. Als
+beiden Größen Maximalnutzungsdauer und technische Lebensdauer gegeben. Als
 Gleichung formulieren wir:
 \begin{equation}
-t = \text{min} \{t_\text{max}, t_\text{tech} := \frac{n_\text{max}}{h}\}
+t = \text{min} \left\{t_\text{max}, 
+                      t_\text{tech} := \frac{n_\text{max}}{h}\right\}
 \end{equation}
-%
 Nach diesen Vorüberlegungen zur Produktnutzungsdauer kommen wir nun zur Beschreibung der effektiven Produktanzahl.
 
 \paragraph{Produktanzahl}
@@ -934,7 +937,12 @@ Die effektive Produktanzahl $P$ gibt an, wie viele Produkte innerhalb des Betrac
 % a) P = p * q = p * T/t (Annahme: alle Produkte gleiches t)
 Der erste Ansatz beruht auf der praktischen Organisation der Produktnutzung. In einem Nutzungssystem können Produkte sowohl parallel, als auch sequentiell eingesetzt werden. Beispielsweise können in einem Gemeinschaftswaschkeller mehrere Maschinen nebeneinander betrieben werden, die jeweils nach einer gewissen Zeit ausgetauscht werden. Die Anzahl der parallel eingesetzten Produkte bezeichnen wir als parallele Produktanzahl $p$. Dies ist stets eine (positive) ganze Zahl. Demgegenüber verstehen wir unter der sequentiellen Produktanzahl $q$ die Anzahl der Produkte, die innerhalb des Betrachtungszeitraums nacheinander eingesetzt werden.
 
-Während die parallele Produktanzahl innerhalb praktisch-organisatorischer Grenzen frei gewählt werden kann, ergibt sich die sequentielle Produktanzahl daraus, wie lang ein einzelnes Produkt im Verhältnis zur Länge des Betrachtungszeitraums genutzt wird. Unter der vereinfachenden Annahme, dass alle konkret eingesetzten Produkte über die selbe Nutzungsdauer $t$ verfügen, ergibt sich die sequentielle als Quotient aus Betrachtungszeitraum und Nutzungsdauer:
+Während die parallele Produktanzahl innerhalb praktisch-organisatorischer
+Grenzen frei gewählt werden kann, ergibt sich die sequentielle Produktanzahl
+daraus, wie lang ein einzelnes Produkt im Verhältnis zur Länge des
+Betrachtungszeitraums genutzt wird. Unter der vereinfachenden Annahme, dass alle
+konkret eingesetzten Produkte über die selbe Nutzungsdauer $t$ verfügen, ergibt
+sich die sequentielle Produktanzahl als Quotient aus Betrachtungszeitraum und Nutzungsdauer:
 %
 \begin{equation}
 q = \frac{T}{t}
@@ -1001,7 +1009,8 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
     \hfill
 	\begin{minipage}[t]{0.49\textwidth}
 		\begin{align}
-		t &= \text{min} \{t_\text{max}, t_\text{tech} := \frac{n_\text{max}}{h}\} \\
+		t &= \text{min} \{t_\text{max}, t_\text{tech} :=
+        \frac{n_\text{max}}{h}\} \label{eq:Produktnutzungsdauer}\\
 		P &= p \cdot q = p \cdot \frac{T}{t} = \frac{N}{n}\\
 		\end{align}
 	\end{minipage}
@@ -1211,8 +1220,8 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
 				\begin{align}
 					\Delta \text{MIPS} &= \text{MIPS}(h_2) - \text{MIPS}(h_1) = \frac{i_P}{t_\text{max} \cdot A} \cdot \left( \frac{1}{h_2} - \frac{1}{h_1} \right) \label{eq:Delta_MIPS_h_1}\\[10pt]
 					&= \frac{i_P}{t_\text{max} \cdot A} \cdot \frac{h_1 - h_2}{h_1 \cdot h_2}
-					\eqnref{eq:h(p)} \frac{i_P}{t_\text{max} \cdot A} \cdot \frac{A \cdot T}{S_D} \cdot \frac{\frac{1}{p_1} - \frac{1}{p_2}}{\frac{1}{p_1 \cdot p_2}} \nonumber \\[10pt]
-					&= \frac{i_P \cdot T}{t_\text{max} \cdot S_D} \cdot \frac{\frac{p_2 - p_1}{p_1 \cdot p_1}}{\frac{1}{p_1 \cdot p_2}} = - \frac{i_P \cdot T}{t_\text{max} \cdot S_D} = - \frac{q \cdot i_P}{S_D} \nonumber
+					\eqnref{eq:h(p)} \frac{i_P}{t_\text{max} \cdot A} \cdot \frac{A \cdot T}{S_D} \cdot \frac{\frac{1}{p_1} - \frac{1}{p_2}}{\frac{1}{p_1 \cdot p_2}}  \\[10pt]
+					&= \frac{i_P \cdot T}{t_\text{max} \cdot S_D} \cdot \frac{\frac{p_2 - p_1}{p_1 \cdot p_1}}{\frac{1}{p_1 \cdot p_2}} = - \frac{i_P \cdot T}{t_\text{max} \cdot S_D} = - \frac{q \cdot i_P}{S_D} 
 				\end{align}
 	%
 				Im letzten Schritt wurde die Definition $q := \frac{T}{t}$ mit $t = t_\text{max}$ angewendet. Die obige Analyse ergibt, dass die MIPS durch die Nutzungsintensivierung im ersten Fall bei der Einsparung eines parallel betriebenen Produkts unabhängig vom Ausgangsniveau um einen konstanten Wert abnimmt. Dabei lässt sich der Zähler $q \cdot i_P$ als die produktbezogenen Inputs des eingesparten Produkts identifizieren, wenn man sich vergegenwärtigt, dass im Betrachtungszeitraum nacheinander $q$ Produkte eingesetzt werden.
@@ -1591,25 +1600,68 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
 
       \subsection{Wartung und Reparatur}\marginpar{\vspace{-4em}\scriptsize Ende
       Teil von János Sebestyén
-\vspace{1mm} \rule{\marginparwidth}{1pt}
-Beginn Teil von Alexander\newline Müller}
-      \todo{Beispiele nennen}
-      Produkte können während ihrer Nutzungsdauer mit dem Zweck, einer
-      Verlängerung ihrer Lebensdauer gewartet und repariert werden. 
-      Unter dem Begriff "`Wartung"' verstehen wir dabei eine Pflegetätigkeit an
+      \vspace{1mm} \rule{\marginparwidth}{1pt}
+      Beginn Teil von Alexander\newline Müller}
+
+      In diesem Abschnitt wird der Einfluss der Faktoren \enquote{Wartung} und
+      \enquote{Reparatur} auf den Umweltverbrauch eines Produktnutzungssystems
+      untersucht. Dazu werden im Folgenden zunächst die Faktoren definiert sowie
+      deren Relevanz für gemeinschaftliche Nutzungssysteme begründet. Daran
+      anschließend werden die Gemeinsamkeiten und Unterschiede zwischen den
+      beiden Faktoren herausgestellt um schließlich zu der Feststellung zu
+      kommen, dass es trotz Übereinstimmung in den wesentlichen umweltrelevanten
+      Effekten sinnvoll ist, die beiden Faktoren getrennt voneinander zu
+      betrachten. Daher folgen diesem einleitenden Teil zwei Unterabschnitte, in
+      denen getrennt voneinander der Einfluss von Wartung und von Reparaturen
+      auf den Umweltverbrauch von Produktnutzungssystemen beschrieben und
+      analysiert wird.
+
+      Wartungen und Reparaturen verbindet der gemeinsame Zweck, die Lebensdauer
+      von Produkten zu verlängern. Darüber hinaus bezeichnen diese Faktoren
+      jedoch unterschiedliche Tätigkeiten, die nun definiert werden.
+
+      Unter dem Begriff "`Wartung"' verstehen wir eine Pflegetätigkeit an
       einem Produkt, welche durchgeführt wird, um dessen Funktionstüchtigkeit
       lange zu gewährleisten bzw. diese zu verbessern. Das betreffende Produkt
       ist zum Zeitpunkt der Wartung funktionstüchtig, die Wartung ist
       also ein geplanter, vorausschauender Eingriff, dessen Häufigkeit von den
-      Nutzer*innen frei festgelegt werden kann.
+      Nutzer*innen frei festgelegt werden kann. Eine typische Wartung liegt
+      beispielsweise beim Ölen von mechanisch beanspruchten Produktteilen (z.B.
+      Fahrradkette) oder der Reinigung von durch die Nutzung
+      verschmutzten Produktteilen (z.B. Flusensieb 
+      einer Waschmaschine) vor. 
 
-      Im Gegensatz dazu verwenden wir den Begriff "`Reparatur"' für
-      Tätigkeiten an einem defekten Produkt, mit dem Ziel, dessen
-      Funktionstüchtigkeit wieder herzustellen. In diesem Sinne sind
+      Im Gegensatz zur derart definierten Wartung verwenden wir den Begriff
+      "`Reparatur"' für Tätigkeiten an einem defekten Produkt, mit dem Ziel,
+      dessen Funktionstüchtigkeit wieder herzustellen. In diesem Sinne sind
       Reparaturen also Handlungen, die auf Ereignisse reagieren und nicht
       geplant werden können. Es kann lediglich zum Zeitpunkt des Defekts
       entschieden werden, ob die Reparatur vollzogen oder das Produkt entsorgt
-      wird.
+      wird. Klassische Beispiele sind die Beseitigung der Schäden von Unfällen
+      (z.B. bei einem Auto) oder das Ersetzen von durch Verschleiß untauglich
+      gewordener Produktbestandteile (z.B. Wasserschlauch bei einer
+      Waschmaschine).
+
+      Wie aus den Beispielen bereits ersichtlich wurde, sind Wartungen und
+      Reparaturen nicht auf gemeinschaftliche Nutzungssysteme beschränkt,
+      sondern sind auch in herkömmlichen Nutzungssystemen üblich. Laut der im
+      Abschnitt \nameref{sec:Modellierung} (\ref{sec:Modellierung})
+      herausgearbeiteten Hypothese über die Faktoren Wartung und Reparatur,
+      werden in gemeinschaftlichen Nutzungssystemen jedoch \emph{mehr} Wartungs-
+      und Reparaturtätigkeiten als in herkömmlichen Nutzungssystemen
+      durchgeführt.  Zu den diese Hypothese stützenden Argumenten zählt
+      beispielsweise, dass in gemeinschaftlichen Nutzungssystemen die technische
+      Lebensdauer aufgrund intensiverer Nutzung häufiger bzw. schneller erreicht
+      wird (und somit ansich notwendiger wird), dass in Gemeinschaften mehr Wissen
+      über Reparatur- und Wartungsmöglichkeiten vorhanden ist und dass
+      professionell organisierte gemeinschaftliche Nutzungsformen routinemäßig
+      Wartungs- sowie Reparaturtätigkeiten integrieren. Natürlich ist die
+      hypothetisch angenommene Tendenz zu mehr Wartungs- und
+      Reparaturtätigkeiten bei gemeinschaftlicher Nutzung nur im Mittel
+      anzunehmen. Denn dass im Einzelnen sehr große Unterschiede zu beobachten
+      sind, kann nicht in Frage gestellt werden (so wird beispielsweise der
+      Hobbyautomechaniker seinen Oldtimer sicherlich nicht schlechter warten,
+      als ein Car-Sharing-Unternehmen dies bei seinem Fuhrpark macht).
 
       Sowohl für Wartungen als auch für Reparaturen werden Material-Inputs
       aufgebracht, welche die Ressourcenbilanz zunächst verschlechtern. Dieser
@@ -1623,7 +1675,9 @@ Beginn Teil von Alexander\newline Müller}
       beobachten: da regelmäßige Wartungen zu einer Verbesserung der
       Funktionstüchtigkeit führen, kann dies unter Umständen auch zu einer
       Verringerung der Material-Inputs je Produktnutzung führen, also die
-      Ressourcenbilanz zusätzlich verbessern.
+      Ressourcenbilanz zusätzlich verbessern. Hinter dem Umwelteffekt
+      \enquote{Wartung und Reparatur} verbergen sich also in Wahrheit drei
+      verschiedene Effekte, die in unterschiedlichen Kombinationen auftreten.
       Eine Zusammenstellung der Unterschiede und Gemeinsamkeiten zwischen
       Reparaturen und Wartungen findet sich in Tabelle
       \ref{tab:wartung_reparatur}. Insbesondere der Unterschied, dass es sich
@@ -1646,6 +1700,9 @@ Beginn Teil von Alexander\newline Müller}
           \textit{Erhöhung der 
               Material-Inputs}     & ja                  & ja\\
 
+          \textit{Einfluss auf 
+                  Nutzungsinputs}  & verringert sie      & keiner\\
+
           \textit{Zeitpunkt,
                   Häufigkeit  }    & kann frei bestimmt 
                                      werden, Produkt ist
@@ -1655,52 +1712,49 @@ Beginn Teil von Alexander\newline Müller}
                                                            vorgegeben, Produkt 
                                                            ist zum Zeitpunkt der
                                                            Reparatur defekt\\
-          \textit{Einfluss auf 
-                  Nutzungsinputs}  & verringert sie      & keiner\\
           \bottomrule
         \end{tabular}
-        \caption{Unterschiede und Gemeinsamkeiten zwischen Wartung und Reparatur}
+        \caption{Unterschiede und Gemeinsamkeiten zwischen Wartung und
+        Reparatur. Die ersten drei Punkte entsprechen den im Text genannten drei
+    Umwelteffekten. Sie sind Gegenstand der folgenden Modellbildung.}
         \label{tab:wartung_reparatur}
       \end{table}
 
       \subsubsection{Wartung}
+      \todo[inline]{einleitende Worte mit Bezug auf die folgenden Abschnitte}
+      \todo[inline]{$\I{fix}$ mit Referenz auf Grundmodell einführen, Umgang mit
+  $S_D$ vereinheitlichen}
+      \todo[inline]{nochmal checken, dass bei allen Parametern die von $w$
+      abhängen, dies auch in der Formel dargestellt ist}
       \paragraph{Modellbeschreibung}
-      Um die genannten drei Effekte höherer Wartungstätigkeiten auf den
-      Umweltverbrauch abzubilden, müssen wir zunächst die Wartungstätigkeit
-      selber formalisieren. Wir nehmen an, dass regelmäßig, d.h. nach Abruf
-      einer bestimmten Menge von Nutzungseinheiten, in dem gesamten
-      Nutzungssystem eine Wartung mit durchschnittlichen Wartungsinputs $i_W$
-      durchgeführt wird. Unter dieser Annahme können wir die Wartungshäufigkeit
-      $w$ einführen, welche die Anzahl Wartungen je Nutzungseinheiten angibt.
-      Wir nehmen an, dass es eine maximal sinnvolle Wartungshäufigkeit
-      $\w{max}$ gibt, sodass $w \in [0,\w{max}]$ gilt.
+      Um die genannten drei Effekte höherer Wartungstätigkeiten (Erhöhung der
+      Material-Inputs, Erhöhung der Lebensdauer, Verringerung der
+      Nutzungsinputs) auf den Umweltverbrauch abzubilden, müssen wir zunächst
+      die Wartungstätigkeit selbst formalisieren. Wir nehmen an, dass
+      regelmäßig, d.h. nach Abruf einer bestimmten Menge von Nutzungseinheiten,
+      in dem gesamten Nutzungssystem eine Wartung mit durchschnittlichen
+      Wartungsinputs $i_W$ durchgeführt wird. Unter dieser Annahme können wir
+      die Wartungshäufigkeit $w$ einführen, welche die Anzahl Wartungen je
+      Nutzungseinheiten angibt.  Wir nehmen an, dass es eine maximal sinnvolle
+      Wartungshäufigkeit $\w{max}$ gibt, sodass $w \in [0,\w{max}]$ gilt. Im
+      Folgenden werden wir den Einfluss der Wartungshäufigkeit auf die MIPS, 
+      als Operationalisierung der Umweltauswirkung durch Wartungstätigkeiten, 
+      formal beschreiben.\todo{letzten Satz nochmal lesen}
 
-      Die Anzahl Wartungen $W$ ergeben sich dann als Produkt der
-      Wartungshäufigkeit und den Nutzungseinheiten. 
-      Der erste Effekt, die Erhöhung der Material-Inputs lässt sich nun direkt
-      formulieren:
+      Aus der Wartungshäufigkeit ergibt sich als Produkt der Wartungshäufigkeit
+      und den Nutzungseinheiten die Anzahl Wartungen $W$.  Der erste Effekt, die
+      Erhöhung der Material-Inputs lässt sich nun direkt formulieren:
       \begin{equation}
         I_W = W \cdot i_W = N \cdot w \cdot i_W
       \end{equation}
       Hierbei bezeichnet $I_W$ die wartungsbedingten Material-Inputs, die, wie
       zu erkennen ist, direkt proportional mit der Wartungshäufigkeit
-      wachsen.\footnote{Da die wartungsbedingten Material-Inputs in der hier
-          angegeben Formalisierung proportional zur Nutzungsmenge $N$ sind,
-          finden sie implizit auch Berücksichtigung in Teilmodellen, in denen
-          allgemein nutzungsbedingte Material-Inputs betrachtet werden.}
-      Da die Inputs für die Wartung außerdem proportional zu $N$ sind, sind
-      sie formal ein Teil der nutzungsbedingten Material-Inputs $I_N$: 
-      \begin{equation}
-          I_N = \tilde{I}_N + I_W = N \cdot (i_N + w\cdot i_W)
-      \end{equation}
-      $\tilde{I}_N$ bezeichnet hierbei alle nutzungsbedingten Material-Inputs
-      die nicht auf Wartungen zurückzuführen sind.
+      wachsen. 
 
       Wir formalisieren nun den zweiten Effekt -- die Verlängerung der
       Lebensdauer -- indem wir annehmen, dass der Nutzungsvorrat $\n{max}$ eines
-      Produkts \todo{Annahme: alles gleiche Produkte} monoton mit der
-      Wartungshäufigkeit steigt und dies als funktioneller Zusammenhang
-      beschrieben werden kann:
+      Produkts monoton mit der Wartungshäufigkeit steigt und dies als
+      funktioneller Zusammenhang beschrieben werden kann:
       \begin{equation}
         \n{max} = \n{max}(w) \quad \text{mit} \quad
         \frac{\partial \n{max}}{\partial w}\geq 0 \quad , \quad
@@ -1708,7 +1762,9 @@ Beginn Teil von Alexander\newline Müller}
       \end{equation}
       Bei konstanter Nutzungshäufigkeit $h$ verlängert sich mit steigender
       Wartungshäufigkeit wegen $\t{tech} = \frac{\n{max}(w)}{h}$ die
-      Lebensdauer. 
+      Lebensdauer. Wir gehen in dem Modell davon aus, dass alle im
+      Nutzungssystem verwendeten Produkte denselben Nutzungsvorrat und
+      damit auch dieselbe Lebensdauer aufweisen. 
 
       Neben dem Monotonieverhalten treffen wir noch zwei weitere Annahmen über
       den Verlauf von $\n{max}(w)$:  Zum einen nehmen wir an, dass der
@@ -1721,11 +1777,13 @@ Beginn Teil von Alexander\newline Müller}
       später überhaupt benötigt werden}
 
       \begin{equation}
-        \frac{\partial^2 \n{max}}{\partial w^2}\leq 0 \quad , \quad
-        \max_{w \in [0,1]} \n{max}(w) < \infty
+          \max_{w \in [0,\w{max}]} \n{max}(w) < \infty \quad , \quad
+        \frac{\partial^2 \n{max}}{\partial w^2}\leq 0
         \label{eq:Wartung_n_max2}
       \end{equation}
 
+      \todo[inline]{in den Folgenden 4 Absätzen bis "`beschränkt ist"' die
+      Analysebestandteile rauskürzne}
       Die Verlängerung der technischen Lebensdauer $\t{tech}$ wird dann einen
       positiven Effekt auf die MIPS des betrachteten Produkts haben, wenn
       dadurch mehr der durch das Produkt bereitgestellten Nutzungseinheiten
@@ -1733,22 +1791,23 @@ Beginn Teil von Alexander\newline Müller}
       dann zu,
       wenn die Nutzungsdauer $t$ verlängert wird. Der Zusammenhang zwischen
       Nutzungsdauer und Lebensdauer wurde bereits im Abschnitt zur
-      Nutzungsintensivierung \ref{sec:Nutzungsintensivierung} formalisiert (vgl.
-      Gleichung \eqref{eq:Nutzungsdauer}): 
+      \nameref{sec:Produktnutzungsdauer} (\ref{sec:Produktnutzungsdauer}) formalisiert (vgl.
+      Gleichung \eqref{eq:Produktnutzungsdauer}): 
 
       \begin{equation}
-        t = \min \left\{\frac{\n{max}(w)}{h}, \t{max}\right\}
+          t(w) = \min \left\{\t{max},\ \t{tech} = \frac{\n{max}(w)}{h} \right\}
       \end{equation}
       Hieran lässt sich erkennen, dass eine Erhöhung der Wartungshäufigkeit
       genau dann zu einer Verlängerung der Nutzungsdauer führt, wenn $\t{tech} <
       \t{max}$ gilt, das Produkt also aufgrund des Erreichens des
       Nutzungsvorrats ausgemustert wird. Unter der Annahme identischer Produkte
       im Nutzungssystem, insbesondere also gleicher Nutzungsdauern, gilt der im
-      Abschnitt zur Nutzungsintensivierung \ref{sec:Nutzungsintensivierung}
-      beschriebene Zusammenhang zwischen der Produktnutzungs-Menge $N$ und der
-      Produktanzahl $P$ \todo{t hängt von w ab}:
+      Abschnitt zur Nutzungsintensivierung
+      \ref{sec:Nutzungsintensivierung}\todo{Referenz checken, wenn Modell zur
+      Nutzungshäufigkeit fertig ist} beschriebene Zusammenhang zwischen der
+      Produktnutzungs-Menge $N$ und der Produktanzahl $P$:
       \begin{equation}
-        N = h \cdot t \cdot P
+        N = h \cdot t(w) \cdot P
       \end{equation}
       Der ökologisch positive Effekt der Nutzungsdauerverlängerung durch eine
       Erhöhung der Wartungshäufigkeit resultiert aus einer Reduktion der
@@ -1756,13 +1815,14 @@ Beginn Teil von Alexander\newline Müller}
       Material-Inputs je Produkt $i_P$ verringern sich
       somit die produktbezogenen Material-Inputs $I_P$:
       \begin{equation}
-        I_P = i_P \cdot P = i_P \cdot \frac{N}{h \cdot t} = 
+        I_P(w) = i_P \cdot P = i_P \cdot \frac{N}{h \cdot t(w)} = 
         \left\{ 
           \begin{array}{r@{\quad : \quad}l}
-            i_P \cdot \frac{N}{\n{max}(w)} & \t{tech} < \t{max} \\[10pt]
+            i_P \cdot \frac{N}{\n{max}(w)} & \n{max}(w) < h \cdot \t{max} \\[10pt]
             i_P \cdot \frac{N}{h \cdot \t{max}} & \text{sonst}
           \end{array}
         \right.
+        \label{eq:I_P(w)}
       \end{equation}
 
       Es ist zu erkennen, dass die Wartungshäufigkeit nur dann einen Effekt auf
@@ -1772,18 +1832,10 @@ Beginn Teil von Alexander\newline Müller}
       Wie bereits erwähnt, kommt im Falle der Wartungen -- anders als bei den
       Reparaturen -- noch ein dritter Effekt hinzu: eine höhere
       Wartungshäufigkeit kann zu einer Verringerung der Material-Inputs je
-      Produktnutzung führen. Wir nehmen an, dass sich die Material-Inputs je
-      Produktnutzung im Allgemeinen nach folgendem Muster mit der
-      Zeit verändern: Zum Zeitpunkt der Wartung, sind sie am geringsten, erhöhen
-      sich dann und erreichen kurz vor der nächsten Wartung
-      ihr Maximum (man denke an das Ölen irgendeiner Mechanik). Da unabhängig
-      von der Wartung ein Verschleiß eintritt, werden sich die
-      durchschnittlichen Material-Inputs mit der Zeit erhöhen. Vernachlässigen
-      wir diesen letzten Aspekt, so können wir, 
-      da in diesem Teilmodell keine Größe von den Nutzungsinputs abhängt, zu
-      einer durchschnittlichen Höhe der Material-Inputs je Produktnutzung
-      übergehen. Wir nehmen an, dass dieser durchschnittliche Wert monoton 
-      mit der Wartungshäufigkeit fällt: 
+      Produktnutzung führen. Wir nehmen an, dass jeder Wartungshäufigkeit eine
+      durchschnittliche Menge an Material-Inputs je Produktnutzung entspricht
+      und dass dieser durchschnittliche Wert monoton mit der Wartungshäufigkeit
+      fällt: 
       \begin{equation}
         i_N = i_N(w)\quad  , \quad
         \frac{\partial i_N}{\partial w} \leq 0
@@ -1809,27 +1861,30 @@ Beginn Teil von Alexander\newline Müller}
           % &= N \cdot i_N + N \cdot w \cdot i_W  
           %   + P \cdot i_P + \I{fix}\\
           &= N \cdot (i_N(w) +  w \cdot i_W)
-            + \frac{N}{h\cdot t} \cdot i_P + \I{fix}
+            + \frac{N}{h\cdot t} \cdot i_P + \I{fix}^w
       \end{align}
       Von der Wartungshäufigkeit hängen die nutzungsbedingten, die
       produktbezogenen und die wartungsbedingten Material-Inputs ab. Alle
-      anderen davon unabhängigen Material-Inputs sind in der Größe $\I{fix}$
+      anderen davon unabhängigen Material-Inputs sind in der Größe $\I{fix}^w$
       zusammengefasst. Unter Ausnutzung des Zusammenhangs zwischen
       Nutzungseinheiten und Serviceeinheiten ($S=N\cdot A$), sowie bei
-      im Betrachtungszeitraum konstanter Nachfrage ($S=S_D$), ergibt sich für
+      konstanter Nachfrage im Betrachtungszeitraum ($S=S_D$), ergibt sich für
       die MIPS:
       \begin{align}
         \MIPS[w]&= \frac{I}{S} 
-                 = \frac{I_N(w) + I_W(w) + I_P(w) + \I{fix}}{S_D}
+                 = \frac{I_N(w) + I_W(w) + I_P(w) + \I{fix}}{S}
                  \label{eq:MIPSWartung_simpel}\\
+                 &= \frac{N \cdot (i_N(w) +  w \cdot i_W)
+                             + \frac{N}{h\cdot t} \cdot i_P 
+                         }{N \cdot A} + \frac{\I{fix}^w}{S_D}  \\
                 &= \frac{1}{A} \cdot \left( i_N(w) + w \cdot i_W 
-                 + \frac{i_P}{h\cdot t}\right) + \frac{\I{fix}}{S_D}  \nonumber
+                 + \frac{i_P}{h\cdot t}\right) + \frac{\I{fix}^w}{S_D}  
       \end{align}
       Zu beachten ist, dass diese Gleichung abhängig davon, ob $\t{tech}$
       kleiner oder größer als $\t{max}$ ist, jeweils eine etwas
-      unterschiedliche Gestalt annimmt. Wir geben das Ergebnis direkt in der
-      Zusammenstellung der für die Abbildung der Wartung auf die MIPS relevanten
-      Gleichungen an:\\
+      unterschiedliche Gestalt annimmt (vgl. Gleichung \eqref{eq:I_P(w)}).
+      Berücksichtigt man diese Fallunterscheidung, so 
+      ergibt sich als Ergebnis dieses Abschnittes das folgende Modell:\\
       \begin{mdframed}[frametitle={Wartung}, frametitlerule=true]
           Teilmodell:
           \begin{equation}
@@ -1888,13 +1943,13 @@ Beginn Teil von Alexander\newline Müller}
         \begin{align}
                 \pfrac{\MIPS[w]}{w} < 0 
             \Leftrightarrow \quad & 
-                \frac{1}{S_D} \cdot ( I'_N(w) + I'_W(w) + I'_P(w)) < 0 \nonumber\\[10pt]
+                \frac{1}{S_D} \cdot ( I'_N(w) + I'_W(w) + I'_P(w)) < 0 \\[10pt]
             \Leftrightarrow \quad & 
                 |I'_W(w)| < |I'_N(w)| + |I'_P(w)| 
                 \label{eq:Wartung_Bedingung}
         \end{align}
         Dass die Verwendung der Betragsstriche im letzten Schritt gerechtfertigt
-        ist, wird sich im folgenden aus der genaueren Betrachtung der
+        ist, wird sich im Folgenden aus der genaueren Betrachtung der
         Ableitungen ergeben. Der Ausdruck sei vorher zunächst inhaltlich
         erläutert: Gemäß Modellannahme führt eine Erhöhung der
         Wartungshäufigkeit zu einer Erhöhung der Wartungsinputs auf der einen
@@ -2054,7 +2109,7 @@ Beginn Teil von Alexander\newline Müller}
       die Reparatur zusätzlich gewonnene Lebensdauer sehr unterschiedlich sein
       können.      
 
-      Wir nehmen im folgenden an, dass die Nutzer*innen des Nutzungssystems
+      Wir nehmen im Folgenden an, dass die Nutzer*innen des Nutzungssystems
       jedes Produkt eine bestimmte Zeit $\t{max}$ nutzen möchten und diese
       gewünschte Nutzungsdauer durch gegebenenfalls notwendig werdende
       Reparaturen realisieren. Die Zeit $\t{max}$ wurde bereits in
@@ -2089,7 +2144,7 @@ Beginn Teil von Alexander\newline Müller}
       nun einen Parameter, der die Reparaturfreundlichkeit im Nutzungssystem
       angibt -- Nutzer*innen, die eine längere Nutzungsdauer anstreben als
       andere, sind bereit, mehr in Reparaturen zu investieren -- und der darüber
-      hinaus sicherstellt, dass die Nutzungsdauer aller Produkte diesselbe ist,
+      hinaus sicherstellt, dass die Nutzungsdauer aller Produkte dieselbe ist,
       wir also das Grundmodell \eqref{eq:Grundmodell} verwenden können. Die
       effektiven Material-Inputs im Falle der Reparaturen lassen sich damit
       folgendermaßen berechnen (Im Vergleich zum Grundmodell wurden auch die
@@ -2194,10 +2249,10 @@ Beginn Teil von Alexander\newline Müller}
       \begin{align}
         & i_P\cdot(\t{max} + \Delta
         \t{max})
-        &>& \quad (i_P + \Delta i_P)\cdot\t{max}\nonumber\\
+        &>& \quad (i_P + \Delta i_P)\cdot\t{max}\\
         \Leftrightarrow \quad & i_P\cdot\Delta
         \t{max}
-        &>& \quad \Delta i_P\cdot\t{max}\nonumber\\
+        &>& \quad \Delta i_P\cdot\t{max}\\
         \Leftrightarrow \quad & \frac{\Delta
           \t{max}}{\t{max}}
         &>& \quad \frac{\Delta i_P}{i_P}  
@@ -2653,7 +2708,7 @@ Beginn Teil von Alexander\newline Müller}
       \begin{align}
           I_\Theta^b &= \Theta \cdot d \cdot \tilde{i}_{d, M_\Theta} \cdot M_\Theta
                    = \Theta \cdot d \cdot \tilde{i}_{d, M_\Theta} 
-                   \cdot \frac{m_S \cdot S_D}{\Theta}\nonumber\\
+                   \cdot \frac{m_S \cdot S_D}{\Theta}\\
                    &= m_S \cdot S_D \cdot d \cdot \tilde{i}_{d, M_\Theta}
                    % \quad \text{ für } \quad i_d \propto M_\Theta \propto
                    % \frac{1}{\Theta}
@@ -2683,7 +2738,7 @@ Beginn Teil von Alexander\newline Müller}
       % relevanten Veränderungen der Inputs je Transportweg $i_d$ führen.     
       %
       %  Um dem gerecht zu
-      % werden, betrachten wir im folgenden prototypisch in der Dimension Produkt
+      % werden, betrachten wir im Folgenden prototypisch in der Dimension Produkt
       % die Bohrmaschine und die Waschmaschine und in der Dimension Organisation
       % der Transporte den privaten Transport mittels PKW und den Transport
       % mittels eines Lieferservices. In der Kombination ergeben sich die
@@ -2743,7 +2798,7 @@ Beginn Teil von Alexander\newline Müller}
 		 
 		 Hinter diesem Ansatz steht der folgende Grundgedanke: Eine Nutzungsintensivierung durch gemeinschaftliche Produktnutzung wird dadurch ermöglicht, dass mehrere Personen ein Produkt gemeinsam nutzen. Dafür ist es in vielen Anwendungen erforderlich, dass entweder die Personen zum Produkt oder das Produkt zu den Personen transportiert werden. Beispielsweise müssen die Nutzer*innen eines Waschsalons sich selbst und die zu waschende Wäsche von ihrem Wohnort zum Waschsalon transportieren, wohingegen bei einem versandbasierten Werkzeugverleih das geliehene Werkzeug zu den nutzenden Personen transportiert werden muss.
 		 
-		 Im folgenden Abschnitt (\ref{sec:Kopplung_Allg}) wird zunächst ein allgemeines Modell entwickelt, das die Einsparung von parallel eingesetzten Produkten einer Vergrößerung der durch durchschnittlichen Transportdistanz gegenüberstellt, ohne einen konkreten quantitativen Zusammenhang zwischen diesen Effekten vorzugeben. Durch dieses relativ hohe Abstraktionsniveau wird einerseits eine Anwendbarkeit auf sehr unterschiedliche Anwendungen ermöglicht, bei denen das Verhältnis aus Produkteinsparung und zusätzlichen Transporten grundsätzlich sehr verschieden sein kann. Andererseits ist die Aussagekraft der mit diesem allgemeinen Ansatz erzielbaren Ergebnisse recht eng begrenzt.
+		 Im Folgenden Abschnitt (\ref{sec:Kopplung_Allg}) wird zunächst ein allgemeines Modell entwickelt, das die Einsparung von parallel eingesetzten Produkten einer Vergrößerung der durch durchschnittlichen Transportdistanz gegenüberstellt, ohne einen konkreten quantitativen Zusammenhang zwischen diesen Effekten vorzugeben. Durch dieses relativ hohe Abstraktionsniveau wird einerseits eine Anwendbarkeit auf sehr unterschiedliche Anwendungen ermöglicht, bei denen das Verhältnis aus Produkteinsparung und zusätzlichen Transporten grundsätzlich sehr verschieden sein kann. Andererseits ist die Aussagekraft der mit diesem allgemeinen Ansatz erzielbaren Ergebnisse recht eng begrenzt.
 		 
 		 Aus diesem Grund schließt sich im übernächsten Abschnitt (\ref{sec:Kopplung_Spez}) ein spezifisches Modell an, das durch die Ausnutzung einfacher raumbezogener Zusammenhänge zu stärkeren Aussagen gelangt. Die Gültigkeit des Modells ist allerdings auf Anwendungen eingeschränkt, die mit den ebenfalls stärkeren Modellannahmen übereinstimmen.
 					 
@@ -2843,7 +2898,7 @@ Beginn Teil von Alexander\newline Müller}
 \vspace{1mm} \rule{\marginparwidth}{1pt}
 Beginn Teil von János Sebestyén}
 		 \label{sec:Kopplung_Spez}
-		 Die vorstehende Modellanalyse kam ohne die Annahme eines bestimmten quantitativen Zusammenhangs zwischen der Produkteinsparung durch Nutzungsintensivierung und den zusätzlichen Transporten aus: Die Einsparung eines parallel eingesetzten Produkts ($\Delta p = -1$) konnte mit einer beliebigen zusätzlichen mittleren Transportdistanz ($\Delta d > 0$) einhergehen. Im folgenden Modell wird ein Zusammenhang zwischen $p$ und $d$ spezifiziert werden um zu aussagekräftigeren Ergebnissen zu gelangen.
+		 Die vorstehende Modellanalyse kam ohne die Annahme eines bestimmten quantitativen Zusammenhangs zwischen der Produkteinsparung durch Nutzungsintensivierung und den zusätzlichen Transporten aus: Die Einsparung eines parallel eingesetzten Produkts ($\Delta p = -1$) konnte mit einer beliebigen zusätzlichen mittleren Transportdistanz ($\Delta d > 0$) einhergehen. Im Folgenden Modell wird ein Zusammenhang zwischen $p$ und $d$ spezifiziert werden um zu aussagekräftigeren Ergebnissen zu gelangen.
 		 
  		 Das Modell bezieht sich auf solche gemeinschaftliche Produktnutzungsformen, die darauf beruhen, Produkte an einem zentralen Ort bereitzustellen um von den teilnehmenden Personen entliehen oder vor Ort genutzt zu werden. Auch ein zentralistisch organisiertes Versandsystem fällt in das Anwendungsspektrum. Für derartige Szenarien gilt der folgende Zusammenhang: Je mehr Menschen an dem gemeinschaftlichen Produktnutzungssystem teilnehmen, desto mehr Produkte und damit Ressourcen können einerseits eingespart werden. Andererseits vergrößern sich auch die zurückzulegenden Transportdistanzen, wenn weiter vom Zentrum entfernte Personen dem Nutzungssystem beitreten. Vereinfacht gesagt: Je \enquote{größer}\footnote{Der Begriff der \enquote{Größe} eines Produktnutzungssystems wird im weiteren Verlauf noch operationalisiert.} das gemeinschaftliche Nutzungssystem, desto mehr Produkte können eingespart werden, aber desto größer sind auch die Transportdistanzen, mit gegenläufigen Implikationen für den Umweltverbrauch.
  		 
@@ -3224,7 +3279,7 @@ den Anwendungsbeispielen eine kleinst mögliche MIPS-Einsparung (bzw. dann auch
 eine MIPS-Erhöhung) ergibt.
 
 Neben diesen zwei Fällen mit je drei Unsicherheitsbereichen wird natürlich auch der
-Fall ohne Parametervariation untersucht. Dieser Fall im folgenden als \todo{Name für
+Fall ohne Parametervariation untersucht. Dieser Fall im Folgenden als \todo{Name für
 Average Szenario} bezeichnet.
 
 \section{Anwendungsbeispiele}
@@ -3482,7 +3537,7 @@ liegt $d^*$ zwischen \SI{0.0}{km} und \SI{5.3}{km}.
 
 Bisher wurde die MIPS-Änderung nur für sich allein betrachtet, ohne diese in
 Relation zu den gesamten MIPS für die einzelnen Szenarien zu setzen. Diese Lücke
-schließen wir im folgenden Abschnitt.
+schließen wir im Folgenden Abschnitt.
 
 In Abbildung \ref{fig:Vergleich_Szenarien} sind die MIPS für die drei Szenarien
 mit Einteilungen nach den MIPS-Bestandteilen dargestellt. Dieser Darstellung
