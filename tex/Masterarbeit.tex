@@ -3364,9 +3364,14 @@ folgendermaßen bestimmen (vgl. Gleichung \eqref{eq:Delta_MIPS_h_1}):
 \end{equation}
 \todo{anstatt 1 und 2 in der Gleichung Indizes für die Szenarien einsetzen}
 
+\begin{figure}[th!]
+    \input{Abbildungen/Fallstudie_DeltaMIPS_p.tex}
+    \caption{Beschreibung}
+    \label{fig:Fallstudie_DeltaMIPS(p)}
+\end{figure}
 Wir betrachten nun die Abbildung \ref{fig:Fallstudie_DeltaMIPS(p)}, welche die
 MIPS-Reduktion gegenüber dem \SzenarioI\ in
-Abhängigkeit von der parallelen Produktanzahl im Zielszenario dargestellt.  Die
+Abhängigkeit von der parallelen Produktanzahl im Zielszenario darstellt.  Die
 durchgezogene Linie verbindet hier die zum Schätzwert gehörigen Punkte: Werden im
 Zielszenario ebenso wie im Ausgangsszenario 17 Waschmaschinen eingesetzt, so
 ergibt sich natürlich keine Ressourceneinsparung. Diese steigt aber linear mit
@@ -3389,11 +3394,6 @@ ausgegangen werden kann. Dessen Umfang unterliegt allerdings einer recht großen
 Unsicherheit auf der einen Seite und diese Einsparung hätte andererseits bereits
 bei einer deutlich geringeren Reduktion von Waschmaschinen erreicht werden
 können. 
-		\begin{figure}[ht]
-			\input{Abbildungen/Fallstudie_DeltaMIPS_p.tex}
-			\caption{Beschreibung}
-			\label{fig:Fallstudie_DeltaMIPS(p)}
-		\end{figure}
 \subsection{Anwendungsbeispiel: Kopplung}
 Für das Anwendungsbeispiel zur Kopplung der Modelle Erhöhung der
 Nutzungshäufigkeit und zusätzliche Transporte, wird nun \SzenarioI\ mit
@@ -3419,7 +3419,7 @@ Ressourcenverbrauch durch die hinzugekommenen Transporte. Für die Schätzwerte
 ergibt sich ein $d^*$ von \SI{1.1}{km}, sodass hier bei einer mittleren
 Transportdistanz von $d^\text{gem.} = \SI{1.5}{km}$ im \SzenarioIII\ von keiner
 Nettoreduktion des Umweltverbrauchs auszugehen ist.
-\begin{table}[t]
+\begin{table}[h!]
     \begin{center}
         \begin{tabular}[h]{lrrrrrrr}
             \toprule
@@ -3463,6 +3463,11 @@ definiert. Für größere Transportdistanzen im Zielszenario, insbesondere auch 
 die mittlere Transportdistanz im \SzenarioIII\ wo sie \SI{1.5}{km} beträgt, ist
 die MIPS-Einsparung negativ, was einer Nettoerhöhung der MIPS des
 gemeinschaftlichen Szenarios gegenüber der herkömmlichen Nutzung entspricht.
+\begin{figure}[h!]
+    \input{Abbildungen/Fallstudie_DeltaMIPS_d.tex}
+    \caption{Beschreibung}
+    \label{fig:Fallstudie_DeltaMIPS(d)}
+\end{figure}
 
 Auch hier sind die Unsicherheitsbereiche in denen sich die MIPS-Änderung bewegt
 schattiert dargestellt: für $d^\text{gem.} = \SI{0.0}{km}$ beträgt die Spanne für die
@@ -3474,12 +3479,6 @@ Begrenzungen der Unsicherheitsbereiche mit der Nulllinie werden die Schwellwerte
 für die verschiedenen Fälle und Parameterabweichungen definiert. So wird
 letztlich auch deren Spanne sichtbar: für eine Parameterabweichung von 10\%
 liegt $d^*$ zwischen \SI{0.0}{km} und \SI{5.3}{km}.
-
-\begin{figure}[ht]
-    \input{Abbildungen/Fallstudie_DeltaMIPS_d.tex}
-    \caption{Beschreibung}
-    \label{fig:Fallstudie_DeltaMIPS(d)}
-\end{figure}
 
 Bisher wurde die MIPS-Änderung nur für sich allein betrachtet, ohne diese in
 Relation zu den gesamten MIPS für die einzelnen Szenarien zu setzen. Diese Lücke
