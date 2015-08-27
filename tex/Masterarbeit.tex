@@ -1482,7 +1482,7 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
 
 				%Wie bereits bei der Herleitung des Teilmodells bereits erwähnt wurde, kann der Mechanismus \enquote{Erhöhung der Produktauslastung} sowohl positive als auch negative Umweltauswirkungen zur Folge haben. Im Modell spiegelt sich dies durch das mehrfache Vorkommen der Produktauslastung $a$ mit zum Teil entgegengesetzter Wirkung auf das MIPS wieder. Unter welchen Umständen die positiven Wirkungen die negativen überwiegen und damit eine Erhöhung der Produktauslastung insgesamt zu einer Verringerung des Umweltverbrauchs führt, wird Gegenstand der Analyse dieses Teilmodells sein. \todo{Referenz einfügen}
 
-			    \paragraph{Modellanalyse}
+                \paragraph{Modellanalyse}\label{sec:WA}
 			    In der folgenden Analyse wird untersucht, wie sich eine Erhöhung der Produktauslastung $a$ auf die MIPS auswirkt. Es wird zunächst eine geringfügige Erhöhung der Produktauslastung bei konstanter Anzahl $p$ der parallel eingesetzten Produkte betrachtet. Im Anschluss folgt eine Analyse zur Einsparung von parallel eingesetzten Produkten.
 
 			    \subparagraph{Geringfügige Erhöhung der Produktauslastung}
@@ -1605,31 +1605,44 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
 
       In diesem Abschnitt wird der Einfluss der Faktoren \enquote{Wartung} und
       \enquote{Reparatur} auf den Umweltverbrauch eines Produktnutzungssystems
-      untersucht. Dazu werden im Folgenden zunächst die Faktoren definiert sowie
-      deren Relevanz für gemeinschaftliche Nutzungssysteme begründet. Daran
-      anschließend werden die Gemeinsamkeiten und Unterschiede zwischen den
-      beiden Faktoren herausgestellt um schließlich zu der Feststellung zu
-      kommen, dass es trotz Übereinstimmung in den wesentlichen umweltrelevanten
-      Effekten sinnvoll ist, die beiden Faktoren getrennt voneinander zu
-      betrachten. Daher folgen diesem einleitenden Teil zwei Unterabschnitte, in
-      denen getrennt voneinander der Einfluss von Wartung und von Reparaturen
-      auf den Umweltverbrauch von Produktnutzungssystemen beschrieben und
-      analysiert wird.
+      untersucht. Obgleich Wartungen und Reparaturen natürlich auch in
+      herkömmlichen Nutzungssystemen durchgeführt werden, sind diese beiden
+      Faktoren bei der Betrachtung des Umweltverbrauchs gemeinschaftlicher
+      Produktnutzungssysteme relevant, da laut der im Abschnitt
+      \nameref{sec:Modellierung} (\ref{sec:Modellierung}) herausgearbeiteten
+      Hypothese, in gemeinschaftlichen Nutzungssystemen \emph{mehr} Wartungs-
+      und Reparaturtätigkeiten als in herkömmlichen Nutzungssystemen
+      durchgeführt werden. Zu den diese Hypothese stützenden Argumenten zählt
+      beispielsweise, dass in gemeinschaftlichen Nutzungssystemen die technische
+      Lebensdauer aufgrund intensiverer Nutzung häufiger bzw. schneller erreicht
+      wird (und somit Reparaturen notwendiger werden), dass in Gemeinschaften mehr
+      Wissen über Reparatur- und Wartungsmöglichkeiten vorhanden ist und dass
+      professionell organisierte gemeinschaftliche Nutzungsformen routinemäßig
+      Wartungs- sowie Reparaturtätigkeiten integrieren. Natürlich ist die
+      hypothetisch angenommene Tendenz zu mehr Wartungs- und
+      Reparaturtätigkeiten bei gemeinschaftlicher Nutzung nur im Mittel
+      anzunehmen. Denn dass im Einzelnen sehr große Unterschiede zu beobachten
+      sind, kann nicht in Frage gestellt werden (so wird beispielsweise der
+      Hobbyautomechaniker seinen Oldtimer sicherlich nicht schlechter warten,
+      als ein Car-Sharing-Unternehmen dies bei seinem Fuhrpark macht).
 
-      Wartungen und Reparaturen verbindet der gemeinsame Zweck, die Lebensdauer
-      von Produkten zu verlängern. Darüber hinaus bezeichnen diese Faktoren
-      jedoch unterschiedliche Tätigkeiten, die nun definiert werden.
+      Obwohl Wartungen und Reparaturen der gemeinsame Zweck verbindet, die
+      Lebensdauer von Produkten zu verlängern, bezeichnen diese Faktoren jedoch
+      unterschiedliche Tätigkeiten, die nun im Folgenden definiert werden und 
+      daran anschließend verglichen werden. Dabei wird sich zeigen, dass es trotz
+      Übereinstimmung in den wesentlichen umweltrelevanten Effekten sinnvoll
+      ist, die beiden Faktoren getrennt voneinander zu betrachten. 
 
-      Unter dem Begriff "`Wartung"' verstehen wir eine Pflegetätigkeit an
-      einem Produkt, welche durchgeführt wird, um dessen Funktionstüchtigkeit
-      lange zu gewährleisten bzw. diese zu verbessern. Das betreffende Produkt
-      ist zum Zeitpunkt der Wartung funktionstüchtig, die Wartung ist
-      also ein geplanter, vorausschauender Eingriff, dessen Häufigkeit von den
-      Nutzer*innen frei festgelegt werden kann. Eine typische Wartung liegt
-      beispielsweise beim Ölen von mechanisch beanspruchten Produktteilen (z.B.
-      Fahrradkette) oder der Reinigung von durch die Nutzung
-      verschmutzten Produktteilen (z.B. Flusensieb 
-      einer Waschmaschine) vor. 
+      Beginnen wir mit der Definition des Begriffs "`Wartung"': Als "`Wartung
+      bezeichnen wir eine Pflegetätigkeit an einem Produkt, welche durchgeführt
+      wird, um dessen Funktionstüchtigkeit lange zu gewährleisten bzw. diese zu
+      verbessern. Das betreffende Produkt ist zum Zeitpunkt der Wartung
+      funktionstüchtig, die Wartung ist also ein geplanter, vorausschauender
+      Eingriff, dessen Häufigkeit von den Nutzer*innen frei festgelegt werden
+      kann. Eine typische Wartung liegt beispielsweise beim Ölen von mechanisch
+      beanspruchten Produktteilen (z.B.  Fahrradkette) oder der Reinigung von
+      durch die Nutzung verschmutzten Produktteilen (z.B. Flusensieb einer
+      Waschmaschine) vor. 
 
       Im Gegensatz zur derart definierten Wartung verwenden wir den Begriff
       "`Reparatur"' für Tätigkeiten an einem defekten Produkt, mit dem Ziel,
@@ -1641,27 +1654,6 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
       (z.B. bei einem Auto) oder das Ersetzen von durch Verschleiß untauglich
       gewordener Produktbestandteile (z.B. Wasserschlauch bei einer
       Waschmaschine).
-
-      Wie aus den Beispielen bereits ersichtlich wurde, sind Wartungen und
-      Reparaturen nicht auf gemeinschaftliche Nutzungssysteme beschränkt,
-      sondern sind auch in herkömmlichen Nutzungssystemen üblich. Laut der im
-      Abschnitt \nameref{sec:Modellierung} (\ref{sec:Modellierung})
-      herausgearbeiteten Hypothese über die Faktoren Wartung und Reparatur,
-      werden in gemeinschaftlichen Nutzungssystemen jedoch \emph{mehr} Wartungs-
-      und Reparaturtätigkeiten als in herkömmlichen Nutzungssystemen
-      durchgeführt.  Zu den diese Hypothese stützenden Argumenten zählt
-      beispielsweise, dass in gemeinschaftlichen Nutzungssystemen die technische
-      Lebensdauer aufgrund intensiverer Nutzung häufiger bzw. schneller erreicht
-      wird (und somit ansich notwendiger wird), dass in Gemeinschaften mehr Wissen
-      über Reparatur- und Wartungsmöglichkeiten vorhanden ist und dass
-      professionell organisierte gemeinschaftliche Nutzungsformen routinemäßig
-      Wartungs- sowie Reparaturtätigkeiten integrieren. Natürlich ist die
-      hypothetisch angenommene Tendenz zu mehr Wartungs- und
-      Reparaturtätigkeiten bei gemeinschaftlicher Nutzung nur im Mittel
-      anzunehmen. Denn dass im Einzelnen sehr große Unterschiede zu beobachten
-      sind, kann nicht in Frage gestellt werden (so wird beispielsweise der
-      Hobbyautomechaniker seinen Oldtimer sicherlich nicht schlechter warten,
-      als ein Car-Sharing-Unternehmen dies bei seinem Fuhrpark macht).
 
       Sowohl für Wartungen als auch für Reparaturen werden Material-Inputs
       aufgebracht, welche die Ressourcenbilanz zunächst verschlechtern. Dieser
@@ -1675,19 +1667,11 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
       beobachten: da regelmäßige Wartungen zu einer Verbesserung der
       Funktionstüchtigkeit führen, kann dies unter Umständen auch zu einer
       Verringerung der Material-Inputs je Produktnutzung führen, also die
-      Ressourcenbilanz zusätzlich verbessern. Hinter dem Umwelteffekt
-      \enquote{Wartung und Reparatur} verbergen sich also in Wahrheit drei
-      verschiedene Effekte, die in unterschiedlichen Kombinationen auftreten.
-      Eine Zusammenstellung der Unterschiede und Gemeinsamkeiten zwischen
-      Reparaturen und Wartungen findet sich in Tabelle
-      \ref{tab:wartung_reparatur}. Insbesondere der Unterschied, dass es sich
-      bei Wartungen um geplante Tätigkeiten handelt, während Reparaturen auf
-      Ereignisse reagierende Handlungen sind, macht es notwendig, für die beiden
-      Fälle zwei separate
-      Modelle für die Abbildung der genannten Effekte auf die MIPS zu
-      entwickeln.
-
-      \begin{table}
+      Ressourcenbilanz zusätzlich verbessern. Eine Zusammenstellung der Unterschiede und
+      Gemeinsamkeiten zwischen diesen beiden Faktoren findet sich in Tabelle
+      \ref{tab:wartung_reparatur}. 
+      
+    \begin{table}
 				\renewcommand{\arraystretch}{1.25}
         \centering
         \begin{tabular}{lp{4cm}p{4cm}}
@@ -1719,14 +1703,33 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
     Umwelteffekten. Sie sind Gegenstand der folgenden Modellbildung.}
         \label{tab:wartung_reparatur}
       \end{table}
+      
+      Die Faktoren Wartung und Reparatur wirken also auf dreierlei bzw.
+      zweierlei Weise auf den Umweltverbrauch eines Nutzungssystems.
+      Entsprechend wird das Ziel der folgenden Untersuchungen sein, den
+      Nettoeffekt dieser zwei bzw. drei Effekte zu bestimmen. Insbesondere der
+      Unterschied, dass es sich bei Wartungen um geplante Tätigkeiten handelt,
+      während Reparaturen auf Ereignisse reagierende Handlungen sind, macht es
+      jedoch notwendig, die Faktoren getrennt voneinander zu betrachten.  Es
+      folgen daher nun zwei Unterabschnitte, in denen der Einfluss je einer der
+      Faktoren auf den Umweltverbrauch von Produktnutzungssystemen beschrieben
+      und analysiert wird.
 
       \subsubsection{Wartung}
-      \todo[inline]{einleitende Worte mit Bezug auf die folgenden Abschnitte}
+      Es folgt die Untersuchung des Einflusses des Faktors Wartung auf den
+      Umweltverbrauch eines Nutzungssystems. Im Abschnitt \nameref{sec:WB} wird
+      hierfür zunächst die Wartungshäufigkeit als Operationalisierung der
+      Wartungstätigkeit eingeführt und dann deren Einfluss die Material-Inputs
+      eines Nutzungssystems mathematisch beschrieben. Das sich hieraus ergebende
+      Faktor-spezifische Modell wird im Anschluss im
+      Abschnitt \nameref{sec:WA} hinsichtlich den Umständen untersucht, unter
+      denen der Umweltverbrauch durch gemeinschaftliche Produktnutzung unter der
+      Prämisse einer höheren Wartungshäufigkeit gesenkt werden kann.
       \todo[inline]{$\I{fix}$ mit Referenz auf Grundmodell einführen, Umgang mit
   $S_D$ vereinheitlichen}
       \todo[inline]{nochmal checken, dass bei allen Parametern die von $w$
       abhängen, dies auch in der Formel dargestellt ist}
-      \paragraph{Modellbeschreibung}
+      \paragraph{Modellbeschreibung}\label{sec:WB}
       Um die genannten drei Effekte höherer Wartungstätigkeiten (Erhöhung der
       Material-Inputs, Erhöhung der Lebensdauer, Verringerung der
       Nutzungsinputs) auf den Umweltverbrauch abzubilden, müssen wir zunächst
@@ -1886,7 +1889,7 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
       Berücksichtigt man diese Fallunterscheidung, so 
       ergibt sich als Ergebnis dieses Abschnittes das folgende Modell:\\
       \begin{mdframed}[frametitle={Wartung}, frametitlerule=true]
-          Teilmodell:
+          Modell:
           \begin{equation}
               \MIPS[w] = \frac{\I{fix}}{S_D} 
               +  \frac{i_N(w)}{A} + \frac{w\cdot
