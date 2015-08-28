@@ -45,10 +45,10 @@ MIPS_lines = MIPS (h_lines, I_fix, S_D, i_P, t_max, A, n_max)
 
 # Plots erzeugen:
 par(mar = c(4.1,3.9,5.6,0.1))
-plot(h_points, MIPS_points, xlab = 'Nutzungsh\"aufigkeit $h$ [Nutzungseinheiten/Jahr]', ylab = 'MIPS [kg/Service-Einheit]', axes = FALSE, type = 'p', pch = 22, bg = 'white', xlim = c(0, h_high), ylim = c(MIPS_low, MIPS_high), panel.first = points(h_lines, MIPS_lines, type = 'l', lty = 1, col='grey'))
-abline(v = c(n_max/t_max, h_max), lty = 3)
+plot(h_points, MIPS_points, xlab = 'Nutzungsh\"aufigkeit $h$ [NE/Jahr]', ylab = 'MIPS [kg/SE]', axes = FALSE, type = 'p', pch = 22, bg = 'white', xlim = c(0, h_high), ylim = c(MIPS_low, MIPS_high), panel.first = points(h_lines, MIPS_lines, type = 'l', lty = 1, col='grey'))
+abline(v = n_max/t_max, lty = 3)
 title('Materialintensit\"at pro Service-Einheit MIPS$(h)$', line = 4.5)
-axis (side = 1, at = c(0, 200, 400, 600, 800, 1000, n_max/t_max, h_max), labels = c(0, 200, 400, 600, 800, 1000, '$h^*$', '$h_\\text{max}$'))
+axis (side = 1, at = c(0, 200, 400, 600, 800, 1000, n_max/t_max), labels = c(0, 200, 400, 600, 800, 1000, '$h^*$'))
 axis (side = 2, at = c(0, 1, MIPS_points), labels = c(0, 1, MIPS_points))
 axis (side = 3, at = h_points, labels = p_points)
 box()
