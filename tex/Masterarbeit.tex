@@ -1003,7 +1003,7 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
 	\begin{minipage}[t]{0.49\textwidth}
 		\begin{align}
 		S 	&= S_D = N \cdot A\\[10pt]
-		n &= h \cdot t
+        n &= h \cdot t \label{eq:Nutzungsmenge}
 		\end{align}
 	\end{minipage}
     \hfill
@@ -1011,7 +1011,7 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
 		\begin{align}
 		t &= \text{min} \{t_\text{max}, t_\text{tech} :=
         \frac{n_\text{max}}{h}\} \label{eq:Produktnutzungsdauer}\\
-		P &= p \cdot q = p \cdot \frac{T}{t} = \frac{N}{n}\\
+		P &= p \cdot q = p \cdot \frac{T}{t} = \frac{N}{n}
 		\end{align}
 	\end{minipage}
 \end{mdframed}		
@@ -1719,7 +1719,7 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
       Es folgt die Untersuchung des Einflusses des Faktors Wartung auf den
       Umweltverbrauch eines Nutzungssystems. Im Abschnitt \nameref{sec:WB} wird
       hierfür zunächst die Wartungshäufigkeit als Operationalisierung der
-      Wartungstätigkeit eingeführt und dann deren Einfluss die Material-Inputs
+      Wartungstätigkeit eingeführt und dann deren Einfluss auf die Material-Inputs
       eines Nutzungssystems mathematisch beschrieben. Das sich hieraus ergebende
       Faktor-spezifische Modell wird im Anschluss im
       Abschnitt \nameref{sec:WA} hinsichtlich den Umständen untersucht, unter
@@ -1740,13 +1740,13 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
       die Wartungshäufigkeit $w$ einführen, welche die Anzahl Wartungen je
       Nutzungseinheiten angibt.  Wir nehmen an, dass es eine maximal sinnvolle
       Wartungshäufigkeit $\w{max}$ gibt, sodass $w \in [0,\w{max}]$ gilt. Im
-      Folgenden werden wir den Einfluss der Wartungshäufigkeit auf die MIPS, 
-      als Operationalisierung der Umweltauswirkung durch Wartungstätigkeiten, 
-      formal beschreiben.\todo{letzten Satz nochmal lesen}
+      Folgenden werden wir den Einfluss der Wartungshäufigkeit auf die MIPS 
+      formal beschreiben.
 
-      Aus der Wartungshäufigkeit ergibt sich als Produkt der Wartungshäufigkeit
-      und den Nutzungseinheiten die Anzahl Wartungen $W$.  Der erste Effekt, die
-      Erhöhung der Material-Inputs lässt sich nun direkt formulieren:
+      Aus der Wartungshäufigkeit ergibt durch Multiplikation mit den
+      Nutzungseinheiten die Anzahl Wartungen $W$, die im Nutzungssystem
+      durchgeführt werden. Der erste Effekt, die
+      Erhöhung der Material-Inputs, lässt sich damit direkt formulieren:
       \begin{equation}
         I_W = W \cdot i_W = N \cdot w \cdot i_W
       \end{equation}
@@ -1764,7 +1764,7 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
         \label{eq:Wartung_n_max}
       \end{equation}
       Bei konstanter Nutzungshäufigkeit $h$ verlängert sich mit steigender
-      Wartungshäufigkeit wegen $\t{tech} = \frac{\n{max}(w)}{h}$ die
+      Wartungshäufigkeit wegen $\t{tech}(w) = \frac{\n{max}(w)}{h}$ die
       Lebensdauer. Wir gehen in dem Modell davon aus, dass alle im
       Nutzungssystem verwendeten Produkte denselben Nutzungsvorrat und
       damit auch dieselbe Lebensdauer aufweisen. 
@@ -1785,6 +1785,12 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
         \label{eq:Wartung_n_max2}
       \end{equation}
 
+      Eine Verlängerung der technischen Lebensdauer $\t{tech}$ bzw. eine
+      Erhöhung des dazu äquivalenten Nutzungsvorrats $\n{max}$ wirkt sich,
+      sofern dies dazu führt, dass sich die Nutzungsdauer verlängert, auf die
+      effektive Produktanzahl und damit auf die produktbezogenen Inputs aus.
+      Dieser Zusammenhang ergibt sich aus den im \nameref{sec:Grundmodell}
+      aufgestellten Gleichungen \eqref{eq:}<++>
       \todo[inline]{in den Folgenden 4 Absätzen bis "`beschränkt ist"' die
       Analysebestandteile rauskürzne}
       Die Verlängerung der technischen Lebensdauer $\t{tech}$ wird dann einen
@@ -1803,14 +1809,14 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
       Hieran lässt sich erkennen, dass eine Erhöhung der Wartungshäufigkeit
       genau dann zu einer Verlängerung der Nutzungsdauer führt, wenn $\t{tech} <
       \t{max}$ gilt, das Produkt also aufgrund des Erreichens des
-      Nutzungsvorrats ausgemustert wird. Unter der Annahme identischer Produkte
-      im Nutzungssystem, insbesondere also gleicher Nutzungsdauern, gilt der im
-      Abschnitt zur Nutzungsintensivierung
-      \ref{sec:Nutzungsintensivierung}\todo{Referenz checken, wenn Modell zur
-      Nutzungshäufigkeit fertig ist} beschriebene Zusammenhang zwischen der
-      Produktnutzungs-Menge $N$ und der Produktanzahl $P$:
+      Nutzungsvorrats ausgemustert wird. Die Nutzungsdauer hat aber einen Unter der Annahme identischer Produkte
+      im Nutzungssystem, insbesondere also gleicher Nutzungsdauern, gelten die
+      im \nameref{sec:Grundmodell} (\ref{sec:Grundmodell}) aufgestellten
+      Gleichungen 
+      $n &= h \cdot t$
+      $P &= p \cdot q = p \cdot \frac{T}{t} = \frac{N}{n}$
       \begin{equation}
-        N = h \cdot t(w) \cdot P
+        P = h \cdot t(w) \cdot N
       \end{equation}
       Der ökologisch positive Effekt der Nutzungsdauerverlängerung durch eine
       Erhöhung der Wartungshäufigkeit resultiert aus einer Reduktion der
