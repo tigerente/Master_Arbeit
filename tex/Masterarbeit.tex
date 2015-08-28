@@ -273,7 +273,8 @@ dashed=false]{biblatex}
 \end{minipage}
 }
 \todo[color=prioH]{Faktor-spezifische Modelle statt Teilmodell / Einzelmodell}
-\todo[color=prioH]{Erhöhung der Nutzungshäufigkeit statt Nutzungsintensivierung}
+\todo[color=prioH]{Modell zur Nutzungshäufigkeit statt Nutzungsintensivierung}
+\todo[color=prioH]{Modell zu Transporten statt zusätzliche Transporte}
 \todo[color=prioH]{Faktoren statt Effekte}
 \todo[color=prioL]{Gesamtnutzungsmenge N, Nutzungsmenge n}
 \chapter{Einleitung}\marginpar{\vspace{-3em}\rule{\marginparwidth}{1pt}
@@ -584,7 +585,8 @@ Material-Inputs in Bezug zu dem von dem Produkt erbrachten Service gesetzt.
 Gleichung \eqref{eq:MIPS_Einleitung} bildet die Grundlage für unsere
 Modellentwicklung.
 
-\subsection{Modellierung}\label{sec:Modellierung}
+\subsection{Modellierung}
+\label{sec:Modellierung}
 Die mathematische Modellierung stellt unser zentrales Werkzeug für die
 Beantwortung der Fragestellung dieser Arbeit dar. Bevor wir jedoch erläutern, wie wir mit
 Hilfe eines Modells die Fragestellung beantworten, beschreiben wir zunächst die
@@ -997,606 +999,522 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
 	\end{equation}
 	weitere Grundgleichungen:
 	\begin{align}
-	I &= I_P + I_N + I_W + I_R + I_\Theta + I_\text{Rest} \\[10pt]
-	&= P \cdot i_P + N \cdot i_N + W \cdot i_W + R \cdot i_R + \Theta \cdot i_\Theta + I_\text{Rest}
+	I &= I_P + I_N + I_W + I_R + I_\Theta + I_\text{Rest} \label{eq:Grundgleichung_I_1} \\[10pt]
+	&= P \cdot i_P + N \cdot i_N + W \cdot i_W + R \cdot i_R + \Theta \cdot i_\Theta + I_\text{Rest} \label{eq:Grundgleichung_I_2}
 	\end{align} \\[-35pt]
 	\begin{minipage}[t]{0.49\textwidth}
 		\begin{align}
-		S 	&= S_D = N \cdot A\\[10pt]
-        n &= h \cdot t \label{eq:Nutzungsmenge}
+		S 	&= S_D = N \cdot A \label{eq:Grundgleichung_S}\\[10pt]
+		n &= h \cdot t \label{eq:Grundgleichung_n}
 		\end{align}
 	\end{minipage}
     \hfill
 	\begin{minipage}[t]{0.49\textwidth}
 		\begin{align}
-		t &= \text{min} \{t_\text{max}, t_\text{tech} :=
-        \frac{n_\text{max}}{h}\} \label{eq:Produktnutzungsdauer}\\
-		P &= p \cdot q = p \cdot \frac{T}{t} = \frac{N}{n}
+		t &= \text{min} \{t_\text{max}, t_\text{tech} := \frac{n_\text{max}}{h}\} \label{eq:Grundgleichung_t} \\
+		P &= p \cdot q = p \cdot \frac{T}{t} = \frac{N}{n} \label{eq:Grundgleichung_P}
 		\end{align}
 	\end{minipage}
 \end{mdframed}		
 		
 		\newpage
-		\section{Faktor-spezifische Modelle}
-		\label{sec:Einzeleffekte}
-			\subsection{Nutzungshäufigkeit} % Ursprünglich: "Nutzungsdauerverlängerung"
-			\label{sec:Nutzungsintensivierung}
-				\paragraph{Modellbeschreibung}
-				Unter \enquote{Nutzungsintensivierung} verstehen wir eine Erhöhung der Häufigkeit, mit der ein bestimmtes Produkt genutzt wird. Diese bezeichnen wir als Nutzungshäufigkeit $h$ und definieren sie als die Produktnutzungsmenge pro Zeit. Für eine Waschmaschine wäre dies etwa die Anzahl an Waschgängen pro Woche.
+\section{Faktor-spezifische Modelle}
+\label{sec:Einzeleffekte}
+In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines Produktnutzungssystems, die im Zusammenhang mit gemeinschaftlicher Produktnutzung relevant sind, isoliert betrachtet. Wir beginnen mit dem Faktor \enquote{Nutzungshäufigkeit}.
 
-				Ein Produkt wird während seines Lebenszyklus eine bestimmte Zeitperiode lang genutzt. Diese Zeitspanne zwischen Anschaffung bis Entsorgung wird als Nutzungsdauer $t$ bezeichnet. Aus der Nutzungshäufigkeit $h$ und der Nutzungsdauer $t$ ergibt sich die Nutzungsmenge $n$ eines einzelnen Produkts:
-	%
-				\begin{equation}
-					\label{eq:n(h)}
-					n (h) = h \cdot t
-				\end{equation}
-	%
-				So stellt beispielsweise eine Waschmaschine, die zwei mal pro Woche genutzt wird, in einer Nutzungsdauer von 15 Jahren $n = 2 \textfrac{Waschgänge}{Woche} \cdot 52 \textfrac{Wochen}{Jahr} \cdot 15 \text{ Jahre} = 1560$ Waschgänge zur Verfügung.
+      \subsection{Nutzungshäufigkeit} % Ursprünglich: "Nutzungsdauerverlängerung"
+      \label{sec:Nutzungsintensivierung}
+      
+      Wie bereits im Abschnitt \enquote{\nameref{sec:Grundmodell}} eingeführt, wird mit der Nutzungshäufigkeit $h$ beschrieben, wie häufig ein Produkt pro Zeit genutzt wird. Für eine Waschmaschine wäre dies etwa die Anzahl an Waschgängen pro Woche. Diese Größe ist im Zusammenhang mit gemeinschaftlichen Produktnutzungsformen insofern relevant, als dass ein Produkt typischerweise häufiger genutzt wird, wenn mehrere Personen darauf zugreifen. Daher gehen wir, wie in Tabelle \ref{tab:faktoren_hypothesen} (Abschnitt \ref{sec:Modellierung}) formuliert, von der Hypothese einer erhöhten Nutzungshäufigkeit von gemeinschaftlichen Produktnutzungsformen im Vergleich zu herkömmlichen Produktnutzungsformen aus.
+      
+      Im folgenden Abschnitt wird zunächst ein Modell zum Einfluss der Nutzungshäufigkeit auf die MIPS eines Produktnutzungssystems entwickelt (\enquote{Modellbeschreibung}). Im Anschluss wird dieses Modell angewandt um ein Kriterium für die Reduzierung des Umweltverbrauchs durch eine Erhöhung der Nutzungshäufigkeit abzuleiten (\enquote{Modellanalyse}).
+      
+      \paragraph{Modellbeschreibung}
+      Die Nutzungshäufigkeit steht in engem Zusammenhang zur parallelen Produktanzahl $p$, die ebenfalls im Abschnitt \enquote{\nameref{sec:Grundmodell}} eingeführt wurde: Je weniger Produkte in einem Produktnutzungssystem parallel im Einsatz sind, desto häufiger müssen die einzelnen Produkte genutzt werden um die Service-Nachfrage zu bedienen. Dieser Zusammenhang lässt sich unter Rückgriff auf einige Grundgleichungen aus dem Grundmodell (siehe Nummern über den Gleichheitszeichen) formal folgendermaßen nachvollziehen:
+      %
+      \begin{equation}
+         h \eqnref{eq:Grundgleichung_n} \frac{n}{t} \eqnref{eq:Grundgleichung_P} \frac{\frac{N \cdot t}{p \cdot T}}{t} = \frac{N}{p \cdot T} \eqnref{eq:Grundgleichung_S} \frac{S_D}{A \cdot p \cdot T} \qquad p \in \mathbb{N}
+         \label{eq:h(p)_verbose}
+      \end{equation}
+      %
+      Die Nutzungshäufigkeit ist also reziprok proportional zur parallelen Produktanzahl $p$. Da es sich bei $p$ um eine natürliche Zahl handelt und die anderen Größen im vorliegenden Modell als konstant angesehen werden, kann die Nutzungshäufigkeit $h$ nur diskrete Werte annehmen. Dies wird für die Analyse noch von Bedeutung sein.
+      
+      Wir stellen nun eine Gleichung für die MIPS in Abhängigkeit von der Nutzungshäufigkeit auf. Den Ausgangspunkt bildet die Modellgleichung \eqref{eq:Grundmodell_MIPS} des Grundmodells:
+      \begin{equation}
+         \text{MIPS} = \frac{I}{S}
+      \end{equation}
+      %
+      Da die Servicemenge durch eine konstante Nachfrage $S=S_D$ gegeben ist, geht es im Folgenden lediglich um die Bestimmung der Materialinputs $I$. Diese sind gemäß Grundgleichung \eqref{eq:Grundgleichung_I_1} gegeben durch:
+      \begin{equation}
+         I = I_P + I_N + I_W + I_R + I_\Theta + I_\text{Rest}
+      \end{equation}
+      %
+      Da die produktbezogenen Inputs $I_P$ die einzigen von der Nutzungshäufigkeit abhängigen Materialinputs sind, fassen wir alle anderen Inputs zu $I_\text{fix}^h$ zusammen:
+      \begin{equation}
+         I = I_P + I_\text{fix}^h
+      \end{equation}
+      %
+      Mit der Spezifikation der produktbezogenen Inputs $I_P = P \cdot i_P$ gemäß Grundgleichung \eqref{eq:Grundgleichung_I_2} ergibt sich für die MIPS:
+      \begin{equation}
+         \label{eq:MIPS(h)}
+         \text{MIPS}(h) = \frac{I_P + I_\text{fix}^h}{S} = \frac{P(h) \cdot i_P}{S} + \frac{I_\text{fix}^h}{S}
+      \end{equation}
+      %      
+      Die effektive Produktanzahl $P$ ist von der Nutzungshäufigkeit abhängig, wie im folgenden gezeigt wird. Dazu betrachten wir zunächst die Nutzungsdauer $t$. Nach Grundgleichung \eqref{eq:Grundgleichung_t} ist diese folgendermaßen gegeben:
+      \begin{equation}
+         t = \text{min} \{t_\text{max}, t_\text{tech} := \frac{n_\text{max}}{h}\}
+      \end{equation}
+      %
+      Diese Funktion ist äquivalent zu der folgenden abschnittsweisen Darstellung:
+      \begin{equation}
+         \label{eq:t(h)}	
+         t (h) =\left\{\begin{array}{ll}  t_{\text{max}} & \mbox{falls } h <  \frac{n_{\text{max}}}{t_{\text{max}}} =: h^* \\ \frac{n_{\text{max}}}{h} & \mbox{sonst} \end{array}\right.
+      \end{equation}	
+      %      
+      Dabei ist die Größe $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ diejenige Nutzungshäufigkeit, bei der die technische Lebensdauer $t_\text{tech} := \frac{n_\text{max}}{h}$ gleich der Maximalnutzungsdauer $t_\text{max}$ ist. An dieser Stelle wird der Nutzungsvorrat eines Produkts gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Bei einer geringeren Nutzungshäufigkeit ($h<h^*$) ist die Nutzungsdauer durch die konstante Maximalnutzungsdauer gegeben. Bei einer höheren Nutzungshäufigkeit ist hingegen die technische Lebensdauer ausschlaggebend, die mit zunehmender Nutzungshäufigkeit antiproportional abnimmt, da der Nutzungsvorrat schneller aufgebraucht wird (siehe Abbildung \ref{fig:t(h)_n(h)_P(h)} (a)).
+      
+      \begin{figure}[ht]
+         \centering
+         \input{Abbildungen/Nutzungsintensivierung_1.tex}
+         \caption{Nutzungsdauer, Nutzungsmenge und effektive Produktanzahl in Abhängigkeit von der Nutzungshäufigkeit (untere Skala). Die durchgezogenen Linien folgen dem hypothetischen Funktionsverlauf für eine kontinuierlich angenommene Nutzungshäufigkeit, die kleinen Quadrate zeigen die tatsächlichen Funktionswerte für verschiedene Anzahlen parallel genutzter Produkte (obere Skala). Bei $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Parameter: $N = 10.000$ NE, $n_\text{max} = 5.000$ NE, $T = 10$ Jahre, $t_\text{max} = 15$ Jahre. (NE = Nutzungseinheiten.)}
+         \label{fig:t(h)_n(h)_P(h)}
+      \end{figure}
+      \todo[color=prioH]{Teilabbildungen mit (a), (b), (c) kennzeichnen}
+      
+      Aus Gleichung \eqref{eq:t(h)} lässt sich mit Grundgleichung \eqref{eq:Grundgleichung_n} ein Ausdruck für die Nutzungsmenge $n$ ableiten:
+      \begin{equation}
+      \label{eq:n(h)_cases}
+         n (h) = h \cdot t(h) = \left\{\begin{array}{ll}  h \cdot t_{\text{max}} & \mbox{falls } h < h^* \\ n_{\text{max}} & \mbox{sonst} \end{array}\right.
+      \end{equation}	
+      %			
+      Hier verhält es sich also umgekehrt als bei der Nutzungsdauer: Solange der Nutzungsvorrat innerhalb der Maximalnutzungsdauer aufgrund einer geringen Nutzungshäufigkeit nicht aufgebraucht wird ($h < h^*$), ist die Nutzungsmenge proportional von der Nutzungshäufigkeit abhängig, weil das Produkt in derselben Zeit häufiger genutzt wird: $n (h) = h \cdot t_{\text{max}}$. Bei einer höheren Nutzungshäufigkeit bleibt die Nutzungsmenge hingegen konstant auf dem Niveau des Nutzungsvorrats $n_{\text{max}}$, weil das Produkt nicht darüber hinaus genutzt werden kann (siehe Abbildung \ref{fig:t(h)_n(h)_P(h)} (b)).
+      
+      Nach diesen Vorüberlegungen kommen wir nun zurück zur Bestimmung der effektiven Produktanzahl. Diese ergibt sich aus den Grundgleichungen \eqref{eq:Grundgleichung_P} und \eqref{eq:Grundgleichung_S}, sowie der soeben hergeleiteten Gleichung \eqref{eq:n(h)_cases}:
+      %			
+      \begin{equation}
+         \label{eq:P(h)}	
+         P (h) \eqnref{eq:Grundgleichung_P} \frac{N}{n(h)} \eqnref{eq:Grundgleichung_S} \frac{S}{n(h) \cdot A} \eqnref{eq:n(h)_cases} \left\{\begin{array}{ll}  \frac{S}{A \cdot h \cdot t_{\text{max}}} & \mbox{falls } h < h^* \\[5pt] \frac{S}{A \cdot n_{\text{max}}} & \mbox{sonst} \end{array}\right.
+      \end{equation}	
+      
+      Wiederum ist der Punkt, an dem die Nutzungshäufigkeit gerade so groß ist, dass der Nutzungsvorrat innerhalb der Maximalnutzungsdauer aufgebraucht wird ($h = h^*$), entscheidend: Bei geringerer Nutzungshäufigkeit ist die benötigte Produktanzahl antiproportional zur Nutzungshäufigkeit, bei höherer Nutzungshäufigkeit ist sie hingegen konstant (siehe Abbildung \ref{fig:t(h)_n(h)_P(h)} (c)).
 
-				Werden $P$ Produkte in einem Produktnutzungssystem eingesetzt, ergibt sich die Gesamtnutzungsmenge
-	%
-				\begin{equation}
-					\label{eq:N(h)}
-					N = n \cdot P = h \cdot t \cdot P
-				\end{equation}
-	%
-				Hierbei ist zu beachten, dass die effektive Produktanzahl $P$ sowohl gleichzeitig, als auch nacheinander eingesetzte Produkte berücksichtigt. Die Anzahl der gleichzeitig eingesetzten Produkte bezeichnen wir als parallele Produktanzahl $p$, was stets eine natürliche Zahl ist. Demgegenüber verstehen wird unter der sequentiellen Produktanzahl $q$ die Anzahl der Produkte, die innerhalb des Betrachtungszeitraums nacheinander eingesetzt werden. Diese Größe muss nicht ganzzahlig sein, da ein Produkt auch anteilig dem betrachteten Nutzungssystem angerechnet werden kann, wenn es innerhalb des Betrachtungszeitraums nur einen Teil seines Nutzungsvorrats zur Verfügung stellt, und der Rest auf eine vorausgegangene oder nachfolgende Nutzung entfällt. Diese Eigenschaft überträgt sich auf die effektive Produktanzahl $P$, wie das folgende Beispiel illustriert: Werden in einem Gemeinschaftswaschkeller im Betrachtungszeitraum $T  = 10 \text{ Jahre}$ parallel $p = 2$ Maschinen betrieben, die jeweils über eine Nutzungsdauer von $t = 15 \text{ Jahren}$ verfügen, so sind sie jeweils nur zu $q = \nicefrac{10}{15}$ dem betrachteten Nutzungssystem anzurechnen, sodass sich eine Produktanzahl von $P = 2 \cdot \nicefrac{10}{15} \approx 1.33$ ergibt. Für den Fall, dass der Betrachtungszeitraum $T$ hingegen länger ist als die Nutzungsdauer $t$, muss jedes parallel eingesetzte Produkt mehr als einmal angerechnet werden, da es innerhalb des Betrachtungszeitraums ersetzt werden muss: So würden im obigen Beispiel in einem Zeitraum von $T  = 20 \text{ Jahren}$ eine Anzahl von $P = 2 \cdot \nicefrac{20}{15} \approx 2.67$ Maschinen eingesetzt werden. Abbildung \ref{fig:Produktanzahlen} stellt die beiden Zahlenbeispiele grafisch dar.
-				
-				 \begin{figure}[ht]
-				 	\includegraphics[width=\textwidth]{Produktanzahlen}
-				 	\caption{Veranschaulichung des Zusammenhangs zwischen paralleler, sequentieller und effektiver Produktanzahl. In Fall a) ist der Betrachtungszeitraum $T$ kürzer als die Nutzungsdauer $t$, sodass die zwei parallel eingesetzten Produkte nur anteilig auf das Nutzungssystem angerechnet werden. In Fall b) ist der Betrachtungszeitraum länger als die Nutzungsdauer, sodass zwei Produkte voll und zwei weitere anteilig angerechnet werden.}
-				 	\label{fig:Produktanzahlen}
-				 \end{figure}
-				 \noteJ{Abbildung schön machen: Text in LaTeX}
+      Es liegen nun alle Voraussetzungen vor um eine Formel für die MIPS in Abhängigkeit von der Nutzungshäufigkeit $h$ aufzustellen. Wir gehen von Gleichung \eqref{eq:MIPS(h)} aus und setzen den eben entwickelten Ausdruck für $P(h)$ ein:
+      \begin{equation}
+           	\text{MIPS}(h) = \frac{P(h) \cdot i_P}{S} + \frac{I_{\text{fix}}^h}{S} 
+           	\eqnref{eq:P(h)} \frac{\frac{S}{n(h) \cdot A} \cdot i_P}{S} + \frac{I_{\text{fix}}^h}{S} = \frac{i_P}{n(h) \cdot A} + \frac{I_{\text{fix}}^h}{S}
+      \end{equation}
+      %
+      Abschließend wenden wir erneut Gleichung \ref{eq:n(h)_cases} an, setzen $S=S_D$ ein und halten das folgende Ergebnis einschließlich der Nebenbedingung aus Gleichung \eqref{eq:h(p)_verbose} fest:
+      \\
+      
+      \begin{mdframed}[frametitle={Nutzungsintensivierung}, frametitlerule=true]
+           	Modell:
+           	\begin{align}
+           		\text{MIPS}(h) &= \frac{P(h) \cdot i_P}{S_D} + \frac{I_{\text{fix}}^h}{S_D} \\[10pt]
+           		\label{eq:MIPS(h)_2}
+           		&= \frac{I_{\text{fix}}^h}{S_D} + \left\{ \begin{array}{ll}  \frac{i_P}{h \cdot t_{\text{max}} \cdot A} & \mbox{falls } h < h^* := \frac{n_{\text{max}}}{t_{\text{max}}} \\[5pt] \frac{i_P}{n_{\text{max}} \cdot A} & \mbox{sonst} \end{array} \right.
+           	\end{align}
+           	Nebenbedingung:
+           	\begin{equation}
+           		h = \frac{S_D}{A \cdot p \cdot T} \qquad p \in \mathbb{N}
+           		\label{eq:h(p)}
+           	\end{equation}
+      \end{mdframed}
 
-				Allgemein gilt:
-	%
-				\begin{equation}
-					\label{eq:P(p)}
-					P = p \cdot q = p \cdot \frac{T}{t}
-				\end{equation}
-	%
-				Als Nebenbedingung muss berücksichtigt werden, dass die parallele Produktanzahl $p$ eine Nutzungssystem-spezifische Mindestproduktanzahl $p_\text{min}$ nicht unterschreitet. Die Mindestproduktanzahl kann beispielsweise dadurch erforderlich sein, dass aus praktisch-organisatorischen Gründen zu Stoßzeiten eine gewisse Anzahl an Produkten gleichzeitig im Einsatz ist. Als Formel:
-	%
-				\begin{equation}
-					\label{eq:p_min}
-					p \geq p_{\text{min}} \qquad  p, p_{\text{min}} \in \mathbb{N}
-				\end{equation}			
-
-				Bei einer gegebenen absoluten Produktauslastung $A$, deren Einfluss im Teilmodell \enquote{\nameref{sec:Produktauslastung}} (Kapitel \ref{sec:Produktauslastung}) ausführlich untersucht wird, bestimmt sich die Service-Menge $S$ durch
-	%
-				\begin{equation}
-				\label{eq:S(A)}
-					S = N \cdot A
-				\end{equation}
-	%			
-				Die Service-Menge lässt sich jedoch auch von der Nachfrageseite her betrachten: In einem konkreten Nutzungssystem besteht eine bestimmte Nachfrage nach Service. Diese wird von der Anzahl der Personen, dem individuellen Servicebedarf und dem Betrachtungszeitraum abhängen, was in diesem Teil-Modell jedoch nicht weiter von Belang ist, da diese Größen in Bezug auf die Nutzungshäufigkeit als konstant angenommen werden können. Insofern stellt die Service-Nachfrage $S_D$ hier eine Konstante dar und es ergibt sich eine zweite Bestimmungsgleichung:
-				%
-				\begin{equation}
-				\label{eq:S_D}
-				S = S_D
-				\end{equation}
-				%
-				Somit ist die Gesamtnutzungsmenge $N$ durch den hier als konstant betrachteten Ausdruck
-	%
-				\begin{equation}
-					\label{eq:N(S_D)}
-					N = \frac{S_D}{A}
-				\end{equation}
-	%						
-				gegeben. Betrachtet man Gleichung \eqref{eq:N(h)} ($N (h) = h \cdot t \cdot P$) unter diesem Gesichtspunkt, so wird deutlich, dass eine Erhöhung der Nutzungshäufigkeit $h$ bei gleichbleibender Produktnutzungsdauer $t$ zu einer geringeren effektiven Produktanzahl $P$ führt. Hierin besteht der positive Umwelteffekt der Nutzungsintensivierung, da weniger Produkte für die gleiche Service-Menge hergestellt und entsorgt werden müssen.
-
-				Umgekehrt wird eine Erhöhung der Nutzungshäufigkeit bei kollektiver Nutzung gerade durch eine Reduktion der Produktanzahl erreicht: Teilen sich beispielsweise mehrere Personen eine Waschmaschine, anstatt jeweils eine eigene zu besitzen, erhöht sich die Häufigkeit, mit der die Maschine betrieben wird. Genauer gesagt ist die Nutzungshäufigkeit $h$ für ein Nutzungssystem mit gegebener Service-Nachfrage $S_D$, gegebener Produktauslastung $A$ und einem festen Betrachtungszeitraum $T$ von der parallelen Produktanzahl $p$ abhängig: Je weniger Produkte parallel im Einsatz sind, desto häufiger müssen diese genutzt werden um die Nachfrage zu bedienen. Dieser Zusammenhang lässt sich formal folgendermaßen nachvollziehen:
-	%
-				\begin{equation}
-					h \eqnref{eq:N(h)} \frac{N}{t \cdot P} \eqnref{eq:P(p)} \frac{N}{t \cdot p \cdot \frac{T}{t}}
-					= \frac{N}{p \cdot T} \eqnref{eq:N(S_D)} \frac{S_D}{A \cdot p \cdot T} \qquad p \in \mathbb{N}
-                    \label{eq:h(p)_verbose}
-				\end{equation}
-	%
-				Die Nutzungshäufigkeit ist also reziprok proportional zur parallelen Produktanzahl $p$. Da es sich bei $p$ um eine natürliche Zahl handelt, kann in dem betrachteten Szenario auch die Nutzungshäufigkeit $h$ nur diskrete Werte annehmen. Durch die Beschränkung von $p$ durch $p_\text{min}$ gemäß Gleichung \eqref{eq:p_min} ergibt sich zudem eine Maximalnutzungshäufigkeit $h_\text{max}$:
-	%
-				\begin{equation}
-					h = \frac{S_D}{A \cdot p \cdot T} \leq \frac{S_D}{A \cdot p_\text{min} \cdot T} =: h_\text{max}
-				\end{equation}
-
-				Nach diesen einschränkenden Bemerkungen zur Nutzungshäufigkeit wenden wir uns nun wieder der effektiven Produktanzahl $P$ zu. Weiter oben wurde bereits der Einfluss der Nutzungshäufigkeit $h$ auf die Produktanzahl $P$ bei gleichbleibender Produktnutzungsdauer $t$ untersucht. Letztere ist allerdings nicht in jedem Fall gegeben, wie im Folgenden gezeigt wird.
-
-				Die Nutzungsdauer $t$ eines Produkts wird durch die folgenden zwei Zusammenhänge bestimmt: Einerseits stellt das Produkt Verschleiß"=bedingt nur eine bestimmte Produktnutzungsmenge -- den Einzelnutzungsvorrat \noteJ{Bezeichnung Einzelnutzungsvorrat unschön} $n_{\text{max}}$ -- zur Verfügung und wird nach dessen Aufbrauchen entsorgt. Andererseits kann das Produkt auch bei voller Funktionsfähigkeit nach einer gewissen Zeit aus dem Verkehr gezogen werden, wenn es etwa aktuellen technischen oder modischen Standards nicht mehr genügt. Diese Zeit ist von der Nutzung unabhängig und wird hier als Maximalnutzungsdauer $t_{\text{max}}$ bezeichnet. Formal lassen sich diese Zusammenhänge als zwei Bedingungen formulieren:
-	%
-				\begin{equation}
-					n \leq n_{\text{max}}
-				\end{equation}
-	%			
-				\begin{equation}	
-					t \leq t_{\text{max}}
-				\end{equation}	
-	%
-				Die erste Bedingung impliziert unter Berücksichtigung von Gleichung \eqref{eq:n(h)}:
-				\begin{equation}	
-					t = \frac{n}{h} \leq \frac{n_{\text{max}}}{h} =: t_\text{tech}(h)
-				\end{equation}
-	%
-				Dabei bezeichnet $t_\text{tech}(h$) die von der Nutzungshäufigkeit abhängige technische Lebensdauer. Es ist davon auszugehen, dass ein Produkt so lange genutzt wird, bis entweder die technische Lebensdauer, oder die Maximalnutzungsdauer erreicht wird. Damit lässt sich die Nutzungsdauer folgendermaßen bestimmen:
-	%			
-				\begin{equation}	
-					t (h) = \min \left\{ t_{\text{max}}, t_\text{tech}(h) \right\}
-				\end{equation}	
-	%			
-				Dies ist gleichbedeutend zu:
-	%			
-				\begin{equation}	
-					t (h) =\left\{\begin{array}{ll}  t_{\text{max}} & \mbox{falls } h <  \frac{n_{\text{max}}}{t_{\text{max}}} =: h^* \\ \frac{n_{\text{max}}}{h} & \mbox{sonst} \end{array}\right.
-				\end{equation}	
-	%
-				Solange also die Nutzungshäufigkeit zu gering ist um den Nutzungsvorrat innerhalb der Maximalnutzungsdauer aufzubrauchen ($h < h*$), ist die Nutzungsdauer durch die Maximalnutzungsdauer $t_{\text{max}}$ gegeben. Bei einer höheren Nutzungshäufigkeit ist hingegen die technische Lebensdauer $\frac{n_{\text{max}}}{h}$ ausschlaggebend, die mit zunehmender Nutzungshäufigkeit antiproportional abnimmt, da der Nutzungsvorrat schneller aufgebraucht wird.
-
-				Für die Nutzungsmenge $n$ eines Produkts ergibt sich hieraus mit Gleichung \eqref{eq:n(h)}:
-	%			
-				\begin{equation}
-					\label{eq:n(h)_cases}
-					n (h) = h \cdot t(h) = \left\{\begin{array}{ll}  h \cdot t_{\text{max}} & \mbox{falls } h < h^* \\ n_{\text{max}} & \mbox{sonst} \end{array}\right.
-				\end{equation}	
-	%			
-				Hier verhält es sich also umgekehrt als bei der Nutzungsdauer: Solange der Nutzungsvorrat innerhalb der Maximalnutzungsdauer aufgrund einer geringen Nutzungshäufigkeit nicht aufgebraucht wird ($h < h^*$), ist die Nutzungsmenge proportional von der Nutzungshäufigkeit abhängig, weil das Produkt in derselben Zeit häufiger genutzt wird: $n (h) = h \cdot t_{\text{max}}$. Bei einer höheren Nutzungshäufigkeit bleibt die Nutzungsmenge hingegen konstant auf dem Niveau des Nutzungsvorrats $n_{\text{max}}$, weil das Produkt nicht darüber hinaus genutzt werden kann.
-
-				Mit Gleichung \eqref{eq:N(h)} ($N = n \cdot P$) lässt sich schließlich die effektive Produktanzahl $P(h)$ bestimmen:
-	%			
-				\begin{equation}
-				\label{eq:P(h)}	
-					P (h) = \frac{N}{n(h)} = \left\{\begin{array}{ll}  \frac{N}{h \cdot t_{\text{max}}} & \mbox{falls } h < h^* \\[5pt] \frac{N}{n_{\text{max}}} & \mbox{sonst} \end{array}\right.
-				\end{equation}	
-
-				Wiederum ist der Punkt, an dem die Nutzungshäufigkeit gerade so groß ist, dass der Nutzungsvorrat innerhalb der Maximalnutzungsdauer aufgebraucht wird ($h = h*$), entscheidend: Bei geringerer Nutzungshäufigkeit ist die benötigte Produktanzahl antiproportional zur Nutzungshäufigkeit, bei höherer Nutzungshäufigkeit ist sie hingegen konstant. Dies folgt direkt aus den eben gemachten Beobachtungen zur Nutzungsmenge n(h)und hat zur Folge, dass eine Nutzungsintensivierung nur solange einen positiven Umwelteffekt aufweist, bis der Nutzungsvorrat voll ausgeschöpft wird, was noch im Detail gezeigt werden wird.
-
-				Abbildung \ref{fig:t(h)_n(h)_P(h)} stellt die Abhängigkeiten der Nutzungsdauer $t$, der Nutzungsmenge $n$ und der Produktanzahl $P$ von der Nutzungshäufigkeit $h$ dar.
-
-				\begin{figure}[ht]
-					\centering
-					\input{Abbildungen/Nutzungsintensivierung_1.tex}
-					\caption{Nutzungsdauer, Nutzungsmenge und Produktanzahl in Abhängigkeit von der Nutzungshäufigkeit (untere Skala). Die durchgezogenen Linien folgen dem hypothetischen Funktionsverlauf für eine kontinuierlich angenommene Nutzungshäufigkeit, die kleinen Quadrate zeigen die tatsächlichen Funktionswerte für verschiedene Anzahlen parallel genutzter Produkte (obere Skala). Bei $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Parameter: $N = 10.000$ NE, $n_\text{max} = 5.000$ NE, $T = 10$ Jahre, $t_\text{max} = 15$ Jahre. (NE = Nutzungseinheiten.)}
-					\label{fig:t(h)_n(h)_P(h)}
-				\end{figure}
-
-				Um zu untersuchen, welchen Einfluss eine Erhöhung der Nutzungshäufigkeit auf die MIPS hat, werden zunächst die beiden Komponenten der MIPS -- die Material-Inputs $I$ und die Service-Menge $S$ -- einzeln betrachtet und anschließend alle betrachteten Aspekte zu einem Modell zusammengeführt. Die Material-Inputs lassen sich für dieses Modell in produktbezogene Inputs $I_P = P(h) \cdot i_P$  und konstante Inputs $I_{\text{fix}}^h$ unterscheiden:
-				%
-				\begin{equation}
-					\label{eq:I(h)}
-					I = P(h) \cdot i_P + I_{\text{fix}}^h
-				\end{equation}	
-				%
-				Die produktbezogenen Inputs $I_P$ sind solche, die von der Anzahl der Produkte abhängen. Sie fallen bei der Bereitstellung und
-				Entsorgung der eingesetzten Produkte an. Unter den konstanten Inputs $I_\text{fix}^h$ werden hier alle anderen Inputs zusammengefasst, das heißt solche, die von der Anzahl der Produkte \emph{nicht} abhängen.
-
-				Für die Service-Menge $S$ wurden mit den Gleichungen \eqref{eq:S(A)} und \eqref{eq:S_D} bereits zwei Bestimmungsgleichungen eingeführt:	$S = N \cdot A$ und $S = S_D$. Unter Berücksichtigung von Gleichung \eqref{eq:N(h)} lässt
-				sich der erste Ausdruck auch schreiben als $S = n(h) \cdot P(h) \cdot A$. Mit diesen
-				Zusammenhängen lässt sich die folgende Gleichung für die MIPS in Abhängigkeit von der
-				Nutzungshäufigkeit $h$ ableiten:
-	%
-				\begin{align}
-					\text{MIPS}(h) &= \frac{I}{S} = \frac{P(h) \cdot i_P + I_{\text{fix}}^h}{S} =
-					\frac{P(h) \cdot i_P}{S_D} + \frac{I_{\text{fix}}^h}{S_D} \\[10pt]
-					&= \frac{P(h) \cdot i_P}{n(h) \cdot P(h) \cdot A} + \frac{I_{\text{fix}}^h}{S_D} = \frac{I_{\text{fix}}^h}{S_D} + \frac{i_P}{n(h) \cdot A} \\[10pt]
-					&\eqnref{eq:n(h)_cases} \frac{I_{\text{fix}}^h}{S_D} + \left\{ \begin{array}{ll}  \frac{i_P}{h \cdot t_{\text{max}} \cdot A} & \mbox{falls } h < \frac{n_{\text{max}}}{t_{\text{max}}} \\[5pt] \frac{i_P}{n_{\text{max}} \cdot A} & \mbox{sonst} \end{array}\right.
-				\end{align}
-	%
-				Zusammenfassend lässt sich das folgende Teilmodell für die Nutzungsintensivierung festhalten:
-				\\
-
-				\begin{mdframed}[frametitle={Nutzungsintensivierung}, frametitlerule=true]
-					Teilmodell:
-					\begin{align}
-						\label{eq:MIPS(h)}
-						\text{MIPS}(h) &= \frac{P(h) \cdot i_P}{S_D} + \frac{I_{\text{fix}}^h}{S_D} \\[10pt]
-						\label{eq:MIPS(h)_2}
-						&= \frac{I_{\text{fix}}^h}{S_D} + \left\{ \begin{array}{ll}  \frac{i_P}{h \cdot t_{\text{max}} \cdot A} & \mbox{falls } h < h^* := \frac{n_{\text{max}}}{t_{\text{max}}} \\[5pt] \frac{i_P}{n_{\text{max}} \cdot A} & \mbox{sonst} \end{array} \right.
-					\end{align}
-					Nebenbedingungen:
-					\begin{equation}
-						h = \frac{S_D}{A \cdot p \cdot T} \qquad p \in \mathbb{N}
-						\label{eq:h(p)}
-					\end{equation}
-					\begin{equation}
-						\label{eq:h_max}
-						h \leq h_\text{max} := \frac{S_D}{A \cdot p_\text{min} \cdot T} \qquad p_\text{min} \in \mathbb{N}
-					\end{equation}
-				\end{mdframed}
-				
-				\paragraph{Modellanalyse}
-				
-				In dieser Analyse des Teilmodells zur Nutzungsintensivierung wird untersucht, wie sich eine Erhöhung der Nutzungshäufigkeit auf die MIPS auswirkt. Da die Nutzungshäufigkeit $h$ gemäß Nebenbedingung \eqref{eq:h(p)} nur in diskreten Schritten variiert werden kann, wird die Änderung der MIPS von einer gegebenen Nutzungshäufigkeit ($h = h_1$) zur nächstgrößeren ($h = h_2$) betrachtet. Diese ist durch die Verringerung der parallelen Produktanzahl von $p = p_1$ auf $p = p_2$ um eins gegeben: $p_2 - p_1 = -1$.
-				
-				Mit Gleichung \eqref{eq:MIPS(h)} ergibt sich für die Änderung der MIPS:
-				\begin{equation}
-					\label{eq:Delta_MIPS_h}
-					\Delta \text{MIPS} = \text{MIPS}(h_2) - \text{MIPS}(h_1) = \frac{i_P}{S_D} \cdot (P(h_2) - P(h_1))
-				\end{equation}
-				
-				Unter Berücksichtigung von Gleichung \eqref{eq:MIPS(h)_2} lässt sich dieser Ausdruck näher bestimmen. Dabei ist die Fallunterscheidung nach $h_1$ bzw. $h_2$ in Bezug auf $h^*$ zu berücksichtigen. Da $h_1 < h_2$ gilt, ergeben sich drei mögliche Fälle.
-				
-				\underline{Fall 1}: $h_1 < h_2 < h^*$ \\
-				Hier wird der Nutzungsvorrat eines einzelnen Produkts sowohl vor, als auch nach der Erhöhung der Nutzungshäufigkeit \emph{nicht} aufgebraucht, bevor die Maximalnutzungsdauer erreicht ist. Für die Änderung der MIPS gilt unter Anwendung von Gleichung \eqref{eq:MIPS(h)_2}:
-	%
-				\begin{align}
-					\Delta \text{MIPS} &= \text{MIPS}(h_2) - \text{MIPS}(h_1) = \frac{i_P}{t_\text{max} \cdot A} \cdot \left( \frac{1}{h_2} - \frac{1}{h_1} \right) \label{eq:Delta_MIPS_h_1}\\[10pt]
-					&= \frac{i_P}{t_\text{max} \cdot A} \cdot \frac{h_1 - h_2}{h_1 \cdot h_2}
-					\eqnref{eq:h(p)} \frac{i_P}{t_\text{max} \cdot A} \cdot \frac{A \cdot T}{S_D} \cdot \frac{\frac{1}{p_1} - \frac{1}{p_2}}{\frac{1}{p_1 \cdot p_2}}  \\[10pt]
-					&= \frac{i_P \cdot T}{t_\text{max} \cdot S_D} \cdot \frac{\frac{p_2 - p_1}{p_1 \cdot p_1}}{\frac{1}{p_1 \cdot p_2}} = - \frac{i_P \cdot T}{t_\text{max} \cdot S_D} = - \frac{q \cdot i_P}{S_D} 
-				\end{align}
-	%
-				Im letzten Schritt wurde die Definition $q := \frac{T}{t}$ mit $t = t_\text{max}$ angewendet. Die obige Analyse ergibt, dass die MIPS durch die Nutzungsintensivierung im ersten Fall bei der Einsparung eines parallel betriebenen Produkts unabhängig vom Ausgangsniveau um einen konstanten Wert abnimmt. Dabei lässt sich der Zähler $q \cdot i_P$ als die produktbezogenen Inputs des eingesparten Produkts identifizieren, wenn man sich vergegenwärtigt, dass im Betrachtungszeitraum nacheinander $q$ Produkte eingesetzt werden.
-
-				\underline{Fall 2}: $h^* \leq h_1 < h_2$ \\
-				Der zweite Fall ist dadurch gegeben, dass der Nutzungsvorrat eines einzelnen Produkts sowohl vor, als auch nach der Erhöhung der Nutzungshäufigkeit spätestens bis zum Erreichen der Maximalnutzungsdauer aufgebraucht wird. Es ergibt sich direkt aus Gleichung \eqref{eq:MIPS(h)_2}:
-	%
-				\begin{equation}
-					\label{eq:Delta_MIPS_h_2}
-					\Delta \text{MIPS} = \text{MIPS}(h_2) - \text{MIPS}(h_1) = 0
-				\end{equation}
-	%
-				Hier bewirkt eine Erhöhung der Nutzungshäufigkeit also keine Veränderung der MIPS. Dies leuchtet insofern ein, als dass hier die effektive Produktanzahl $P$ unveränderlich ist, da ansonsten aufgrund der konstanten Nutzungsmenge $n = n_\text{max}$ die Service-Menge steigen würde. Es wird also effektiv kein Produkt eingespart.
-
-				\underline{Fall 3}: $h_1 < h^* \leq h_2$ \\
-				Der dritte Fall stellt als Sonderfall den Übergang vom ersten zum dritten Fall dar: Vor der Erhöhung der Nutzungshäufigkeit wird der Nutzungsvorrat eines einzelnen Produkts nicht voll ausgeschöpft, nach der Erhöhung jedoch schon. Für die Veränderung der MIPS gilt nach Gleichung \eqref{eq:MIPS(h)_2}:
-	%
-				\begin{equation}
-					\Delta \text{MIPS} = \text{MIPS}(h_2) - \text{MIPS}(h_1) = \frac{i_P}{A} \cdot \left( \frac{1}{n_\text{max}} - \frac{1}{h_1 \cdot t_\text{max}} \right)
-				\end{equation}
-	%
-				Dieser Ausdruck ist für sich betrachtet nicht sehr aufschlussreich, kann jedoch nach oben und nach unten abgeschätzt werden. Einerseits ist wegen $h_1 < \frac{n_\text{max}}{t_\text{max}}$ der Klammerausdruck und damit der gesamte Ausdruck negativ, also $\Delta \text{MIPS} < 0$. Andererseits gilt wegen $h_2 \geq \frac{n_\text{max}}{t_\text{max}}$:
-	%
-				\begin{equation}
-					\label{eq:Delta_MIPS_h_3}
-					\Delta \text{MIPS} = \frac{i_P}{A} \cdot \left( \frac{1}{n_\text{max}} - \frac{1}{h_1 \cdot t_\text{max}} \right) \geq \frac{i_P}{A} \cdot \left( \frac{1}{h_2 \cdot t_\text{max}} - \frac{1}{h_1 \cdot t_\text{max}} \right) \eqnref{eq:Delta_MIPS_h_1} - \frac{q \cdot i_P}{S_D}
-				\end{equation}
-	%			
-				Die Änderung der MIPS bewegt sich im dritten Fall also zwischen den Werten der ersten beiden Fälle und ist auch in diesem Sinne als Übergangsfall zu betrachten.
-				\\
-				
-				\begin{mdframed}[frametitle={Fazit}, frametitlerule=true]				
-					Die Verringerung des Umweltverbrauchs durch eine Nutzungsintensivierung ist stets positiv oder null. Ein echt positives Ergebnis wird genau dann erzielt, wenn die Produkte \emph{vor} der Nutzungsintensivierung noch nicht bis zum Erreichen ihrer technischen Lebensdauer genutzt wurden. In diesem Fall besteht die Einsparung in der Verringerung der Anzahl parallel eingesetzter Produkte.
-				\end{mdframed}
-				
-% der folgende Text ist noch war bei einem Merge Konflikt mit obigem angezeigt
-% wurden. Welcher ist aktueller=!
-				% \subparagraph{Fazit}
-				% Die Analyse hat bis hierhin gezeigt, dass eine Nutzungsintensivierung im Sinne einer Erhöhung der Nutzungshäufigkeit im schlechtesten Fall keine Änderung der MIPS, und im besten Fall eine Verringerung der MIPS um einen konstanten Ausdruck mit sich bringt. Es kann also direkt kein schädlicher Effekt auftreten. Die Verringerung wird durch die Einsparung eines der parallel betriebenen Produkte erreicht. Eine solche ist nur möglich, wenn die genutzten Produkte vor der Nutzungsintensivierung noch nicht ihre technische Lebensdauer erreichen.
-                %
-				\subparagraph{Einschränkung}
-				In der bisherigen Analyse blieb bislang unberücksichtigt, dass die Nutzungshäufigkeit nicht beliebig gesteigert werden kann, da in einem Nutzungssystem aus praktischen Gründen eine Mindestanzahl von Produkten benötigt wird. Dieser Zusammenhang wurde durch die Nebenbedingung \eqref{eq:h_max} im Modell abgebildet: $h \leq h_\text{max}$. Für die Analyse hat dies zur Konsequenz, dass nicht alle theoretisch denkbaren Nutzungsintensivierungen als realisierbar betrachtet werden können. Für alle realisierbaren Fälle gelten jedoch die getroffenen Aussagen. Falls $h_\text{max} < h^*$ gilt, sind die Fälle 2 und 3 der Analyse ausgeschlossen. Ansonsten sind alle Fälle möglich.
-				
-				In Abbildung \ref{fig:MIPS(h)} wird Verlauf der MIPS in Abhängigkeit von der Nutzungshäufigkeit exemplarisch dargestellt. An den gleichbleibenden vertikalen Abständen der Datenpunkte bis zur Stelle $h = h^*$ ist die konstante Verringerung mit jedem eingesparten Produkt gut erkennbar.
-
-				\begin{figure}[pht]
-					\centering
-					\input{Abbildungen/Nutzungsintensivierung_2.tex}
-					\caption{MIPS in Abhängigkeit von der Nutzungshäufigkeit (untere Skala). Die durchgezogenen Linien folgen dem hypothetischen Funktionsverlauf für eine kontinuierlich angenommene Nutzungshäufigkeit, die kleinen Quadrate zeigen die tatsächlichen Funktionswerte für verschiedene Anzahlen parallel genutzter Produkte (obere Skala). Bei $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Die Maximalnutzungshäufigkeit $h_\text{max}$ ist durch die minimale parallele Produktanzahl $p_\text{min}$ gegeben. Parameter: $I_\text{fix}$ = 10.000~kg, $S_D$ = 10.000~SE, $i_P$ = 5.000~kg, $A$ = 1~SE/NE, $T$ = 10~Jahre, $t_\text{max}$ = 15~Jahre, $n_\text{max}$ = 5.000~NE, $p_\text{min}$ = 2 (NE~=Nutzungseinheiten, SE~=~Service-Einheiten).}
-					\label{fig:MIPS(h)}
-				\end{figure} \noteJ{Horizontale gestrichelte Linien einfügen um konstantes Delta zu verdeutlichen}
-			\clearpage	
-			\subsection{Produktauslastung} % Ursprünglich: "Maximierung der Geräteauslastung"
-			\label{sec:Produktauslastung}
-			\todo[color=prioH]{
-				Abschnitt zu relativer Produktauslastung einfügen (war ursprünglich im Grundmodell)
-%				Gibt es eine maximale Produktauslastung, die wir als Kapazität $K$ bezeichnen, kann zu einer Betrachtung der relativen Produktauslastung $a$ übergegangen werden:
-%				\begin{equation}
-%				\label{eq:a(A,K)}
-%				a = \frac{A}{K}
-%				\end{equation}
-%				%
-%				So ist beispielsweise eine Waschmaschine, die über eine Kapazität von $K = 7 ~ \frac{\text{kg}}{\text{Waschgang}}$ verfügt und mit $A = 3.5 ~ \frac{\text{kg}}{\text{Waschgang}}$ Wäsche beladen ist, genau zur Hälfte ausgelastet, das heißt $a = 0.5$. Wir fassen die Gleichungen \eqref{eq:S(N,A)} und \eqref{eq:a(A,K)} zusammen, und stellen nach $N$ um:
-%				\begin{equation}
-%				N = \frac{S}{a \cdot K}
-%				\end{equation}
-			}
-				\paragraph{Modellbeschreibung}
-				Unter dem Begriff \emph{Produktauslastung} verstehen wir die
-				Intensität, mit der ein Produkt während einer einzelnen Nutzung eingesetzt
-			    wird. Im Fall einer Waschmaschine entspricht dies dem Gewicht der Beladung
-			    während eines Waschgangs. In diesem Teilmodell werden vier Effekte und deren Zusammenspiel abgebildet, die mit einer Erhöhung der Produktauslastung einhergehen.
-
-				Formal betrachtet ist die absolute Produktauslastung $A$ der Service,
-			    der durch eine einzelne Produktnutzungseinheit erzielt wird -- im Fall der
-			    Waschmaschine das Gewicht der gewaschenen Wäsche pro Waschgang. Nimmt
-			    man an, dass ein Produkt über eine gewisse Kapazität $K$ (die maximale
-			    absolute Auslastung) verfügt, so kann zur Betrachtung der relativen
-			    Produktauslastung $a$ übergegangen werden: $a = A/K$. Bei einer
-			    Waschmaschine ist die Kapazität durch das maximale Beladungsgewicht, und die
-			    relative Produktauslastung durch den Anteil des tatsächlichen am maximalen
-			    Beladungsgewicht während eines Waschgangs gegeben.
-
-				Mit diesen Definitionen ergibt sich der folgende Zusammenhang zwischen der Quantität der Produktnutzung $N$, der relativen Produktauslastung $a$, der Kapazität $K$ und dem erzielten Service $S$:
-	%
-				\begin{align}
-					\label{eq:S(a)}
-					S &= N \cdot a \cdot K \qquad a \in \left( 0,1 \right]\\
-					\label{eq:N(a)}
-					\Leftrightarrow N(a) &= \frac{S}{a \cdot K}
-				\end{align}
-	%
-	%			Diese Gleichung muss der Nebenbedingung genügen, dass die abgerufene Produktnutzungs-Menge $N$ den gesamten Nutzungsvorrat $N_{\text{max}}$ des Produktnutzungssystems nicht übersteigt. Dieser setzt sich aus den Nutzungsvorräten $n_{\text{max}}^i$ der eingesetzten Produkte zusammen. Im Fall von $P$ identischen Produkten ergibt sich:
-	%%
-	%			\begin{equation}
-	%				\label{eq:Nebenbedingung N_max}
-	%				N \leq N_{\text{max}} = P \cdot n_{\text{max}}
-	%			\end{equation}
-	%%
-				Analog zum Teilmodell \enquote{\nameref{sec:Nutzungsintensivierung}} lässt sich bei gegebener Service-Menge $S = S_D$ aus Gleichung \eqref{eq:S(a)} unter Rückgriff auf die Gleichungen \eqref{eq:N(h)} ($N = h \cdot t \cdot P$) und \eqref{eq:P(p)} ($P = p \cdot \frac{T}{t}$) eine Bedingung für die Auslastung $a$ ableiten:
-				%
-				\begin{equation}
-					\label{eq:a(h,p)}
-					a \eqnref{eq:S(a)} \frac{S_D}{N \cdot K} \eqnref{eq:N(h)} \frac{S_D}{h \cdot t \cdot P \cdot K} \eqnref{eq:P(p)} \frac{S_D}{h \cdot T \cdot p \cdot K} \qquad p \in \mathbb{N}
-				\end{equation}
-				%
-				Für ein Nutzungssystem mit gegebener Service-Nachfrage $S_D$, gegebener Nutzungshäufigkeit $h$ und einem festen Betrachtungszeitraum $T$ ist die Produktauslastung $a$ also antiproportional zur parallelen Produktanzahl $p$. Je weniger Produkte parallel im Einsatz sind, desto stärker müssen diese ausgelastet werden um die Nachfrage zu bedienen. Die Nutzungshäufigkeit $h$ soll in diesem Teilmodell jedoch nicht als Konstante, sondern als Funktion der Produktauslastung $a$, betrachtet werden um eine kontinuierliche Variation der Auslastung zu ermöglichen. In diesem Sinne liest sich Gleichung \eqref{eq:a(h,p)} folgendermaßen:
-				%
-				\begin{equation}
-					h(a) = \frac{S_D}{a \cdot T \cdot p \cdot K} \qquad p \in \mathbb{N}
-				\end{equation}
-
-				Ebenfalls analog zum Teilmodell \enquote{\nameref{sec:Nutzungsintensivierung}} kann die parallele Produktanzahl $p$ aus praktisch-organisatorischen Gründen nach unten beschränkt sein:
-				%
-				\begin{equation}
-					p \geq p_{\text{min}} \qquad  p, p_{\text{min}} \in \mathbb{N}
-				\end{equation}
-				%
-				Im Unterschied zum Teilmodell \enquote{\nameref{sec:Nutzungsintensivierung}} kann diese Beschränkung der parallelen Produktanzahl jedoch durch eine Verringerung der Nutzungshäufigkeit ausgeglichen werden, sodass sich keine weitere Einschränkung für die Produktauslastung $a$ ergibt.
-
-				In Gleichung \eqref{eq:N(a)} spiegelt sich bereits ein erster (positiver) Effekt einer Produktauslastungs-Erhöhung wider, und zwar eine proportionale \textit{Verringerung der Produktnutzung} $N$ unter der Annahme eines gleichbleibenden Services $S$. Es können jedoch unter bestimmten Umständen -- die im Analyse-Teil ausführlich erörtert werden \todo{Referenz einfügen} -- bis zu drei weitere Effekte zum Tragen kommen: erstens ein Mehrbedarf an Inputs je Produktnutzung, zweitens eine Reduktion des Nutzungsvorrats und drittens eine Einsparung von Produkten. Diese Effekte werden im Folgenden modelliert.
-
-				Der zweite (negative) Effekt -- ein \textit{Mehrbedarf an Inputs je Produktnutzung} $i_N$ -- tritt auf, wenn durch eine erhöhte Produktauslastung mehr Energie oder andere Betriebsmittel bei der Nutzung des Produkts eingesetzt werden müssen. So steigt bei einer Waschmaschine beispielsweise der Bedarf an elektrischer Energie und an Waschmittel, wenn die Maschine voller beladen wird. Formal kann dieser Zusammenhang durch eine funktionale Abhängigkeit der Inputs je Produktnutzung $i_N$ von der Auslastung $a$ beschrieben werden:
-	%
-				\begin{equation}
-					i_N = i_N (a)
-				\end{equation}
-	%
-				Wir gehen davon aus, dass eine erhöhte Auslastung mit höheren oder wenigstens gleichbleibenden Inputs je Produktnutzung einhergeht. Das heißt, der Funktionsverlauf von $i_N (a)$ kann als monoton steigend angenommen werden:
-	%
-				\begin{equation}
-					\frac{\partial i_N}{\partial a} \geq 0
-				\end{equation}
-
-				Zu dem dritten (negativen) Effekt -- einer \textit{Reduktion des Nutzungsvorrats} $n_{\text{max}}$ -- kommt es, wenn eine erhöhte Produktauslastung zu einer verstärkten Abnutzung des Produkts führt. So wird eine Waschmaschine beispielsweise nach einer geringeren Anzahl von Waschgängen aus der Nutzung genommen werden müssen, wenn sie im Durchschnitt voller beladen wurde. Auch dieser Zusammenhang kann durch eine funktionale Abhängigkeit abgebildet werden:
-	%
-				\begin{align}
-					\label{N_max(a)}
-					n_{\text{max}} &= n_{\text{max}} (a) %\\
-					%\Rightarrow N_{\text{max}} &= N_{\text{max}} (a) = P \cdot n_{\text{max}} (a)
-				\end{align}
-	%
-				Analog zu den monoton steigenden Inputs pro Nutzungseinheit gehen wir davon aus, dass der Nutzungsvorrat durch eine erhöhte Auslastung geringer wird, oder höchstens gleich bleibt:
-	%
-				\begin{equation}
-					\frac{\partial n_{\text{max}}}{\partial a} \leq 0
-				\end{equation}
-
-				Der vierte (positive) Effekt -- eine \textit{Einsparung von Produkten} --
-			    tritt auf, wenn durch eine erhöhte Auslastung einzelne Produkte im
-			    Produktnutzungssystem nicht mehr benötigt werden und daher weder
-			    bereitgestellt, noch entsorgt werden müssen. Beispielsweise kann eine
-			    Waschmaschine eingespart werden, wenn zwei Personen, die bisher jeweils
-			    eine eigene Waschmaschine nutzten und nur halbvoll beluden, nun gemeinsam
-			    eine einzige Maschine nutzen, die immer voll beladen wird. Um diesen Effekt nachzuvollziehen, greifen wir Gleichung \eqref{eq:P(h)} aus Kapitel \ref{sec:Nutzungsintensivierung} wieder auf, da hier die gleichen Grundzusammenhänge gelten:
-
-				\begin{equation}
-					P (h) = \frac{N}{n(h)} = \left\{\begin{array}{ll}  \frac{N}{h \cdot t_{\text{max}}} & \mbox{falls } h < h^* =  \frac{n_{\text{max}}}{t_{\text{max}}} \\[5pt] \frac{N}{n_{\text{max}}} & \mbox{sonst} \end{array}\right.
-				\end{equation}
-
-				Die folgenden Anpassungen müssen für das Teilmodell \enquote{Nutzungsintensivierung} durchgeführt werden: Die unabhängige Variable ist nun -- statt der Nutzungshäufigkeit $h$ -- die Auslastung $a$, von der die Gesamtnutzungsmenge $N$, die Einzelnutzungsmenge $n$, sowie der Einzelnutzungsvorrat $n_{max}$ und damit auch die effektive Produktmenge $P$ abhängen. Die Nutzungsmenge $N(a)$ wird durch Gleichung \eqref{eq:N(a)} spezifiziert: $N(a) = \frac{S}{a \cdot K}$. Die Bedingung der Fallunterscheidung ($h < \frac{n_{\text{max}}}{t_{\text{max}}}$) schreibt sich nun als implizite Bedingung an $a$:
-				\begin{equation}
-					n_\text{max}(a) > h \cdot t_\text{max}
-				\end{equation}
-				Damit ergibt sich insgesamt die folgende Gleichung für die effektive Produktanzahl:
-				\begin{equation}
-				\label{P(a)}
-					P (a) = \frac{N(a)}{n(a)} = \left\{\begin{array}{ll} \frac{S}{a \cdot K \cdot h \cdot t_{\text{max}}} & \mbox{falls } n_\text{max}(a) > h \cdot t_\text{max} \\[5pt] \frac{S}{a \cdot K \cdot n_{\text{max}}(a)} & \mbox{sonst} \end{array}\right.
-				\end{equation}
-
-				Im ersten Fall -- wenn der Nutzungsvorrat innerhalb der Maximalnutzungsdauer nicht aufgebraucht wird -- nimmt die effektive Produktanzahl antiproportional mit der Produktauslastung ab. Im zweiten Fall tritt dieser Effekt ebenfalls auf, jedoch wird er durch einen ggf. sinkenden Nutzungsvorrat abgeschwächt, oder sogar überkompensiert. Dabei ist zu beachten, dass abhängig von den Parameterwerten $h$ und $t_\text{max}$ sowie vom Funktionsverlauf von $n_\text{max}(a)$ nicht zwingend beide Fälle auftreten, sondern auch einer der beiden Fälle für alle Werte von $a$ gelten kann.
-
-	%			Die konkrete Organisation der kollektiven Produktnutzung ist ein komplexes Problem, das von vielen Faktoren wie der zeitlichen Struktur des Bedarfs, räumlichen Gegebenheiten und organisatorischen Einschränkungen bestimmt wird. Zudem wird nicht jedes ungenutzte Produkt auch tatsächlich zeitnah aus dem Nutzungssystem genommen. Daher lässt sich aus der Produktauslastung allein nicht ableiten, wie viele Produkte durch die kollektive Nutzung eingespart werden können. Jedoch kann eine Aussage darüber getroffen werden, wie viele Produkte \textit{maximal} eingespart werden können, indem die folgende Überlegung über die Anzahl der mindestens notwendigen Produkte angestellt wird: Um den Bedarf zu decken, muss die Nebenbedingung aus Ungleichung \eqref{eq:Nebenbedingung N_max} erfüllt sein. Umgestellt nach $P$ schreibt sich diese als:
-	%%
-	%			\begin{equation}
-	%				P \geq \frac{N}{n_\text{max}}
-	%			\end{equation}
-	%%
-	%			Mit Gleichung \eqref{eq:N(a)} ist dies äquivalent zu:
-	%%
-	%			\begin{equation}
-	%				\label{eq:P_min}
-	%				P \geq \frac{S}{n_\text{max} \cdot a \cdot K} =: P_\text{min} (a)
-	%			\end{equation}
-	%%
-	%			Dabei ist zu beachten, dass $P$ ganzzahlig sein muss, das heißt es muss gegebenenfalls aufgerundet werden. Da die Ungleichung dabei ihre Richtigkeit nicht verliert, verzichten wir auf diesen Schritt um die Analyse zu vereinfachen. Die eingesparte Menge an Produkten durch eine erhöhte Auslastung ergibt sich aus der Differenz der ursprünglich benötigten und der nach der Auslastungserhöhung eingesetzten Produkte.
-
-				Nachdem die verschiedenen Effekte einer Erhöhung der Produktauslastung formal beschrieben sind, kann nun untersucht werden, wie sie gemeinsam auf die Zielgröße MIPS einwirken. Dazu werden analog zu Kapitel \ref{sec:Nutzungsintensivierung} zunächst die beiden Komponenten des MIPS einzeln betrachtet und anschließend zu einem Modell zusammengeführt.
-
-				Die Material-Inputs setzen sich aus nutzungsbedingten Inputs $I_N = N(a) \cdot i_N(a)$, produktbezogenen Inputs $I_P = P(a) \cdot i_P$  und konstanten Inputs $I_{\text{fix}}^a$ zusammen:
-	%
-				\begin{equation}
-					I = N(a) \cdot i_N(a) + P(a) \cdot i_P + I_{\text{fix}}^a
-				\end{equation}			
-	%
-				Die nutzungsbedingten Inputs $I_N$ sind solche, die unmittelbar bei der
-			    Nutzung anfallen, wie beispielsweise Energie oder andere Betriebsmittel. Im Teilmodell \enquote{Nutzungsintensivierung} wurden sie nicht explizit, sondern unter den konstanten Inputs $I_{\text{fix}}^h$ erfasst, da sie nicht von der Nutzungshäufigkeit abhängen. In diesem Teilmodell werden sie jedoch gesondert aufgeführt, da sie von der Auslastung abhängig sind.
-			    Die produktbezogenen Inputs $I_P$ fallen bei der Bereitstellung und
-			    Entsorgung der eingesetzten Produkte an. Zu den konstanten Inputs $I_\text{fix}^a$ schließlich zählen alle Inputs, die weder von der Anzahl der Produkte, noch von der Anzahl der Nutzungen unmittelbar abhängen. Diese fallen beispielsweise für die Bereitstellung der Infrastruktur, wie etwa der Räumlichkeiten, eines Nutzungssystems an.
-
-				Die Service-Menge $S$ ist -- wie bereits im Teilmodell \enquote{\nameref{sec:Nutzungsintensivierung}} -- einerseits aus Angebots-Sicht durch den Ausdruck $S = N \cdot a \cdot K$ und andererseits aus Nachfrage-Sicht durch den Ausdruck $S = S_D$ gegeben.
-
-				%Damit lässt sich Gleichung \eqref{eq:S(a)} umformen zu
-	%
-				%\begin{equation}
-				%	N = \frac{S_D}{a \cdot K}
-				%\end{equation}			
-	%
-				%und die Nebenbedingung \eqref{eq:Nebenbedingung N_max} wird unter Anwendung von Gleichung \ref{N_max(a)} zu
-	%
-				%\begin{equation}
-				%	N_{\text{max}}(a) \geq \frac{S_D}{a \cdot K}
-				%\end{equation}
-	%
-				Nun liegen alle Voraussetzungen vor um das MIPS für eine gegebene Auslastung $a$ zu bestimmen:
-	%
-				\begin{align}
-					\text{MIPS}(a) &= \frac{I}{S} = \frac{N \cdot i_N(a) + P(a) \cdot i_P + I_{\text{fix}}^a}{S} \\[10pt]
-					&\eqnref{eq:S(a)} \frac{N \cdot i_N(a)}{N \cdot a \cdot K} + \frac{P(a) \cdot i_P}{S_D} + \frac{I_{\text{fix}}^a}{S_D} \\[10pt]
-					& \eqnref{P(a)} \frac{i_N(a)}{a \cdot K} + \frac{I_{\text{fix}}^a}{S_D} + \left\{\begin{array}{ll} \frac{i_P}{a \cdot K \cdot h \cdot t_{\text{max}}} & \mbox{falls } n_\text{max}(a) > h \cdot t_\text{max} \\[5pt] \frac{i_P}{a \cdot K \cdot n_{\text{max}}(a)} & \mbox{sonst} \end{array}\right.
-				\end{align}	
-
-	%			Die Nebenbedingung aus Ungleichung \eqref{eq:P_min} lässt sich unter Verwendung der Gleichungen \ref{N_max(a)} und \ref{S_D} folgendermaßen formulieren:
-	%%
-	%			\begin{equation}
-	%				P \cdot n_\text{max}(a) \geq \frac{S_D}{a \cdot K}
-	%			\end{equation}
-	%%
-	%			Zu beachten ist hier, dass sowohl die Produktauslastung $a$ als auch die
-	%      Produktanzahl $P$ freie Variablen sind, die im Zusammenspiel die
-	%      Nebenbedingung erfüllen müssen.\noteS{dieser Fakt sollte sich vielleicht
-	%      auch in der Übersicht wiederspiegeln}
-
-				Zusammenfassend lässt sich das folgende Teilmodell als Zwischenergebnis festhalten:
-				\\
-
-				\begin{mdframed}[frametitle={Erhöhung der Produktauslastung}, frametitlerule=true]
-					Teilmodell:
-					\begin{align}
-						\text{MIPS}(a) &= \frac{i_N(a)}{a \cdot K} + \frac{P(a) \cdot i_P}{S_D} + \frac{I_{\text{fix}}^a}{S_D} \\[10pt]
-						&= \frac{i_N(a)}{a \cdot K} + \frac{I_{\text{fix}}^a}{S_D} + \left\{\begin{array}{ll} \frac{i_P}{a \cdot K \cdot h \cdot t_{\text{max}}} & \mbox{falls } n_\text{max}(a) > h \cdot t_\text{max} \\[5pt] \frac{i_P}{a \cdot K \cdot n_{\text{max}}(a)} & \mbox{sonst} \end{array}\right.
-					\end{align}
-					Nebenbedingungen:
-					\begin{equation}
-						a = \frac{S_D}{h \cdot T \cdot p \cdot K} \qquad p \in \mathbb{N}, \quad a \in \left( 0,1 \right]
-					\end{equation}
-					\begin{equation}
-						p \geq p_{\text{min}} \qquad  p_{\text{min}} \in \mathbb{N}
-					\end{equation}
-					Funktionseigenschaften:
-					\begin{equation}
-						\frac{\partial i_N}{\partial a} \geq 0
-					\end{equation}
-					\begin{equation}
-						\frac{\partial n_{\text{max}}}{\partial a} \leq 0
-					\end{equation}
-				\end{mdframed}
-
-				%Wie bereits bei der Herleitung des Teilmodells bereits erwähnt wurde, kann der Mechanismus \enquote{Erhöhung der Produktauslastung} sowohl positive als auch negative Umweltauswirkungen zur Folge haben. Im Modell spiegelt sich dies durch das mehrfache Vorkommen der Produktauslastung $a$ mit zum Teil entgegengesetzter Wirkung auf das MIPS wieder. Unter welchen Umständen die positiven Wirkungen die negativen überwiegen und damit eine Erhöhung der Produktauslastung insgesamt zu einer Verringerung des Umweltverbrauchs führt, wird Gegenstand der Analyse dieses Teilmodells sein. \todo{Referenz einfügen}
-
-                \paragraph{Modellanalyse}\label{sec:WA}
-			    In der folgenden Analyse wird untersucht, wie sich eine Erhöhung der Produktauslastung $a$ auf die MIPS auswirkt. Es wird zunächst eine geringfügige Erhöhung der Produktauslastung bei konstanter Anzahl $p$ der parallel eingesetzten Produkte betrachtet. Im Anschluss folgt eine Analyse zur Einsparung von parallel eingesetzten Produkten.
-
-			    \subparagraph{Geringfügige Erhöhung der Produktauslastung}
-			    \label{sec:Auslastung_Analyse1}
-			    In diesem Abschnitt wird eine Bedingung für einen positiven Umwelteffekt durch eine geringfügige Erhöhung der Produktauslastung hergeleitet. Dabei wird davon ausgegangen, dass die Anzahl $p$ der parallel eingesetzten Produkte gleich bleibt. Ein denkbares Szenario im Bereich von Waschmaschinen ist, dass zwei Personen jeweils eine eigene Waschmaschine besitzen, jedoch dazu übergehen, gelegentlich eine der beiden Maschinen gemeinsam zu nutzen, um je Waschgang eine höhere Auslastung zu erzielen.
-
-			    Der Umwelteffekt kann durch die Ableitung der MIPS nach der Produktauslastung bestimmt werden:
-   				%
-   				\begin{equation}
-	   				\label{eq:d_MIPS_d_a}
-	   				\frac{\partial \MIPS[a]}{\partial a} = \frac{i_N'(a)\cdot a - i_N(a)}{a^2 \cdot K} - \left\{\begin{array}{ll} 0 & \mbox{falls } a > a^* := \frac{S_D \cdot t_\text{max}}{n_\text{max} \cdot K \cdot p \cdot T} \\[5pt] \frac{i_P}{a^2 \cdot K \cdot n_{\text{max}}} & \mbox{sonst} \end{array}\right.
-   				\end{equation}
-   				%
-	   			Es lässt sich nun untersuchen, unter welchen Bedingungen eine geringfügige Erhöhung der Produktauslastung zu einer Verringerung der MIPS führt. Dazu werden die beiden Fälle $a > a^*$ und $a \leq a^*$ separat behandelt. Diese Fallunterscheidung lässt sich auf zwei Weisen interpretieren: Entweder als charakteristische Bereiche der Produktauslastung für einen gegebenen Produkttyp, oder als Unterscheidungskriterium verschiedener Produkt- bzw. Nutzungssystemtypen. Letztere Interpretation korrespondiert mit der Annahme, dass bestimmte Produkttypen in einem bestimmten Nutzungssystemtyp \emph{typischerweise} zu einem gewissen Grad ausgelastet werden. Insbesondere kann der Fall $a > a^*$ nur auftreten, falls $a^* < 1$ gilt.
-
-	   			\underline{Fall 1:} $a > a^*$
-
-	   			Dies ist der Fall, in dem der Nutzungsvorrat $n_\text{max}$ aufgrund einer zu geringen Nutzungshäufigkeit $h$ \emph{nicht} innerhalb der Maximalnutzungsdauer $t_\text{max}$ aufgebraucht wird. Hier gilt nach Gleichung \eqref{eq:d_MIPS_d_a} der folgende Zusammenhang:
-	   			%
-   				\begin{equation}
-	   				\label{eq:Elastizitaetsbedingung}
-	   				\frac{\partial \MIPS[a]}{\partial a} < 0 
-	   				\qquad \overset{a, K > 0}{\Leftrightarrow} \qquad 
-	   				\epsilon_{i_N, a} = i'_N(a) \cdot  \frac{a}{i_N(a)} < 1
-   				\end{equation}
-			    %
-			    Eine geringfügige Erhöhung der Produktauslastung führt also im Fall eines nicht ausgeschöpften Nutzungsvorrats genau dann zu einer Verringerung der MIPS, wenn die Inputs pro Nutzungseinheit $i_N$ unelastisch\footnote{zum Begriff der Elastizität vgl. Abschnitt \ref{sec:Elastizität}} auf die Änderung Produktauslastung reagiert. Diese Bedingung bedeutet, dass die Inputs pro Nutzungseinheiten prozentual weniger stark zunehmen dürfen als die prozentuale Steigerung der Produktauslastung. Dies ist beispielsweise für konstante Nutzungsinputs stets gegeben.
-
-			    \underline{Fall 2:} $a \leq a^*$
-
-			    Im zweiten Fall wird der Nutzungsvorrat innerhalb der Maximalnutzungsdauer aufgebraucht. Hier liefert Gleichung \eqref{eq:d_MIPS_d_a} die folgende Bedingung:
-   	   			%
-   	   			\begin{equation}
-	   	   			\frac{\partial \MIPS[a]}{\partial a} < 0 
-	   	   			\qquad \overset{a, K > 0}{\Leftrightarrow} \qquad 
-	   	   			\epsilon_{i_N, a} = i'_N(a) \cdot  \frac{a}{i_N(a)} < 1 + \frac{i_P}{n_\text{max} \cdot i_N(a)}
-   	   			\end{equation}
-   	   			%
-			    Da der Ausdruck $\frac{i_P}{n_\text{max} \cdot i_N(a)}$ echt positiv ist, stellt die Elastizitäts-Bedingung für $i_N(a)$ aus Fall 1 auch in Fall 2 eine hinreichende Bedingung für die Verringerung der MIPS dar. \noteJ{klarer formulieren} Darüber kommt es hier auch dann zu einer Verringerung der MIPS, wenn zwar die Elastizitäts-Bedingung verletzt wird, die Inputs pro Produkt $i_P$ jedoch hinreichend groß sind. Dies liegt an der Einsparung an sequentiell eingesetzten Produkten in Fall 2. \noteJ{Genauer erklären, evt. bereits an früherer Stelle.}
-
-			    \subparagraph{Einsparung parallel eingesetzter Produkte}
-			    Die vorherige Analyse beruhte auf der Annahme einer unveränderlichen Anzahl parallel eingesetzter Produkte. Jedoch eröffnet eine hinreichend große Erhöhung der Produktauslastung die Möglichkeit, die Zahl der parallel eingesetzten Produkte zu reduzieren und dadurch eine weitere Ressourceneinsparung zu erzielen. Im obigen Beispiel der Waschmaschinen-Nutzung könnten die beiden Personen bei einer ausreichen hohen Maschinenbeladung eine der beiden Waschmaschinen abschaffen. Dieser Effekt wird in der folgenden Analyse untersucht.
-
-			   \noteJ{Zusammenhang zwischen $a$ und $p$ in Modellbeschreibung herleiten}
-
-			   Zwischen der Produktauslastung $a$ und der Anzahl der parallel eingesetzten Produkte $p$ nehmen wir den mit Gleichung \eqref{eq:p(a)} spezifizierten Zusammenhang an:
-			   %
-			   \begin{equation}
-				   \label{eq:p(a)_2}
-				   p(a) = \left\lceil p_\text{min}(a) \right\rceil = \left\lceil \frac{S_D}{a \cdot K \cdot h_\text{max} \cdot T} \right\rceil
-			   \end{equation}
-
-			   Es handelt sich bei $p(a)$ um eine Treppenfunktion. Im Rahmen dieser Analyse betrachten wir deren Sprungstellen, d.h. solche Werte für $a$, bei denen $p_\text{min}(a)$ ganzzahlig ist und somit $p(a)=p_\text{min}$ gilt. Dies sind jene Auslastungs-Werte, bei denen die Anzahl der parallel eingesetzten Produkte jeweils um eins verringert werden kann. Für die Bereiche dazwischen ist $p(a)$ konstant, sodass sich die obige Analyse (\enquote{\nameref{sec:Auslastung_Analyse1}}) anwenden lässt und alle dort erarbeiteten Ergebnisse auch hier gültig sind.
-
-			   Zunächst bestimmen wir die Gesamtänderung der MIPS von einer Sprungstelle zur nächsten und leiten daraus eine Bedingung für einen positiven Umwelteffekt ab. Anschließend untersuchen wir, was an der Sprungstelle selbst geschieht, das heißt, wie groß der \emph{zusätzliche} Effekt durch die Einsparung eines parallel eingesetzten Produkts ist. Auf diese Weise lassen sich die Ergebnisse der vorherigen Analyse (\enquote{\nameref{sec:Auslastung_Analyse1}}) auf die neue Situation übertragen.
-
-			   Zur Bestimmung der Sprungstellen betrachten wir eine gegebene Produktanzahl $p_1 \in \mathbb{N}$ und die um eins verringerte Produktanzahl $p_2 = p_1 - 1$. Die Sprungstellen sind dann durch Gleichung \eqref{eq:p(a)_2} gegeben als:
-			   %
-			   \begin{equation}
-				   \label{eq:a(p)}
-				   a_{1,2} = \frac{S_D}{p_{1,2} \cdot K \cdot h_\text{max} \cdot T}
-			   \end{equation}
-			   %
-			   Für die entsprechenden Anzahlen parallel eingesetzter Produkte gilt damit:
-  			   %
-  			   \begin{equation}
-	  			   \label{eq:p(a)_3}
-	  			   p_{1,2} = \frac{S_D}{a_{1,2} \cdot K \cdot h_\text{max} \cdot T}
-  			   \end{equation}
-
-			   Die Gesamtänderung der MIPS lässt sich nun folgendermaßen bestimmen:
-			   \begin{align}
-				   \Delta \text{MIPS} &= \text{MIPS}(a_2) - \text{MIPS}(a_1) \\[10pt]
-				   &= \frac{1}{K} \cdot \left[ \frac{i_N(a_2)}{a_2} - \frac{i_N(a_1)}{a_1} \right] + \left\{ \begin{array}{ll} \frac{i_P \cdot T}{t_\text{max} \cdot S_D} \cdot (p_2-p_1) & \mbox{falls } a_1, a_2 > a^* \\[5pt] \frac{i_P}{K \cdot n_\text{max}} \cdot \left( \frac{1}{a_2} - \frac{1}{a_1} \right) & \mbox{falls } a_1, a_2 \leq a^* \end{array} \right. \\[10pt]
-				   &\eqnref{eq:a(p)} \frac{1}{K} \cdot \frac{K \cdot h_{max} \cdot T}{S_D} \cdot \left[i_N(a_2) \cdot p_2 - i_N(a_1) \cdot p_1 \right] + \left\{\begin{array}{ll} \frac{i_P \cdot T}{t_\text{max} \cdot S_D} \cdot (p_2-p_1) \\[5pt] \frac{i_P}{K \cdot n_\text{max}} \cdot \frac{K \cdot h_\text{max} \cdot T}{S_D} \cdot (p_2-p_1) \end{array}\right. \\
-				   &= \frac{h_{max} \cdot T}{S_D} \cdot \left[p_1 \cdot (i_N(a_2) - i_N(a_1)) - i_N(a_2) \right] - \left\{\begin{array}{ll} \frac{T}{t_\text{max}} \cdot \frac{i_P }{S_D} \\[5pt] \frac{h_\text{max} \cdot T}{n_\text{max}} \cdot \frac{i_P}{S_D}  \end{array}\right. \\[10pt]
-				   &\eqnref{eq:p(a)_3} \frac{h_{max} \cdot T}{S_D} \cdot \frac{S_D}{a_{1} \cdot K \cdot h_\text{max}  \cdot T} \cdot (i_N(a_2) - i_N(a_1)) - \frac{i_N(a_2) \cdot h_\text{max} \cdot T}{S_D} - q \cdot \frac{i_P}{S_D} \\
-				   &= \underbrace{\frac{i_N(a_2) - i_N(a_1)}{a_1 \cdot K}}_{(a)} - \underbrace{\frac{i_N(a_2) \cdot h_\text{max} \cdot T}{S_D}}_{(b)} - \underbrace{q \cdot \frac{i_P}{S_D}}_{(c)}
-			   \end{align} \noteJ{Bedingung der Fallunterscheidung anpassen: $n_\text{max} >/\leq t_\text{max} \cdot h_\text{max}$}
-			   %
-			   Dieser Ausdruck setzt sich aus drei Komponenten zusammen, und zwar den Änderungen der MIPS durch
-			   \begin{enumerate}[label=(\alph*)]
-			   	\item zusätzliche Nutzungsinputs für jede ursprüngliche Nutzungseinheit,
-			   	\item eingesparte Nutzungsinputs (bei neuer Auslastung $a_2$) für das weggefallene parallel eingesetzte Produkt, und
-			   	\item eingesparte produktbezogene Inputs für das weggefallene Produkt.
-			   \end{enumerate}
-
-			   Es lässt sich nun die folgende Bedingung für einen positiven Umwelteffekt durch eine Erhöhung der Produktauslastung bei Einsparung eines parallel eingesetzten Produkts herleiten:
-			   \begin{align}
-				  \Delta \text{MIPS} &< 0 \\
-				  \Leftrightarrow \quad \frac{i_N(a_2) - i_N(a_1)}{a_1 \cdot K} &< \frac{i_N(a_2) \cdot h_\text{max} \cdot T}{S_D} + q \cdot \frac{i_P}{S_D}
-			   \end{align}
-			   %
-			   Das heißt, ein positiver Umwelteffekt durch eine Erhöhung der Produktauslastung tritt auf, wenn der Effekt von zusätzlichen Nutzungsinputs durch die höhere Auslastung den kombinierten Effekt aus eingesparten Nutzungs- und produktbezogenen Inputs durch die Einsparung eines parallel eingesetzten Produkts nicht übersteigt.
-
-			   Um diese Aussage mit den Ergebnissen aus dem vorigen Abschnitt (\enquote{\nameref{sec:Auslastung_Analyse1}}) in Verbindung zu bringen, werden nun abschließend die Effekte durch die Einsparung eines parallel eingesetzten Produkts von den sonstigen Effekten isoliert.
-
-			   Dazu betrachten wir eine einzelne Sprungstelle, d.h. einen Auslastungs-Wert $a$, bei dem die parallele Produktanzahl $p(a)$ von einem Wert $p_1$ auf $p_2 = p_1 -1$ springt. Nähert man sich von links dieser Sprungstelle an, gilt demnach $p(a) = p_1$, an der Sprungstelle selbst gilt hingegen $p(a) = p_2$. Alle anderen Parameter bleiben gleich. Damit lässt sich untersuchen, wie groß die Änderung der MIPS an der Sprungstelle $a$ selbst ist:
-			   %
-			   \begin{align}
-				   \Delta \text{MIPS}(a) &= \text{MIPS}_{p_2}(a) - \text{MIPS}_{p_1}(a) \\[10pt]
-				   &= 0 + 0 + \left\{ \begin{array}{ll} \frac{i_P \cdot T}{t_\text{max} \cdot S_D} \cdot (p_2-p_1) & \mbox{falls } a > a^* \\[5pt] 0 & \mbox{sonst} \end{array} \right. = \left\{ \begin{array}{ll} - q \cdot \frac{i_P}{S_D} & \mbox{falls } a > a^* \\[5pt] 0 & \mbox{sonst} \end{array} \right.
-			   \end{align}
-			   %
-			   Dieses Ergebnis sagt aus, dass die Einsparung eines parallel eingesetzten Produkts nur dann einen zusätzlichen Umwelteffekt hat, wenn der Nutzungsvorrat $n_\text{max}$ eines einzelnen Produkts aufgrund einer zu geringen Nutzungshäufigkeit nicht innerhalb der Maximalnutzungsdauer $t_\text{max}$ aufgebraucht wird. Der zusätzliche Umwelteffekt besteht in der Vermeidung der produktbezogenen Inputs des eingesparten Produkts und ist stets positiv im Sinne einer Umweltentlastung. Wenn hingegen der Nutzungsvorrat bereits aufgebraucht wird, führt die Einsparung eines parallel eingesetzten Produkts zu keiner zusätzlichen Umweltentlastung im Vergleich zum Szenario mit konstanter paralleler Produktanzahl. Dies liegt daran, dass mit der Reduzierung der parallelen Produktanzahl die sequentielle Produktanzahl im gleichen Maße ansteigt, sodass die effektive Produktanzahl an der Sprungstelle keine Veränderung erfährt.
-
-			   Aus dieser Erkenntnis lässt sich ableiten, dass die im Abschnitt \enquote{\nameref{sec:Auslastung_Analyse1}} aufgestellte Bedingung an die Elastizität von $i_N(a)$ (Gleichung \eqref{eq:Elastizitaetsbedingung}) auch im hier betrachteten Szenario eine hinreichende Bedingung für einen positiven Umwelteffekt darstellt: Wenn die produktbezogenen Inputs $i_N$ unelastisch auf eine Erhöhung der Auslastung reagieren, ist der Umwelteffekt der Auslastungserhöhung positiv. Die Umkehrung dieser Aussage gilt jedoch nicht, das heißt eine Erhöhung der Produktauslastung kann auch dann einen positiven Umwelteffekt zur Folge haben, wenn zwar die Elastizitätsbedingung verletzt wird, jedoch die produktbezogenen Inputs $i_P$ hinreichend groß sind um den Mehraufwand an Nutzungsinputs durch die Einsparung an produktbezogenen Inputs zu kompensieren. Dieser Fall kann jedoch, wie oben erläutert, nur unter der Bedingung von nicht ausgeschöpften Nutzungsvorräten auftreten.
-
-			   \subparagraph{Fazit}
-			   Die Modellanalyse hat ergeben, dass eine Erhöhung der Produktauslastung -- anders als von \dots \noteJ{Referenz einfügen, Bezug auf Tabelle der Umwelteffekte} angenommen -- nicht in jedem Fall einen positiven Umwelteffekt mit sich bringt. Wir können jedoch eine hinreichende Bedingung dafür angeben, dass dies der Fall ist: Wenn die Inputs je Produktnutzung unelastisch auf die steigende Auslastung reagieren, ist eine Erhöhung der Produktauslastung aus Sicht der Ressourcennutzung vorteilhaft.
-
-			   Anderenfalls kann keine pauschale Aussage getroffen werden, ohne den genauen Verlauf der Inputs je Produktnutzung sowie die Höhe der Inputs je Produkt zu kennen. Es ist beispielsweise möglich, dass eine Erhöhung der Produktauslastung bis zu einem gewissen Grad einen positiven Umwelteffekt aufweist, eine weitere Auslastungserhöhung sich jedoch negativ auswirkt, oder umgekehrt. Auch ist es möglich, dass eine Auslastungserhöhung für einen bestimmten Produkttyp niemals einen positiven Effekt mit sich bringt.
-
-			   Die zentrale Größe für eine fallspezifische Untersuchung ist demnach die Entwicklung der Inputs je Produktnutzung bei einer Erhöhung der Auslastung. Falls diese stets unelastisch reagieren, ist der Umwelteffekt positiv. Andernfalls muss zu einer detaillierteren Betrachtung übergegangen werden. Ebenso ist es für eine Bestimmung des absoluten Umwelteffekts nötig, alle Modellparameter zu berücksichtigen.
+      \paragraph{Modellanalyse}
+      In dieser Analyse des Modells zur Nutzungshäufigkeit wird untersucht, wie sich eine Erhöhung der Nutzungshäufigkeit auf die MIPS auswirkt. Da die Nutzungshäufigkeit $h$ gemäß Nebenbedingung \eqref{eq:h(p)} nur in diskreten Schritten variiert werden kann, wird die Änderung der MIPS von einer gegebenen Nutzungshäufigkeit ($h = h_1$) zur nächstgrößeren ($h = h_2$) betrachtet. Diese ist durch die Verringerung der parallelen Produktanzahl von $p = p_1$ auf $p = p_2$ um eins gegeben: $p_2 - p_1 = -1$.
+      
+      Mit Gleichung \eqref{eq:MIPS(h)} ergibt sich für die Änderung der MIPS:
+      \begin{equation}
+      	\label{eq:Delta_MIPS_h}
+      	\Delta \text{MIPS} = \text{MIPS}(h_2) - \text{MIPS}(h_1) = \frac{i_P}{S_D} \cdot (P(h_2) - P(h_1))
+      \end{equation}
+      
+      Unter Berücksichtigung von Gleichung \eqref{eq:MIPS(h)_2} lässt sich dieser Ausdruck näher bestimmen. Dabei ist die Fallunterscheidung nach $h_1$ bzw. $h_2$ in Bezug auf $h^*$ zu berücksichtigen. Da $h_1 < h_2$ gilt, ergeben sich drei mögliche Fälle.
+      
+      \underline{Fall 1}: $h_1 < h_2 < h^*$ \\
+      Hier wird der Nutzungsvorrat eines einzelnen Produkts sowohl vor, als auch nach der Erhöhung der Nutzungshäufigkeit \emph{nicht} aufgebraucht, bevor die Maximalnutzungsdauer erreicht ist. Für die Änderung der MIPS gilt unter Anwendung von Gleichung \eqref{eq:MIPS(h)_2}:
+      %
+      \begin{align}
+      	\Delta \text{MIPS} &= \text{MIPS}(h_2) - \text{MIPS}(h_1) = \frac{i_P}{t_\text{max} \cdot A} \cdot \left( \frac{1}{h_2} - \frac{1}{h_1} \right) \label{eq:Delta_MIPS_h_1}\\[10pt]
+      	&= \frac{i_P}{t_\text{max} \cdot A} \cdot \frac{h_1 - h_2}{h_1 \cdot h_2}
+      	\eqnref{eq:h(p)} \frac{i_P}{t_\text{max} \cdot A} \cdot \frac{A \cdot T}{S_D} \cdot \frac{\frac{1}{p_1} - \frac{1}{p_2}}{\frac{1}{p_1 \cdot p_2}} \nonumber \\[10pt]
+      	&= \frac{i_P \cdot T}{t_\text{max} \cdot S_D} \cdot \frac{\frac{p_2 - p_1}{p_1 \cdot p_1}}{\frac{1}{p_1 \cdot p_2}} = - \frac{i_P \cdot T}{t_\text{max} \cdot S_D} = - \frac{q \cdot i_P}{S_D} \nonumber
+      \end{align}
+      %
+      Im letzten Schritt wurde die Definition $q := \frac{T}{t}$ mit $t = t_\text{max}$ angewendet. Die obige Analyse ergibt, dass die MIPS durch die Nutzungsintensivierung im ersten Fall bei der Einsparung eines parallel betriebenen Produkts unabhängig vom Ausgangsniveau um einen konstanten Wert abnimmt. Dabei lässt sich der Zähler $q \cdot i_P$ als die produktbezogenen Inputs des eingesparten Produkts identifizieren, wenn man sich vergegenwärtigt, dass im Betrachtungszeitraum nacheinander $q$ Produkte eingesetzt werden.
+      
+      \underline{Fall 2}: $h^* \leq h_1 < h_2$ \\
+      Der zweite Fall ist dadurch gegeben, dass der Nutzungsvorrat eines einzelnen Produkts sowohl vor, als auch nach der Erhöhung der Nutzungshäufigkeit spätestens bis zum Erreichen der Maximalnutzungsdauer aufgebraucht wird. Es ergibt sich direkt aus Gleichung \eqref{eq:MIPS(h)_2}:
+      %
+      \begin{equation}
+      	\label{eq:Delta_MIPS_h_2}
+      	\Delta \text{MIPS} = \text{MIPS}(h_2) - \text{MIPS}(h_1) = 0
+      \end{equation}
+      %
+      Hier bewirkt eine Erhöhung der Nutzungshäufigkeit also keine Veränderung der MIPS. Dies leuchtet insofern ein, als dass hier die effektive Produktanzahl $P$ unveränderlich ist, da ansonsten aufgrund der konstanten Nutzungsmenge $n = n_\text{max}$ die Service-Menge steigen würde. Es wird also effektiv kein Produkt eingespart.
+      
+      \underline{Fall 3}: $h_1 < h^* \leq h_2$ \\
+      Der dritte Fall stellt als Sonderfall den Übergang vom ersten zum dritten Fall dar: Vor der Erhöhung der Nutzungshäufigkeit wird der Nutzungsvorrat eines einzelnen Produkts nicht voll ausgeschöpft, nach der Erhöhung jedoch schon. Für die Veränderung der MIPS gilt nach Gleichung \eqref{eq:MIPS(h)_2}:
+      %
+      \begin{equation}
+      	\Delta \text{MIPS} = \text{MIPS}(h_2) - \text{MIPS}(h_1) = \frac{i_P}{A} \cdot \left( \frac{1}{n_\text{max}} - \frac{1}{h_1 \cdot t_\text{max}} \right)
+      \end{equation}
+      %
+      Dieser Ausdruck ist für sich betrachtet nicht sehr aufschlussreich, kann jedoch nach oben und nach unten abgeschätzt werden. Einerseits ist wegen $h_1 < \frac{n_\text{max}}{t_\text{max}}$ der Klammerausdruck und damit der gesamte Ausdruck negativ, also $\Delta \text{MIPS} < 0$. Andererseits gilt wegen $h_2 \geq \frac{n_\text{max}}{t_\text{max}}$:
+      %
+      \begin{equation}
+      	\label{eq:Delta_MIPS_h_3}
+      	\Delta \text{MIPS} = \frac{i_P}{A} \cdot \left( \frac{1}{n_\text{max}} - \frac{1}{h_1 \cdot t_\text{max}} \right) \geq \frac{i_P}{A} \cdot \left( \frac{1}{h_2 \cdot t_\text{max}} - \frac{1}{h_1 \cdot t_\text{max}} \right) \eqnref{eq:Delta_MIPS_h_1} - \frac{q \cdot i_P}{S_D}
+      \end{equation}
+      %			
+      Die Änderung der MIPS bewegt sich im dritten Fall also zwischen den Werten der ersten beiden Fälle und ist auch in diesem Sinne als Übergangsfall zu betrachten.
+      \\
+      
+      \begin{mdframed}[frametitle={Fazit}, frametitlerule=true]				
+      	Die Verringerung des Umweltverbrauchs durch eine Nutzungsintensivierung ist stets positiv oder null. Ein echt positives Ergebnis wird genau dann erzielt, wenn die Produkte \emph{vor} der Nutzungsintensivierung noch nicht bis zum Erreichen ihrer technischen Lebensdauer genutzt wurden. In diesem Fall besteht die Einsparung in der Verringerung der Anzahl parallel eingesetzter Produkte.
+      \end{mdframed}
+      
+      % der folgende Text ist noch war bei einem Merge Konflikt mit obigem angezeigt
+      % wurden. Welcher ist aktueller=!
+      % \subparagraph{Fazit}
+      % Die Analyse hat bis hierhin gezeigt, dass eine Nutzungsintensivierung im Sinne einer Erhöhung der Nutzungshäufigkeit im schlechtesten Fall keine Änderung der MIPS, und im besten Fall eine Verringerung der MIPS um einen konstanten Ausdruck mit sich bringt. Es kann also direkt kein schädlicher Effekt auftreten. Die Verringerung wird durch die Einsparung eines der parallel betriebenen Produkte erreicht. Eine solche ist nur möglich, wenn die genutzten Produkte vor der Nutzungsintensivierung noch nicht ihre technische Lebensdauer erreichen.
+      %
+      \subparagraph{Einschränkung}
+      In der bisherigen Analyse blieb bislang unberücksichtigt, dass die Nutzungshäufigkeit nicht beliebig gesteigert werden kann, da in einem Nutzungssystem aus praktischen Gründen eine Mindestanzahl von Produkten benötigt wird. Dieser Zusammenhang wurde durch die Nebenbedingung \eqref{eq:h_max} im Modell abgebildet: $h \leq h_\text{max}$. Für die Analyse hat dies zur Konsequenz, dass nicht alle theoretisch denkbaren Nutzungsintensivierungen als realisierbar betrachtet werden können. Für alle realisierbaren Fälle gelten jedoch die getroffenen Aussagen. Falls $h_\text{max} < h^*$ gilt, sind die Fälle 2 und 3 der Analyse ausgeschlossen. Ansonsten sind alle Fälle möglich.
+      
+      In Abbildung \ref{fig:MIPS(h)} wird Verlauf der MIPS in Abhängigkeit von der Nutzungshäufigkeit exemplarisch dargestellt. An den gleichbleibenden vertikalen Abständen der Datenpunkte bis zur Stelle $h = h^*$ ist die konstante Verringerung mit jedem eingesparten Produkt gut erkennbar.
+      
+      \begin{figure}[pht]
+      	\centering
+      	\input{Abbildungen/Nutzungsintensivierung_2.tex}
+      	\caption{MIPS in Abhängigkeit von der Nutzungshäufigkeit (untere Skala). Die durchgezogenen Linien folgen dem hypothetischen Funktionsverlauf für eine kontinuierlich angenommene Nutzungshäufigkeit, die kleinen Quadrate zeigen die tatsächlichen Funktionswerte für verschiedene Anzahlen parallel genutzter Produkte (obere Skala). Bei $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Die Maximalnutzungshäufigkeit $h_\text{max}$ ist durch die minimale parallele Produktanzahl $p_\text{min}$ gegeben. Parameter: $I_\text{fix}$ = 10.000~kg, $S_D$ = 10.000~SE, $i_P$ = 5.000~kg, $A$ = 1~SE/NE, $T$ = 10~Jahre, $t_\text{max}$ = 15~Jahre, $n_\text{max}$ = 5.000~NE, $p_\text{min}$ = 2 (NE~=Nutzungseinheiten, SE~=~Service-Einheiten).}
+      	\label{fig:MIPS(h)}
+      \end{figure} \noteJ{Horizontale gestrichelte Linien einfügen um konstantes Delta zu verdeutlichen}
+      \clearpage	
+      \subsection{Produktauslastung} % Ursprünglich: "Maximierung der Geräteauslastung"
+      \label{sec:Produktauslastung}
+      \todo[color=prioH]{
+      	Abschnitt zu relativer Produktauslastung einfügen (war ursprünglich im Grundmodell)
+      %				Gibt es eine maximale Produktauslastung, die wir als Kapazität $K$ bezeichnen, kann zu einer Betrachtung der relativen Produktauslastung $a$ übergegangen werden:
+      %				\begin{equation}
+      %				\label{eq:a(A,K)}
+      %				a = \frac{A}{K}
+      %				\end{equation}
+      %				%
+      %				So ist beispielsweise eine Waschmaschine, die über eine Kapazität von $K = 7 ~ \frac{\text{kg}}{\text{Waschgang}}$ verfügt und mit $A = 3.5 ~ \frac{\text{kg}}{\text{Waschgang}}$ Wäsche beladen ist, genau zur Hälfte ausgelastet, das heißt $a = 0.5$. Wir fassen die Gleichungen \eqref{eq:S(N,A)} und \eqref{eq:a(A,K)} zusammen, und stellen nach $N$ um:
+      %				\begin{equation}
+      %				N = \frac{S}{a \cdot K}
+      %				\end{equation}
+      }
+      	\paragraph{Modellbeschreibung}
+      	Unter dem Begriff \emph{Produktauslastung} verstehen wir die
+      	Intensität, mit der ein Produkt während einer einzelnen Nutzung eingesetzt
+      wird. Im Fall einer Waschmaschine entspricht dies dem Gewicht der Beladung
+      während eines Waschgangs. In diesem Modell zur Produktauslastung werden vier Effekte und deren Zusammenspiel abgebildet, die mit einer Erhöhung der Produktauslastung einhergehen.
+      
+      	Formal betrachtet ist die absolute Produktauslastung $A$ der Service,
+      der durch eine einzelne Produktnutzungseinheit erzielt wird -- im Fall der
+      Waschmaschine das Gewicht der gewaschenen Wäsche pro Waschgang. Nimmt
+      man an, dass ein Produkt über eine gewisse Kapazität $K$ (die maximale
+      absolute Auslastung) verfügt, so kann zur Betrachtung der relativen
+      Produktauslastung $a$ übergegangen werden: $a = A/K$. Bei einer
+      Waschmaschine ist die Kapazität durch das maximale Beladungsgewicht, und die
+      relative Produktauslastung durch den Anteil des tatsächlichen am maximalen
+      Beladungsgewicht während eines Waschgangs gegeben.
+      
+      	Mit diesen Definitionen ergibt sich der folgende Zusammenhang zwischen der Quantität der Produktnutzung $N$, der relativen Produktauslastung $a$, der Kapazität $K$ und dem erzielten Service $S$:
+      %
+      	\begin{align}
+      		\label{eq:S(a)}
+      		S &= N \cdot a \cdot K \qquad a \in \left( 0,1 \right]\\
+      		\label{eq:N(a)}
+      		\Leftrightarrow N(a) &= \frac{S}{a \cdot K}
+      	\end{align}
+      %
+      %			Diese Gleichung muss der Nebenbedingung genügen, dass die abgerufene Produktnutzungs-Menge $N$ den gesamten Nutzungsvorrat $N_{\text{max}}$ des Produktnutzungssystems nicht übersteigt. Dieser setzt sich aus den Nutzungsvorräten $n_{\text{max}}^i$ der eingesetzten Produkte zusammen. Im Fall von $P$ identischen Produkten ergibt sich:
+      %%
+      %			\begin{equation}
+      %				\label{eq:Nebenbedingung N_max}
+      %				N \leq N_{\text{max}} = P \cdot n_{\text{max}}
+      %			\end{equation}
+      %%
+      	Analog zum Modell \enquote{\nameref{sec:Nutzungsintensivierung}} lässt sich bei gegebener Service-Menge $S = S_D$ aus Gleichung \eqref{eq:S(a)} unter Rückgriff auf die Gleichungen \eqref{eq:N(h)} ($N = h \cdot t \cdot P$) und \eqref{eq:P(p)} ($P = p \cdot \frac{T}{t}$) eine Bedingung für die Auslastung $a$ ableiten:
+      	%
+      	\begin{equation}
+      		\label{eq:a(h,p)}
+      		a \eqnref{eq:S(a)} \frac{S_D}{N \cdot K} \eqnref{eq:N(h)} \frac{S_D}{h \cdot t \cdot P \cdot K} \eqnref{eq:P(p)} \frac{S_D}{h \cdot T \cdot p \cdot K} \qquad p \in \mathbb{N}
+      	\end{equation}
+      	%
+      	Für ein Nutzungssystem mit gegebener Service-Nachfrage $S_D$, gegebener Nutzungshäufigkeit $h$ und einem festen Betrachtungszeitraum $T$ ist die Produktauslastung $a$ also antiproportional zur parallelen Produktanzahl $p$. Je weniger Produkte parallel im Einsatz sind, desto stärker müssen diese ausgelastet werden um die Nachfrage zu bedienen. Die Nutzungshäufigkeit $h$ soll in diesem Modell jedoch nicht als Konstante, sondern als Funktion der Produktauslastung $a$, betrachtet werden um eine kontinuierliche Variation der Auslastung zu ermöglichen. In diesem Sinne liest sich Gleichung \eqref{eq:a(h,p)} folgendermaßen:
+      	%
+      	\begin{equation}
+      		h(a) = \frac{S_D}{a \cdot T \cdot p \cdot K} \qquad p \in \mathbb{N}
+      	\end{equation}
+      
+      	Ebenfalls analog zum Modell \enquote{\nameref{sec:Nutzungsintensivierung}} kann die parallele Produktanzahl $p$ aus praktisch-organisatorischen Gründen nach unten beschränkt sein:
+      	%
+      	\begin{equation}
+      		p \geq p_{\text{min}} \qquad  p, p_{\text{min}} \in \mathbb{N}
+      	\end{equation}
+      	%
+      	Im Unterschied zum Modell \enquote{\nameref{sec:Nutzungsintensivierung}} kann diese Beschränkung der parallelen Produktanzahl jedoch durch eine Verringerung der Nutzungshäufigkeit ausgeglichen werden, sodass sich keine weitere Einschränkung für die Produktauslastung $a$ ergibt.
+      
+      	In Gleichung \eqref{eq:N(a)} spiegelt sich bereits ein erster (positiver) Effekt einer Produktauslastungs-Erhöhung wider, und zwar eine proportionale \textit{Verringerung der Produktnutzung} $N$ unter der Annahme eines gleichbleibenden Services $S$. Es können jedoch unter bestimmten Umständen -- die im Analyse-Teil ausführlich erörtert werden \todo{Referenz einfügen} -- bis zu drei weitere Effekte zum Tragen kommen: erstens ein Mehrbedarf an Inputs je Produktnutzung, zweitens eine Reduktion des Nutzungsvorrats und drittens eine Einsparung von Produkten. Diese Effekte werden im Folgenden modelliert.
+      
+      	Der zweite (negative) Effekt -- ein \textit{Mehrbedarf an Inputs je Produktnutzung} $i_N$ -- tritt auf, wenn durch eine erhöhte Produktauslastung mehr Energie oder andere Betriebsmittel bei der Nutzung des Produkts eingesetzt werden müssen. So steigt bei einer Waschmaschine beispielsweise der Bedarf an elektrischer Energie und an Waschmittel, wenn die Maschine voller beladen wird. Formal kann dieser Zusammenhang durch eine funktionale Abhängigkeit der Inputs je Produktnutzung $i_N$ von der Auslastung $a$ beschrieben werden:
+      %
+      	\begin{equation}
+      		i_N = i_N (a)
+      	\end{equation}
+      %
+      	Wir gehen davon aus, dass eine erhöhte Auslastung mit höheren oder wenigstens gleichbleibenden Inputs je Produktnutzung einhergeht. Das heißt, der Funktionsverlauf von $i_N (a)$ kann als monoton steigend angenommen werden:
+      %
+      	\begin{equation}
+      		\frac{\partial i_N}{\partial a} \geq 0
+      	\end{equation}
+      
+      	Zu dem dritten (negativen) Effekt -- einer \textit{Reduktion des Nutzungsvorrats} $n_{\text{max}}$ -- kommt es, wenn eine erhöhte Produktauslastung zu einer verstärkten Abnutzung des Produkts führt. So wird eine Waschmaschine beispielsweise nach einer geringeren Anzahl von Waschgängen aus der Nutzung genommen werden müssen, wenn sie im Durchschnitt voller beladen wurde. Auch dieser Zusammenhang kann durch eine funktionale Abhängigkeit abgebildet werden:
+      %
+      	\begin{align}
+      		\label{N_max(a)}
+      		n_{\text{max}} &= n_{\text{max}} (a) %\\
+      		%\Rightarrow N_{\text{max}} &= N_{\text{max}} (a) = P \cdot n_{\text{max}} (a)
+      	\end{align}
+      %
+      	Analog zu den monoton steigenden Inputs pro Nutzungseinheit gehen wir davon aus, dass der Nutzungsvorrat durch eine erhöhte Auslastung geringer wird, oder höchstens gleich bleibt:
+      %
+      	\begin{equation}
+      		\frac{\partial n_{\text{max}}}{\partial a} \leq 0
+      	\end{equation}
+      
+      	Der vierte (positive) Effekt -- eine \textit{Einsparung von Produkten} --
+      tritt auf, wenn durch eine erhöhte Auslastung einzelne Produkte im
+      Produktnutzungssystem nicht mehr benötigt werden und daher weder
+      bereitgestellt, noch entsorgt werden müssen. Beispielsweise kann eine
+      Waschmaschine eingespart werden, wenn zwei Personen, die bisher jeweils
+      eine eigene Waschmaschine nutzten und nur halbvoll beluden, nun gemeinsam
+      eine einzige Maschine nutzen, die immer voll beladen wird. Um diesen Effekt nachzuvollziehen, greifen wir Gleichung \eqref{eq:P(h)} aus Kapitel \ref{sec:Nutzungsintensivierung} wieder auf, da hier die gleichen Grundzusammenhänge gelten:
+      
+      	\begin{equation}
+      		P (h) = \frac{N}{n(h)} = \left\{\begin{array}{ll}  \frac{N}{h \cdot t_{\text{max}}} & \mbox{falls } h < h^* =  \frac{n_{\text{max}}}{t_{\text{max}}} \\[5pt] \frac{N}{n_{\text{max}}} & \mbox{sonst} \end{array}\right.
+      	\end{equation}
+      
+      	Die folgenden Anpassungen müssen für das Modell \enquote{\nameref{sec:Produktauslastung}} durchgeführt werden: Die unabhängige Variable ist nun -- statt der Nutzungshäufigkeit $h$ -- die Auslastung $a$, von der die Gesamtnutzungsmenge $N$, die Einzelnutzungsmenge $n$, sowie der Einzelnutzungsvorrat $n_{max}$ und damit auch die effektive Produktmenge $P$ abhängen. Die Nutzungsmenge $N(a)$ wird durch Gleichung \eqref{eq:N(a)} spezifiziert: $N(a) = \frac{S}{a \cdot K}$. Die Bedingung der Fallunterscheidung ($h < \frac{n_{\text{max}}}{t_{\text{max}}}$) schreibt sich nun als implizite Bedingung an $a$:
+      	\begin{equation}
+      		n_\text{max}(a) > h \cdot t_\text{max}
+      	\end{equation}
+      	Damit ergibt sich insgesamt die folgende Gleichung für die effektive Produktanzahl:
+      	\begin{equation}
+      	\label{P(a)}
+      		P (a) = \frac{N(a)}{n(a)} = \left\{\begin{array}{ll} \frac{S}{a \cdot K \cdot h \cdot t_{\text{max}}} & \mbox{falls } n_\text{max}(a) > h \cdot t_\text{max} \\[5pt] \frac{S}{a \cdot K \cdot n_{\text{max}}(a)} & \mbox{sonst} \end{array}\right.
+      	\end{equation}
+      
+      	Im ersten Fall -- wenn der Nutzungsvorrat innerhalb der Maximalnutzungsdauer nicht aufgebraucht wird -- nimmt die effektive Produktanzahl antiproportional mit der Produktauslastung ab. Im zweiten Fall tritt dieser Effekt ebenfalls auf, jedoch wird er durch einen ggf. sinkenden Nutzungsvorrat abgeschwächt, oder sogar überkompensiert. Dabei ist zu beachten, dass abhängig von den Parameterwerten $h$ und $t_\text{max}$ sowie vom Funktionsverlauf von $n_\text{max}(a)$ nicht zwingend beide Fälle auftreten, sondern auch einer der beiden Fälle für alle Werte von $a$ gelten kann.
+      
+      %			Die konkrete Organisation der kollektiven Produktnutzung ist ein komplexes Problem, das von vielen Faktoren wie der zeitlichen Struktur des Bedarfs, räumlichen Gegebenheiten und organisatorischen Einschränkungen bestimmt wird. Zudem wird nicht jedes ungenutzte Produkt auch tatsächlich zeitnah aus dem Nutzungssystem genommen. Daher lässt sich aus der Produktauslastung allein nicht ableiten, wie viele Produkte durch die kollektive Nutzung eingespart werden können. Jedoch kann eine Aussage darüber getroffen werden, wie viele Produkte \textit{maximal} eingespart werden können, indem die folgende Überlegung über die Anzahl der mindestens notwendigen Produkte angestellt wird: Um den Bedarf zu decken, muss die Nebenbedingung aus Ungleichung \eqref{eq:Nebenbedingung N_max} erfüllt sein. Umgestellt nach $P$ schreibt sich diese als:
+      %%
+      %			\begin{equation}
+      %				P \geq \frac{N}{n_\text{max}}
+      %			\end{equation}
+      %%
+      %			Mit Gleichung \eqref{eq:N(a)} ist dies äquivalent zu:
+      %%
+      %			\begin{equation}
+      %				\label{eq:P_min}
+      %				P \geq \frac{S}{n_\text{max} \cdot a \cdot K} =: P_\text{min} (a)
+      %			\end{equation}
+      %%
+      %			Dabei ist zu beachten, dass $P$ ganzzahlig sein muss, das heißt es muss gegebenenfalls aufgerundet werden. Da die Ungleichung dabei ihre Richtigkeit nicht verliert, verzichten wir auf diesen Schritt um die Analyse zu vereinfachen. Die eingesparte Menge an Produkten durch eine erhöhte Auslastung ergibt sich aus der Differenz der ursprünglich benötigten und der nach der Auslastungserhöhung eingesetzten Produkte.
+      
+      	Nachdem die verschiedenen Effekte einer Erhöhung der Produktauslastung formal beschrieben sind, kann nun untersucht werden, wie sie gemeinsam auf die Zielgröße MIPS einwirken. Dazu werden analog zu Kapitel \ref{sec:Nutzungsintensivierung} zunächst die beiden Komponenten des MIPS einzeln betrachtet und anschließend zu einem Modell zusammengeführt.
+      
+      	Die Material-Inputs setzen sich aus nutzungsbedingten Inputs $I_N = N(a) \cdot i_N(a)$, produktbezogenen Inputs $I_P = P(a) \cdot i_P$  und konstanten Inputs $I_{\text{fix}}^a$ zusammen:
+      %
+      	\begin{equation}
+      		I = N(a) \cdot i_N(a) + P(a) \cdot i_P + I_{\text{fix}}^a
+      	\end{equation}			
+      %
+      	Die nutzungsbedingten Inputs $I_N$ sind solche, die unmittelbar bei der
+      Nutzung anfallen, wie beispielsweise Energie oder andere Betriebsmittel. Im Modell \enquote{Nutzungshäufigkeit} wurden sie nicht explizit, sondern unter den konstanten Inputs $I_{\text{fix}}^h$ erfasst, da sie nicht von der Nutzungshäufigkeit abhängen. In diesem Modell werden sie jedoch gesondert aufgeführt, da sie von der Auslastung abhängig sind.
+      Die produktbezogenen Inputs $I_P$ fallen bei der Bereitstellung und
+      Entsorgung der eingesetzten Produkte an. Zu den konstanten Inputs $I_\text{fix}^a$ schließlich zählen alle Inputs, die weder von der Anzahl der Produkte, noch von der Anzahl der Nutzungen unmittelbar abhängen. Diese fallen beispielsweise für die Bereitstellung der Infrastruktur, wie etwa der Räumlichkeiten, eines Nutzungssystems an.
+      
+      	Die Service-Menge $S$ ist -- wie bereits im Modell \enquote{\nameref{sec:Nutzungsintensivierung}} -- einerseits aus Angebots-Sicht durch den Ausdruck $S = N \cdot a \cdot K$ und andererseits aus Nachfrage-Sicht durch den Ausdruck $S = S_D$ gegeben.
+      
+      	%Damit lässt sich Gleichung \eqref{eq:S(a)} umformen zu
+      %
+      	%\begin{equation}
+      	%	N = \frac{S_D}{a \cdot K}
+      	%\end{equation}			
+      %
+      	%und die Nebenbedingung \eqref{eq:Nebenbedingung N_max} wird unter Anwendung von Gleichung \ref{N_max(a)} zu
+      %
+      	%\begin{equation}
+      	%	N_{\text{max}}(a) \geq \frac{S_D}{a \cdot K}
+      	%\end{equation}
+      %
+      	Nun liegen alle Voraussetzungen vor um das MIPS für eine gegebene Auslastung $a$ zu bestimmen:
+      %
+      	\begin{align}
+      		\text{MIPS}(a) &= \frac{I}{S} = \frac{N \cdot i_N(a) + P(a) \cdot i_P + I_{\text{fix}}^a}{S} \\[10pt]
+      		&\eqnref{eq:S(a)} \frac{N \cdot i_N(a)}{N \cdot a \cdot K} + \frac{P(a) \cdot i_P}{S_D} + \frac{I_{\text{fix}}^a}{S_D} \\[10pt]
+      		& \eqnref{P(a)} \frac{i_N(a)}{a \cdot K} + \frac{I_{\text{fix}}^a}{S_D} + \left\{\begin{array}{ll} \frac{i_P}{a \cdot K \cdot h \cdot t_{\text{max}}} & \mbox{falls } n_\text{max}(a) > h \cdot t_\text{max} \\[5pt] \frac{i_P}{a \cdot K \cdot n_{\text{max}}(a)} & \mbox{sonst} \end{array}\right.
+      	\end{align}	
+      
+      %			Die Nebenbedingung aus Ungleichung \eqref{eq:P_min} lässt sich unter Verwendung der Gleichungen \ref{N_max(a)} und \ref{S_D} folgendermaßen formulieren:
+      %%
+      %			\begin{equation}
+      %				P \cdot n_\text{max}(a) \geq \frac{S_D}{a \cdot K}
+      %			\end{equation}
+      %%
+      %			Zu beachten ist hier, dass sowohl die Produktauslastung $a$ als auch die
+      %      Produktanzahl $P$ freie Variablen sind, die im Zusammenspiel die
+      %      Nebenbedingung erfüllen müssen.\noteS{dieser Fakt sollte sich vielleicht
+      %      auch in der Übersicht wiederspiegeln}
+      
+      	Zusammenfassend lässt sich das folgende Modell als Zwischenergebnis festhalten:
+      	\\
+      
+      	\begin{mdframed}[frametitle={Erhöhung der Produktauslastung}, frametitlerule=true]
+      		Modell:
+      		\begin{align}
+      			\text{MIPS}(a) &= \frac{i_N(a)}{a \cdot K} + \frac{P(a) \cdot i_P}{S_D} + \frac{I_{\text{fix}}^a}{S_D} \\[10pt]
+      			&= \frac{i_N(a)}{a \cdot K} + \frac{I_{\text{fix}}^a}{S_D} + \left\{\begin{array}{ll} \frac{i_P}{a \cdot K \cdot h \cdot t_{\text{max}}} & \mbox{falls } n_\text{max}(a) > h \cdot t_\text{max} \\[5pt] \frac{i_P}{a \cdot K \cdot n_{\text{max}}(a)} & \mbox{sonst} \end{array}\right.
+      		\end{align}
+      		Nebenbedingungen:
+      		\begin{equation}
+      			a = \frac{S_D}{h \cdot T \cdot p \cdot K} \qquad p \in \mathbb{N}, \quad a \in \left( 0,1 \right]
+      		\end{equation}
+      		\begin{equation}
+      			p \geq p_{\text{min}} \qquad  p_{\text{min}} \in \mathbb{N}
+      		\end{equation}
+      		Funktionseigenschaften:
+      		\begin{equation}
+      			\frac{\partial i_N}{\partial a} \geq 0
+      		\end{equation}
+      		\begin{equation}
+      			\frac{\partial n_{\text{max}}}{\partial a} \leq 0
+      		\end{equation}
+      	\end{mdframed}
+      
+      	%Wie bereits bei der Herleitung des Teilmodells bereits erwähnt wurde, kann der Mechanismus \enquote{Erhöhung der Produktauslastung} sowohl positive als auch negative Umweltauswirkungen zur Folge haben. Im Modell spiegelt sich dies durch das mehrfache Vorkommen der Produktauslastung $a$ mit zum Teil entgegengesetzter Wirkung auf das MIPS wieder. Unter welchen Umständen die positiven Wirkungen die negativen überwiegen und damit eine Erhöhung der Produktauslastung insgesamt zu einer Verringerung des Umweltverbrauchs führt, wird Gegenstand der Analyse dieses Teilmodells sein. \todo{Referenz einfügen}
+      
+      \paragraph{Modellanalyse}
+      In der folgenden Analyse wird untersucht, wie sich eine Erhöhung der Produktauslastung $a$ auf die MIPS auswirkt. Es wird zunächst eine geringfügige Erhöhung der Produktauslastung bei konstanter Anzahl $p$ der parallel eingesetzten Produkte betrachtet. Im Anschluss folgt eine Analyse zur Einsparung von parallel eingesetzten Produkten.
+      
+      \subparagraph{Geringfügige Erhöhung der Produktauslastung}
+      \label{sec:Auslastung_Analyse1}
+      In diesem Abschnitt wird eine Bedingung für einen positiven Umwelteffekt durch eine geringfügige Erhöhung der Produktauslastung hergeleitet. Dabei wird davon ausgegangen, dass die Anzahl $p$ der parallel eingesetzten Produkte gleich bleibt. Ein denkbares Szenario im Bereich von Waschmaschinen ist, dass zwei Personen jeweils eine eigene Waschmaschine besitzen, jedoch dazu übergehen, gelegentlich eine der beiden Maschinen gemeinsam zu nutzen, um je Waschgang eine höhere Auslastung zu erzielen.
+      
+      Der Umwelteffekt kann durch die Ableitung der MIPS nach der Produktauslastung bestimmt werden:
+      				%
+      				\begin{equation}
+       				\label{eq:d_MIPS_d_a}
+       				\frac{\partial \MIPS[a]}{\partial a} = \frac{i_N'(a)\cdot a - i_N(a)}{a^2 \cdot K} - \left\{\begin{array}{ll} 0 & \mbox{falls } a > a^* := \frac{S_D \cdot t_\text{max}}{n_\text{max} \cdot K \cdot p \cdot T} \\[5pt] \frac{i_P}{a^2 \cdot K \cdot n_{\text{max}}} & \mbox{sonst} \end{array}\right.
+      				\end{equation}
+      				%
+       			Es lässt sich nun untersuchen, unter welchen Bedingungen eine geringfügige Erhöhung der Produktauslastung zu einer Verringerung der MIPS führt. Dazu werden die beiden Fälle $a > a^*$ und $a \leq a^*$ separat behandelt. Diese Fallunterscheidung lässt sich auf zwei Weisen interpretieren: Entweder als charakteristische Bereiche der Produktauslastung für einen gegebenen Produkttyp, oder als Unterscheidungskriterium verschiedener Produkt- bzw. Nutzungssystemtypen. Letztere Interpretation korrespondiert mit der Annahme, dass bestimmte Produkttypen in einem bestimmten Nutzungssystemtyp \emph{typischerweise} zu einem gewissen Grad ausgelastet werden. Insbesondere kann der Fall $a > a^*$ nur auftreten, falls $a^* < 1$ gilt.
+      
+       			\underline{Fall 1:} $a > a^*$
+      
+       			Dies ist der Fall, in dem der Nutzungsvorrat $n_\text{max}$ aufgrund einer zu geringen Nutzungshäufigkeit $h$ \emph{nicht} innerhalb der Maximalnutzungsdauer $t_\text{max}$ aufgebraucht wird. Hier gilt nach Gleichung \eqref{eq:d_MIPS_d_a} der folgende Zusammenhang:
+       			%
+      				\begin{equation}
+       				\label{eq:Elastizitaetsbedingung}
+       				\frac{\partial \MIPS[a]}{\partial a} < 0 
+       				\qquad \overset{a, K > 0}{\Leftrightarrow} \qquad 
+       				\epsilon_{i_N, a} = i'_N(a) \cdot  \frac{a}{i_N(a)} < 1
+      				\end{equation}
+      %
+      Eine geringfügige Erhöhung der Produktauslastung führt also im Fall eines nicht ausgeschöpften Nutzungsvorrats genau dann zu einer Verringerung der MIPS, wenn die Inputs pro Nutzungseinheit $i_N$ unelastisch\footnote{zum Begriff der Elastizität vgl. Abschnitt \ref{sec:Elastizität}} auf die Änderung Produktauslastung reagiert. Diese Bedingung bedeutet, dass die Inputs pro Nutzungseinheiten prozentual weniger stark zunehmen dürfen als die prozentuale Steigerung der Produktauslastung. Dies ist beispielsweise für konstante Nutzungsinputs stets gegeben.
+      
+      \underline{Fall 2:} $a \leq a^*$
+      
+      Im zweiten Fall wird der Nutzungsvorrat innerhalb der Maximalnutzungsdauer aufgebraucht. Hier liefert Gleichung \eqref{eq:d_MIPS_d_a} die folgende Bedingung:
+      	   			%
+      	   			\begin{equation}
+       	   			\frac{\partial \MIPS[a]}{\partial a} < 0 
+       	   			\qquad \overset{a, K > 0}{\Leftrightarrow} \qquad 
+       	   			\epsilon_{i_N, a} = i'_N(a) \cdot  \frac{a}{i_N(a)} < 1 + \frac{i_P}{n_\text{max} \cdot i_N(a)}
+      	   			\end{equation}
+      	   			%
+      Da der Ausdruck $\frac{i_P}{n_\text{max} \cdot i_N(a)}$ echt positiv ist, stellt die Elastizitäts-Bedingung für $i_N(a)$ aus Fall 1 auch in Fall 2 eine hinreichende Bedingung für die Verringerung der MIPS dar. \noteJ{klarer formulieren} Darüber kommt es hier auch dann zu einer Verringerung der MIPS, wenn zwar die Elastizitäts-Bedingung verletzt wird, die Inputs pro Produkt $i_P$ jedoch hinreichend groß sind. Dies liegt an der Einsparung an sequentiell eingesetzten Produkten in Fall 2. \noteJ{Genauer erklären, evt. bereits an früherer Stelle.}
+      
+      \subparagraph{Einsparung parallel eingesetzter Produkte}
+      Die vorherige Analyse beruhte auf der Annahme einer unveränderlichen Anzahl parallel eingesetzter Produkte. Jedoch eröffnet eine hinreichend große Erhöhung der Produktauslastung die Möglichkeit, die Zahl der parallel eingesetzten Produkte zu reduzieren und dadurch eine weitere Ressourceneinsparung zu erzielen. Im obigen Beispiel der Waschmaschinen-Nutzung könnten die beiden Personen bei einer ausreichen hohen Maschinenbeladung eine der beiden Waschmaschinen abschaffen. Dieser Effekt wird in der folgenden Analyse untersucht.
+      
+      \noteJ{Zusammenhang zwischen $a$ und $p$ in Modellbeschreibung herleiten}
+      
+      Zwischen der Produktauslastung $a$ und der Anzahl der parallel eingesetzten Produkte $p$ nehmen wir den mit Gleichung \eqref{eq:p(a)} spezifizierten Zusammenhang an:
+      %
+      \begin{equation}
+      \label{eq:p(a)_2}
+      p(a) = \left\lceil p_\text{min}(a) \right\rceil = \left\lceil \frac{S_D}{a \cdot K \cdot h_\text{max} \cdot T} \right\rceil
+      \end{equation}
+      
+      Es handelt sich bei $p(a)$ um eine Treppenfunktion. Im Rahmen dieser Analyse betrachten wir deren Sprungstellen, d.h. solche Werte für $a$, bei denen $p_\text{min}(a)$ ganzzahlig ist und somit $p(a)=p_\text{min}$ gilt. Dies sind jene Auslastungs-Werte, bei denen die Anzahl der parallel eingesetzten Produkte jeweils um eins verringert werden kann. Für die Bereiche dazwischen ist $p(a)$ konstant, sodass sich die obige Analyse (\enquote{\nameref{sec:Auslastung_Analyse1}}) anwenden lässt und alle dort erarbeiteten Ergebnisse auch hier gültig sind.
+      
+      Zunächst bestimmen wir die Gesamtänderung der MIPS von einer Sprungstelle zur nächsten und leiten daraus eine Bedingung für einen positiven Umwelteffekt ab. Anschließend untersuchen wir, was an der Sprungstelle selbst geschieht, das heißt, wie groß der \emph{zusätzliche} Effekt durch die Einsparung eines parallel eingesetzten Produkts ist. Auf diese Weise lassen sich die Ergebnisse der vorherigen Analyse (\enquote{\nameref{sec:Auslastung_Analyse1}}) auf die neue Situation übertragen.
+      
+      Zur Bestimmung der Sprungstellen betrachten wir eine gegebene Produktanzahl $p_1 \in \mathbb{N}$ und die um eins verringerte Produktanzahl $p_2 = p_1 - 1$. Die Sprungstellen sind dann durch Gleichung \eqref{eq:p(a)_2} gegeben als:
+      %
+      \begin{equation}
+      \label{eq:a(p)}
+      a_{1,2} = \frac{S_D}{p_{1,2} \cdot K \cdot h_\text{max} \cdot T}
+      \end{equation}
+      %
+      Für die entsprechenden Anzahlen parallel eingesetzter Produkte gilt damit:
+      %
+      \begin{equation}
+      \label{eq:p(a)_3}
+      p_{1,2} = \frac{S_D}{a_{1,2} \cdot K \cdot h_\text{max} \cdot T}
+      \end{equation}
+      
+      Die Gesamtänderung der MIPS lässt sich nun folgendermaßen bestimmen:
+      \begin{align}
+      \Delta \text{MIPS} &= \text{MIPS}(a_2) - \text{MIPS}(a_1) \\[10pt]
+      &= \frac{1}{K} \cdot \left[ \frac{i_N(a_2)}{a_2} - \frac{i_N(a_1)}{a_1} \right] + \left\{ \begin{array}{ll} \frac{i_P \cdot T}{t_\text{max} \cdot S_D} \cdot (p_2-p_1) & \mbox{falls } a_1, a_2 > a^* \\[5pt] \frac{i_P}{K \cdot n_\text{max}} \cdot \left( \frac{1}{a_2} - \frac{1}{a_1} \right) & \mbox{falls } a_1, a_2 \leq a^* \end{array} \right. \\[10pt]
+      &\eqnref{eq:a(p)} \frac{1}{K} \cdot \frac{K \cdot h_{max} \cdot T}{S_D} \cdot \left[i_N(a_2) \cdot p_2 - i_N(a_1) \cdot p_1 \right] + \left\{\begin{array}{ll} \frac{i_P \cdot T}{t_\text{max} \cdot S_D} \cdot (p_2-p_1) \\[5pt] \frac{i_P}{K \cdot n_\text{max}} \cdot \frac{K \cdot h_\text{max} \cdot T}{S_D} \cdot (p_2-p_1) \end{array}\right. \\
+      &= \frac{h_{max} \cdot T}{S_D} \cdot \left[p_1 \cdot (i_N(a_2) - i_N(a_1)) - i_N(a_2) \right] - \left\{\begin{array}{ll} \frac{T}{t_\text{max}} \cdot \frac{i_P }{S_D} \\[5pt] \frac{h_\text{max} \cdot T}{n_\text{max}} \cdot \frac{i_P}{S_D}  \end{array}\right. \\[10pt]
+      &\eqnref{eq:p(a)_3} \frac{h_{max} \cdot T}{S_D} \cdot \frac{S_D}{a_{1} \cdot K \cdot h_\text{max}  \cdot T} \cdot (i_N(a_2) - i_N(a_1)) - \frac{i_N(a_2) \cdot h_\text{max} \cdot T}{S_D} - q \cdot \frac{i_P}{S_D} \\
+      &= \underbrace{\frac{i_N(a_2) - i_N(a_1)}{a_1 \cdot K}}_{(a)} - \underbrace{\frac{i_N(a_2) \cdot h_\text{max} \cdot T}{S_D}}_{(b)} - \underbrace{q \cdot \frac{i_P}{S_D}}_{(c)}
+      \end{align} \noteJ{Bedingung der Fallunterscheidung anpassen: $n_\text{max} >/\leq t_\text{max} \cdot h_\text{max}$}
+      %
+      Dieser Ausdruck setzt sich aus drei Komponenten zusammen, und zwar den Änderungen der MIPS durch
+      \begin{enumerate}[label=(\alph*)]
+         	\item zusätzliche Nutzungsinputs für jede ursprüngliche Nutzungseinheit,
+         	\item eingesparte Nutzungsinputs (bei neuer Auslastung $a_2$) für das weggefallene parallel eingesetzte Produkt, und
+         	\item eingesparte produktbezogene Inputs für das weggefallene Produkt.
+      \end{enumerate}
+      
+      Es lässt sich nun die folgende Bedingung für einen positiven Umwelteffekt durch eine Erhöhung der Produktauslastung bei Einsparung eines parallel eingesetzten Produkts herleiten:
+      \begin{align}
+      \Delta \text{MIPS} &< 0 \\
+      \Leftrightarrow \quad \frac{i_N(a_2) - i_N(a_1)}{a_1 \cdot K} &< \frac{i_N(a_2) \cdot h_\text{max} \cdot T}{S_D} + q \cdot \frac{i_P}{S_D}
+      \end{align}
+      %
+      Das heißt, ein positiver Umwelteffekt durch eine Erhöhung der Produktauslastung tritt auf, wenn der Effekt von zusätzlichen Nutzungsinputs durch die höhere Auslastung den kombinierten Effekt aus eingesparten Nutzungs- und produktbezogenen Inputs durch die Einsparung eines parallel eingesetzten Produkts nicht übersteigt.
+      
+      Um diese Aussage mit den Ergebnissen aus dem vorigen Abschnitt (\enquote{\nameref{sec:Auslastung_Analyse1}}) in Verbindung zu bringen, werden nun abschließend die Effekte durch die Einsparung eines parallel eingesetzten Produkts von den sonstigen Effekten isoliert.
+      
+      Dazu betrachten wir eine einzelne Sprungstelle, d.h. einen Auslastungs-Wert $a$, bei dem die parallele Produktanzahl $p(a)$ von einem Wert $p_1$ auf $p_2 = p_1 -1$ springt. Nähert man sich von links dieser Sprungstelle an, gilt demnach $p(a) = p_1$, an der Sprungstelle selbst gilt hingegen $p(a) = p_2$. Alle anderen Parameter bleiben gleich. Damit lässt sich untersuchen, wie groß die Änderung der MIPS an der Sprungstelle $a$ selbst ist:
+      %
+      \begin{align}
+      \Delta \text{MIPS}(a) &= \text{MIPS}_{p_2}(a) - \text{MIPS}_{p_1}(a) \\[10pt]
+      &= 0 + 0 + \left\{ \begin{array}{ll} \frac{i_P \cdot T}{t_\text{max} \cdot S_D} \cdot (p_2-p_1) & \mbox{falls } a > a^* \\[5pt] 0 & \mbox{sonst} \end{array} \right. = \left\{ \begin{array}{ll} - q \cdot \frac{i_P}{S_D} & \mbox{falls } a > a^* \\[5pt] 0 & \mbox{sonst} \end{array} \right.
+      \end{align}
+      %
+      Dieses Ergebnis sagt aus, dass die Einsparung eines parallel eingesetzten Produkts nur dann einen zusätzlichen Umwelteffekt hat, wenn der Nutzungsvorrat $n_\text{max}$ eines einzelnen Produkts aufgrund einer zu geringen Nutzungshäufigkeit nicht innerhalb der Maximalnutzungsdauer $t_\text{max}$ aufgebraucht wird. Der zusätzliche Umwelteffekt besteht in der Vermeidung der produktbezogenen Inputs des eingesparten Produkts und ist stets positiv im Sinne einer Umweltentlastung. Wenn hingegen der Nutzungsvorrat bereits aufgebraucht wird, führt die Einsparung eines parallel eingesetzten Produkts zu keiner zusätzlichen Umweltentlastung im Vergleich zum Szenario mit konstanter paralleler Produktanzahl. Dies liegt daran, dass mit der Reduzierung der parallelen Produktanzahl die sequentielle Produktanzahl im gleichen Maße ansteigt, sodass die effektive Produktanzahl an der Sprungstelle keine Veränderung erfährt.
+      
+      Aus dieser Erkenntnis lässt sich ableiten, dass die im Abschnitt \enquote{\nameref{sec:Auslastung_Analyse1}} aufgestellte Bedingung an die Elastizität von $i_N(a)$ (Gleichung \eqref{eq:Elastizitaetsbedingung}) auch im hier betrachteten Szenario eine hinreichende Bedingung für einen positiven Umwelteffekt darstellt: Wenn die produktbezogenen Inputs $i_N$ unelastisch auf eine Erhöhung der Auslastung reagieren, ist der Umwelteffekt der Auslastungserhöhung positiv. Die Umkehrung dieser Aussage gilt jedoch nicht, das heißt eine Erhöhung der Produktauslastung kann auch dann einen positiven Umwelteffekt zur Folge haben, wenn zwar die Elastizitätsbedingung verletzt wird, jedoch die produktbezogenen Inputs $i_P$ hinreichend groß sind um den Mehraufwand an Nutzungsinputs durch die Einsparung an produktbezogenen Inputs zu kompensieren. Dieser Fall kann jedoch, wie oben erläutert, nur unter der Bedingung von nicht ausgeschöpften Nutzungsvorräten auftreten.
+      
+      \subparagraph{Fazit}
+      Die Modellanalyse hat ergeben, dass eine Erhöhung der Produktauslastung -- anders als von \dots \noteJ{Referenz einfügen, Bezug auf Tabelle der Umwelteffekte} angenommen -- nicht in jedem Fall einen positiven Umwelteffekt mit sich bringt. Wir können jedoch eine hinreichende Bedingung dafür angeben, dass dies der Fall ist: Wenn die Inputs je Produktnutzung unelastisch auf die steigende Auslastung reagieren, ist eine Erhöhung der Produktauslastung aus Sicht der Ressourcennutzung vorteilhaft.
+      
+      Anderenfalls kann keine pauschale Aussage getroffen werden, ohne den genauen Verlauf der Inputs je Produktnutzung sowie die Höhe der Inputs je Produkt zu kennen. Es ist beispielsweise möglich, dass eine Erhöhung der Produktauslastung bis zu einem gewissen Grad einen positiven Umwelteffekt aufweist, eine weitere Auslastungserhöhung sich jedoch negativ auswirkt, oder umgekehrt. Auch ist es möglich, dass eine Auslastungserhöhung für einen bestimmten Produkttyp niemals einen positiven Effekt mit sich bringt.
+      
+      Die zentrale Größe für eine fallspezifische Untersuchung ist demnach die Entwicklung der Inputs je Produktnutzung bei einer Erhöhung der Auslastung. Falls diese stets unelastisch reagieren, ist der Umwelteffekt positiv. Andernfalls muss zu einer detaillierteren Betrachtung übergegangen werden. Ebenso ist es für eine Bestimmung des absoluten Umwelteffekts nötig, alle Modellparameter zu berücksichtigen.
 
       \subsection{Wartung und Reparatur}\marginpar{\vspace{-4em}\scriptsize Ende
       Teil von János Sebestyén
@@ -2824,7 +2742,7 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
 		 %
 		 Für den Zweck des Kopplungsmodells werden also lediglich die produktbezogenen Inputs $I_P$ und die transportbedingten Inputs $I_\Theta$ explizit betrachtet und alle sonstigen Inputs zu den fixen Inputs zusammengefasst ($I_\text{fix}^{h,d} = I_N + I_W + I_R + I_\text{Rest}$).
 		 
-		 Für die produktbezogenen Inputs $I_P$ gelten die im Teilmodell \enquote{Nutzungsintensivierung} beschriebenen Abhängigkeiten von der Nutzungshäufigkeit: $I_P = P(h) \cdot i_P$, siehe Abschnitt \ref{sec:Nutzungsintensivierung}. Die transportbedingten Inputs $I_\Theta$ sind gemäß den Ergebnissen des Teilmodells \enquote{Zusätzliche Transporte} proportional zum Produkt aus Service-Menge und durchschnittlicher Distanz: \noteJ{Referenz einfügen, ggf. angleichen} $I_\Theta (d) = \alpha \cdot S \cdot d$. Für die Service-Menge gilt wie üblich eine konstante Nachfrage $S = S_D$.
+		 Für die produktbezogenen Inputs $I_P$ gelten die im Modell \enquote{Nutzungshäufigkeit} beschriebenen Abhängigkeiten von der Nutzungshäufigkeit: $I_P = P(h) \cdot i_P$, siehe Abschnitt \ref{sec:Nutzungsintensivierung}. Die transportbedingten Inputs $I_\Theta$ sind gemäß den Ergebnissen des Teilmodells \enquote{Zusätzliche Transporte} proportional zum Produkt aus Service-Menge und durchschnittlicher Distanz: \noteJ{Referenz einfügen, ggf. angleichen} $I_\Theta (d) = \alpha \cdot S \cdot d$. Für die Service-Menge gilt wie üblich eine konstante Nachfrage $S = S_D$.
 		 
 		 Damit ergibt sich das folgende Modell für die Effekt-Kopplung: \\
 		 
@@ -2848,7 +2766,7 @@ Wir fassen die wichtigsten Ergebnisse dieses Abschnitts als Grundmodell zusammen
 			\end{mdframed}
 
 		 \paragraph{Modellanalyse}
-		 In dieser Analyse des Kopplungs-Modells wird untersucht, wie sich eine Erhöhung der Nutzungshäufigkeit, bzw. die damit zusammenhängende Produkteinsparung, bei einer gleichzeitigen Vergrößerung der durchschnittlichen Transportdistanz auf die MIPS eines Produktnutzungssystems auswirkt. Für die Nutzungshäufigkeit wird wie bereits im Teilmodell \enquote{Nutzungsintensivierung} die Änderung von einer gegebenen Nutzungshäufigkeit ($h=h_1$) zur nächstgrößeren ($h=h_2$) betrachtet, die durch die Verringerung der parallelen Produktanzahl von $p = p_1$ auf $p = p_2$ um eins gegeben ist:
+		 In dieser Analyse des Kopplungs-Modells wird untersucht, wie sich eine Erhöhung der Nutzungshäufigkeit, bzw. die damit zusammenhängende Produkteinsparung, bei einer gleichzeitigen Vergrößerung der durchschnittlichen Transportdistanz auf die MIPS eines Produktnutzungssystems auswirkt. Für die Nutzungshäufigkeit wird wie bereits im Teilmodell \enquote{Nutzungshäufigkeit} die Änderung von einer gegebenen Nutzungshäufigkeit ($h=h_1$) zur nächstgrößeren ($h=h_2$) betrachtet, die durch die Verringerung der parallelen Produktanzahl von $p = p_1$ auf $p = p_2$ um eins gegeben ist:
 		 \begin{equation}
 		 	\Delta p = p_2 - p_1 = -1
 		 \end{equation}
