@@ -848,6 +848,7 @@ Kontext verwenden wir in den Faktor-spezifischen Modellen eine der beiden
 Formulierungen ${S=S_D}$ oder $S=N \cdot A$.
 
 \paragraph{Material-Inputs}
+\label{sec:Material-Inputs}
 Wir kommen nun zu den Materialinputs $I$. Ihre genaue Bestimmung wird in den Beschreibungen der Faktor-spezifischen Modelle formuliert. An dieser Stelle erfolgt eine Übersicht über die relevanten Bestandteile um die allgemeine Vorgehensweise zu verdeutlichen und einige zentrale Zusammenhänge herzuleiten.
 
 Wir unterteilen die Materialinputs in eine Reihe von Teil-Inputs: Die produktbezogenen Inputs $I_P$ werden für die Herstellung, Bereitstellung und Entsorgung der eingesetzten Produkte aufgewendet. Die nutzungsbezogenen Inputs $I_N$ fallen bei der Produktnutzung an, wie beispielsweise Energie oder sonstige Betriebsmittel der Produkte. Die wartungsbezogenen Inputs $I_W$ bzw. reparaturbezogenen Inputs $I_R$ sind mit gegebenenfalls durchgeführten Wartungen bzw. Reparaturen verbunden. Die transportbezogenen Inputs $I_\Theta$ schließlich gehen mit Transporten von Produkten oder Personen einher, die für die räumliche Organisation des Nutzungssystems erforderlich sind.
@@ -1661,7 +1662,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       Folgenden werden wir den Einfluss der Wartungshäufigkeit auf die MIPS 
       formal beschreiben.
 
-      Aus der Wartungshäufigkeit ergibt durch Multiplikation mit den
+      Aus der Wartungshäufigkeit ergibt sich durch Multiplikation mit den
       Nutzungseinheiten die Anzahl Wartungen $W$, die im Nutzungssystem
       durchgeführt werden. Der erste Effekt, die
       Erhöhung der Material-Inputs, lässt sich damit direkt formulieren:
@@ -1705,44 +1706,16 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
 
       Eine Verlängerung der technischen Lebensdauer $\t{tech}$ bzw. eine
       Erhöhung des dazu äquivalenten Nutzungsvorrats $\n{max}$ wirkt sich,
-      sofern dies dazu führt, dass sich die Nutzungsdauer verlängert, auf die
+      sofern dies zu einer Verlängerung der Nutzungsdauer führt, auf die
       effektive Produktanzahl und damit auf die produktbezogenen Inputs aus.
       Dieser Zusammenhang ergibt sich aus den im \nameref{sec:Grundmodell}
-      aufgestellten Gleichungen \eqref{eq:}<++>
-      \todo[inline]{in den Folgenden 4 Absätzen bis "`beschränkt ist"' die
-      Analysebestandteile rauskürzne}
-      Die Verlängerung der technischen Lebensdauer $\t{tech}$ wird dann einen
-      positiven Effekt auf die MIPS des betrachteten Produkts haben, wenn
-      dadurch mehr der durch das Produkt bereitgestellten Nutzungseinheiten
-      verwendet werden. Bei konstanter Nutzungshäufigkeit $h$ trifft das genau
-      dann zu,
-      wenn die Nutzungsdauer $t$ verlängert wird. Der Zusammenhang zwischen
-      Nutzungsdauer und Lebensdauer wurde bereits im Abschnitt zur
-      \nameref{sec:Produktnutzungsdauer} (\ref{sec:Produktnutzungsdauer}) formalisiert (vgl.
-      Gleichung \eqref{eq:Produktnutzungsdauer}): 
-
-      \begin{equation}
-          t(w) = \min \left\{\t{max},\ \t{tech} = \frac{\n{max}(w)}{h} \right\}
-      \end{equation}
-      Hieran lässt sich erkennen, dass eine Erhöhung der Wartungshäufigkeit
-      genau dann zu einer Verlängerung der Nutzungsdauer führt, wenn $\t{tech} <
-      \t{max}$ gilt, das Produkt also aufgrund des Erreichens des
-      Nutzungsvorrats ausgemustert wird. Die Nutzungsdauer hat aber einen Unter der Annahme identischer Produkte
-      im Nutzungssystem, insbesondere also gleicher Nutzungsdauern, gelten die
-      im \nameref{sec:Grundmodell} (\ref{sec:Grundmodell}) aufgestellten
-      Gleichungen 
-      $n &= h \cdot t$
-      $P &= p \cdot q = p \cdot \frac{T}{t} = \frac{N}{n}$
-      \begin{equation}
-        P = h \cdot t(w) \cdot N
-      \end{equation}
-      Der ökologisch positive Effekt der Nutzungsdauerverlängerung durch eine
-      Erhöhung der Wartungshäufigkeit resultiert aus einer Reduktion der
-      im Betrachtungszeitraum benötigten Produktanzahl. Bei konstanten
-      Material-Inputs je Produkt $i_P$ verringern sich
-      somit die produktbezogenen Material-Inputs $I_P$:
-      \begin{equation}
-        I_P(w) = i_P \cdot P = i_P \cdot \frac{N}{h \cdot t(w)} = 
+      aufgestellten Grundgleichungen $n = h \cdot
+      t$ \eqref{eq:Grundgleichung_n} und $P = \frac{N}{n}$ \eqref{eq:Grundgleichung_P}:
+      \begin{align}
+          I_P(w) &= i_P \cdot P(w) \eqnref{eq:Grundgleichung_P} i_P \cdot
+          \frac{N}{n(w)} \eqnref{eq:Grundgleichung_n} i_P \cdot \frac{N}{h \cdot
+          t(w)} \\[10pt]
+                 &= 
         \left\{ 
           \begin{array}{r@{\quad : \quad}l}
             i_P \cdot \frac{N}{\n{max}(w)} & \n{max}(w) < h \cdot \t{max} \\[10pt]
@@ -1750,19 +1723,53 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
           \end{array}
         \right.
         \label{eq:I_P(w)}
-      \end{equation}
+      \end{align}
 
-      Es ist zu erkennen, dass die Wartungshäufigkeit nur dann einen Effekt auf
-      die produktbezogenen Material-Inputs hat, wenn die Nutzungsdauer durch
-      $\t{tech}$ beschränkt ist. 
+      % \todo[inline]{in den Folgenden 4 Absätzen bis "`beschränkt ist"' die
+      % Analysebestandteile rauskürzne}
+      % Die Verlängerung der technischen Lebensdauer $\t{tech}$ wird dann einen
+      % positiven Effekt auf die MIPS des betrachteten Produkts haben, wenn
+      % dadurch mehr der durch das Produkt bereitgestellten Nutzungseinheiten
+      % verwendet werden. Bei konstanter Nutzungshäufigkeit $h$ trifft das genau
+      % dann zu,
+      % wenn die Nutzungsdauer $t$ verlängert wird. Der Zusammenhang zwischen
+      % Nutzungsdauer und Lebensdauer wurde bereits im Abschnitt zur
+      % \nameref{sec:Produktnutzungsdauer} (\ref{sec:Produktnutzungsdauer}) formalisiert (vgl.
+      % Gleichung \eqref{eq:Grundgleichung_P}): 
+      %
+      % \begin{equation}
+      %     t(w) = \min \left\{\t{max},\ \t{tech} = \frac{\n{max}(w)}{h} \right\}
+      % \end{equation}
+      % Hieran lässt sich erkennen, dass eine Erhöhung der Wartungshäufigkeit
+      % genau dann zu einer Verlängerung der Nutzungsdauer führt, wenn $\t{tech} <
+      % \t{max}$ gilt, das Produkt also aufgrund des Erreichens des
+      % Nutzungsvorrats ausgemustert wird. Die Nutzungsdauer hat aber einen Unter der Annahme identischer Produkte
+      % im Nutzungssystem, insbesondere also gleicher Nutzungsdauern, gelten die
+      % im \nameref{sec:Grundmodell} (\ref{sec:Grundmodell}) aufgestellten
+      % Gleichungen 
+      %
+      %
+      % \begin{equation}
+      %   P = h \cdot t(w) \cdot N
+      % \end{equation}
+      % Der ökologisch positive Effekt der Nutzungsdauerverlängerung durch eine
+      % Erhöhung der Wartungshäufigkeit resultiert aus einer Reduktion der
+      % im Betrachtungszeitraum benötigten Produktanzahl. Bei konstanten
+      % Material-Inputs je Produkt $i_P$ verringern sich
+      % somit die produktbezogenen Material-Inputs $I_P$:
+      %
+      % Es ist zu erkennen, dass die Wartungshäufigkeit nur dann einen Effekt auf
+      % die produktbezogenen Material-Inputs hat, wenn die Nutzungsdauer durch
+      % $\t{tech}$ beschränkt ist. 
 
       Wie bereits erwähnt, kommt im Falle der Wartungen -- anders als bei den
       Reparaturen -- noch ein dritter Effekt hinzu: eine höhere
       Wartungshäufigkeit kann zu einer Verringerung der Material-Inputs je
-      Produktnutzung führen. Wir nehmen an, dass jeder Wartungshäufigkeit eine
-      durchschnittliche Menge an Material-Inputs je Produktnutzung entspricht
-      und dass dieser durchschnittliche Wert monoton mit der Wartungshäufigkeit
-      fällt: 
+      Produktnutzung $i_N$ und damit zu einer Verringerung der nutzungsbedingten
+      Material-Inputs $I_N$ führen. Wir nehmen an, dass jeder Wartungshäufigkeit
+      eine durchschnittliche Menge an Material-Inputs je Produktnutzung
+      entspricht und dass dieser durchschnittliche Wert monoton mit der
+      Wartungshäufigkeit fällt: 
       \begin{equation}
         i_N = i_N(w)\quad  , \quad
         \frac{\partial i_N}{\partial w} \leq 0
@@ -1771,7 +1778,8 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
 
       Weitere angenommene Eigenschaften der Funktion $i_N$ sind, dass sie sowohl
       nach oben als auch nach unten beschränkt ist und dass die Verringerung der
-      Material-Inputs mit zunehmender Wartungshäufigkeit abnimmt:
+      Material-Inputs mit zunehmender Wartungshäufigkeit abnimmt: \todo{checken
+      ob die Beschränkung Verwendung findet}
 
       \begin{equation}
         % 0 < \min_{w \in [0,1]} i_N(w) \leq \max_{w \in [0,1]} i_N(w) < \infty
@@ -1780,30 +1788,33 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
         \label{eq:Wartung_i_N2}
       \end{equation}
 
-      Wir sind nun in der Lage, eine Gleichung für die MIPS anzugeben, welche
-      die Wartungshäufigkeit berücksichtigt. Zunächst betrachten wir dafür die
-      Input-Seite:
+      Zusammenfassend stellen wir fest, dass die produktbezogenen Inputs $I_P$,
+      die nutzungsbedingten Inputs $I_N$ und natürlich die Inputs für Wartungen
+      $I_W$ von der Wartungshäufigkeit abhängen. Die restlichen, von der
+      Wartungshäufigkeit unabhängigen Inputs eines Nutzungssystems fassen wir in
+      der Größe $\I{fix}^w$ wie im Abschnitt \nameref{sec:Material-Inputs}
+      beschrieben zusammen:
+      \begin{equation}
+          \I{fix}^w = I_R + I_\Theta + \I{Rest}
+      \end{equation}
+      Die gesamte Input-Seite beträgt damit:
       \begin{align}
-          I &= I_N + I_W + I_P + \I{fix}\\
+          I(w) &= I_N(w) + I_W(w) + I_P(w) + \I{fix}^w\label{eq:I(w)1}\\
           % &= N \cdot i_N + N \cdot w \cdot i_W  
           %   + P \cdot i_P + \I{fix}\\
           &= N \cdot (i_N(w) +  w \cdot i_W)
-            + \frac{N}{h\cdot t} \cdot i_P + \I{fix}^w
+            + \frac{N}{h\cdot t(w)} \cdot i_P + \I{fix}^w\label{eq:I(w)2}
       \end{align}
-      Von der Wartungshäufigkeit hängen die nutzungsbedingten, die
-      produktbezogenen und die wartungsbedingten Material-Inputs ab. Alle
-      anderen davon unabhängigen Material-Inputs sind in der Größe $\I{fix}^w$
-      zusammengefasst. Unter Ausnutzung des Zusammenhangs zwischen
-      Nutzungseinheiten und Serviceeinheiten ($S=N\cdot A$), sowie bei
-      konstanter Nachfrage im Betrachtungszeitraum ($S=S_D$), ergibt sich für
-      die MIPS:
+      Unter Ausnutzung der Grundgleichung über die Serviceeinheiten
+      $S=N\cdot A =S_D$ \eqref{eq:Grundgleichung_S} können wir nun eine
+      Gleichung für die MIPS in Abhängigkeit von der Wartungshäufigkeit angeben:
       \begin{align}
-        \MIPS[w]&= \frac{I}{S} 
-                 = \frac{I_N(w) + I_W(w) + I_P(w) + \I{fix}}{S}
-                 \label{eq:MIPSWartung_simpel}\\
-                 &= \frac{N \cdot (i_N(w) +  w \cdot i_W)
+        \MIPS[w]&= \frac{I(w)}{S} 
+                \eqnref{eq:I(w)1} \frac{I_N(w) + I_W(w) + I_P(w) + \I{fix}^w}{S}
+                \label{eq:MIPSWartung_simpel}\\[10pt]
+                 &\eqnref{eq:I(w)2} \frac{N \cdot (i_N(w) +  w \cdot i_W)
                              + \frac{N}{h\cdot t} \cdot i_P 
-                         }{N \cdot A} + \frac{\I{fix}^w}{S_D}  \\
+                         }{N \cdot A} + \frac{\I{fix}^w}{S_D}  \\[10pt]
                 &= \frac{1}{A} \cdot \left( i_N(w) + w \cdot i_W 
                  + \frac{i_P}{h\cdot t}\right) + \frac{\I{fix}^w}{S_D}  
       \end{align}
@@ -1815,7 +1826,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       \begin{mdframed}[frametitle={Wartung}, frametitlerule=true]
           Modell:
           \begin{equation}
-              \MIPS[w] = \frac{\I{fix}}{S_D} 
+              \MIPS[w] = \frac{\I{fix}^w}{S_D} 
               +  \frac{i_N(w)}{A} + \frac{w\cdot
               i_W}{A}  +
               \left\{
