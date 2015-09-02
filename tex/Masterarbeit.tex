@@ -765,7 +765,7 @@ ergeben sich die folgenden beiden Anwendungsbeispiele:
 Eine Übersicht über die in der Fallstudie verwendeten Daten und deren
 Herkunft wird im Kapitel zur Fallstudie den Analysen vorangestellt. 
 
-\chapter{Modellbildung und -Analyse}\marginpar{\vspace{-6em}\scriptsize Ende \newline
+\chapter{Modellbildung und -Analyse}\label{sec:ModellbildungAnalyse}\marginpar{\vspace{-6em}\scriptsize Ende \newline
 gemeinsamer Teil \vspace{1mm} \rule{\marginparwidth}{1pt}
 Beginn Teil von János Sebestyén}
 
@@ -1199,7 +1199,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       
       \begin{mdframed}[frametitle={Kriterium}, frametitlerule=true]				
          Eine Reduktion des Umweltverbrauchs durch eine Erhöhung der Nutzungshäufigkeit bei gemeinschaftlichen Produktnutzungsformen wird genau dann erzielt, wenn die eingesetzten Produkte herkömmlicherweise nicht bis zum Erreichen ihrer technischen Lebensdauer genutzt werden.
-      \end{mdframed}
+     \end{mdframed}\label{Kriterium:Nutzungshäufigkeit}
       
       % der folgende Text ist noch war bei einem Merge Konflikt mit obigem angezeigt
       % wurden. Welcher ist aktueller=!
@@ -1649,6 +1649,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       und analysiert wird.
 
       \subsubsection{Wartung}
+      \label{sec:Wartung}
       Es folgt die Untersuchung des Einflusses des Faktors Wartung auf den
       Umweltverbrauch eines Nutzungssystems. Im Abschnitt \nameref{sec:WB} wird
       hierfür zunächst die Wartungshäufigkeit als Operationalisierung der
@@ -2422,6 +2423,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       \end{itemize}
 
       \subsection{Transporte}
+      \label{sec:Transporte}
       \paragraph{Modellbeschreibung}
       Mit Produktnutzungen geht im Allgemeinen eine Mobilitätsnachfrage 
       einher, die wir als \enquote{Transporte} bezeichnen. Da in 
@@ -3528,45 +3530,109 @@ Alexander\newline Müller
 \vspace{1mm} \rule{\marginparwidth}{1pt}
 Beginn \newline gemeinsamer Teil}
 
-    \section{Ergebnisse}
-    \subsection{Modelle}
-    \begin{itemize}
-       \item Erstellte Modelle sind wichtiges Ergebnis. Allgemein stellen sie eine Berechnungsvorschrift für die MIPS eines Produktnutzungssystems dar (wobei jeweils unterschiedliche Aspekte berücksichtigt werden): Welche Parameter werden benötigt und fließen wie ein?
-       \item Die Modelle können für unterschiedliche Zwecke eingesetzt werden:
-       \begin{itemize}
-          \item Ursprünglicher Zweck für uns: Entwicklung der Kriterien, siehe unten.
-          \item Fallstudien: MIPS für konkrete Produktnutzungssysteme berechnen. Modelle helfen dabei, alle relevanten Aspekte zu erheben. Referenz auf Fallstudie.
-          \item Für Systemvergleich (Referenz auf Theorieteil und auf Fallstudie): Worin liegen die Unterschiede zwischen verschiedenen Systemen? Wie wirken sich die Unterschiede auf die MIPS aus? Modell kann dazu genutzt werden, nachzuvollziehen, wodurch ggf. Einsparungen erzielt wurden, oder warum keine Einsparungen erzielt wurden.
-          \item Modell kann für Entwicklung von Handlungsempfehlungen verwendet werden (genaues Systemverständnis ermöglicht es gezielte Anpassungen vorzuschlagen)
-         \end{itemize}
-    \end{itemize}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-    \subsection{Kriterien}
-    \begin{itemize}
-       \item Referenz auf Tabelle
-       \item Kriterien gelten jeweils nur, wenn ausschließlich der betreffende Faktor variiert wird und alle anderen Faktoren gleich bleiben.
-       \item Am Beispiel der behandelten Kopplung kann man sehen: Ein Kriterium für einen einzelnen Faktor kann auch bei der Betrachtung von zwei Faktoren nach wie vor Gültigkeit haben und wird gegebenenfalls um ein weiteres Kriterium ergänzt.
-       \item Runtergebrochene, verbal formulierte Kriterien. In den Kapiteln zu den Faktor-spezifischen Modellen werden präzisere Kriterien in Formeln angegeben.
-    \end{itemize}
-    \begin{table}
-       \begin{center}
-       \begin{tabular}{p{2cm} p{6cm} p{2cm}}
-          Faktor(en) & Kriterium & Seitenzahl
-       \end{tabular}
-       \end{center}
-       \caption{title}
-       \label{tab:Kriterien}
-      \end{table}
-    \subsection{Fallstudie}
-    \begin{itemize}
-       \item Fallstudie demonstriert Anwendbarkeit der Modelle
-       \item Konkrete Ergebnisse: ...
-       \item Hohe Sensitivität. Aber: Eine Variation aller Parameter in eine Richtung ist ja auch ein großer Eingriff, sodass eine starke Variation der Ergebnisse nicht so verwunderlich ist.
-       \item In einigen Fällen waren die Kriterien erfüllt. Die Einsparung beträgt auch dort jedoch nur wenige Prozent. Schaut man genauer hin und betrachtet nur die Produktbezogenen Inputs, sieht man, dass dort eine Einsparung von ... erreicht wurde. Erkenntnis: Zwar geben die Kriterien darüber Aufschluss, ob überhaupt eine Einsparung vorliegt, jedoch ist für die relative MIPS-Änderung das Verhältnis der verschiedenen Input-Bestandteile ausschlaggebend. Im Fallbeispiel überwogen die nutzungsbedingten Inputs, ...
-      \end{itemize}
-    \section{Diskussion}
+Im nun folgenden abschließenden Teil möchten wir die Ergebnisse der Arbeit noch
+einmal zusammenfassend darstellen (\ref{sec:Ergebnisse}) und kritisch
+diskutieren (\ref{sec:Diskussion}).  Aus den Vorzügen und 
+Schwachpunkten unserer Ergebnisse leiten wir zum Abschluss einen kleinen
+Ausblick auf eine mögliche Fortführung der hier geleisteten Arbeit ab
+(\ref{sec:Ausblick}).
+
+\section{Ergebnisse}\label{sec:Ergebnisse}
+Die Ergebnisse unserer Arbeit umfassen die Modelle (Faktor-spezifische Modelle
+und Kopplungsmodell), die hieraus entwickelten Kriterien für eine Senkung des
+Umweltverbrauchs durch gemeinschaftliche Produktnutzung, sowie die Resultate aus
+der Anwendung ausgewählter Modelle auf eine Fallstudie zur
+Waschmaschinen-Nutzung. Wir fassen die wichtigsten Ergebnisse dieser drei
+Aspekte in den folgenden Abschnitten zusammen.
+
+\subsection{Modelle}
+In dieser Arbeit haben wir Modelle entwickelt, welche den Einfluss der Faktoren
+Nutzungshäufigkeit (\ref{sec:Nutzungsintensivierung}), Produktauslastung
+(\ref{sec:Produktauslastung}), Wartungen (\ref{sec:Wartung}), Reparaturen
+(\ref{sec:Reparatur}) und Transporte (\ref{sec:Transporte}) auf den
+Umweltverbrauch eines Produktnutzungssystems abbilden. Außerdem wurde ein Modell
+zur Kopplung der Faktoren Nutzungshäufigkeit und Transporte erstellt
+(\ref{sec:Effektkopplungen}). Diese Modelle stellen -- elementar ausgedrückt --
+Berechnungsvorschriften für die MIPS eines Produktnutzungssystems dar und
+beantworten für je unterschiedliche Aspekte gemeinschaftlicher Produktnutzung
+die Frage, welche Parameter berücksichtigt werden müssen und wie diese Parameter
+den Umweltverbrauch beeinflussen.
+
+Die Entwicklung der Modelle erfolgte vor allem mit dem Ziel, Kriterien für die
+Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung abzuleiten.
+Die Ergebnisse dieser Anwendung der Modelle sind im folgenden Abschnitt
+zusammengetragen. Darüber hinaus können die Modelle, wie in unserer
+Fallstudie zur Waschmaschinen-Nutzung demonstriert, auch für empirische Zwecke
+eingesetzt werden. Durch die Benennung der relevanten Aspekte leiten sie die
+Erhebung von Parametern und ermöglichen es, den Umweltverbrauch
+konkreter Produktnutzungssysteme zu berechnen. 
+
+Sowohl bei der Kriterien-Entwicklung als auch bei der Fallstudie stand der
+Vergleich zwischen einem herkömmlichen und einem gemeinschaftlichen
+Nutzungssystem im Zentrum. Für diesen Systemvergleich erwiesen sich die Modelle
+als hilfreich, da sie Unterschiede zwischen verschiedenen Systemen sichtbar und
+die Wirkung dieser Unterschiede auf den Umweltverbrauch nachvollziehbar machten.
+Dieses genaue Systemverständnis kann schließlich dazu dienen, in einem
+Nutzungssystem gezielte Handlungsempfehlungen für eine Verringerung des
+Umweltverbrauchs vorzuschlagen.
+
+\subsection{Kriterien}
+Das Ziel unserer Arbeit war es, Kriterien für die Senkung des Umweltverbrauchs
+durch gemeinschaftliche Produktnutzung aufzustellen. Dies gelang zunächst für
+gemeinschaftliche Nutzungssysteme, die sich unter sonst gleichen Bedingungen in
+genau einem Faktor von einem herkömmlichen Nutzungssystem unterschieden.
+Insofern besitzen diese Kriterien nur eine eingeschränkte Anwendbarkeit. Es
+wurde jedoch auch eine Modellkopplung zur Untersuchung der kombinierten Wirkung
+einer Erhöhung der Nutzungshäufigkeit und zusätzlicher Transporte entwickelt.
+Als dessen Resultat konnte ein zweistufiges Kriterium aufgestellt werden,
+welches aus dem Kriterium zur Nutzungshäufigkeit hervor geht und dieses um ein
+weiteres Kriterium ergänzt. Dieses Beispiel zeigt, dass die in den
+Faktor-spezifischen Modellen entwickelten Kriterien mitunter über deren
+einschränkenden Ceteris-paribus-Bedingungen hinaus Gültigkeit bewahren können.
+Dies kann jedoch nur durch die Analyse weiterer Modellkopplungen überprüft
+werden.
+
+Ein Übersicht der verbal formulierten Kriterien für die betrachteten Faktoren ist in Tabelle
+\ref{tab:Kriterien} aufgeführt. Die zum Teil präziseren mathematischen
+Formulierungen der Kriterien finden sich in den entsprechenden Abschnitten im
+Teil \nameref{sec:ModellbildungAnalyse}.
+\begin{table}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{center}
+        \begin{tabular}{p{4cm} p{7cm} r}
+            \toprule
+            Faktor(en) & Kriterium & Seitenzahl\\
+            \midrule
+            Nutzungshäufigkeit & 
+                Eine Reduktion des Umweltverbrauchs durch eine
+                Erhöhung der Nutzungshäufigkeit bei gemeinschaftlichen
+                Produktnutzungsformen wird genau dann erzielt, wenn die eingesetzten
+                Produkte herkömmlicherweise nicht bis zum Erreichen ihrer
+                technischen Lebensdauer genutzt werden. 
+                & \pageref{Kriterium:Nutzungshäufigkeit}\\
+            Produktauslastung & & \\
+            Wartungen & & \\
+            Reparaturen & & \\
+            Transporte & & \\
+            Nutzungshäufigkeit und Transporte & & \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+    \caption{Eine Zusammenfassung der im Teil \nameref{sec:ModellbildungAnalyse}
+        entwickelten Kriterien für die Senkung des Umweltverbrauchs durch
+        gemeinschaftliche Produktnutzung. Die mitunter präziseren mathematischen
+        Formulierungen der Kriterien finden sich in den entsprechenden
+        Abschnitten.}
+    \label{tab:Kriterien}
+\end{table}
+\subsection{Fallstudie}
+\begin{itemize}
+    \item Fallstudie demonstriert Anwendbarkeit der Modelle
+    \item Konkrete Ergebnisse: ...
+    \item Hohe Sensitivität. Aber: Eine Variation aller Parameter in eine Richtung ist ja auch ein großer Eingriff, sodass eine starke Variation der Ergebnisse nicht so verwunderlich ist.
+    \item In einigen Fällen waren die Kriterien erfüllt. Die Einsparung beträgt auch dort jedoch nur wenige Prozent. Schaut man genauer hin und betrachtet nur die Produktbezogenen Inputs, sieht man, dass dort eine Einsparung von ... erreicht wurde. Erkenntnis: Zwar geben die Kriterien darüber Aufschluss, ob überhaupt eine Einsparung vorliegt, jedoch ist für die relative MIPS-Änderung das Verhältnis der verschiedenen Input-Bestandteile ausschlaggebend. Im Fallbeispiel überwogen die nutzungsbedingten Inputs, ...
+\end{itemize}
+      \section{Diskussion}\label{sec:Diskussion}
     \subsection*{Vergleichspunkt}
       \begin{itemize}
          \item  Wahl eines Vergleichspunkts zur Beantwortung der Fragestellung notwendig
@@ -3627,7 +3693,7 @@ Beginn \newline gemeinsamer Teil}
             \item Wie Fallstudie zeigte: Kriterien sind nicht alles. Es geht auch um Größenordnungen.
            \end{itemize}
                
-    \section{Ausblick}
+           \section{Ausblick}\label{sec:Ausblick}
        \begin{itemize}
           \item Wegkommen von Kriterien-Entwicklung, eher Fallbeispiel-Orientierung
           \item Dennoch Modelle verwenden (siehe Ergebnis-Teil, Abschnitt Modelle)
