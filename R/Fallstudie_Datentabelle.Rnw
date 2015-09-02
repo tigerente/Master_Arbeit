@@ -15,9 +15,9 @@ r <- mapply(round, x=results[1,], digits=results["sig",], SIMPLIFY = FALSE)
         \toprule
         Parameter & Wert & Datenquelle\\
         \midrule
-        $i_P$       &\SI{\Sexpr{r$i_P.MF}}{kg/kg} & \sourceM\\
+        $i_P$       &\SI{\Sexpr{r$i_P.MF}}{kg} & \sourceM\\
         $i_N$       &\SI{\Sexpr{r$i_N.MF}}{kg/kg} & \sourceW, \sourceM, \sourceE\\
-        $i_d$       &\SI{\Sexpr{r$i_d.MF}}{kg/kg} & \sourceM\\
+        $i_d$       &\SI{\Sexpr{r$i_d.MF}}{kg/km} & \sourceM\\
         \midrule
         $T$           &\SI{\Sexpr{r$Time}}{Tage} & \sourceE\\
         $N$           &\SI{\Sexpr{r$N}}{} & \sourceE\\
@@ -25,13 +25,13 @@ r <- mapply(round, x=results[1,], digits=results["sig",], SIMPLIFY = FALSE)
         $\n{max}$       &\SI{\Sexpr{r$n_max}}{} & \sourceL\\
         $\t{max}$       &\SI{\Sexpr{r$t_max}}{Jahre} & \sourceL\\
         $\theta$        &\SI{\Sexpr{r$theta}}{} & \sourceS\\
-        $m_S$           &\SI{\Sexpr{r$m_S}}{kg/kg} & \sourceS\\
+        $m_S$           &\SI{\Sexpr{r$m_S}}{kg/kg} & \sourceD\\
         \midrule
         $p_\text{I}$    & \SI{\Sexpr{r$Ind.p}}{} & \sourceD \\
         $p_\text{II}$,
-        $p_\text{III}$  & \SI{\Sexpr{r$Luh.p}}{} & \sourceE, \sourceD \\
+        $p_\text{III}$  & \SI{\Sexpr{r$Luh.p}}{} & \sourceD \\
         $d_\text{I}$,
-        $d_\text{II}$   & \SI{\Sexpr{r$Luh.d}}{km} & \sourceD, \sourceE \\
+        $d_\text{II}$   & \SI{\Sexpr{r$Luh.d}}{km} & \sourceD\\
         $d_\text{III}$  & \SI{\Sexpr{r$Tra.d}}{km} & \sourceD\\
         \bottomrule
     \end{tabular}\\[10pt]

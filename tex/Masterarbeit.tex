@@ -136,8 +136,11 @@ dashed=false]{biblatex}
 
 % Szenarien:
 \newcommand{\SzenarioI}{Szenario \enquote{Kleine Wohneinheiten}}
+\newcommand{\SzenariosI}{Szenarios \enquote{Kleine Wohneinheiten}}
 \newcommand{\SzenarioII}{Szenario \enquote{Luhrmannhof}}
+\newcommand{\SzenariosII}{Szenarios \enquote{Luhrmannhof}}
 \newcommand{\SzenarioIII}{Szenario \enquote{Waschsalon}}
+\newcommand{\SzenariosIII}{Szenarios \enquote{Waschsalon}}
 
 %%% Allgemeine Daten %%%
 \newcommand{\autorOne}{Alexander Müller}
@@ -705,6 +708,7 @@ Fallstudie wird im nächsten Abschnitt beschrieben.
 \end{figure}
 		
 \subsection{Fallstudie: Waschmaschinen-Nutzung}
+\label{sec:Einleitung_Fallstudie}
 Eine Fallstudie zum Thema gemeinschaftliche Waschmaschinen-Nutzung soll die
 Theorie um einen kleinen empirischen Teil mit dem Ziel ergänzen, die
 Anwendbarkeit der entwickelten spezifischen Modelle zu überprüfen und zu
@@ -1787,7 +1791,12 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
         \pfrac{^2 i_N}{w^2} \geq 0
         \label{eq:Wartung_i_N2}
       \end{equation}
-
+      Die nutzungsbedingten Inputs $I_N$ ergeben sich aus den Material-Inputs je
+      Produktnutzung $i_N$ einfach durch Multiplikation mit der 
+      Nutzungsmenge $N$:
+      \begin{equation}
+          I_N(w) = N \cdot i_N(w)
+      \end{equation}
       Zusammenfassend stellen wir fest, dass die produktbezogenen Inputs $I_P$,
       die nutzungsbedingten Inputs $I_N$ und natürlich die Inputs für Wartungen
       $I_W$ von der Wartungshäufigkeit abhängen. Die restlichen, von der
@@ -3100,7 +3109,8 @@ Beginn Teil von János Sebestyén}
 \chapter{Fallstudie}\marginpar{\vspace{-6em}\scriptsize Ende Teil von János Sebestyén
 \vspace{1mm} \rule{\marginparwidth}{1pt}
 Beginn Teil von Alexander \newline Müller}
-
+\todo[inline]{einheitlichen Umgang mit $\I{fix}$ (immer einführen und sagen, welchen
+Wert er annimmt}
         % Außerdem nehmen wir an in diesem und auch im nächsten Analyseteil an,
         % dass Material-Inputs sich aus den drei Bestandteilen nutzungsbedingte
         % Inputs, produktbezogene Inputs und transportbedingten Inputs ergeben
@@ -3109,13 +3119,17 @@ Wir kommen nun zur Anwendung der theoretischen Erkenntnisse auf das Beispiel der
 gemeinschaftlichen Nutzung von Waschmaschinen. Im ersten Abschnitt stellen wir
 zunächst die für die Berechnung verwendeten Daten und deren Datenquellen dar. Im
 daran anschließenden Abschnitt führen wir dann unter Verwendung dieser Daten die
-Analysen der im Einleitungsteil (vgl. Abschnitt \todo{Referenz}) definierten
-Anwendungsbeispiele zur Erhöhung der Nutzungshäufigkeit und zur Kopplung der
-Erhöhung der Nutzungshäufigkeit mit zusätzlichen Transporten durch. 
+Analysen der im Einleitungsteil definierten zwei Anwendungsbeispiele durch. Im
+ersten Anwendungsbeispiel wird durch den Vergleich des \SzenariosI\ mit dem 
+\SzenarioII\ eine Erhöhung der Nutzungshäufigkeit untersucht, während im zweiten
+Anwendungsbeispiel das \SzenarioI\ mit dem \SzenarioIII\ zur Untersuchung des
+kombinierten Effekts einer Erhöhung der Nutzungshäufigkeit mit zusätzlichen
+Transporten verglichen wird. (Vergleiche Abschnitt \ref{sec:Einleitung_Fallstudie} für
+eine Definition der Szenarien und der darauf aufbauenden Anwendungsbeispiele.) 
 
 \section{Daten}
 Zunächst seien alle Daten zusammengefasst, die für die Anwendung der Modelle
-benötigt werden. Es werden zum einen die folgenden \emph{Szenario übergreifende Daten}
+benötigt werden. Es werden zum einen die folgenden \emph{Szenario-übergreifenden Daten}
 benötigt:
 
 \begin{minipage}[t]{0.45\textwidth}
@@ -3125,9 +3139,6 @@ benötigt:
         \item  Material-Inputs je Produkt $i_P$
         \item  Material-Inputs je Produktnutzung $i_N$
         \item  Material-Inputs je Transportdistanz $i_d$
-        \item  fixe Inputs (Diese sind je Modell unterschiedlich, ergeben
-            sich aber jeweils aus der Annahme, dass $I = I_N + I_P +
-            I_\Theta$ ist.)
     \end{itemize}
 \end{minipage}
 \hfill
@@ -3138,28 +3149,34 @@ benötigt:
         \item  Nutzungsmenge $N$
         \item  absolute Produktauslastung $A$
         \item  Einzelnutzungsvorrat $\n{max}$
-        \item  gewünschte Nutzungsdauer $\t{max}$
+        \item  Maximalnutzungsdauer $\t{max}$
         \item  Transporthäufigkeit $\theta$
         \item  Transportierte Menge je Serviceeinheit $m_S$
+        \item  Betrachtungszeitraum $T$
     \end{itemize}
 \end{minipage}
 
 Die Material-Inputs sind im Allgemeinen insofern besonders, als dass sie
 mehrdimensionale Vektoren in den unterschiedlichen MIPS-Dimensionen darstellen.
-Wir werden jedoch der Einfachheit halber auf eine Dimension beschränken und nur
-die aggregregierte MIPS-Größe \enquote{Material Footprint} betrachten.
+Wir werden uns jedoch der Einfachheit halber auf eine Dimension beschränken und
+nur die aggregregierte MIPS-Größe \enquote{Material
+Footprint}\footnote{Die Größe \enquote{Material Footprint} umfasst hier die
+abiotischen und biotischen Resourcen Kategorien des MIPS Konzepts. Vgl. hierzu
+\textcite[S. 549f]{liedtke_resource_2014}.} betrachten.
 
 Neben den Szenario übergreifenden werden desweiteren die folgenden
-\emph{Szenario spezifischen Daten} für die Beispielrechnungen benötigt:
+\emph{Szenario-spezifischen Daten} für die Beispielrechnungen benötigt:
 
 \begin{itemize}
-    \item  parallele Produktanzahl p
-    \item  mittlere Transportdistanz d
+    \item  parallele Produktanzahlen $p_\text{I}, p_\text{II}, p_\text{III}$
+    \item  mittlere Transportdistanzen $d_\text{I}, d_\text{II}, d_\text{III}$
 \end{itemize}
+Hierbei stehen die Indizes für die drei Szenarien: I steht für das \SzenarioI,
+II steht für das \SzenarioII\ und III steht für das \SzenarioIII.
 
 Wir geben nun zunächst an, welche Datenquellen wir benutzt haben und stellen
 dann die für die Berechnungen verwendeten Daten dar.
-\paragraph{Datenquellen}
+\subsection*{Datenquellen}
 Wir haben die folgenden Datenquellen benutzt:
 
 \begin{description}
@@ -3174,88 +3191,92 @@ Wir haben die folgenden Datenquellen benutzt:
         Wohnheim \enquote{Luhrmannhof} durch, bei der wir die nachgefragte
         Nutzungsmenge von den 50 hier lebenden Studierenden, die Auslastung
         je Waschgang und die Verteilung der Waschprogramme ermitteln konnten.\\
-        \textit{Parameter: Produktauslastung, nachgefragte Service-Menge,
-        Nachfrage pro Person}
+        \textit{Parameter: Produktauslastung, nachgefragte Service-Menge}
     \item[Datenblatt der Waschmaschinen:] Die Anleitung der bei uns im
-        Wohnheim verwendeten Waschmaschiinen beinhaltet eine Übersicht über den
+        Wohnheim verwendeten Waschmaschinen beinhaltet eine Übersicht über den
         Strom- und Wasserverbrauch in Abhängigkeit von dem Programm, der
-        Temperatur und der Auslastung (Übersicht unvollständig). Außerdem
+        Temperatur und der Auslastung. Außerdem
         beinhaltet die Anleitung die maximale Beladungsmenge der Waschmaschinen.\\
-        \textit{Parameter: Kapazität, Material-Inputs je Produktnutzung (Konnten
+        \textit{Parameter: Kapazität, Material-Inputs je Produktnutzung (konnten
         zusammen mit der Kenntnis der Verteilung der Waschprogramme, der
         Auslastung und den Material-Inputs je Kilowattstunde bestimmt werden.)} 
-    \item[Definition des Szenarios:] Einige Parameter sind durch die Definition
-        der Szenarien bereits vorgegeben.\\
+    \item[Definition:] Einige Parameter sind durch die Definition
+        der Szenarien bzw. der allgemeinen Bedingungen gegeben.\\
         \textit{Parameter: Produktanzahl, mittlere Transportdistanz,
-            Transporthäufigkeit, Transportierte Menge je Serviceeinheit, 
-            \todo{Parameter des zweiten Analyseteils einfügen}}
-    \item[Schätzung:] Alle Parameter die mit den genannten Quellen nicht
-        bestimmt werden konnten, wurden geschätzt. Diese Parameter wurden bei
-        den Berechnungen einer Sensitivitätsanalyse unterzogen.\\
-        \textit{Parameter: Einzelnutzungsvorrat, gewünschte Nutzungsdauer}
+        Transportierte Menge je Serviceeinheit, Betrachtungszeitraum}
+    \item[Literatur:] Weiterhin fanden Daten aus den Studien von 
+        \textcite[S. 57]{hirschl_produkte_2000} und von 
+        \textcite[S. 12]{behrendt_nachhaltig_2000} Verwendung.\\
+        \textit{Parameter: Einzelnutzungsvorrat, Maximalnutzungsdauer}
+    \item[Schätzung:] Ein Paramter konnte nicht mit Hilfe  der genannten Quellen 
+        bestimmt werden und wurde daher geschätzt. \\
+        \textit{Parameter: Transporthäufigkeit}
 \end{description}
 
-\paragraph{Übersicht über die verwendeten Daten}
+\subsection*{Übersicht über die verwendeten Daten}
 Die folgende Tabelle stellt alle für die Beispielrechnungen verwendeten Daten
 und deren Quelle dar:
 %   - kein Anspruch auf Korrektheit / grobe Schätzwerte
-\begin{table}
+\begin{table}[h]
     \input{Tabellen/Fallstudie_Datentabelle.tex}
     \caption{Die für die Beispielrechnungen angenommenen Daten.}
+    \label{tab:Referenzwerte}
 \end{table}
-\paragraph{Parametervariation}
+
+\subsection*{Parametervariation}
 Um Unsicherheiten der verwendeten Daten zu berücksichtigen, werden die folgenden
-Analysen mit Variationen der oben aufgeführten Parameter  durchgeführt.  Hiervon
-werden die Parameter parallele Produktanzahl und mittlere Transportdistanz --
-welche per per Szenariendefinition gegebenen sind -- ausgeschlossen.
+Analysen nicht nur mit den in Tabelle \ref{tab:Referenzwerte} angegebenen
+Referenzwerten, sondern auch mit drei Parametervariationen dieser Referenzwerte
+durchgeführt. Hiervon werden lediglich die Parameter \enquote{parallele
+Produktanzahl} und \enquote{mittlere Transportdistanz} -- welche per
+Szenariendefinition gegebenen sind -- ausgeschlossen.
 
-Die Parameter werden um 1\%, 5\% und 10\% variiert. Dabei werden zwei Fälle
-unterschieden: im besten Fall, werden die Parameter so variiert, dass in beiden
-Anwendungsbeispielen eine größt mögliche MIPS-Einsparung erzielt wird, im
-schlechtesten Fall werden die Parameter entsprechend so variiert, dass sich in
-den Anwendungsbeispielen eine kleinst mögliche MIPS-Einsparung (bzw. dann auch
-eine MIPS-Erhöhung) ergibt.
-
-Neben diesen zwei Fällen mit je drei Unsicherheitsbereichen wird natürlich auch der
-Fall ohne Parametervariation untersucht. Dieser Fall im Folgenden als \todo{Name für
-Average Szenario} bezeichnet.
+Die Parameter werden um $\pm 1\%$, $\pm 5\%$ und $\pm 10$\% variiert. Eine
+Variation um $+1\%$ bedeutet dabei nicht, dass alle Parameter um $1\%$ erhöht
+werden, sondern, dass alle Parameter um $1\%$ erhöht oder erniedrigt werden, so dass in beiden
+Anwendungsbeispielen eine \emph{größt mögliche} MIPS-Einsparung erzielt wird.
+Das Plus-Zeichen steht also nicht für die Richtung der Parametervariation sondern für das
+Resultat der Parametervariation hinsichtlich der MIPS. Ebenso bedeutet eine
+Variation um $-1\%$, dass alle Parameter um $1\%$ erhöht oder erniedrigt werden,
+sodass sich in den Anwendungsbeispielen eine \emph{kleinst mögliche} MIPS-Einsparung (bzw. dann auch
+eine MIPS-Erhöhung) ergibt. Entsprechendes gilt für die Paramtervariationen um
+$\pm 5\%$ und $\pm 10\%$.
 
 \section{Anwendungsbeispiele}
 Die beschriebenen Daten werden nun zunächst in dem Anwendungsbeispiel zur
-Nutzungsintensivierung und danach in dem Anwendungsbeispiel zur Kopplung von
-Nutzungsintensivierung und zusätzlichen Transporten verwendet. Um zu
+Nutzungshäufigkeit und danach in dem Anwendungsbeispiel zum
+Kopplungs-Modell der Faktoren Nutzungshäufigkeit und Transporte verwendet. Um zu
 entscheiden, ob jeweils eine Senkung des Umweltverbrauchs erreicht werden
 konnte, werden zum einen die im Theorieteil entwickelten Kriterien überprüft.
 Zum anderen werden die Daten verwendet, um weiterführende Analysen zur
 Größenordnung der Änderung des Umweltverbrauchs durchzuführen. Alle
-Betrachtungen erfolgen unter Berücksichtigung der drei gewählten
-Unsicherheitsbereiche.
+Betrachtungen erfolgen unter Berücksichtigung der Referenzwerte und deren drei 
+Parametervariationen.
 
 \subsection{Anwendungsbeispiel: Nutzungshäufigkeit}
-Für die Anwendung der Ergebnisse zur Nutzungsintensivierung wird in diesem
+Für die Anwendung der Ergebnisse aus dem Modell zur Nutzungshäufigkeit wird in diesem
 Anwendungsbeispiel das \SzenarioI\ mit dem \SzenarioII\ verglichen. Sie
 unterscheiden sich -- nach Konstruktion -- lediglich in der parallelen
 Produktanzahl und der mit dieser korrespondierenden Nutzungshäufigkeit. Das
-\SzenarioI\ wird im Folgenden dabei als das Ausgangsszenario bzw. als das
-Szenario mit der herkömmlichen Nutzung bezeichnet, während \SzenarioII\ dem
-Zielszenario bzw. dem Szenario mit gemeinschaftlicher Nutzung entspricht.
-
+\SzenarioI\ ist das Szenario mit herkömmlicher Nutzung und das \SzenarioII\
+ist das Szenario mit gemeinschaftlicher Nutzung. Ersters wird im Text alternativ
+auch als Ausgangsszenario und letzteres auch als Zielszenario bezeichnet.
 \subsubsection{Kriterienüberprüfung}
-Als Ergebnis des Modells zur Nutzungsintensivierung wurde festgehalten, dass
+Als Ergebnis des Modells zur Nutzungshäufigkeit wurde festgehalten, dass
 die gemeinschaftliche Nutzung den Umweltverbrauch gegenüber der herkömmlichen
 Nutzung senkt, wenn der Nutzungsvorrat des betrachteten Produkts bei der
 herkömmlichen Nutzung nicht aufgebraucht wird (vgl. \todo{Referenz einfügen}).
-Für die Überprüfung dieses Kriteriums hat es gereicht, die Nutzungshäufigkeit
-der herkömmlichen Nutzung $h^\text{herk.}$ mit der Nutzungshäufigkeit $h^*$, 
-das ist die Nutzungshäufigkeit bei
-der die Maximalnutzungsdauer der technischen Lebensdauer entspricht, zu
-vergleichen. Als Ungleichung ausgedrückt (vgl. \todo{Referenz}), liegt eine
-Senkung des Umweltverbrauchs durch gemeinschaftliche Nutzung genau dann vor,
-wenn gilt:
+Für die Überprüfung dieses Kriteriums genügt es, die Nutzungshäufigkeit
+der herkömmlichen Nutzung $h^\text{herk.}$ mit der Nutzungshäufigkeit $h^*$ zu
+vergleichen. Mit $h^*$ wurde dabei 
+die Nutzungshäufigkeit bezeichnet, bei
+der die Maximalnutzungsdauer der technischen Lebensdauer entspricht. Als
+Ungleichung ausgedrückt (vgl. \todo{Referenz}), liegt eine Senkung des
+Umweltverbrauchs durch gemeinschaftliche Nutzung genau dann vor, wenn gilt:
 \begin{equation}
     h^\text{herk.} < h^*  = \frac{\n{max}}{\t{max}}
 \end{equation}
-Wir erinnern daran, dass die Nutzungshäufigkeit in einem System über die
+Wir erinnern daran, dass die Nutzungshäufigkeit in einem Nutzungssystem über die
 Gleichung \eqref{eq:h(p)_verbose} mit der parallelen Produktanzahl in folgendem
 Zusammenhang steht: 
 \begin{equation}
@@ -3275,13 +3296,11 @@ verschieden. Diese verschiedenen Werte für $p^*$ sind in der Tabelle
 
 \begin{table}[t]
     \begin{center}
-        \begin{tabular}[h]{lrrrrrrr}
+        \begin{tabular}[h]{lccccccc}
             \toprule
-            Fall: &\multicolumn{3}{c}{Schlechtester} & \multicolumn{3}{c}{Bester} &
-            Schätzwert \\
-            Unsicherheitsbereich: & 10\% & 5\% & 1\% & 1\% & 5\% & 10\% & \\
+            Parametervariation: & -10\% & -5\% & -1\% & 0\% & +1\% & +5\% & +10\% \\
             \midrule
-            $p^*$ & 19 & 17 & 15 & 14 & 12 & 10 & 14 \\
+            $p^*$ & 19 & 17 & 15 & 14 & 14 & 12 & 10 \\
             $p^\text{herk.} = 17 > p^*$ ? & & & \checkmark & \checkmark & \checkmark &
             \checkmark & \checkmark \\
             \bottomrule
@@ -3289,10 +3308,11 @@ verschieden. Diese verschiedenen Werte für $p^*$ sind in der Tabelle
     \end{center}
     \caption{Übersicht über die Kriterienüberprüfung im Anwendungsbeispiel zur
         Nutzungsintensivierung. Angegeben sind die für $p^*$ ermittelten Werte
-        für die verschiedenen Fälle und Unsicherheitsbereiche. Die parallele
-        Produktanzahl im \SzenarioI\ beträgt 17. Ist dieser
-        Wert größer als als $p^*$, so ist durch gemeinschaftliche Nutzung eine
-        Ressourceneinsparung möglich. Dies ist insbesondere für den Schätzwert
+        für die Parametervariationen. Die parallele
+        Produktanzahl im \SzenarioI\ beträgt $17$. Ist dieser
+        Wert größer als $p^*$, so ist durch gemeinschaftliche Nutzung eine
+        Ressourceneinsparung möglich. Dies ist insbesondere für die
+        Referenzwerte ($= 0\%$ Parametervariation)
     gegeben.}
     \label{tab:NI-Kriterien}
 \end{table}
@@ -3304,21 +3324,18 @@ anderen Fällen kann durch die gemeinschaftliche Nutzung eine
 Ressourceneinsparung erfolgen. Dies gilt insbesondere für unseren Schätzwert.
 
 Diese Betrachtung bezieht sich lediglich auf die Produktanzahl in der
-herkömmlichen Nutzung. Für das Anwendungsbeispiel ist durch das \SzenarioII\ auch die Produktanzahl für die gemeinschaftliche Nutzung definiert.
-Sie beträgt zwei, ist also deutlich geringer als die ermittelten Werte für
-$p^*$. Da $p^*$ die Anzahl an parallelen Produkten angibt, bis zu der eine
-Reduktion von Produkten eine Ressourceneinsparung ermöglicht, bedeutet das, dass
-im \SzenarioII\ die Reduktion an Produkten deutlich über das Ziel
-hinausgeschossen ist. Würden in diesem Szenario anstatt der zwei zehn
-Waschmaschinen eingesetzt, wäre -- zumindest bei reiner Betrachtung des Effekts
-der Nutzungsintensivierung -- die erzielte Ressourceneinsparung in allen Fällen
-und Unsicherheitsbereichen dieselbe.
-% \begin{table}[ht]
-%     \centering
-%     \input{Tabellen/NI_Kriterien.tex}
-%     \caption{test} 
-%     \label{tab:NI-Kriterien}
-% \end{table}
+herkömmlichen Nutzung. Für das Anwendungsbeispiel ist durch das \SzenarioII\
+auch die Produktanzahl für die gemeinschaftliche Nutzung definiert.  Sie beträgt
+zwei, ist also deutlich geringer als die ermittelten Werte für $p^*$. Da $p^*$
+die Anzahl an parallelen Produkten angibt, bis zu der eine Reduktion von
+Produkten eine Ressourceneinsparung ermöglicht, bedeutet das, dass im
+\SzenarioII\ die Reduktion an Produkten deutlich über das Ziel hinausgeschossen
+ist. Würden in diesem Szenario anstatt der zwei zehn Waschmaschinen eingesetzt,
+wäre -- zumindest bei reiner Betrachtung des Effekts der Nutzungsintensivierung
+-- die erzielte Ressourceneinsparung in allen Fällen und Unsicherheitsbereichen
+dieselbe.
+% \begin{table}[ht] \centering \input{Tabellen/NI_Kriterien.tex} \caption{test}
+% \label{tab:NI-Kriterien} \end{table}
 
 \subsubsection{Größenordnung der MIPS-Einsparung}
 % Diese Überprüfung findet im ersten Abschnitt statt. Daran anschließend, wird die
@@ -3391,10 +3408,12 @@ können.
 Für das Anwendungsbeispiel zur Kopplung der Modelle Erhöhung der
 Nutzungshäufigkeit und zusätzliche Transporte, wird nun \SzenarioI\ mit
 \SzenarioIII\ verglichen. Sie unterscheiden sich jetzt sowohl in der parallelen
-Produktanzahl, als auch in der mittleren Transportdistanz. \SzenarioI\ wird wie
-gehabt als Ausgangsszenario bzw. Szenario mit herkömmlicher Nutzung bezeichnet.
-Das \SzenarioIII\ übernimmt nun die Rolle des Zielszenarios, bzw. des Szenarios
-mit gemeinschaftlicher Nutzung.
+Produktanzahl, als auch in der mittleren Transportdistanz. \SzenarioI\ ist wie
+gehabt das Szenario mit herkömmlicher Nutzung, welches alternativ als
+Ausgangsszenario bezeichnet wird.
+Das \SzenarioIII\ übernimmt nun die Rolle des Szenarios
+mit gemeinschaftlicher Nutzung. Im Text wird hierfür wieder die alternative
+Bezeichnung \enquote{Zielszenario} verwendet.
 
 \subsubsection{Kriterienüberprüfung}
 Die theoretische Analyse der Kopplung einer Erhöhung der Nutzungshäufigkeit
@@ -3502,7 +3521,7 @@ Beginn \newline gemeinsamer Teil}
     \section{Synthese}
     \begin{itemize}
         \item 
-    \end{itemize}<++>
+    \end{itemize}
     \section{Ausblick/Diskussion}
 \chapter{Literaturverzeichnis}
 \printbibliography
