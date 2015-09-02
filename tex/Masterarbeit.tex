@@ -1741,8 +1741,8 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       im Nutzungssystem, insbesondere also gleicher Nutzungsdauern, gelten die
       im \nameref{sec:Grundmodell} (\ref{sec:Grundmodell}) aufgestellten
       Gleichungen 
-      $n &= h \cdot t$
-      $P &= p \cdot q = p \cdot \frac{T}{t} = \frac{N}{n}$
+      $n = h \cdot t$
+      $P = p \cdot q = p \cdot \frac{T}{t} = \frac{N}{n}$
       \begin{equation}
         P = h \cdot t(w) \cdot N
       \end{equation}
@@ -3493,16 +3493,119 @@ kleiner und daher im wesentlichen vernachlässigbar.
     \caption{Beschreibung}
     \label{fig:Vergleich_Szenarien}
 \end{figure}
-\chapter{Ergebnisse}\marginpar{\vspace{-6em}\scriptsize Ende Teil von
+\chapter{Schluss}\marginpar{\vspace{-6em}\scriptsize Ende Teil von
 Alexander\newline Müller
 \vspace{1mm} \rule{\marginparwidth}{1pt}
 Beginn \newline gemeinsamer Teil}
 
-    \section{Synthese}
+    \section{Ergebnisse}
+    \subsection{Modelle}
+    \begin{itemize}
+       \item Erstellte Modelle sind wichtiges Ergebnis. Allgemein stellen sie eine Berechnungsvorschrift für die MIPS eines Produktnutzungssystems dar (wobei jeweils unterschiedliche Aspekte berücksichtigt werden): Welche Parameter werden benötigt und fließen wie ein?
+       \item Die Modelle können für unterschiedliche Zwecke eingesetzt werden:
+       \begin{itemize}
+          \item Ursprünglicher Zweck für uns: Entwicklung der Kriterien, siehe unten.
+          \item Fallstudien: MIPS für konkrete Produktnutzungssysteme berechnen. Modelle helfen dabei, alle relevanten Aspekte zu erheben. Referenz auf Fallstudie.
+          \item Für Systemvergleich (Referenz auf Theorieteil und auf Fallstudie): Worin liegen die Unterschiede zwischen verschiedenen Systemen? Wie wirken sich die Unterschiede auf die MIPS aus? Modell kann dazu genutzt werden, nachzuvollziehen, wodurch ggf. Einsparungen erzielt wurden, oder warum keine Einsparungen erzielt wurden.
+          \item Modell kann für Entwicklung von Handlungsempfehlungen verwendet werden (genaues Systemverständnis ermöglicht es gezielte Anpassungen vorzuschlagen)
+         \end{itemize}
+    \end{itemize}
     \begin{itemize}
         \item 
-    \end{itemize}<++>
-    \section{Ausblick/Diskussion}
+    \end{itemize}
+    \subsection{Kriterien}
+    \begin{itemize}
+       \item Referenz auf Tabelle
+       \item Kriterien gelten jeweils nur, wenn ausschließlich der betreffende Faktor variiert wird und alle anderen Faktoren gleich bleiben.
+       \item Am Beispiel der behandelten Kopplung kann man sehen: Ein Kriterium für einen einzelnen Faktor kann auch bei der Betrachtung von zwei Faktoren nach wie vor Gültigkeit haben und wird gegebenenfalls um ein weiteres Kriterium ergänzt.
+       \item Runtergebrochene, verbal formulierte Kriterien. In den Kapiteln zu den Faktor-spezifischen Modellen werden präzisere Kriterien in Formeln angegeben.
+    \end{itemize}
+    \begin{table}
+       \begin{center}
+       \begin{tabular}{p{2cm} p{6cm} p{2cm}}
+          Faktor(en) & Kriterium & Seitenzahl
+       \end{tabular}
+       \end{center}
+       \caption{title}
+       \label{tab:Kriterien}
+      \end{table}
+    \subsection{Fallstudie}
+    \begin{itemize}
+       \item Fallstudie demonstriert Anwendbarkeit der Modelle
+       \item Konkrete Ergebnisse: ...
+       \item Hohe Sensitivität. Aber: Eine Variation aller Parameter in eine Richtung ist ja auch ein großer Eingriff, sodass eine starke Variation der Ergebnisse nicht so verwunderlich ist.
+       \item In einigen Fällen waren die Kriterien erfüllt. Die Einsparung beträgt auch dort jedoch nur wenige Prozent. Schaut man genauer hin und betrachtet nur die Produktbezogenen Inputs, sieht man, dass dort eine Einsparung von ... erreicht wurde. Erkenntnis: Zwar geben die Kriterien darüber Aufschluss, ob überhaupt eine Einsparung vorliegt, jedoch ist für die relative MIPS-Änderung das Verhältnis der verschiedenen Input-Bestandteile ausschlaggebend. Im Fallbeispiel überwogen die nutzungsbedingten Inputs, ...
+      \end{itemize}
+    \section{Diskussion}
+    \subsection*{Vergleichspunkt}
+      \begin{itemize}
+         \item  Wahl eines Vergleichspunkts zur Beantwortung der Fragestellung notwendig
+         \item  Vergleichspunkt muss im Einzelfall definiert werden
+         \item  Ergebnisse hängen jedoch von der Wahl des Vergleichspunktes ab
+         \item  daher ist "herrkömmliche Nutzung" unkonkret/schwammig. Aber: so spezifisch wie im Allgemeinen möglich.
+         \item Fallstudie: Vergleichspunkt durch willkürliche Szenariendefinition
+      \end{itemize}
+    \subsection*{Prämissen}
+       \begin{itemize}
+          \item Analyse baut auf bestimmten Hypothesen zur Veränderung der betrachteten Faktoren auf.
+          \item Der Wahrheitsgehalt der Hypothesen wurde nicht überprüft.
+          \item Die Formulierung der Hypothesen war notwendig, um in der theoretischen Betrachtung die Besonderheiten der gemeinschaftlichen im Vergleich zur herkömmlichen Produktnutzung zu charakterisieren.
+       \end{itemize}
+    \subsection*{Unvollständigkeit}
+    \begin{itemize}
+       \item Nicht alle bekannten Faktoren betrachtet (Querverweis / Verweis auf Scholl). Insbesondere: Nachfrage-Effekte
+       \item Nicht alle betrachteten Faktoren miteinander gekoppelt
+       \item Nicht alle Wirkungen der betrachteten Faktoren berücksichtigt (z.B. Auslastung auf technische Lebensdauer)
+       \item Daher: eingeschränkte Aussagekraft der Ergebnisse. Sie basieren auf der Annahme, dass alles andere außer der betrachtete Faktor gleich bleibt (Ceteris paribus), was in der Realität nicht der Fall ist
+    \end{itemize}           
+    \subsection*{Strukturelle Unsicherheiten}
+         \begin{itemize}
+            \item Strukturelle Unsicherheiten im Zusammenhang mit der Nutzungsdauer:
+            \begin{itemize}
+               \item wir nehmen an, dass es genau zwei Gründe für das Ausscheiden eines Produkts aus einem Nutzungssystem gibt: zeitlich bedingt und nutzungsbedingt, andere Gründe werden ausgeschlossen (z.B. zufällige Ereignisse, wie Unfälle oder unsachgemäßer Gebrauch)
+               \item $\t{max}$ bildet ab, dass Produkte ab Kaufzeitpunkt nach einer bestimmten Zeit (vor einem Defekt des Produkts) entsorgt werden. Es kann jedoch auch auf Grund von eher zufällig auftretenden Ereignissen wie neue Modezyklen, technischen Innovationen, geänderte Lebensumstände, etc. zu einer Entsorgung des Produkts kommen. Trotzdem stellt die Einführung dieser Größe eine gute erste Näherung für diesen relevanten Aspekt einer Produktnutzung dar.
+               \item Gleiche Argumentation wie für $\t{max}$ gilt auch für Variable im Reparatur-Modell.
+            \end{itemize}
+           \end{itemize}    
+    \subsection*{Homogenitäts-Annahme}
+          \begin{itemize}
+             \item Typischerweise sind Parameterwerte auch innerhalb eines Nutzungssystems heterogen verteilt. Zum Beispiel Auslastung (...)
+             \item Wir rechnen mit Mittelwerten und vernachlässigen mögliche Effekte einer heterogenen Verteilung.
+             \item In vielen Fällen führt dieses Vorgehen sicherlich zu richtigen Ergebnissen, in einigen jedoch möglicherweise nicht. Wurde nicht systematisch untersucht.
+          \end{itemize}
+    \subsection*{Parameter-Unsicherheiten}
+         \begin{itemize}
+            \item Einige der in den Modellen verwendeten Parameter sind eventuell schwierig empirisch bestimmbar. Daraus resultieren Schwierigkeiten in der Anwendbarkeit der Modelle in der Empirie: unsichere Parameter führen zu unsicheren Aussagen. Einige Schwierigkeiten mit speziellen Parametern wollen wir hier aufführen:
+            \begin{itemize}
+               \item $I_\text{Rest}$ ist unklar definiert. Grund für diese Definition war, ein valides Modell zu erhalten (alle Inputs werden formal erfasst). Allerdings leidet die Anwendbarkeit darunter. Die Kriterien sind von der Größe von $I_\text{Rest}$ unabhängig, nicht jedoch die Größenordnung der Umwelteffekte.
+               \item $\n{max}$ kann experimentell gut bestimmt werden, allerdings gilt der so bestimmte Wert nur unter den Bedingungen des Experiments. Im Nutzungssystem kann er systematisch davon abweichen.
+               \item $\t{max}$ kann nicht bestimmt werden, wenn Produkte aufgrund eines Defekts entsorgt werden. Ansonsten kann es in einer Feldstudie ermittelt werden, hängt dann aber von einer Vielzahl von sozialer Faktoren ab (Alter, Lebensumstände, Einkommen, etc.)
+               \item Transportmodell: Anrechnungsfaktor $\alpha$ ist nicht klar definiert und daher schwierig zu bestimmen und damit auch die anteiligen Inputs je Transportweg 
+            \end{itemize}
+           \end{itemize}    
+    \subsection*{Kriterien}
+         \begin{itemize}
+            \item Kriterien-Entwicklung ist an ihre Grenzen gestoßen: Es stellte sich an mehreren Stellen als schwierig heraus, Kriterien zu entwickeln, die gleichzeitig präzise und allgemein verständlich sind. (Formeln vs. verbale Interpretation)
+            \item Bei Kopplungen wird das noch schwieriger.
+            \item Marginal-Analyse führt zu punktuellen Aussagen. Davon ausgehend muss der Übergang zum Vergleich zweier Produktsysteme noch vollzogen werden und führt im Allgemeinen zunächst nur zu hinreichenden Bedingungen. (Beispiele: Modell zur Wartung und zur Auslastung)
+            \item Insbesondere sehen wir die folgenden Probleme im Zusammenhang mit einzelnen Kriterien:
+            \begin{itemize}
+               \item Wartungs-Modell: $w^*$ ist nur implizit definiert. Unklar, welche inhaltliche Bedeutung es hat / wie es praktisch bestimmt werden kann. Kriterium $w^\text{gem} < w^*$ ist hinreichend, aber nicht notwendig.
+               \item Reparatur-Modell (Modellerweiterung): Kriterium ist sehr offensichtlich.
+               \item Auslastungs-Modell: Kriterium ist hinreichend aber nicht notwendig, kompliziertere Zusammenhänge (Einsparung von parallelen bzw. sequentiellen Produkten), die formelmäßig abgebildet werden, werden nicht von dem Kriterium erfasst
+            \end{itemize}
+            \item Wie Fallstudie zeigte: Kriterien sind nicht alles. Es geht auch um Größenordnungen.
+           \end{itemize}
+               
+    \section{Ausblick}
+       \begin{itemize}
+          \item Wegkommen von Kriterien-Entwicklung, eher Fallbeispiel-Orientierung
+          \item Dennoch Modelle verwenden (siehe Ergebnis-Teil, Abschnitt Modelle)
+          \item bisher unberücksichtigte Faktoren nach Scholl als Modell abbilden
+          \item auch Nachfrage-Effekte berücksichtigen
+          \item Kopplung möglichst aller Faktoren, um Anwendbarkeit auf reale Situationen zu ermöglichen. Kopplung stößt zwar an Grenzen bei Kriterien-Ableitung, aber nicht als eigenständiges Modell (Begründung).
+          \item Modelle direkt anwendbar auf andere Umweltgrößen
+         \end{itemize}
 \chapter{Literaturverzeichnis}
 \printbibliography
 \chapter{Anhang}
@@ -3559,8 +3662,5 @@ Beginn \newline gemeinsamer Teil}
 			\end{longtable}
 			\todo{Zelleninhalte linksbündig ausrichten)}
 
-
-
-
-
+\todo[color=prioH]{Erklärung zur selbständigen Abfassung einfügen}
 \end{document}
