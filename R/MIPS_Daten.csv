@@ -1,6 +1,6 @@
-;"MF";"Einheit_MF";"CF";"Einheit_CF"
-"PKW";0,46;"kg/pkm";0,182;"kg CO2e/pkm"
-"Transporter";6,498;"kg/tkm";1,913;"kg CO2e/tkm"
-"Strom";4,98;"kg/kWh";0,69;"kg CO2e/kWh"
-"Waschmittel";9,47;"kg/Waschgang";0;"kg CO2e/Waschgang"
-"Waschmaschine";2936,2;"kg/Stk";351,8;"kg CO2e/Stk"
+;MF;Einheit_MF;CF;Einheit_CF
+PKW;0,46;kg/pkm;0,182;kg CO2e/pkm
+Transporter;6,498;kg/tkm;1,913;kg CO2e/tkm
+Strom;4,98;kg/kWh;0,69;kg CO2e/kWh
+Waschmittel;9,47;kg/Waschgang;0;kg CO2e/Waschgang
+Waschmaschine;2936,378;kg/Stk;351,8;kg CO2e/Stk
