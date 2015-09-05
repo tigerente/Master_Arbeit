@@ -15,7 +15,7 @@ r <- mapply(round, x=results[1,], digits=results["sig",], SIMPLIFY = FALSE)
         \toprule
         Parameter & Wert & Datenquelle\\
         \midrule
-        $i_P$       &\SI{\Sexpr{r$i_P.MF}}{kg} & \sourceM\\
+        $i_P$       &\SI{\Sexpr{r$i_P.MF}}{kg} & \sourceM, \sourceL\\
         $i_N$       &\SI{\Sexpr{r$i_N.MF}}{kg/kg} & \sourceW, \sourceM, \sourceE\\
         $i_d$       &\SI{\Sexpr{r$i_d.MF}}{kg/km} & \sourceM\\
         \midrule

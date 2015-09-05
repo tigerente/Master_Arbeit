@@ -141,6 +141,9 @@ dashed=false]{biblatex}
 \newcommand{\SzenariosII}{Szenarios \enquote{Luhrmannhof}}
 \newcommand{\SzenarioIII}{Szenario \enquote{Waschsalon}}
 \newcommand{\SzenariosIII}{Szenarios \enquote{Waschsalon}}
+\newcommand{\SzI}{\enquote{Kleine Wohneinheiten}}
+\newcommand{\SzII}{\enquote{Luhrmannhof}}
+\newcommand{\SzIII}{\enquote{Waschsalon}}
 
 %%% Allgemeine Daten %%%
 \newcommand{\autorOne}{Alexander Müller}
@@ -1111,7 +1114,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       Abschließend wenden wir erneut Gleichung \ref{eq:n(h)_cases} an, setzen $S=S_D$ ein und halten das folgende Ergebnis einschließlich der Nebenbedingung aus Gleichung \eqref{eq:h(p)_verbose} fest:
       \\
       
-      \begin{mdframed}[frametitle={Nutzungsintensivierung}, frametitlerule=true]
+      \begin{mdframed}[frametitle={Nutzungshäufigkeit}, frametitlerule=true]
            	Modell:
            	\begin{align}
            		\text{MIPS}(h) &= \frac{P(h) \cdot i_P}{S_D} + \frac{I_{\text{fix}}^h}{S_D} \label{eq:MIPS(h)_3} \\[10pt]
@@ -1124,6 +1127,8 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
            		\label{eq:h(p)}
            	\end{equation}
       \end{mdframed}
+      \todo{Titel der Box wurde von "`Nutzungsintensivierung"' auf
+      "`Nutzungshäufigkeit"' geändert (Sascha)}
 
       \paragraph{Modellanalyse}
       Das Ziel dieser Analyse ist die Ableitung eines Kriteriums zur Senkung des Umweltverbrauchs durch die Erhöhung der Nutzungshäufigkeit. Als Prämisse nehmen wir an, dass sich die Nutzungshäufigkeit von $h^\text{herk}$ bei der herkömmlichen Produktnutzung zu $h^\text{gem}$ bei der gemeinschaftlichen Produktnutzung erhöht. In Abbildung \ref{fig:MIPS(h)} ist der Verlauf der MIPS in Abhängigkeit von $h$ beispielhaft dargestellt, sodass die Analyse grafisch nachvollzogen werden kann.
@@ -1195,7 +1200,14 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       
       Eine Erhöhung der Nutzungshäufigkeit von $h^\text{herk}$ nach $h^\text{gem}$ entspricht einer Reduktion der parallelen Produktanzahl $\Delta p = p^\text{gem} - p^\text{herk}$. Diese Reduktion -- eine ganze Zahl -- kann gedanklich in eine Reihe von Reduktionen um den Wert 1 unterteilt werden. In jedem Schritt ist dann die obige Analyse gültig und es trifft jeweils einer der drei besprochenen Fälle zu: Je nach Anwendungsfall kann ggf. für eine Reihe von Schritten Fall 1 zutreffen, dann ggf. für einen Schritt Fall 3 und schließlich ggf. wiederum mehrfach Fall 2.
       
-      Sobald wenigstens in einem Schritt Fall 1 oder Fall 3 zutrifft, kommt es zu einer Reduktion der MIPS. Andernfalls wird keine Reduktion erzielt. Zur Überprüfung dieser Bedingung genügt es, den ersten Schritt von $p^\text{herk}$ auf $p^\text{herk} - 1$ zu betrachten. Hier lässt sich nun die im Zwischenfazit formulierte Bedingung anwenden. Sie schreibt sich in diesem Kontext als $h^\text{herk} < h^*$. Wir halten dieses Ergebnis verbal als Kriterium fest: \\
+      Sobald wenigstens in einem Schritt Fall 1 oder Fall 3 zutrifft, kommt es zu einer Reduktion der MIPS. Andernfalls wird keine Reduktion erzielt. Zur Überprüfung dieser Bedingung genügt es, den ersten Schritt von $p^\text{herk}$ auf $p^\text{herk} - 1$ zu betrachten. Hier lässt sich nun die im Zwischenfazit formulierte Bedingung anwenden. Sie schreibt sich in diesem Kontext als 
+      \begin{equation}
+          h^\text{herk} < h^* = \frac{\n{max}}{\t{max}}
+          \label{eq:Kriterium_Nutzungshäufigkeit}
+      \end{equation} 
+      \todo{kleine Änderung (Kriterium als eigentständige Formel gesetzt) von
+      János bestätigen lassen}
+      Wir halten dieses Ergebnis verbal als Kriterium fest: \\
       
       \begin{mdframed}[frametitle={Kriterium}, frametitlerule=true]				
          Eine Reduktion des Umweltverbrauchs durch eine Erhöhung der Nutzungshäufigkeit bei gemeinschaftlichen Produktnutzungsformen wird genau dann erzielt, wenn die eingesetzten Produkte herkömmlicherweise nicht bis zum Erreichen ihrer technischen Lebensdauer genutzt werden.
@@ -3148,8 +3160,9 @@ benötigt:
     \onehalfspacing
     \emph{Material-Inputs}:
     \begin{itemize}
-        \item  Material-Inputs je Produkt $i_P$
-        \item  Material-Inputs je Produktnutzung $i_N$
+        \item  Material-Inputs je Produkt $i_P$ (Herstellung und Entsorgung)
+        \item  Material-Inputs je Produktnutzung $i_N$ (resultierend aus
+            Stromverbrauch und Benutzung von Waschmittel)
         \item  Material-Inputs je Transportdistanz $i_d$
     \end{itemize}
 \end{minipage}
@@ -3192,34 +3205,44 @@ dann die für die Berechnungen verwendeten Daten dar.
 Wir haben die folgenden Datenquellen benutzt:
 
 \begin{description}
-    \item[Werte aus der MIPS-Datenbank:] Der Datenbank \todo{genaue Quelle
-        angeben} konnten MIPS-Werte für eine Waschmaschine (Herstellung und
-        Entsorgung), für eine Kilowattstunde Strom (Deutscher Durchschnittsmix)
-        und für die Benutzung eines Autos über einen Kilometer entnommen
-        werden.\\
-        \textit{Parameter: Material-Inputs je Produkt, Material-Inputs je
-        Transportdistanz}
-    \item[eigene Datenerhebung:] wir führten eine einwöchige Erhebung in unserem
+    \item[Werte aus einer Ökobilanz-Datenbank] Der Datenbank Ecoinvent
+        \parencite{weidema_ecoinvent_2013} konnten der Ressourcenverbrauch für
+        die Entsorgung einer
+        Waschmaschine, für eine Kilowattstunde
+        Strom (Deutscher Durchschnittsmix) und für die Benutzung eines Autos
+        über einen Kilometer entnommen werden.\\ \textit{Parameter:
+        Material-Inputs je Produkt (Entsorgung), Material-Inputs je
+        Kilowattstunde, Material-Inputs je Transportdistanz}
+    \item[Literatur:] Die Material-Inputs für die Herstellung einer
+        Waschmaschine konnten wir einer internen Berechnung des Wuppertal
+        Instituts entnehmen \parencite{wuppertal_institut_interne_2015}, die
+        Material-Inputs für die Herstellung von Waschmittel ermittelte
+        \textcite{presutto_prepatory_2007} und die Waschmittel-Menge je
+        Waschgang entnahmen wir den Angaben eines Herstellers für Waschmittel
+        \parencite{henkel_case_2009}. Für den Einzelnutzungsvorrat und die
+        Maximalnutzungsdauer einer Waschmaschine wurden weiterhin Daten aus den
+        Studien von \textcite[S.  57]{hirschl_produkte_2000} und von
+        \textcite[S.  12]{behrendt_nachhaltig_2000} verwendet.\\
+        \textit{Parameter: Material-Inputs je Produkt (Herstellung), Material-Inputs je
+        Produktnutzung (durch Waschmittel), Einzelnutzungsvorrat, Maximalnutzungsdauer}
+    \item[Eigene Datenerhebung:] wir führten eine einwöchige Erhebung in unserem
         Wohnheim \enquote{Luhrmannhof} durch, bei der wir die nachgefragte
         Nutzungsmenge von den 50 hier lebenden Studierenden, die Auslastung
         je Waschgang und die Verteilung der Waschprogramme ermitteln konnten.\\
         \textit{Parameter: Produktauslastung, nachgefragte Service-Menge}
     \item[Datenblatt der Waschmaschinen:] Die Anleitung der bei uns im
-        Wohnheim verwendeten Waschmaschinen beinhaltet eine Übersicht über den
-        Strom- und Wasserverbrauch in Abhängigkeit von dem Programm, der
+        Wohnheim verwendeten Waschmaschinen \todo{Referenz} beinhaltet eine
+        Übersicht über den Stromverbrauch in Abhängigkeit von dem Programm, der
         Temperatur und der Auslastung. Außerdem
-        beinhaltet die Anleitung die maximale Beladungsmenge der Waschmaschinen.\\
-        \textit{Parameter: Kapazität, Material-Inputs je Produktnutzung (konnten
-        zusammen mit der Kenntnis der Verteilung der Waschprogramme, der
-        Auslastung und den Material-Inputs je Kilowattstunde bestimmt werden.)} 
+        beinhaltet die Anleitung die maximale Beladungsmenge der
+        Waschmaschinen.\\ \textit{Parameter: Kapazität, Material-Inputs je
+        Produktnutzung (konnten zusammen mit der Kenntnis der Verteilung der
+        Waschprogramme, der Auslastung, Material-Inputs je Produktnutzung durch
+        Waschmittel und den Material-Inputs je Kilowattstunde bestimmt werden.)} 
     \item[Definition:] Einige Parameter sind durch die Definition
         der Szenarien bzw. der allgemeinen Bedingungen gegeben.\\
         \textit{Parameter: Produktanzahl, mittlere Transportdistanz,
         Transportierte Menge je Serviceeinheit, Betrachtungszeitraum}
-    \item[Literatur:] Weiterhin fanden Daten aus den Studien von 
-        \textcite[S. 57]{hirschl_produkte_2000} und von 
-        \textcite[S. 12]{behrendt_nachhaltig_2000} Verwendung.\\
-        \textit{Parameter: Einzelnutzungsvorrat, Maximalnutzungsdauer}
     \item[Schätzung:] Ein Paramter konnte nicht mit Hilfe  der genannten Quellen 
         bestimmt werden und wurde daher geschätzt. \\
         \textit{Parameter: Transporthäufigkeit}
@@ -3245,14 +3268,22 @@ Szenariendefinition gegebenen sind -- ausgeschlossen.
 
 Die Parameter werden um $\pm 1\%$, $\pm 5\%$ und $\pm 10$\% variiert. Eine
 Variation um $+1\%$ bedeutet dabei nicht, dass alle Parameter um $1\%$ erhöht
-werden, sondern, dass alle Parameter um $1\%$ erhöht oder erniedrigt werden, so dass in beiden
-Anwendungsbeispielen eine \emph{größt mögliche} MIPS-Einsparung erzielt wird.
-Das Plus-Zeichen steht also nicht für die Richtung der Parametervariation sondern für das
-Resultat der Parametervariation hinsichtlich der MIPS. Ebenso bedeutet eine
-Variation um $-1\%$, dass alle Parameter um $1\%$ erhöht oder erniedrigt werden,
-sodass sich in den Anwendungsbeispielen eine \emph{kleinst mögliche} MIPS-Einsparung (bzw. dann auch
-eine MIPS-Erhöhung) ergibt. Entsprechendes gilt für die Paramtervariationen um
-$\pm 5\%$ und $\pm 10\%$.
+werden, sondern, dass alle Parameter um $1\%$ erhöht oder erniedrigt werden, so
+dass in beiden Anwendungsbeispielen eine \emph{größt mögliche} MIPS-Einsparung
+erzielt wird.  Das Plus-Zeichen steht also nicht für die Richtung der
+Parametervariation sondern für das Resultat der Parametervariation hinsichtlich
+der MIPS. Ebenso bedeutet eine Variation um $-1\%$, dass alle Parameter um $1\%$
+erhöht oder erniedrigt werden, sodass sich in den Anwendungsbeispielen eine
+\emph{kleinst mögliche} MIPS-Einsparung (bzw. dann auch eine MIPS-Erhöhung)
+ergibt. Entsprechendes gilt für die Paramtervariationen um $\pm 5\%$ und $\pm
+10\%$.
+
+Diese Form der Parametervariation, bei der alle Parameter ihrer Wirkung nach in
+dieselbe Richtung variiert werden, resultiert sicherlich in übermäßig großen
+Unsicherheitsspannen. Bei den folgenden Betrachtungen ist daher zu beachten,
+dass die angegebenen Unsicherheitsbereiche jeweils die maximale Variation der
+Resultate wiedergeben. Bei zufälliger Verteilung der Parameterfehler würden die
+Ergebnisse innerhalb dieser Grenzen zu finden sein.
 
 \section{Anwendungsbeispiele}
 Die beschriebenen Daten werden nun zunächst in dem Anwendungsbeispiel zur
@@ -3266,44 +3297,53 @@ Betrachtungen erfolgen unter Berücksichtigung der Referenzwerte und deren drei
 Parametervariationen.
 
 \subsection{Anwendungsbeispiel: Nutzungshäufigkeit}
-Für die Anwendung der Ergebnisse aus dem Modell zur Nutzungshäufigkeit wird in diesem
-Anwendungsbeispiel das \SzenarioI\ mit dem \SzenarioII\ verglichen. Sie
-unterscheiden sich -- nach Konstruktion -- lediglich in der parallelen
-Produktanzahl und der mit dieser korrespondierenden Nutzungshäufigkeit. Das
-\SzenarioI\ ist das Szenario mit herkömmlicher Nutzung und das \SzenarioII\
-ist das Szenario mit gemeinschaftlicher Nutzung. Ersters wird im Text alternativ
-auch als Ausgangsszenario und letzteres auch als Zielszenario bezeichnet.
+Für die Anwendung der Ergebnisse aus dem Modell zur Nutzungshäufigkeit wird in
+diesem Anwendungsbeispiel das \SzenarioI\ in der Rolle des Szenarios mit
+herkömmlicher Nutzung mit dem \SzenarioII\ als dem Szenario mit
+gemeinschaftlicher Nutzung verglichen. Sie unterscheiden sich -- nach
+Konstruktion -- lediglich in der parallelen Produktanzahl und der mit dieser
+korrespondierenden Nutzungshäufigkeit. Im Text finden die Bezeichnungen
+\enquote{Ausgangs-Szenario} und \enquote{Ziel-Szenario} als Alternative zu den
+Bezeichnungen \enquote{Szenario mit herkömmlcher Nutzung} bzw.
+\enquote{Szenario mit gemeinschaftlicher Nutzung} Verwendung.
+
 \subsubsection{Kriterienüberprüfung}
 Als Ergebnis des Modells zur Nutzungshäufigkeit wurde festgehalten, dass
 die gemeinschaftliche Nutzung den Umweltverbrauch gegenüber der herkömmlichen
 Nutzung senkt, wenn der Nutzungsvorrat des betrachteten Produkts bei der
-herkömmlichen Nutzung nicht aufgebraucht wird (vgl. \todo{Referenz einfügen}).
+herkömmlichen Nutzung nicht aufgebraucht wird (vgl. Kriterium auf Seite
+\pageref{Kriterium:Nutzungshäufigkeit}).
 Für die Überprüfung dieses Kriteriums genügt es, die Nutzungshäufigkeit
-der herkömmlichen Nutzung $h^\text{herk.}$ mit der Nutzungshäufigkeit $h^*$ zu
-vergleichen. Mit $h^*$ wurde dabei 
-die Nutzungshäufigkeit bezeichnet, bei
-der die Maximalnutzungsdauer der technischen Lebensdauer entspricht. Als
-Ungleichung ausgedrückt (vgl. \todo{Referenz}), liegt eine Senkung des
-Umweltverbrauchs durch gemeinschaftliche Nutzung genau dann vor, wenn gilt:
+der herkömmlichen Nutzung $h^\text{herk}$ mit der Nutzungshäufigkeit $h^*$ zu
+vergleichen. Mit $h^*$ wurde dabei die Nutzungshäufigkeit bezeichnet, bei der
+die Maximalnutzungsdauer der technischen Lebensdauer entspricht. Als Ungleichung
+ausgedrückt (vgl. Gleichung \eqref{eq:Kriterium_Nutzungshäufigkeit}), liegt eine
+Senkung des Umweltverbrauchs durch gemeinschaftliche Nutzung genau dann vor,
+wenn gilt:
 \begin{equation}
-    h^\text{herk.} < h^*  = \frac{\n{max}}{\t{max}}
+    h^\text{herk} < h^*  = \frac{\n{max}}{\t{max}}
+    \label{eq:Fallstudie_Kriterium_Nutzungshäufigkeit}
 \end{equation}
 Wir erinnern daran, dass die Nutzungshäufigkeit in einem Nutzungssystem über die
 Gleichung \eqref{eq:h(p)_verbose} mit der parallelen Produktanzahl in folgendem
 Zusammenhang steht: 
 \begin{equation}
     h = \frac{N}{p \cdot T}  
+    \label{eq:Fallstudie_h(p)}
 \end{equation}
-Da die Szenarien die parallele Produktanzahl definieren, werden wir im Folgenden
-das zu \ldots\todo{Referenz} äquivalente Kriterium anwenden:
+Mit Hilfe dieser Gleichung lässt sich nun die Ungleichung
+\eqref{eq:Fallstudie_Kriterium_Nutzungshäufigkeit} als äquivalentes Kriterium an
+die parallele Produktanzahl formulieren:
 \begin{equation}
-    p^\text{herk.} < p^*  = \frac{N \cdot \t{max}}{\n{max} \cdot T}   
+    p^\text{herk} < p^*  = \frac{N \cdot \t{max}}{\n{max} \cdot T}   
 \end{equation}
-$p^\text{herk.}$ ist bereits durch die Szenariendefinition mit 17 Waschmaschinen
-gegeben und ist von dem betrachteten Fall und der angenommenen Unsicherheit
-unabhängig. $p^*$ ist dagegen durch mit Unsicherheit behaftete Parameter
-bestimmt, ist also je nach angenommenem Fall und Unsicherheitsbereich
-verschieden. Diese verschiedenen Werte für $p^*$ sind in der Tabelle
+Dieser Schritt war notwendig, da in den Szenarien die parallele Produktanzahl
+und nicht die Nutzungshäufigkeit die definierende Größe ist.
+So ist die parallele Produktanzahl im herkömmlichen Nutzungssystem $p^\text{herk}$ 
+durch die Szenariendefinition mit $p_\text{I} = 17$ Waschmaschinen
+gegeben. Sie ist von der Parametervariation unabhängig. Dagegen ist $p^*$ durch
+mit Unsicherheit behaftete Parameter bestimmt, nimmt also je Parametervariation
+einen anderen Wert an. Diese verschiedenen Werte für $p^*$ sind in der Tabelle
 \ref{tab:NI-Kriterien} aufgeführt.
 
 \begin{table}[t]
@@ -3313,27 +3353,26 @@ verschieden. Diese verschiedenen Werte für $p^*$ sind in der Tabelle
             Parametervariation: & -10\% & -5\% & -1\% & 0\% & +1\% & +5\% & +10\% \\
             \midrule
             $p^*$ & 19 & 17 & 15 & 14 & 14 & 12 & 10 \\
-            $p^\text{herk.} = 17 > p^*$ ? & & & \checkmark & \checkmark & \checkmark &
+            $p^\text{herk} = 17 > p^*$ ? & & & \checkmark & \checkmark & \checkmark &
             \checkmark & \checkmark \\
             \bottomrule
         \end{tabular}
     \end{center}
     \caption{Übersicht über die Kriterienüberprüfung im Anwendungsbeispiel zur
-        Nutzungsintensivierung. Angegeben sind die für $p^*$ ermittelten Werte
-        für die Parametervariationen. Die parallele
+        Nutzungshäufigkeit. Angegeben sind die für $p^*$ ermittelten Werte
+        mit und ohne Parametervariationen. Die parallele
         Produktanzahl im \SzenarioI\ beträgt $17$. Ist dieser
         Wert größer als $p^*$, so ist durch gemeinschaftliche Nutzung eine
         Ressourceneinsparung möglich. Dies ist insbesondere für die
-        Referenzwerte ($= 0\%$ Parametervariation)
-    gegeben.}
+        Referenzwerte ($\hat{=}\ 0\%$ Parametervariation) gegeben.}
     \label{tab:NI-Kriterien}
 \end{table}
 
-Im schlechtesten Fall -- mit angenommener Unsicherheit von 10\% bzw. 5\% -- ist
+Für die Parametervariationen um $-5\%$ und $-10\%$ ist
 das Kriterium nicht erfüllt, das heißt, dass hier der Nutzungsvorrat der
 Waschmaschinen in der herkömmlichen Nutzung bereits aufgebraucht wird. In allen
 anderen Fällen kann durch die gemeinschaftliche Nutzung eine
-Ressourceneinsparung erfolgen. Dies gilt insbesondere für unseren Schätzwert.
+Ressourceneinsparung erfolgen. Dies gilt insbesondere für unsere Referenzwerte.
 
 Diese Betrachtung bezieht sich lediglich auf die Produktanzahl in der
 herkömmlichen Nutzung. Für das Anwendungsbeispiel ist durch das \SzenarioII\
@@ -3342,29 +3381,19 @@ zwei, ist also deutlich geringer als die ermittelten Werte für $p^*$. Da $p^*$
 die Anzahl an parallelen Produkten angibt, bis zu der eine Reduktion von
 Produkten eine Ressourceneinsparung ermöglicht, bedeutet das, dass im
 \SzenarioII\ die Reduktion an Produkten deutlich über das Ziel hinausgeschossen
-ist. Würden in diesem Szenario anstatt der zwei zehn Waschmaschinen eingesetzt,
-wäre -- zumindest bei reiner Betrachtung des Effekts der Nutzungsintensivierung
--- die erzielte Ressourceneinsparung in allen Fällen und Unsicherheitsbereichen
-dieselbe.
-% \begin{table}[ht] \centering \input{Tabellen/NI_Kriterien.tex} \caption{test}
-% \label{tab:NI-Kriterien} \end{table}
+ist. Würden in diesem Szenario anstatt der zwei Waschmaschinen zehn eingesetzt,
+wäre -- zumindest bei reiner Betrachtung des Effekts der Erhöhung der
+Nutzungshäufigkeit -- die erzielte Ressourceneinsparung bei allen
+Parametervariationen dieselbe.
 
 \subsubsection{Größenordnung der MIPS-Einsparung}
-% Diese Überprüfung findet im ersten Abschnitt statt. Daran anschließend, wird die
-% absolute Änderung des Umweltverbrauchs durch eine Verringerung der Produktanzahl
-% im Ausgangsszenario betrachtet um schließlich auch eine Aussage über die
-% Verringerung des Umweltverbrauchs des Zielszenarios gegenüber der
-% Ausgangsszenario treffen zu können. 
-Im vorangegangenen Abschnitt wurde bereits darauf hingewiesen, dass eine
-Reduktion der Anzahl der parallel eingesetzten Waschmaschinen von 17 auf zehn
-in allen Fällen die größtmögliche Senkung des Umweltverbrauchs
-ermöglicht hätte und eine weitere Reduktion bis auf zwei Waschmaschinen
-hinsichtlich des Umweltverbrauchs keinen weiteren Effekt hat. Wie genau sich
-eine Reduktion der Waschmaschinen gegenüber dem Ausgangsszenario auf den
-Umweltverbrauch auswirkt, ist Gegenstand dieses Abschnitts. 
+Wir gehen nun über die reine Frage hinaus, ob eine Reduktion des Umweltverbrauchs durch
+gemeinschaftliche Nutzung erzielt werden kann, und betrachten in diesem
+Abschnitt die Höhe der Änderung des Umweltverbrauchs und wie diese von den
+eingesparten Produkten abhängt. 
 
-Für die Berechnung der MIPS-Reduktion wurde dabei auf das Modell zur
-Nutzungsintensivierung (Gleichung \eqref{eq:MIPS(h)_2}) zurückgegriffen:
+Für die Berechnung der MIPS-Reduktion greifen wir dabei auf das Modell zur
+Nutzungshäufigkeit (Gleichung \eqref{eq:MIPS(h)_2}) zurück:
 \begin{equation}
     \text{MIPS}(h) = 
     \frac{I_{\text{fix}}^h}{S_D} + \left\{ 
@@ -3375,85 +3404,102 @@ Nutzungsintensivierung (Gleichung \eqref{eq:MIPS(h)_2}) zurückgegriffen:
         \end{array}
     \right.
 \end{equation}
-Da sich die für das Anwendungsbeispiel betrachteten Szenarien per Definition nur
-in der Nutzungshäufigkeit bzw. parallelen Produktanzahl unterscheiden, spielt
-der Term mit $\I{fix}$ für die MIPS-Änderung keine Rolle. Sie lässt sich
-folgendermaßen bestimmen (vgl. Gleichung \eqref{eq:Delta_MIPS_h_1}):
+Diese Gleichung lässt sich wieder unter Verwendung der Beziehung zwischen der
+Nutzungshäufigkeit und der parallelen Produktanzahl \eqref{eq:Fallstudie_h(p)}
+umformulieren, sodass die MIPS in Abhängigkeit von der parallelen Produktanzahl
+berechnet werden können: 
 \begin{equation}
-    \Delta \MIPS = \MIPS[h_2] - \MIPS[h_1] = \frac{i_P}{\t{max} \cdot A} \cdot
-    \left(\frac{1}{h_2} - \frac{1}{h_1}\right) = \frac{i_P \cdot T}{\t{max}
-\cdot S_D} \cdot (p_2 - p_1)
+    \text{MIPS}(p) = 
+    \frac{I_{\text{fix}}^p}{S_D} + \left\{ 
+        \begin{array}{ll}  
+            \frac{i_P\cdot p \cdot T}{S_D \cdot t_{\text{max}}} &
+                                                   \mbox{falls } p < p^* \\[5pt]
+            \frac{i_P}{n_{\text{max}} \cdot A} & \mbox{sonst} 
+        \end{array}
+    \right.
 \end{equation}
-\todo{anstatt 1 und 2 in der Gleichung Indizes für die Szenarien einsetzen}
 
-\begin{figure}[th!]
+\begin{figure}[t!]
     \input{Abbildungen/Fallstudie_DeltaMIPS_p.tex}
-    \caption{Beschreibung}
+    \caption{Für die Referenzwerte (durchgezogene Linie) und drei verschiedene
+        Parametervariationen (schattierte Bereiche) wird die MIPS-Einsparung
+        eines Ziel-Szenarios mit höherer Nutzungshäufigkeit bzw. geringerer
+        paralleler Produktanzahl als im \SzenarioI\ dargestellt. Auf der
+        Abszissenachse ist die parallele Produktanzahl im Ziel-Szenario
+        aufgetragen. Die Werte dieser Achse verlaufen fallend. Sie beginnen bei
+        der Produktanzahl im \SzenarioI\ ($p_\text{I} = 17$) und enden bei der
+        parallelen Produktanzahl im \SzenarioII\ ($p_\text{II} = 2$).} 
     \label{fig:Fallstudie_DeltaMIPS(p)}
 \end{figure}
-Wir betrachten nun die Abbildung \ref{fig:Fallstudie_DeltaMIPS(p)}, welche die
-MIPS-Reduktion gegenüber dem \SzenarioI\ in
-Abhängigkeit von der parallelen Produktanzahl im Zielszenario darstellt.  Die
-durchgezogene Linie verbindet hier die zum Schätzwert gehörigen Punkte: Werden im
-Zielszenario ebenso wie im Ausgangsszenario 17 Waschmaschinen eingesetzt, so
+
+Auf dieser Grundlage wird in Abbildung \ref{fig:Fallstudie_DeltaMIPS(p)} die
+MIPS-Reduktion gegenüber dem \SzenarioI\ in Abhängigkeit von der parallelen
+Produktanzahl im Ziel-Szenario dargestellt\footnote{Da sich die für das
+    Anwendungsbeispiel betrachteten Szenarien per Definition nur in der
+    Nutzungshäufigkeit bzw. parallelen Produktanzahl unterscheiden, spielen die
+    von der parallelen Produktanzahl unabhängigen Material-Inputs $\I{fix}^p$ für
+die MIPS-Änderung keine Rolle. Alle anderen Parameter sind gegeben.}.
+In der Abbildung \ref{fig:Fallstudie_DeltaMIPS(p)} verbindet die
+durchgezogene Linie die zu den Referenzwerten gehörigen Punkte: Werden im
+Ziel-Szenario ebenso wie im Ausgangs-Szenario 17 Waschmaschinen eingesetzt, so
 ergibt sich natürlich keine Ressourceneinsparung. Diese steigt aber linear mit
-jedem eingesetzten Produkt, bis sie bei 14 Produkten im Zielszenario -- dem Wert
-von $p^*$ für den Schätzwert -- ihr Maximum erreicht und ab da konstant bei etwa
-\SI{0.05}{kg/kg} bleibt. Dies entspricht damit auch der Ressourceneinsparung im
-\SzenarioII.
+jedem eingesparten Produkt, bis sie bei 14 Produkten im Ziel-Szenario -- dem Wert
+von $p^*$ für die Referenzwerte -- ihr Maximum erreicht und ab da konstant bei etwa
+\SI{0.05}{kg/kg} bleibt. Dieser Wert entspricht damit auch der
+Ressourceneinsparung des \SzenariosII\ ($p_\text{II} = 2$) gegenüber dem
+\SzenarioI.
 
-Dieser Wert unterliegt jedoch einer großen Unsicherheit: die grau schattierten
-Bereiche geben jeweils den Unsicherheitsbereich für die drei definierten
-Parameterabweichungen an. Es ist zu erkennen, dass schon bei einer Unsicherheit
-von 5\% die MIPS-Einsparung zwischen \SI{0}{kg/kg} und \SI{0.12}{kg/kg} schwankt, bei
-einer Unsicherheit von 10\% sogar maximal \SI{0.2}{kg/kg} betragen kann, also
-vier Mal soviel, wie für unseren Schätzwert.
+Die MIPS-Änderung unterliegt jedoch einer großen Unsicherheit: die grau
+schattierten Bereiche geben jeweils den Unsicherheitsbereich an, der aus den
+drei definierten Parametervariationen resultiert. Es ist zu erkennen, dass schon
+bei einer Parametervariation von $\pm 5\%$ die MIPS-Einsparung zwischen
+\SI{0}{kg/kg} und \SI{0.12}{kg/kg} schwankt, und dass bei einer Parametervariation von
+$+10\%$ die MIPS-Einsparung vier Mal so hoch ist, wie für die Referenzwerte
+(etwa \SI{0.2}{kg/kg}).
 
-Insgesamt kann für das Anwendungsbeispiel zur Nutzungsintensivierung
-festgehalten werden, dass zwar von einer Ressourceneinsparung im \SzenarioII\ im
-Vergleich zum \SzenarioI\ 
-ausgegangen werden kann. Dessen Umfang unterliegt allerdings einer recht großen
-Unsicherheit auf der einen Seite und diese Einsparung hätte andererseits bereits
-bei einer deutlich geringeren Reduktion von Waschmaschinen erreicht werden
-können. 
+Obgleich also von einer Ressourceneinsparung durch gemeinschaftliche Nutzung im
+\SzenarioII\ im Vergleich zum \SzenarioI\ ausgegangen werden kann, unterliegt
+dieses Ergebnis zwei Einschränkungen. Zum einen ist der Umfang dieser Einsparung
+mit einer recht großen Unsicherheit behaftet. Und zum anderen hätte die
+Einsparung bereits bei einer deutlich geringeren Reduktion von Waschmaschinen
+erreicht werden können. 
+
 \subsection{Anwendungsbeispiel: Kopplung}
-Für das Anwendungsbeispiel zur Kopplung der Modelle Erhöhung der
-Nutzungshäufigkeit und zusätzliche Transporte, wird nun \SzenarioI\ mit
-\SzenarioIII\ verglichen. Sie unterscheiden sich jetzt sowohl in der parallelen
+Für das Anwendungsbeispiel zur Kopplung der Modelle 
+Nutzungshäufigkeit und Transporte, wird nun das \SzenarioI\ mit
+dem \SzenarioIII\ verglichen. Sie unterscheiden sich sowohl in der parallelen
 Produktanzahl, als auch in der mittleren Transportdistanz. \SzenarioI\ ist wie
-gehabt das Szenario mit herkömmlicher Nutzung, welches alternativ als
-Ausgangsszenario bezeichnet wird.
+gehabt das Szenario mit der herkömmlichen Nutzung, welches alternativ als
+Ausgangs-Szenario bezeichnet wird.
 Das \SzenarioIII\ übernimmt nun die Rolle des Szenarios
 mit gemeinschaftlicher Nutzung. Im Text wird hierfür wieder die alternative
-Bezeichnung \enquote{Zielszenario} verwendet.
+Bezeichnung \enquote{Ziel-Szenario} verwendet.
 
 \subsubsection{Kriterienüberprüfung}
 Die theoretische Analyse der Kopplung einer Erhöhung der Nutzungshäufigkeit
 mit zusätzlichen Transporten ergab, dass eine Senkung des Umweltverbrauchs durch
 die gemeinschaftliche Nutzung genau dann vorliegt, wenn bei gegebener Reduktion
 der parallelen Produktanzahl die mittlere Transportdistanz bei der
-gemeinschaftlichen Nutzung $d^\text{gem.}$ unter einem Schwellwert $d^*$ liegt.
+gemeinschaftlichen Nutzung $d^\text{gem}$ unter einem Schwellwert $d^*$ liegt.
 Der Schwellwert lässt sich mit Gleichung \eqref{eq:d_stern} bestimmen:
 \todo[inline]{Formel für $d^*$ einfügen}
-Es ergeben sich die je nach Fall und Unsicherheitsbereich verschiedene Werte,
+Es ergeben sich die je nach Fall und Unsicherheitsbereich verschiedenen Werte,
 die in Tabelle \ref{tab:Kopplung-Kriterien} aufgeführt sind. Nur für den besten
-Fall mit Parameterabweichungen von 5\% bzw. 10\% übertreffen die
+Fall mit Parameterabweichungen von 5\% bzw. 10\% übertrifft die
 Ressourceneinsparung durch die Erhöhung der Nutzungshäufigkeit den zusätzlichen
-Ressourcenverbrauch durch die hinzugekommenen Transporte. Für die Schätzwerte
+Ressourcenverbrauch durch die hinzugekommenen Transporte. Für die Referenzwerte
 ergibt sich ein $d^*$ von \SI{1.1}{km}, sodass hier bei einer mittleren
-Transportdistanz von $d^\text{gem.} = \SI{1.5}{km}$ im \SzenarioIII\ von keiner
+Transportdistanz von $d_\text{III} = \SI{2}{km}$ im \SzenarioIII\ von keiner
 Nettoreduktion des Umweltverbrauchs auszugehen ist.
 \begin{table}[h!]
     \begin{center}
         \begin{tabular}[h]{lrrrrrrr}
             \toprule
-            Fall: &\multicolumn{3}{c}{Schlechtester} & \multicolumn{3}{c}{Bester} &
-            Schätzwert \\
-            Unsicherheitsbereich: & 10\% & 5\% & 1\% & 1\% & 5\% & 10\% & \\
+            Parametervariation: & -10\% & -5\% & -1\% & 0\% & +1\% & +5\% & +10\% \\
             \midrule
-            $d^*$ [\si{km}] & 0.0 & 0.0 & 0.8 & 1.4 & 2.8 & 5.3 & 1.1 \\
-            $d^\text{gem.} = \SI{1.5}{km} < d^*$ ? & & & & & \checkmark &
-            \checkmark & \\
+            $d^*$ [\si{km}] & 0.0 & 0.0 & 0.8 & 1.1 & 1.4 & 2.8 & 5.3 \\
+            $d^\text{gem} = \SI{2}{km} < d^*$ ? & & & & & & \checkmark &
+            \checkmark \\
             \bottomrule
         \end{tabular}
     \end{center}
@@ -3461,16 +3507,16 @@ Nettoreduktion des Umweltverbrauchs auszugehen ist.
         Kopplung von der Erhöhung der Nutzungshäufigkeit mit zusätzlichen
         Transporten. Angegeben sind die für $d^*$ ermittelten Werte
         für die verschiedenen Fälle und Unsicherheitsbereiche. Die mittlere
-        Transportdistanz im \SzenarioIII\ beträgt \SI{1.5}{km}. Ist dieser
-        Wert kleiner als als $d^*$, so ist durch gemeinschaftliche Nutzung eine
-        Ressourceneinsparung möglich. Rür den Schätzwert ist dies nicht
+        Transportdistanz im \SzenarioIII\ beträgt \SI{2}{km}. Ist dieser
+        Wert kleiner als $d^*$, so ist durch gemeinschaftliche Nutzung eine
+        Ressourceneinsparung möglich. Für den Schätzwert ist dies nicht
     gegeben.}
     \label{tab:Kopplung-Kriterien}
 \end{table}
 % \input{Tabellen/Tra_Kriterien.tex}
 \subsubsection{Größenordnung der MIPS-Einsparung}
-Wir betrachten nun wieder die MIPS-Änderung gegenüber dem Ausgangsszenario in
-Abhängigkeit von der mittleren Distanz im Zielszenario. Wir verwenden hierfür
+Wir betrachten nun die MIPS-Änderung gegenüber dem Ausgangs-Szenario in
+Abhängigkeit von der mittleren Distanz im Ziel-Szenario. Hierfür verwenden wir 
 die Gleichung:
 \todo[inline]{entsprechende Gleichungen referenzieren und angeben}
 
@@ -3478,26 +3524,38 @@ Diese Funktion ist mit den gegebenen Parametern in Abbildung
 \ref{fig:Fallstudie_DeltaMIPS(d)} dargestellt. Auf der Abszissenachse ist die
 mittlere Transportdistanz im Ziel-Szenario angegeben, gegenüber der die
 MIPS-Änderung aufgetragen wurde. Die durchgezogene Linie gibt den Zusammenhang
-für die Schätzwerte wieder: für $d^\text{gem.} = \SI{0}{km}$ beträgt sie
+für die Schätzwerte wieder: für $d^\text{gem} = \SI{0}{km}$ beträgt sie
 \SI{0.05}{kg/kg}. Dies entspricht dem Ergebnis aus dem vorangegangenen
 Abschnitt. Von diesem Wert fällt die MIPS-Änderung linear in der mittleren
-Transportdistanz im Zielszenario. Bei $d^* = \SI{1.1}{km}$ beträgt die
+Transportdistanz im Ziel-Szenario. Bei $d^* = \SI{1.1}{km}$ beträgt die
 MIPS-Änderung gerade \SI{0}{kg/kg} -- genau so ist ja der Schwellwert $d^*$
-definiert. Für größere Transportdistanzen im Zielszenario, insbesondere auch für
-die mittlere Transportdistanz im \SzenarioIII\ wo sie \SI{1.5}{km} beträgt, ist
+definiert. Für größere Transportdistanzen im Ziel-Szenario, insbesondere auch für
+die mittlere Transportdistanz im \SzenarioIII\ wo sie \SI{2}{km} beträgt, ist
 die MIPS-Einsparung negativ, was einer Nettoerhöhung der MIPS des
 gemeinschaftlichen Szenarios gegenüber der herkömmlichen Nutzung entspricht.
 \begin{figure}[h!]
     \input{Abbildungen/Fallstudie_DeltaMIPS_d.tex}
-    \caption{Beschreibung}
+    \caption{Für die Referenzwerte (durchgezogene Linie) und drei verschiedene
+        Parametervariationen (schattierte Bereiche) wird die MIPS-Einsparung
+        eines Ziel-Szenarios mit einer parallelen Produktanzahl von
+        $p_\text{III} = 2$ und einer höheren mittleren Transportdistanz als im
+        \SzenarioI\ dargestellt. Auf der
+        Abszissenachse ist die mittlere Transportdistanz im Ziel-Szenario
+        aufgetragen. Die Unsicherheitsbereiche können in zwei Richtungen gelesen
+        werden: zum einen besteht für jede Transportdistanz im Ziel-Szenario
+        eine Unsicherheit bezüglich der MIPS-Änderung. Aufgrund dieser
+        Unsicherheit besteht zum anderen eine Unsicherheit bezüglich der Distanz
+        $d^*$, bei der die MIPS-Änderung gerade Null ist. Diese Unsicherheit ist
+        durch horizontal eingezeichnete Intervall (an der Stelle 
+        $\Delta \MIPS = 0$) angedeutet.}
     \label{fig:Fallstudie_DeltaMIPS(d)}
 \end{figure}
 
 Auch hier sind die Unsicherheitsbereiche in denen sich die MIPS-Änderung bewegt
-schattiert dargestellt: für $d^\text{gem.} = \SI{0.0}{km}$ beträgt die Spanne für die
+schattiert dargestellt: für $d^\text{gem} = \SI{0.0}{km}$ beträgt die Spanne für die
 Parameterabweichung von 10\% \SIrange{0.0}{0.2}{kg/kg}. Mit zunehmender
-mittlerer Transportdistanz im Zielszenario verschiebt sich diese nach unten und
-wird etwas größer. Bei $d^\text{gem.} = \SI{5.3}{km}$ beträgt die
+mittlerer Transportdistanz im Ziel-Szenario verschiebt sich diese nach unten und
+wird etwas größer. Bei $d^\text{gem} = \SI{5.3}{km}$ beträgt die
 Unsicherheitsspanne \SIrange{0.0}{-0.3}{kg/kg}. Durch die Schnittpunkte der
 Begrenzungen der Unsicherheitsbereiche mit der Nulllinie werden die Schwellwerte
 für die verschiedenen Fälle und Parameterabweichungen definiert. So wird
@@ -3522,7 +3580,16 @@ Transporte hinzu. Für die geschätzten Parameter sind diese Änderungen noch
 kleiner und daher im wesentlichen vernachlässigbar.
 \begin{figure}[ht]
     \input{Abbildungen/Vergleich_Szenarien.tex}
-    \caption{Beschreibung}
+    \caption{In dieser Abbildung werden die MIPS für die Szenarien \SzI\
+        (Szenario I), \SzII\ (Szenario II) und \SzIII\ (Szenario III) nach dem
+        Nutzungsanteil, dem Produktanteil und dem Transportanteil 
+        aufgeschlüsselt dargestellt. Der MIPS-Berechnung liegen die Werte mit 
+        $+ 10\%$ Parametervariation zugrunde. An der unteren Abszissenachse sind
+        die absoluten MIPS in Kilogramm je Kilogramm gewaschener Wäsche und an
+        der oberen Abszissenachse sind die MIPS relativ zum \SzenarioI\
+        abzulesen. Im \SzenarioI\ betragen die MIPS knapp \SI{4}{kg/kg}. Im
+        Vergleich hierzug ist der Umweltverbrauch im \SzenarioII\ um 
+        5\% und im \SzenarioIII\ um 3\% geringer.}
     \label{fig:Vergleich_Szenarien}
 \end{figure}
 \chapter{Schluss}\marginpar{\vspace{-6em}\scriptsize Ende Teil von

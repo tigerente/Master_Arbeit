@@ -146,7 +146,7 @@ points(p_dis, delta_MIPS(p_dis, Avg), xlim=rev(range(p_dis)), type = 'p', pch = 
      panel.first = lines(p_con, delta_MIPS(p_con, Avg), type = 'l', lty = 1, lwd = 1.5, col='gray20'))
 
 # Maintitle:
-title("MIPS-Einsparung im Vergleich zu Szenario I", line=3.5, cex.main=1.2)
+title("MIPS-Einsparung im Vergleich zum Szenario I", line=3.5, cex.main=1.2)
 # Subtitle:
 title('Erh\"ohung der Nutzungsh\"aufigkeit', line=1.5, cex.main=1.0)
 
@@ -165,7 +165,7 @@ lines(rep(p_stern_Avg, times=2), c(-0.1,0.05), lty="dashed")
 
 # Legende:
 legend("topleft", inset = 0.02,
-       legend = c("Sch\"atzwert", "+/- \\ 1 \\% Parameterabweichung", "+/- \\ 5 \\% Parameterabweichung", "+/- 10 \\% Parameterabweichung"),
+       legend = c("Referenzwerte", "$\\pm$ \\ 1 \\% Parametervariation", "$\\pm$ \\ 5 \\% Parametervariation", "$\\pm$ 10 \\% Parametervariation"),
        bty = "n",
        col = c("gray20","gray70", "gray80", "gray90"),
        lty = c(1, 0, 0, 0),
@@ -184,23 +184,23 @@ if(useTikz) dev.off()
 ##################
 #------------------------------------------------------------------------------#
 d_stern <- function(p_Ind, p_Gem, daten){
-  MIPS_Ind <- with(daten, MIPS(h = h(p_Ind, N[1], Time), I_fix = i_N*N[1], S_D = N[1]*A, i_P = i_P,
+  MIPS_Ind <- with(daten, MIPS(h = h(p_Ind, N, Time), I_fix = i_N*N, S_D = N*A, i_P = i_P,
                                t_max = t_max, A = A, n_max = n_max))
   
-  MIPS_Gem <-  with(daten, MIPS(h = h(p_Gem, N[1], Time), I_fix = i_N*N[1], S_D = N[1]*A, i_P = i_P,
+  MIPS_Gem <-  with(daten, MIPS(h = h(p_Gem, N, Time), I_fix = i_N*N, S_D = N*A, i_P = i_P,
                                 t_max = t_max, A = A, n_max = n_max))
   return(with(daten, (MIPS_Ind - MIPS_Gem)*A/(theta * i_d * alpha)))
 }
 
 #------------------------------------------------------------------------------#
 delta_MIPS <- function(d, p, daten){
-  MIPS_Ind <- with(daten, MIPS(h = h(p_Ind, N[1], Time), I_fix = i_N*N[1], S_D = N[1]*A, i_P = i_P,
+  MIPS_Ind <- with(daten, MIPS(h = h(p_Ind, N, Time), I_fix = i_N*N, S_D = N*A, i_P = i_P,
                                t_max = t_max, A = A, n_max = n_max))
   
-  MIPS_Gem <-  with(daten, MIPS(h = h(p, N[1], Time), I_fix = i_N*N[1], S_D = N[1]*A, i_P = i_P,
+  MIPS_Gem <-  with(daten, MIPS(h = h(p, N, Time), I_fix = i_N*N, S_D = N*A, i_P = i_P,
                                 t_max = t_max, A = A, n_max = n_max))
   MIPS_Tra <- with(daten, MIPS_Gem + MIPS_a(d = d, theta = theta, i_d = i_d * alpha, 
-                                            a = A, K = 1, I_fix = 0, S_D = N[1]*A))
+                                            a = A, K = 1, I_fix = 0, S_D = N*A))
   return((MIPS_Ind - MIPS_Tra))
 }
 
@@ -305,7 +305,7 @@ lines(d_seq, delta_MIPS(d_seq, p = p_Tra, daten = Avg),
                            type = 'l', lty = 1, lwd = 1.5, col='gray20')
 # Legende:
 legend("topright", inset = 0.04,
-       legend = c("Sch\"atzwert", "+/- \\ 1 \\% Parameterabweichung", "+/- \\ 5 \\% Parameterabweichung", "+/- 10 \\% Parameterabweichung"),
+       legend = c("Referenzwerte", "$\\pm$ \\ 1 \\% Parametervariation", "$\\pm$ \\ 5 \\% Parametervariation", "$\\pm$ 10 \\% Parametervariation"),
        bty = "n",
        col = c("gray20","gray70", "gray80", "gray90"),
        lty = c(1, 0, 0, 0),
@@ -376,8 +376,8 @@ abline(v=MIPS_N_I+MIPS_P_I, lty="dashed")
 
 # Legende
 legend("top", inset = 0.05, horiz = TRUE, 
-       legend = c("MIPS Produktanteil\\ \\ \\ \\ \\ \\ \\ \\ \\ ", 
-                  "MIPS Nutzungsanteil", 
+       legend = c("MIPS Nutzungsanteil\\ \\ \\ \\ \\ \\ \\ \\ \\ ", 
+                  "MIPS Produktanteil", 
                   "MIPS Transportanteil"),
        bty = "n",
        col = c("gray70", "gray80", "gray90"),
