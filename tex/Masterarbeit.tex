@@ -1682,17 +1682,16 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       in dem gesamten Nutzungssystem eine Wartung mit durchschnittlichen
       Wartungsinputs $i_W$ durchgeführt wird. Unter dieser Annahme können wir
       die Wartungshäufigkeit $w$ einführen, welche die Anzahl Wartungen je
-      Nutzungseinheiten angibt.  Wir nehmen an, dass es eine maximal sinnvolle
-      Wartungshäufigkeit $\w{max}$ gibt, sodass $w \in [0,\w{max}]$ gilt. Im
-      Folgenden werden wir den Einfluss der Wartungshäufigkeit auf die MIPS 
-      formal beschreiben.
+      Nutzungseinheiten angibt.   Im Folgenden werden wir den Einfluss der
+      Wartungshäufigkeit auf die MIPS formal beschreiben.
 
       Aus der Wartungshäufigkeit ergibt sich durch Multiplikation mit den
       Nutzungseinheiten die Anzahl der Wartungen $W$, die im Nutzungssystem
       durchgeführt werden. Der erste Effekt, die
       Erhöhung der Material-Inputs, lässt sich damit direkt formulieren:
       \begin{equation}
-        I_W = W \cdot i_W = N \cdot w \cdot i_W
+        I_W(w) = W \cdot i_W = N \cdot w \cdot i_W
+        \label{eq:I_W(w)}
       \end{equation}
       Hierbei bezeichnet $I_W$ die wartungsbedingten Material-Inputs, die, wie
       zu erkennen ist, direkt proportional mit der Wartungshäufigkeit
@@ -1703,9 +1702,8 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       Produkts monoton mit der Wartungshäufigkeit steigt und dies als
       funktioneller Zusammenhang beschrieben werden kann:
       \begin{equation}
-        \n{max} = \n{max}(w) \quad \text{mit} \quad
-        \frac{\partial \n{max}}{\partial w}\geq 0 \quad , \quad
-        \label{eq:Wartung_n_max}
+        \n{max} = \n{max}(w) \quad \text{mit}\quad (i) \quad
+        \frac{\partial \n{max}}{\partial w}\geq 0 
       \end{equation}
       Bei konstanter Nutzungshäufigkeit $h$ verlängert sich mit steigender
       Wartungshäufigkeit wegen $\t{tech}(w) = \frac{\n{max}(w)}{h}$ die
@@ -1720,27 +1718,39 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       unbeschränkt erhöhen kann. Zum anderen nehmen wir an,
       dass der Zugewinn am Nutzungsvorrat durch eine Erhöhung der
       Wartungshäufigkeit mit steigender Wartungshäufigkeit abnimmt. In Formeln
-      ausgedrückt, können wir schreiben:\todo{schauen, ob diese Annahmen
-      später überhaupt benötigt werden}
+      ausgedrückt, können wir schreiben:
 
       \begin{equation}
-          \max_{w \in [0,\w{max}]} \n{max}(w) < \infty \quad , \quad
-        \frac{\partial^2 \n{max}}{\partial w^2}\leq 0
-        \label{eq:Wartung_n_max2}
+        (ii)\quad \frac{\partial^2 \n{max}}{\partial w^2}\leq 0 \quad\qquad 
+        (iii)\quad \sup_{w \in [0,\infty)} \n{max}(w) < \infty
       \end{equation}
 
-      Eine Verlängerung der technischen Lebensdauer $\t{tech}$ bzw. eine
-      Erhöhung des dazu äquivalenten Nutzungsvorrats $\n{max}$ wirkt sich,
-      sofern dies zu einer Verlängerung der Nutzungsdauer führt, auf die
-      effektive Produktanzahl und damit auf die produktbezogenen Inputs aus.
-      Dieser Zusammenhang ergibt sich aus den im \nameref{sec:Grundmodell}
-      aufgestellten Grundgleichungen $n = h \cdot
-      t$ \eqref{eq:Grundgleichung_n} und $P = \frac{N}{n}$ \eqref{eq:Grundgleichung_P}:
+      Im \nameref{sec:Grundmodell} wurde im Abschnitt zur Produktnutzungsdauer
+      \ref{sec:Produktnutzungsdauer} dargelegt, dass die Nutzungsdauer sowohl
+      durch das Erreichen der Maximalnutzungsdauer als auch durch das
+      Aufbrauchen des Nutzungsvorrats beschränkt ist. Formal wurde hierzu die
+      Grundgleichung $t = \text{min} \{t_\text{max}, t_\text{tech} :=
+      \frac{n_\text{max}}{h}\}$ \eqref{eq:Grundgleichung_t} eingeführt. Diese
+      lässt sich äquivalent auch als Beschränkung der Nutzungsmenge $n$
+      auffassen:
+      \begin{equation}
+          n(w) = \text{min} \{\n{max}(w), h \cdot \t{max}\}
+          \label{eq:n(w)}
+      \end{equation}
+      Das heißt, dass die Nutzungsmenge sowohl von dem Nutzungsvorrat als auch
+      von der Nutzungsmenge, die bei gegebener Nutzungshäufigkeit während der
+      Maximalnutzungsdauer verbraucht wird, beschränkt ist. 
+
+      Aus der Gleichung \ref{eq:n(w)} ergibt sich nun, zusammen mit der im
+      \nameref{sec:Grundmodell} aufgestellten Grundgleichung $P = \frac{N}{n}$
+      \eqref{eq:Grundgleichung_P}, dass sich eine Erhöhung des Nutzungsvorrats
+      $\n{max}$ (bzw. eine dazu äquivalente Verlängerung der technischen
+      Lebensdauer $\t{tech}$), sofern dies zu einer Erhöhung der Nutzungsmenge
+      führt, auf die effektive Produktanzahl und damit auf die produktbezogenen
+      Inputs auswirkt: 
       \begin{align}
           I_P(w) &= i_P \cdot P(w) \eqnref{eq:Grundgleichung_P} i_P \cdot
-          \frac{N}{n(w)} \eqnref{eq:Grundgleichung_n} i_P \cdot \frac{N}{h \cdot
-          t(w)} \\[10pt]
-                 &= 
+          \frac{N}{n(w)} \eqnref{eq:n(w)} 
         \left\{ 
           \begin{array}{r@{\quad : \quad}l}
             i_P \cdot \frac{N}{\n{max}(w)} & \n{max}(w) < h \cdot \t{max} \\[10pt]
@@ -1796,27 +1806,26 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       entspricht und dass dieser durchschnittliche Wert monoton mit der
       Wartungshäufigkeit fällt: 
       \begin{equation}
-        i_N = i_N(w)\quad  , \quad
+        i_N = i_N(w) \quad \text{mit}\quad (i) \quad
         \frac{\partial i_N}{\partial w} \leq 0
-        \label{eq:Wartung_i_N}
       \end{equation}
 
-      Weitere angenommene Eigenschaften der Funktion $i_N$ sind, dass sie sowohl
-      nach oben als auch nach unten beschränkt ist und dass die Verringerung der
-      Material-Inputs mit zunehmender Wartungshäufigkeit abnimmt: \todo{checken
-      ob die Beschränkung Verwendung findet}
+      Weitere angenommene Eigenschaften der Funktion $i_N$ sind, dass sie 
+      nach unten beschränkt ist (dass also die Material-Inputs je Nutzung
+      durch eine Erhöhung der Wartungshäufigkeit nicht beliebig gesenkt werden
+      können), und dass die Verringerung der
+      Material-Inputs mit zunehmender Wartungshäufigkeit abnimmt: 
 
       \begin{equation}
-        % 0 < \min_{w \in [0,1]} i_N(w) \leq \max_{w \in [0,1]} i_N(w) < \infty
-        % \quad , \quad 
-        \pfrac{^2 i_N}{w^2} \geq 0
-        \label{eq:Wartung_i_N2}
+        (ii)\quad\pfrac{^2 i_N}{w^2} \geq 0 \quad\qquad
+        (iii)\quad 0 < \inf_{w \in [0,\infty)} i_N(w) 
       \end{equation}
       Die nutzungsbedingten Inputs $I_N$ ergeben sich aus den Material-Inputs je
       Produktnutzung $i_N$ einfach durch Multiplikation mit der 
       Nutzungsmenge $N$:
       \begin{equation}
           I_N(w) = N \cdot i_N(w)
+          \label{eq:I_N(w)}
       \end{equation}
       Zusammenfassend stellen wir fest, dass die produktbezogenen Inputs $I_P$,
       die nutzungsbedingten Inputs $I_N$ und natürlich die Inputs für Wartungen
@@ -1833,7 +1842,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
           % &= N \cdot i_N + N \cdot w \cdot i_W  
           %   + P \cdot i_P + \I{fix}\\
           &= N \cdot (i_N(w) +  w \cdot i_W)
-            + \frac{N}{h\cdot t(w)} \cdot i_P + \I{fix}^w\label{eq:I(w)2}
+            + \frac{N}{n(w)} \cdot i_P + \I{fix}^w\label{eq:I(w)2}
       \end{align}
       Unter Ausnutzung der Grundgleichung über die Serviceeinheiten
       $S=N\cdot A =S_D$ \eqref{eq:Grundgleichung_S} können wir nun eine
@@ -1843,13 +1852,13 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
                 \eqnref{eq:I(w)1} \frac{I_N(w) + I_W(w) + I_P(w) + \I{fix}^w}{S}
                 \label{eq:MIPSWartung_simpel}\\[10pt]
                  &\eqnref{eq:I(w)2} \frac{N \cdot (i_N(w) +  w \cdot i_W)
-                             + \frac{N}{h\cdot t(w)} \cdot i_P 
+                             + \frac{N}{n(w)} \cdot i_P 
                          }{N \cdot A} + \frac{\I{fix}^w}{S_D}  \\[10pt]
                 &= \frac{1}{A} \cdot \left( i_N(w) + w \cdot i_W 
-                 + \frac{i_P}{h\cdot t(w)}\right) + \frac{\I{fix}^w}{S_D}  
+                 + \frac{i_P}{n(w)}\right) + \frac{\I{fix}^w}{S_D}  
       \end{align}
-      Zu beachten ist, dass diese Gleichung abhängig davon, ob $\t{tech}$
-      kleiner oder größer als $\t{max}$ ist, jeweils eine etwas
+      Zu beachten ist, dass diese Gleichung abhängig davon, ob $\n{max}(w)$
+      kleiner oder größer als $h \cdot \t{max}$ ist, jeweils eine etwas
       unterschiedliche Gestalt annimmt (vgl. Gleichung \eqref{eq:I_P(w)}).
       Berücksichtigt man diese Fallunterscheidung, so 
       ergibt sich als Ergebnis dieses Abschnittes das folgende Modell:\\
@@ -1880,21 +1889,22 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       %               \label{eq:MIPSWartung}
       % \end{equation}
 
-          Funktionseigenschaften:				
+          Funktionseigenschaften für $i_N(w)$:				
           \begin{equation}
-              \frac{\partial i_N}{\partial w} \leq 0 \quad , \quad
-                    % 0 < \min_{w \in [0,1]} i_N(w) \leq \max_{w \in [0,1]} i_N(w)
-                    % < \infty \quad , \quad 
-              \frac{\partial^2 i_N}{\partial w^2} \geq 0
+              (i)\quad \frac{\partial i_N}{\partial w} \leq 0 \quad\qquad
+              (ii)\quad \frac{\partial^2 i_N}{\partial w^2} \geq 0\quad\qquad  
+              (iii)\quad 0 < \inf_{w \in [0,\infty)} i_N(w) 
+                  \label{eq:Wartung_i_N}
           \end{equation}
+          Funktionseigenschaften für $\n{max}(w)$:				
           \begin{equation}
-              \frac{\partial \n{max}}{\partial w}\geq 0 \quad , \quad
-              \frac{\partial^2 \n{max}}{\partial w^2}\leq 0 
-          % \quad , \quad \sup_{w \in [0,1]} \n{max}(w) < \infty
+              \quad\quad(i)\quad \frac{\partial \n{max}}{\partial w}\geq 0 \qquad
+              (ii)\quad \frac{\partial^2 \n{max}}{\partial w^2}\leq 0
+                \qquad
+              (iii)\sup_{w \in [0,\infty)} \n{max}(w) < \infty 
+                  \label{eq:Wartung_n_max}
           \end{equation}
-      \end{mdframed}\todo{Formatierung der Funktionseigenschaften
-      überarbeiten, Gleichungsnummern später verwenden}
-
+      \end{mdframed}
       \paragraph{Modellanalyse}
       \label{sec:WA}
         Die Wirkung einer Erhöhung der Wartungshäufigkeit ist aufgrund der
@@ -1906,7 +1916,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
 
         Wir betrachten hierfür zunächst die Ableitung der MIPS-Gleichung in der
         einfachen Form:  $\MIPS[w]= \frac{1}{S_D}
-        \cdot ( I_N(w) + I_W(w) + I_P(w) + \I{fix})$ (vgl.
+        \cdot ( I_N(w) + I_W(w) + I_P(w) + \I{fix})$ (Gleichung
         \eqref{eq:MIPSWartung_simpel}) und fragen, wann die
         MIPS unter einer marginalen Erhöhung der Wartungshäufigkeit sinken:
         \begin{align}
@@ -1917,15 +1927,15 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
                 |I'_W(w)| < |I'_N(w)| + |I'_P(w)| 
                 \label{eq:Wartung_Bedingung}
         \end{align}
-        Dass die Verwendung der Betragsstriche im letzten Schritt gerechtfertigt
-        ist, wird sich im Folgenden aus der genaueren Betrachtung der
-        Ableitungen ergeben. Der Ausdruck sei vorher zunächst inhaltlich
-        erläutert: Gemäß Modellannahme führt eine Erhöhung der
+        Die Verwendung der Betragsstriche im letzten Schritt ist gerechtfertigt,
+        da, wie im Folgenden noch gezeigt wird, $I'_N \leq 0$, $I'_P \leq 0$ und
+        $I'_W \geq$ gilt. Zunächst sei der Ausdruck jedoch inhaltlich
+        erläutert: Gemäß Modellannahmen führt eine Erhöhung der
         Wartungshäufigkeit zu einer Erhöhung der Wartungsinputs auf der einen
         und zu einer Verringerung der nutzungsbedingten sowie produktbezogenen
-        Inputs auf der anderen Seite.  Da diese drei Effekte voneinander
-        unabhängig sind, können sie auch in der marginalen Sichtweise separat
-        betrachtet werden: eine marginale Verringerung der MIPS tritt demnach
+        Inputs auf der anderen Seite.  Da diese drei Effekte nicht direkt
+        miteinander wechselwirken, können sie auch in der marginalen Sichtweise separat
+        betrachtet werden: Eine marginale Verringerung der MIPS tritt demnach
         genau dann auf, wenn der marginale Zuwachs der Inputs für die Wartungen
         $I'_W$ betragsmäßig kleiner ist als die Summe der marginalen
         Einsparungen $|I'_N| + |I'_P|$ durch den Effekt auf die Nutzungs- und
@@ -1937,86 +1947,109 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
         der Wartungsinputs ist aufgrund der direkten Proportionalität zur
         Wartungshäufigkeit konstant und beträgt:
         \begin{equation}
+            I_W(w) \eqnref{eq:I_W(w)} N \cdot w \cdot i_W 
+            \quad \Rightarrow \quad 
             I'_W(w) = N \cdot i_W = konst. \geq 0
         \end{equation}
         Der Anstieg der nutzungsbedingten Material-Inputs beträgt:
         \begin{equation}
+            I_N(w) \eqnref{eq:I_N(w)} N \cdot i_N(w) 
+            \quad \Rightarrow \quad 
             I'_N(w) = N \cdot i'_N(w) \leq 0
         \end{equation}
         Er ist nicht positiv, da wir angenommen haben, dass $i_N(w)$ eine in $w$
-        monoton fallende Funktion ist (vgl. \eqref{eq:Wartung_i_N}).
-        Da wir weiterhin angenommen haben, dass $i_N$ linksgekrümmt ist (vgl.
-        \eqref{eq:Wartung_i_N2}: $\pfrac{^2 i_N}{w^2} \geq 0$) können wir
-        darüberhinaus eine Aussage über die Veränderung des Betrags $|I'_N(w)|$
+        monoton fallende Funktion ist (vgl. Eigenschaft (i) in Gleichung
+        \eqref{eq:Wartung_i_N}).  Da wir weiterhin angenommen haben, dass $i_N$
+        linksgekrümmt ist (vgl.  Eigenschaft (ii) in Gleichung
+        \eqref{eq:Wartung_i_N}) können wir
+        darüber hinaus eine Aussage über die Veränderung des Betrags $|I'_N(w)|$
         machen:
         \begin{equation}
             |I'_N(w)|' = (- N \cdot i'_N(w))' = - N \cdot i''_N(w) \leq 0
         \end{equation}
-        D.h. der Betrag nimmt mit steigender Wartungshäufigkeit ab. Betrachten
-        wir als letztes den Anstieg der produktbezogenen Inputs:
-        \begin{equation}
-            I'_P = \left\{ 
+        Das heißt der Betrag des Anstiegs nimmt mit steigender
+        Wartungshäufigkeit ab. Betrachten wir als letztes den Anstieg der
+        produktbezogenen Inputs:
+        \begin{align}
+          &  I_P(w) \eqnref{eq:I_P(w)}
+            \left\{ 
                 \begin{array}{r@{\quad : \quad}l}
-                    - \frac{i_P}{\n{max}^2(w)} \cdot
-                    \pfrac{\n{max}(w)}{w} & \n{max}(w) <
-                    h\cdot \t{max}\\
-                    0 & \n{max}(w) > h\cdot\t{max}
+                    i_P \cdot \frac{N}{\n{max}(w)} & \n{max}(w) < h \cdot \t{max} \\[10pt]
+                    i_P \cdot \frac{N}{h \cdot \t{max}} & \text{sonst}
+                \end{array}
+                \right.\\[10pt]
+            \quad \Rightarrow \quad
+             &I'_P(w) = \left\{ 
+                \begin{array}{r@{\quad : \quad}l}
+                    - \frac{i_P \cdot N}{\n{max}^2(w)} \cdot
+                    \n{max}'(w) & \n{max}(w) <
+                    h\cdot \t{max}\\[10pt]
+                    0 & \text{sonst}
                 \end{array}
                 \right.
-        \end{equation}
+        \end{align}
         Im Fall $\n{max}(w) < h\cdot \t{max}$, wenn also die Nutzungsdauer durch
         die technische Lebensdauer der Produkte beschränkt ist, führt die
         angenommene Vergrößerung des Nutzungsvorrats mit steigender
-        Wartungshäufigkeit (vgl. \eqref{eq:Wartung_n_max}) dazu, dass je Produkt
+        Wartungshäufigkeit (vgl. Eigenschaft (i) in Gleichung \eqref{eq:Wartung_n_max}) dazu, dass je Produkt
         mehr Nutzungseinheiten verwendet werden, sodass sich die
         produktbezogenen Material-Inputs verringern. Ist die Nutzungsdauer
         dagegen durch die gewünschte Nutzungsdauer beschränkt, gilt also
         $\n{max}(w) > h\cdot \t{max}$, so führt eine Erhöhung der
         Wartungshäufigkeit zu keiner Veränderung der produktbezogenen
         Material-Inputs. Unter der Annahme, dass die Funktion $\n{max}(w)$
-        rechtsgekrümmt ist (vgl. \eqref{eq:Wartung_i_N2}: $\n{max}''(w) \leq 0$)
-        erhalten wir für die Änderung des Betrags vom Anstieg $|I_P'|$:
-        \begin{equation}
-            |I'_P|' = \left\{ 
+        rechtsgekrümmt ist (vgl. Eigenschaft (ii) in Gleichung
+        \eqref{eq:Wartung_i_N})
+        erhalten wir für die Änderung des Betrags vom Anstieg $|I_P'(w)|$:
+        \begin{align}
+            |I'_P(w)|' &= \left\{ 
                 \begin{array}{r@{\quad : \quad}l}
-                    \left(\frac{i_P}{\n{max}^2(w)} \cdot
-                    \pfrac{\n{max}(w)}{w}\right)' =
-
-                    \frac{i_P \cdot \n{max}''(w)
-                    \cdot \n{max}(w) - 2 \cdot i_P \cdot 
-                    (\n{max}')^2}{\n{max}^3(w)} \leq 0 & \n{max}(w) <
-                    h\cdot \t{max}\\
-                    0 & \n{max}(w) > h\cdot\t{max}
+                    \left(\frac{i_P\cdot N}{\n{max}^2(w)} \cdot
+                    \n{max}'(w)\right)'  & \n{max}(w) <
+                    h\cdot \t{max}\\[5pt]
+                    0 & \text{sonst}
                 \end{array}
-                \right.
-        \end{equation}
-        Der letzte Bruch ist im Fall $\n{max}(w) < h \cdot \t{max}$ nicht
-        positiv, da gemäß Annahme $\n{max}''(w) \leq 0$ und $\n{max}'(w) \geq 0$
-        gilt und alle weiteren in dem Ausdruck vorkommenden Größen positiv sind.
+                \right.\\[10pt]
+                &= \left\{ 
+                    \begin{array}{r@{\quad : \quad}l}
+                        \frac{i_P\cdot N \cdot (\n{max}''(w) \cdot \n{max}(w) 
+                        - 2 \cdot  (\n{max}')^2)}{\n{max}^3(w)} \leq 0
+                        & \n{max}(w) < h\cdot \t{max}\\[10pt]
+                        0 & \text{sonst}
+                    \end{array}
+                    \right.
+        \end{align}
+        Im Fall $\n{max}(w) < h \cdot \t{max}$ ist der letzte Bruch nicht
+        positiv, da gemäß Annahme $\n{max}''(w) \leq 0$ gilt und alle weiteren
+        in dem Ausdruck vorkommenden Größen positiv sind.
         Der Betrag vom Anstieg der Material-Inputs sinkt in diesem Fall also
-        oder bleibt konstant.  Im Fall $\n{max}(w) > h \cdot \t{max}$ ist
-        er auf jedenfall konstant.
+        oder bleibt konstant.  Im Fall $\n{max}(w) > h \cdot \t{max}$ ist er auf
+        jedenfall konstant.
 
         Wir können nun, unter der Kenntnis der Ableitungen eine genauere
         Bedingung angegeben unter der der Umweltverbrauch mit steigender
         Wartungshäufigkeit sinkt:
         \begin{align}
-            & |I'_W(w)| < |I'_N(w)| + |I'_P(w)| \\[10pt]
+            & |I'_W(w)| < |I'_N(w)| + |I'_P(w)| \label{eq:Wartung_Bedingung2}\\[10pt]
             \Leftrightarrow \quad & 
-                                i_W < -\pfrac{i_N(w)}{w} +
+                                i_W < -i_N'(w) +
                                \left\{ 
                                    \begin{array}{r@{\quad : \quad}l}
                                        \frac{i_P}{\n{max}^2} \cdot
-                                       \pfrac{\n{max}(w)}{w} & \n{max}(w) <
+                                       \n{max}'(w) & \n{max}(w) <
                                        h\cdot\t{max}\\
-                                       0 & \n{max}(w) > h\cdot\t{max}
+                                       0 & \text{sonst}
                                    \end{array}
                                    \right.
         \end{align}
-        Werden Produkte vor Erreichen ihrer Lebensdauer entsorgt, so nimmt
+        Hier wurde bereits die Nutzungsmenge, die in allen Ableitungen enthalten
+        ist, heraus gekürzt. 
+        
+        Werden Produkte vor Erreichen ihrer Lebensdauer entsorgt, also
+        $\n{max}(w) \geq h\cdot\t{max}$ gilt, so nimmt
         die Bedingung die folgende einfache Form an:
         \begin{equation}
-            i_W < \left|\pfrac{i_N(w)}{w}\right|
+            i_W < \left|i_N'(w)\right|
             \label{eq:Wartungen_easy_Bedingung}
         \end{equation}
         Das heißt, dass der Umweltverbrauch in diesem Fall genau dann sinkt,
@@ -2030,13 +2063,19 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
         Wartungshäufigkeit zu unterscheiden: da der Betrag des Anstiegs der
         wartungsbedingten Material-Inputs $|I_W'|$ konstant ist und die Beträge
         der Anstiege der nutzungsbedingten und produktbezogenen Material-Inputs
-        fallen, kann die Bedingung \eqref{eq:Wartung_Bedingung}: 
+        nicht steigen, kann die Bedingung \eqref{eq:Wartung_Bedingung2}: 
         \begin{itemize}
             \item entweder für alle $w \in [0, \w{max}]$ erfüllt sein, 
             \item oder für kein $w$ erfüllt sein, 
             \item oder es existiert ein $w^* \in [0, \w{max}]$, sodass die
                 Bedingung für alle $w<w^*$ erfüllt ist und für alle $w>w^*$ nicht.
         \end{itemize}
+        \begin{figure}[ht!]
+            \centering
+            \input{Abbildungen/Wartung_Verlaeufe.pdf_tex}
+            \caption{Beschreibung}
+            \label{fig:Wartung_Verlaeufe}
+        \end{figure}
         Im letzteren Fall liegt mit $w^*$ eine optimale Wartungshäufigkeit vor,
         welche die MIPS minimiert. In der Abbildung \ref{fig:Wartungen}
         ist dieser letzte Verlauf mit den zugehörigen Spezifizierungen der
