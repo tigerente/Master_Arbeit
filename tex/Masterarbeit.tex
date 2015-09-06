@@ -1572,10 +1572,10 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       als ein Car-Sharing-Unternehmen dies bei seinem Fuhrpark macht).
 
       Obwohl Wartungen und Reparaturen der gemeinsame Zweck verbindet, die
-      Lebensdauer von Produkten zu verlängern, bezeichnen diese Faktoren jedoch
-      unterschiedliche Tätigkeiten, die nun im Folgenden definiert werden und 
-      daran anschließend verglichen werden. Dabei wird sich zeigen, dass es trotz
-      Übereinstimmung in den wesentlichen umweltrelevanten Effekten sinnvoll
+      Lebensdauer von Produkten zu verlängern, bezeichnen diese Faktoren
+      trotzdem unterschiedliche Tätigkeiten. Sie werden im Folgenden zunächst definiert
+      und daran anschließend verglichen. Dabei wird sich zeigen, dass es, trotz
+      Übereinstimmung in den wesentlichen umweltrelevanten Effekten, sinnvoll
       ist, die beiden Faktoren getrennt voneinander zu betrachten. 
 
       Beginnen wir mit der Definition des Begriffs "`Wartung"': Als "`Wartung
@@ -1597,7 +1597,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       entschieden werden, ob die Reparatur vollzogen oder das Produkt entsorgt
       wird. Klassische Beispiele sind die Beseitigung der Schäden von Unfällen
       (z.B. bei einem Auto) oder das Ersetzen von durch Verschleiß untauglich
-      gewordener Produktbestandteile (z.B. Wasserschlauch bei einer
+      gewordenen Produktbestandteilen (z.B. Wasserschlauch bei einer
       Waschmaschine).
 
       Sowohl für Wartungen als auch für Reparaturen werden Material-Inputs
@@ -1610,9 +1610,9 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       Nutzungsdauer, so können die Wartungs- und Reparaturarbeiten insgesamt
       ökologisch vorteilhaft sein. Bei Wartungen ist noch ein dritter Effekt zu
       beobachten: da regelmäßige Wartungen zu einer Verbesserung der
-      Funktionstüchtigkeit führen, kann dies unter Umständen auch zu einer
-      Verringerung der Material-Inputs je Produktnutzung führen, also die
-      Ressourcenbilanz zusätzlich verbessern. Eine Zusammenstellung der Unterschiede und
+      Funktionstüchtigkeit beitragen, kann dies unter Umständen auch zu einer
+      Verringerung der Material-Inputs je Produktnutzung führen, die
+      Ressourcenbilanz also zusätzlich verbessern. Eine Zusammenstellung der Unterschiede und
       Gemeinsamkeiten zwischen diesen beiden Faktoren findet sich in Tabelle
       \ref{tab:wartung_reparatur}. 
       
@@ -1645,7 +1645,8 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
         \end{tabular}
         \caption{Unterschiede und Gemeinsamkeiten zwischen Wartung und
         Reparatur. Die ersten drei Punkte entsprechen den im Text genannten drei
-    Umwelteffekten. Sie sind Gegenstand der folgenden Modellbildung.}
+        Umwelteffekten. Sie sind Gegenstand der Modellbildung in den Kapiteln
+        \ref{sec:Wartung} und \ref{sec:Reparatur}.}
         \label{tab:wartung_reparatur}
       \end{table}
       
@@ -1662,8 +1663,8 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
 
       \subsubsection{Wartung}
       \label{sec:Wartung}
-      Es folgt die Untersuchung des Einflusses des Faktors Wartung auf den
-      Umweltverbrauch eines Nutzungssystems. Im Abschnitt \nameref{sec:WB} wird
+      Im Folgenden wird der Einfluss des Faktors Wartung auf den
+      Umweltverbrauch eines Nutzungssystems untersucht. Im Abschnitt \nameref{sec:WB} wird
       hierfür zunächst die Wartungshäufigkeit als Operationalisierung der
       Wartungstätigkeit eingeführt und dann deren Einfluss auf die Material-Inputs
       eines Nutzungssystems mathematisch beschrieben. Das sich hieraus ergebende
@@ -1671,10 +1672,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       Abschnitt \nameref{sec:WA} hinsichtlich den Umständen untersucht, unter
       denen der Umweltverbrauch durch gemeinschaftliche Produktnutzung unter der
       Prämisse einer höheren Wartungshäufigkeit gesenkt werden kann.
-      \todo[inline]{$\I{fix}$ mit Referenz auf Grundmodell einführen, Umgang mit
-  $S_D$ vereinheitlichen}
-      \todo[inline]{nochmal checken, dass bei allen Parametern die von $w$
-      abhängen, dies auch in der Formel dargestellt ist}
+
       \paragraph{Modellbeschreibung}\label{sec:WB}
       Um die genannten drei Effekte höherer Wartungstätigkeiten (Erhöhung der
       Material-Inputs, Erhöhung der Lebensdauer, Verringerung der
@@ -1690,7 +1688,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       formal beschreiben.
 
       Aus der Wartungshäufigkeit ergibt sich durch Multiplikation mit den
-      Nutzungseinheiten die Anzahl Wartungen $W$, die im Nutzungssystem
+      Nutzungseinheiten die Anzahl der Wartungen $W$, die im Nutzungssystem
       durchgeführt werden. Der erste Effekt, die
       Erhöhung der Material-Inputs, lässt sich damit direkt formulieren:
       \begin{equation}
@@ -1845,10 +1843,10 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
                 \eqnref{eq:I(w)1} \frac{I_N(w) + I_W(w) + I_P(w) + \I{fix}^w}{S}
                 \label{eq:MIPSWartung_simpel}\\[10pt]
                  &\eqnref{eq:I(w)2} \frac{N \cdot (i_N(w) +  w \cdot i_W)
-                             + \frac{N}{h\cdot t} \cdot i_P 
+                             + \frac{N}{h\cdot t(w)} \cdot i_P 
                          }{N \cdot A} + \frac{\I{fix}^w}{S_D}  \\[10pt]
                 &= \frac{1}{A} \cdot \left( i_N(w) + w \cdot i_W 
-                 + \frac{i_P}{h\cdot t}\right) + \frac{\I{fix}^w}{S_D}  
+                 + \frac{i_P}{h\cdot t(w)}\right) + \frac{\I{fix}^w}{S_D}  
       \end{align}
       Zu beachten ist, dass diese Gleichung abhängig davon, ob $\t{tech}$
       kleiner oder größer als $\t{max}$ ist, jeweils eine etwas
@@ -1898,6 +1896,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       überarbeiten, Gleichungsnummern später verwenden}
 
       \paragraph{Modellanalyse}
+      \label{sec:WA}
         Die Wirkung einer Erhöhung der Wartungshäufigkeit ist aufgrund der
         beschriebenen gegenläufigen Effekte nicht eindeutig. Ziel der
         Analyse soll es daher sein, die möglichen Verläufe zu charakterisieren,
