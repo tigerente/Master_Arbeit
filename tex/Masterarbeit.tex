@@ -104,7 +104,7 @@ dashed=false]{biblatex}
 \titlespacing{\paragraph}{0pt}{12pt}{0pt}
 
 % Worttrennung:
-\hyphenation{Pro-dukt-an-zahl}
+\hyphenation{Pro-dukt-an-zahl Trans-port-in-puts}
 
 %%% Eigene Befehle %%%
 \newcommand{\was}[1]{\small\textit{#1}}
@@ -1136,7 +1136,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       \begin{figure}[htp]
          \centering
          \input{Abbildungen/Nutzungsintensivierung_2.tex}
-         \caption{MIPS in Abhängigkeit von der Nutzungshäufigkeit (untere Skala). Die durchgezogenen Linien folgen dem hypothetischen Funktionsverlauf für eine kontinuierlich angenommene Nutzungshäufigkeit, die kleinen Quadrate zeigen die tatsächlichen Funktionswerte für verschiedene Anzahlen parallel genutzter Produkte (obere Skala). Bei $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Parameter: $I_\text{fix}$ = 10.000~kg, $S_D$ = 10.000~SE, $i_P$ = 5.000~kg, $A$ = 1~SE/NE, $T$ = 10~Jahre, $t_\text{max}$ = 15~Jahre, $n_\text{max}$ = 5.000~NE, $p_\text{min}$ = 2 (NE~=Nutzungseinheiten, SE~=~Service-Einheiten).}
+         \caption{MIPS in Abhängigkeit von der Nutzungshäufigkeit (untere Skala). Die durchgezogenen Linien folgen dem hypothetischen Funktionsverlauf für eine kontinuierlich angenommene Nutzungshäufigkeit, die kleinen Quadrate zeigen die tatsächlichen Funktionswerte für verschiedene Anzahlen parallel genutzter Produkte (obere Skala). Bei $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Parameter: $I_\text{fix}$ = 10.000~kg, $S_D$ = 10.000~SE, $i_P$ = 5.000~kg, $A$ = 1~SE/NE, $T$ = 10~Jahre, $t_\text{max}$ = 15~Jahre, $n_\text{max}$ = 5.000~NE, $p_\text{min}$ = 2 (NE~=Nutzungseinheiten, SE~=~Serviceeinheiten).}
          \label{fig:MIPS(h)}
       \end{figure}
       
@@ -2436,23 +2436,47 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
 
       \subsection{Transporte}
       \label{sec:Transporte}
-      \paragraph{Modellbeschreibung}
-      Mit Produktnutzungen geht im Allgemeinen eine Mobilitätsnachfrage 
-      einher, die wir als \enquote{Transporte} bezeichnen. Da in 
-      gemeinschaftlich organisierten Produktnutzungssystemen in der Regel
-      weniger Produkte eingesetzt werden als Nutzer*innen am System teilnehmen,
-      zeichnen sich diese im Besonderen durch eine Entkopplung der
-      Produktstandorte von den Wohnorten der Nutzer*innen aus. Mit Transporten
-      geht jedoch im Allgemeinen ein Umweltverbrauch einher, sodass diese einen
-      wesentlichen ökologisch nachteiligen Aspekt gemeinschaftlicher
-      Nutzungsformen darstellen. 
+      In gemeinschaftlich organisierten Produktnutzungssystemen werden in der
+      Regel weniger Produkte eingesetzt als Nutzer*innen am System teilnehmen.
+      Sie zeichnen sich daher insbesondere durch eine Entkopplung der
+      Produktstandorte von den Wohnorten der Nutzer*innen aus, sodass die
+      Nutzer*innen zum Zwecke der Produktnutzung entweder zu den Produkten, oder
+      die Produkte zu den Nutzer*innen kommen müssen. Diese Bewegungen der
+      Nutzer*innen oder der Produkte in einem Produktnutzungssystem bezeichnen
+      wir als \enquote{Transporte}. 
+      
+      In diesem Abschnitt soll es um die Beschreibung und Analyse des Faktors
+      Transporte auf den Umweltverbrauch eines Nutzungssystems gehen. Nach dem
+      eben gesagten, scheint die im Abschnitt \nameref{sec:Modellierung}
+      (\ref{sec:Modellierung}) formulierte Hypothese, dass in gemeinschaftlichen
+      Nutzungssystemen mehr Transporte als in herkömmlichen Nutzungssystemen
+      stattfinden, plausibel. Da mit Transporten häufig ein Umweltverbrauch
+      einhergeht, ist also davon auszugehen, dass sie einen wesentlichen
+      ökologisch nachteiligen Aspekt gemeinschaftlicher Nutzungsformen
+      darstellen. 
 
-      Um diese ökologischen Effekte in einem Modell abzubilden, betrachten wir
-      zunächst die Anzahl Transporte $\Theta$. Dies ist die Anzahl aller während
-      des Betrachtungszeitraum $T$ stattfindenden Transporte, die auf die
-      Produktnutzung im betrachteten System zurückzuführen sind. Wir modellieren
-      die Anzahl der Transporte als abhängig von der vom System
-      bereitgestellten Nutzungsmenge $N$: 
+      \paragraph{Modellbeschreibung}
+      Um den ökologischen Effekt von Transporten in einem Modell abzubilden,
+      müssen wir uns vor allem die transportbedingten Material-Inputs $I_\Theta$
+      anschauen. Sie bestimmen sich aus der Anzahl Transporte $\Theta$ -- dies
+      ist die Anzahl aller während des Betrachtungszeitraum $T$ stattfindenden
+      Transporte, die auf die Produktnutzung im betrachteten System
+      zurückzuführen sind -- und den durchschnittlichen Material-Inputs je
+      Transport $i_\Theta$: 
+      \begin{equation} 
+          I_\Theta = \Theta \cdot i_\Theta
+          \label{eq:I_Theta_allg} 
+      \end{equation}
+     
+      Wir werden nun die beiden Größen Anzahl Transporte $\Theta$ und
+      Material-Inputs je Transport $i_\Theta$ im Detail besprechen. Es wird sich
+      herausstellen, dass sich die beiden Größen je nach Nutzungssystem
+      unterschiedlich verhalten. Aus dieser Betrachtung werden am Ende zwei
+      Modellvarianten für die MIPS in Abhängigkeit von den Transporten
+      abgeleitet.
+
+      Beginnen wir also mit der Anzahl der Transporte. Wir nehmen an, dass sie 
+      abhängig von der vom System bereitgestellten Nutzungsmenge $N$ ist: 
       \begin{equation}
           \Theta = N \cdot \theta
           \label{eq:Transporte_Anzahl}
@@ -2468,72 +2492,79 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       Produktnutzung transportiert. Diese Einzeltransportmenge kann andere
       Produkte beinhalten -- beispielsweise wird für die Nutzung der
       Waschmaschine die zu waschende Wäsche transportiert -- oder auch das
-      Produkt selber -- wie im Beispiel des Bohrmaschinenverleihs. Multipliziert
-      man die Einzeltransportmenge mit der Anzahl Transporte, so erhält man die 
-      Gesamttransportmenge $M$:
+      Produkt selber -- wie im Beispiel des Bohrmaschinenverleihs. Wie eingangs
+      angesprochen, kann die Einzeltransportmenge neben Produkten auch Personen
+      umfassen. Multipliziert man die Einzeltransportmenge mit der Anzahl
+      Transporte, so erhält man die Gesamttransportmenge $M$:
       \begin{equation}
           M = M_\Theta \cdot \Theta
           \label{eq:TransportMenge}
       \end{equation}
       Dies ist die gesamte im Nutzungssystem während des Betrachtungszeitraums
       $T$ transportierte Menge. Hierbei sind zwei Fälle zu unterscheiden:
-      entweder die Gesamt- oder die Einzeltransportmenge kann konstant in der
-      Anzahl der Transporte sein. Ersteres ist bei der Waschmaschinen-Nutzung der
-      Fall: die gesamte im Nutzungssystem zu waschende Wäsche muss zu den
-      Waschmaschinen transportiert werden, diese Menge ist daher nur von der
-      Servicenachfrage $S_D$ abhängig:
+      Entweder die Gesamt- oder die Einzeltransportmenge ist konstant in der
+      Anzahl der Transporte. Ersteres ist zum Beispiel bei der
+      Waschmaschinen-Nutzung der Fall: Die gesamte im Nutzungssystem zu
+      waschende Wäsche muss zu den Waschmaschinen transportiert werden, diese
+      Menge ist daher nur von der Servicenachfrage $S_D$ abhängig:
       \begin{equation}
           M = m_S \cdot S_D = konst.
       \end{equation}
       Hier bezeichnet $m_S$ die je Serviceeinheit zu transportierende Menge. Für
       die Waschmaschinen-Nutzung würde $m_S$ zum Beispiel ein Kilogramm Wäsche je
-      ein Kilogramm gewaschene Wäsche betragen. 
+      ein Kilogramm gewaschene Wäsche betragen, da jedes Stück Wäsche zur
+      Waschmaschine transportiert werden muss. 
 
-      Da die Gesamttransportmenge $M$ konstant in der Anzahl Transporte ist,
-      muss die Einzeltransportmenge gemäß Gleichung \eqref{eq:TransportMenge}
-      mit der Transporthäufigkeit variieren: 
+      Da die Gesamttransportmenge $M$ konstant in der Anzahl der Transporte ist,
+      muss daher die Einzeltransportmenge gemäß Gleichung
+      \eqref{eq:TransportMenge} mit der Anzahl der Transporte variieren: 
       \begin{equation}
-          M_\Theta(\Theta) = \frac{M}{\Theta} = \frac{m_S \cdot S_D}{\theta \cdot N}
-          \label{eq:Transport_Menge_je_Transport}
+          M_\Theta(\Theta) = \frac{M}{\Theta} = \frac{m_S \cdot S_D}{\Theta}
+          \label{eq:M_Theta(Theta)}
       \end{equation}
-      Es kann aber auch die Einzeltransportmenge konstant sein, 
-      was zum Beispiel bei der Bohrmaschinennutzung der Fall ist. Um eine
-      Bohrmaschine nutzen zu können, muss diese von ihrem Lagerort zum Ort der
-      Nutzung gebracht werden. Sobald sie jedoch dort angelangt ist, können
-      damit beliebig viele Löcher gebohrt werden. Das heißt, je Transport muss
-      genau eine Bohrmaschine transportiert werden (dies entspricht der
+      Es kann aber auch die Einzeltransportmenge konstant in der Anzahl der
+      Transporte sein, was zum Beispiel bei der Bohrmaschinen-Nutzung der Fall
+      ist:
+      \begin{equation}
+          M_\Theta(\Theta) = konst.
+      \end{equation}
+      Um eine Bohrmaschine nutzen zu können, muss diese von ihrem Lagerort zum
+      Ort der Nutzung gebracht werden. Sobald sie jedoch dort angelangt ist,
+      können damit beliebig viele Löcher gebohrt werden. Das heißt, je Transport
+      muss genau eine Bohrmaschine transportiert werden (dies entspricht der
       konstanten Einzeltransportmenge), dieser Transport kann dann jedoch zur
       Realisierung verschieden vieler Serviceeinheiten führen. Deshalb variiert
       in diesem Fall gemäß Gleichung \eqref{eq:TransportMenge} -- genau
-      gegenteilig zur Waschmaschinen-Nutzung -- die
-      Gesamttransportmenge $M$ mit der Anzahl Transporte: 
+      gegenteilig zur Waschmaschinen-Nutzung -- die Gesamttransportmenge $M$ mit
+      der Anzahl Transporte: 
       \begin{equation}
           M(\Theta) = M_\Theta \cdot \Theta 
       \end{equation}
 
-      Wir betrachten als nächstes die Materialinputs je Transport $i_\Theta$.
-      Diese ergeben sich aus dem Transportweg $d$ und den anteiligen
-      Material-Inputs je Transportweg $i_d$:
+      Wir wenden uns nun, nachdem wir uns mit der Anzahl der Transporte und den
+      damit zusammenhängenden Größen beschäftigt haben, den Materialinputs je
+      Transport $i_\Theta$ zu. Diese ergeben sich aus dem Transportdistanz $d$
+      und den anteiligen Material-Inputs je Transportdistanz $i_d$:
       \begin{equation}
           i_\Theta = d \cdot i_d
       \end{equation}
-      Wir bezeichnen die Material-Inputs je Transportweg als \textit{anteilig},
+      Wir bezeichnen die Material-Inputs je Transportdistanz als \textit{anteilig},
       da hierbei bereits für eine korrekte Bilanzierung der transportbedingten
       Material-Inputs Mehrfachnutzungen einer Transportfahrt berücksichtigt
       werden sollen. Darunter verstehen wir, dass beispielsweise die private
       Autofahrt zum Waschsalon mit einem Einkauf im daneben liegenden Supermarkt
-      verbunden wird oder beim postalische Versand eines Produkts von seinem
+      verbunden wird oder beim postalischen Versand eines Produkts von seinem
       Lager- zu seinem Nutzungsort im selben Transportmittel verschiedenste
       andere Produkte mit verschickt werden, die nichts mit dem betrachteten
       Produktnutzungssystem zu tun haben. Die vom Transportmittel abhängigen
-      Material-Inputs je Transportweg, also etwa eine aus dem Spritverbrauch je
+      Material-Inputs je Transportdistanz, also etwa eine aus dem Spritverbrauch je
       100\,km resultierende Größe, bezeichnen wir in Abgrenzung zu den
-      anteiligen als spezifische Material-Inputs je Transportweg und benutzen
+      anteiligen als spezifische Material-Inputs je Transportdistanz und benutzen
       hierfür $\tilde{i}_d$ als Symbol. Dieser Wert ist außer vom
       Transportmittel in der Regel auch von der Auslastung des Transportmittels
       abhängig, welche wiederum mit der Einzeltransportmenge variieren kann.
       Wir nehmen jedoch im Weiteren der Einfachheit halber an, dass die
-      spezifischen Material-Inputs je Transportweg unabhängig von der
+      spezifischen Material-Inputs je Transportdistanz unabhängig von der
       Einzeltransportmenge $M_\theta$ sind. 
 
       % Diese kann -- je nach Art der Transportorganisation -- mit der
@@ -2546,22 +2577,22 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       % bewältigen hat führt. Die durchschnittliche Auslastung der vom
       % Lieferservice eingesetzten Transportmittel bleibt dabei konstant. 
 
-      Die anteiligen Inputs je Transportweg gehen aus den spezifischen Inputs je
-      Transportweg formal durch einen Korrekturfaktor $\alpha$ hervor, für den
+      Die anteiligen Inputs je Transportdistanz gehen aus den spezifischen Inputs je
+      Transportdistanz formal durch einen Anrechnungsfaktor $\alpha$ hervor, für den
       entsprechend $\alpha \in [0,1]$ gilt: 
       \begin{equation}
           i_d = \tilde{i}_d \cdot \alpha
           \label{Transport_spezifisch_anteilig}
       \end{equation}      
-      Der Korrekturfaktor kann zum Beispiel als Kehrwert der Anzahl 
-      der unterschiedlichen Zwecke, die je Transportweg erfüllt werden
-      operationalisiert werden. Wird beispielsweise die Fahrt zum Waschsalon mit
-      der Fahrt zur Arbeit und der Fahrt zum Einkaufen kombiniert, so würde
-      $\alpha$ gemäß dieser Operationalisierung ein Drittel betragen. Dieser
-      Ansatz ist beispielsweise beim privaten Transport sinnvoll. 
+      Der Anrechnungsfaktor kann zum Beispiel operationalisiert werden als
+      Kehrwert der Anzahl der unterschiedlichen Zwecke, die je Transportdistanz
+      erfüllt werden.  Wird beispielsweise die Fahrt zum Waschsalon mit der
+      Fahrt zur Arbeit und der Fahrt zum Einkaufen kombiniert, so würde $\alpha$
+      gemäß dieser Operationalisierung ein Drittel betragen. Dieser Ansatz ist
+      beispielsweise beim privaten Transport sinnvoll. 
 
       Eine andere Möglichkeit der Operationalisierung besteht darin, den
-      Korrekturfaktor als Anteil der Einzeltransportmenge $M_\theta$ an der
+      Anrechnungsfaktor als Anteil der Einzeltransportmenge $M_\theta$ an der
       Gesamttransportmenge je Transport $\mathbb{M}_\theta$ zu bestimmen. 
       Diese Variante ist insbesondere bei einem Lieferservice plausibel, und
       stimmt hier inhaltlich mit der ersten angegebenen Operationalisierung
@@ -2571,24 +2602,24 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       $\mathbb{M}_\theta$ zumindest im Durchschnitt über alle vom Lieferservice
       ausgeführten Transporte konstant in der Einzeltransportmenge ist, so macht
       es Sinn, diesen Wert in die ebenfalls konstanten spezifischen Inputs je
-      Transportweg zu integrieren:
+      Transportdistanz zu integrieren:
       \begin{equation}
           i_d   = \tilde{i}_d \cdot \alpha 
                 = \tilde{i}_d \cdot \frac{M_\theta}{\mathbb{M}_\theta} 
                 = \tilde{i}_{d, M_\Theta} \cdot M_\theta
       \end{equation}
       Den Parameter $\tilde{i}_{d, M_\Theta}$ bezeichnen wir als spezifische
-      Material-Inputs je Transportweg und Transportmenge. 
+      Material-Inputs je Transportdistanz und Transportmenge. 
       Beispielsweise könnte dieser Wert angeben, wie viele
       Material-Inputs für den Versand von einem Kilogramm Wäsche über einen
       Kilometer anfallen. 
 
       Zusammenfassend können wir feststellen, dass je nach Operationalisierung,
-      der Korrekturfaktor variabel oder konstant in der Einzeltransportmenge
+      der Anrechnungsfaktor variabel oder konstant in der Einzeltransportmenge
       sein kann. Dasselbe gilt daher auch für die anteiligen Material-Inputs je
-      Transportweg $i_d$:
+      Transportdistanz $i_d$:
       \begin{equation}
-          i_d = \tilde{i}_d \cdot \alpha = 
+          i_d(M_\Theta) = \tilde{i}_d \cdot \alpha = 
             \left\{
                 \begin{array}{r@{\quad : \quad}l}
                     konst.                                 & \text{für } 
@@ -2601,19 +2632,9 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
           \label{eq:Transport_Inputs_je_Weg_Optionen}
       \end{equation}
 
-      % Bevor wir uns nun den transportbedingten Material-Inputs zuwenden, fassen
-      % wir noch einmal das bisher gesagte zusammen:
-      % \begin{itemize}
-      %     \item Je nach Organisation der Transporte gibt es auch für die
-      %         Material-Inputs je Transportweg $i_d$ zwei Möglichkeiten: sie
-      %         können entweder konstant in der Einzeltransportmenge sein oder zu
-      %         dieser proportional. 
-      %     \item Je nach Produkt, kann die Einzeltransportmenge $M_\Theta$
-      %         entweder konstant in der Anzahl Transporte $\Theta$ sein, oder zu
-      %         dieser indirekt proportional sein.
-      % \end{itemize}
       Zusammen mit den zwei Möglichkeiten für die Einzeltransportmenge ergeben
-      sich also insgesamt vier Modellvarianten:
+      sich insgesamt vier Modellvarianten (vgl. Abbildung
+      \ref{fig:Transporte_Matrix}):
       \begin{enumerate}
           \item $i_d = konst.$ und $M_\Theta = konst.$\\
               \textit{Beispiel:} Verleih von Bohrmaschinen, private
@@ -2628,136 +2649,202 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
               \textit{Beispiel:} Wäschereiservice
               (Transport der Wäsche durch einen Lieferservice)
       \end{enumerate}
-      Auch im dritten Fall sind damit die anteiligen Material-Inputs je
-      Transportweg konstant, da hier die Einzeltransportmenge nicht variiert.
-      Lediglich im vierten Fall, sind die anteiligen Material-Inputs je
-      Transportweg in der Anzahl der Transporte variabel. Für die Aufstellung
-      der Input- und der MIPS-Gleichung müssen also zwei Varianten unterschieden
-      werden.
-      % \begin{enumerate}
-      %     \item Einzeltransportmenge konstant, anteiligen Material-Inputs je Transportweg
-      %         proportional zur Einzeltransportmenge. \\
-      %         \textit{Beispiel: Verleih
-      %         von Bohrmaschinen, Versand per Lieferservice}
-      %     \item Einzeltransportmenge konstant, anteiligen Material-Inputs je Transportweg
-      %         konstant. \\
-      %         \textit{Beispiel: Verleih von Bohrmaschinen, private
-      %         Abholung}
-      %     \item Einzeltransportmenge indirekt proportional zur Anzahl
-      %         Transporte, anteiligen Material-Inputs je Transportweg proportional zur
-      %         Einzeltransportmenge. \\
-      %         \textit{Beispiel: Wäschereiservice
-      %         (Transport der Wäsche durch einen Lieferservice)}
-      %     \item Einzeltransportmenge indirekt proportional zur Anzahl
-      %         Transporte, anteiligen Material-Inputs je Transportweg
-      %         konstant. \\
-      %         \textit{Beispiel: Waschsalon, Anfahrt mit privaten
-      %         Verkehrsmittel}
-      % \end{enumerate}
-      Die transportbedingten Material-Inputs 
-      $I_\Theta$ ergeben sich zunächst in beiden Fällen als Produkt aus Anzahl
-      der Transporte $\Theta$ und den Material-Inputs je Transport $i_\Theta$:
-      \begin{equation}
-          I_\Theta = \Theta \cdot i_\Theta 
-          \label{eq:Transporte_Inputs_Allgemein}
-      \end{equation}
-      Für den Fall, dass $i_d = konst.$ oder $M_\Theta = konst.$ ist, ergibt sich
-      die folgende Gleichung:
-      \begin{equation}
-          I_\Theta^a = N \cdot \theta \cdot d \cdot i_d 
-                        % \quad \text{ für } i_d = konst.
-      \end{equation}
-      Damit berechnet sich das MIPS wie folgt:
-      \begin{equation}
-          \MIPS[d]^a = \frac{I_\Theta + I_Fix^d}{S_D} 
-                     =  \frac{\theta \cdot d \cdot i_d}{a \cdot K} 
-                        + \frac{\I{fix}^d}{S_D}
-      \end{equation}
+      In den ersten drei Fällen sind die Material-Inputs je Transportdistanz
+      konstant in der Einzeltransportmenge. Während das in den ersten beiden
+      Fällen durch die Definition der Fälle bereits vorgegeben ist, folgt das im
+      dritten Fall aus der konstanten Einzeltransportmenge.  Lediglich im
+      vierten Fall sind die anteiligen Material-Inputs je Transportdistanz in der
+      Anzahl der Transporte variabel. 
+      
+      \begin{figure}[ht!]
+          \centering
+          \input{Abbildungen/Transporte_Matrix.pdf_tex}
+          \caption{In dieser schematischen Übersicht sind Beispiele für die vier
+              im Modell Transporte unterschiedenen Fälle dargestellt, die aus
+              unterschiedlichem Verhalten der Parameter \enquote{anteilige
+              Material-Inputs je Transportdistanz} und
+              \enquote{Einzel-Transportmenge} resultieren. Ersterer ist im
+              Allgemeinen von der Form des Transports abhängig, während letzerer
+              eher vom Produkt abhängt. Die vier Fälle resultieren in zwei
+              unterschiedlichen Bestimmungsgleichungen für die MIPS. Diese
+              beiden Fälle sind durch unterschiedliche Schattierungen
+              dargestellt.
+      }
+          \label{fig:Transporte_Matrix}
+      \end{figure}
 
+      Für die Aufstellung der transportbedingten Material-Inputs müssen also
+      zwei Varianten unterschieden werden.  Wir greifen dafür auf die allgemeine
+      Gleichung für die Transportinputs zurück (Gleichung
+      \eqref{eq:I_Theta_allg}: $I_\Theta = \Theta \cdot i_\Theta$) und
+      spezifizieren die Parameter Anzahl der Transporte  und Material-Inputs je
+      Transport entsprechend den beiden Fällen: Für den Fall, dass $i_d =
+      konst.$ oder $M_\Theta = konst.$ ist, ergibt sich die folgende Gleichung:
+      \begin{equation}
+          I_\Theta^{(i)} = N \cdot \theta \cdot d \cdot i_d 
+          \label{eq:I_Theta_1}
+      \end{equation}
       Für den Fall hingegen, dass $i_d \propto M_\Theta \propto
-      \frac{1}{\Theta}$ gilt, ergibt sich die folgende Gleichung:
+      \frac{1}{\Theta}$ gilt, ergibt sich diese Gleichung:
       \begin{align}
-          I_\Theta^b &= \Theta \cdot d \cdot \tilde{i}_{d, M_\Theta} \cdot M_\Theta
-                   = \Theta \cdot d \cdot \tilde{i}_{d, M_\Theta} 
+          I_\Theta^{(ii)} &= \Theta \cdot d \cdot \tilde{i}_{d, M_\Theta} \cdot
+          M_\Theta(\Theta)
+          \eqnref{eq:M_Theta(Theta)} \Theta \cdot d \cdot \tilde{i}_{d, M_\Theta} 
                    \cdot \frac{m_S \cdot S_D}{\Theta}\\
-                   &= m_S \cdot S_D \cdot d \cdot \tilde{i}_{d, M_\Theta}
+                   &= d \cdot \tilde{i}_{d, M_\Theta} \cdot m_S \cdot S_D 
                    % \quad \text{ für } \quad i_d \propto M_\Theta \propto
                    % \frac{1}{\Theta}
         \label{eq:I_Theta_2}
       \end{align}
-      In diesem Fall ergeben sich die MIPS aus:
+      Wir können uns nun einer Frage hinwenden, die bisher noch offen geblieben
+      ist: mit welchem Parameter operationalisieren wir den Faktor Transporte?
+      Die Beantwortung dieser Frage ist zwar nicht zwingend erforderlich, hilft
+      aber die Betrachtung des Modells auf einen Aspekt zu fokussieren. Die
+      bisherigen, den Faktor Transporte beschreibenden Parameter, umfassen die
+      fünf Größen $d$, $\theta$, $i_d$, $\tilde{i}_{d, M_\Theta}$ und $m_S$.
+      Eine Zunahme der Transporte, wie sie laut Hypothese in gemeinschaftlichen
+      Nutzungssystemen vorzufinden ist (vlg. Abschnitt \ref{sec:Modellierung}),
+      kann sowohl durch eine Erhöhung der Transporthäufigkeit $\theta$ als auch
+      durch eine Erhöhung der mittleren Transportdistanz $d$ abgebildet werden.
+      Da letzterer Parameter Bestandteil beider Varianten der transportbedingten
+      Material-Inputs ist, scheint es pragmatisch, im Folgenden die Betrachtung
+      des Faktors Transporte auf die mittlere Transportdistanz zu reduzieren.
+      
+      Bevor wir nun abschließend zur Formulierung der MIPS-Gleichung in
+      Abhängigkeit von der mittleren Transportdistanz kommen, betrachten wir
+      noch kurz die im \nameref{sec:Grundmodell} definierten Inputbestandteile
+      (Gleichung \eqref{eq:Grundgleichung_I_1}: $I = I_P + I_N + I_W +
+      I_R + I_\Theta + I_\text{Rest}$). Wir nehmen an, dass mit
+      Ausnahme der transportbedingten Material-Inputs alle anderen
+      Inputbestandteile von der mittleren Transportdistanz unabhängig sind und
+      können sie daher, wie im Abschnitt \nameref{sec:Material-Inputs}
+      beschrieben, zur Größe $\I{fix}^d$ zusammenfassen:
       \begin{equation}
-          \MIPS[d]^b = d \cdot \tilde{i}_{d, M} \cdot m_S +
-          \frac{\I{fix}^d}{S_D}
-          \label{eq:MIPSTransporte_Alt}
+          \I{fix}^d = I_P + I_N + I_W + I_R + \I{Rest}
       \end{equation}
 
-      % Auch in Gleichung \eqref{eq:Transport_Inputs_je_Weg}
-      % können wieder zwei Fälle auftreten: zum einen können die spezifischen
-      % Transportinputs konstant sein, zum anderen können die Inputs je
-      % Transportweg konstant sein. Für ersteren Fall wurde gerade schon ein
-      % Beispiel genannt: der Versand mittels eines Lieferservices. Dies ist
-      % darauf zurückzuführen, dass im Durchschnitt die dabei eingesetzten
-      % Transportmittel gleich ausgelastet sind.       
-      % Der zweite Fall -- kontante Materialinputs je Transportweg -- ist dagegen
-      % typisch für den privaten Transport. Dieser ist dadurch charakterisiert, dass das
-      % Transportmittel in der Regel nicht voll ausgelastet ist und folglich bei
-      % demselben Transportweg eine verschieden große Transportmenge transportiert
-      % werden kann. So macht es zum Beispiel keinen Unterschied, ob im Auto vier
-      % oder acht Kilogramm Wäsche transportiert werden. Wir nehmen an,
-      % dass diese unterschiedlichen möglichen Auslastungen nicht zu einer
-      % relevanten Veränderungen der Inputs je Transportweg $i_d$ führen.     
-      %
-      %  Um dem gerecht zu
-      % werden, betrachten wir im Folgenden prototypisch in der Dimension Produkt
-      % die Bohrmaschine und die Waschmaschine und in der Dimension Organisation
-      % der Transporte den privaten Transport mittels PKW und den Transport
-      % mittels eines Lieferservices. In der Kombination ergeben sich die
-      % folgenden vier Prototypen kollektiver Produktnutzungssysteme:
-      % \begin{itemize}
-      %     \item Verleih von Bohrmaschinen, Versand per Lieferservice
-      %     \item Verleih von Bohrmaschinen, private Abholung
-      %     \item Wäschereiservice (Transport der Wäsche durch einen
-      %         Lieferservice)
-      %     \item Waschsalon, Anfahrt mit privaten Verkehrsmittel
-      % \end{itemize}
-      % Wir werden nun zunächst ein Modell entwickeln, mit dem die
-      % Ressourcenverbräuche aller vier Prototypen abgebildet werden können und
-      % arbeiten dann in einem nächsten Schritt die Charakteristika der
-      % Prototypen heraus, um das Modell entsprechend zu spezifizieren.
+      Damit haben wir nun die gesamte Inputseite spezifiziert und können unter
+      Zuhilfenahme der Bestimmungsgleichung für die Servicemenge (Gleichung
+      \eqref{eq:Grundgleichung_S}: $S=N\cdot A =S_D$) die MIPS-Gleichung
+      aufstellen. Aus den zwei verschiedenen Gleichungen für die Transportinputs
+      resultieren dabei zwei Varianten. Im ersten Fall ($i_d = konst.$ oder
+      $M_\Theta = konst.$) gilt:
+      \begin{align}
+          \MIPS^{(i)}(d) &= \frac{I}{S} = \frac{I_\Theta^{(i)} + \I{fix}^d}{S} 
+                          = \frac{I_\Theta^{(i)}}{N\cdot A} + \frac{\I{fix}^d}{S_D} 
+                          \eqnref{eq:I_Theta_1} \frac{N \cdot \theta \cdot d \cdot i_d }{N\cdot A} 
+                          + \frac{\I{fix}^d}{S_D} \\[5pt]
+                         &=  \frac{\theta \cdot d \cdot i_d}{A} 
+                            + \frac{\I{fix}^d}{S_D}
+      \end{align}
 
-
-      % \subparagraph{Erkenntnis}
-      % Transporte können dabei zum einen sehr
-      % unterschiedlich organisiert sein und zum anderen werden an sie
-      % produktspezifisch verschiedene Anforderungen gestellt.
-
+      Im zweiten Fall ($i_d \propto M_\Theta \propto \frac{1}{\Theta}$) gilt
+      hingegen:
+      \begin{align}
+          \MIPS^{(ii)}(d) &= \frac{I}{S} = \frac{I_\Theta^{(ii)} + \I{fix}^d}{S}
+                           = \frac{I_\Theta^{(ii)}}{S_D} + \frac{\I{fix}^d}{S_D} 
+                          \eqnref{eq:I_Theta_2} \frac{d \cdot \tilde{i}_{d, M_\Theta} \cdot m_S \cdot S_D  }{S_D} 
+                            + \frac{\I{fix}^d}{S_D} \\[5pt]
+                          &= d \cdot \tilde{i}_{d, M} \cdot m_S 
+                            + \frac{\I{fix}^d}{S_D}
+          \label{eq:MIPSTransporte_Alt}
+      \end{align}
 
       Abschließend fassen wir die beiden entwickelten Gleichungen noch einmal
-      zusammen:\\ 
+      zusammen: \\ 
 
       \begin{mdframed}[frametitle={Transporte}, frametitlerule=true]
-          Teilmodell für $i_d = konst.$ oder $M_\Theta = konst.$:
+          Modell für $i_d = konst.$ oder $M_\Theta = konst.$:
           \begin{equation}
-              \MIPS[d]^a = \frac{\theta \cdot d \cdot i_d}{a \cdot K} +
+              \MIPS^{(i)}(d) = \frac{\theta \cdot d \cdot i_d}{a \cdot K} +
               \frac{\I{fix}^d}{S_D}
               \label{eq:MIPSTransporte}
           \end{equation}
-          Teilmodell für $i_d \propto M_\Theta \propto \frac{1}{\Theta}$:
+          Modell für $i_d \propto M_\Theta \propto \frac{1}{\Theta}$:
           \begin{equation}
-              \MIPS[d]^b = d \cdot \tilde{i}_{d, M} \cdot m_S +
+              \MIPS^{(ii)}(d) = d \cdot \tilde{i}_{d, M} \cdot m_S +
               \frac{\I{fix}^d}{S_D}
               \label{eq:MIPSTransporte_Alt}
           \end{equation}
       \end{mdframed}
-      \todo{Graphik anpassen (y-Dimension) und in Text einbinden}
 
-      \begin{figure}[ht]
-          \centering
-          \input{Abbildungen/Transporte_Matrix.pdf_tex}
-          \label{fig:Transporte_Matrix}
-          \caption{}
-      \end{figure}
+      \paragraph{Modellanalyse}
+      Wir betrachten nun die Wirkung von zusätzlichen Transporten, sprich einer
+      Erhöhung der mittleren Transportdistanz. Sie ist
+      sowohl inhaltlich als auch formal offensichtlich: Da die mittlere
+      Transportdistanz linear und positiv in beide Varianten der MIPS-Gleichung
+      einfließt, führt deren Erhöhung -- unter der Bedingung, dass die 
+      anteiligen Material-Inputs je Transportdistanz in der ersten
+      Modellvariante \eqref{eq:MIPSTransporte} bzw. die spezifischen
+      Material-Inputs je Transportdistanz und Transportmenge in der zweiten
+      Modellvariante \eqref{eq:MIPSTransporte_Alt} echt positiv sind -- zu einer
+      Erhöhung der MIPS. Selbst wenn $i_d$ bzw. $\tilde{i}_{d, M}$, wie beispielweise
+      bei der Fortbewegung zu Fuß oder mit dem Fahhrad, verschwinden, so führen
+      zusätzliche Transporte zu keiner Verbesserung der MIPS, jedoch auch zu
+      keiner Verschlechterung. Es kann also kein Kriterium für die Verbesserung
+      des Umweltverbrauchs durch zusätzliche Transporte aufgestellt werden.
+
+      Wirklich interessant werden die Transporte also erst, wenn sie, wie im
+      folgenden Abschnitt (\ref{sec:Effektkopplungen}), in einem
+      Kopplungs-Modell Teil eines Trade-offs mit anderen, die MIPS reduzierenden
+      Faktoren auftreten. Um diese Anwendung der hier entwickelten zwei
+      Modellvarianten vorzubereiten, entwickeln wir im
+      Folgenden noch eine dritte Variante des Transportmodells, der inhaltlich
+      keine neue Bedeutung zukommt, jedoch die beiden vorgestellten Varianten zu
+      einer einzigen Gleichung zusammenfasst und somit analytisch einfacher
+      handhabbar ist. Dabei nutzen wir aus, dass beide Modellvarianten vom
+      Parameter $d$ abhängen. 
+      
+      Betrachten wir zunächst die transportbedingten Material-Inputs der ersten
+      Variante (vgl. Gleichung \eqref{eq:I_Theta_1}). Unter Ausnutzung des
+      Zusammenhangs zwischen der Nutzungsmenge und der Servicemenge entsprechend
+      der Grundgleichung \eqref{eq:Grundgleichung_S} ergibt sich: 
+      \begin{equation}
+          I_\Theta^{(1)} = N \cdot \theta \cdot d \cdot i_d = S_D \cdot A \cdot
+          \theta \cdot d \cdot i_d = S_D \cdot d \cdot \mathbb{T}^{(i)}
+      \end{equation}
+      Im letzten Schritt wurden die Parameter $A$, $\theta$ und $i_d$ zur Größe
+      $\mathbb{T}^{(i)}$ zusammengefasst. Ähnlich können wir die zweite Variante der
+      transportbedingten Material-Inputs \eqref{eq:I_Theta_2} vereinfachen:
+      \begin{equation}
+          I_\Theta^{(2)} = d \cdot \tilde{i}_{d, M_\Theta} \cdot m_S \cdot S_D =
+          S_D \cdot d \cdot \mathbb{T}^{(ii)}
+      \end{equation}
+      Hier wurden die Parameter $\tilde{i}_{d, M_\Theta}$ und $m_S$ zur Größe
+      $\mathbb{T}^{(ii)}$ zusammengefasst. Durch die Zusammenfassung von Parametern
+      konnten also beide Varianten in dieselbe Struktur überführt werden. Ist es
+      für die Betrachtung unerheblich, ob die Transportinputs gemäß der
+      ersten oder der zweiten Variante gegeben sind, so können sie also
+      vereinfachend als
+      \begin{equation}
+          I_\Theta^{(iii)} = S_D \cdot d \cdot \mathbb{T}
+          \label{eq:I_Theta_3}
+      \end{equation}
+      modelliert werden. Die MIPS lassen sich dann wie folgt berechnen:
+      \begin{align}
+          \MIPS^{(iii)}(d) &= \frac{I}{S} = \frac{I_\Theta^{(iii)} + \I{fix}^d}{S}
+                           = \frac{I_\Theta^{(iii)}}{S_D} + \frac{\I{fix}^d}{S_D} 
+                           \eqnref{eq:I_Theta_3} 
+                           \frac{d \cdot \mathbb{T} \cdot m_S \cdot S_D}{S_D} 
+                            + \frac{\I{fix}^d}{S_D} \\[5pt]
+                          &= d \cdot \mathbb{T} \cdot m_S 
+                            + \frac{\I{fix}^d}{S_D}
+          \label{eq:MIPSTransporte_Alt2}
+      \end{align}
+      Wenn mit dieser Gleichung nicht nur theoretische Analysen durchgeführt
+      werden sollen, sondern auch die MIPS berechnet werden soll, dann bleibt es
+      natürlich unerlässlich, die Größe $\mathbb{T}$ zu spezifizieren. In diesem
+      Fall benutzt man also unweigerlich wieder eine der ersten beiden
+      Modellvarianten.
+      
+      \subparagraph{Zusammenfassung} Obgleich die Modellierung des
+      Umweltverbrauchs durch Transporte einige Komplexität aufweist, sind die
+      Umweltauswirkungen von zusätzlichen Transporten offensichtlich negativ
+      oder bestenfalls neutral.  Der Faktor Transporte ist daher erst in einer
+      Betrachtung mit anderen Faktoren interessant. Für eine analytische
+      Verwendung kann dabei die Komplexität, die aus den beiden Modellvarianten
+      resultiert, durch den Übergang zu einem strukturell ähnlichen Modell
+      verringert werden. 
 
 		\section{Kopplungs-Modell: Nutzungshäufigkeit und Transporte}
 		\label{sec:Effektkopplungen}
@@ -3743,7 +3830,7 @@ Teil \nameref{sec:ModellbildungAnalyse}.
                \item $I_\text{Rest}$ ist unklar definiert. Grund für diese Definition war, ein valides Modell zu erhalten (alle Inputs werden formal erfasst). Allerdings leidet die Anwendbarkeit darunter. Die Kriterien sind von der Größe von $I_\text{Rest}$ unabhängig, nicht jedoch die Größenordnung der Umwelteffekte.
                \item $\n{max}$ kann experimentell gut bestimmt werden, allerdings gilt der so bestimmte Wert nur unter den Bedingungen des Experiments. Im Nutzungssystem kann er systematisch davon abweichen.
                \item $\t{max}$ kann nicht bestimmt werden, wenn Produkte aufgrund eines Defekts entsorgt werden. Ansonsten kann es in einer Feldstudie ermittelt werden, hängt dann aber von einer Vielzahl von sozialer Faktoren ab (Alter, Lebensumstände, Einkommen, etc.)
-               \item Transportmodell: Anrechnungsfaktor $\alpha$ ist nicht klar definiert und daher schwierig zu bestimmen und damit auch die anteiligen Inputs je Transportweg 
+               \item Transportmodell: Anrechnungsfaktor $\alpha$ ist nicht klar definiert und daher schwierig zu bestimmen und damit auch die anteiligen Inputs je Transportdistanz 
             \end{itemize}
            \end{itemize}    
     \subsection*{Kriterien}
