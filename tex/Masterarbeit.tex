@@ -1951,7 +1951,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
         \rightarrow \infty} |I'_N(w)| = 0$), eine Erhöhung der
         Wartungshäufigkeit also irgendwann keinen Vorteil mehr bezüglich der
         Nutzungsinputs bringt. Der Beweis dieser inhaltlich plausiblen Aussage
-        wird im Anhang geführt (\ref{}). Wir konnten also feststellen, dass der
+        wird im Anhang geführt (\ref{sec:Anhang_Wartung}). Wir konnten also feststellen, dass der
         Anstieg der Nutzungsinputs durch eine Erhöhung der Wartungshäufigkeit
         nicht positiv ist, sich der Betrag des Anstiegs mit zunehmender
         Wartungshäufigkeit verringert und bei großer Wartungshäufigkeit gegen
@@ -2022,9 +2022,10 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
         verschwindet ($\lim_{w \rightarrow \infty} |I'_P(w)| = 0$), also eine
         Vergrößerung der Wartungshäufigkeit irgendwann
         keine Verringerung der produktbezogenen Material-Inputs zur Folge hat
-        (siehe \ref{} für einen Beweis dieser Aussage). Zusammengefasst gilt also
-        auch für den Anstieg der produktbezogenen Inputs, dass er nicht positiv
-        und sein Betrag steigend und gegen Null strebend ist.
+        (siehe \ref{sec:Anhang_Wartung} für einen Beweis dieser Aussage).
+        Zusammengefasst gilt also auch für den Anstieg der produktbezogenen
+        Inputs, dass er nicht positiv und sein Betrag steigend und gegen Null
+        strebend ist.
 
         Unter der Kenntnis der Ableitungen können wir nun eine genauere
         Bedingung angegeben, unter der der Umweltverbrauch mit steigender
@@ -4002,6 +4003,54 @@ eine Umwelt-effizientere Produktnutzung leisten.
   \frac{x}{y}
   \label{eqn:def-Elastizität}
 \end{equation}
+\section{Mathematische Erläuterungen zur Analyse des
+Wartungsmodells}\label{sec:Anhang_Wartung}
+In der Analyse des Modells zum Faktor Wartung (\ref{sec:WA}) wurde die Behauptung aufgestellt,
+dass der Anstieg einer zweimal differenzierbaren positiven Funktion $f(x)$, die (i) monoton
+steigt, (ii) rechtsgekrümmt bzw. konkav und (iii) nach oben beschränkt ist,
+für $x\rightarrow \infty$ gegen Null konvergiert. Analog hierzu wurde außerdem
+behauptet, dass der Anstieg einer zweimal differenzierbaren postiven Funktion $g(x)$, die (i)
+monoton fällt, (ii) linksgekrümmt bzw. konvex und (iii) nach unten beschränkt
+ist, für $x\rightarrow \infty$ gegen Null konvergiert. Im folgenden soll die
+erste Behauptung gezeigt werden, die zweite ergibt sich daraus direkt, denn es
+gilt $\lim_{x\rightarrow\infty} - g(x) = -\lim_{x\rightarrow\infty} g(x)$ und
+für $-g(x)$ gelten dieselben Voraussetzungen wie für $f(x)$.
+
+Sei also $f(x)$ eine zweimal differenzierbare positive Funktion, für die gilt:
+\begin{equation}
+    (i)\quad f'(x) \geq 0 \quad\qquad
+    (ii)\quad f''(x) \leq 0\quad\qquad  
+    (iii)\quad \sup_{x \in \mathbb{R}} f(x) < \infty 
+\end{equation}
+Es ist zu zeigen, dass 
+\begin{equation}
+    \lim_{x\rightarrow\infty} f(x) = 0
+    \label{eq:Anhang_Wartung_Vor}
+\end{equation}
+gilt. Angenommen \eqref{eq:Anhang_Wartung_Vor} gilt nicht. Dann gibt es eine
+Zahl $m > 0$, sodass für alle $n \in \mathbb{R}$ ein $\tilde{x} > n$ mit
+$f'(\tilde{x}) \geq m$ existiert. Wegen Voraussetzung (ii) muss dann aber 
+\begin{equation}
+    f'(x) \geq m \quad \forall x \in \mathbb{R}
+\end{equation}
+gelten. Denn gäbe es ein $N\in \mathbb{R}$, für welches
+$f'(N) < m$ gilt, so würde wegen Voraussetzung (ii), auch $f'(x) < m \quad \forall x
+\geq N$ gelten und somit könnte es kein $\tilde{x} > N$ mit $f'(\tilde{x}) \geq m$
+geben.
+
+Für dieses $m>0$ gilt nun aufgrund Voraussetzung (iii):
+\begin{align}
+    \infty &> \lim_{x\rightarrow\infty} f(x) > \lim_{x\rightarrow\infty} (f(x) -
+    f(0))\label{eq:Anhang_Wartung_Bew1}\\[10pt]
+    &= \lim_{x\rightarrow\infty} \int_0^x f'(s)\ ds = \int_0^\infty
+    f'(s)\ ds\label{eq:Anhang_Wartung_Bew2}\\[10pt]
+    &> \int_0^\infty m\ ds = \infty
+\end{align}
+Von \eqref{eq:Anhang_Wartung_Bew1} nach \eqref{eq:Anhang_Wartung_Bew2} wurde der
+Hauptsatz der Integralrechnung und die Definition des unteigentlichen Integrals
+verwendet. Aus den Voraussetzungen ergibt sich offenbar ein Widerspruch, womit  
+die Behauptung bewiesen ist.
+
 \section{Übersicht über die in den Modellen verwendeten Größen}
 				\renewcommand{\arraystretch}{1.25}
 			\begin{longtable}{p{1cm} p{3,5cm} p{3,5cm} p{\textwidth - 9.5 cm}}
