@@ -9,7 +9,7 @@ fntsize <- 0.8
 
 export <- FALSE # if figures should be exported, or just visualized
 #export <- TRUE # if figures should be exported, or just visualized 
-Plots_or_manipulate <- 2 # if set to 1, Plots are drawn, which will eventually
+Plots_or_manipulate <- 1 # if set to 1, Plots are drawn, which will eventually
                          # be exported, if set to 2, a plot with manipulate is
                          # drawn in order to analyse the model
 
@@ -19,32 +19,45 @@ if(Plots_or_manipulate == 1){
   #### Plots ####
   ###############
   
+  # Parameter für i_N zusammenfassen:
+  i_N_Pars <- data.frame(
+    i_N_max = 15, # Maximaler Wert von i_N(a)
+    i_N_min = 15, # Minimaler Wert von i_N(a)
+    i_N_exp = 1 # Exponent (a^i_N_exp)
+  )
+  
+  # Parameter für n_max zusammenfassen:
+  n_max_const = 5000
+  n_max_Pars <- data.frame(
+    n_max_max = 5000, # Maximaler Wert von n_max(a)
+    n_max_min = 5000, # Minimaler Wert von n_max(a)
+    n_max_exp = 1 # Exponent (a^n_max_exp)
+  )
+  
   # Konstanten Definition
+  K     = 10 # Kapazität
+  I_fix = 10000 # alle nicht variablen Inputs
+  i_P   = 5000 # Input für die Bereitstellung eines Produkts
+  S_D   = 40000 # Nachfrage,
+  T = 10
+  p_is_const = TRUE # konstante parallele Produktanzahl? (Boolean)
+  p_const     = 2 # parallele Produktanzahl (relevant nur bei p_is_const=TRUE)
+  h_max     = 2 # Nutzungshäufigkeit (relevant nur bei p_is_const=FALSE)
+  t_max = 15 # maximale Nutzungsdauer
   Konstanten <- data.frame(
-                          K     = 1, # Kapazität
-                          I_fix = 1, # alle nicht variablen Inputs
-                          i_P   = 50, # Input für die Bereitstellung eines Produkts
-                          S_D   = 100 # Nachfrage
+                          K     = K, # Kapazität
+                          I_fix = I_fix , # alle nicht variablen Inputs
+                          i_P   = i_P, # Input für die Bereitstellung eines Produkts
+                          S_D   = S_D, # Nachfrage,
+                          T = T,
+                          p_is_const = p_is_const, # konstante parallele Produktanzahl? (Boolean)
+                          p_const     = p_const, # parallele Produktanzahl (relevant nur bei p_is_const=TRUE)
+                          h_max     = h_max, # Nutzungshäufigkeit (relevant nur bei p_is_const=FALSE)
+                          t_max = t_max # maximale Nutzungsdauer
                           )
-  a_min = 0.4
-  
-  #Spezifikation für den Verlauf von n_max:
-  n_max_max = 10
-  n_max_min = 10
-  n_max_exp = 0
-  
-  #Spezifikation für den Verlauf von i_N im ersten Fall
-  i_N_max_1 = 2
-  i_N_min_1 = 1
-  i_N_exp_1 = 0.5
-  
-  #Spezifikation für den Verlauf von i_N im zweiten Fall
-  i_N_max_2 = 4 
-  i_N_min_2 = 1
-  i_N_exp_2 = 3
-  
-  a <- seq(length = 100, from = 0.1, to=1) # der Definitionsbereich für MIPS
-  a_i <- seq(length = 100, from = 0, to=1)
+  # Definitionsbereich:
+  a_min = 0.1
+  a <- seq(length = 1000, from = a_min, to=1) # der Definitionsbereich für MIPS
   
   # Plot mit vier Teilplots: Spalten sind unterschiedliche Fälle
   # (unterschiedliche i_N-Funktionen), erste Spalte ist die i_N-Funktion
@@ -52,102 +65,16 @@ if(Plots_or_manipulate == 1){
   
   if(export) tikz( '../tex/Abbildungen/Auslastung.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
   
-  par(mfcol=c(2,2))
-  # i_N(a), Fall 1
-  eval_i_N <- i_N(a_i, i_N_max = i_N_max_1, i_N_min = i_N_min_1, i_N_exp =
-                  i_N_exp_1)
-  plot(a_i, eval_i_N, type="l", xlim=c(0,1), ylim=c(0,max(eval_i_N)),
-       xlab = "Relative Produktauslastung $a$",
-       ylab = "Material-Inputs je Produktnutzung $i_N(a)$",
-       cex = fntsize
-       )
-  title( main = paste("$i_N(a) = ", i_N_max_1 - i_N_min_1,
-                     "* a^{", i_N_exp_1, "}+", i_N_min_1,"$", sep=""),
-        cex.main = 0.8)
+  #Funktionen auswerten:
+  # P(a)
+  eval_P = P(a, n_max_Pars, Konstanten)
   
-  # MIPS(a), Fall 1
-  #MIPS(a), P=Konstant, i_N=allgemein
-  vec_a_1 = MIPS_a(a, case = 1,
-                   i_N_exp=i_N_exp_1, i_N_max = i_N_max_1, i_N_min = i_N_min_1, 
-                   n_max_max = n_max_max,
-                   n_max_min = n_max_min,
-                   n_max_exp = n_max_exp,
-                   a_min = a_min,
-                   const=Konstanten)
-  #MIPS(a), P=Optimal, diskret, i_N=allgemein
-  vec_a_2 = MIPS_a(a, case = 2,
-                   i_N_exp=i_N_exp_1, i_N_max = i_N_max_1, i_N_min = i_N_min_1, 
-                   n_max_max = n_max_max,
-                   n_max_min = n_max_min,
-                   n_max_exp = n_max_exp,
-                   a_min = a_min,
-                   const=Konstanten)
-  #MIPS(a), P=Optimal, kontinuierlich, i_N=allgemein
-  vec_a_3 = MIPS_a(a, case = 3,
-                   i_N_exp=i_N_exp_1, i_N_max = i_N_max_1, i_N_min = i_N_min_1, 
-                   n_max_max = n_max_max,
-                   n_max_min = n_max_min,
-                   n_max_exp = n_max_exp,
-                   a_min = a_min,
-                   const=Konstanten)
-  
-  plot(a, vec_a_1, type="l", xlim=c(0,1), ylim=c(0,max(vec_a_1)),
-       xlab = "Relative Produktauslastung $a$",
-       ylab = "$\\text{MIPS}_a$",
-       cex = fntsize,
-       panel.first = polygon(c(a, rev(a)), c(pmax(vec_a_1, vec_a_3),
-                                             rev(pmin(vec_a_1, vec_a_3))),
-                             col="lightgray", border = NA)
-       ) 
-  points(a, vec_a_2, type="l", lty="dashed", xlim=c(0,1), ylim=c(0,max(vec_a_2)))
-  points(a, vec_a_3, type="l", xlim=c(0,1), ylim=c(0,max(vec_a_3)))
-  
-  # i_N(a), Fall 2
-  eval_i_N <- i_N(a_i, i_N_max = i_N_max_2, i_N_min = i_N_min_2, i_N_exp =
-                  i_N_exp_2)
-  plot(a_i, eval_i_N, type="l", xlim=c(0,1), ylim=c(0,max(eval_i_N)),
-       xlab = "Relative Produktauslastung $a$",
-       ylab = "Material-Inputs je Produktnutzung $i_N(a)$",
-       cex = fntsize
-       )
-  title( main = paste("$i_N(a) = ", i_N_max_2 - i_N_min_2,
-                     "* a^{", i_N_exp_2, "}+", i_N_min_2,"$", sep=""),
-        cex.main = 0.8)
-  
-  # MIPS(a), Fall 2
-  vec_a_1 = MIPS_a(a, case = 1,
-                   i_N_exp=i_N_exp_2, i_N_max = i_N_max_2, i_N_min = i_N_min_2, 
-                   n_max_max = n_max_max,
-                   n_max_min = n_max_min,
-                   n_max_exp = n_max_exp,
-                   a_min = a_min,
-                   const=Konstanten)
-  #MIPS(a), P=Optimal, diskret, i_N=allgemein
-  vec_a_2 = MIPS_a(a, case = 2,
-                   i_N_exp=i_N_exp_2, i_N_max = i_N_max_2, i_N_min = i_N_min_2, 
-                   n_max_max = n_max_max,
-                   n_max_min = n_max_min,
-                   n_max_exp = n_max_exp,
-                   a_min = a_min,
-                   const=Konstanten)
-  #MIPS(a), P=Optimal, kontinuierlich, i_N=allgemein
-  vec_a_3 = MIPS_a(a, case = 3,
-                   i_N_exp=i_N_exp_2, i_N_max = i_N_max_2, i_N_min = i_N_min_2, 
-                   n_max_max = n_max_max,
-                   n_max_min = n_max_min,
-                   n_max_exp = n_max_exp,
-                   a_min = a_min,
-                   const=Konstanten)
-  
-  plot(a, vec_a_1, type="l", xlim=c(0,1), ylim=c(0,max(vec_a_1)), 
-       xlab = "Relative Produktauslastung $a$", 
-       ylab = "$\\text{MIPS}_a$", 
-       cex = fntsize,
-       panel.first = polygon(c(a, rev(a)), c(pmax(vec_a_1, vec_a_3),
-                                             rev(pmin(vec_a_1, vec_a_3))),
-                             col="lightgray", border = NA)) 
-  points(a, vec_a_2, type="l", lty="dashed", xlim=c(0,1), ylim=c(0,max(vec_a_2)))
-  points(a, vec_a_3, type="l", xlim=c(0,1), ylim=c(0,max(vec_a_3)))
+  # Plots erstellen:
+  par(mfrow=c(1,1))
+  plot(a, eval_P, type='l', xlab = 'relative Produktauslastung $a$', ylab = 'effektive Produktanzahl $P$', xaxt="n")
+  abline(v = S_D * t_max / (K * p_const * T * n_max_const), lty = 3)
+  title('effektive Produktanzahl $P(a)$', line = 1.5)
+  axis (side = 1, at = c(0.2, 0.4, 0.8, S_D * t_max / (K * p_const * T * n_max_const)), labels = c(0.2, 0.4, 0.8, '$a^*$'))
   
   if(export) dev.off()
 }
@@ -265,7 +192,7 @@ if(Plots_or_manipulate == 2){
     ### Parameter als Schieberegler ###
     manipulate(
              plotMIPS(a_min=0.1,
-                      K=5, I_fix=5, i_P=10, S_D=100, 
+                      K=10, I_fix=10000, i_P=5000, S_D=40000, 
                       p_is_const = p_is_const, p_const = p_const, h_max=h_max, T=10, t_max=t_max,
                       n_max_max=n_max_max, n_max_min=n_max_min, n_max_exp=n_max_exp,
                       i_N_max=i_N_max, i_N_min=i_N_min, i_N_exp=i_N_exp
@@ -274,17 +201,17 @@ if(Plots_or_manipulate == 2){
              p_const = slider(1, 15, step=1, initial=2, label = "p (wirksam nur bei 'p(a)=p'=TRUE)"),
              h_max = slider(1, 5, step=0.5, initial=2.5, label ="h_max (wirksam nur bei 'p(a)=p'=FALSE)"),
              #T = slider(1, 20, step=1, initial=10),
-             t_max = slider (1, 20, step=1, initial=5),
-             i_N_min = slider(0.1,2, step = 0.1, initial=0.5),
-             i_N_max = slider(0.5, 2, step=0.1, initial=0.5),
+             t_max = slider (1, 20, step=1, initial=15),
+             i_N_min = slider(1,15, step = 1, initial=1),
+             i_N_max = slider(1, 15, step=1, initial=1),
              i_N_exp = slider(0.1, 3, step = 0.1, initial=0.8),
              #a_min = slider(0.1, 1, step = 0.05), 
              #K     = slider(1, 10, step = 1, initial=5), # Kapazität
              #i_P   = slider(0, 50, initial = 10), # Input für die Bereitstellung eines Produkts
              #S_D   = slider(50,200,step=10, initial=100), # Nachfrage
-             n_max_min = slider(10, 50, step = 1, initial = 10),
-             n_max_max = slider(10, 200, step=10, initial = 10),
-             n_max_exp = slider(0.1, 3, step = 0.1, initial=0.5)
+             n_max_min = slider(0, 10000, step = 100, initial = 5000),
+             n_max_max = slider(0, 10000, step=100, initial = 5000),
+             n_max_exp = slider(0.1, 3, step = 0.1, initial=1)
              #I_fix = slider(0, 10, initial=5) # alle nicht variablen Inputs
              ) 
 }
