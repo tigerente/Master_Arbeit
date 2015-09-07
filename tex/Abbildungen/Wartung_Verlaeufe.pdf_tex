@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{368.50393701bp}%
+    \setlength{\unitlength}{408.28802634bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,19 +48,21 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.53846154)%
+  \begin{picture}(1,0.34727192)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{Wartung_Verlaeufe.pdf}}%
-    \put(0.25525257,0.49156284){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{\textbf{Fall 1}}}}%
-    \put(0.7447037,0.49156284){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{\textbf{Fall 2}}}}%
-    \put(0.44721368,0.03834423){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$w$}}}%
-    \put(0.07040049,0.03876692){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{0}}}%
-    \put(0.9378466,0.03834423){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$w$}}}%
-    \put(0.56103338,0.03876692){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{0}}}%
-    \put(0.69643698,0.03834423){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$w^*$}}}%
+    \put(0.2230246,0.32680249){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{\textbf{Fall 1}}}}%
+    \put(0.42543854,0.00395971){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$w$}}}%
+    \put(0.01480406,0.00434121){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{0}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{Wartung_Verlaeufe.pdf}}%
-    \put(0.3847961,0.29065812){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$|I'_W(w)|$}}}%
-    \put(0.87542858,0.29065812){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$|I'_W(w)|$}}}%
-    \put(0.33251657,0.14448444){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$|I'_N(w)| + |I'_P(w)|$}}}%
-    \put(0.83355702,0.14448444){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$|I'_N(w)| + |I'_P(w)|$}}}%
+    \put(0.36910301,0.23168783){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$|I'_W(w)|$}}}%
+    \put(0.31016126,0.09975749){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$|I'_N(w)| + |I'_P(w)|$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{Wartung_Verlaeufe.pdf}}%
+    \put(0.77190028,0.32680249){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{\textbf{Fall 2}}}}%
+    \put(0.97407125,0.00395971){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$w$}}}%
+    \put(0.56343674,0.00434121){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{0}}}%
+    \put(0.66213363,0.00395971){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$w^*$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{Wartung_Verlaeufe.pdf}}%
+    \put(0.91381651,0.23168783){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$|I'_W(w)|$}}}%
+    \put(0.87210617,0.08016348){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$|I'_N(w)| + |I'_P(w)|$}}}%
   \end{picture}%
 \endgroup%

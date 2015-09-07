@@ -4,8 +4,11 @@
 
 # i_N in Abhängigkeit von der Wartungshäufigkeit
 # w = Vektor
+# i_N <- function(w, i_N_max = 0.5, i_N_min = 1, i_N_exp = 1){
+#     i_N_min + (i_N_max - i_N_min) * w^i_N_exp 
+# }
 i_N <- function(w, i_N_max = 0.5, i_N_min = 1, i_N_exp = 1){
-    i_N_min + (i_N_max - i_N_min) * w^i_N_exp 
+    i_N_min + 1/(1/(i_N_max - i_N_min) + 10*w^i_N_exp)
 }
 
 ###########
@@ -25,8 +28,11 @@ t <- function(w, h, t_max,...){
 
 # n_max in Abhängigkeit von der Wartungshäufigkeit
 # w = Vektor
+# n_max <- function(w, n_max_min = 40, n_max_max = 50, n_max_exp = 1){
+#   n_max_min + (n_max_max - n_max_min) * w^n_max_exp
+# }
 n_max <- function(w, n_max_min = 40, n_max_max = 50, n_max_exp = 1){
-  n_max_min + (n_max_max - n_max_min) * w^n_max_exp
+  n_max_max - 1/(1/(n_max_max - n_max_min) + w^n_max_exp)
 }
 
 ################
@@ -58,32 +64,30 @@ n_max <- function(w, n_max_min = 40, n_max_max = 50, n_max_exp = 1){
 # part = 4: fixe Inputs
 
 MIPS_W <- function(w, const, part = 0){
-  attach(const)
-    eval_i_N <- i_N(w=w, 
+    eval_i_N <- with(const, i_N(w=w, 
                     i_N_max = i_N_max,
                     i_N_min = i_N_min,
                     i_N_exp = i_N_exp
-                    )
-    eval_t <- t(w=w, h=h, t_max = t_max, 
+                    ))
+    eval_t <- with(const, t(w=w, h=h, t_max = t_max, 
                     n_max_max = n_max_max,
                     n_max_min = n_max_min,
                     n_max_exp = n_max_exp
-                    )
+                    ))
     if(part==0){
-        MIPS <- 1/A * (eval_i_N + w*i_W + i_P/(h*eval_t)) + I_fix/S_D
+        MIPS <- with(const, 1/A * (eval_i_N + w*i_W + i_P/(h*eval_t)) + I_fix/S_D)
     } 
     else if(part==1){
-        MIPS <- 1/A * (eval_i_N)
+        MIPS <- with(const, 1/A * (eval_i_N))
     } 
     else if(part==2){
-        MIPS <- 1/A * (w*i_W)
+        MIPS <- with(const, 1/A * (w*i_W))
     } 
     else if(part==3){
-        MIPS <- 1/A * (i_P/(h*eval_t))
+        MIPS <- with(const, 1/A * (i_P/(h*eval_t)))
     } 
     else if(part==4){
-        MIPS <-  rep(I_fix/S_D, times=length(w))
+        MIPS <-  with(const, rep(I_fix/S_D, times=length(w)))
     } 
-  detach(const)
   return(MIPS)
 }
