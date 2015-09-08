@@ -19,11 +19,23 @@ if(Plots_or_manipulate == 1){
   #### Plots ####
   ###############
   
-  # Parameter für i_N zusammenfassen:
-  i_N_Pars <- data.frame(
-    i_N_max = 15, # Maximaler Wert von i_N(a)
-    i_N_min = 15, # Minimaler Wert von i_N(a)
-    i_N_exp = 1 # Exponent (a^i_N_exp)
+  i_N_max = 10 # Maximaler Wert von i_N(a)
+  i_N_min = 1 # Minimaler Wert von i_N(a)
+  i_N_exp_1 = 1 # Exponent (a^i_N_exp)
+  i_N_exp_2 = 2 # Exponent (a^i_N_exp)
+  
+  # Parameter für i_N zusammenfassen: Fall 1
+  i_N_Pars_1 <- data.frame(
+    i_N_max = i_N_max, # Maximaler Wert von i_N(a)
+    i_N_min = i_N_min, # Minimaler Wert von i_N(a)
+    i_N_exp = i_N_exp_1 # Exponent (a^i_N_exp)
+  )
+  
+  # Parameter für i_N zusammenfassen: Fall 2
+  i_N_Pars_2 <- data.frame(
+    i_N_max = i_N_max, # Maximaler Wert von i_N(a)
+    i_N_min = i_N_min, # Minimaler Wert von i_N(a)
+    i_N_exp = i_N_exp_2 # Exponent (a^i_N_exp)
   )
   
   # Parameter für n_max zusammenfassen:
@@ -36,8 +48,8 @@ if(Plots_or_manipulate == 1){
   
   # Konstanten Definition
   K     = 10 # Kapazität
-  I_fix = 10000 # alle nicht variablen Inputs
-  i_P   = 5000 # Input für die Bereitstellung eines Produkts
+  I_fix = 0 # alle nicht variablen Inputs
+  i_P   = 2000 # Input für die Bereitstellung eines Produkts
   S_D   = 40000 # Nachfrage,
   T = 10
   p_is_const = TRUE # konstante parallele Produktanzahl? (Boolean)
@@ -56,25 +68,54 @@ if(Plots_or_manipulate == 1){
                           t_max = t_max # maximale Nutzungsdauer
                           )
   # Definitionsbereich:
-  a_min = 0.1
+  a_min = 0.15
   a <- seq(length = 1000, from = a_min, to=1) # der Definitionsbereich für MIPS
   
   # Plot mit vier Teilplots: Spalten sind unterschiedliche Fälle
   # (unterschiedliche i_N-Funktionen), erste Spalte ist die i_N-Funktion
   # dargestellt, zweite Spalte MIPS in Abhängigkeit von a
   
-  if(export) tikz( '../tex/Abbildungen/Auslastung.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
+  if(export) tikz( '../tex/Abbildungen/Auslastung_2.tex', packages=c('\\usepackage{tikz}','\\usepackage{amsmath}'), width=tikzwidth, height=tikzheight)
   
   #Funktionen auswerten:
-  # P(a)
-  eval_P = P(a, n_max_Pars, Konstanten)
+  # MIPS(a): Fall 1
+  eval_MIPS_1 = MIPS(a,
+                   i_N_Pars = i_N_Pars_1,
+                   n_max_Pars = n_max_Pars,
+                   Konstanten = Konstanten
+  )
+  
+  # MIPS(a): Fall 2
+  eval_MIPS_2 = MIPS(a,
+                     i_N_Pars = i_N_Pars_2,
+                     n_max_Pars = n_max_Pars,
+                     Konstanten = Konstanten
+  )
+  
+  # i_N(a): Fall 1
+  eval_i_N_1 = i_N(a, i_N_max, i_N_min, i_N_exp_1)
+  eval_i_N_2 = i_N(a, i_N_max, i_N_min, i_N_exp_2)
   
   # Plots erstellen:
-  par(mfrow=c(1,1), mar = c(4.1,3.9,2.6,0.1))
-  plot(a, eval_P, type='l', xlab = 'relative Produktauslastung $a$', ylab = 'effektive Produktanzahl $P$', xaxt="n", ylim=c(0,8))
+  par(mfcol=c(2,2), mar = c(4.1,4.1,4.5,2.1))
+  
+  plot(a, eval_i_N_1, type='l', xlab = 'relative Produktauslastung $a$', ylab = '$i_N$ [kg/NE]')
+  title('$i_N(a)$', line=1)
+  mtext ('(a) $i_N(a)$ unelastisch', side = 3, line = 3)
+  
+  plot(a, eval_MIPS_1, type='l', ylim=c(0,2), xaxt="n", xlab = 'relative Produktauslastung $a$', ylab = 'MIPS [kg/SE]')
   abline(v = S_D * t_max / (K * p_const * T * n_max_const), lty = 3)
-  title('effektive Produktanzahl $P(a)$', line = 1.5)
   axis (side = 1, at = c(0.2, 0.6, 0.8, 1.0, S_D * t_max / (K * p_const * T * n_max_const)), labels = c(0.2, 0.6, 0.8, 1.0, '$a^*$'))
+  title('MIPS($a$)', line=1)
+  
+  plot(a, eval_i_N_2, type='l', xlab = 'relative Produktauslastung $a$', ylab = '$i_N$ [kg/NE]')
+  title('$i_N(a)$', line=1)
+  mtext ('(b) $i_N(a)$ elastisch', side = 3, line = 3)
+  
+  plot(a, eval_MIPS_2, type='l', ylim=c(0,2), xaxt="n", xlab = 'relative Produktauslastung $a$', ylab = 'MIPS [kg/SE]')
+  abline(v = S_D * t_max / (K * p_const * T * n_max_const), lty = 3)
+  axis (side = 1, at = c(0.2, 0.6, 0.8, 1.0, S_D * t_max / (K * p_const * T * n_max_const)), labels = c(0.2, 0.6, 0.8, 1.0, '$a^*$'))
+  title('MIPS($a$)', line=1)
   
   if(export) dev.off()
 }
@@ -192,7 +233,7 @@ if(Plots_or_manipulate == 2){
     ### Parameter als Schieberegler ###
     manipulate(
              plotMIPS(a_min=0.1,
-                      K=10, I_fix=10000, i_P=5000, S_D=40000, 
+                      K=10, I_fix=10000, i_P=2000, S_D=40000, 
                       p_is_const = p_is_const, p_const = p_const, h_max=h_max, T=10, t_max=t_max,
                       n_max_max=n_max_max, n_max_min=n_max_min, n_max_exp=n_max_exp,
                       i_N_max=i_N_max, i_N_min=i_N_min, i_N_exp=i_N_exp

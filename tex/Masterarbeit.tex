@@ -1291,7 +1291,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       \begin{figure}[htp]
          \centering
          \input{Abbildungen/Auslastung.tex}
-         \caption{Effektive Produktanzahl $P$ in Abhängigkeit von der Produktauslastung $a$. Bei $a^*$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Parameter: $I_\text{fix}$ = 10.000~kg, $S_D$ = 40.000~SE, $K$ = 10~SE/NE, $i_P$ = 5.000~kg, $T$ = 10~Jahre, $t_\text{max}$ = 15~Jahre, $n_\text{max}$ = 5.000~NE, $p$ = 2 (NE~=Nutzungseinheiten, SE~=~Service-Einheiten).}
+         \caption{Effektive Produktanzahl $P$ in Abhängigkeit von der Produktauslastung $a$. Bei $a^*$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Parameter: $S_D$ = 40.000~SE, $K$ = 10~SE/NE, $T$ = 10~Jahre, $t_\text{max}$ = 15~Jahre, $n_\text{max}$ = 5.000~NE, $p$ = 3 (NE~=Nutzungseinheiten, SE~=~Service-Einheiten).}
          \label{fig:P(a)}
       \end{figure}
             
@@ -1388,9 +1388,16 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
 			& \epsilon_{i_N, a} := i'_N(a) \cdot  \frac{a}{i_N(a)} < 1 \label{eq:Elastizitaetsbedingung_1}
 		\end{align}
       %
-      Eine geringfügige Erhöhung der Produktauslastung führt also im Fall eines nicht ausgeschöpften Nutzungsvorrats genau dann zu einer Verringerung der MIPS, wenn die Inputs pro Nutzungseinheit $i_N$ unelastisch\footnote{zum Begriff der Elastizität vgl. Abschnitt \ref{sec:Elastizität}} auf die Änderung der Produktauslastung reagiert. Diese Bedingung bedeutet, dass die Inputs pro Nutzungseinheit prozentual weniger stark zunehmen dürfen als die prozentuale Steigerung der Produktauslastung. Abbildung \ref{fig:i_N(a)_MIPS(a)} stellt beispielhaft die Verläufe der MIPS für eine für alle $a$ elastische und eine für alle $a$ unelastische Funktion $i_N(a)$ dar.
+      Eine geringfügige Erhöhung der Produktauslastung führt also im Fall eines nicht ausgeschöpften Nutzungsvorrats genau dann zu einer Verringerung der MIPS, wenn die Inputs pro Nutzungseinheit $i_N$ unelastisch\footnote{zum Begriff der Elastizität vgl. Abschnitt \ref{sec:Elastizität}} auf die Änderung der Produktauslastung reagiert. Diese Bedingung bedeutet, dass die Inputs pro Nutzungseinheit prozentual weniger stark zunehmen dürfen als die prozentuale Steigerung der Produktauslastung.
       
-      \todo[color=prioH]{2x2 Abbildung $i_N(a)$ und MIPS(a) elastisch/unelastisch erstellen}
+      Abbildung \ref{fig:i_N(a)_MIPS(a)} stellt beispielhaft die Verläufe der MIPS für eine für alle $a$ elastische und eine für alle $a$ unelastische Funktion $i_N(a)$ dar. Im Bereich $a > a^*$ ist der charakteristische Unterschied gut erkennbar: Bei unelastischen Inputs je Nutzung (linke Teilabbildungen) sinken die MIPS, bei elastischen Inputs je Nutzung (rechte Teilabbildung) steigen sie mit zunehmender Produktauslastung.
+      
+      \begin{figure}[htp]
+         \centering
+         \input{Abbildungen/Auslastung_2.tex}
+         \caption{Inputs je Produktnutzung $i_N$ und MIPS in Abhängigkeit von der Produktauslastung $a$ für zwei verschiedene Fälle: (a) $i_N(a)$ unelastisch für alle $a$, (b) $i_N(a)$ elastisch für alle $a$. Bei $a^*$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Parameter: $S_D$~=~40.000~SE, $K$~=~10~SE/NE, $T$~=~10~Jahre, $t_\text{max}$~=~15~Jahre, $n_\text{max}$~=~5.000~NE, $p$ = 3, $I_\text{fix}$~=~10.000~kg, $i_P$~=~5.000~kg (NE~=Nutzungseinheiten, SE~=~Service-Einheiten).}
+         \label{fig:i_N(a)_MIPS(a)}
+      \end{figure}
       
       \underline{Fall 2:} $a \leq a^*$
       
@@ -1405,7 +1412,8 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
 		\end{align}
 		%
       Diese Bedingung unterscheidet sich von Bedingung \eqref{eq:Elastizitaetsbedingung_1} aus Fall 1 nur durch den hinzukommenden Ausdruck $\frac{i_P}{n_\text{max} \cdot i_N(a)}$. Da dieser echt positiv ist, ist die Bedingung für Fall 2 schwächer als für Fall 1: Sobald Bedingung \eqref{eq:Elastizitaetsbedingung_1} gilt, gilt auch Bedingung \eqref{eq:Elastizitaetsbedingung_2}. Anders ausgedrückt stellt die Elastizitäts-Bedingung \eqref{eq:Elastizitaetsbedingung_1} in beiden Fällen ein hinreichendes Kriterium für die Verringerung der MIPS dar. Wir beschränken uns der Einfachheit halber auf dieses Kriterium und vernachlässigen damit die weiter oben besprochene Einsparung an sequentiell eingesetzten Produkten in Fall 2.
-      \todo[color=prioM]{Bezug zu Abb.  $i_N(a)$ herstellen, z.B. Knick im Funktionsverlauf}
+      
+      In Abbildung \ref{fig:i_N(a)_MIPS(a)} wird deutlich, dass die Elastizitätsbedingung für kleine Produktauslastungen $a \leq a^*$ nicht notwendig für die Verringerung der MIPS ist: In beiden dargestellten Fällen sinken die MIPS für kleine $a$.
       
 % BEGIN_FOLD (Einsparung parallel eingesetzter Produkte)
 %      \subparagraph{Einsparung parallel eingesetzter Produkte}
