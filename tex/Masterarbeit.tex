@@ -283,6 +283,7 @@ dashed=false]{biblatex}
 \todo[color=prioH]{Modell zu Transporten statt zusätzliche Transporte}
 \todo[color=prioH]{Faktoren statt Effekte}
 \todo[color=prioL]{Gesamtnutzungsmenge N, Nutzungsmenge n}
+\todo[color=prioM]{MIPS: Plural}
 \chapter{Einleitung}\marginpar{\vspace{-3em}\rule{\marginparwidth}{1pt}
 \scriptsize Beginn\newline gemeinsamer Teil}
 \section{Thema}
@@ -1127,8 +1128,6 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
            		\label{eq:h(p)}
            	\end{equation}
       \end{mdframed}
-      \todo{Titel der Box wurde von "`Nutzungsintensivierung"' auf
-      "`Nutzungshäufigkeit"' geändert (Sascha)}
 
       \paragraph{Modellanalyse}
       Das Ziel dieser Analyse ist die Ableitung eines Kriteriums zur Senkung des Umweltverbrauchs durch die Erhöhung der Nutzungshäufigkeit. Als Prämisse nehmen wir an, dass sich die Nutzungshäufigkeit von $h^\text{herk}$ bei der herkömmlichen Produktnutzung zu $h^\text{gem}$ bei der gemeinschaftlichen Produktnutzung erhöht. In Abbildung \ref{fig:MIPS(h)} ist der Verlauf der MIPS in Abhängigkeit von $h$ beispielhaft dargestellt, sodass die Analyse grafisch nachvollzogen werden kann.
@@ -1205,8 +1204,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
           h^\text{herk} < h^* = \frac{\n{max}}{\t{max}}
           \label{eq:Kriterium_Nutzungshäufigkeit}
       \end{equation} 
-      \todo{kleine Änderung (Kriterium als eigentständige Formel gesetzt) von
-      János bestätigen lassen}
+
       Wir halten dieses Ergebnis verbal als Kriterium fest: \\
       
       \begin{mdframed}[frametitle={Kriterium}, frametitlerule=true]				
@@ -2937,17 +2935,15 @@ Für die Materialinputs gilt gemäß Grundgleichung \eqref{eq:Grundgleichung_I_1
  	I = I_P + I_\Theta + I_\text{fix}^{h,d}
 \end{equation}
 %
-Für die produktbezogenen Inputs $I_P$ gelten die im Modell \enquote{\nameref{sec:Nutzungsintensivierung}} beschriebenen Abhängigkeiten von der Nutzungshäufigkeit: $I_P = P(h) \cdot i_P$, siehe Abschnitt \ref{sec:Nutzungsintensivierung}. Die transportbedingten Inputs $I_\Theta$ sind gemäß den Ergebnissen des Modells \enquote{\nameref{sec:Transporte}} proportional zum Produkt aus Service-Menge und durchschnittlicher Distanz: \todo[color=prioH]{Referenz einfügen, ggf. angleichen} $I_\Theta (d) = \alpha \cdot S \cdot d$. Für die Service-Menge gilt wie üblich eine konstante Nachfrage $S = S_D$.
+Für die produktbezogenen Inputs $I_P$ gelten die im Modell \enquote{\nameref{sec:Nutzungsintensivierung}} beschriebenen Abhängigkeiten von der Nutzungshäufigkeit: $I_P = P(h) \cdot i_P$, siehe Abschnitt \ref{sec:Nutzungsintensivierung}. Die transportbedingten Inputs $I_\Theta$ sind gemäß Gleichung \eqref{eq:I_Theta_3} aus dem Modell \enquote{\nameref{sec:Transporte}} proportional zum Produkt aus Service-Menge und durchschnittlicher Distanz: $I_\Theta (d) = S \cdot d \cdot \mathbb{T}$. Für die Service-Menge gilt wie üblich eine konstante Nachfrage $S = S_D$.
 
 Damit ergibt sich das folgende Modell für die Effekt-Kopplung: \\
 
-	\begin{mdframed}[frametitle={Nutzungsintensivierung und zusätzliche Transporte -- Allgemeines Modell}, frametitlerule=true]
+	\begin{mdframed}[frametitle={Nutzungshäufigkeit und Transporte -- Allgemeines Modell}, frametitlerule=true]
 		Kopplungsmodell:
 		\begin{align}
-			\label{eq:MIPS(h,d)}
-			\text{MIPS}(h,d) &= \alpha \cdot d + \frac{P(h) \cdot i_P}{S_D} + \frac{I_{\text{fix}}^{h,d}}{S_D} \\[10pt]
-			\label{eq:MIPS(h,d)_2}
-			&= \alpha \cdot d + \frac{I_{\text{fix}}^{h,d}}{S_D} + \left\{ \begin{array}{ll}  \frac{i_P}{h \cdot t_{\text{max}} \cdot A} & \mbox{falls } h < h^* := \frac{n_{\text{max}}}{t_{\text{max}}} \\[5pt] \frac{i_P}{n_{\text{max}} \cdot A} & \mbox{sonst} \end{array} \right.
+			\text{MIPS}(h,d) &= \mathbb{T} \cdot d + \frac{P(h) \cdot i_P}{S_D} + \frac{I_{\text{fix}}^{h,d}}{S_D} \label{eq:MIPS(h,d)_1} \\[10pt]
+			&= \mathbb{T} \cdot d + \frac{I_{\text{fix}}^{h,d}}{S_D} + \left\{ \begin{array}{ll}  \frac{i_P}{h \cdot t_{\text{max}} \cdot A} & \mbox{falls } h < h^* := \frac{n_{\text{max}}}{t_{\text{max}}} \\[5pt] \frac{i_P}{n_{\text{max}} \cdot A} & \mbox{sonst} \end{array} \right. \label{eq:MIPS(h,d)_2}
 		\end{align}
 		Nebenbedingungen:
 		\begin{equation}
@@ -2961,51 +2957,58 @@ Damit ergibt sich das folgende Modell für die Effekt-Kopplung: \\
 	\end{mdframed}
 
 \paragraph{Modellanalyse}
-In dieser Analyse des Kopplungs-Modells wird untersucht, wie sich eine Erhöhung der Nutzungshäufigkeit, bzw. die damit zusammenhängende Produkteinsparung, bei einer gleichzeitigen Vergrößerung der durchschnittlichen Transportdistanz auf die MIPS eines Produktnutzungssystems auswirkt. Für die Nutzungshäufigkeit wird wie bereits im Teilmodell \enquote{Nutzungshäufigkeit} die Änderung von einer gegebenen Nutzungshäufigkeit ($h=h_1$) zur nächstgrößeren ($h=h_2$) betrachtet, die durch die Verringerung der parallelen Produktanzahl von $p = p_1$ auf $p = p_2$ um eins gegeben ist:
-\begin{equation}
- 	\Delta p = p_2 - p_1 = -1
-\end{equation}
+In dieser Analyse des Kopplungs-Modells wird untersucht, unter welchen Umständen der Umweltverbrauch eines Produktnutzungssystems unter Berücksichtigung der Faktoren \enquote{Nutzungshäufigkeit} und \enquote{Transporte} durch gemeinschaftliche Produktnutzung reduziert werden kann. Entsprechend der in Tabelle \ref{tab:faktoren_hypothesen} (Abschnitt \ref{sec:Modellierung} \enquote{\nameref{sec:Modellierung}}) formulierten Hypothesen gehen wir davon aus, dass sowohl die Nutzungshäufigkeit als auch die Transportdistanz bei gemeinschaftlicher Produktnutzung höher ist als bei der herkömmlichen Produktnutzung: $h^\text{gem} > h^\text{herk}$, $d^\text{gem} > d^\text{herk}$.
 
-Für die Erhöhung der durchschnittlichen Transportdistanz wird hier eine nicht näher spezifizierte positive Konstante angenommen:
-\begin{equation}
- 	\Delta d = d_2 - d_1 > 0
-\end{equation}
+Wir bestimmen zunächst die Änderung der MIPS mithilfe von Modellgleichung \eqref{eq:MIPS(h,d)_1}:
+\begin{align}
+ 	\Delta \text{MIPS} &= \text{MIPS} (h^\text{gem}, d^\text{gem}) - \text{MIPS} (h^\text{herk}, d^\text{herk}) \\
+    &= \mathbb{T} \cdot (d^\text{gem} - d^\text{herk}) + \frac{P(h^\text{gem}) \cdot i_P}{S_D} - \frac{P(h^\text{herk}) \cdot i_P}{S_D}
+\end{align}
 
-Daraus ergibt sich mit Gleichung \eqref{eq:MIPS(h,d)} die folgende Änderung der MIPS:
-\begin{equation}
- 	\Delta \text{MIPS} = \text{MIPS} (h_2, d_2) - \text{MIPS} (h_1, d_1) = \alpha \cdot \Delta d + \frac{i_P}{S_D} \cdot (P(h_2) - P(h_1))
-\end{equation}
+Der Umweltverbrauch des Produktnutzungssystems wird genau dann gesenkt, wenn die Änderung der MIPS negativ ist:
+\begin{align}
+   & \Delta \text{MIPS} < 0 \\
+   \Leftrightarrow \quad & \Delta d := d^\text{gem} - d^\text{herk} < \frac{1}{\mathbb{T}} \cdot \left( \frac{P(h^\text{herk}) \cdot i_P}{S_D} - \frac{P(h^\text{gem}) \cdot i_P}{S_D} \right) =: \hat{d} \label{eq:d_dach}
+\end{align}
 
-Dieser Ausdruck unterscheidet sich vom Zwischenergebnis der Modellanalyse zur Nutzungsintensivierung (Gleichung \eqref{eq:Delta_MIPS_h}) nur durch den Term $\alpha \cdot \Delta d$. Daher lassen sich die dort erzielten Ergebnisse durch Addition von $\alpha \cdot \Delta d$ leicht übertragen. Wir betrachten wiederum die drei möglichen Fälle bezüglich der Lage von $h_1$, $h_2$ und $h^*$.
+Eine Reduktion des Umweltverbrauchs findet also genau dann statt, wenn die zusätzliche Transportdistanz $\Delta d$ kleiner ist als eine gewisse kritische Distanz $\hat{d}$. Im Folgenden wird diese Größe näher bestimmt.
 
-\underline{Fall 1}: $h_1 < h_2 < h^*$ \\
-Dies ist der Fall, bei dem der Nutzungsvorrat eines einzelnen Produkts sowohl vor, als auch nach der Nutzungsintensivierung nicht aufgebraucht wird, bevor die Maximalnutzungsdauer erreicht ist. Es ergibt sich mit Gleichung \eqref{eq:Delta_MIPS_h_1}:
+Zunächst betrachten wir wie bereits im Modell zur Nutzungshäufigkeit die drei möglichen Fälle bezüglich der Lage von $h^\text{herk}$, $h^\text{gem}$ und $h^*$ getrennt. Im Anschluss fassen wir diese zusammen um ein einheitliches Kriterium abzuleiten.
+
+\underline{Fall 1}: $h^\text{herk} < h^\text{gem} < h^*$ \\
+Dies ist der Fall, bei dem der Nutzungsvorrat eines einzelnen Produkts sowohl vor, als auch nach der Erhöhung der Nutzungshäufigkeit nicht aufgebraucht wird, bevor die Maximalnutzungsdauer erreicht ist. Es gilt nach Gleichung \eqref{eq:d_dach} unter Anwendung von Gleichung \eqref{eq:MIPS(h,d)_2}:
 \begin{equation}
-	\Delta \text{MIPS} = \alpha \cdot \Delta d - \frac{q \cdot i_P}{S_D}
+	\hat{d} = \frac{i_P}{\mathbb{T} \cdot t_\text{max} \cdot A} \cdot \left( \frac{1}{h^\text{herk}} - \frac{1}{h^\text{gem}} \right)
 \end{equation}
 %
-Dieser Ausdruck ist genau dann negativ, wenn gilt:
-\begin{equation}
-	\alpha \cdot S_D \cdot \Delta d < q \cdot i_P
-\end{equation}
-%
-Es kommt also im ersten Fall genau dann zu einer Reduzierung der MIPS, wenn die Inputs, die durch den zusätzlichen Transport über die durchschnittliche Distanz $\Delta d$ anfallen, geringer sind als die vermiedenen Inputs durch die Einsparung eines parallel eingesetzten Produkts.
 
-\underline{Fall 2}: $h^* \leq h_1 < h_2$ \\
-Im zweiten Fall wird der Nutzungsvorrat eines einzelnen Produkts sowohl vor als nach der Nutzungsintensivierung ausgeschöpft. Hier liefert Gleichung \eqref{eq:Delta_MIPS_h_2}:
+\underline{Fall 2}: $h^\text{herk} < h^* \leq h^\text{gem}$ \\
+Im zweiten Fall, bei dem der Nutzungsvorrat vor der Erhöhung der Nutzungshäufigkeit noch nicht ausgeschöpft wird, danach jedoch schon, gilt nach Gleichungen \eqref{eq:d_dach} und \eqref{eq:MIPS(h,d)_2}:
 \begin{equation}
-	\Delta \text{MIPS} = \alpha \cdot \Delta d
+\hat{d} = \frac{i_P}{\mathbb{T} \cdot A} \cdot \left( \frac{1}{h^\text{herk} \cdot t_\text{max}} - \frac{1}{n_\text{max}} \right)
 \end{equation}
 %
-Dieser Ausdruck ist stets positiv, sodass sich im zweiten Fall immer eine Erhöhung der Materialintensität ergibt. Dies ist darauf zurückzuführen, dass die Einsparung eines Produkts keine Veränderung der MIPS bewirkt und somit die zusätzlichen Transportinputs voll zu Buche schlagen.
 
-\underline{Fall 3}: $h_1 < h^* \leq h_2$ \\
-Im dritten Fall, bei dem der Nutzungsvorrat vor der Nutzungsintensivierung noch nicht ausgeschöpft wird, nach der Nutzungsintensivierung jedoch schon, gilt mit Gleichung \eqref{eq:Delta_MIPS_h_3}:
+\underline{Fall 3}: $h^* \leq h^\text{herk} < h^\text{gem}$ \\
+Im dritten Fall wird der Nutzungsvorrat eines einzelnen Produkts sowohl vor als nach der Erhöhung der Nutzungshäufigkeit ausgeschöpft. Hier gilt schließlich:
 \begin{equation}
-	\alpha \cdot \Delta d - \frac{q \cdot i_P}{S_D} \leq \Delta \text{MIPS} < \alpha \cdot \Delta d
+	\hat{d} = \frac{1}{\mathbb{T}} \cdot \left( \frac{i_P}{n_\text{max} \cdot A} - \frac{i_P}{n_\text{max} \cdot A} \right) = 0
 \end{equation}
 %
-Wie schon bei der Modellanalyse zur Nutzungsintensivierung bewegt sich die Änderung der MIPS im dritten Fall also zwischen den Werten der ersten beiden Fälle. Dieser Wert kann positiv oder negativ sein, was im Einzelfall zu bestimmen ist. Da der dritte Fall jeweils nur beim Übergang vom ersten zum zweiten Fall auftritt, ist er für die grundsätzliche Aussage der Analyse nicht weiter relevant.
+
+Die drei Fälle zusammenfassend lässt sich die kritische Distanz $\hat{d}$ als Funktion der beiden Nutzungshäufigkeiten $h^\text{herk}$ und $h^\text{gem}$ auffassen:
+\begin{equation}
+   \hat{d}(h^\text{herk}, h^\text{gem}) = \left\{ \begin{array}{ll}
+      \frac{i_P}{\mathbb{T} \cdot t_\text{max} \cdot A} \cdot \left( \frac{1}{h^\text{herk}} - \frac{1}{h^\text{gem}} \right) & \mbox{falls } h^\text{herk} < h^\text{gem} < h^* \\[10pt]
+      \frac{i_P}{\mathbb{T} \cdot A} \cdot \left( \frac{1}{h^\text{herk} \cdot t_\text{max}} - \frac{1}{n_\text{max}} \right) & \mbox{falls } h^\text{herk} < h^* \leq h^\text{gem} \\[10pt]
+      0 & \mbox{falls } h^* \leq h^\text{herk} < h^\text{gem}
+   \end{array} \right.
+\end{equation}
+
+\todo[color=prioH]{Ab hier weiter überarbeiten}
+% Zweistufiges Kriterium herleiten
+% Grafik herleiten
+
 
 \begin{figure}[ht]
 \input{Abbildungen/p-d-Diagramm.tex}
@@ -3013,7 +3016,7 @@ Wie schon bei der Modellanalyse zur Nutzungsintensivierung bewegt sich die Ände
 \label{fig:Vergleich_Szenarien}
 \end{figure}
 \subparagraph{Fazit}
-Anders als bei der isolierten Betrachtung der Nutzungsintensivierung können unter der gleichzeitigen Berücksichtigung zusätzlicher Transporte sowohl Verbesserungen als auch Verschlechterungen der MIPS auftreten. Als hartes Kriterium für eine Senkung des Umweltverbrauchs erweist sich eine hinreichend geringe Nutzungsintensität im Ausgangsniveau, d.h. vor der Nutzungsintensivierung: Nur wenn der Nutzungsvorrat ursprünglich nicht voll ausgeschöpft wird ($h_1 < h^*$), kann es zu einer Reduzierung der MIPS kommen. In diesem Fall muss jedoch die weitere Bedingung gelten, dass die Materialinputs für die zusätzlichen Transporte kleiner sind als die eingesparten produktbezogenen Inputs für ein parallel eingesetztes Produkt ($\alpha \cdot S_D \cdot \Delta d < q \cdot i_P$).
+Anders als bei der isolierten Betrachtung der Nutzungsintensivierung können unter der gleichzeitigen Berücksichtigung zusätzlicher Transporte sowohl Verbesserungen als auch Verschlechterungen der MIPS auftreten. Als hartes Kriterium für eine Senkung des Umweltverbrauchs erweist sich eine hinreichend geringe Nutzungsintensität im Ausgangsniveau, d.h. vor der Nutzungsintensivierung: Nur wenn der Nutzungsvorrat ursprünglich nicht voll ausgeschöpft wird ($h_1 < h^*$), kann es zu einer Reduzierung der MIPS kommen. In diesem Fall muss jedoch die weitere Bedingung gelten, dass die Materialinputs für die zusätzlichen Transporte kleiner sind als die eingesparten produktbezogenen Inputs für ein parallel eingesetztes Produkt ($\mathbb{T} \cdot S_D \cdot \Delta d < q \cdot i_P$).
 
 \subsection{Spezielles Kopplungs-Modell}\marginpar{\vspace{-5em}\scriptsize Ende
 Teil von Alexander\newline Müller
@@ -3126,13 +3129,13 @@ Im Modell kommen beide Nutzungstypen parallel in Form von zwei \enquote{Teilnutz
 	%
 	\begin{align}
 		\text{MIPS}(r) &= \frac{I_P + I_\Theta + I_\text{fix}^{h,d}}{S_D} = 
-		\frac{(p^\text{ind} \cdot q^\text{ind} + p^\text{gem} \cdot q^\text{gem}) \cdot i_P + \alpha \cdot S_D^\text{gem} \cdot d^\text{gem} + I_\text{fix}^{h,d}}{S_D} \\
-		&= \frac{(p^\text{ind} \cdot q^\text{ind} + p^\text{gem} \cdot q^\text{gem}) \cdot i_P}{S_D} + \frac{\alpha \cdot S_D \cdot \frac{r^2}{R^2} \cdot \frac{2}{3} \cdot r}{S_D} + \frac{I_\text{fix}^{h,d}}{S_D} \\[10pt]
-		&= \frac{\left \lceil \left( 1 - \frac{r^2}{R^2} \right) \cdot \frac{S_D}{A \cdot h^\text{ind} \cdot T} \right \rceil \cdot q^\text{ind} \cdot i_P}{S_D} + \frac{\left \lceil \frac{r^2}{R^2} \cdot \frac{S_D}{A \cdot h^\text{gem} \cdot T} \right \rceil \cdot q^\text{gem} \cdot i_P}{S_D} + \alpha \cdot \frac{2}{3} \cdot \frac{r^3}{R^2} + \frac{I_\text{fix}^{h,d}}{S_D} \\
-		&\approx \frac{\left( 1 - \frac{r^2}{R^2} \right) \cdot \frac{S_D}{A \cdot h^\text{ind} \cdot T} \cdot q^\text{ind} \cdot i_P}{S_D} + \frac{\frac{r^2}{R^2} \cdot \frac{S_D}{A \cdot h^\text{gem} \cdot T} \cdot q^\text{gem} \cdot i_P}{S_D} + \alpha \cdot \frac{2}{3} \cdot \frac{r^3}{R^2} + \frac{I_\text{fix}^{h,d}}{S_D} \\
-		&= \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} - \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} \cdot \frac{r^2}{R^2} + \frac{q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} \cdot \frac{r^2}{R^2} + \alpha \cdot \frac{2}{3} \cdot \frac{r^3}{R^2} + \frac{I_\text{fix}^{h,d}}{S_D}
+		\frac{(p^\text{ind} \cdot q^\text{ind} + p^\text{gem} \cdot q^\text{gem}) \cdot i_P + \mathbb{T} \cdot S_D^\text{gem} \cdot d^\text{gem} + I_\text{fix}^{h,d}}{S_D} \\
+		&= \frac{(p^\text{ind} \cdot q^\text{ind} + p^\text{gem} \cdot q^\text{gem}) \cdot i_P}{S_D} + \frac{\mathbb{T} \cdot S_D \cdot \frac{r^2}{R^2} \cdot \frac{2}{3} \cdot r}{S_D} + \frac{I_\text{fix}^{h,d}}{S_D} \\[10pt]
+		&= \frac{\left \lceil \left( 1 - \frac{r^2}{R^2} \right) \cdot \frac{S_D}{A \cdot h^\text{ind} \cdot T} \right \rceil \cdot q^\text{ind} \cdot i_P}{S_D} + \frac{\left \lceil \frac{r^2}{R^2} \cdot \frac{S_D}{A \cdot h^\text{gem} \cdot T} \right \rceil \cdot q^\text{gem} \cdot i_P}{S_D} + \mathbb{T} \cdot \frac{2}{3} \cdot \frac{r^3}{R^2} + \frac{I_\text{fix}^{h,d}}{S_D} \\
+		&\approx \frac{\left( 1 - \frac{r^2}{R^2} \right) \cdot \frac{S_D}{A \cdot h^\text{ind} \cdot T} \cdot q^\text{ind} \cdot i_P}{S_D} + \frac{\frac{r^2}{R^2} \cdot \frac{S_D}{A \cdot h^\text{gem} \cdot T} \cdot q^\text{gem} \cdot i_P}{S_D} + \mathbb{T} \cdot \frac{2}{3} \cdot \frac{r^3}{R^2} + \frac{I_\text{fix}^{h,d}}{S_D} \\
+		&= \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} - \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} \cdot \frac{r^2}{R^2} + \frac{q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} \cdot \frac{r^2}{R^2} + \mathbb{T} \cdot \frac{2}{3} \cdot \frac{r^3}{R^2} + \frac{I_\text{fix}^{h,d}}{S_D}
 	\end{align}
-	\noteJ{Referenz für $I_\Theta = \alpha \cdot S_D \cdot d$ einfügen}
+	\noteJ{Referenz für $I_\Theta = \mathbb{T} \cdot S_D \cdot d$ einfügen}
 	%
 	Im vierten Schritt wurden die Rundungsklammern ignoriert um den Ausdruck differenzierbar zu machen. Der dabei gemachte Fehler $\epsilon$ -- eine Unterschätzung der MIPS -- kann folgendermaßen quantifiziert werden:
 	\begin{equation}
@@ -3141,10 +3144,10 @@ Im Modell kommen beide Nutzungstypen parallel in Form von zwei \enquote{Teilnutz
 	
 	Wir halten die Modellgleichung fest:\\
 	
-	\begin{mdframed}[frametitle={Nutzungsintensivierung und zusätzliche Transporte -- Spezifisches Modell}, frametitlerule=true]
+	\begin{mdframed}[frametitle={Nutzungshäufigkeit und Transporte -- Spezifisches Modell}, frametitlerule=true]
 		Kopplungsmodell:
 		\begin{equation}
-			\text{MIPS}(r) = \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} - \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} \cdot \frac{r^2}{R^2} + \frac{q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} \cdot \frac{r^2}{R^2} + \alpha \cdot \frac{2}{3} \cdot \frac{r^3}{R^2} + \frac{I_\text{fix}^{h,d}}{S_D}
+			\text{MIPS}(r) = \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} - \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} \cdot \frac{r^2}{R^2} + \frac{q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} \cdot \frac{r^2}{R^2} + \mathbb{T} \cdot \frac{2}{3} \cdot \frac{r^3}{R^2} + \frac{I_\text{fix}^{h,d}}{S_D}
 		\end{equation}
 	\end{mdframed}
 	
@@ -3153,21 +3156,21 @@ Im Modell kommen beide Nutzungstypen parallel in Form von zwei \enquote{Teilnutz
 	
 	Zur Bestimmung der optimalen Größe berechnen wir zunächst die Ableitung der MIPS-Gleichung:
 	\begin{equation}
-		\frac{\partial \text{MIPS}}{\partial r} = \frac{2 \cdot q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} \cdot \frac{r}{R^2} - \frac{2 \cdot q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} \cdot \frac{r}{R^2} + 2 \alpha \cdot \frac{r^2}{R^2}
+		\frac{\partial \text{MIPS}}{\partial r} = \frac{2 \cdot q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} \cdot \frac{r}{R^2} - \frac{2 \cdot q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} \cdot \frac{r}{R^2} + 2 \mathbb{T} \cdot \frac{r^2}{R^2}
 	\end{equation}
 	
 	Falls es ein Minimum gibt, muss dort die folgende Bedingung gelten:
 	\begin{align}
 		& \frac{\partial \text{MIPS}}{\partial r} = 0 \\[10pt]
-		\Leftrightarrow \quad & \frac{2 \cdot q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} \cdot \frac{r}{R^2} - \frac{2 \cdot q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} \cdot \frac{r}{R^2} + 2 \alpha \cdot \frac{r^2}{R^2} = 0 \\[10pt]
-		\Leftrightarrow \quad & r = 0 \quad \text{oder} \quad \frac{q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} - \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} + \alpha \cdot r = 0 \\[10pt]
-		\Leftrightarrow \quad & r = 0 \quad \text{oder} \quad r = r_1 := \frac{i_P}{A \cdot T \cdot \alpha} \left( \frac{q^\text{ind}}{h^\text{ind}} - \frac{q^\text{gem}}{h^\text{gem}} \right) \label{eq:Kopplung_2_r_opt}
+		\Leftrightarrow \quad & \frac{2 \cdot q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} \cdot \frac{r}{R^2} - \frac{2 \cdot q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} \cdot \frac{r}{R^2} + 2 \mathbb{T} \cdot \frac{r^2}{R^2} = 0 \\[10pt]
+		\Leftrightarrow \quad & r = 0 \quad \text{oder} \quad \frac{q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} - \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} + \mathbb{T} \cdot r = 0 \\[10pt]
+		\Leftrightarrow \quad & r = 0 \quad \text{oder} \quad r = r_1 := \frac{i_P}{A \cdot T \cdot \mathbb{T}} \left( \frac{q^\text{ind}}{h^\text{ind}} - \frac{q^\text{gem}}{h^\text{gem}} \right) \label{eq:Kopplung_2_r_opt}
 	\end{align}
 	
 	Es liegen mit $r = 0$ und $r = r_1$ also zwei Kandidaten für die optimale Größe vor. Die zweite Ableitung gibt Aufschluss darüber, ob es sich jeweils tatsächlich um ein Minimum handelt, oder hingegen ein Maximum oder eine Wendestelle vorliegt.
 	\begin{align}
-		\frac{\partial^2 \text{MIPS}}{\partial r^2} &= \frac{2 \cdot q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T \cdot R^2}  - \frac{2 \cdot q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T \cdot R^2} + 4 \alpha \cdot \frac{r}{R^2} \\
-		&= \frac{2 \cdot i_P}{A \cdot T \cdot R^2} \cdot \left( \frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}} \right) + 4 \alpha \cdot \frac{r}{R^2}
+		\frac{\partial^2 \text{MIPS}}{\partial r^2} &= \frac{2 \cdot q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T \cdot R^2}  - \frac{2 \cdot q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T \cdot R^2} + 4 \mathbb{T} \cdot \frac{r}{R^2} \\
+		&= \frac{2 \cdot i_P}{A \cdot T \cdot R^2} \cdot \left( \frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}} \right) + 4 \mathbb{T} \cdot \frac{r}{R^2}
 	\end{align}				
 	
 	Wir betrachten zunächst den Fall $r = 0$. Hier vereinfacht sich die zweite Ableitung zu:
@@ -3211,7 +3214,7 @@ Im Modell kommen beide Nutzungstypen parallel in Form von zwei \enquote{Teilnutz
 	%
 	In diesem Fall liegt demnach bei $r = 0$ formal eine Wendestelle vor. Die Betrachtung der ersten Ableitung lässt jedoch eine weitere Erkenntnis zu:
 	\begin{equation}
-		\frac{\partial \text{MIPS}}{\partial r} = \frac{2 \cdot i_P \cdot r}{A \cdot T \cdot R^2} \cdot \left( \frac{T \cdot h^\text{gem}}{n_\text{max} \cdot h^\text{gem}} - \frac{T \cdot h^\text{ind}}{n_\text{max} \cdot h^\text{ind}} \right) + 2 \alpha \cdot \frac{r^2}{R^2} = 2 \alpha \cdot \frac{r^2}{R^2}
+		\frac{\partial \text{MIPS}}{\partial r} = \frac{2 \cdot i_P \cdot r}{A \cdot T \cdot R^2} \cdot \left( \frac{T \cdot h^\text{gem}}{n_\text{max} \cdot h^\text{gem}} - \frac{T \cdot h^\text{ind}}{n_\text{max} \cdot h^\text{ind}} \right) + 2 \mathbb{T} \cdot \frac{r^2}{R^2} = 2 \mathbb{T} \cdot \frac{r^2}{R^2}
 	\end{equation}
 	Der Anstieg ist offensichtlich positiv für alle $r$. Unter Berücksichtigung der Randbedingung $r \geq 0$ (nur nicht-negative Radien sind sinnvoll) erweist sich $r = 0$ somit als globales Minimum.
 	
@@ -3231,7 +3234,7 @@ Im Modell kommen beide Nutzungstypen parallel in Form von zwei \enquote{Teilnutz
 	
 	Nach der ausführlichen Untersuchung des trivialen Falls $r = 0$ kommen wir nun zur interessanteren Stelle $r = r_1$ (siehe Gleichung \eqref{eq:Kopplung_2_r_opt}). Setzen wir diese in die zweite Ableitung ein, so erhalten wir:
 	\begin{align}
-		\frac{\partial^2 \text{MIPS}(r_1)}{\partial r^2} &= \frac{2 \cdot i_P}{A \cdot T \cdot R^2} \cdot \left( \frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}} \right) + 4 \alpha \cdot \frac{i_P}{A \cdot T \cdot \alpha \cdot R^2} \left( \frac{q^\text{ind}}{h^\text{ind}} - \frac{q^\text{gem}}{h^\text{gem}} \right) \\
+		\frac{\partial^2 \text{MIPS}(r_1)}{\partial r^2} &= \frac{2 \cdot i_P}{A \cdot T \cdot R^2} \cdot \left( \frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}} \right) + 4 \mathbb{T} \cdot \frac{i_P}{A \cdot T \cdot \mathbb{T} \cdot R^2} \left( \frac{q^\text{ind}}{h^\text{ind}} - \frac{q^\text{gem}}{h^\text{gem}} \right) \\
 		&=	- \frac{2 \cdot i_P}{A \cdot T \cdot R^2} \cdot \left( \frac{q^\text{gem}}{h^\text{gem}} - \frac{q^\text{ind}}{h^\text{ind}} \right) \eqnref{eq:d2_MIPS_dr_r0} - \frac{\partial^2 \text{MIPS}(0)}{\partial r^2}
 	\end{align}
 	
@@ -3264,10 +3267,10 @@ Im Modell kommen beide Nutzungstypen parallel in Form von zwei \enquote{Teilnutz
 	Unter der Bedingung $h_\text{ind} < h^*$ existiert also ein optimaler Radius $r^\text{opt} = r_1$, bei dem die MIPS minimal ist. Jedoch kann auch ein Radius größer as $r^\text{opt}$ noch zu einer Verringerung der MIPS gegenüber der individuellen Produktnutzung führen. Für die Beantwortung der Fragestellung dieser Masterarbeit ist es von Bedeutung, bis zu welchem Radius dies der Fall ist. Dieser Radius, den wir mit $\hat{r}$ bezeichnen, ist dadurch gekennzeichnet, dass die zugehörige MIPS genau gleich groß ist wie im rein individuellen Nutzungssystem, das durch $r=0$ beschrieben werden kann. Demnach gilt:
 	\begin{align}
 		&\text{MIPS}(\hat{r}) = \text{MIPS}(0) \\
-		\Leftrightarrow \quad & \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} - \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} \cdot \frac{\hat{r}^2}{R^2} + \frac{q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} \cdot \frac{\hat{r}^2}{R^2} + \alpha \cdot \frac{2}{3} \cdot \frac{\hat{r}^3}{R^2} + \frac{I_\text{fix}^{h,d}}{S_D} \\
+		\Leftrightarrow \quad & \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} - \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} \cdot \frac{\hat{r}^2}{R^2} + \frac{q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} \cdot \frac{\hat{r}^2}{R^2} + \mathbb{T} \cdot \frac{2}{3} \cdot \frac{\hat{r}^3}{R^2} + \frac{I_\text{fix}^{h,d}}{S_D} \\
 		&= \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} + \frac{I_\text{fix}^{h,d}}{S_D} \\
-		\Leftrightarrow \quad & \frac{q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} \cdot \frac{\hat{r}^2}{R^2} - \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} \cdot \frac{\hat{r}^2}{R^2} + \alpha \cdot \frac{2}{3} \cdot \frac{\hat{r}^3}{R^2} = 0 \\
-		\overset{\hat{r}, R \neq 0}{\Leftrightarrow} \quad & \hat{r} = \frac{3}{2} \cdot \frac{i_P}{A \cdot T \cdot \alpha} \cdot \left( \frac{q^\text{ind}}{h^\text{ind}} - \frac{q^\text{gem}}{h^\text{gem}} \right) = \frac{3}{2} \cdot r^\text{opt}
+		\Leftrightarrow \quad & \frac{q^\text{gem} \cdot i_P}{A \cdot h^\text{gem} \cdot T} \cdot \frac{\hat{r}^2}{R^2} - \frac{q^\text{ind} \cdot i_P}{A \cdot h^\text{ind} \cdot T} \cdot \frac{\hat{r}^2}{R^2} + \mathbb{T} \cdot \frac{2}{3} \cdot \frac{\hat{r}^3}{R^2} = 0 \\
+		\overset{\hat{r}, R \neq 0}{\Leftrightarrow} \quad & \hat{r} = \frac{3}{2} \cdot \frac{i_P}{A \cdot T \cdot \mathbb{T}} \cdot \left( \frac{q^\text{ind}}{h^\text{ind}} - \frac{q^\text{gem}}{h^\text{gem}} \right) = \frac{3}{2} \cdot r^\text{opt}
 	\end{align}
 	
 	Im Fall $h_\text{ind} < h^*$ bringt die gemeinschaftliche Produktnutzung bei einem Einzugsgebiet mit einem Radius bis zum 1,5-fachen des optimalen Radius demnach eine geringere MIPS mit sich als die individuelle Nutzung.
