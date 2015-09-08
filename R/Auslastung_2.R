@@ -97,10 +97,10 @@ if(Plots_or_manipulate == 1){
   eval_i_N_2 = i_N(a, i_N_max, i_N_min, i_N_exp_2)
   
   # Plots erstellen:
-  par(mfcol=c(2,2), mar = c(4.1,4.1,4.5,2.1))
+  par(mfcol=c(2,2), mar = c(4.1,5.1,4.5,1.1))
   
-  plot(a, eval_i_N_1, type='l', xlab = 'relative Produktauslastung $a$', ylab = '$i_N$ [kg/NE]')
-  title('$i_N(a)$', line=1)
+  plot(a, eval_i_N_1, type='l', xlab = 'relative Produktauslastung $a$', ylab = '$i_N$ [kg/NE]', ylim=c(0,10))
+  title('Inputs je Nutzung $i_N(a)$', line=1)
   mtext ('(a) $i_N(a)$ unelastisch', side = 3, line = 3)
   
   plot(a, eval_MIPS_1, type='l', ylim=c(0,2), xaxt="n", xlab = 'relative Produktauslastung $a$', ylab = 'MIPS [kg/SE]')
@@ -108,8 +108,8 @@ if(Plots_or_manipulate == 1){
   axis (side = 1, at = c(0.2, 0.6, 0.8, 1.0, S_D * t_max / (K * p_const * T * n_max_const)), labels = c(0.2, 0.6, 0.8, 1.0, '$a^*$'))
   title('MIPS($a$)', line=1)
   
-  plot(a, eval_i_N_2, type='l', xlab = 'relative Produktauslastung $a$', ylab = '$i_N$ [kg/NE]')
-  title('$i_N(a)$', line=1)
+  plot(a, eval_i_N_2, type='l', xlab = 'relative Produktauslastung $a$', ylab = '$i_N$ [kg/NE]', ylim=c(0,10))
+  title('Inputs je Nutzung $i_N(a)$', line=1)
   mtext ('(b) $i_N(a)$ elastisch', side = 3, line = 3)
   
   plot(a, eval_MIPS_2, type='l', ylim=c(0,2), xaxt="n", xlab = 'relative Produktauslastung $a$', ylab = 'MIPS [kg/SE]')

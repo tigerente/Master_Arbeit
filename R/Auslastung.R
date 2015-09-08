@@ -3,8 +3,8 @@ require(manipulate)
 source('./Funktionen_Auslastung.R')
 
 # Einstellungen für den Export der Graphik
-tikzheight <- 4.0
-tikzwidth <- 5.8
+tikzheight <- 3.0 #4.0
+tikzwidth <- 4.5 #5.8
 fntsize <- 0.8
 
 #export <- FALSE # if figures should be exported, or just visualized
