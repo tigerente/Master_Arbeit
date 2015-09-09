@@ -2186,25 +2186,18 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       Wir kommen nun zur Untersuchung des Faktors Reparatur auf den
       Umweltverbrauch eines Nutzungssystems. In der Einleitung zum Abschnitt
       \nameref{sec:Wartung_und_Reparatur} (\ref{sec:Wartung_und_Reparatur})
-      wurde bereits beschrieben, dass Reparaturen zum einen zu einer Verlängerung der
-      Lebensdauer führen, mit ihnen jedoch zum anderen eine Erhöhung der
-      Material-Inputs einhergeht. Im Abschnitt \nameref{sec:RB} wird für die
-      Abbildung dieser beiden Effekte ein Modell entwickelt. Hierfür werden
-      zunächst die beiden Parameter Nutzungsdauer und Inputs je Produkt
-      (inklusive Reparaturinputs je Produkt) als die beschreibenden Parameter
-      für den Faktor Reparatur und die damit einhergehenden Effekte
-      herausgearbeitet. Dem schließt sich die Beschreibung einer
-      Modellerweiterung an, welche eine funktionelle Abhängigkeit zwischen den
-      beiden Größen konstruiert. Das entwickelte Faktor-spezifische Modell wird
-      im Anschluss im Abschnitt \nameref{sec:RA} zunächst ohne und dann mit
-      Berücksichtigung der Modellerweiterung analysiert. Die Analyse folgt dabei
-      der Frage, inwiefern unter der Prämisse von mehr Reparaturen, die
-      gemeinschaftliche Produktnutzung einen geringeren Umweltverbrauch als die
-      herkömmliche Produktnutzung aufweist.
+      wurde bereits beschrieben, dass Reparaturen zum einen zu einer
+      Verlängerung der Lebensdauer der reparierten Produkte führen, mit ihnen
+      jedoch zum anderen eine Erhöhung der Material-Inputs einhergeht. Im
+      Abschnitt \nameref{sec:RB} wird für die Abbildung dieser beiden Effekte
+      ein Modell entwickelt, welches im Anschluss im Abschnitt \nameref{sec:RA}
+      hinsichtlich der Frage analysiert wird, inwiefern unter der Prämisse von
+      mehr Reparaturen, die gemeinschaftliche Produktnutzung einen geringeren
+      Umweltverbrauch als die herkömmliche Produktnutzung aufweist.
 
       \paragraph{Modellbeschreibung}\label{sec:RB}
-      Die Abfolge von Defekten und darauf reagierenden Reparaturen bezeichnen
-      wir als den Reparaturverlauf eines Produkts. Dieser Verlauf
+      Die Abfolge von Defekten und der darauf reagierenden Reparaturen
+      bezeichnen wir als den Reparaturverlauf eines Produkts. Dieser Verlauf
       kann sehr komplex sein, da es sich hierbei um einen zufälligen Prozess
       handelt: Sowohl der Zeitpunkt eines Defekts als auch dessen Ausmaß sind
       zufällig, sodass die für das Beheben dieses Defekts notwendigen
@@ -2216,16 +2209,15 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       vielmehr relevant, wie lange die Produkte eines Nutzungssystems bei deren
       Entsorgung im Einsatz gewesen sind und wieviele Material-Inputs dafür
       aufgewendet wurden. In dieser nachträglichen Betrachtung, die sich
-      konzeptionell ein wenig von den bisher entwickelten Faktor-spezifischen Modellen
-      unterscheidet, hebt sich daher die Notwendigkeit der Unterscheidung
-      zwischen einer nutzungsbedingten und einer zeitlich bedingten Entsorgung,
-      wie sie im Abschnitt \nameref{sec:Produktnutzungsdauer}
-      (\ref{sec:Produktnutzungsdauer}) eingeführt wurde, auf. Wir benutzen in
-      diesem Modell zum Faktor Reparatur schlicht den Parameter Nutzungsdauer
-      $t$, den wir zur Verdeutlichung der geänderten Sichtweise auch als
-      \enquote{erreichte Nutzungsdauer} bezeichnen werden. Der erste zu
-      beschreibende Effekt -- eine Verlängerung der Nutzungsdauer -- wird sich
-      in der Analyse dann einfach als $t + \Delta t$ widerspiegeln. 
+      konzeptionell ein wenig von den bisher entwickelten Faktor-spezifischen
+      Modellen unterscheidet, hebt sich daher die Notwendigkeit der
+      Unterscheidung zwischen einer nutzungsbedingten und einer zeitlich
+      bedingten Entsorgung auf. Wir benutzen in diesem Modell zum Faktor Reparatur
+      schlicht den Parameter Nutzungsdauer $t$, den wir zur Verdeutlichung der
+      geänderten Sichtweise auch als \enquote{erreichte Nutzungsdauer}
+      bezeichnen werden. Der erste zu beschreibende Effekt -- eine Verlängerung
+      der Nutzungsdauer -- wird sich in der Analyse dann einfach als $t + \Delta
+      t$ widerspiegeln. 
 
       Unter der Annahme, dass die Nutzungsdauer für alle Produkte eines
       Nutzungssystems gleich ist, wirkt sich eine Veränderung der Nutzungsdauer
@@ -2238,373 +2230,205 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
           \label{eq:Reparatur_I_P(t)}
       \end{equation}
       Die Kehrseite einer Verlängerung der Nutzungsdauer stellt der zweite zu
-      beschreibende Effekt dar, die Erhöhung der Material-Inputs. Dieser Effekt
-      schlägt sich in den Inputs für Reparaturen $I_R$ nieder, die sich aus der
-      Anzahl der im Nutzungssystem während des Betrachtungszeitraums $T$
+      beschreibende Effekt dar -- die Erhöhung der Material-Inputs. Dieser
+      Effekt schlägt sich in den reparaturbezogenen Inputs $I_R$ nieder, die sich
+      aus der Anzahl der im Nutzungssystem während des Betrachtungszeitraums $T$
       durchgeführten Reparaturen $R$ und den durchschnittlichen Inputs je
       Reparatur $i_R$ berechnen:
       \begin{equation}
           I_R = R \cdot i_R
       \end{equation}
       Da sich die Anzahl der Reparaturen $R$ auf den Betrachtungszeitraum $T$
-      bezieht, ist sie genau wie die Produktanzahl $P$
-      als effektive Größe zu verstehen. Im Gegensatz dazu, bezeichnen wir die
-      durchschnittliche Anzahl an Reparaturen, die je Produkt über dessen
-      gesamte Nutzungsdauer $t$ stattfinden mit $r$. Multipliziert man diese
-      Größe mit der effektiven Produktanzahl, so erhält man gerade die Anzahl
-      der Reparaturen $R$:
+      bezieht, ist sie genau wie die Produktanzahl $P$ als effektive Größe zu
+      verstehen. Im Gegensatz dazu, bezeichnen wir die durchschnittliche Anzahl
+      an Reparaturen, die je Produkt über dessen gesamte Nutzungsdauer $t$
+      stattfinden mit $r$. Multipliziert man diese Größe mit der effektiven
+      Produktanzahl, so erhält man gerade die Anzahl der Reparaturen $R$:
       \begin{equation}
-          R=P\cdot r
+          R(t) = P(t) \cdot r
       \end{equation}
-      Die Material-Inputs für Reparaturen $I_R$, können nun, das sie sich auch
-      auf die effektive Produktanzahl beziehen, mit den produktbezogenen Inputs
-      zu einer Größe zusammengefasst werden: 
+      Die reparaturbezogenen Material-Inputs $I_R$ ergeben sich dann in
+      ähnlicher Weise wie die produktbezogenen Inputs in Gleichung
+      \eqref{eq:Reparatur_I_P(t)}:
       \begin{equation}
-          I_{P,R} \defeq I_P + I_R = P \cdot i_P + R \cdot i_R = P \cdot i_P + P \cdot r \cdot
-          i_R = P \cdot (i_P + r \cdot i_R) = P \cdot i_{P,R} = \frac{N}{h \cdot
-          t} \cdot i_{P,R}
-          \label{eq:Reparatur_Sum_I_P_I_R}
+          I_R = R \cdot i_R = P(t) \cdot r \cdot i_R = \frac{N}{n(t)} \cdot r \cdot i_R
+          = \frac{N}{h \cdot t} \cdot r \cdot i_R = \frac{N}{h \cdot t} \cdot
+          \tilde{i}_R
+          \label{eq:Reparatur_I_R(t)}
       \end{equation}
-      In dieser Umformung wurden auch die Inputs je Produkt $i_P$ mit den Inputs
-      für Reparaturen an einem Produkt $i_R$ zu einer Größe zusammengefasst. Die
-      zusätzlichen Indizes in den Ausdrücken $I_{P,R}$ bzw. $i_{P,R}$ bedeuten
-      einfach nur, dass wir zu den produktbezogenen Inputs $I_P$ bzw. Inputs je
-      Produkt $i_P$, die bisher die Herstellung, Bereitstellung und Entsorgung
-      von Produkten umfassten, nun auch die Reparaturen hinzuzählen. Sprachlich
-      werden wir der Einfachheit halber jedoch weiterhin die Begriffe
-      \enquote{produktbezogene Material-Inputs} und \enquote{Material-Inputs je
-      Produkt} verwenden. Der Effekt einer Erhöhung der Material-Inputs durch
-      zusätzliche Reparaturen wird sich in der Analyse nun gerade dadurch
-      ausdrücken, dass die Inputs je Produkt um einen Wert $\Delta i_{P,R}$
-      vergrößert werden. 
+      Im letzten Schritt wurde noch der Einfachheit halber die Größe
+      $\tilde{i}_R$ eingeführt, welche die Material-Inputs für alle Reparaturen
+      an \emph{einem} Produkt während seiner Nutzungsdauer $t$ umfasst. Eine
+      Erhöhung der Material-Inputs durch mehr Reparaturen wird sich dann, in Analogie
+      zur Verlängerung der Nutzungsdauer als $\tilde{i}_R + \Delta
+      \tilde{i}_R$ ergeben. Es ist zu beachten, dass genauso wie die
+      produktbezogenen, auch die reparaturbezogenen Material-Inputs von der
+      Nutzungsdauer $t$ abhängen. Denn wird die Nutzungsdauer verändert, ohne
+      dass dafür Inputs für Reparaturen benötigt werden, so müssen die
+      Reparaturinputs zu geänderten Anteilen auf das Nutzungssystem angerechnet
+      werden. Eine Veränderung der Material-Inputs durch mehr Reparaturen wirkt
+      sich dagegen nur auf die Reparaturinputs $I_R$ aus.
 
-      Es ist zu beachten, dass die produktbezogenen Inputs $I_{P,R}$ nun sowohl
-      von der erreichten Nutzungsdauer $t$ als auch von den Inputs je Produkt
-      $i_{P,R}$ abhängen.  Dies ist der zufälligen Natur der Reparaturen
-      geschuldet, der zufolge kein funktioneller Zusammenhang zwischen den
-      beiden Größen angegeben werden kann.  So kann eine bestimmte Nutzungsdauer
-      einerseits durch verschiedenartige Reparaturen erreicht wurden sein
-      (beispielsweise kann ein Fahrradschlauch geflickt oder ganz ausgetauscht
-      werden). Andererseits können im Nutzungsverlauf identischer Produkte ganz
-      unterschiedliche Reparaturen notwendig gewesen sein (so kann z.B. eins von
-      zwei identischen Fahrrädern in einen Unfall geraten, und somit viel
-      umfangreichere Reparaturen erfordern, als das Fahrrad, welches unfallfrei
-      geblieben ist).  Das heißt, dass derselben Nutzungsdauer verschieden hohe
-      Material-Inputs je Produkt entsprechen können.
+      Der Faktor Reparatur kann nun durch die beiden Parameter $t$ und
+      $\tilde{i}_R$ beschrieben werden. Dass wir den Faktor nicht durch einen
+      einzigen Parameter operationalisiert haben, ist der zufälligen Natur der
+      Reparaturen geschuldet, der zufolge kein funktioneller Zusammenhang
+      zwischen den beiden Größen angegeben werden kann.  So kann eine bestimmte
+      Nutzungsdauer einerseits durch verschiedenartige Reparaturen erreicht
+      wurden sein (beispielsweise kann ein Fahrradschlauch geflickt oder ganz
+      ausgetauscht werden). Andererseits können im Nutzungsverlauf identischer
+      Produkte ganz unterschiedliche Reparaturen notwendig gewesen sein (so kann
+      z.B. eins von zwei identischen Fahrrädern in einen Unfall geraten, und
+      somit viel umfangreichere Reparaturen erfordern, als das Fahrrad, welches
+      unfallfrei geblieben ist).  Das heißt, dass derselben Nutzungsdauer
+      verschieden hohe Material-Inputs durch Reparaturen entsprechen können.
 
-      % Vernachlässigen wir jedoch zufällige Ereignisse und berücksichtigen nur
-      % Reparaturen, welche durch den Verschleiß der Produkte notwendig werden, so
-      % können wir in einer stark vereinfachenden Sicht, einen funktionalen
-      % Zusammenhang konstruieren: Jedes Produkt besteht aus einer bestimmten
-      % Menge an Produktteilen. Bei einer Waschmaschine könnte dies
-      % beispielsweise die Wäschetrommel, der Abwasserschlauch, die
-      % Waschmittelkammer, usw. umfassen. Wir annehmen, dass einerseits jedes dieser
-      % Produktteile eine spezifische Lebensdauer hat, also nach einer bestimmten
-      % Zeit defekt ist und dass andererseits jedes dieser Teile ohne
-      % Beeinflussung der anderen Teile ausgetauscht werden kann und dafür eine
-      % Produktteil-spezifische Menge an Material-Inputs notwendig ist. Weiterhin
-      % nehmen wir an, dass das neu eingesetzte Produktteil wieder über dieselbe
-      % Lebensdauer wie das ersetzte Produktteil verfügt. Unter diesen Annahmen
-      % entspräche dann jede erreichte Nutzungsdauer einem daraus ableitbarem
-      % Umfang an Material-Inputs für Reparaturen. 
-      %
-      % Diese Vorstellung des Reparaturverlaufs eines Produkts ließe sich
-      % prinzipiell auch formal in einem Modell abbilden und analysieren. Sie
-      % führt aber zu ungefähr denselben Ergebnissen, wie wenn eine weitere, diese
-      % Sicht des Reparaturverlaufs noch einmal vereinfachende Annahme getroffen
-      % wird: Unter der Annahme, dass es genau ein Produktteil gibt, dass eine im
-      % Vergleich zu allen anderen Produktteilen sehr kleine spezifische
-      % Lebensdauer hat, kann die Betrachtung des Reparaturverlaufs auf
-      % dieses eine Produktteil reduziert werden. Bei einer Waschmaschine könnte
-      % das beispielsweise der Wasserschlauch sein, der regelmäßig durch
-      % Kalkablagerungen spröde wird und ausgetauscht werden muss. Der Rest der
-      % Waschmaschine könnte im Vergleich dazu als verhältnismäßig langlebig
-      % angenommen werden.
-      %
-      % Die spezifische Lebensdauer dieses kurzlebigsten Produktteils entspricht
-      % dann der technischen Lebensdauer $\t{tech}$ des Produkts selbst, denn
-      % diese war ja gerade als die Dauer bis zur Funktionsuntüchtigkeit des
-      % Produkts definiert. Wenn das neu eingesetzte Produktteil wie angenommen
-      % wieder eine Lebensdauer von $\t{tech}$ hat, dann ergibt sich bei einer
-      % erreichten Nutzungsdauer die Anzahl je Produkt durchgeführter Reparaturen
-      % $r$ wie folgt:
-      % \begin{equation}
-      %     r = \left\lfloor\frac{t}{\t{tech}}\right\rfloor
-      % \end{equation}
-      % Wenn 
-      % Wir können annehmen, dass jede Reparatur
-      % die Lebensdauer eines Produkts um genau seine ursprüngliche technische
-      % Lebensdauer $\t{tech}$ erhöht und dass für jede dieser
-      % Reparaturen Material-Inputs $i_R$ benötigt werden.
-      % Es müssen dann pro Produkt
-      % $\left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor$\todo{diese
-      % Stufenfunktion anpassen, sodass sie linksseitig stetig ist} viele Reparaturen
-      % durchgeführt werden, die gesamten Material-Inputs für die Reparaturen an
-      % einem Produkt betragen somit:
-      % \begin{equation}
-      %   I_R(\t{max}) = i_R \cdot
-      %                  \left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor
-      % \end{equation}
-      % Es handelt sich also um eine Stufenfunktion, mit Sprungstellen bei
-      % Vielfachen von $\t{tech}$.
-      % Zusammenfassend geben wir nun das Teilmodell für Reparaturen an:\\
+      Die beiden Größen Nutzungsdauer und Inputs für Reparaturen an einem
+      Produkt sind andererseits auch nicht völlig losgelöst voneinander: Mehr
+      Reparaturen führen eben zur Verlängerung der einen und Erhöhung der
+      anderen Größe. Anders ausgedrückt: Ist in einem Nutzungssystem die
+      Nutzungsdauer größer als in einem sonst vergleichbaren anderen
+      Nutzungssystem, so wurden dort im Durchschnitt auch mehr Inputs für
+      Reparaturen benötigt. Wenn andersherum in einem Nutzungssystem mehr Inputs
+      für Reparaturen eingesetzt wurden, so ist im Durchschnitt auch die
+      Nutzungsdauer der Produkte in diesem Nutzungssystem länger. 
 
-			\begin{mdframed}[frametitle={Reparatur}, frametitlerule=true]
-				Modell:
+      Bevor wir nun die MIPS-Gleichung formulieren, fassen wir noch, wie üblich,
+      alle Inputbestandteile zu einer Größe $\I{fix}^R$ zusammen, die nicht von
+      den beiden Größen $t$ und $\tilde{i}_R$ abhängen:
       \begin{equation}
-        \MIPS[\t{max}, I_R] = \frac{\tilde{i}_P + I_R}{h\cdot \t{max}\cdot A} 
-                              + \frac{\I{fix}^R}{S_D}
-                              \label{eq:MIPSReparaturen}
+          \I{fix}^R = I_N + I_W + \I{Rest}
       \end{equation}
-				Mögliche Modellerweiterung:
-        \begin{equation}
-          I_R = I_R(\t{max}) = i_R \cdot
-                       \left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor
-           \label{eq:ReparaturModellerweiterung}
-        \end{equation}
-			\end{mdframed}
-
+      Die MIPS-Gleichung ergibt sich schließlich aus den beschriebenen
+      Material-Inputs $I_P$, $I_R$, $\I{fix}^R$ und unter Berücksichtigung
+      der Grundgleichung für die Serviceeinheiten $S=N\cdot A =S_D$
+      \eqref{eq:Grundgleichung_S}:
+      \begin{equation}
+          \MIPS[t, \tilde{i}_R] = \frac{I}{S} = \frac{I_P + I_R}{N\cdot A} +
+          \frac{\I{fix}^R}{S_D} = \frac{\frac{N}{h \cdot t} \cdot
+          i_P + \frac{N}{h \cdot t} \cdot \tilde{i}_R}{N\cdot A} +
+          \frac{\I{fix}^R}{S_D} 
+      \end{equation}
+      Durch Kürzen und Ausklammern ergibt sich damit das Modell für den Faktor
+      Reparatur:\\
+      \begin{mdframed}[frametitle={Reparatur}, frametitlerule=true]
+          Modell:
+          \begin{equation}
+              \MIPS[t, \tilde{i}_R] = \frac{i_P + \tilde{i}_R}{h\cdot t\cdot A}
+              + \frac{\I{fix}^R}{S_D}
+              \label{eq:MIPSReparaturen}
+          \end{equation}
+      \end{mdframed}
 
       \paragraph{Modellanalyse}\label{sec:RA}
-      Wir widmen uns zunächst dem Modell ohne einen speziellen funktionellen
-      Zusammenhang zwischen $\t{max}$ und $I_R$ anzunehmen und ergänzen diese
-      Betrachtung dann in einem zweiten Schritt unter Berücksichtigung der
-      Modellerweiterung \eqref{eq:ReparaturModellerweiterung}.
-
-      \subparagraph{Ohne Modellerweiterung}
-      In der allgemeinen Formulierung der MIPS-Gleichung für Reparaturen
-      \eqref{eq:MIPSReparaturen} interessiert uns, ob eine
-      Erhöhung $\Delta \t{max}$ der gewünschten Nutzungsdauer bei zusätzlich
-      anfallenden Inputs $\Delta i_P$ einen positiven Umwelt-Effekt hat. 
-      Dies ist genau dann der Fall wenn gilt:
+      Wie dies in der \nameref{sec:RB} bereits angeklungen ist, wird uns nun
+      interessieren,  unter welchen Umständen eine längere erreichte
+      Nutzungsdauer $t+\Delta t$ bei zusätzlich anfallenden Inputs für
+      Reparaturen je Produtk $\Delta \tilde{i}_R$ einen positiven Umwelt-Effekt
+      hat.  Dies ist genau dann der Fall wenn gilt:
       \begin{align}
-        & \MIPS[\t{max}, I_R] &>&  \quad \MIPS[\t{max} + \Delta \t{max}, I_R + \Delta
-        i_P]\\
-        \Leftrightarrow \quad & \frac{i_P}{h\cdot \t{max}\cdot A} 
+          & \MIPS[t, \tilde{i}_R] &>&  \quad \MIPS[t + \Delta t, \tilde{i}_R + \Delta
+          \tilde{i}_R]\\[5pt]
+          \Leftrightarrow \quad & \frac{i_P + \tilde{i}_R}{h\cdot t\cdot A} 
         + \frac{\I{fix}^R}{S_D}
-        &>&  \quad \frac{i_P + \Delta i_P}{h\cdot (\t{max} + \Delta
-        \t{max}) \cdot A} 
-        + \frac{\I{fix}^R}{S_D}\\
+        &>&  \quad \frac{i_P + \tilde{i}_R + \Delta \tilde{i}_R}{h\cdot (t + \Delta
+        t) \cdot A} 
+        + \frac{\I{fix}^R}{S_D}
       \end{align}
       Diese Bedingung kann nun weiter vereinfacht werden. Sie ist äquivalent zu:
       \begin{align}
-        & i_P\cdot(\t{max} + \Delta
-        \t{max})
-        &>& \quad (i_P + \Delta i_P)\cdot\t{max}\\
-        \Leftrightarrow \quad & i_P\cdot\Delta
-        \t{max}
-        &>& \quad \Delta i_P\cdot\t{max}\\
-        \Leftrightarrow \quad & \frac{\Delta
-          \t{max}}{\t{max}}
-        &>& \quad \frac{\Delta i_P}{i_P}  
-\label{eq:Bedingung_Reparatur}
+          & \frac{i_P + \tilde{i}_R}{h\cdot t\cdot A} 
+          &>&  \quad \frac{i_P + \tilde{i}_R + \Delta \tilde{i}_R}{h\cdot (t +
+          \Delta t) \cdot A} \\[10pt]
+%
+          \Leftrightarrow \quad 
+          & (i_P + \tilde{i}_R)\cdot(t + \Delta t)
+          &>& \quad (i_P + \tilde{i}_R + \Delta \tilde{i}_R)\cdot t\\[10pt]
+%
+          \Leftrightarrow \quad 
+          & (i_P + \tilde{i}_R)\cdot t + (i_P + \tilde{i}_R)\cdot \Delta t
+          &>& \quad (i_P + \tilde{i}_R) \cdot t + \Delta \tilde{i}_R\cdot t\\[10pt]
+%
+          \Leftrightarrow \quad 
+          & (i_P + \tilde{i}_R)\cdot\Delta t
+          &>& \quad \Delta \tilde{i}_R\cdot t\\[10pt]
+%
+          \Leftrightarrow \quad 
+          & \frac{\Delta t}{t}
+          &>& \quad \frac{\Delta \tilde{i}_R}{i_P + \tilde{i}_R}  
+          \label{eq:BedingungReparatur}
       \end{align}
-      Dies bedeutet also, dass eine Erhöhung $\Delta \t{max}$ der gewünschten
-      Nutzungsdauer bei zusätzlich anfallenden Inputs $\Delta I_R$ genau dann
-      einen positiven Umwelt-Effekt hat, wenn die prozentuale
-      Nutzungsdauerverlängerung $\frac{\Delta \t{max}}{\t{max}}$ größer ist, als
-      die prozentuale Erhöhung der produktbezogenen Material-Inputs
-      $\frac{\Delta i_P}{i_P}$. Die Bedingung umfasst natürlich die
-      trivialen Extremfälle: zum einen kann eine Ressourceneinsparung immer
-      erzielt werden, wenn die Nutzungsdauer ohne zusätzliche Material-Inputs
-      erhöht werden kann ($\Delta \t{max} > 0$ und $\Delta i_P = 0$), zum
-      anderen wird eine Reparatur nie zu einer Ressourceneinsparung führen, wenn
-      dadurch die Nutzungsdauer nicht verlängert wird ($\Delta \t{max} = 0$ und
-      $\Delta i_P > 0$). 
+      Dies bedeutet, dass eine längere erreichte Nutzungsdauer $t + \Delta t$ 
+      bei zusätzlich anfallenden Inputs je Produkt $\Delta \tilde{i}_R$ genau
+      dann einen positiven Umwelt-Effekt hat, wenn die prozentuale
+      Nutzungsdauerverlängerung größer ist, als
+      die prozentuale Erhöhung der je Produkt anfallenden Material-Inputs.
+      Die Bedingung umfasst
+      natürlich die trivialen Extremfälle: zum einen kann eine
+      Ressourceneinsparung immer erzielt werden, wenn die Nutzungsdauer ohne
+      zusätzliche Material-Inputs erhöht werden kann ($\Delta t > 0$ und $\Delta
+      \tilde{i}_R = 0$), zum anderen wird eine Reparatur nie zu einer
+      Ressourceneinsparung führen, wenn dadurch die Nutzungsdauer nicht
+      verlängert wird ($\Delta t = 0$ und $\Delta \tilde{i}_R > 0$). 
 
-      Interessanterweise offenbart diese Bedingung auch die
-      Pfadabhängigkeit der Ressourceneinsparung. Nehmen wir beispielsweise an,
-      dass ein Produkt maximal zehn Monate genutzt wird und während dieser Zeit
-      einmal defekt wird. Wir untersuchen nun die Ressourceneinsparmöglichkeiten
-      durch eine Reparatur, für die beispielsweise Material-Inputs in Höhe von
-      $\Delta i_P = 0,5 i_P$ anfallen.
-      $\t{max}$ beschreibe die Zeit bis zur Funktionsuntüchtigkeit des Produkts,
-      d.h. die gewünschte Nutzungsdauer entspricht zunächst der Lebensdauer des
-      Produkts. $\Delta \t{max}$ sei dann die Restzeit bis zum Erreichen der
-      zehn Monate, also $\Delta \t{max} = 10 \text{Monate} - \t{max}$.
-      Die MIPS des Produkts über die zehn Monate unter Berücksichtigung einer
-      Reparatur sind unabhängig von $\t{max}$. Allerdings hängt die
-      Ressourceneinsparung sehr wohl von $\t{max}$ ab. Sei beispielsweise im
-      ersten Fall $\t{max} = 1 \text{Monat}$. Dann gilt:
+      Wichtig an dieser Bedingung ist, dass die ökologische Vorteilhaftigkeit
+      nicht nur von den  Änderungen der Nutzungsdauer sowie der Inputs für
+      Reparaturen abhängt, sondern auch von dem Ausgangspunkt. Dies sei mit
+      einem Zahlenbeispiel demonstriert: Angenommen eine Reparatur benötigt
+      $\nicefrac{1}{10}$ der Inputs für Reparaturen, also $i_R =
+      \nicefrac{1}{10}\, i_P$
+      und führt zu einer Verlängerung der Lebensdauer eines Produkts um $\Delta
+      t = 1\,\text{Monat}$. Im herkömmlichen Nutzungssystem betrage nun die
+      erreichte Nutzungsdauer 1\,Jahr. Nach diesem Jahr ist das verwendete
+      Produkt defekt und wird entsorgt. Es wurden also keine Reparaturen
+      durchgeführt, und somit ist $\tilde{i}_R^{\,\text{herk}} = 0$. Im
+      gemeinschaftlichen Nutzungssystem wird das Produkt, welches nach dem
+      ersten Jahr defekt geworden ist, allerdings repariert und dann noch einen
+      weiteren Monat genutzt, bis es schließlich beim nächsten Defekt entsorgt
+      wird. Wir prüfen nun nach dem oben entwickelten Kriterium, ob das
+      gemeinschaftliche Nutzungssystem durch die zusätzliche Reparatur den
+      Umweltverbrauch verringern konnte:
       \begin{equation}
-        \frac{\Delta \t{max}}{\t{max}} = \frac{9}{1}
-        > 0,5 = \frac{\Delta i_P}{i_P}
+          \frac{\Delta t}{t} = \frac{1\, \text{Monat}}{12\, \text{Monate}} 
+          = \frac{1}{12} < \frac{1}{10} 
+          = \frac{\frac{1}{10}\, i_P}{i_P} = \frac{\Delta \tilde{i}_R}{i_P}
       \end{equation}
-      Dass heißt, die Reparatur ist ökologisch vorteilhaft. Ist dagegen
-      $\t{max} = 9 \text{Monate}$, so ergibt sich:
+      Das heißt, die Reparatur ist ökologisch unvorteilhaft. Ist das Produkt im
+      herkömmlichen Nutzungssystem jedoch bereits nach 9 Monaten
+      funktionsuntüchtig und wird daraufhin entsorgt, so führt die im
+      gemeinschaftlichen Nutzungssystem stattfindende Reparatur zu einer
+      Verringerung des Umweltverbrauchs:
       \begin{equation}
-        \frac{\Delta \t{max}}{\t{max}} = \frac{1}{9}
-        < 0,5 = \frac{\Delta i_P}{i_P}
+          \frac{\Delta t}{t} = \frac{1\, \text{Monat}}{9\, \text{Monate}} 
+          = \frac{1}{9} > \frac{1}{10} 
+          = \frac{\frac{1}{10}\, i_P}{i_P} = \frac{\Delta \tilde{i}_R}{i_P}
       \end{equation}
-      In diesem Fall ist die Reparatur also ökologisch unvorteilhaft.
 
-      Zum Abschluss der Modellanalyse des Modells ohne Spezifizierung eines
-      funktionalen Zusammenhangs zwischen $I_R$ und $\t{max}$ geben wir noch
+      Zum Abschluss der Modellanalyse geben wir noch
       eine alternative Schreibweise für die ermittelte Bedingung unter
       Verwendung der Bogenelastizität (vgl. \ref{sec:Elastizität}) an. Die
       Bedinung \eqref{eq:BedingungReparatur} ist äquivalent zu:
       \begin{equation}
-        \breve{\epsilon}_{i_P, \t{max}} = \frac{\Delta i_P}{\Delta
-          \t{max}}
-        \cdot \frac{i_P}{\t{max}} < 1
+          \breve{\epsilon}_{(i_P + \tilde{i}_R), t} = \frac{\Delta \tilde{i}_R}{\Delta
+          t}
+          \cdot \frac{i_P + \tilde{i}_R}{t} < 1
       \end{equation}
-      D.h. dass ein positiver Umwelteffekt genau dann zu beobachten ist, wenn
-      die Material-Inputs je Produkt unelastisch bezüglich der
-      gewünschten Nutzungsdauer sind.
+      Das heißt, dass ein positiver Umwelteffekt genau dann zu beobachten ist,
+      wenn die Material-Inputs je Produkt (für dessen Herstellung, Entsorgung
+      und Reparatur) unelastisch bezüglich der Nutzungsdauer sind.
 
-      % \subparagraph{Berücksichtigung der Modellerweiterung}
-      % Wir betrachten jetzt die Modellerweiterung
-      % \eqref{eq:ReparaturModellerweiterung}:
-      % \begin{equation}
-      %     I_R(\t{max}) = i_R \cdot
-      %     \left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor
-      % \end{equation}
-      %
-      % Diese Funktion ist durch zwei lineare Funktionen nach oben und nach unten
-      % beschränkt:
-      % \begin{equation}
-      %   I_R^\text{max} \defeq \frac{i_R}{\t{tech}} \cdot \t{max} 
-      %   \geq I_R 
-      %   % = i_R \cdot \left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor 
-      %   \geq \frac{i_R}{\t{tech}} \cdot \t{max} - i_R \eqdef I_R^\text{min}
-      % \end{equation}
-      %
-      % Die drei Funktionen sind in Abbildung \ref{fig:Reparatur_I_R} dargestellt.
-      %
-      % \begin{figure}[htp]
-      %     \centering
-      %     \input{Abbildungen/Reparaturen_I_R.tex}
-      %     \caption{}
-      %     \label{fig:Reparatur_I_R}
-      % \end{figure}
-      %
-      % Wir können nun die Modellerweiterung \eqref{eq:ReparaturModellerweiterung}
-      % verwenden, um eine Funktion der MIPS zu erhalten, die nur noch von der
-      % gewünschten Nutzungsdauer abhängt: 
-      % \begin{equation}
-      %   \MIPS            = \frac{\tilde{i}_P + i_R \cdot
-      %                        \left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor }
-      %                        {h\cdot \t{max}\cdot A} 
-      %                      + \frac{\I{fix}^R}{S_D}
-      % \end{equation}
-      %
-      % Verwenden wir anstatt der Modellerweiterung deren Schranken, so erhalten
-      % wir obere und untere Schranken für die MIPS, welche entsprechend die
-      % lokalen Maxima bzw. die lokalen Minima der MIPS-Funktion stetig verbinden:
-      % \begin{align}
-      %   \MIPS^\text{max} &= \frac{\tilde{i}_P}{h\cdot \t{max}\cdot A} 
-      %                               + \frac{i_R}{h\cdot \t{tech}\cdot A} 
-      %                               + \frac{\I{fix}^R}{S_D}\\
-      %   \MIPS^\text{min} &= \frac{\tilde{i}_P - i_R}{h\cdot \t{max}\cdot A} 
-      %                               + \frac{i_R}{h\cdot \t{tech}\cdot A} 
-      %                               + \frac{\I{fix}^R}{S_D}
-      % \end{align}
-      % Die MIPS in Abhängigkeit von $\t{max}$ ist in Abbildung
-      % \ref{fig:Reparatur_MIPS} für zwei unterschiedliche
-      % Parameterkonstellationen zusammen mit ihrer oberen und unteren Schranke
-      % dargestellt. Sie konvergieren für $\t{max} \rightarrow \infty$ gegen einen
-      % konstanten Wert:
-      % \begin{equation}
-      %   \lim_{\t{max} \rightarrow \infty} \MIPS[\t{max}]            
-      % = \lim_{\t{max} \rightarrow \infty} \left[\frac{\tilde{i}_P}{h\cdot \t{max}\cdot A} 
-      %                      + \frac{i_R \cdot
-      %                        \left\lfloor\frac{\t{max}}{\t{tech}}\right\rfloor }
-      %                        {h\cdot \t{max}\cdot A} 
-      %                      + \frac{\I{fix}^R}{S_D}\right]
-      % = \frac{i_R } {h\cdot \t{tech}\cdot A} + \frac{\I{fix}^R}{S_D}
-      % \end{equation}
-      % \begin{figure}[htp]
-      %     \centering
-      %     \input{Abbildungen/Reparaturen_MIPS.tex}
-      %     \caption{}
-      %     \label{fig:Reparatur_MIPS}
-      % \end{figure}
-      %
-      % Wir können hier gut die beiden Spezialfälle aus dem ersten Teil der
-      % Analyse erkennen: zwischen den Sprungstellen wird 
-      % $\t{max}$ verlängert ohne die produktbezogenen Inputs zu verändern. Die
-      % MIPS fallen also in diesem Bereich. Dagegen wird an den Sprungstellen
-      % $\t{max}$ nicht verlängert, jedoch die produktbezogenen Inputs um $i_R$
-      % erhöht. Die MIPS verschlechtern sich dadurch. 
-      %
-      % Natürlich wird die Reparatur im Allgemeinen nicht ohne eine Verlängerung
-      % der Nutzungsdauer durchgeführt, im Einzelfall muss also die Kombination
-      % der beiden Spezialfälle betrachtet werden. Da die Inputs für eine
-      % Reparatur durch $i_R$ gegeben sind, betrachten wir hierfür die notwendige
-      % Verlängerung der gewünschten Nutzungsdauer $\Delta \t{max}$. Gemäß dem
-      % Ergebnis aus dem ersten Teil der Analyse (vgl. Gleichung
-      % \eqref{eq:Bedingung_Reparatur}) muss die gewünschte Nutzungsdauer für die
-      % $n$-te Reparatur folgender Ungleichung genügen:
-      % \begin{equation}
-      %     \frac{\Delta \t{max} }{n\cdot \t{max}} > \frac{i_R}{\tilde{i}_P + (n
-      % - 1)\cdot i_R} 
-      % \Leftrightarrow 
-      %       \Delta \t{max} > \frac{i_R \cdot n}{\tilde{i}_P + (n
-      %   - 1)\cdot i_R} \cdot \t{tech} 
-      %   = \frac{i_R \cdot n}{\tilde{i}_P - i_R + i_R \cdot n} \cdot \t{tech}
-      % \end{equation}
-      %
-      % Für $\tilde{i}_P \leq i_R$ ist der letzte Bruch größergleich eins, d.h.
-      % die Verlängerung der gewünschten Nutzungsdauer müsste in diesem Fall
-      % größer sein, als die durch die Reparatur erreichte Verlängerung der
-      % Lebensdauer. Dieser Fall ist im unteren Diagramm der Abbildung
-      % \ref{fig:Reparatur_MIPS} dargestellt. Übertreffen also die für eine
-      % Reparatur notwendigen Material-Inputs die Material-Inputs für die
-      % Bereitstellung und Entsorgung eines Produkts, so wirken sich Reparaturen
-      % negativ auf die MIPS aus, minimale MIPS werden dann benötigt, wenn die
-      % Nutzungsdauer des Produkts gerade seiner technischen Lebensdauer
-      % entspricht. 
-      %
-      % Anders im Fall $\tilde{i}_P \geq i_R$, der im oberen Diagramm der
-      % Abbildung \ref{fig:Reparatur_MIPS} dargestellt ist. Hier können die
-      % Material-Inputs für eine Reparatur noch vor dem nächsten Defekt durch eine
-      % Verlängerung der Nutzungsdauer kompensiert werden. Da dies für jede
-      % Reparatur gilt, gibt es in diesem Fall also kein
-      % globales Minimum der MIPS, jedoch nimmt der ökologische Nutzen einer
-      % zusätzlichen Reparatur mit der Anzahl der durchgeführten Reparaturen ab.
-
-
-    %%%%%%%%
-    %   Um das einzusehen, betrachten wir die Funktion $\MIPS^\text{min}$,
-    %   welche die lokalen Minima der MIPS-Funktion verbindet. Der Anstieg dieser
-    %   Funktion ist gegeben durch:
-    %   \begin{equation}
-    %       \frac{\partial \MIPS^\text{min}}{\partial \t{max}} = -
-    %       \frac{\tilde{i}_P - i_R}{h \cdot A \cdot \t{max}^2}
-    %   \end{equation}
-    %   Nur für $\tilde{i}_P > i_R$ ist der Anstieg negativ, 
-    %
-    %   Wir können nun zwei Fälle unterscheiden: ist $\tilde{i}_P > i_R$, so gilt $\lim_{\t{max} \rightarrow
-    % \infty} \MIPS[\t{max}] <\MIPS[\t{tech},0] $, dass heißt, dass sich
-    % die MIPS für mehr Reparaturen immer weiter verbessern. Für $\tilde{i}_P \leq
-    % i_R$, gilt dagegen $\lim_{\t{max} \rightarrow \infty} \MIPS[\t{max}]
-    % \geq \MIPS[\t{tech},0] $, dass heißt, dass das Produkt nicht repariert
-    % werden sollte.
-    %%%%%%%%
-    %   
-    %   Werden die Produkte nicht repariert, jedoch bis zum Ende ihrer technischen
-    %   Lebensdauer benutzt, so ergibt sich folgendes MIPS:
-    %   \begin{equation}
-    %     \MIPS[\t{tech},0] = \frac{\tilde{i}_P } {h\cdot \t{tech}\cdot A} +
-    %                          \frac{\I{fix}^R}{S_D}
-    %   \end{equation}
-      \subparagraph{Zusammenfassung der Ergebnisse} Wir halten folgende
-      Ergebnisse für das Teilmodell Reparatur fest:
-      \begin{itemize}
-          \item Eine Reparatur führt genau dann zu einem ökologisch positiven
-              Effekt, wenn der prozentuale Zuwachs der Nutzungsdauer den
-              prozentualen Anstieg an produktbezogenen Material-Inputs
-              übersteigt. Dies ist genau dann der Fall, wenn die Material-Inputs
-              je Produkt unelastisch bezüglich der gewünschten Nutzungsdauer
-              sind.
-          % \item Sind die Material-Inputs für jede Reparatur gleich und führen
-          %     die Reparaturen immer zur selben Verlängerung der Lebensdauer, so
-          %     können Reparaturen nur dann einen ökologischen Vorteil bringen,
-          %     wenn die dafür notwendigen Material-Inputs kleiner als die Inputs
-          %     sind, die für die Bereitstellung und Entsorgung der Produkte
-          %     aufgebracht werden muss.
-      \end{itemize}
-
+      Als Zusammenfassung der Betrachtung des Faktors Reparatur formulieren wir
+      nun noch das aus dem entwickelten Modell abgeleitete Kriterium für eine
+      Senkung des Umweltverbrauchs durch gemeinschaftliche Nutzung unter der
+      Prämisse von zusätzlichen Reparaturen:\\
+      \begin{mdframed}[frametitle={Kriterium}, frametitlerule=true]
+          Der Mehraufwand für Reparaturen in einem gemeinschaftlichen
+          Nutzungssystem führt genau dann zu einem ökologisch positiven Effekt,
+          wenn der prozentuale Zuwachs der Nutzungsdauer gegenüber dem
+          herkömmlichen System den prozentualen Anstieg an Material-Inputs je
+          Produkt übersteigt. 
+      \end{mdframed}\label{Kriterium:Reparatur}
+        
       \subsection{Transporte}
       \label{sec:Transporte}
       In gemeinschaftlich organisierten Produktnutzungssystemen werden in der
