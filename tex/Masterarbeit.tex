@@ -1179,7 +1179,8 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       Der dritte Fall stellt den Übergang vom ersten zum dritten Fall dar: Vor der Erhöhung der Nutzungshäufigkeit wird der Nutzungsvorrat eines einzelnen Produkts nicht voll ausgeschöpft, nach der Erhöhung jedoch schon. Für die Veränderung der MIPS gilt nach Gleichung \eqref{eq:MIPS(h)_2}:
       %
       \begin{equation}
-      	\Delta \text{MIPS} = \text{MIPS}(h_2) - \text{MIPS}(h_1) = \frac{i_P}{A} \cdot \left( \frac{1}{n_\text{max}} - \frac{1}{h_1 \cdot t_\text{max}} \right)
+      	\label{eq:Delta_MIPS_h_3}
+         \Delta \text{MIPS} = \text{MIPS}(h_2) - \text{MIPS}(h_1) = \frac{i_P}{A} \cdot \left( \frac{1}{n_\text{max}} - \frac{1}{h_1 \cdot t_\text{max}} \right)
       \end{equation}
       %
       Dieser Ausdruck ist für sich betrachtet nicht sehr aufschlussreich, kann jedoch nach oben und nach unten abgeschätzt werden. Einerseits ist wegen $h_1 < \frac{n_\text{max}}{t_\text{max}}$ der Klammerausdruck und damit der gesamte Ausdruck negativ, also $\Delta \text{MIPS} < 0$. Andererseits gilt wegen $h_2 \geq \frac{n_\text{max}}{t_\text{max}}$:
@@ -3005,18 +3006,35 @@ Die drei Fälle zusammenfassend lässt sich die kritische Distanz $\hat{d}$ als 
    \end{array} \right.
 \end{equation}
 
-\todo[color=prioH]{Ab hier weiter überarbeiten}
-% Zweistufiges Kriterium herleiten
-% Grafik herleiten
+Im dritten Fall, der sich von den anderen beiden Fällen durch die Bedingung $h^\text{herk} \geq h^*$ unterscheidet, ist die kritische Distanz $0$. Das heißt, eine Verringerung des Umweltverbrauchs ist für keine zusätzliche Distanz gegeben, wenn der Nutzungsvorrat eines einzelnen Produkts bereits vor der Erhöhung der Nutzungshäufigkeit ausgeschöpft wird. Dies liegt daran, dass die Erhöhung der Nutzungshäufigkeit in diesem Fall keine Einsparung von Produkten zur Folge hat, wie im Modell zur Nutzungshäufigkeit bereits herausgearbeitet wurde.
 
+Die Ausdrücke im ersten und zweiten Fall sind bis auf den Vorfaktor $-\frac{1}{\mathbb{T}}$ bereits aus dem Modell zur Nutzungshäufigkeit bekannt (vgl. Gleichungen \eqref{eq:Delta_MIPS_h_1} bzw. \eqref{eq:Delta_MIPS_h_3}, beachte unterschiedliche Reihenfolge der Fälle). Dort wurde herausgearbeitet, dass sie negativ sind, also ist die kritische Distanz $\hat{d}$ hier durch den Vorfaktor positiv. Das heißt im Fall $h^\text{herk} < h^*$, also wenn der Nutzungsvorrat eines einzelnen Produkt vor der Erhöhung der Nutzungshäufigkeit \emph{nicht} ausgeschöpft wird, gibt es eine echt positive kritische Transportdistanz, bis zu der insgesamt eine Verringerung des Umweltverbrauchs erreicht wird.
+
+Wir können die ersten beiden Fälle unter der Bedingung einer gegebenen Nutzungshäufigkeit $h^\text{herk}$ bei der herkömmlichen Produktnutzung mit $h^\text{herk} < h^*$ zu einer Funktion für die kritische Distanz zusammenfassen, die nur noch von $h^\text{gem}$ abhängt:
+\begin{equation}
+   \hat{d}(h^\text{gem}) = \left\{ \begin{array}{ll}
+      \frac{i_P}{\mathbb{T} \cdot t_\text{max} \cdot A} \cdot \left( \frac{1}{h^\text{herk}} - \frac{1}{h^\text{gem}} \right) & \mbox{falls } h^\text{gem} < h^* \\[10pt]
+      \frac{i_P}{\mathbb{T} \cdot A} \cdot \left( \frac{1}{h^\text{herk} \cdot t_\text{max}} - \frac{1}{n_\text{max}} \right) & \mbox{falls } h^\text{gem} \geq h^* 
+   \end{array} \right.
+\end{equation}
+
+Der Ausdruck in Fall 1 wächst in $h^\text{gem}$, das heißt, solange der Nutzungsvorrat in der gemeinschaftlichen Produktnutzung noch nicht ausgeschöpft wird, steigt die kritische Distanz mit der Nutzungshäufigkeit. Der Ausdruck in Fall 2 ist konstant, das heißt eine Erhöhung der Nutzungshäufigkeit über den Punkt $h^*$ hinaus hat keinen weiteren Effekt. Insofern lässt sich der Ausdruck in Fall 2 auch als die maximale kritische Distanz für eine gegebene Nutzungshäufigkeit $h^\text{herk}$ in der herkömmlichen Produktnutzung auffassen.
+
+Abbildung \ref{fig:delta_d_h_gem} stellt die Funktion $\hat{d}(h^\text{gem})$ dar. Im weißen Bereich mit dem Plus-Symbol wird eine MIPS-Einsparung erreicht, im grauen Bereich mit dem Minus-Symbol kommt es zu einer Erhöhung der MIPS. Gut erkennbar ist das Erreichen der maximalen kritischen Distanz bei $h^*$.
 
 \begin{figure}[ht]
-\input{Abbildungen/p-d-Diagramm.tex}
-\caption{Beschreibung}
-\label{fig:Vergleich_Szenarien}
+   \input{Abbildungen/Kopplung_Allgemein.tex}
+   \caption{MIPS-Reduktion in Abhängigkeit der Nutzungshäufigkeit $h^\text{gem}$ bei der gemeinschaftlichen Produktnutzung und der zusätzlichen Transportdistanz $\Delta d$. Als Linie eingezeichnet ist die kritische Distanz $\hat{d}$. Die weiße Fläche kennzeichnet den Bereich der MIPS-Einsparung, im grauen Bereich findet eine Erhöhung der MIPS statt. Parameter: $i_P$~=~5.000~kg, $\mathbb{T}$~=~0,5~kg/km, $t_\text{max}$~=~15~Jahre, $n_\text{max}$~=~5.000~NE, $A$~=~1~SE/NE, $h^\text{herk}$~=~200~NE/Jahr (NE = Nutzungseinheiten, SE = Service-Einheiten).}
+   \label{fig:delta_d_h_gem}
 \end{figure}
+
 \subparagraph{Fazit}
-Anders als bei der isolierten Betrachtung der Nutzungsintensivierung können unter der gleichzeitigen Berücksichtigung zusätzlicher Transporte sowohl Verbesserungen als auch Verschlechterungen der MIPS auftreten. Als hartes Kriterium für eine Senkung des Umweltverbrauchs erweist sich eine hinreichend geringe Nutzungsintensität im Ausgangsniveau, d.h. vor der Nutzungsintensivierung: Nur wenn der Nutzungsvorrat ursprünglich nicht voll ausgeschöpft wird ($h_1 < h^*$), kann es zu einer Reduzierung der MIPS kommen. In diesem Fall muss jedoch die weitere Bedingung gelten, dass die Materialinputs für die zusätzlichen Transporte kleiner sind als die eingesparten produktbezogenen Inputs für ein parallel eingesetztes Produkt ($\mathbb{T} \cdot S_D \cdot \Delta d < q \cdot i_P$).
+Anders als bei der isolierten Betrachtung der Nutzungshäufigkeit können unter der gleichzeitigen Berücksichtigung zusätzlicher Transporte sowohl Verbesserungen als auch Verschlechterungen der MIPS auftreten. Als hartes Kriterium für eine Senkung des Umweltverbrauchs erweist sich eine hinreichend geringe Nutzungshäufigkeit in der herkömmlichen Produktnutzung: Nur wenn der Nutzungsvorrat ursprünglich nicht voll ausgeschöpft wird ($h^\text{herk} < h^*$), kann es zu einer Reduzierung der MIPS kommen. In diesem Fall muss jedoch die weitere Bedingung gelten, dass die zusätzliche Transportdistanz $\Delta d$ eine kritische Distanz $\hat{d}$ nicht überschreitet. Diese ist -- bis zum Erreichen eines Maximums -- von der Nutzungshäufigkeit in der gemeinschaftlichen Produktnutzung abhängig: Je größer die Nutzungshäufigkeit, desto höher die kritische Distanz. Wir fassen diese Ergebnisse zum folgenden Kriterium zusammen:
+\\
+
+\begin{mdframed}[frametitle={Kriterium}, frametitlerule=true]				
+   Eine Reduktion des Umweltverbrauchs durch eine gleichzeitige Erhöhung der Nutzungshäufigkeit und der Transportdistanz bei gemeinschaftlichen Produktnutzungsformen wird genau dann erzielt, wenn die eingesetzten Produkte herkömmlicherweise nicht bis zum Erreichen ihrer technischen Lebensdauer genutzt werden \emph{und} die zusätzliche Transportdistanz eine kritische Distanz nicht überschreitet. Diese ist bis zu einem gewissen Punkt umso größer, je häufiger die Produkte in der gemeinschaftlichen Produktnutzung eingesetzt werden. 
+\end{mdframed}\label{Kriterium:Nutzungshäufigkeit}
 
 \subsection{Spezielles Kopplungs-Modell}\marginpar{\vspace{-5em}\scriptsize Ende
 Teil von Alexander\newline Müller
