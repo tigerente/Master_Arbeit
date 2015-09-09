@@ -221,63 +221,91 @@ dashed=false]{biblatex}
       \end{minipage}
   \end{center}
 \end{titlepage}
+\pagenumbering{Roman} 
+\chapter*{Abstract}
+
+\chapter*{Zusammenfassung}
+%%% Allgemein %%%
+% 200-250 Wörter
+% Kurze, prägnante Sätze
+% Keine Informationen, die nicht im Haupttext enthalten sind
+% Zuerst: Kernaussage der Masterarbeit aufschreiben und aufbereiten
+
+% Textmotivation
+% - Welche Forschung liegt dem Text zugrunde? Warum hebt sich dieser Text hervor?
+
+% Fragestellung
+% - Welche Fragestellungen sollen durch den Text beantwortet werden? Welche zentralen Thesen, Argumente und Behauptungen werden dafür genutzt?
+
+% Methodik
+% -Welche Methodik kommt im Text zum Einsatz? Welche empirische Basis geht dem Text voraus?
+
+% Ergebnisse
+% - Welche Ergebnisse liefert der Text? Wie decken sich diese mit der Forschung in dem Themengebiet?
+
+% Schlussfolgerungen
+% - Welche Schlussfolgerungen und Ergebnisse liefert der Text für die Forschung in dem Themengebiet? Welches Wissen fügt der Text der Forschung hinzu?
+
+
 \tableofcontents
-\marginpar{\vspace{-16.0cm}$\left.
-    \begin{array}{l}
-    \\[3.3cm]
-    \end{array}
-\right\}$
-\begin{minipage}[t]{0.8cm}
-    \vspace{-8pt}
-\scriptsize gemeinsamer Teil
-\end{minipage}
-}
-\marginpar{\vspace{-11.9cm}$\left.
-    \begin{array}{l}
-    \\[2cm]
-    \end{array}
-\right\}$
-\begin{minipage}[t]{0.8cm}
-    \scriptsize J.S.
-\end{minipage}
-}
-\marginpar{\vspace{-9.5cm}$\left.
-    \begin{array}{l}
-    \\[1.4cm]
-    \end{array}
-\right\}$
-\begin{minipage}[t]{0.8cm}
-\scriptsize A.M.
-\end{minipage}
-}
-\marginpar{\vspace{-7.6cm}$\left.
-    \begin{array}{l}
-        \\[8pt]
-    \end{array}
-\right\}$
-\begin{minipage}[t]{0.8cm}
-\scriptsize J.S.
-\end{minipage}
-}
-\marginpar{\vspace{-6.7cm}$\left.
-    \begin{array}{l}
-    \\[2.0cm]
-    \end{array}
-\right\}$
-\begin{minipage}[t]{0.8cm}
-\scriptsize A.M.
-\end{minipage}
-}
-\marginpar{\vspace{-3.9cm}$\left.
-    \begin{array}{l}
-    \\[3.7cm]
-    \end{array}
-\right\}$
-\begin{minipage}[t]{0.8cm}
-    \vspace{-8pt}
-\scriptsize gemeinsamer Teil
-\end{minipage}
-}
+% BEGIN_FOLD (Geschweifte Klammern)
+%\marginpar{\vspace{-16.0cm}$\left.
+%    \begin{array}{l}
+%    \\[3.3cm]
+%    \end{array}
+%\right\}$
+%\begin{minipage}[t]{0.8cm}
+%    \vspace{-8pt}
+%\scriptsize gemeinsamer Teil
+%\end{minipage}
+%}
+%\marginpar{\vspace{-11.9cm}$\left.
+%    \begin{array}{l}
+%    \\[2cm]
+%    \end{array}
+%\right\}$
+%\begin{minipage}[t]{0.8cm}
+%    \scriptsize J.S.
+%\end{minipage}
+%}
+%\marginpar{\vspace{-9.5cm}$\left.
+%    \begin{array}{l}
+%    \\[1.4cm]
+%    \end{array}
+%\right\}$
+%\begin{minipage}[t]{0.8cm}
+%\scriptsize A.M.
+%\end{minipage}
+%}
+%\marginpar{\vspace{-7.6cm}$\left.
+%    \begin{array}{l}
+%        \\[8pt]
+%    \end{array}
+%\right\}$
+%\begin{minipage}[t]{0.8cm}
+%\scriptsize J.S.
+%\end{minipage}
+%}
+%\marginpar{\vspace{-6.7cm}$\left.
+%    \begin{array}{l}
+%    \\[2.0cm]
+%    \end{array}
+%\right\}$
+%\begin{minipage}[t]{0.8cm}
+%\scriptsize A.M.
+%\end{minipage}
+%}
+%\marginpar{\vspace{-3.9cm}$\left.
+%    \begin{array}{l}
+%    \\[3.7cm]
+%    \end{array}
+%\right\}$
+%\begin{minipage}[t]{0.8cm}
+%    \vspace{-8pt}
+%\scriptsize gemeinsamer Teil
+%\end{minipage}
+%}
+% END_FOLD (Geschweifte Klammern)
 \todo[color=prioH]{Faktor-spezifische Modelle statt Teilmodell / Einzelmodell}
 \todo[color=prioH]{Modell zur Nutzungshäufigkeit statt Nutzungsintensivierung}
 \todo[color=prioH]{Modell zu Transporten statt zusätzliche Transporte}
@@ -285,6 +313,11 @@ dashed=false]{biblatex}
 \todo[color=prioL]{Gesamtnutzungsmenge N, Nutzungsmenge n}
 \todo[color=prioM]{MIPS: Plural}
 \todo[color=prioL]{Masterarbeit statt Master-Arbeit}
+
+\newpage
+\pagenumbering{arabic}  
+\setcounter{page}{1}
+
 \chapter{Einleitung}\marginpar{\vspace{-3em}\rule{\marginparwidth}{1pt}
 \scriptsize Beginn\newline gemeinsamer Teil}
 \section{Thema}
@@ -3753,6 +3786,8 @@ eine Umwelt-effizientere Produktnutzung leisten.
 
 \chapter{Literaturverzeichnis}
 \printbibliography
+\todo[color=prioH]{Doppelte Überschrift entfernen}
+\todo[color=prioM]{Abbildungs- und Tabellenverzeichnis?}
 \chapter{Anhang}
 \section{Elastizität}\label{sec:Elastizität}
 \todo{Bogenelastizität einführen}
