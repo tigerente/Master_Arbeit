@@ -40,7 +40,7 @@ par(mar=c(2.2,2,3.6,1.2), mgp=c(1,0.6,0))
 
 plot(h_gem, d_dach, ylim=c(0,2.5), type="l", axes=FALSE, 
      xlab='Nutzungsh\"aufigkeit $h^\\text{gem}$ [NE/Jahr]', 
-     ylab="zusätzliche Transportdistanz $\\Delta d$ [km]",  
+     ylab="zus\"atzliche Transportdistanz $\\Delta d$ [km]",  
      panel.first = polygon(c(h_gem, rev(h_gem)), 
                            c(d_dach, rep(2.5,times=length(d_dach))), 
                            col="gray90", border = "gray90")
@@ -55,7 +55,7 @@ text(350,1.95,"$-$", cex=4, col="grey30")
 text(350,0.65,"$+$", cex=4, col="grey30")
 
 # Maintitle:
-title("MIPS-Reduktion -- allgemeine Kopplung", line=2.5, cex.main=1.2)
+title("MIPS-Reduktion -- Kopplungsmodell", line=2.5, cex.main=1.2)
 # Subtitle:
 title("Erh\"ohung der Nutzungsh\"aufigkeit und zus\"atzliche Transporte", line=0.5, cex.main=1.0)
 
