@@ -2468,7 +2468,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       \begin{equation}
           \breve{\epsilon}_{(i_P + \tilde{i}_R), t} = \frac{\Delta \tilde{i}_R}{\Delta
           t}
-          \cdot \frac{i_P + \tilde{i}_R}{t} < 1
+          \cdot \frac{t}{i_P + \tilde{i}_R} < 1
       \end{equation}
       Das heißt, dass ein positiver Umwelteffekt genau dann zu beobachten ist,
       wenn die Material-Inputs je Produkt (für dessen Herstellung, Entsorgung
@@ -3027,10 +3027,6 @@ Anders als bei der isolierten Betrachtung der Nutzungshäufigkeit können unter 
 
 \chapter{Fallstudie}\label{sec:Fallstudie}\marginpar{\vspace{-3em}\rule{\marginparwidth}{1pt}
 \scriptsize A. Müller}
-        % Außerdem nehmen wir an in diesem und auch im nächsten Analyseteil an,
-        % dass Material-Inputs sich aus den drei Bestandteilen nutzungsbedingte
-        % Inputs, produktbezogene Inputs und transportbedingten Inputs ergeben
-        % und darüber hinaus keine weiteren Ressourcenverbräuche anfallen.
 Wir kommen nun zur Anwendung der theoretischen Erkenntnisse auf das Beispiel der
 gemeinschaftlichen Nutzung von Waschmaschinen. Im ersten Abschnitt stellen wir
 zunächst die für die Berechnung verwendeten Daten und deren Datenquellen dar. Im
@@ -3040,8 +3036,13 @@ ersten Anwendungsbeispiel wird durch den Vergleich des \SzenariosI\ mit dem
 \SzenarioII\ eine Erhöhung der Nutzungshäufigkeit untersucht, während im zweiten
 Anwendungsbeispiel das \SzenarioI\ mit dem \SzenarioIII\ zur Untersuchung des
 kombinierten Effekts einer Erhöhung der Nutzungshäufigkeit mit zusätzlichen
-Transporten verglichen wird. (Vergleiche Abschnitt \ref{sec:Einleitung_Fallstudie} für
-eine Definition der Szenarien und der darauf aufbauenden Anwendungsbeispiele.) 
+Transporten verglichen wird\footnote{Die Szenarien und darauf aufbauenden
+    Anwendungsbeispiele wurden im Abschnitt 
+\ref{sec:Einleitung_Fallstudie} definiert.}. Als abkürzende Schreibweise für
+die Szenarien-Namen werden im Folgenden in den Grafiken und als Indizes für
+Parameter römische Ziffern verwendet.  Dabei steht I bzw. Szenario
+I für das \SzenarioI, II bzw. Szenario II für das \SzenarioII\ und III bzw.
+Szenario III für das \SzenarioIII.
 
 \section{Daten}
 Zunächst seien alle Daten zusammengefasst, die für die Anwendung der Modelle
@@ -3088,8 +3089,6 @@ Neben den Szenario-übergreifenden werden desweiteren die folgenden
     \item  parallele Produktanzahlen $p_\text{I}, p_\text{II}, p_\text{III}$
     \item  mittlere Transportdistanzen $d_\text{I}, d_\text{II}, d_\text{III}$
 \end{itemize}
-Hierbei stehen die Indizes für die drei Szenarien: I steht für das \SzenarioI,
-II steht für das \SzenarioII\ und III steht für das \SzenarioIII.
 
 Wir geben nun zunächst an, welche Datenquellen wir benutzt haben und stellen
 dann die für die Berechnungen verwendeten Daten dar.
@@ -3857,13 +3856,34 @@ eine Umwelt-effizientere Produktnutzung leisten.
 \appendix
 \chapter*{Anhang}\label{sec:Anhang}
 \addcontentsline{toc}{chapter}{Anhang}
+Im Folgenden werden zwei kleine mathematische Ergänzungen zum Haupttext gegeben,
+die dort keinen Platz gefunden haben, der Vollständigkeit halber jedoch
+Erwähnung finden sollen. 
 \section*{Elastizität}\label{sec:Elastizität}
+Da die Begriffe \enquote{Bogenelastizität} und \enquote{Elastizität} im Text
+Verwendung finden, jedoch keine in der Mathematik häufig benutzten Größen sind,
+erfolgt hier eine kurze Erläuterung und Definition.
 
+Beide Elastizitätsbegriffe basieren auf der Idee, die Wirkung einer relativen
+Änderung einer unabhängigen Größe ($\frac{\Delta x}{x}$) auf die relative
+Änderung einer davon abhängigen Größe ($\frac{\Delta y(x)}{y}$) zu untersuchen.
+Die Bogenelastizität ist dann einfach definiert als Quotient der relativen
+Änderungen der beiden Größen:
+\begin{equation}
+    \text{Bogenelastizität}\quad\breve{\epsilon}_{y,x} \defeq \frac{\Delta y(x)}{\Delta x} \cdot \frac{x}{y}
+\end{equation}
+Im Übergang von diskreten zu infinitesimalen Änderungen ergibt sich hieraus die
+Elastizität: 
 \begin{equation}
   \text{Elastizität} \quad \epsilon_{y,x} := \frac{dy(x)}{dx} \cdot
   \frac{x}{y}
-  \label{eqn:def-Elastizität}
 \end{equation}
+Im Sprachgebrauch wird die abhängige Größe als elastisch bezüglich der
+unabhängigen Größe bezeichnet, wenn die (Bogen-)Elastizität betragsmäßig größer
+eins ist. In diesem Fall ändert sich die abhängige Variable prozentual
+stärker als die unabhängige Variable. Analog wird eine abhängige Größe als
+unelastisch bezeichnet, wenn ihre (Bogen-)Elastizität betragsmäßig kleiner eins
+ist.
 \section*{Mathematische Erläuterungen zur Analyse des
 Wartungsmodells}\label{sec:Anhang_Wartung}
 In der Analyse des Modells zum Faktor Wartung (\ref{sec:WA}) wurde die Behauptung aufgestellt,
@@ -3872,7 +3892,7 @@ steigt, (ii) rechtsgekrümmt bzw. konkav und (iii) nach oben beschränkt ist,
 für $x\rightarrow \infty$ gegen Null konvergiert. Analog hierzu wurde außerdem
 behauptet, dass der Anstieg einer zweimal differenzierbaren postiven Funktion $g(x)$, die (i)
 monoton fällt, (ii) linksgekrümmt bzw. konvex und (iii) nach unten beschränkt
-ist, für $x\rightarrow \infty$ gegen Null konvergiert. Im folgenden soll die
+ist, für $x\rightarrow \infty$ gegen Null konvergiert. Im Folgenden soll die
 erste Behauptung gezeigt werden, die zweite ergibt sich daraus direkt, denn es
 gilt $\lim_{x\rightarrow\infty} - g(x) = -\lim_{x\rightarrow\infty} g(x)$ und
 für $-g(x)$ gelten dieselben Voraussetzungen wie für $f(x)$.
