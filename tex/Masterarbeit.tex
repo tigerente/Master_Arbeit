@@ -233,19 +233,34 @@ dashed=false]{biblatex}
 
 % Textmotivation
 % - Welche Forschung liegt dem Text zugrunde? Warum hebt sich dieser Text hervor?
+- Umweltverbrauch von Produkten
+- gemeinschaftliche Produktnutzung wie z.B. Car Sharing oder Waschsalon als Möglichkeit, den Umweltverbrauch zu senken
+- Scholl beschreibt eine Reihe positiver und negativer Umwelteffekte, die mit gemeinschaftlicher Produktnutzung einhergehen.
 
 % Fragestellung
 % - Welche Fragestellungen sollen durch den Text beantwortet werden? Welche zentralen Thesen, Argumente und Behauptungen werden dafür genutzt?
+- Unter welchen Umständen kann der Umweltverbrauch insgesamt gesenkt werden?
+- Dazu formalisieren wir eine Auswahl der von Scholl beschriebenen Umwelteffekte, indem wir den Einfluss der Faktoren Produktauslastung, Nutzungshäufigkeit, Wartung, Reparaturen und Transporte auf den Umweltverbrauch der Produktnutzung untersuchen. Wir gehen von der Hypothese aus, dass diese Faktoren bei der gemeinschaftlichen Produktnutzung im Vergleich zur herkömmlichen Produktnutzung erhöht sind.
 
 % Methodik
 % -Welche Methodik kommt im Text zum Einsatz? Welche empirische Basis geht dem Text voraus?
+- Erstellen von mathematischen Modellen, die den Umweltverbrauch in Abhängigkeit von den genannten Faktoren quantifiziert.
+- Operationalisierung des Umweltverbrauchs: MIPS-Konzept (Liedtke)
+- Anwendung der Modelle zur Ableitung von Kriterien
+- Fallstudie zur gemeinschaftlichen Waschmaschinen-Nutzung
 
 % Ergebnisse
 % - Welche Ergebnisse liefert der Text? Wie decken sich diese mit der Forschung in dem Themengebiet?
+- Modelle für den Umweltverbrauch / MIPS von Produktnutzungssystemen zu den Faktoren ...
+- Beantwortung der Fragestellung: Kriterien für die Senkung des Umweltverbrauchs (unter Berücksichtigung dieser Faktoren)
+- Die Anwendbarkeit wird exemplarisch für zwei Modelle anhand einer Fallstudie zur Waschmaschinennutzung demonstriert.
+- Ergebnis der Fallstudie: Zwar teilweise Kriterien-Erfüllung, aber nur sehr geringe Einsparung
 
 % Schlussfolgerungen
 % - Welche Schlussfolgerungen und Ergebnisse liefert der Text für die Forschung in dem Themengebiet? Welches Wissen fügt der Text der Forschung hinzu?
-
+- Primärer Zweck der Modelle: Kriterien-Entwicklung. Hier wird schnell eine Grenze erreicht.
+- Ergebnisse der Fallstudie legen nahe, die Größenordnung der Einsparung näher in den Blick zu nehmen. Hierfür sind die Modelle auch anwendbar, aber nicht im Rahmen von Kriterien, sondern mit Fallstudien.
+- Modellentwicklung hilfreich: Berechnungsvorschrift für konkrete Anwendungen, Systemverständnis / Systemvergleich
 
 \tableofcontents
 % BEGIN_FOLD (Geschweifte Klammern)
@@ -577,10 +592,7 @@ gemeinschaftliche Produktnutzung beispielsweise darin bestehen, dass eine ganze
 Hausgemeinschaft eine Maschine gemeinsam nutzt.
 
 Wie eingangs bereits erwähnt, wird unter dem Begriff \enquote{Umweltverbrauch}
-eine ganze Reihe von negativen Umweltauswirkungen \todo[color=prioH]{wir verwenden den
-Begriff Umweltauswirkung mit zweierlei Bedeutung: 1) der Schaden, der in der
-Umwelt entsteht 2) die Veränderung des Umweltverbrauchs von herkömmlicher hinzu
-gemeinschaftlicher Nutzung; Scholl verwendet den Begriff nochmal anders} zusammengefasst.
+eine ganze Reihe von negativen Umweltauswirkungen zusammengefasst.
 Dementsprechend gibt es verschiedene Möglichkeiten, ihn zu operationalisieren
 und damit mess- und vergleichbar zu machen. Wir wählen den sogenannten
 MIPS-Ansatz, der von \textcite{schmidt-bleek_maia:_1998} ausführlich beschrieben
@@ -2949,8 +2961,6 @@ Anders als bei der isolierten Betrachtung der Nutzungshäufigkeit können unter 
 \chapter{Fallstudie}\marginpar{\vspace{-6em}\scriptsize Ende Teil von János Sebestyén
 \vspace{1mm} \rule{\marginparwidth}{1pt}
 Beginn Teil von Alexander \newline Müller}
-\todo[inline]{einheitlichen Umgang mit $\I{fix}$ (immer einführen und sagen, welchen
-Wert er annimmt}
         % Außerdem nehmen wir an in diesem und auch im nächsten Analyseteil an,
         % dass Material-Inputs sich aus den drei Bestandteilen nutzungsbedingte
         % Inputs, produktbezogene Inputs und transportbedingten Inputs ergeben
@@ -3478,9 +3488,9 @@ der Szenarien \SzII\ und \SzIII\ im Vergleich zum \SzenarioI. Wir gehen davon
 aus, dass die produktbezogenen, die nutzungsbedingten und die transportbezogenen
 Inputs die einzigen für die drei Szenarien relevanten Inputbestandteile sind.
 Die transportbezogenen Inputs treten sogar nur im \SzenarioIII\ auf. Für die
-Berechnung der MIPS der \Szenarien \SzI\ und \SzII\ greifen wir auf die im Abschnitt
+Berechnung der MIPS der Szenarien \SzI\ und \SzII\ greifen wir auf die im Abschnitt
 \ref{sec:Fallstudie_I_MIPS} angepasste Gleichung des Modells zur Nutzungshäufigkeit
-zurück (Gleichung \eqref{eq:MIPS(p)}}) und definieren lediglich $\I{fix}^h
+zurück (Gleichung \eqref{eq:MIPS(p)}) und definieren lediglich $\I{fix}^h
 \defeq I_N = N \cdot i_N = \frac{S}{A} \cdot i_N$. Damit erhalten wir die
 folgende Gleichung:
 \begin{equation}
@@ -3778,11 +3788,10 @@ eine Umwelt-effizientere Produktnutzung leisten.
 
 \chapter{Literaturverzeichnis}
 \printbibliography
-\todo[color=prioH]{Doppelte Überschrift entfernen}
-\todo[color=prioM]{Abbildungs- und Tabellenverzeichnis?}
+
 \chapter{Anhang}
 \section{Elastizität}\label{sec:Elastizität}
-\todo{Bogenelastizität einführen}
+
 \begin{equation}
   \text{Elastizität} \quad \epsilon_{y,x} := \frac{dy(x)}{dx} \cdot
   \frac{x}{y}
@@ -3882,5 +3891,4 @@ die Behauptung bewiesen ist.
 			\end{longtable}
 			\todo{Zelleninhalte linksbündig ausrichten)}
 
-\todo[color=prioH]{Erklärung zur selbständigen Abfassung einfügen}
 \end{document}
