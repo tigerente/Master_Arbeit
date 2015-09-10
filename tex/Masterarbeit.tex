@@ -2405,7 +2405,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
 
       \paragraph{Modellbeschreibung}
       Um den ökologischen Effekt von Transporten in einem Modell abzubilden,
-      müssen wir uns vor allem die transportbedingten Material-Inputs $I_\Theta$
+      müssen wir uns vor allem die transportbezogenen Material-Inputs $I_\Theta$
       anschauen. Sie bestimmen sich aus der Anzahl Transporte $\Theta$ -- dies
       ist die Anzahl aller während des Betrachtungszeitraum $T$ stattfindenden
       Transporte, die auf die Produktnutzung im betrachteten System
@@ -2497,7 +2497,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
           i_\Theta = d \cdot i_d
       \end{equation}
       Wir bezeichnen die Material-Inputs je Transportdistanz als \textit{anteilig},
-      da hierbei bereits für eine korrekte Bilanzierung der transportbedingten
+      da hierbei bereits für eine korrekte Bilanzierung der transportbezogenen
       Material-Inputs Mehrfachnutzungen einer Transportfahrt berücksichtigt
       werden sollen. Darunter verstehen wir, dass beispielsweise die private
       Autofahrt zum Waschsalon mit einem Einkauf im daneben liegenden Supermarkt
@@ -2621,7 +2621,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
           \label{fig:Transporte_Matrix}
       \end{figure}
 
-      Für die Aufstellung der transportbedingten Material-Inputs müssen also
+      Für die Aufstellung der transportbezogenen Material-Inputs müssen also
       zwei Varianten unterschieden werden.  Wir greifen dafür auf die allgemeine
       Gleichung für die Transportinputs zurück (Gleichung
       \eqref{eq:I_Theta_allg}: $I_\Theta = \Theta \cdot i_\Theta$) und
@@ -2654,7 +2654,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       Nutzungssystemen vorzufinden ist (vlg. Abschnitt \ref{sec:Modellierung}),
       kann sowohl durch eine Erhöhung der Transporthäufigkeit $\theta$ als auch
       durch eine Erhöhung der mittleren Transportdistanz $d$ abgebildet werden.
-      Da letzterer Parameter Bestandteil beider Varianten der transportbedingten
+      Da letzterer Parameter Bestandteil beider Varianten der transportbezogenen
       Material-Inputs ist, scheint es pragmatisch, im Folgenden die Betrachtung
       des Faktors Transporte auf die mittlere Transportdistanz zu reduzieren.
       
@@ -2663,7 +2663,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       noch kurz die im \nameref{sec:Grundmodell} definierten Inputbestandteile
       (Gleichung \eqref{eq:Grundgleichung_I_1}: $I = I_P + I_N + I_W +
       I_R + I_\Theta + I_\text{Rest}$). Wir nehmen an, dass mit
-      Ausnahme der transportbedingten Material-Inputs alle anderen
+      Ausnahme der transportbezogenen Material-Inputs alle anderen
       Inputbestandteile von der mittleren Transportdistanz unabhängig sind und
       können sie daher, wie im Abschnitt \nameref{sec:Material-Inputs}
       beschrieben, zur Größe $\I{fix}^d$ zusammenfassen:
@@ -2743,7 +2743,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       handhabbar ist. Dabei nutzen wir aus, dass beide Modellvarianten vom
       Parameter $d$ abhängen. 
       
-      Betrachten wir zunächst die transportbedingten Material-Inputs der ersten
+      Betrachten wir zunächst die transportbezogenen Material-Inputs der ersten
       Variante (vgl. Gleichung \eqref{eq:I_Theta_1}). Unter Ausnutzung des
       Zusammenhangs zwischen der Nutzungsmenge und der Servicemenge entsprechend
       der Grundgleichung \eqref{eq:Grundgleichung_S} ergibt sich: 
@@ -2753,7 +2753,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       \end{equation}
       Im letzten Schritt wurden die Parameter $A$, $\theta$ und $i_d$ zur Größe
       $\mathbb{T}^{(i)}$ zusammengefasst. Ähnlich können wir die zweite Variante der
-      transportbedingten Material-Inputs \eqref{eq:I_Theta_2} vereinfachen:
+      transportbezogenen Material-Inputs \eqref{eq:I_Theta_2} vereinfachen:
       \begin{equation}
           I_\Theta^{(2)} = d \cdot \tilde{i}_{d, M_\Theta} \cdot m_S \cdot S_D =
           S_D \cdot d \cdot \mathbb{T}^{(ii)}
@@ -2819,7 +2819,10 @@ Für die Materialinputs gilt gemäß Grundgleichung \eqref{eq:Grundgleichung_I_1
  	I = I_P + I_\Theta + I_\text{fix}^{h,d}
 \end{equation}
 %
-Für die produktbezogenen Inputs $I_P$ gelten die im Modell \enquote{\nameref{sec:Nutzungsintensivierung}} beschriebenen Abhängigkeiten von der Nutzungshäufigkeit: $I_P = P(h) \cdot i_P$, siehe Abschnitt \ref{sec:Nutzungsintensivierung}. Die transportbedingten Inputs $I_\Theta$ sind gemäß Gleichung \eqref{eq:I_Theta_3} aus dem Modell \enquote{\nameref{sec:Transporte}} proportional zum Produkt aus Service-Menge und durchschnittlicher Distanz: $I_\Theta (d) = S \cdot d \cdot \mathbb{T}$. Für die Service-Menge gilt wie üblich eine konstante Nachfrage $S = S_D$.
+Für die produktbezogenen Inputs $I_P$ gelten die im Modell
+\enquote{\nameref{sec:Nutzungsintensivierung}} beschriebenen Abhängigkeiten von
+der Nutzungshäufigkeit: $I_P = P(h) \cdot i_P$, siehe Abschnitt
+\ref{sec:Nutzungsintensivierung}. Die transportbezogenen Inputs $I_\Theta$ sind gemäß Gleichung \eqref{eq:I_Theta_3} aus dem Modell \enquote{\nameref{sec:Transporte}} proportional zum Produkt aus Service-Menge und durchschnittlicher Distanz: $I_\Theta (d) = S \cdot d \cdot \mathbb{T}$. Für die Service-Menge gilt wie üblich eine konstante Nachfrage $S = S_D$.
 
 Damit ergibt sich das folgende Modell für die Effekt-Kopplung: \\
 
@@ -2887,6 +2890,7 @@ Die drei Fälle zusammenfassend lässt sich die kritische Distanz $\hat{d}$ als 
       \frac{i_P}{\mathbb{T} \cdot A} \cdot \left( \frac{1}{h^\text{herk} \cdot t_\text{max}} - \frac{1}{n_\text{max}} \right) & \mbox{falls } h^\text{herk} < h^* \leq h^\text{gem} \\[10pt]
       0 & \mbox{falls } h^* \leq h^\text{herk} < h^\text{gem}
    \end{array} \right.
+   \label{eq:d_hat3}
 \end{equation}
 
 Im dritten Fall, der sich von den anderen beiden Fällen durch die Bedingung $h^\text{herk} \geq h^*$ unterscheidet, ist die kritische Distanz $0$. Das heißt, eine Verringerung des Umweltverbrauchs ist für keine zusätzliche Distanz gegeben, wenn der Nutzungsvorrat eines einzelnen Produkts bereits vor der Erhöhung der Nutzungshäufigkeit ausgeschöpft wird. Dies liegt daran, dass die Erhöhung der Nutzungshäufigkeit in diesem Fall keine Einsparung von Produkten zur Folge hat, wie im Modell zur Nutzungshäufigkeit bereits herausgearbeitet wurde.
@@ -2917,7 +2921,7 @@ Anders als bei der isolierten Betrachtung der Nutzungshäufigkeit können unter 
 
 \begin{mdframed}[frametitle={Kriterium}, frametitlerule=true]				
    Eine Reduktion des Umweltverbrauchs durch eine gleichzeitige Erhöhung der Nutzungshäufigkeit und der Transportdistanz bei gemeinschaftlichen Produktnutzungsformen wird genau dann erzielt, wenn die eingesetzten Produkte herkömmlicherweise nicht bis zum Erreichen ihrer technischen Lebensdauer genutzt werden \emph{und} die zusätzliche Transportdistanz eine kritische Distanz nicht überschreitet. Diese ist bis zu einem gewissen Punkt umso größer, je häufiger die Produkte in der gemeinschaftlichen Produktnutzung eingesetzt werden. 
-\end{mdframed}\label{Kriterium:Nutzungshäufigkeit}
+\end{mdframed}\label{Kriterium:Kopplung}
 
 \subsection{Spezielles Kopplungs-Modell}\marginpar{\vspace{-5em}\scriptsize Ende
 Teil von Alexander\newline Müller
@@ -3238,10 +3242,10 @@ mehrdimensionale Vektoren in den unterschiedlichen MIPS-Dimensionen darstellen.
 Wir werden uns jedoch der Einfachheit halber auf eine Dimension beschränken und
 nur die aggregregierte MIPS-Größe \enquote{Material
 Footprint}\footnote{Die Größe \enquote{Material Footprint} umfasst hier die
-abiotischen und biotischen Resourcen Kategorien des MIPS Konzepts. Vgl. hierzu
+abiotischen und biotischen Ressourcen Kategorien des MIPS Konzepts. Vgl. hierzu
 \textcite[S. 549f]{liedtke_resource_2014}.} betrachten.
 
-Neben den Szenario übergreifenden werden desweiteren die folgenden
+Neben den Szenario-übergreifenden werden desweiteren die folgenden
 \emph{Szenario-spezifischen Daten} für die Beispielrechnungen benötigt:
 
 \begin{itemize}
@@ -3292,11 +3296,11 @@ Wir haben die folgenden Datenquellen benutzt:
         Waschprogramme, der Auslastung, Material-Inputs je Produktnutzung durch
         Waschmittel und den Material-Inputs je Kilowattstunde bestimmt werden.)} 
     \item[Definition:] Einige Parameter sind durch die Definition
-        der Szenarien bzw. der allgemeinen Bedingungen gegeben.\\
+        der Szenarien bzw. durch allgemeine Bedingungen gegeben.\\
         \textit{Parameter: Produktanzahl, mittlere Transportdistanz,
         Transportierte Menge je Serviceeinheit, Betrachtungszeitraum}
-    \item[Schätzung:] Ein Paramter konnte nicht mit Hilfe  der genannten Quellen 
-        bestimmt werden und wurde daher geschätzt. \\
+    \item[Schätzung:] Der Paramter Transporthäufigkeit konnte nicht mit Hilfe
+        der genannten Quellen bestimmt werden und wurde daher geschätzt. \\
         \textit{Parameter: Transporthäufigkeit}
 \end{description}
 
@@ -3349,6 +3353,7 @@ Betrachtungen erfolgen unter Berücksichtigung der Referenzwerte und deren drei
 Parametervariationen.
 
 \subsection{Anwendungsbeispiel: Nutzungshäufigkeit}
+\label{sec:Fallstudie_I}
 Für die Anwendung der Ergebnisse aus dem Modell zur Nutzungshäufigkeit wird in
 diesem Anwendungsbeispiel das \SzenarioI\ in der Rolle des Szenarios mit
 herkömmlicher Nutzung mit dem \SzenarioII\ als dem Szenario mit
@@ -3369,9 +3374,9 @@ Für die Überprüfung dieses Kriteriums genügt es, die Nutzungshäufigkeit
 der herkömmlichen Nutzung $h^\text{herk}$ mit der Nutzungshäufigkeit $h^*$ zu
 vergleichen. Mit $h^*$ wurde dabei die Nutzungshäufigkeit bezeichnet, bei der
 die Maximalnutzungsdauer der technischen Lebensdauer entspricht. Als Ungleichung
-ausgedrückt (vgl. Gleichung \eqref{eq:Kriterium_Nutzungshäufigkeit}), liegt eine
+ausgedrückt, liegt eine
 Senkung des Umweltverbrauchs durch gemeinschaftliche Nutzung genau dann vor,
-wenn gilt:
+wenn gilt (vgl. Gleichung \eqref{eq:Kriterium_Nutzungshäufigkeit}):
 \begin{equation}
     h^\text{herk} < h^*  = \frac{\n{max}}{\t{max}}
     \label{eq:Fallstudie_Kriterium_Nutzungshäufigkeit}
@@ -3387,7 +3392,7 @@ Mit Hilfe dieser Gleichung lässt sich nun die Ungleichung
 \eqref{eq:Fallstudie_Kriterium_Nutzungshäufigkeit} als äquivalentes Kriterium an
 die parallele Produktanzahl formulieren:
 \begin{equation}
-    p^\text{herk} < p^*  = \frac{N \cdot \t{max}}{\n{max} \cdot T}   
+    p^\text{herk} > p^*  = \frac{N \cdot \t{max}}{\n{max} \cdot T}   
 \end{equation}
 Dieser Schritt war notwendig, da in den Szenarien die parallele Produktanzahl
 und nicht die Nutzungshäufigkeit die definierende Größe ist.
@@ -3429,16 +3434,17 @@ Ressourceneinsparung erfolgen. Dies gilt insbesondere für unsere Referenzwerte.
 Diese Betrachtung bezieht sich lediglich auf die Produktanzahl in der
 herkömmlichen Nutzung. Für das Anwendungsbeispiel ist durch das \SzenarioII\
 auch die Produktanzahl für die gemeinschaftliche Nutzung definiert.  Sie beträgt
-zwei, ist also deutlich geringer als die ermittelten Werte für $p^*$. Da $p^*$
-die Anzahl an parallelen Produkten angibt, bis zu der eine Reduktion von
-Produkten eine Ressourceneinsparung ermöglicht, bedeutet das, dass im
-\SzenarioII\ die Reduktion an Produkten deutlich über das Ziel hinausgeschossen
-ist. Würden in diesem Szenario anstatt der zwei Waschmaschinen zehn eingesetzt,
-wäre -- zumindest bei reiner Betrachtung des Effekts der Erhöhung der
-Nutzungshäufigkeit -- die erzielte Ressourceneinsparung bei allen
+$p_\text{II} = 2$, ist also deutlich geringer als die ermittelten Werte für
+$p^*$. Da $p^*$ die Anzahl an parallelen Produkten angibt, bis zu der eine
+Reduktion von Produkten eine Ressourceneinsparung ermöglicht, bedeutet das, dass
+im \SzenarioII\ die Reduktion an Produkten deutlich über das Ziel
+hinausgeschossen ist. Würden in diesem Szenario anstatt der zwei Waschmaschinen
+zehn eingesetzt, wäre -- zumindest bei reiner Betrachtung des Effekts der
+Erhöhung der Nutzungshäufigkeit -- die erzielte Ressourceneinsparung bei allen
 Parametervariationen dieselbe.
 
-\subsubsection{Größenordnung der MIPS-Einsparung}
+\subsubsection{Absolute Größenordnung der MIPS-Änderung}
+\label{sec:Fallstudie_I_MIPS}
 Wir gehen nun über die reine Frage hinaus, ob eine Reduktion des Umweltverbrauchs durch
 gemeinschaftliche Nutzung erzielt werden kann, und betrachten in diesem
 Abschnitt die Höhe der Änderung des Umweltverbrauchs und wie diese von den
@@ -3469,6 +3475,7 @@ berechnet werden können:
             \frac{i_P}{n_{\text{max}} \cdot A} & \mbox{sonst} 
         \end{array}
     \right.
+    \label{eq:MIPS(p)}
 \end{equation}
 
 \begin{figure}[t!]
@@ -3497,7 +3504,7 @@ Ziel-Szenario ebenso wie im Ausgangs-Szenario 17 Waschmaschinen eingesetzt, so
 ergibt sich natürlich keine Ressourceneinsparung. Diese steigt aber linear mit
 jedem eingesparten Produkt, bis sie bei 14 Produkten im Ziel-Szenario -- dem Wert
 von $p^*$ für die Referenzwerte -- ihr Maximum erreicht und ab da konstant bei etwa
-\SI{0.05}{kg/kg} bleibt. Dieser Wert entspricht damit auch der
+\SI{0.051}{kg/kg} bleibt. Dieser Wert entspricht damit auch der
 Ressourceneinsparung des \SzenariosII\ ($p_\text{II} = 2$) gegenüber dem
 \SzenarioI.
 
@@ -3517,74 +3524,150 @@ Einsparung bereits bei einer deutlich geringeren Reduktion von Waschmaschinen
 erreicht werden können. 
 
 \subsection{Anwendungsbeispiel: Kopplung}
+\label{sec:Fallstudie_II}
 Für das Anwendungsbeispiel zur Kopplung der Modelle 
 Nutzungshäufigkeit und Transporte, wird nun das \SzenarioI\ mit
 dem \SzenarioIII\ verglichen. Sie unterscheiden sich sowohl in der parallelen
-Produktanzahl, als auch in der mittleren Transportdistanz. \SzenarioI\ ist wie
-gehabt das Szenario mit der herkömmlichen Nutzung, welches alternativ als
-Ausgangs-Szenario bezeichnet wird.
-Das \SzenarioIII\ übernimmt nun die Rolle des Szenarios
-mit gemeinschaftlicher Nutzung. Im Text wird hierfür wieder die alternative
-Bezeichnung \enquote{Ziel-Szenario} verwendet.
+Produktanzahl, als auch in der mittleren Transportdistanz. Das \SzenarioI\ ist
+wie gehabt das Szenario mit der herkömmlichen Nutzung, welches wieder alternativ
+als Ausgangs-Szenario bezeichnet wird.  Das \SzenarioIII\ übernimmt nun die
+Rolle des Szenarios mit gemeinschaftlicher Nutzung. Im Text wird hierfür 
+die alternative Bezeichnung \enquote{Ziel-Szenario} verwendet.
 
 \subsubsection{Kriterienüberprüfung}
-Die theoretische Analyse der Kopplung einer Erhöhung der Nutzungshäufigkeit
-mit zusätzlichen Transporten ergab, dass eine Senkung des Umweltverbrauchs durch
-die gemeinschaftliche Nutzung genau dann vorliegt, wenn bei gegebener Reduktion
-der parallelen Produktanzahl die mittlere Transportdistanz bei der
-gemeinschaftlichen Nutzung $d^\text{gem}$ unter einem Schwellwert $d^*$ liegt.
-Der Schwellwert lässt sich mit Gleichung \eqref{eq:d_stern} bestimmen:
-\todo[inline]{Formel für $d^*$ einfügen}
-Es ergeben sich die je nach Fall und Unsicherheitsbereich verschiedenen Werte,
-die in Tabelle \ref{tab:Kopplung-Kriterien} aufgeführt sind. Nur für den besten
-Fall mit Parameterabweichungen von 5\% bzw. 10\% übertrifft die
-Ressourceneinsparung durch die Erhöhung der Nutzungshäufigkeit den zusätzlichen
-Ressourcenverbrauch durch die hinzugekommenen Transporte. Für die Referenzwerte
-ergibt sich ein $d^*$ von \SI{1.1}{km}, sodass hier bei einer mittleren
-Transportdistanz von $d_\text{III} = \SI{2}{km}$ im \SzenarioIII\ von keiner
-Nettoreduktion des Umweltverbrauchs auszugehen ist.
+Die theoretische Analyse der Kopplung der Modelle Nutzungshäufigkeit
+und Transporte ergab, dass eine Senkung des Umweltverbrauchs durch
+die gemeinschaftliche Nutzung genau dann vorliegt, wenn die eingesetzten Produkte
+herkömmlicherweise nicht bis zum Erreichen ihrer technischen Lebensdauer genutzt
+werden \emph{und} die zusätzliche Transportdistanz eine kritische Distanz $d^*$
+nicht überschreitet (vgl. Kriterium auf Seite \pageref{Kriterium:Kopplung}).
+Diese kritische Distanz lässt sich mit Gleichung \eqref{eq:d_hat3} bestimmen:
+\begin{equation}
+   \hat{d}(h^\text{herk}, h^\text{gem}) = \left\{ \begin{array}{ll}
+      \frac{i_P}{\mathbb{T} \cdot t_\text{max} \cdot A} \cdot \left( \frac{1}{h^\text{herk}} - \frac{1}{h^\text{gem}} \right) & \mbox{falls } h^\text{herk} < h^\text{gem} < h^* \\[10pt]
+      \frac{i_P}{\mathbb{T} \cdot A} \cdot \left( \frac{1}{h^\text{herk} \cdot t_\text{max}} - \frac{1}{n_\text{max}} \right) & \mbox{falls } h^\text{herk} < h^* \leq h^\text{gem} \\[10pt]
+      0 & \mbox{falls } h^* \leq h^\text{herk} < h^\text{gem}
+   \end{array} \right.
+\end{equation}
+Wir können diese Gleichung wieder unter Zuhilfenahme des Zusammenhangs zwischen
+$p$ und $h$ (Gleichung \eqref{eq:Fallstudie_h(p)}) umformulieren in einen
+Ausdruck in $p$. Wir vernachlässigen dabei den ersten Fall, da in
+unserem Anwendungsbeispiel für alle Parametervariationen $p^* \geq p^\text{gem}$
+gilt (und das ist äquivalent zu $h^* \leq h^\text{gem}$):
+\begin{equation}
+   \hat{d}(p^\text{herk}) = 
+   \left\{ \begin{array}{ll}
+      \frac{i_P}{\mathbb{T} \cdot A} \cdot \left( \frac{p^\text{herk} \cdot T}{N
+          \cdot t_\text{max}} - \frac{1}{n_\text{max}} \right) & \mbox{falls }
+          p^\text{herk} > p^* \\[10pt]
+      0 & \mbox{falls } p^* \geq p^\text{herk} 
+   \end{array} \right.
+   \label{eq:d_hat2_p}
+\end{equation}
+Als Kriterium muss nun überprüft werden, ob die zusätzliche Distanz im
+gemeinschaftlichen Nutzungssystem unterhalb der kritischen Distanz $\hat{d}$
+liegt. In unserem Fall entspricht die zusätzliche Distanz $d^\text{gem} -
+d^\text{herk}$ der mittleren Distanz $d^\text{gem}$, da im herkömmlichen Fall
+die mittlere Distanz $d_\text{I} = \SI{0}{km}$ beträgt. Wenn also
+\begin{equation}
+    d^\text{gem} < \hat{d} 
+    \label{eq:d_Kriterium}
+\end{equation}
+gilt (vgl. Gleichung \eqref{eq:d_dach}), so konnte der Umweltverbrauch im
+gemeinschaftlichen Nutzungssystem verringert werden. 
+
+Aus Gleichung \eqref{eq:d_hat2_p} ergeben sich je Parametervariation
+verschiedene Werte für $\hat{d}$, die in Tabelle \ref{tab:Kopplung-Kriterien}
+aufgeführt sind. Nur für Parametervariationen von $+ 5\%$ bzw. $+ 10\%$ ist das
+Kriterium \eqref{eq:d_Kriterium} erfüllt. In diesen Fällen
+übertrifft also die Ressourceneinsparung durch eine Erhöhung der Nutzungshäufigkeit
+den zusätzlichen Ressourcenverbrauch durch die hinzugekommenen Transporte. Für
+die Referenzwerte ergibt sich ein $\hat{d}$ von \SI{1.1}{km}, sodass hier bei
+einer mittleren Transportdistanz im \SzenarioIII\ von $d_\text{III} =
+\SI{2}{km}$ von keiner Nettoreduktion des Umweltverbrauchs auszugehen ist.
+
 \begin{table}[h!]
     \begin{center}
         \begin{tabular}[h]{lrrrrrrr}
             \toprule
             Parametervariation: & -10\% & -5\% & -1\% & 0\% & +1\% & +5\% & +10\% \\
             \midrule
-            $d^*$ [\si{km}] & 0.0 & 0.0 & 0.8 & 1.1 & 1.4 & 2.8 & 5.3 \\
-            $d^\text{gem} = \SI{2}{km} < d^*$ ? & & & & & & \checkmark &
+            $\hat{d}$ [\si{km}] & 0.0 & 0.0 & 0.8 & 1.1 & 1.4 & 2.8 & 5.3 \\
+            $d^\text{gem} = \SI{2}{km} < \hat{d}$ ? & & & & & & \checkmark &
             \checkmark \\
             \bottomrule
         \end{tabular}
     \end{center}
     \caption{Übersicht über die Kriterienüberprüfung im Anwendungsbeispiel zur
         Kopplung von der Erhöhung der Nutzungshäufigkeit mit zusätzlichen
-        Transporten. Angegeben sind die für $d^*$ ermittelten Werte
+        Transporten. Angegeben sind die für $\hat{d}$ ermittelten Werte
         für die verschiedenen Fälle und Unsicherheitsbereiche. Die mittlere
         Transportdistanz im \SzenarioIII\ beträgt \SI{2}{km}. Ist dieser
-        Wert kleiner als $d^*$, so ist durch gemeinschaftliche Nutzung eine
+        Wert kleiner als $\hat{d}$, so ist durch gemeinschaftliche Nutzung eine
         Ressourceneinsparung möglich. Für den Schätzwert ist dies nicht
     gegeben.}
     \label{tab:Kopplung-Kriterien}
 \end{table}
-% \input{Tabellen/Tra_Kriterien.tex}
-\subsubsection{Größenordnung der MIPS-Einsparung}
-Wir betrachten nun die MIPS-Änderung gegenüber dem Ausgangs-Szenario in
-Abhängigkeit von der mittleren Distanz im Ziel-Szenario. Hierfür verwenden wir 
-die Gleichung:
-\todo[inline]{entsprechende Gleichungen referenzieren und angeben}
+Jedoch ist eine große Unsicherheit bezüglich der kritischen Distanz $\hat{d}$ zu
+erkennen: Sie liegt bei einer Parametervariation von $\pm 10 \%$ zwischen
+\SI{0}{km} und \SI{5.3}{km}. Zumindest kann mit einiger Sicherheit gesagt
+werden, dass in einem gemeinschaftlichen Szenario mit einer mittleren Distanz
+größer als \SI{5.3}{km} keine Ressourceneinparung zu erreichen ist. 
 
-Diese Funktion ist mit den gegebenen Parametern in Abbildung
-\ref{fig:Fallstudie_DeltaMIPS(d)} dargestellt. Auf der Abszissenachse ist die
-mittlere Transportdistanz im Ziel-Szenario angegeben, gegenüber der die
-MIPS-Änderung aufgetragen wurde. Die durchgezogene Linie gibt den Zusammenhang
-für die Schätzwerte wieder: für $d^\text{gem} = \SI{0}{km}$ beträgt sie
-\SI{0.05}{kg/kg}. Dies entspricht dem Ergebnis aus dem vorangegangenen
-Abschnitt. Von diesem Wert fällt die MIPS-Änderung linear in der mittleren
-Transportdistanz im Ziel-Szenario. Bei $d^* = \SI{1.1}{km}$ beträgt die
-MIPS-Änderung gerade \SI{0}{kg/kg} -- genau so ist ja der Schwellwert $d^*$
-definiert. Für größere Transportdistanzen im Ziel-Szenario, insbesondere auch für
-die mittlere Transportdistanz im \SzenarioIII\ wo sie \SI{2}{km} beträgt, ist
-die MIPS-Einsparung negativ, was einer Nettoerhöhung der MIPS des
-gemeinschaftlichen Szenarios gegenüber der herkömmlichen Nutzung entspricht.
+\subsubsection{Absolute Größenordnung der MIPS-Änderung}
+Wie im Anwendungsbeispiel zur Nutzungshäufigkeit schauen wir uns auch hier
+wieder die Größenordnung der MIPS-Änderung an. Wir gehen diesmal von einer
+gegebenen parallelen Produktanzahl im Ziel-Szenario aus (nämlich
+$p^\text{gem} = p_{\text{III}} = 2$), und schauen uns an, welche MIPS-Änderung
+sich für verschiedene mittlere Distanzen $d^{gem}$ ergeben. Als Grundlage für
+diese Betrachtung greifen wir auf das Kopplungsmodell \eqref{eq:MIPS(h,d)_2}
+zurück:
+\begin{equation}
+    \text{MIPS}(h,d) = 
+    \mathbb{T} \cdot d + \frac{I_{\text{fix}}^{h,d}}{S_D} + 
+    \left\{ \begin{array}{ll}  
+        \frac{i_P}{h \cdot t_{\text{max}} \cdot A} & \mbox{falls } h < h^* \\[5pt] 
+        \frac{i_P}{n_{\text{max}} \cdot A} & \mbox{sonst} 
+    \end{array} \right. 
+\end{equation}
+Diese Gleichung muss zum einen wieder in eine Gleichung in $p$ umformuliert
+werden. Zum anderen muss die Größe $\mathbb{T}$ spezifiziert werden. Da wir im
+\SzenarioIII\ von einem privaten Transport ausgehen, die anteiligen Inputs je
+Transportdistanz also konstant sind, verwenden wir für die Modellierung der
+Transporte die erste Modellvariante \eqref{eq:MIPSTransporte}. Es gilt daher
+$\mathbb{T} = A \cdot \theta \cdot i_d$ (vgl. die Modellanalyse im Modell
+\nameref{sec:Transporte} (\ref{sec:Transporte})). Damit ergibt sich:
+\begin{equation}
+    \text{MIPS}(p,d) = 
+    A  \cdot \theta \cdot i_d \cdot d + \frac{I_{\text{fix}}^{p,d}}{S_D} + 
+    \left\{ 
+        \begin{array}{ll}  
+            \frac{i_P\cdot p \cdot T}{S_D \cdot t_{\text{max}}} &
+                                                   \mbox{falls } p < p^* \\[5pt]
+            \frac{i_P}{n_{\text{max}} \cdot A} & \mbox{sonst} 
+        \end{array}
+    \right. 
+    \label{eq:MIPS(p,d)}
+\end{equation}
+Diese Gleichung ist die Grundlage für Abbildung
+\ref{fig:Fallstudie_DeltaMIPS(d)} dar\footnote{Da sich für dieses
+    Anwendungsbeispiel die Größe $\I{fix}^{p,d}$ nicht zwischen den betrachteten
+    Szenarien unterscheidet, spielt sie für die betrachtete MIPS-Änderung keine
+    Rolle. Alle anderen Parameter sind gegeben.}. 
+Auf der Abszissenachse ist die mittlere Transportdistanz im Ziel-Szenario und
+auf der Ordinate die daraus resultierende MIPS-Änderung angegeben. Die
+durchgezogene Linie gibt den Zusammenhang zwischen diesen beiden Größen für die
+Referenzwerte wieder: Für $d^\text{gem} = \SI{0}{km}$ beträgt die MIPS-Änderung
+\SI{0.051}{kg/kg}. Dies entspricht dem Ergebnis aus dem vorangegangenen
+Abschnitt. Mit steigender mittlerer Transportdistanz im Ziel-Szenario fällt die
+MIPS-Änderung linear. Bei $\hat{d} = \SI{1.1}{km}$ beträgt sie gerade
+\SI{0}{kg/kg} -- genau so ist ja die kritische Distanz $\hat{d}$ definiert. Für
+größere Transportdistanzen im Ziel-Szenario ist die
+MIPS-Einsparung negativ, was einer Nettoerhöhung der MIPS des gemeinschaftlichen
+Szenarios gegenüber der herkömmlichen Nutzung entspricht. Unter Berücksichtigung
+der Referenzwerte erhöht sich im \SzenarioIII\ mit einer mittleren
+Transportdistanz von $d_{\text{III}}=\SI{2}{km}$ der Umweltverbrauch um
+\SI{0.044}{kg/kg}.
 \begin{figure}[h!]
     \input{Abbildungen/Fallstudie_DeltaMIPS_d.tex}
     \caption{Für die Referenzwerte (durchgezogene Linie) und drei verschiedene
@@ -3603,32 +3686,80 @@ gemeinschaftlichen Szenarios gegenüber der herkömmlichen Nutzung entspricht.
     \label{fig:Fallstudie_DeltaMIPS(d)}
 \end{figure}
 
-Auch hier sind die Unsicherheitsbereiche in denen sich die MIPS-Änderung bewegt
-schattiert dargestellt: für $d^\text{gem} = \SI{0.0}{km}$ beträgt die Spanne für die
-Parameterabweichung von 10\% \SIrange{0.0}{0.2}{kg/kg}. Mit zunehmender
-mittlerer Transportdistanz im Ziel-Szenario verschiebt sich diese nach unten und
-wird etwas größer. Bei $d^\text{gem} = \SI{5.3}{km}$ beträgt die
-Unsicherheitsspanne \SIrange{0.0}{-0.3}{kg/kg}. Durch die Schnittpunkte der
-Begrenzungen der Unsicherheitsbereiche mit der Nulllinie werden die Schwellwerte
-für die verschiedenen Fälle und Parameterabweichungen definiert. So wird
-letztlich auch deren Spanne sichtbar: für eine Parameterabweichung von 10\%
-liegt $d^*$ zwischen \SI{0.0}{km} und \SI{5.3}{km}.
+Wird die Berechnung der MIPS-Änderung mit Parametervariationen durchgeführt, so
+ergeben sich die in der Abbildung \ref{fig:Fallstudie_DeltaMIPS(d)} schattiert
+dargestellten Unsicherheitsbereichen. Sie lassen sich horizontal als
+Unsicherheit in der kritischen Distanz (für $\Delta \MIPS = \SI{0}{kg/kg}$) und
+vertikal als Unsicherheit in der MIPS-Änderung lesen.  Die Unsicherheit
+bezüglich der kritischen Distanz wurde bereits im Abschnitt zur
+Kriterienüberprüfung besprochen, hier wird sie noch einmal graphisch sichtbar. Die
+kritische Distanz schwankt für eine Parametervariation von $\pm 10\%$ zwischen
+\SI{0}{km} und \SI{5.3}{km}. 
 
-Bisher wurde die MIPS-Änderung nur für sich allein betrachtet, ohne diese in
-Relation zu den gesamten MIPS für die einzelnen Szenarien zu setzen. Diese Lücke
-schließen wir im Folgenden Abschnitt.
+Die Unsicherheit bezüglich der MIPS-Änderung kann für jeden Wert von
+$d^\text{gem}$ betrachtet werden.  Für $d^\text{gem} = \SI{0.0}{km}$ fällt die
+MIPS-Änderung für eine Parametervariation von $\pm 10\%$ in einen Bereich von
+\SI{0}{kg/kg} bis \SI{0.2}{kg/kg}. Mit zunehmender mittlerer Transportdistanz im
+Ziel-Szenario verschiebt sich dieser Bereich nach unten (das heißt die Werte
+werden kleiner) und die Spannbreite nimmt zu.  Bei einer mittleren Distanz von
+$d^\text{gem} = \SI{5.3}{km}$ -- der mittleren Distanz, bei der auf jeden Fall
+keine Einsparung im gemeinschaftlichen Szenario zu erreichen ist -- liegt die
+MIPS-Änderung in einem Unsicherheitsbereich von \SI{-0.3}{kg/kg} bis
+\SI{0.0}{kg/kg}, die Spanne beträgt also \SI{0.3}{kg/kg}.  Der
+Unsicherheitsbereich für \SzenarioIII\ an der Stelle $d^{\text{gem}} =
+d_{\text{III}}=\SI{2}{km}$ für eine Parametervariation von $\pm 10\%$ geht von
+\SI{0.13}{kg/kg} bis \SI{-0.12}{kg/kg}. Letztlich kann also nicht genau gesagt
+werden, ob in dem \SzenarioIII\ eine Ressourceneinparung erzielt werden kann
+oder nicht.
 
-In Abbildung \ref{fig:Vergleich_Szenarien} sind die MIPS für die drei Szenarien
-mit Einteilungen nach den MIPS-Bestandteilen dargestellt. Dieser Darstellung
-liegt der beste Fall mit einer Parameterabweichung von 10\% zugrunde. Selbst in
-diesem Fall unterscheiden sich die MIPS der drei Szenarien nur um wenige
-Prozente. Das liegt daran, dass der Nutzungsanteil den Produkt- und
+\subsubsection{Relative Größenordnung der MIPS-Änderung}
+Zum Abschluss der Fallstudie betrachten wir noch die relative MIPS-Änderung
+der Szenarien \SzII\ und \SzIII\ im Vergleich zum \SzenarioI. Wir gehen davon
+aus, dass die produktbezogenen, die nutzungsbedingten und die transportbezogenen
+Inputs die einzigen für die drei Szenarien relevanten Inputbestandteile sind.
+Die transportbezogenen Inputs treten sogar nur im \SzenarioIII\ auf. Für die
+Berechnung der MIPS der \Szenarien \SzI\ und \SzII\ greifen wir auf die im Abschnitt
+\ref{sec:Fallstudie_I_MIPS} angepasste Gleichung des Modells zur Nutzungshäufigkeit
+zurück (Gleichung \eqref{eq:MIPS(p)}}) und definieren lediglich $\I{fix}^h
+\defeq I_N = N \cdot i_N = \frac{S}{A} \cdot i_N$. Damit erhalten wir die
+folgende Gleichung:
+\begin{equation}
+    \text{MIPS}_{\text{I, II}}(p) = 
+    \frac{i_N}{A} + \left\{ 
+        \begin{array}{ll}  
+            \frac{i_P\cdot p \cdot T}{S_D \cdot t_{\text{max}}} &
+                                                   \mbox{falls } p < p^* \\[5pt]
+            \frac{i_P}{n_{\text{max}} \cdot A} & \mbox{sonst} 
+        \end{array}
+    \right.
+\end{equation}
+Für die Bestimmung der MIPS des \SzenariosIII\ verwenden wir dieselbe, nur um
+den transportbezogenen Teil ergänzte Formel. Denn auch hier umfassen die fixen
+Inputs $\I{fix}^{p,d}$ nur die nutzungsbedingten Inputs $I_N$. Wir erhalten
+(vgl. Gleichung \eqref{eq:MIPS(p,d)}):
+\begin{equation}
+    \text{MIPS}_{\text{III}}(p,d) = 
+    A  \cdot \theta \cdot i_d \cdot d + \frac{i_N}{A} + 
+    \left\{ 
+        \begin{array}{ll}  
+            \frac{i_P\cdot p \cdot T}{S_D \cdot t_{\text{max}}} &
+                                                   \mbox{falls } p < p^* \\[5pt]
+            \frac{i_P}{n_{\text{max}} \cdot A} & \mbox{sonst} 
+        \end{array}
+    \right. 
+\end{equation}
+Mit Hilfe dieser beiden Gleichungen, wurde nun der Umweltverbrauch der drei
+Szenarien bestimmt. Das Ergebnis mit Einteilungen nach den drei berücksichtigten
+MIPS-Bestandteilen ist in Abbildung \ref{fig:Vergleich_Szenarien} dargestellt.
+Dieser Darstellung liegt eine Parametervariation von $+10\%$ zugrunde. Selbst in
+diesem optimistischsten Fall unterscheiden sich die MIPS der drei Szenarien nur
+um wenige Prozente. Das liegt daran, dass der Nutzungsanteil den Produkt- und
 Transportanteil deutlich dominiert. Die Ressourceneinparung durch die Erhöhung
-der Nutzungshäufigkeit betrifft nur den Produktanteil. Hier führt sie zwar zu
-einer Reduktion um ca. ein Drittel. Auf die gesamten MIPS betrachtet entspricht
+der Nutzungshäufigkeit betrifft jedoch nur den Produktanteil. Hier führt sie zwar zu
+einer Reduktion um etwa ein Drittel. Auf die gesamten MIPS betrachtet entspricht
 dies jedoch lediglich einer Reduktion um 5\% (Szenario II in der Abbildung).
-Diese Einsparung schrumpft auf 2\%, kommen wie im dritten Szenario noch
-Transporte hinzu. Für die geschätzten Parameter sind diese Änderungen noch
+Diese Einsparung schrumpft auf 2\%, kommen wie im \SzenarioIII\ noch
+Transporte hinzu. Für die Referenzwerte sind diese Änderungen noch
 kleiner und daher im wesentlichen vernachlässigbar.
 \begin{figure}[ht]
     \input{Abbildungen/Vergleich_Szenarien.tex}
@@ -3644,6 +3775,17 @@ kleiner und daher im wesentlichen vernachlässigbar.
         5\% und im \SzenarioIII\ um 3\% geringer.}
     \label{fig:Vergleich_Szenarien}
 \end{figure}
+
+Wir können also festhalten, dass sich für die Referenzwerte im zweiten
+Anwendungsbeispiel eine Verschlechterung des Umweltverbrauchs des
+gemeinschaftlichen Szenarios gegenüber dem herkömmlichen Szenario ergeben hat.
+Wie im ersten Anwendungsbeispiel auch, unterliegt dieses Ergebnis allerdings einer großen
+Unsicherheit und unter optimistischen Parametervariationen hätte das Ergebnis
+auch gegenteilig ausfallen können.  Die Betrachtung der relativen MIPS-Änderung
+zeigte jedoch, dass es sich hierbei um vernachlässigbare Effekte handelt, da die
+nutzungsbedingten Inputs, die von den betrachteten Faktoren nicht beeinflusst
+werden, den größten Teil des Umweltverbrauchs ausmachen. 
+
 \chapter{Schluss}\marginpar{\vspace{-6em}\scriptsize Ende Teil von
 Alexander\newline Müller
 \vspace{1mm} \rule{\marginparwidth}{1pt}
@@ -3745,12 +3887,40 @@ Teil \nameref{sec:ModellbildungAnalyse}.
     \label{tab:Kriterien}
 \end{table}
 \subsection{Fallstudie}
-\begin{itemize}
-    \item Fallstudie demonstriert Anwendbarkeit der Modelle
-    \item Konkrete Ergebnisse: ...
-    \item Hohe Sensitivität. Aber: Eine Variation aller Parameter in eine Richtung ist ja auch ein großer Eingriff, sodass eine starke Variation der Ergebnisse nicht so verwunderlich ist.
-    \item In einigen Fällen waren die Kriterien erfüllt. Die Einsparung beträgt auch dort jedoch nur wenige Prozent. Schaut man genauer hin und betrachtet nur die Produktbezogenen Inputs, sieht man, dass dort eine Einsparung von ... erreicht wurde. Erkenntnis: Zwar geben die Kriterien darüber Aufschluss, ob überhaupt eine Einsparung vorliegt, jedoch ist für die relative MIPS-Änderung das Verhältnis der verschiedenen Input-Bestandteile ausschlaggebend. Im Fallbeispiel überwogen die nutzungsbedingten Inputs, ...
-\end{itemize}
+Die Fallstudie zur gemeinschaftlichen Waschmaschinen-Nutzung wurde vor allem als
+Anwendung der in der Theorie erarbeiteten Modelle durchgeführt. Sie konnte
+zeigen, dass zumindest das Modell zur Nutzungshäufigkeit und die Modellkopplung
+praxistauglich sind. Darüberhinaus konnten konkrete Ergebnisse berechnet
+werden: Im Vergleich zum \SzenarioI\ ergab sich für das \SzenarioII\ eine
+MIPS-Reduktion um \SI{0.051}{kg/kg} (\nameref{sec:Fallstudie_I} Abschnitt
+\ref{sec:Fallstudie_I}) und für das \SzenariosIII\ eine MIPS-Erhöhung um
+\SI{0.044}{kg/kg} (\nameref{sec:Fallstudie_II} Abschnitt
+\ref{sec:Fallstudie_II}). Es stellte sich jedoch zum einen heraus, dass diese Werte
+einer großen Unsicherheit bezüglich der Parameter unterliegen.  Die große
+Unsicherheit muss jedoch unter der Einschränkung betrachtet werden, dass für die
+betrachteten Parametervariationen alle Parameter um einen bestimmten Prozentsatz
+so variiert wurden, dass diese Variation einen möglichst großen Effekt auf die
+MIPS hat. Dies stellt sicherlich einen recht großen Eingriff dar.
+
+Zum anderen stellte sich heraus, dass die absolute Änderung der MIPS 
+im Vergleich zum Umweltverbrauch der drei Szenarien sehr klein sind. Betrachtet
+man nur die produktbezogenen Inputs, so ist hier zwar im optimistischsten Fall
+eine Reduktion um etwa ein Drittel erreicht wurden. Allerdings stellen die
+nutzungsbedingten Inputs für den Umweltverbrauch der drei Szenarien einen weit
+größeren Anteil dar. Dieses Ergebnis zeigt eine wichtige Grenze der
+Kriterienentwicklung auf: Auch wenn die Kriterien erfüllt sind, also eine
+Senkung des Umweltverbrauchs durch gemeinschaftliche Nutzung erreicht werden
+konnte, muss für die Bewertung der ökologischen Vorteilhaftigkeit der
+gemeinschaftlichen Nutzung auch noch die relative Einsparung betrachtet werden.
+Ist diese nur sehr klein, so kann der Aufwand, eine gemeinschaftliche Nutzung zu
+organisieren, gebenenfalls nicht durch ein ökologisches Argument gerechtfertigt
+werden.
+% \begin{itemize}
+%     \item Fallstudie demonstriert Anwendbarkeit der Modelle
+%     \item Konkrete Ergebnisse: ...
+%     \item Hohe Sensitivität. Aber: Eine Variation aller Parameter in eine Richtung ist ja auch ein großer Eingriff, sodass eine starke Variation der Ergebnisse nicht so verwunderlich ist.
+%     \item In einigen Fällen waren die Kriterien erfüllt. Die Einsparung beträgt auch dort jedoch nur wenige Prozent. Schaut man genauer hin und betrachtet nur die Produktbezogenen Inputs, sieht man, dass dort eine Einsparung von ... erreicht wurde. Erkenntnis: Zwar geben die Kriterien darüber Aufschluss, ob überhaupt eine Einsparung vorliegt, jedoch ist für die relative MIPS-Änderung das Verhältnis der verschiedenen Input-Bestandteile ausschlaggebend. Im Fallbeispiel überwogen die nutzungsbedingten Inputs, ...
+% \end{itemize}
 
     \section{Diskussion}\label{sec:Diskussion}
     Im folgenden Kapitel setzen wir uns kritisch mit der von uns eingesetzten Methodik und den erzielten Forschungsergebnissen auseinander. Dazu greifen wir einige Aspekte heraus, die wir selbst für problematisch halten und geben Begründungen dafür an, warum wir dennoch entsprechende Entscheidungen getroffen haben.
