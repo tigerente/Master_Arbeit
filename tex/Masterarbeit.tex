@@ -172,6 +172,7 @@ dashed=false]{biblatex}
 %%% END Article customizations
 % END_FOLD (Preamble)
 \begin{document}
+\pagenumbering{Roman} 
 \listoftodos \newpage
 \begin{titlepage}
   \begin{center}
@@ -221,8 +222,10 @@ dashed=false]{biblatex}
       \end{minipage}
   \end{center}
 \end{titlepage}
+
 \pagenumbering{Roman} 
 \begin{otherlanguage}{english}
+
 \chapter*{Abstract}
 The production, use and disposal of products accounts for numerous environmental
 impacts. Collectivly organized product use, like car sharing or self-service
@@ -292,9 +295,15 @@ Während sich die Modelle in der Anwendung auf die betrachtete Fallstudie als hi
 
 \newpage
 \section*{Danksagung}
+<<<<<<< HEAD
 Wir möchten uns herzlich bei Katrin Bienge, Claudia Pahl-Wostl, Jens Teubler,
 allen Teilnehmer*innen unserer Fallstudie und bei unseren Eltern für die
 Unterstützung unserer Arbeit auf ihre je eigene Art bedanken. 
+=======
+Diese Arbeit ist nur durch die Unterstützung zahlreicher Personen ermöglicht
+worden, bei denen ich mich herzlich bedanken möchte. \dots Zu guter Letzt danke ich
+meinen Eltern für den mir geschaffenen Freiraum.
+>>>>>>> e91bf57b49dea28d20d88ac6f60f845253fb5734
 \vfill
 \section*{Autorenschaft} 
 Diese Master-Arbeit ist Ergebnis einer Zusammenarbeit zwischen János
@@ -659,7 +668,7 @@ und Entsorgung eines Produkts benötigt werden \parencite[S.
 Materialien, sondern auch die durch vorgelagerte Wertschöpfungsprozesse
 verursachten Materialbewegungen berücksichtigt \parencite[S.
 547]{liedtke_resource_2014}. Im Gegensatz zu Output-orientierten Zielgrößen, wie
-beispielsweise einer $\text{CO}_2$-Bilanz, ist die MIPS kein spezifischer
+beispielsweise einer $\text{CO}_2$-Bilanz, sind die MIPS kein spezifischer
 Indikator für eine bestimmte Umweltauswirkung, sondern bietet eine gute
 Abschätzung für eine Vielzahl von Umweltauswirkungen 
 \parencite[S. 547]{liedtke_resource_2014}.
@@ -672,15 +681,12 @@ erbringen und ermöglicht es somit, eine breites Spektrum für Strategien zur
 Reduktion des Umweltverbrauchs zu berücksichtigen \parencite[S.
 551]{liedtke_resource_2014}. 
 
-Für die Quantifizierung des Umweltverbrauchs wird zunächst die Maßeinheit für die Service-Menge definiert und es werden die Material-Inputs und die Service-Menge bestimmt. Schließlich erfolgt die Division der beiden Größen \parencite[S. 548]{liedtke_resource_2014}:
+Für die Quantifizierung des Umweltverbrauchs nach dem MIPS-Konzept werden die Material-Inputs bestimmt, die zur Bereitstellung einer Service-Einheit benötigt werden \parencite[S. 548]{liedtke_resource_2014}:
 \begin{equation}
-    \MIPS = \frac{\text{Material-Inputs}}{\text{Servicemenge}}
+    \MIPS = \frac{\text{Material-Inputs}}{\text{Service-Einheit}}
     \label{eq:MIPS_Einleitung}
 \end{equation}
-In dieser Gleichung werden also die für ein Produkt aufgewendeten
-Material-Inputs in Bezug zu dem von dem Produkt erbrachten Service gesetzt.
-Gleichung \eqref{eq:MIPS_Einleitung} bildet die Grundlage für unsere
-Modellentwicklung.
+Diese Gleichung bildet die Grundlage für unsere Modellentwicklung.
 
 \subsection{Modellierung}
 \label{sec:Modellierung}
@@ -879,13 +885,13 @@ Wie in Abschnitt \ref{sec:Operationalisierung} erläutert, greifen wir für die 
 \text{MIPS} = \frac{I}{S}
 \end{equation}
 %
-Dabei steht $I$ für die Material-Inputs und $S$ für den Service. Die
+Dabei steht $I$ für die Material-Inputs\footnote{In Abweichung zu \textcite{liedtke_resource_2014} verwenden wir zur besseren Lesbarkeit die Variablenbezeichnung $I$ statt $MI$.} und $S$ für die Service-Menge\footnote{Wir verstehen Gleichung \eqref{eq:MIPS} als Bestimmungsgleichung für die MIPS und bezeichnen $S$ daher -- in Abweichung zu \textcite{liedtke_resource_2014} -- als \enquote{Service-Menge}, die in einer gewissen Service-Einheit gemessen wird. Das Ergebnis der Division sind dann die Material-Inputs pro Service-Einheit}. Die
 Modellbildung besteht nun darin, diese Größen näher zu spezifizieren um dadurch
 die Umweltauswirkungen der untersuchten Faktoren abbilden zu können.
 
 In der vorliegenden Master-Arbeit bestimmen wir die MIPS stets für ein ganzes Produktnutzungssystem. Dazu können mehrere Produkte gehören, die sowohl nebeneinander als auch nacheinander im Gebrauch sein können, sowie eine für den Betrieb notwendige Infrastruktur wie etwa Räumlichkeiten, und schließlich unterstützende Dienstleistungen wie Transporte, Reparaturen und Wartungen.
 
-Die MIPS bezieht sich immer auf einen konkreten Zeitraum, während der ein bestimmter Service genutzt wird (\enquote{period of utilization}, \textcite[S. 551]{liedtke_resource_2014}). Dieser Betrachtungszeitraum kann grundsätzlich willkürlich festgelegt werden. Wichtig ist nur, dass sich sowohl die Material-Inputs $I$, als auch die Service-Menge $S$ auf ihn beziehen: Es werden genau diejenigen Produkte berücksichtigt, die innerhalb des Betrachtungszeitraums eingesetzt werden und auch nur die Produktnutzungen, die in diesen Zeitraum fallen. Wird ein Produkt über den Betrachtungszeitraum hinaus genutzt, so sind die mit seiner Bereitstellung und Entsorgung verbundenen Material-Inputs nur anteilig anzurechnen (Details hierzu folgen in Abschnitt \enquote{\nameref{sec:Produktanzahl}} ab Seite \pageref{sec:Produktanzahl}).
+Die MIPS beziehen sich immer auf einen konkreten Zeitraum, während der ein bestimmter Service genutzt wird (\enquote{period of utilization}, \textcite[S. 551]{liedtke_resource_2014}). Dieser Betrachtungszeitraum kann grundsätzlich willkürlich festgelegt werden. Wichtig ist nur, dass sich sowohl die Material-Inputs $I$, als auch die Service-Menge $S$ auf ihn beziehen: Es werden genau diejenigen Produkte berücksichtigt, die innerhalb des Betrachtungszeitraums eingesetzt werden und auch nur die Produktnutzungen, die in diesen Zeitraum fallen. Wird ein Produkt über den Betrachtungszeitraum hinaus genutzt, so sind die mit seiner Bereitstellung und Entsorgung verbundenen Material-Inputs nur anteilig anzurechnen (Details hierzu folgen in Abschnitt \enquote{\nameref{sec:Produktanzahl}} ab Seite \pageref{sec:Produktanzahl}).
 
 Wir wählen einen Betrachtungszeitraum $T$ einer bestimmten Länge, beispielsweise
 zehn Jahre, und notieren dies als $T = 10 \text{ Jahre}$. Der Betrachtungszeitraum verhält sich unveränderlich gegenüber einer Variation jeglicher Parameter des Nutzungssystems. Dies wird bei der Modellanalyse relevant sein, bei der bestimmte Parameter (beispielsweise die Nutzungshäufigkeit) systematisch variiert werden. Eine Größe, die sich bei der Variation eines Parameters nicht verändert, nennen wir \emph{konstant} in Bezug auf diesen Parameter. Wir schreiben:
@@ -1240,7 +1246,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       
       Im Anschluss verallgemeinern wir das Analyse-Ergebnis auf eine beliebige ganzzahlige Verringerung $\Delta p$. Zunächst beginnen wir jedoch mit der Änderung der MIPS für die besprochene Erhöhung der Nutzungshäufigkeit. Nach der Modellgleichung \eqref{eq:MIPS(h)_3} ist diese durch den folgenden Ausdruck gegeben:
       \begin{equation}
-      	\label{eq:Delta_MIPS_h_2}
+      	\label{eq:Delta_MIPS_h}
       	\Delta \text{MIPS} = \text{MIPS}(h_2) - \text{MIPS}(h_1) = \frac{i_P}{S_D} \cdot (P(h_2) - P(h_1))
       \end{equation}
       
@@ -1256,7 +1262,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       %
       Im letzten Schritt wurde die Definition $q := \frac{T}{t}$ mit $t =
       t_\text{max}$ (gilt wegen $h_1 < h_2 < h^*$) angewendet. Die obige Analyse
-      ergibt, dass die MIPS durch die Erhöhung der Nutzungshäufigkeit im ersten Fall bei der Einsparung eines parallel betriebenen Produkts unabhängig vom Ausgangsniveau um einen konstanten Wert abnimmt. Dabei lässt sich der Zähler $q \cdot i_P$ als die produktbezogenen Inputs des eingesparten parallel eingesetzten Produkts identifizieren, wenn man sich vergegenwärtigt, dass im Betrachtungszeitraum nacheinander $q$ Produkte eingesetzt werden.
+      ergibt, dass die MIPS durch die Erhöhung der Nutzungshäufigkeit im ersten Fall bei der Einsparung eines parallel betriebenen Produkts unabhängig vom Ausgangsniveau um einen konstanten Wert abnehmen. Dabei lässt sich der Zähler $q \cdot i_P$ als die produktbezogenen Inputs des eingesparten parallel eingesetzten Produkts identifizieren, wenn man sich vergegenwärtigt, dass im Betrachtungszeitraum nacheinander $q$ Produkte eingesetzt werden.
       
       Dieses Ergebnis lässt sich in Abbildung \ref{fig:MIPS(h)} nachvollziehen: An den gleichbleibenden vertikalen Abständen der Datenpunkte bis zur Stelle $h = h^*$ ist die konstante Verringerung mit jedem eingesparten Produkt gut erkennbar.
       
@@ -1281,7 +1287,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       Dieser Ausdruck ist für sich betrachtet nicht sehr aufschlussreich, kann jedoch nach oben und nach unten abgeschätzt werden. Einerseits ist wegen $h_1 < \frac{n_\text{max}}{t_\text{max}}$ der Klammerausdruck und damit der gesamte Ausdruck negativ, also $\Delta \text{MIPS} < 0$. Andererseits gilt wegen $h_2 \geq \frac{n_\text{max}}{t_\text{max}}$:
       %
       \begin{equation}
-      	\label{eq:Delta_MIPS_h_3}
+      	\label{eq:Delta_MIPS_h_3_2}
       	\Delta \text{MIPS} = \frac{i_P}{A} \cdot \left( \frac{1}{n_\text{max}} - \frac{1}{h_1 \cdot t_\text{max}} \right) \geq \frac{i_P}{A} \cdot \left( \frac{1}{h_2 \cdot t_\text{max}} - \frac{1}{h_1 \cdot t_\text{max}} \right) \eqnref{eq:Delta_MIPS_h_1} - \frac{q \cdot i_P}{S_D}
       \end{equation}
       %			
@@ -2125,7 +2131,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
             \item oder es existiert ein $w^*$, sodass die Bedingung für alle
                 $w<w^*$ erfüllt ist und für alle $w>w^*$ nicht (Fall 2).
         \end{itemize}
-        \begin{figure}[h!]
+        \begin{figure}[ht!]
             \centering
             \input{Abbildungen/Wartung_Verlaeufe.pdf_tex}
             \caption{Es sind die zwei Fälle dargestellt, die für Bedingung
@@ -2159,7 +2165,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
         sind daher auch in der Abbildung \ref{fig:Wartungen} abgebildet. Gemäß den
         Annahmen steigt der Nutzungsvorrat und sinken die Inputs je Nutzung mit
         wachsender Wartungshäufigkeit. Mit höherer Wartungshäufigkeit nehmen
-        diese Änderungen jedoch ab. Entsprechend verläuft auch die MIPS: Für
+        diese Änderungen jedoch ab. Entsprechend verlaufen auch die MIPS: Für
         kleine Wartungshäufigkeiten sinken die MIPS bei einer Erhöhung der
         Wartungshäufigkeit vergleichsweise stark. Die wartungsbedingten Inputs kommen hier
         noch nicht zum tragen. Ab der Stelle $w^*$ können jedoch kaum noch
@@ -2167,7 +2173,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
         und die zusätzlichen wartungsbedingten Inputs übertreffen die
         Einsparungen.  Daher steigen die MIPS ab dieser Stelle nahezu linear in
         der Wartungshäufigkeit an.
-        \begin{figure}[h!]
+        \begin{figure}[ht!]
             \centering
             \input{Abbildungen/Wartungen.tex}
             \caption{Dargestellt ist der Umweltverbrauch eines
@@ -2799,7 +2805,6 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
                             + \frac{\I{fix}^d}{S_D} \\[5pt]
                           &= d \cdot \tilde{i}_{d, M} \cdot m_S 
                             + \frac{\I{fix}^d}{S_D}
-          \label{eq:MIPSTransporte_Alt}
       \end{align}
 
       Abschließend fassen wir die beiden entwickelten Gleichungen noch einmal
@@ -3079,7 +3084,7 @@ mehrdimensionale Vektoren in den unterschiedlichen MIPS-Dimensionen darstellen.
 Wir werden uns jedoch der Einfachheit halber auf eine Dimension beschränken und
 nur die aggregregierte MIPS-Größe \enquote{Material
 Footprint}\footnote{Die Größe \enquote{Material Footprint} umfasst hier die
-abiotischen und biotischen Ressourcen Kategorien des MIPS Konzepts. Vgl. hierzu
+abiotischen und biotischen Ressourcen Kategorien des MIPS-Konzepts. Vgl. hierzu
 \textcite[S. 549f]{liedtke_resource_2014}.} betrachten.
 
 Neben den Szenario-übergreifenden werden desweiteren die folgenden
@@ -3143,7 +3148,7 @@ Wir haben die folgenden Datenquellen benutzt:
 Die folgende Tabelle stellt alle für die Beispielrechnungen verwendeten Daten
 und deren Quelle dar:
 %   - kein Anspruch auf Korrektheit / grobe Schätzwerte
-\begin{table}[h]
+\begin{table}[ht]
     \input{Tabellen/Fallstudie_Datentabelle.tex}
     \caption{Die für die Beispielrechnungen angenommenen Daten.}
     \label{tab:Referenzwerte}
@@ -3240,7 +3245,7 @@ einen anderen Wert an. Diese verschiedenen Werte für $p^*$ sind in der Tabelle
 
 \begin{table}[t]
     \begin{center}
-        \begin{tabular}[h]{lccccccc}
+        \begin{tabular}[ht]{lccccccc}
             \toprule
             Parametervariation: & -10\% & -5\% & -1\% & 0\% & +1\% & +5\% & +10\% \\
             \midrule
@@ -3421,9 +3426,9 @@ die Referenzwerte ergibt sich ein $\hat{d}$ von \SI{1.1}{km}, sodass hier bei
 einer mittleren Transportdistanz im \SzenarioIII\ von $d_\text{III} =
 \SI{2}{km}$ von keiner Nettoreduktion des Umweltverbrauchs auszugehen ist.
 
-\begin{table}[h!]
+\begin{table}[ht!]
     \begin{center}
-        \begin{tabular}[h]{lrrrrrrr}
+        \begin{tabular}[ht]{lrrrrrrr}
             \toprule
             Parametervariation: & -10\% & -5\% & -1\% & 0\% & +1\% & +5\% & +10\% \\
             \midrule
@@ -3503,7 +3508,7 @@ Szenarios gegenüber der herkömmlichen Nutzung entspricht. Unter Berücksichtig
 der Referenzwerte erhöht sich im \SzenarioIII\ mit einer mittleren
 Transportdistanz von $d_{\text{III}}=\SI{2}{km}$ der Umweltverbrauch um
 \SI{0.044}{kg/kg}.
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \input{Abbildungen/Fallstudie_DeltaMIPS_d.tex}
     \caption{Für die Referenzwerte (durchgezogene Linie) und drei verschiedene
         Parametervariationen (schattierte Bereiche) wird die MIPS-Einsparung
@@ -3671,6 +3676,7 @@ Nutzungssystem gezielte Handlungsempfehlungen für eine Verringerung des
 Umweltverbrauchs vorzuschlagen.
 
 \subsection{Kriterien}
+\label{sec:Ergebnisse_Kriterien}
 Das Ziel unserer Arbeit war es, Kriterien für die Senkung des Umweltverbrauchs
 durch gemeinschaftliche Produktnutzung aufzustellen. Dies gelang zunächst für
 gemeinschaftliche Nutzungssysteme, die sich unter sonst gleichen Bedingungen in
@@ -3762,7 +3768,7 @@ werden.
     
     Wir wählten als Referenz die \enquote{herkömmliche Produktnutzung}, das heißt die Nutzungsform, mit der das jeweils betrachtete Produkt typischerweise genutzt wird (vgl. Abschnitt \ref{sec:Operationalisierung}). Diese Definition erscheint zwar recht unkonkret, da im Einzelfall noch definiert werden muss, was unter der herkömmlichen Produktnutzungsform zu verstehen ist, wodurch ein gewisser subjektiver Spielraum offengelassen wird. Für eine allgemeine theoretische Betrachtung ist sie allerdings so spezifisch wie möglich.
     
-    In unseren theoretischen Ergebnissen spiegelt sich die Abhängigkeit vom Vergleichspunkt insofern wider, als dass Parameter der herkömmlichen Produktnutzung in einigen der erarbeiteten Kriterien explizit vorkommen (vgl. Abschnitt \ref{sec:Ergebnisse_Kriterien}). \todo[color = prioH]{Referenz einfügen} Für die Fallstudie konkretisierten wir den Vergleichspunkt durch die Definition von Szenarien. Auch hier besteht eine Abhängigkeit des Ergebnisses von der Wahl der Ausgangsszenarien, die sich jedoch -- wie oben erläutert -- nicht vermeiden lässt.
+    In unseren theoretischen Ergebnissen spiegelt sich die Abhängigkeit vom Vergleichspunkt insofern wider, als dass Parameter der herkömmlichen Produktnutzung in einigen der erarbeiteten Kriterien explizit vorkommen (vgl. Abschnitt \ref{sec:Ergebnisse_Kriterien}). Für die Fallstudie konkretisierten wir den Vergleichspunkt durch die Definition von Szenarien. Auch hier besteht eine Abhängigkeit des Ergebnisses von der Wahl der Ausgangsszenarien, die sich jedoch -- wie oben erläutert -- nicht vermeiden lässt.
 
     \subsection*{Prämissen}
     Die theoretische Analyse dieser Master-Arbeit beruht auf gewissen Hypothesen über die Veränderung der betrachteten Faktoren beim Übergang von der herkömmlichen zur gemeinschaftlichen Produktnutzung (vgl. Tabelle \ref{tab:faktoren_hypothesen}, Abschnitt \ref{sec:Modellierung}). Sie wurden im Sinne einer deduktiven Herangehensweise als Prämissen  vorausgesetzt. Die Formulierung der Hypothesen war notwendig, um in der theoretischen Betrachtung die Besonderheiten der gemeinschaftlichen im Vergleich zur herkömmlichen Produktnutzung zu charakterisieren.
