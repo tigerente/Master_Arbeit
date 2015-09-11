@@ -6,7 +6,7 @@
 % !TEX TS-program = pdflatex
 % !TEX encoding = UTF-8 Unicode
 
-\documentclass[11pt, titlepage=true, twoside=true, BCOR=8mm]{scrreprt} % use larger type; default would be 10pt
+\documentclass[11pt, titlepage=true, twoside=true, BCOR=0mm]{scrreprt} % use larger type; default would be 10pt
 \setcounter{secnumdepth}{3} % Überschriften-Nummern bis zur 3. Ebene
 
 \usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
@@ -75,6 +75,7 @@ dashed=false]{biblatex}
 %\lfoot{}\cfoot{\thepage}\rfoot{}
 \usepackage{footnote}
 
+\interfootnotelinepenalty=10000 % so that footnotes dont break over pages
 %%% SECTION TITLE APPEARANCE
 \usepackage{sectsty}
 \allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
@@ -183,7 +184,7 @@ dashed=false]{biblatex}
     \LARGE{\textbf{\art}}\\[1.5ex]
     \huge{\textbf{\textsc{\titel}}}\\[1.0ex]
     \LARGE{\textbf{\stitle}}\\[2ex]
-    \vspace{1cm}
+    \vspace{1.0cm}
 
     \normalsize
     vorgelegt von:\\[12pt]
@@ -297,6 +298,7 @@ Ein Hauptergebnis dieser Master-Arbeit sind die entwickelten Modelle, die für e
 Während sich die Modelle in der Anwendung auf die betrachtete Fallstudie als hilfreich erweisen, zeigen sich methodische Grenzen bei der Kriterien-Entwicklung. Eine Erkenntnis aus der Fallstudie ist zudem, dass eine Erfüllung der Kriterien keine Aussage über die Größenordnung der Umweltverbrauch-Senkung zulässt. Als Schlussfolgerung für die Forschung im Gebiet der gemeinschaftlichen Produktnutzung erscheint es daher sinnvoll, die in dieser Master-Arbeit angelegte Modellierung fortzuführen, den Fokus jedoch von der Kriterien-Entwicklung zur Untersuchung von konkreten Anwendungsfällen zu verschieben.
 
 \clearpage
+\vspace{3cm}
 \section*{Danksagung}
 Wir möchten uns herzlich bei Katrin Bienge, Prof. Dr. Claudia Pahl-Wostl, Jens Teubler,
 allen Teilnehmer*innen unserer Fallstudie und bei unseren Eltern für die
@@ -558,33 +560,7 @@ Umweltwirkungen}).
 %\textcite{erdmann_quantifizierung_2011} genau dies anhand des online-basierten
 %Gebrauchtwarenhandels.
 
-\vspace{0.3cm}
-\begin{table}[ht]
-	\begin{tabular}{>{\RaggedRight}p{6.6cm}>{\RaggedRight}p{7.2cm}}
-		\toprule
-		\multicolumn{2}{l}{\textbf{{\large Leistungsspezifische Umweltwirkungen}}} \vspace{0.2 cm} \\
-		\textbf{positiv} & \textbf{negativ} \\
-		\midrule
-		Nutzungsdauer\-verlängerung, Einsatz langlebiger Produkte \vspace{0.2cm} &  größerer gebrauchsbedingter Verschleiß \vspace{0.2cm} \\
-		Verwendung verbrauchsarmer und/oder leistungsstarker Geräte \vspace{0.2cm} &  Übernutzung \vspace{0.2cm} \\
-		Maximierung der Geräteauslastung \vspace{0.2cm} &  beschleunigte Ausmusterung \vspace{0.2cm} \\
-		Berücksichtigung des technisch-ökologischen Fortschritts \vspace{0.2cm} & (zu) lange Verwendung ineffizienter Geräte \vspace{0.2cm} \\
-		Förderung recyclinggerechter Konstruktion \vspace{0.2cm} & zusätzlicher Ressourcenverzehr für Nutzungsdauerverlängerung und Langlebigkeit \\
-		Größen- und Spezialisierungsvorteile \vspace{0.5cm} & zusätzliche Transporte \\
-		\midrule
-		\multicolumn{2}{l}{\textbf{{\large Mengenabhängige Umweltwirkungen}}} \vspace{0.2 cm} \\
-		\textbf{positiv} & \textbf{negativ} \\
-		\midrule
-		Nachfrageverringerung wegen höherer Kostentransparenz \vspace{0.2cm} & erleichterter Produktzugang \vspace{0.2cm} \\
-		Vermeidung von Fehlkäufen \vspace{0.2cm} & Stimulierung des Wunsches nach Eigentum \\
-		& Einkommenseffekt \vspace{0.2cm} \\
-		\bottomrule
-	\end{tabular}
-	\caption{Übersicht über die Umweltwirkungen durch gemeinschaftliche Produktnutzung. Quelle:  \cite[S. 72]{scholl_marketing_2009}.}
-	\label{tab:Mechanismen}
-\end{table}
 
-\newpage
 Auch in der ökonomischen Fachliteratur gibt es Publikationen, die sich mit
 gemeinschaftlichen Nutzungsformen auseinandersetzen. Sie greifen dabei auf eine
 deutlich stärker formalisierte Methodik zurück als die bisher aufgeführten
@@ -616,6 +592,31 @@ Forschungslücke besteht in der mangelnden Berücksichtigung von
 Ressourcenverbräuchen, da die angegebenen Studien sich auf Emissionen und
 Energieverbräuche als Zielgrößen konzentrieren.
 
+\begin{table}[t]
+	\begin{tabular}{>{\RaggedRight}p{6.6cm}>{\RaggedRight}p{7.2cm}}
+		\toprule
+		\multicolumn{2}{l}{\textbf{{\large Leistungsspezifische Umweltwirkungen}}} \vspace{0.2 cm} \\
+		\textbf{positiv} & \textbf{negativ} \\
+		\midrule
+		Nutzungsdauer\-verlängerung, Einsatz langlebiger Produkte \vspace{0.2cm} &  größerer gebrauchsbedingter Verschleiß \vspace{0.2cm} \\
+		Verwendung verbrauchsarmer und/oder leistungsstarker Geräte \vspace{0.2cm} &  Übernutzung \vspace{0.2cm} \\
+		Maximierung der Geräteauslastung \vspace{0.2cm} &  beschleunigte Ausmusterung \vspace{0.2cm} \\
+		Berücksichtigung des technisch-ökologischen Fortschritts \vspace{0.2cm} & (zu) lange Verwendung ineffizienter Geräte \vspace{0.2cm} \\
+		Förderung recyclinggerechter Konstruktion \vspace{0.2cm} & zusätzlicher Ressourcenverzehr für Nutzungsdauerverlängerung und Langlebigkeit \\
+		Größen- und Spezialisierungsvorteile \vspace{0.5cm} & zusätzliche Transporte \\
+		\midrule
+		\multicolumn{2}{l}{\textbf{{\large Mengenabhängige Umweltwirkungen}}} \vspace{0.2 cm} \\
+		\textbf{positiv} & \textbf{negativ} \\
+		\midrule
+		Nachfrageverringerung wegen höherer Kostentransparenz \vspace{0.2cm} & erleichterter Produktzugang \vspace{0.2cm} \\
+		Vermeidung von Fehlkäufen \vspace{0.2cm} & Stimulierung des Wunsches nach Eigentum \\
+		& Einkommenseffekt \vspace{0.2cm} \\
+		\bottomrule
+	\end{tabular}
+	\caption{Übersicht über die Umweltwirkungen durch gemeinschaftliche Produktnutzung. Quelle:  \cite[S. 72]{scholl_marketing_2009}.}
+	\label{tab:Mechanismen}
+\end{table}
+\newpage
 \section{Forschungsziel und Fragestellung}\label{sec:Fragestellung}
 
 Zur Schließung der soeben aufgedeckten Forschungslücken möchten wir mit dieser
@@ -680,6 +681,7 @@ erbringen und ermöglicht es somit, eine breites Spektrum für Strategien zur
 Reduktion des Umweltverbrauchs zu berücksichtigen \parencite[S.
 551]{liedtke_resource_2014}. 
 
+\newpage
 Für die Quantifizierung des Umweltverbrauchs nach dem MIPS-Konzept werden die Material-Inputs bestimmt, die zur Bereitstellung einer Service-Einheit benötigt werden \parencite[S. 548]{liedtke_resource_2014}:
 \begin{equation}
     \MIPS = \frac{\text{Material-Inputs}}{\text{Service-Einheit}}
@@ -759,7 +761,7 @@ für unsere Modellbildung darstellen und die formulierten Hypothesen unsere Anal
 Faktor-spezifischen Modelle leiten. Dieses Vorgehen wird im
 Folgenden erläutert.
 
-\begin{table}[ht]
+\begin{table}[t]
 	\renewcommand{\arraystretch}{1.25}
 	\centering
 	\begin{tabular}{p{5cm}p{4cm}p{4cm}}
@@ -862,7 +864,7 @@ ergeben sich die folgenden beiden Anwendungsbeispiele:
 
 Eine Übersicht über die in der Fallstudie verwendeten Daten und deren
 Herkunft wird im Kapitel zur Fallstudie den Analysen vorangestellt. 
-
+\cleardoublepage
 \chapter{Modellbildung und -Analyse}\label{sec:ModellbildungAnalyse}\marginpar{\vspace{-3em}\rule{\marginparwidth}{1pt}
 \scriptsize J. Sebestyén}
 
@@ -1045,6 +1047,12 @@ Die effektive Produktanzahl $P$ gibt an, wie viele Produkte innerhalb des Betrac
 % a) P = p * q = p * T/t (Annahme: alle Produkte gleiches t)
 Der erste Ansatz beruht auf der praktischen Organisation der Produktnutzung. In einem Nutzungssystem können Produkte sowohl parallel, als auch sequentiell eingesetzt werden. Beispielsweise können in einem Gemeinschaftswaschkeller mehrere Maschinen nebeneinander betrieben werden, die jeweils nach einer gewissen Zeit ausgetauscht werden. Die Anzahl der parallel eingesetzten Produkte bezeichnen wir als parallele Produktanzahl $p$. Dies ist stets eine (positive) ganze Zahl. Demgegenüber verstehen wir unter der sequentiellen Produktanzahl $q$ die Anzahl der Produkte, die innerhalb des Betrachtungszeitraums nacheinander eingesetzt werden.
 
+\begin{figure}[t]
+	\includegraphics[width=\textwidth]{Produktanzahlen}
+	\caption{Veranschaulichung des Zusammenhangs zwischen paralleler, sequentieller und effektiver Produktanzahl. In Fall a) ist der Betrachtungszeitraum $T$ kürzer als die Nutzungsdauer $t$, sodass die zwei parallel eingesetzten Produkte nur anteilig auf das Nutzungssystem angerechnet werden. In Fall b) ist der Betrachtungszeitraum länger als die Nutzungsdauer, sodass zwei Produkte voll und zwei weitere anteilig angerechnet werden.}
+	\label{fig:Produktanzahlen}
+\end{figure}
+
 Während die parallele Produktanzahl innerhalb praktisch-organisatorischer
 Grenzen frei gewählt werden kann, ergibt sich die sequentielle Produktanzahl
 daraus, wie lang ein einzelnes Produkt im Verhältnis zur Länge des
@@ -1077,11 +1085,6 @@ $P = p \cdot q = 2 \cdot \nicefrac{20}{15} \approx 2,67$ Maschinen eingesetzt
 werden. Abbildung \ref{fig:Produktanzahlen} stellt die beiden Zahlenbeispiele
 grafisch dar.
 
-\begin{figure}[ht]
-	\includegraphics[width=\textwidth]{Produktanzahlen}
-	\caption{Veranschaulichung des Zusammenhangs zwischen paralleler, sequentieller und effektiver Produktanzahl. In Fall a) ist der Betrachtungszeitraum $T$ kürzer als die Nutzungsdauer $t$, sodass die zwei parallel eingesetzten Produkte nur anteilig auf das Nutzungssystem angerechnet werden. In Fall b) ist der Betrachtungszeitraum länger als die Nutzungsdauer, sodass zwei Produkte voll und zwei weitere anteilig angerechnet werden.}
-	\label{fig:Produktanzahlen}
-\end{figure}
 
 %Dies lässt sich mit Gleichung \eqref{eq:t_tech} auch schreiben als:
 %\begin{equation}
@@ -1179,10 +1182,10 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       %      
       Dabei ist die Größe $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ diejenige Nutzungshäufigkeit, bei der die technische Lebensdauer $t_\text{tech} := \frac{n_\text{max}}{h}$ gleich der Maximalnutzungsdauer $t_\text{max}$ ist. An dieser Stelle wird der Nutzungsvorrat eines Produkts gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Bei einer geringeren Nutzungshäufigkeit ($h<h^*$) ist die Nutzungsdauer durch die konstante Maximalnutzungsdauer gegeben. Bei einer höheren Nutzungshäufigkeit ist hingegen die technische Lebensdauer ausschlaggebend, die mit zunehmender Nutzungshäufigkeit antiproportional abnimmt, da der Nutzungsvorrat schneller aufgebraucht wird (siehe Abbildung \ref{fig:t(h)_n(h)_P(h)} (a)).
       
-      \begin{figure}[ht]
+      \begin{figure}[t]
          \centering
          \input{Abbildungen/Nutzungsintensivierung_1.tex}
-         \caption{Nutzungsdauer, Nutzungsmenge und effektive Produktanzahl in Abhängigkeit von der Nutzungshäufigkeit (untere Skala). Die durchgezogenen Linien folgen dem hypothetischen Funktionsverlauf für eine kontinuierlich angenommene Nutzungshäufigkeit, die kleinen Quadrate zeigen die tatsächlichen Funktionswerte für verschiedene Anzahlen parallel genutzter Produkte (obere Skala). Bei $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Parameter: $N = 10.000$ NE, $n_\text{max} = 5.000$ NE, $T = 10$ Jahre, $t_\text{max} = 15$ Jahre. (NE = Nutzungseinheiten.)}
+         \caption{Nutzungsdauer, Nutzungsmenge und effektive Produktanzahl in Abhängigkeit von der Nutzungshäufigkeit (untere Skala). Die durchgezogenen Linien folgen dem hypothetischen Funktionsverlauf für eine kontinuierlich angenommene Nutzungshäufigkeit, die kleinen Quadrate zeigen die tatsächlichen Funktionswerte für verschiedene Anzahlen parallel genutzter Produkte (obere Skala). Bei $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Parameter: $N = 10.000$ NE, $n_\text{max} = 5.000$ NE, $T = 10$ Jahre, $t_\text{max} = 15$ Jahre (NE = Nutzungseinheiten).}
          \label{fig:t(h)_n(h)_P(h)}
       \end{figure}
       
@@ -1229,13 +1232,6 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       \paragraph{Modellanalyse}
       Das Ziel dieser Analyse ist die Ableitung eines Kriteriums zur Senkung des Umweltverbrauchs durch die Erhöhung der Nutzungshäufigkeit. Als Prämisse nehmen wir an, dass sich die Nutzungshäufigkeit von $h^\text{herk}$ bei der herkömmlichen Produktnutzung zu $h^\text{gem}$ bei der gemeinschaftlichen Produktnutzung erhöht. In Abbildung \ref{fig:MIPS(h)} ist der Verlauf der MIPS in Abhängigkeit von $h$ beispielhaft dargestellt, sodass die Analyse grafisch nachvollzogen werden kann.
       
-      \begin{figure}[htp]
-         \centering
-         \input{Abbildungen/Nutzungsintensivierung_2.tex}
-         \caption{MIPS in Abhängigkeit von der Nutzungshäufigkeit (untere Skala). Die durchgezogenen Linien folgen dem hypothetischen Funktionsverlauf für eine kontinuierlich angenommene Nutzungshäufigkeit, die kleinen Quadrate zeigen die tatsächlichen Funktionswerte für verschiedene Anzahlen parallel genutzter Produkte (obere Skala). Bei $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Parameter: $I_\text{fix}$ = 10.000~kg, $S_D$ = 10.000~SE, $i_P$ = 5.000~kg, $A$ = 1~SE/NE, $T$ = 10~Jahre, $t_\text{max}$ = 15~Jahre, $n_\text{max}$ = 5.000~NE, $p_\text{min}$ = 2 (NE~=Nutzungseinheiten, SE~=~Service-Einheiten).}
-         \label{fig:MIPS(h)}
-      \end{figure}
-      
       Gemäß Nebenbedingung \eqref{eq:h(p)} kann die Nutzungshäufigkeit $h$  nur in diskreten Schritten variiert werden. Wir untersuchen zunächst die Änderung der MIPS von einer gegebenen Nutzungshäufigkeit ($h = h_1$) zur nächstgrößeren ($h = h_2$). Diese ist durch die Verringerung der parallelen Produktanzahl von $p = p_1$ auf $p = p_2$ um den Wert 1 gegeben: 
       \begin{equation}
          \label{eq:delta_p}
@@ -1263,6 +1259,13 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       ergibt, dass die MIPS durch die Erhöhung der Nutzungshäufigkeit im ersten Fall bei der Einsparung eines parallel betriebenen Produkts unabhängig vom Ausgangsniveau um einen konstanten Wert abnehmen. Dabei lässt sich der Zähler $q \cdot i_P$ als die produktbezogenen Inputs des eingesparten parallel eingesetzten Produkts identifizieren, wenn man sich vergegenwärtigt, dass im Betrachtungszeitraum nacheinander $q$ Produkte eingesetzt werden.
       
       Dieses Ergebnis lässt sich in Abbildung \ref{fig:MIPS(h)} nachvollziehen: An den gleichbleibenden vertikalen Abständen der Datenpunkte bis zur Stelle $h = h^*$ ist die konstante Verringerung mit jedem eingesparten Produkt gut erkennbar.
+      
+      \begin{figure}[tp]
+         \centering
+         \input{Abbildungen/Nutzungsintensivierung_2.tex}
+         \caption{MIPS in Abhängigkeit von der Nutzungshäufigkeit (untere Skala). Die durchgezogenen Linien folgen dem hypothetischen Funktionsverlauf für eine kontinuierlich angenommene Nutzungshäufigkeit, die kleinen Quadrate zeigen die tatsächlichen Funktionswerte für verschiedene Anzahlen parallel genutzter Produkte (obere Skala). Bei $h^* := \frac{n_{\text{max}}}{t_{\text{max}}}$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Parameter: $I_\text{fix}$ = 10.000~kg, $S_D$ = 10.000~SE, $i_P$ = 5.000~kg, $A$ = 1~SE/NE, $T$ = 10~Jahre, $t_\text{max}$ = 15~Jahre, $n_\text{max}$ = 5.000~NE, $p_\text{min}$ = 2 (NE~=Nutzungseinheiten, SE~=~Service-Einheiten).}
+         \label{fig:MIPS(h)}
+      \end{figure}
       
       \underline{Fall 2}: $h^* \leq h_1 < h_2$ \\
       Der zweite Fall ist dadurch gegeben, dass der Nutzungsvorrat eines einzelnen Produkts sowohl vor, als auch nach der Erhöhung der Nutzungshäufigkeit spätestens bis zum Erreichen der Maximalnutzungsdauer aufgebraucht wird. Es ergibt sich direkt aus Gleichung \eqref{eq:MIPS(h)_2}:
@@ -1305,6 +1308,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
           \label{eq:Kriterium_Nutzungshäufigkeit}
       \end{equation} 
 
+      \newpage
       Wir halten dieses Ergebnis verbal als Kriterium fest: \\
       
       \begin{mdframed}[frametitle={Kriterium}, frametitlerule=true]				
@@ -1381,41 +1385,35 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
      	\end{equation}
    %
      	Wir gehen davon aus, dass eine erhöhte Auslastung mit höheren oder wenigstens gleichbleibenden Inputs je Produktnutzung einhergeht. Das heißt, der Funktionsverlauf von $i_N (a)$ kann als monoton steigend angenommen werden:
-   %
      	\begin{equation}
      		\frac{\partial i_N}{\partial a} \geq 0
      	\end{equation}
-%
-      \begin{figure}[htp]
+      \begin{figure}[b!t]
          \centering
          \input{Abbildungen/Auslastung.tex}
          \caption{Effektive Produktanzahl $P$ in Abhängigkeit von der Produktauslastung $a$. Bei $a^*$ wird der Nutzungsvorrat gerade innerhalb der Maximalnutzungsdauer aufgebraucht. Parameter: $S_D$ = 40.000~SE, $K$ = 10~SE/NE, $T$ = 10~Jahre, $t_\text{max}$ = 15~Jahre, $n_\text{max}$ = 5.000~NE, $p$ = 3 (NE~=Nutzungseinheiten, SE~=~Service-Einheiten).}
          \label{fig:P(a)}
       \end{figure}
-            
+
       Drittens hat die Produktauslastung einen Einfluss auf die effektive Produktmenge $P$, die in Abbildung \ref{fig:P(a)} dargestellt wird. Um diesen etwas komplexeren Zusammenhang zu erschließen, beginnen wir mit Grundgleichung \eqref{eq:Grundgleichung_P} und wenden Gleichung \eqref{eq:N_a} an:
       \begin{equation}
          P(a) = \frac{N(a)}{n} \eqnref{eq:N_a} \frac{S_D}{a \cdot K \cdot n}
       \end{equation}
-      
       Für $n$ übernehmen wir den im Modell zur Nutzungshäufigkeit entwickelten Ausdruck aus Gleichung \eqref{eq:n(h)_cases} und setzen für $h$ die Nebenbedingung \eqref{eq:h(a)} ein:
       \begin{align}
          n &= h \cdot t = \left\{\begin{array}{ll}  h \cdot t_{\text{max}} & \mbox{falls } h < h^* := \frac{n_\text{max}}{t_\text{max}} \\ n_{\text{max}} & \mbox{sonst} \end{array}\right. \\[10 pt]
          &\eqnref{eq:h(a)} \left\{\begin{array}{ll}  \frac{S_D \cdot t_{\text{max}}}{a \cdot K \cdot p \cdot T} & \mbox{falls } h(a) < h^* \\ n_{\text{max}} & \mbox{sonst} \end{array}\right.
       \end{align}
-      
       Damit ergibt sich für die effektive Produktanzahl:
       \begin{equation}
          \label{eq:P(a)}
          P(a) = \frac{S_D}{a \cdot K \cdot n} = \left\{\begin{array}{ll}  \frac{p \cdot T}{t_\text{max}} & \mbox{falls } h(a) < h^* \\[6 pt] \frac{S_D}{a \cdot K \cdot n_{\text{max}}} & \mbox{sonst} \end{array}\right.
       \end{equation}
-      
       Die aus dem Modell zur Nutzungshäufigkeit übernommene Bedingung der Fallunterscheidung $h(a) < h^*$, die genau dann erfüllt ist, wenn der Nutzungsvorrat eines Produkts innerhalb der Maximalnutzungsdauer aufgebraucht wird, lässt sich unter Verwendung der Nebenbedingung \eqref{eq:h(a)} auch als explizite Bedingung an $a$ schreiben:
       \begin{equation}
          \label{eq:a*}
          h(a) < h^* := \frac{n_\text{max}}{t_\text{max}} \qquad \Leftrightarrow \qquad a > \frac{S_D \cdot t_\text{max}}{K \cdot p \cdot T \cdot n_\text{max}} =: a^*
       \end{equation}
-%
      	Nachdem nun alle Bestandteile der MIPS spezifiziert wurden, stellen wir das Modell auf der Grundlage von Gleichung \eqref{eq:MIPS(a)} und unter Verwendung der Gleichungen \eqref{eq:N_a} und \eqref{eq:P(a)} zusammen:
         \\
 % BEGIN_FOLD (Modellerweiterung)
@@ -1471,7 +1469,6 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       
       Für große Produktauslastungen ($a > a^*$) gilt hingegen der obere Fall in Gleichung \eqref{eq:MIPS(a)_3}. Dieser Ausdruck ist unabhängig von $a$, das heißt eine weitere Erhöhung der Auslastung hat keinen Einfluss auf die effektive Produktanzahl (vgl. Abbildung \ref{fig:P(a)}), sodass der produktbezogene Teil der MIPS hier unveränderlich ist. Der Grund hierfür ist, dass die Nutzungshäufigkeit in diesem Bereich von $a$ im selben Maße abnimmt wie die Produktauslastung zunimmt und ein Produkt somit während der konstanten Nutzungsdauer $t_\text{max}$ stets dieselbe Service-Menge bereitstellt.
       \\
-      
       Zusammengefasst kommt es bei einer Erhöhung der Produktauslastung zu einem Trade-off zwischen positiven und negativen Effekten. Dieser wird in der folgenden formalen Analyse untersucht. Der Effekt einer marginalen Erhöhung der Produktauslastung kann durch die Ableitung der MIPS nach $a$ bestimmt werden:
       				%
 		\begin{equation}
@@ -1521,6 +1518,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
 		%
       Diese Bedingung unterscheidet sich von Bedingung \eqref{eq:Elastizitaetsbedingung_1} aus Fall 1 nur durch den hinzukommenden Ausdruck $\frac{i_P}{n_\text{max} \cdot i_N(a)}$. Da dieser echt positiv ist, ist die Bedingung für Fall 2 schwächer als für Fall 1: Sobald Bedingung \eqref{eq:Elastizitaetsbedingung_1} gilt, gilt auch Bedingung \eqref{eq:Elastizitaetsbedingung_2}. Anders ausgedrückt stellt die Elastizitäts-Bedingung \eqref{eq:Elastizitaetsbedingung_1} in beiden Fällen ein hinreichendes Kriterium für die Verringerung der MIPS dar. Wir beschränken uns der Einfachheit halber auf dieses Kriterium und vernachlässigen damit die weiter oben besprochene Einsparung an sequentiell eingesetzten Produkten in Fall 2.
       
+      \newpage
       Ein erneuter Blick auf Abbildung \ref{fig:i_N(a)_MIPS(a)} zeigt, dass die Elastizitätsbedingung für kleine Produktauslastungen $a \leq a^*$ nicht notwendig für die Verringerung der MIPS ist: In beiden dargestellten Fällen sinken die MIPS für kleine $a$.
       
 % BEGIN_FOLD (Einsparung parallel eingesetzter Produkte)
@@ -1592,7 +1590,6 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
 %      
 %      Aus dieser Erkenntnis lässt sich ableiten, dass die im Abschnitt \enquote{\nameref{sec:Auslastung_Analyse1}} aufgestellte Bedingung an die Elastizität von $i_N(a)$ (Gleichung \eqref{eq:Elastizitaetsbedingung}) auch im hier betrachteten Szenario eine hinreichende Bedingung für einen positiven Umwelteffekt darstellt: Wenn die produktbezogenen Inputs $i_N$ unelastisch auf eine Erhöhung der Auslastung reagieren, ist der Umwelteffekt der Auslastungserhöhung positiv. Die Umkehrung dieser Aussage gilt jedoch nicht, das heißt eine Erhöhung der Produktauslastung kann auch dann einen positiven Umwelteffekt zur Folge haben, wenn zwar die Elastizitätsbedingung verletzt wird, jedoch die produktbezogenen Inputs $i_P$ hinreichend groß sind um den Mehraufwand an Nutzungsinputs durch die Einsparung an produktbezogenen Inputs zu kompensieren. Dieser Fall kann jedoch, wie oben erläutert, nur unter der Bedingung von nicht ausgeschöpften Nutzungsvorräten auftreten.
 % END_FOLD
-      
       \subparagraph{Zwischenfazit}
       Die Modellanalyse hat bis hierher ergeben, dass eine marginale Erhöhung der Produktauslastung zu einer Verringerung des Umweltverbrauchs führt, wenn die Material-Inputs je Produktnutzung unelastisch auf die steigende Auslastung reagieren, das heißt prozentual weniger stark steigen als die Auslastung selbst. Dieses Kriterium bildet den Trade-off zwischen fallender Produktnutzungsmenge und steigenden Material-Inputs je Produktnutzung ab. Falls der Nutzungsvorrat eines einzelnen Produkts innerhalb der Maximalnutzungsdauer nicht aufgebraucht wird, ist es ein scharfes Kriterium. Andernfalls ist es ein hinreichendes, jedoch nicht notwendiges Kriterium. Das heißt, wenn der Nutzungsvorrat ausgeschöpft wird, kann es unter Umständen auch dann zu einer Verringerung des Umweltverbrauchs kommen, wenn die Elastizitäts-Bedingung nicht erfüllt ist. Dies liegt an der Einsparung sequentiell eingesetzter Produkte, die vom Kriterium nicht erfasst wird.
       
@@ -1896,6 +1893,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       unterschiedliche Gestalt annimmt (vgl. Gleichung \eqref{eq:I_P(w)}).
       Berücksichtigt man diese Fallunterscheidung, so 
       ergibt sich als Ergebnis dieses Abschnittes das folgende Modell:\\
+      \newpage
       \begin{mdframed}[frametitle={Wartung}, frametitlerule=true]
           Modell:
           \begin{equation}
@@ -2129,15 +2127,6 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
             \item oder es existiert ein $w^*$, sodass die Bedingung für alle
                 $w<w^*$ erfüllt ist und für alle $w>w^*$ nicht (Fall 2).
         \end{itemize}
-        \begin{figure}[ht!]
-            \centering
-            \input{Abbildungen/Wartung_Verlaeufe.pdf_tex}
-            \caption{Es sind die zwei Fälle dargestellt, die für Bedingung
-                \eqref{eq:Wartung_Bedingung2} gelten können: Entweder sie ist
-                für keine Wartungshäufigkeit erfüllt, oder nur für
-                Wartungshäufigkeiten, die kleiner als ein $w^*$ sind.}
-            \label{fig:Wartung_Verlaeufe}
-        \end{figure}
         Die beiden Fälle sind schematisch in Abbildung
         \ref{fig:Wartung_Verlaeufe} dargestellt. Im Fall 2 liegt mit $w^*$ eine
         optimale Wartungshäufigkeit vor, welche die MIPS minimiert. Um die zwei
@@ -2154,24 +2143,17 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
         $|I_W'(w)|$ und fällt dann für große Wartungshäufigkeiten auf Null,
         sodass sie unweigerlich die Funktion $|I_W'(w)|$ in einem Punkt $w^*$
         schneidet (Fall 2).
+        \begin{figure}[t]
+            \centering
+            \input{Abbildungen/Wartung_Verlaeufe.pdf_tex}
+            \caption{Es sind die zwei Fälle dargestellt, die für Bedingung
+                \eqref{eq:Wartung_Bedingung2} gelten können: Entweder sie ist
+                für keine Wartungshäufigkeit erfüllt, oder nur für
+                Wartungshäufigkeiten, die kleiner als ein $w^*$ sind.}
+            \label{fig:Wartung_Verlaeufe}
+        \end{figure}
 
-        Wie ein beispielhafter Verlauf der MIPS und deren Bestandteile
-        (resultierend aus den produktbezogenen, den nutzungsbedingten, den
-        wartungsbedingten und den fixen Inputs) im Fall 2 aussieht, ist in der
-        Abbildung \ref{fig:Wartungen} dargestellt. Hierfür war es notwendig,
-        die Funktionen $i_N$ und $\n{max}$ explizit vorzugeben. Deren Verläufe
-        sind daher auch in der Abbildung \ref{fig:Wartungen} abgebildet. Gemäß den
-        Annahmen steigt der Nutzungsvorrat und sinken die Inputs je Nutzung mit
-        wachsender Wartungshäufigkeit. Mit höherer Wartungshäufigkeit nehmen
-        diese Änderungen jedoch ab. Entsprechend verlaufen auch die MIPS: Für
-        kleine Wartungshäufigkeiten sinken die MIPS bei einer Erhöhung der
-        Wartungshäufigkeit vergleichsweise stark. Die wartungsbedingten Inputs kommen hier
-        noch nicht zum tragen. Ab der Stelle $w^*$ können jedoch kaum noch
-        Einsparungen durch eine Erhöhung der Wartungshäufigkeit erzielt werden
-        und die zusätzlichen wartungsbedingten Inputs übertreffen die
-        Einsparungen.  Daher steigen die MIPS ab dieser Stelle nahezu linear in
-        der Wartungshäufigkeit an.
-        \begin{figure}[ht!]
+        \begin{figure}[t!]
             \centering
             \input{Abbildungen/Wartungen.tex}
             \caption{Dargestellt ist der Umweltverbrauch eines
@@ -2186,6 +2168,22 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
             Nutzungssystems ist.}
             \label{fig:Wartungen}
         \end{figure}
+        Wie ein beispielhafter Verlauf der MIPS und deren Bestandteile
+        (resultierend aus den produktbezogenen, den nutzungsbedingten, den
+        wartungsbedingten und den fixen Inputs) im Fall 2 aussieht, ist in der
+        Abbildung \ref{fig:Wartungen} dargestellt. Hierfür war es notwendig,
+        die Funktionen $i_N$ und $\n{max}$ explizit vorzugeben. Deren Verläufe
+        sind daher auch in der Abbildung \ref{fig:Wartungen} abgebildet. Gemäß den
+        Annahmen steigt der Nutzungsvorrat und sinken die Inputs je Nutzung mit
+        wachsender Wartungshäufigkeit. Mit höherer Wartungshäufigkeit nehmen
+        diese Änderungen jedoch ab.\clearpage Entsprechend verlaufen auch die MIPS: Für
+        kleine Wartungshäufigkeiten sinken die MIPS bei einer Erhöhung der
+        Wartungshäufigkeit vergleichsweise stark. Die wartungsbedingten Inputs kommen hier
+        noch nicht zum tragen. Ab der Stelle $w^*$ können jedoch kaum noch
+        Einsparungen durch eine Erhöhung der Wartungshäufigkeit erzielt werden
+        und die zusätzlichen wartungsbedingten Inputs übertreffen die
+        Einsparungen.  Daher steigen die MIPS ab dieser Stelle nahezu linear in
+        der Wartungshäufigkeit an.
 
         Der bisherigen Analyse lag eine marginale Betrachtung zugrunde.
         Letztlich möchten wir jedoch die Frage beantworten, ob ein gegebenes
@@ -2379,6 +2377,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
           \end{equation}
       \end{mdframed}
 
+      \newpage
       \paragraph{Modellanalyse}\label{sec:RA}
       Wie dies in der \nameref{sec:RB} bereits angeklungen ist, wird uns nun
       interessieren,  unter welchen Umständen eine längere erreichte
@@ -2488,6 +2487,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
           an Material-Inputs je Produkt übersteigt. 
       \end{mdframed}\label{Kriterium:Reparatur}
         
+      \newpage
       \subsection{Transporte}
       \label{sec:Transporte}
       In gemeinschaftlich organisierten Produktnutzungssystemen werden in der
@@ -2899,6 +2899,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       resultiert, durch den Übergang zu einem strukturell ähnlichen Modell
       verringert werden. 
 
+      \newpage
 \section{Kopplungs-Modell: Nutzungshäufigkeit und Transporte}\marginpar{\vspace{-3em}\rule{\marginparwidth}{1pt}
 \scriptsize J. Sebestyén}
 \label{sec:Effektkopplungen}
@@ -2946,6 +2947,7 @@ Damit ergibt sich das folgende Modell für die Effekt-Kopplung: \\
 		\end{equation}
 	\end{mdframed}
 
+    \newpage
 \paragraph{Modellanalyse}
 In dieser Analyse wird untersucht, unter welchen Umständen der Umweltverbrauch eines Produktnutzungssystems unter Berücksichtigung der Faktoren \enquote{Nutzungshäufigkeit} und \enquote{Transporte} durch gemeinschaftliche Produktnutzung reduziert werden kann. Entsprechend der in Tabelle \ref{tab:faktoren_hypothesen} (Abschnitt \ref{sec:Modellierung} \enquote{\nameref{sec:Modellierung}}) formulierten Hypothesen gehen wir davon aus, dass sowohl die Nutzungshäufigkeit als auch die Transportdistanz bei gemeinschaftlicher Produktnutzung höher ist als bei der herkömmlichen Produktnutzung: $h^\text{gem} > h^\text{herk}$, $d^\text{gem} > d^\text{herk}$.
 
@@ -3012,7 +3014,7 @@ Der Ausdruck in Fall 1 wächst in $h^\text{gem}$, das heißt, solange der Nutzun
 
 Abbildung \ref{fig:delta_d_h_gem} stellt mithilfe der Funktion $\hat{d}(h^\text{gem})$ dar, für welche Kombinationen von Nutzungshäufigkeiten und zusätzlichen Transportdistanzen die MIPS reduziert werden. Im weißen Bereich mit dem Plus-Symbol wird eine MIPS-Einsparung erreicht, im grauen Bereich mit dem Minus-Symbol kommt es hingegen zu einer Erhöhung der MIPS. Gut erkennbar ist das Erreichen der maximalen kritischen Distanz bei $h^*$.
 
-\begin{figure}[ht]
+\begin{figure}[t]
    \input{Abbildungen/Kopplung_Allgemein.tex}
    \caption{MIPS-Reduktion in Abhängigkeit der Nutzungshäufigkeit $h^\text{gem}$ bei der gemeinschaftlichen Produktnutzung und der zusätzlichen Transportdistanz $\Delta d$. Als Linie eingezeichnet ist die kritische Distanz $\hat{d}$. Die weiße Fläche kennzeichnet den Bereich der MIPS-Einsparung, im grauen Bereich findet eine Erhöhung der MIPS statt. Parameter: $i_P$~=~5.000~kg, $\tau$~=~0,5~kg/km, $t_\text{max}$~=~15~Jahre, $n_\text{max}$~=~5.000~NE, $A$~=~1~SE/NE, $h^\text{herk}$~=~200~NE/Jahr (NE = Nutzungseinheiten, SE = Service-Einheiten).}
    \label{fig:delta_d_h_gem}
@@ -3359,6 +3361,7 @@ mit einer recht großen Unsicherheit behaftet. Und zum anderen hätte die
 Einsparung bereits bei einer deutlich geringeren Reduktion von Waschmaschinen
 erreicht werden können. 
 
+\newpage
 \subsection{Anwendungsbeispiel: Kopplung}
 \label{sec:Fallstudie_II}
 Für das Anwendungsbeispiel zur Kopplung der Modelle 
@@ -3422,7 +3425,7 @@ die Referenzwerte ergibt sich ein $\hat{d}$ von \SI{1.1}{km}, sodass hier bei
 einer mittleren Transportdistanz im \SzenarioIII\ von $d_\text{III} =
 \SI{2}{km}$ von keiner Nettoreduktion des Umweltverbrauchs auszugehen ist.
 
-\begin{table}[ht!]
+\begin{table}[t]
     \begin{center}
         \begin{tabular}[ht]{lrrrrrrr}
             \toprule
@@ -3548,6 +3551,7 @@ d_{\text{III}}=\SI{2}{km}$ für eine Parametervariation von $\pm 10\%$ geht von
 werden, ob in dem \SzenarioIII\ eine Ressourceneinparung erzielt werden kann
 oder nicht.
 
+\clearpage
 \subsubsection{Relative Größenordnung der MIPS-Änderung}
 Zum Abschluss der Fallstudie betrachten wir noch die relative MIPS-Änderung
 der Szenarien \SzII\ und \SzIII\ im Vergleich zum \SzenarioI. Wir gehen davon
@@ -3933,6 +3937,7 @@ verwendet. Aus den Voraussetzungen ergibt sich offenbar ein Widerspruch, womit
 die Behauptung bewiesen ist.
 
     \newpage
+    \cleardoublepage
   \section*{Erklärung zur selbstständigen Abfassung der Master-Arbeit}
   \vspace{1cm}
   \begin{description}
@@ -3957,6 +3962,7 @@ die Behauptung bewiesen ist.
       Ort, Datum \hspace{7cm} Unterschrift\\
   }
   \newpage
+  \cleardoublepage
   \section*{Erklärung zur selbstständigen Abfassung der Master-Arbeit}
   \vspace{1cm}
   \begin{description}
