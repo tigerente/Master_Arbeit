@@ -1169,7 +1169,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
          \text{MIPS}(h) = \frac{I_P + I_\text{fix}^h}{S} = \frac{P(h) \cdot i_P}{S} + \frac{I_\text{fix}^h}{S}
       \end{equation}
       %      
-      Die effektive Produktanzahl $P$ ist von der Nutzungshäufigkeit abhängig, wie im folgenden gezeigt wird. Dazu betrachten wir zunächst die Nutzungsdauer $t$. Nach Grundgleichung \eqref{eq:Grundgleichung_t} ist diese folgendermaßen gegeben:
+      Die effektive Produktanzahl $P$ ist von der Nutzungshäufigkeit abhängig, wie im Folgenden gezeigt wird. Dazu betrachten wir zunächst die Nutzungsdauer $t$. Nach Grundgleichung \eqref{eq:Grundgleichung_t} ist diese folgendermaßen gegeben:
       \begin{equation}
          t = \text{min} \{t_\text{max}, t_\text{tech} := \frac{n_\text{max}}{h}\}
       \end{equation}
@@ -1345,7 +1345,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
          h = \frac{S_D}{A \cdot p \cdot T} \eqnref{eq:a(A,K)} \frac{S_D}{a \cdot K \cdot p \cdot T} \qquad p \in \mathbb{N}
       \end{equation}
       %
-      Anders als im Modell zur Nutzungshäufigkeit kann $a$ in diesem Modell frei gewählt werden. Die Nutzungshäufigkeit $h$ passt sich entsprechend an um die Nebenbedingung zu erfüllen. Beispielsweise müsste eine Waschmaschine, die im Mittel zu 80 Prozent beladen wird durchschnittlich nur halb so häufig benutzt werden wie eine Waschmaschine, die im Mittel zu 40 Prozent ausgelastet ist, um die gleiche Menge an gewaschener Wäsche zur Verfügung zu stellen.
+      Anders als im Modell zur Nutzungshäufigkeit kann $a$ in diesem Modell frei gewählt werden. Die Nutzungshäufigkeit $h$ passt sich entsprechend an um die Nebenbedingung zu erfüllen. Beispielsweise müsste eine Waschmaschine, die im Mittel zu 80 Prozent beladen wird durchschnittlich nur halb so häufig benutzt werden wie eine Waschmaschine, die im Mittel zu 40 Prozent beladen ist, um die gleiche Menge an gewaschener Wäsche zur Verfügung zu stellen.
       
       Es geht im Folgenden darum, einen Ausdruck für die MIPS eines Produktnutzungssystems in Abhängigkeit von der (relativen) Produktauslastung $a$ aufzustellen. Wir beginnen mit der Modellgleichung \eqref{eq:Grundmodell_MIPS} aus dem Grundmodell:
       \begin{equation}
@@ -1495,7 +1495,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       MIPS, wenn die Inputs pro Nutzungseinheit $i_N$ unelastisch\footnote{Der
           Begriff der Elastizität wird im \nameref{sec:Anhang} erläutert.} auf die Änderung der Produktauslastung reagiert. Diese Bedingung bedeutet, dass die Inputs pro Nutzungseinheit prozentual weniger stark zunehmen dürfen als die prozentuale Steigerung der Produktauslastung.
       
-      Abbildung \ref{fig:i_N(a)_MIPS(a)} stellt beispielhaft die Verläufe der MIPS für eine für alle $a$ elastische und eine für alle $a$ unelastische Funktion $i_N(a)$ dar. Im Bereich $a > a^*$ ist der charakteristische Unterschied gut erkennbar: Bei unelastischen Inputs je Nutzung (linke Teilabbildungen) sinken die MIPS, bei elastischen Inputs je Nutzung (rechte Teilabbildung) steigen sie mit zunehmender Produktauslastung.
+      Abbildung \ref{fig:i_N(a)_MIPS(a)} stellt beispielhaft die Verläufe der MIPS mit einer für alle $a$ elastischen und mit einer für alle $a$ unelastischen Funktion $i_N(a)$ dar. Im Bereich $a > a^*$ ist der charakteristische Unterschied gut erkennbar: Bei unelastischen Inputs je Nutzung (linke Teilabbildung) sinken die MIPS, bei elastischen Inputs je Nutzung (rechte Teilabbildung) steigen sie mit zunehmender Produktauslastung.
       
       \begin{figure}[htp]
          \centering
@@ -2907,7 +2907,7 @@ Nachdem im vorigen Kapitel ausgewählte Faktoren für den Umweltverbrauch gemein
 
 Die Wahl der zu untersuchenden Kopplung fiel auf die Kombination der Faktoren \enquote{\nameref{sec:Nutzungsintensivierung}} (vgl. Kapitel \ref{sec:Nutzungsintensivierung}) und \enquote{\nameref{sec:Transporte}} (vgl. Kapitel \ref{sec:Transporte}). Dies sind zwei Faktoren, die beide für eine Vielzahl von Anwendungen relevant erscheinen und sich in ihrer Wirkung entgegengesetzt verhalten: Wie gezeigt wurde, weist eine Erhöhung der Nutzungshäufigkeit stets eine positive (oder schlimmstenfalls neutrale) Umweltwirkung auf, während zusätzliche Transporte immer mit einem negativen (oder bestenfalls neutralen) Umwelteffekt einhergehen.
 
- Die beiden ausgewählten Faktoren stehen in einem engen inhaltlichen Zusammenhang: Eine Erhöhung der Nutzungshäufigkeit durch gemeinschaftliche Produktnutzung wird dadurch ermöglicht, dass mehrere Personen ein Produkt gemeinsam nutzen. Dafür ist es jedoch in vielen Anwendungen erforderlich, dass entweder die Personen zum Produkt oder das Produkt zu den Personen transportiert werden. Daher besteht zwischen den Auswirkungen der beiden Faktoren ein klassischer Trade-off.
+ Die beiden ausgewählten Faktoren stehen in einem engen inhaltlichen Zusammenhang: Eine Erhöhung der Nutzungshäufigkeit durch gemeinschaftliche Produktnutzung wird dadurch ermöglicht, dass mehrere Personen ein Produkt gemeinsam nutzen. Dafür ist es jedoch in vielen Anwendungen erforderlich, dass entweder die Personen zum Produkt oder das Produkt zu den Personen transportiert wird. Daher besteht zwischen den Auswirkungen der beiden Faktoren ein klassischer Trade-off.
  
 Entsprechend dem Ziel dieser Master-Arbeit, Kriterien für die Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzung herzuleiten, geht es in diesem Kapitel darum zu bestimmen, unter welchen Umständen die negative Umweltwirkung zusätzlicher Transporte durch die positive Umweltwirkung einer Erhöhung der Nutzungshäufigkeit übertroffen wird.
 
@@ -2975,7 +2975,7 @@ Dies ist der Fall, bei dem der Nutzungsvorrat eines einzelnen Produkts sowohl be
 %
 
 \underline{Fall 2}: $h^\text{herk} < h^* \leq h^\text{gem}$ \\
-Im zweiten Fall, bei dem der Nutzungsvorrat bei der herkömmlichen Produktnutzung nicht ausgeschöpft wird, bei der gemeinschaftlichen Produktnutzung jedoch schon, gilt unter Anwendung der selben Gleichungen:
+Im zweiten Fall, bei dem der Nutzungsvorrat bei der herkömmlichen Produktnutzung nicht ausgeschöpft wird, bei der gemeinschaftlichen Produktnutzung jedoch schon, gilt unter Anwendung derselben Gleichungen:
 \begin{equation}
 \hat{d} = \frac{i_P}{\tau \cdot A} \cdot \left( \frac{1}{h^\text{herk} \cdot t_\text{max}} - \frac{1}{n_\text{max}} \right)
 \end{equation}
@@ -3010,7 +3010,7 @@ Wir können die ersten beiden Fälle unter der Bedingung einer gegebenen Nutzung
    \end{array} \right.
 \end{equation}
 
-Der Ausdruck in Fall 1 wächst in $h^\text{gem}$, das heißt, solange der Nutzungsvorrat in der gemeinschaftlichen Produktnutzung noch nicht ausgeschöpft wird, steigt die kritische Distanz mit der Nutzungshäufigkeit. Der Ausdruck in Fall 2 ist konstant, also hat eine Erhöhung der Nutzungshäufigkeit über den Punkt $h^*$ hinaus keinen weiteren Effekt. Insofern lässt sich der Ausdruck in Fall 2 auch als die maximale kritische Distanz für eine gegebene Nutzungshäufigkeit $h^\text{herk}$ auffassen.
+Der Ausdruck in Fall 1 wächst in $h^\text{gem}$, das heißt, solange der Nutzungsvorrat in der gemeinschaftlichen Produktnutzung noch nicht ausgeschöpft wird steigt die kritische Distanz mit der Nutzungshäufigkeit. Der Ausdruck in Fall 2 ist konstant, also hat eine Erhöhung der Nutzungshäufigkeit über den Punkt $h^*$ hinaus keinen weiteren Effekt. Insofern lässt sich der Ausdruck in Fall 2 auch als die maximale kritische Distanz für eine gegebene Nutzungshäufigkeit $h^\text{herk}$ auffassen.
 
 Abbildung \ref{fig:delta_d_h_gem} stellt mithilfe der Funktion $\hat{d}(h^\text{gem})$ dar, für welche Kombinationen von Nutzungshäufigkeiten und zusätzlichen Transportdistanzen die MIPS reduziert werden. Im weißen Bereich mit dem Plus-Symbol wird eine MIPS-Einsparung erreicht, im grauen Bereich mit dem Minus-Symbol kommt es hingegen zu einer Erhöhung der MIPS. Gut erkennbar ist das Erreichen der maximalen kritischen Distanz bei $h^*$.
 
@@ -3021,7 +3021,7 @@ Abbildung \ref{fig:delta_d_h_gem} stellt mithilfe der Funktion $\hat{d}(h^\text{
 \end{figure}
 
 \subparagraph{Fazit}
-Anders als bei der isolierten Betrachtung der Nutzungshäufigkeit können unter der gleichzeitigen Berücksichtigung zusätzlicher Transporte sowohl Verbesserungen als auch Verschlechterungen der MIPS auftreten. Als hartes Kriterium für eine Senkung des Umweltverbrauchs erweist sich eine hinreichend geringe Nutzungshäufigkeit in der herkömmlichen Produktnutzung: Nur wenn der Nutzungsvorrat ursprünglich nicht voll ausgeschöpft wird ($h^\text{herk} < h^*$), kann es zu einer Reduzierung der MIPS kommen. In diesem Fall muss jedoch die weitere Bedingung gelten, dass die zusätzliche Transportdistanz $\Delta d$ eine kritische Distanz $\hat{d}$ nicht überschreitet. Diese ist -- bis zum Erreichen eines Maximums -- von der Nutzungshäufigkeit in der gemeinschaftlichen Produktnutzung abhängig: Je größer die Nutzungshäufigkeit, desto höher die kritische Distanz. Wir fassen diese Ergebnisse zum folgenden Kriterium zusammen:
+Anders als bei der isolierten Betrachtung der Nutzungshäufigkeit kann unter der gleichzeitigen Berücksichtigung zusätzlicher Transporte sowohl eine Verringerung als auch eine Erhöhung der MIPS auftreten. Als hartes Kriterium für eine Senkung des Umweltverbrauchs erweist sich eine hinreichend geringe Nutzungshäufigkeit in der herkömmlichen Produktnutzung: Nur wenn der Nutzungsvorrat ursprünglich nicht voll ausgeschöpft wird ($h^\text{herk} < h^*$), kann es zu einer Reduzierung der MIPS kommen. In diesem Fall muss jedoch die weitere Bedingung gelten, dass die zusätzliche Transportdistanz $\Delta d$ eine kritische Distanz $\hat{d}$ nicht überschreitet. Diese ist -- bis zum Erreichen eines Maximums -- von der Nutzungshäufigkeit in der gemeinschaftlichen Produktnutzung abhängig: Je größer die Nutzungshäufigkeit, desto höher die kritische Distanz. Wir fassen diese Ergebnisse zum folgenden Kriterium zusammen:
 \\
 
 \begin{mdframed}[frametitle={Kriterium}, frametitlerule=true]				
@@ -3818,9 +3818,7 @@ gemeinschaftlichen Nutzung jedoch relevant.
 \section{Ausblick}\label{sec:Ausblick}
 Einige der in den vorigen zwei Abschnitten gewonnenen Erkenntnisse greifen wir in diesem letzten Abschnitt erneut auf um zu einer Schlussfolgerung für die weitere Forschung im Bereich der gemeinschaftlichen Produktnutzung zu gelangen.
 
-Einerseits wurde herausgearbeitet, dass die Entwicklung von Kriterien zur Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzungsformen an methodische Grenzen gestoßen ist. Hinzu kommt, dass die Überprüfung der Kriterien zwar Auskunft darüber gibt, ob  eine Senkung des Umweltverbrauchs erreicht werden kann, dabei jedoch keine Aussage über die ebenso relevante Größenordnung der Einsparung zulässt.
-
-Andererseits wurde erörtert, dass die entwickelten Modelle sowohl zur Berechnung des Umweltverbrauchs konkreter Fallbeispiele, als auch zum Vergleich verschiedener Produktnutzungsformen sowie zur Ableitung von Handlungsempfehlungen eingesetzt werden können.
+Einerseits wurde herausgearbeitet, dass die Entwicklung von Kriterien zur Senkung des Umweltverbrauchs durch gemeinschaftliche Produktnutzungsformen an methodische Grenzen gestoßen ist. Hinzu kommt, dass die Überprüfung der Kriterien zwar Auskunft darüber gibt, ob  eine Senkung des Umweltverbrauchs erreicht werden kann, dabei jedoch keine Aussage über die ebenso relevante Größenordnung der Einsparung zulässt. Andererseits wurde erörtert, dass die entwickelten Modelle sowohl zur Berechnung des Umweltverbrauchs konkreter Fallbeispiele, als auch zum Vergleich verschiedener Produktnutzungsformen sowie zur Ableitung von Handlungsempfehlungen eingesetzt werden können.
 
 Aus diesen Erkenntnissen leiten wir die Forschungsempfehlung ab, die in dieser Master-Arbeit begonnene Modellierung fortzuführen, jedoch anstelle der Entwicklung von Kriterien eine stärkere Orientierung an konkreten Anwendungsfällen anzustreben. Eine Fortführung der Modellierung kann da ansetzen, wo unsere Arbeit
 unvollständig bleibt:
