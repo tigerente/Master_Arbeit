@@ -1635,16 +1635,16 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       Übereinstimmung in den wesentlichen umweltrelevanten Effekten, sinnvoll
       ist, die beiden Faktoren getrennt voneinander zu betrachten. 
 
-      Beginnen wir mit der Definition des Begriffs "`Wartung"': Als "`Wartung
-      bezeichnen wir eine Pflegetätigkeit an einem Produkt, welche durchgeführt
-      wird, um dessen Funktionstüchtigkeit lange zu gewährleisten bzw. diese zu
-      verbessern. Das betreffende Produkt ist zum Zeitpunkt der Wartung
-      funktionstüchtig, die Wartung ist also ein geplanter, vorausschauender
-      Eingriff, dessen Häufigkeit von den Nutzer*innen frei festgelegt werden
-      kann. Eine typische Wartung liegt beispielsweise beim Ölen von mechanisch
-      beanspruchten Produktteilen (z.B.  Fahrradkette) oder der Reinigung von
-      durch die Nutzung verschmutzten Produktteilen (z.B. Flusensieb einer
-      Waschmaschine) vor. 
+      Beginnen wir mit der Definition des Begriffs "`Wartung"': Als
+      \enquote{Wartung} bezeichnen wir eine Pflegetätigkeit an einem Produkt,
+      welche durchgeführt wird, um dessen Funktionstüchtigkeit lange zu
+      gewährleisten bzw. diese zu verbessern. Das betreffende Produkt ist zum
+      Zeitpunkt der Wartung funktionstüchtig, die Wartung ist also ein
+      geplanter, vorausschauender Eingriff, dessen Häufigkeit von den
+      Nutzer*innen frei festgelegt werden kann. Eine typische Wartung liegt
+      beispielsweise beim Ölen von mechanisch beanspruchten Produktteilen (z.B.
+      Fahrradkette) oder der Reinigung von durch die Nutzung verschmutzten
+      Produktteilen (z.B. Flusensieb einer Waschmaschine) vor. 
 
       Im Gegensatz zur derart definierten Wartung verwenden wir den Begriff
       "`Reparatur"' für Tätigkeiten an einem defekten Produkt, mit dem Ziel,
@@ -1745,8 +1745,8 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       bedeutet eine Wartungshäufigkeit von eins, dass nach jedem Waschen
       gewartet wird. Die Wartungshäufigkeit würde in diesem Fall sicherlich im
       Bereich $[0,1]$ liegen. Anders wäre es, wenn z.B. bei der PKW-Nutzung die
-      Nutzungseinheit als \SI{1000}{km} Auto Fahren definiert ist. Hier würden
-      auch Wartungshäufigkeiten größer als eins Sinn ergeben. Die genaue
+      Nutzungseinheit als \SI{1000}{km} Auto Fahren definiert wäre. Hier würde
+      auch Wartungshäufigkeiten größer als eins ein Sinn zu kommen. Die genaue
       Größenordnung der Wartungshäufigkeit ist also je nach
       Produktnutzungssystem unterschiedlich, für eine theoretische Betrachtung
       jedoch unerheblich. Wir wenden uns nun der formalen Beschreibung des 
@@ -1802,7 +1802,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       lässt sich äquivalent auch als Beschränkung der Nutzungsmenge $n$
       auffassen:
       \begin{equation}
-          n(w) = \text{min} \{\n{max}(w), h \cdot \t{max}\}
+          n(w) = \text{min} \{\n{max}(w),\ h \cdot \t{max}\}
           \label{eq:n(w)}
       \end{equation}
       Das heißt, dass die Nutzungsmenge sowohl von dem Nutzungsvorrat als auch
@@ -1829,7 +1829,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       \end{align}
 
       Wie bereits erwähnt, kommt im Falle der Wartungen -- anders als bei den
-      Reparaturen -- noch ein dritter Effekt hinzu: eine höhere
+      Reparaturen -- noch ein dritter Effekt hinzu: Eine höhere
       Wartungshäufigkeit kann zu einer Verringerung der Material-Inputs je
       Produktnutzung $i_N$ und damit zu einer Verringerung der nutzungsbedingten
       Material-Inputs $I_N$ führen. Wir nehmen an, dass jeder Wartungshäufigkeit
@@ -1862,7 +1862,8 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       die nutzungsbedingten Inputs $I_N$ und natürlich die Inputs für Wartungen
       $I_W$ von der Wartungshäufigkeit abhängen. Die restlichen, von der
       Wartungshäufigkeit unabhängigen Inputs eines Nutzungssystems fassen wir in
-      der Größe $\I{fix}^w$ wie im Abschnitt \nameref{sec:Material-Inputs}
+      der Größe $\I{fix}^w$ wie im Abschnitt
+      \enquote{\nameref{sec:Material-Inputs}}
       beschrieben zusammen:
       \begin{equation}
           \I{fix}^w = I_R + I_\Theta + \I{Rest}
@@ -1875,9 +1876,9 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
           &= N \cdot (i_N(w) +  w \cdot i_W)
             + \frac{N}{n(w)} \cdot i_P + \I{fix}^w\label{eq:I(w)2}
       \end{align}
-      Unter Ausnutzung der Grundgleichung über die Service-Einheiten
-      $S=N\cdot A =S_D$ \eqref{eq:Grundgleichung_S} können wir nun eine
-      Gleichung für die MIPS in Abhängigkeit von der Wartungshäufigkeit angeben:
+      Unter Ausnutzung der Grundgleichung \eqref{eq:Grundgleichung_S} über die
+      Service-Einheiten $S=N\cdot A =S_D$  können wir nun eine Gleichung für die
+      MIPS in Abhängigkeit von der Wartungshäufigkeit angeben:
       \begin{align}
         \MIPS[w]&= \frac{I(w)}{S} 
                 \eqnref{eq:I(w)1} \frac{I_N(w) + I_W(w) + I_P(w) + \I{fix}^w}{S}
@@ -1892,7 +1893,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
       kleiner oder größer als $h \cdot \t{max}$ ist, jeweils eine etwas
       unterschiedliche Gestalt annimmt (vgl. Gleichung \eqref{eq:I_P(w)}).
       Berücksichtigt man diese Fallunterscheidung, so 
-      ergibt sich als Ergebnis dieses Abschnittes das folgende Modell:\\
+      ergibt sich als Ergebnis dieses Abschnitts das folgende Modell:\\
       \newpage
       \begin{mdframed}[frametitle={Wartung}, frametitlerule=true]
           Modell:
@@ -1960,7 +1961,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
                 |I'_W(w)| < |I'_N(w)| + |I'_P(w)| 
                 \label{eq:Wartung_Bedingung}
         \end{align}
-        Die Verwendung der Betragsstriche im letzten Schritt ist gerechtfertigt,
+        Die Verwendung der Betrags-Striche im letzten Schritt ist gerechtfertigt,
         da, wie im Folgenden noch gezeigt wird, $I'_N \leq 0$, $I'_P \leq 0$ und
         $I'_W \geq$ gilt. Zunächst sei der Ausdruck jedoch inhaltlich erläutert:
         Gemäß Modellannahmen führt eine Erhöhung der Wartungshäufigkeit zu einer
@@ -2082,8 +2083,8 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
         keine Verringerung der produktbezogenen Material-Inputs zur Folge hat
         (im \nameref{sec:Anhang} findet sich ein Beweis dieser Aussage).
         Zusammengefasst gilt also auch für den Anstieg der produktbezogenen
-        Inputs, dass er nicht positiv und sein Betrag steigend und gegen Null
-        strebend ist.
+        Inputs, dass er nicht positiv ist und sein Betrag steigt und gegen Null
+        strebet.
 
         Unter der Kenntnis der Ableitungen können wir nun eine genauere
         Bedingung angegeben, unter der der Umweltverbrauch mit steigender
@@ -2111,13 +2112,13 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
         \end{equation}
         Das heißt, dass der Umweltverbrauch in diesem Fall genau dann sinkt,
         wenn der Betrag des Anstiegs der Inputs je Nutzung größer als die Inputs
-        für einen Wartungsvorgang ist. Auch für den Fall, dass die Produkte
+        für einen Wartungsvorgang sind. Auch für den Fall, dass die Produkte
         aufgrund des Erreichens ihrer Lebensdauer entsorgt werden, stellt dieser
         Ausdruck eine hinreichende Bedingung dar.
 
         Wir können nun noch die Kenntnisse über die zweiten Ableitungen ausnutzen,
         um zwei charakteristische Verläufe für die MIPS in Abhängigkeit der
-        Wartungshäufigkeit zu unterscheiden: Da der Anstiegs der
+        Wartungshäufigkeit zu unterscheiden: Da der Anstieg der
         wartungsbedingten Material-Inputs konstant ist und die Beträge
         der Anstiege der nutzungsbedingten und produktbezogenen Material-Inputs
         nicht steigen und gegen Null tendieren, kann die Bedingung
@@ -2147,9 +2148,9 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
             \centering
             \input{Abbildungen/Wartung_Verlaeufe.pdf_tex}
             \caption{Es sind die zwei Fälle dargestellt, die für Bedingung
-                \eqref{eq:Wartung_Bedingung2} gelten können: Entweder sie ist
-                für keine Wartungshäufigkeit erfüllt, oder nur für
-                Wartungshäufigkeiten, die kleiner als ein $w^*$ sind.}
+                \eqref{eq:Wartung_Bedingung2} gelten können: Entweder die
+                Bedingung ist für keine Wartungshäufigkeit erfüllt, oder nur für
+            Wartungshäufigkeiten, die kleiner als ein $w^*$ sind.}
             \label{fig:Wartung_Verlaeufe}
         \end{figure}
 
@@ -2201,7 +2202,9 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
         geringfügige Erhöhung der Wartungshäufigkeit kann allerdings in der
         Realität nur durch die Durchführung einer ersten Wartung passieren.  Die
         Bedingung \eqref{eq:Wartungen_notwendiges_Kriterium} lässt sich daher
-        knapp auch so formulieren: Die erste Wartung muss sich lohnen. 
+        auch so formulieren: Damit der Umweltverbrauch eines gemeinschaftlichen
+        Nutzungssystems reduziert werden kann, muss bereits die erste
+        durchgeführte Wartung ökologisch vorteilhaft sein. 
 
         Ist dies der Fall, so muss weiter gelten, dass die Wartungshäufigkeit im
         herkömmlichen Nutzungssystem $w^\text{herk}$ kleiner als $w^*$ ist. Es
@@ -2210,26 +2213,13 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
         Bereichs den Umweltverbrauch des herkömmlichen Nutzungssystems
         verringern. Um diese Kriterien zu prüfen, müssen also $w^*$ und
         $w^\text{max}$ bestimmt werden, was jedoch nur bei Kenntnis der
-        Funktionen $i_N(w)$ und $n_max(w)$ explizit möglich ist. Weniger präzise
+        Funktionen $i_N(w)$ und $\n{max}(w)$ explizit möglich ist. Weniger präzise
         können wir diese Bedingung jedoch auch so verstehen, dass die
         Wartungshäufigkeit bei gemeinschaftlicher Nutzung hinreichend klein sein
         muss um eine Reduktion des Umweltverbrauchs zu erreichen.
 
-        \subparagraph{Zusammenfassung}
-        Wir haben in der Analyse des Modells zum Faktor Wartung
-        \eqref{eq:MIPSWartung} eine marginale Analyse durchgeführt. Als Ergebnis
-        konnten wir feststellen, dass es genau zwei mögliche Verläufe für den
-        Umweltverbrauch in Abhängigkeit von der Wartungshäufigkeit geben kann:
-        Entweder führt jegliche Erhöhung der Wartungshäufigkeit zu einer
-        Verschlechterung des Umweltverbrauchs, oder es gibt eine optimale
-        Wartungshäufigkeit bis zu der der Umweltverbrauch sinkt und ab der der
-        Umweltverbraucht mit zunehmender Wartungshäufigkeit steigt. Soweit unter
-        Unkenntnis der Funktionen $i_N(w)$ und $\n{max}(w)$ möglich, wurden
-        sowohl für die Unterscheidung der möglichen Verläufe, als auch für die
-        Bedingungen unter denen eine Reduktion des Umweltverbrauchs erreicht
-        werden kann, präzise Formeln angegeben. Wir schließen unsere Betrachtung
-        des Faktors Wartung, indem wir diese Bedingungen noch einmal als
-        verbales Kriterium formulieren:\\
+        Wir schließen unsere Betrachtung des Faktors Wartung, indem wir diese
+        Bedingungen noch einmal als verbales Kriterium formulieren:\\
 
       \begin{mdframed}[frametitle={Kriterium}, frametitlerule=true]
           Eine Erhöhung der Wartungshäufigkeit durch gemeinschaftliche Nutzung
@@ -2417,7 +2407,7 @@ In diesem Abschnitt werden ausgewählte Faktoren für den Umweltverbrauch eines 
           \label{eq:BedingungReparatur}
       \end{align}
       Dies bedeutet, dass eine längere erreichte Nutzungsdauer $t + \Delta t$ 
-      bei zusätzlich anfallenden Inputs je Produkt $\Delta \tilde{i}_R$ genau
+      bei zusätzlich anfallenden Inputs für Reparaturen je Produkt $\Delta \tilde{i}_R$ genau
       dann einen positiven Umwelt-Effekt hat, wenn die prozentuale
       Nutzungsdauerverlängerung größer ist, als
       die prozentuale Erhöhung der je Produkt anfallenden Material-Inputs.
@@ -3389,8 +3379,8 @@ Diese kritische Distanz lässt sich mit Gleichung \eqref{eq:d_hat3} bestimmen:
    \end{array} \right.
 \end{equation}
 Wir können diese Gleichung wieder unter Zuhilfenahme des Zusammenhangs zwischen
-$p$ und $h$ (Gleichung \eqref{eq:Fallstudie_h(p)}) umformulieren in einen
-Ausdruck in $p$. Wir vernachlässigen dabei den ersten Fall, da in
+$p$ und $h$ (Gleichung \eqref{eq:Fallstudie_h(p)}) in einen
+Ausdruck in $p$ umformulieren. Wir vernachlässigen dabei den ersten Fall, da in
 unserem Anwendungsbeispiel für alle Parametervariationen $p^* \geq p^\text{gem}$
 gilt (und das ist äquivalent zu $h^* \leq h^\text{gem}$):
 \begin{equation}
@@ -3449,15 +3439,12 @@ einer mittleren Transportdistanz im \SzenarioIII\ von $d_\text{III} =
 \end{table}
 Jedoch ist eine große Unsicherheit bezüglich der kritischen Distanz $\hat{d}$ zu
 erkennen: Sie liegt bei einer Parametervariation von $\pm 10 \%$ zwischen
-\SI{0}{km} und \SI{5.3}{km}. Zumindest kann mit einiger Sicherheit gesagt
-werden, dass in einem gemeinschaftlichen Szenario mit einer mittleren Distanz
-größer als \SI{5.3}{km} keine Ressourceneinparung zu erreichen ist. 
+\SI{0}{km} und \SI{5.3}{km}. 
 
 \subsubsection{Absolute Größenordnung der MIPS-Änderung}
-Wie im Anwendungsbeispiel zur Nutzungshäufigkeit schauen wir uns auch hier
-wieder die Größenordnung der MIPS-Änderung an. Wir gehen diesmal von einer
-gegebenen parallelen Produktanzahl im Ziel-Szenario aus (nämlich
-$p^\text{gem} = p_{\text{III}} = 2$), und schauen uns an, welche MIPS-Änderung
+Wie im Anwendungsbeispiel zur Nutzungshäufigkeit betrachten wir auch hier
+wieder die Größenordnung der MIPS-Änderung. Wir gehen diesmal von einer
+gegebenen parallelen Produktanzahl im Ziel-Szenario aus ($p^\text{gem} = p_{\text{III}} = 2$), und schauen uns an, welche MIPS-Änderung
 sich für verschiedene mittlere Distanzen $d^{gem}$ ergeben. Als Grundlage für
 diese Betrachtung greifen wir auf das Kopplungsmodell \eqref{eq:MIPS(h,d)_2}
 zurück:
@@ -3488,7 +3475,7 @@ $\tau = A \cdot \theta \cdot i_d$ (vgl. die Modellanalyse im Modell
     \right. 
     \label{eq:MIPS(p,d)}
 \end{equation}
-Diese Gleichung ist die Grundlage für Abbildung
+Diese Gleichung stellt die Grundlage für Abbildung
 \ref{fig:Fallstudie_DeltaMIPS(d)} dar\footnote{Da sich für dieses
     Anwendungsbeispiel die Größe $\I{fix}^{p,d}$ nicht zwischen den betrachteten
     Szenarien unterscheidet, spielt sie für die betrachtete MIPS-Änderung keine
@@ -3500,7 +3487,7 @@ Referenzwerte wieder: Für $d^\text{gem} = \SI{0}{km}$ beträgt die MIPS-Änderu
 \SI{0.051}{kg/kg}. Dies entspricht dem Ergebnis aus dem vorangegangenen
 Abschnitt. Mit steigender mittlerer Transportdistanz im Ziel-Szenario fällt die
 MIPS-Änderung linear. Bei $\hat{d} = \SI{1.1}{km}$ beträgt sie gerade
-\SI{0}{kg/kg} -- genau so ist ja die kritische Distanz $\hat{d}$ definiert. Für
+\SI{0}{kg/kg} -- dies entspricht gerade der Definition der kritischen Distanz $\hat{d}$. Für
 größere Transportdistanzen im Ziel-Szenario ist die
 MIPS-Einsparung negativ, was einer Nettoerhöhung der MIPS des gemeinschaftlichen
 Szenarios gegenüber der herkömmlichen Nutzung entspricht. Unter Berücksichtigung
@@ -3537,18 +3524,19 @@ kritische Distanz schwankt für eine Parametervariation von $\pm 10\%$ zwischen
 
 Die Unsicherheit bezüglich der MIPS-Änderung kann für jeden Wert von
 $d^\text{gem}$ betrachtet werden.  Für $d^\text{gem} = \SI{0.0}{km}$ fällt die
-MIPS-Änderung für eine Parametervariation von $\pm 10\%$ in einen Bereich von
-\SI{0}{kg/kg} bis \SI{0.2}{kg/kg}. Mit zunehmender mittlerer Transportdistanz im
+MIPS-Änderung für eine Parametervariation von $\pm 10\%$ in einen Bereich
+zwischen
+\SI{0}{kg/kg} und \SI{0.2}{kg/kg}. Mit zunehmender mittlerer Transportdistanz im
 Ziel-Szenario verschiebt sich dieser Bereich nach unten (das heißt die Werte
 werden kleiner) und die Spannbreite nimmt zu.  Bei einer mittleren Distanz von
 $d^\text{gem} = \SI{5.3}{km}$ -- der mittleren Distanz, bei der auf jeden Fall
 keine Einsparung im gemeinschaftlichen Szenario zu erreichen ist -- liegt die
 MIPS-Änderung in einem Unsicherheitsbereich von \SI{-0.3}{kg/kg} bis
 \SI{0.0}{kg/kg}, die Spanne beträgt also \SI{0.3}{kg/kg}.  Der
-Unsicherheitsbereich für \SzenarioIII\ an der Stelle $d^{\text{gem}} =
+Unsicherheitsbereich für das \SzenarioIII\ an der Stelle $d^{\text{gem}} =
 d_{\text{III}}=\SI{2}{km}$ für eine Parametervariation von $\pm 10\%$ geht von
 \SI{0.13}{kg/kg} bis \SI{-0.12}{kg/kg}. Letztlich kann also nicht genau gesagt
-werden, ob in dem \SzenarioIII\ eine Ressourceneinparung erzielt werden kann
+werden, ob in dem \SzenarioIII\ eine Ressourceneinparung erzielt wird 
 oder nicht.
 
 \clearpage
@@ -3574,7 +3562,7 @@ folgende Gleichung:
     \right.
 \end{equation}
 Für die Bestimmung der MIPS des \SzenariosIII\ verwenden wir dieselbe, nur um
-den transportbezogenen Teil ergänzte Formel. Denn auch hier umfassen die fixen
+den transportbezogenen Input-Teil ergänzte Formel. Denn auch hier umfassen die fixen
 Inputs $\I{fix}^{p,d}$ nur die nutzungsbedingten Inputs $I_N$. Wir erhalten
 (vgl. Gleichung \eqref{eq:MIPS(p,d)}):
 \begin{equation}
@@ -3588,7 +3576,7 @@ Inputs $\I{fix}^{p,d}$ nur die nutzungsbedingten Inputs $I_N$. Wir erhalten
         \end{array}
     \right. 
 \end{equation}
-Mit Hilfe dieser beiden Gleichungen, wurde nun der Umweltverbrauch der drei
+Mit Hilfe dieser beiden Gleichungen wurde nun der Umweltverbrauch der drei
 Szenarien bestimmt. Das Ergebnis mit Einteilungen nach den drei berücksichtigten
 MIPS-Bestandteilen ist in Abbildung \ref{fig:Vergleich_Szenarien} dargestellt.
 Dieser Darstellung liegt eine Parametervariation von $+10\%$ zugrunde. Selbst in
